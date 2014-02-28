@@ -1,7 +1,7 @@
 language: haskell
 ghc:
   - 7.6
-before_script:
+install:
   - './_test/bootstrap.sh'
 script:
   - '( export PATH=/opt/hp-2013.2.0.0/bin:$PATH; runhaskell ./_test/check-exercises.hs )'
