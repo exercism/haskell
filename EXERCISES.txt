@@ -34,6 +34,7 @@ hexadecimal
 largest-series-product
 luhn
 matrix
+house
 ocr-numbers
 octal
 trinary
