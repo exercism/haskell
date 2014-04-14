@@ -35,4 +35,6 @@ anagramTests =
     anagramsFor "Orchestra" ["cashregister", "Carthorse", "radishes"]
   , testCase "does not detect a word as its own anagram" $
     [] @=? anagramsFor "banana" ["banana"]
+  , testCase "does not detect a word as its own anagram (case insensitive)" $
+    [] @=? anagramsFor "Banana" ["baNana"]
   ]
