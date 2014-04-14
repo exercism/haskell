@@ -1,12 +1,10 @@
 module Anagram (anagramsFor) where
-import Data.Char (toLower)
 import Data.List (sort)
+import Data.Char (toLower)
 
 anagramsFor :: String -> [String] -> [String]
-anagramsFor word = filter isDifferent
+anagramsFor word = filter (isAnagram . normalize)
   where
-    la = map toLower word
-    sa = sort la
-    isDifferent b = la /= lb && sa == sb
-      where lb = map toLower b
-            sb = sort lb
+    normalize xs = let nxs = map toLower xs in (nxs, sort nxs)
+    (nw, sw) = normalize word
+    isAnagram (w, s) = nw /= w && sw == s
