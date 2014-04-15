@@ -39,6 +39,7 @@ ocr-numbers
 octal
 trinary
 wordy
+food-chain
 simple-linked-list
 linked-list
 nth-prime
