@@ -66,6 +66,9 @@
     "go-counting",
     "zipper"
   ],
+  "deprecated": [
+
+  ],
   "ignore": [
     "_test"
   ]
