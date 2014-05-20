@@ -65,5 +65,8 @@
     "sgf-parsing",
     "go-counting",
     "zipper"
+  ],
+  "ignore": [
+    "_test"
   ]
 }
