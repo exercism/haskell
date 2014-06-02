@@ -51,6 +51,7 @@ getAssignments dir = getDirectoryContents dir >>= filterM isAssignmentDir
     isAssignmentDir path = case path of
       '.':_ -> return False
       '_':_ -> return False
+      "bin" -> return False
       _     -> isDirectory <$> getFileStatus (dir </> path)
 
 main :: IO ()
