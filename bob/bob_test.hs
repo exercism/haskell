@@ -104,7 +104,7 @@ respondsToTests =
     test_respondsToStatementContainingQuestionMark
   , testCase "silence" test_respondsToSilence
   , testCase "prolonged silence" test_respondsToProlongedSilence
-  , testCase "questioned nonsence" test_respondsToNonLettersWithQuestion
+  , testCase "questioned nonsense" test_respondsToNonLettersWithQuestion
   , testCase "multiple-line statement containing question mark"
     test_respondsToMultipleLineQuestions
   , testCase "all whitespace is silence" test_respondsToOtherWhitespace
