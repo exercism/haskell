@@ -3,7 +3,7 @@ import System.Exit (ExitCode(..), exitWith)
 import Palindromes (largestPalindrome, smallestPalindrome)
 import qualified Data.Set as S
 
--- largestPalindrome, smallestPalindrome :: Integral a -> a -> a -> (a,[(a, a)])
+-- largestPalindrome, smallestPalindrome :: Integral a => a -> a -> (a,[(a, a)])
 -- largestPalindrome minFactor maxFactor = (value, [(factor1, factor2)])
 
 -- It's ok to return duplicates in the factor list, and the order of the factors
