@@ -65,7 +65,8 @@
     "parallel-letter-frequency",
     "sgf-parsing",
     "go-counting",
-    "zipper"
+    "zipper",
+    "forth"
   ],
   "deprecated": [
 
