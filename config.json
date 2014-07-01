@@ -6,6 +6,7 @@
   "problems": [
     "bob",
     "rna-transcription",
+    "sublist",
     "word-count",
     "anagram",
     "beer-song",
