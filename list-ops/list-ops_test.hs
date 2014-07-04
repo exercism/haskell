@@ -60,9 +60,9 @@ listOpsTests =
   , testCase "++ of large lists" $ do
     [1 .. big] @=? [1 .. big `div` 2] L.++ [1 + big `div` 2 .. big]
   , testCase "concat of no lists" $ do
-    [] @=? concat ([] :: [[Int]])
+    [] @=? L.concat ([] :: [[Int]])
   , testCase "concat of list of lists" $ do
-    [1 .. 6] @=? concat [[1, 2], [3], [], [4, 5, 6 :: Int]]
+    [1 .. 6] @=? L.concat [[1, 2], [3], [], [4, 5, 6 :: Int]]
   , testCase "concat of large list of small lists" $ do
-    [1 .. big] @=? concat (map (:[]) [1 .. big])
+    [1 .. big] @=? L.concat (map (:[]) [1 .. big])
   ]
