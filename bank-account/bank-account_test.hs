@@ -44,6 +44,13 @@ main = exitProperly $ runTestTT $ TestList
              \from test process" $ \acct -> do
     replicateM 20 (incrementProc acct) >>= mapM_ (void . takeMVar)
     checkReturn (Just 20) (getBalance acct)
+  , testCase "closed banks hold no balance" $ do
+    acct <- openAccount
+    checkReturn (Just 0) (getBalance acct)
+    checkReturn (Just 10) $ incrementBalance acct 10
+    closeAccount acct
+    checkReturn Nothing (getBalance acct)
+    checkReturn Nothing $ incrementBalance acct 10
   ]
 
 incrementProc :: BankAccount -> IO (MVar ())
