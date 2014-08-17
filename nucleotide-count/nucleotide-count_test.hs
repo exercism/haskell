@@ -32,8 +32,6 @@ countTests =
     5 @=? count 'C' "CCCCC"
   , testCase "counts only thymidine" $
     1 @=? count 'T' "GGGGGTAACCCGG"
-  , testCase "dna has no uracil" $
-    0 @=? count 'U' "GATTACA"
   , testCase "validates nucleotides" $
     assertError "invalid nucleotide 'X'" $ count 'X' "GACT"
   ]

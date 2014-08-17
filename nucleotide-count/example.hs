@@ -2,8 +2,8 @@ module DNA (count, nucleotideCounts) where
 import Data.Map.Strict (Map, fromListWith)
 
 count :: Char -> String -> Int
-count needle = length . filter (nucleotide ==) . map verifyNucleotide
-  where nucleotide = verifyNucleotide needle
+count needle = length . filter (nucleotide ==) . map verifyDNA
+  where nucleotide = verifyDNA needle
 
 nucleotideCounts :: String -> Map Char Int
 nucleotideCounts strand = fromListWith (+) (defaults ++ map pair strand)
@@ -12,10 +12,6 @@ nucleotideCounts strand = fromListWith (+) (defaults ++ map pair strand)
 
 dna :: String
 dna = "ACGT"
-
-verifyNucleotide :: Char -> Char
-verifyNucleotide 'U' = 'U'
-verifyNucleotide nucleotide = verifyDNA nucleotide
 
 verifyDNA :: Char -> Char
 verifyDNA nucleotide | nucleotide `elem` dna = nucleotide
