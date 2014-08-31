@@ -5,4 +5,5 @@ install:
   - './_test/bootstrap.sh'
 script:
   - '( export PATH=/opt/hp-2013.2.0.0/bin:$PATH; runhaskell ./_test/check-exercises.hs )'
-  - './bin/configlet-linux-amd64 .'
+  - './bin/fetch-configlet'
+  - './bin/configlet .'
