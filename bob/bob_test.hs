@@ -16,7 +16,7 @@ test_respondsToSomething =
 
 test_respondsToShouts :: Assertion
 test_respondsToShouts =
-  "Woah, chill out!" @=? responseFor "WATCH OUT!"
+  "Whoa, chill out!" @=? responseFor "WATCH OUT!"
 
 test_respondsToQuestions :: Assertion
 test_respondsToQuestions =
@@ -32,20 +32,20 @@ test_respondsToAcronyms =
 
 test_respondsToForcefulQuestions :: Assertion
 test_respondsToForcefulQuestions =
-  "Woah, chill out!" @=? responseFor "WHAT THE HELL WERE YOU THINKING?"
+  "Whoa, chill out!" @=? responseFor "WHAT THE HELL WERE YOU THINKING?"
 
 test_respondsToShoutingWithSpecialCharacters :: Assertion
 test_respondsToShoutingWithSpecialCharacters =
-  "Woah, chill out!" @=? responseFor (
+  "Whoa, chill out!" @=? responseFor (
     "ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!")
 
 test_respondsToShoutingNumbers :: Assertion
 test_respondsToShoutingNumbers =
-  "Woah, chill out!" @=? responseFor "1, 2, 3 GO!"
+  "Whoa, chill out!" @=? responseFor "1, 2, 3 GO!"
 
 test_respondsToShoutingWithNoExclamationMark :: Assertion
 test_respondsToShoutingWithNoExclamationMark =
-  "Woah, chill out!" @=? responseFor "I HATE YOU"
+  "Whoa, chill out!" @=? responseFor "I HATE YOU"
 
 test_respondsToStatementContainingQuestionMark :: Assertion
 test_respondsToStatementContainingQuestionMark =
@@ -81,7 +81,7 @@ test_respondsToQuestionWithOnlyNumbers =
 
 test_respondsToUnicodeShout :: Assertion
 test_respondsToUnicodeShout =
-  "Woah, chill out!" @=? responseFor "\xdcML\xc4\xdcTS!"
+  "Whoa, chill out!" @=? responseFor "\xdcML\xc4\xdcTS!"
 
 test_respondsToUnicodeNonShout :: Assertion
 test_respondsToUnicodeNonShout =
