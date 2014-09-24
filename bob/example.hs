@@ -11,7 +11,7 @@ classify s | all isSpace s = Silence
 
 response :: Prompt -> String
 response Silence = "Fine. Be that way!"
-response Yell = "Woah, chill out!"
+response Yell = "Whoa, chill out!"
 response Question = "Sure."
 response Other = "Whatever."
 
