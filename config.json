@@ -5,9 +5,9 @@
   "active": true,
   "problems": [
     "leap",
+    "accumulate",
     "rna-transcription",
     "sublist",
-    "accumulate",
     "grains",
     "gigasecond",
     "bob",
