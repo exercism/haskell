@@ -12,13 +12,13 @@ testCase label assertion = TestLabel label (TestCase assertion)
 
 toRNATests :: [Test]
 toRNATests =
-  [ testCase "transcribes cytidine to guanosine" $
+  [ testCase "transcribes cytosine to guanine" $
     "G" @=? toRNA "C"
-  , testCase "transcribes guanosine to cytidine" $
+  , testCase "transcribes guanine to cytosine" $
     "C" @=? toRNA "G"
-  , testCase "transcribes adenosine to uracil" $
+  , testCase "transcribes adenine to uracil" $
     "U" @=? toRNA "A"
-  , testCase "transcribes thymidine to adenosine" $
+  , testCase "transcribes thymine to adenine" $
     "A" @=? toRNA "T"
   , testCase "transcribes all ACGT to UGCA" $
     "UGCACCAGAAUU" @=? toRNA "ACGTGGTCTTAA"
