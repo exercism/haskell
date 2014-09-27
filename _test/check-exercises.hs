@@ -10,7 +10,7 @@ import System.Directory
 import System.Posix.Files ( isDirectory, getFileStatus )
 import Control.Exception (bracket, finally)
 import System.FilePath ((</>))
-import System.Cmd (rawSystem)
+import System.Process (rawSystem)
 import Data.List (isPrefixOf, intercalate)
 import Data.Maybe (catMaybes)
 import Control.Monad (filterM)

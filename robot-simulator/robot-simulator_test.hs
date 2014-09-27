@@ -22,7 +22,8 @@ robotTests =
     North @=? turnRight West
     West @=? turnLeft North
   , testCase "robbie" $ do
-    let robbie = mkRobot East (-2, 1)
+    let robbie :: Robot
+        robbie = mkRobot East (-2, 1)
     East @=? bearing robbie
     (-2, 1) @=? coordinates robbie
     let movedRobbie = simulate robbie "RLAALAL"

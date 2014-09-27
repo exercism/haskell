@@ -1,6 +1,5 @@
-{-# LANGUAGE TemplateHaskell #-}
 import Test.QuickCheck
-import Test.QuickCheck.All (quickCheckAll)
+import Test.QuickCheck.Test (isSuccess)
 import System.Exit (ExitCode(..), exitWith)
 import Octal (showOct, readOct)
 import qualified Numeric as N
@@ -35,4 +34,9 @@ prop_readOct_int :: (Positive Int) -> Bool
 prop_readOct_int = prop_readOct_integral
 
 main :: IO ()
-main = exitProperly $quickCheckAll
+main = exitProperly $ all isSuccess `fmap` mapM quickCheckResult
+  [ prop_showOct_integral
+  , prop_showOct_int
+  , prop_readOct_integral
+  , prop_readOct_int
+  ]
