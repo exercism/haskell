@@ -67,6 +67,7 @@ robotTests =
     n1' <- robotName r1
     n2' <- robotName r2
     n1' /= n2' @? "names should be different"
+    n2 @=? n2'
   ]
 
 matchesPattern :: String -> Bool
