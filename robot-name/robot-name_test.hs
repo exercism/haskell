@@ -57,6 +57,16 @@ robotTests =
     resetName r
     n2 <- robotName r
     n1 /= n2 @? "name should change when reset"
+  , testCase "resetting a robot affects only one robot" $ do
+    r1 <- mkRobot
+    r2 <- mkRobot
+    n1 <- robotName r1
+    n2 <- robotName r2
+    n1 /= n2 @? "different robots should have different names"
+    resetName r1
+    n1' <- robotName r1
+    n2' <- robotName r2
+    n1' /= n2' @? "names should be different"
   ]
 
 matchesPattern :: String -> Bool
