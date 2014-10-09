@@ -45,4 +45,5 @@ queenTests =
     True @=? canAttack (1, 1) (6, 6)
     True @=? canAttack (0, 6) (1, 7)
     True @=? canAttack (4, 1) (6, 3)
+    True @=? canAttack (2, 2) (1, 3)
   ]
