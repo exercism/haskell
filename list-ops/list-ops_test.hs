@@ -45,6 +45,8 @@ listOpsTests =
     big * (big + 1) `div` 2 @=? L.foldl' (+) 0 [1 .. big]
   , testCase "foldl' with non-commutative function" $ do
     0 @=? L.foldl' (-) 10 [1 .. 4 :: Int]
+  , testCase "foldl' is not just foldr . flip" $ do
+    "fdsa" @=? L.foldl' (flip (:)) [] "asdf"
   , testCase "foldr as id" $ do
     [1 .. big] @=? L.foldr (:) [] [1 .. big]
   , testCase "foldr as append" $ do
