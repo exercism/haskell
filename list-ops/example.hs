@@ -15,9 +15,8 @@ import Prelude hiding
 foldl' :: (b -> a -> b) -> b -> [a] -> b
 foldl' f = go
   where
-    go acc _  | seq acc False = undefined
     go acc [] = acc
-    go acc (x : xs) = go (f acc x) xs
+    go acc (x:xs) = let acc' = f acc x in acc' `seq` go acc' xs
 
 foldr :: (a -> b -> b) -> b -> [a] -> b
 foldr f x0 = go
