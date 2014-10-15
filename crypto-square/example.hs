@@ -15,11 +15,10 @@ normalizePlaintext :: String -> String
 normalizePlaintext = map toLower . filter isAlphaNum
 
 plaintextSegments :: String -> [String]
-plaintextSegments s = chunksOf (squareSize text) text
-  where text = normalizePlaintext s
+plaintextSegments = (squareSize >>= chunksOf) . normalizePlaintext
 
 ciphertext :: String -> String
 ciphertext = concat . transpose . plaintextSegments
 
 normalizeCiphertext :: String -> String
-normalizeCiphertext = unwords . chunksOf 5 . ciphertext
+normalizeCiphertext = unwords . plaintextSegments . ciphertext
