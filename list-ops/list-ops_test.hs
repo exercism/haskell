@@ -1,6 +1,13 @@
+{-# LANGUAGE DeriveDataTypeable #-}
+
 import Test.HUnit (Assertion, (@=?), runTestTT, Test(..), Counts(..))
 import System.Exit (ExitCode(..), exitWith)
 import qualified ListOps as L
+import Control.Exception (Exception, throw, evaluate, try)
+import Data.Typeable (Typeable)
+
+data FoldlIsStrictException = FoldlIsStrictException deriving (Eq, Show, Typeable)
+instance Exception FoldlIsStrictException
 
 exitProperly :: IO Counts -> IO ()
 exitProperly m = do
@@ -13,6 +20,7 @@ testCase label assertion = TestLabel label (TestCase assertion)
 main :: IO ()
 main = exitProperly $ runTestTT $ TestList
        [ TestList listOpsTests ]
+
 
 big :: Int
 big = 100000
@@ -47,6 +55,10 @@ listOpsTests =
     0 @=? L.foldl' (-) 10 [1 .. 4 :: Int]
   , testCase "foldl' is not just foldr . flip" $ do
     "fdsa" @=? L.foldl' (flip (:)) [] "asdf"
+  , testCase "foldl' is accumulator-strict (use seq or BangPatterns)" $ do
+    r <- try . evaluate $
+      L.foldl' (flip const) () [throw FoldlIsStrictException, ()]
+    Left FoldlIsStrictException @=? (r :: Either FoldlIsStrictException ())
   , testCase "foldr as id" $ do
     [1 .. big] @=? L.foldr (:) [] [1 .. big]
   , testCase "foldr as append" $ do
