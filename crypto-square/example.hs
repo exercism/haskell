@@ -21,4 +21,4 @@ ciphertext :: String -> String
 ciphertext = concat . transpose . plaintextSegments
 
 normalizeCiphertext :: String -> String
-normalizeCiphertext = unwords . plaintextSegments . ciphertext
+normalizeCiphertext = unwords . transpose . plaintextSegments
