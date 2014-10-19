@@ -53,11 +53,11 @@ ciphertextTests = map TestCase
 
 normalizeCiphertextTests :: [Test]
 normalizeCiphertextTests = map TestCase
-  [ "msemoa anindn inndla etltsh ui" @=?
+  [ "msemo aanin dnin ndla etlt shui" @=?
     normalizeCiphertext "Madness, and then illumination."
-  , "vrela epems etpao oirpo" @=?
+  , "vrel aepe mset paoo irpo" @=?
      normalizeCiphertext "Vampires are people too!"
-  , "imtgdvsf earwerma yoogoano uuiontnn lvtwttdd esaohghn sseoau" @=?
+  , "imtgdvs fearwer mayoogo anouuio ntnnlvt wttddes aohghn sseoau" @=?
      normalizeCiphertext "If man was meant to stay on the ground god would \
                          \have given us roots"
   ]
