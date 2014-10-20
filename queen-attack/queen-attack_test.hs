@@ -15,23 +15,23 @@ main = exitProperly $ runTestTT $ TestList
   [ TestList queenTests ]
 
 emptyBoard, board :: String
-emptyBoard = concat [ "O O O O O O O O\n"
-                    , "O O O O O O O O\n"
-                    , "O O O O O O O O\n"
-                    , "O O O O O O O O\n"
-                    , "O O O O O O O O\n"
-                    , "O O O O O O O O\n"
-                    , "O O O O O O O O\n"
-                    , "O O O O O O O O\n"
+emptyBoard = concat [ "_ _ _ _ _ _ _ _\n"
+                    , "_ _ _ _ _ _ _ _\n"
+                    , "_ _ _ _ _ _ _ _\n"
+                    , "_ _ _ _ _ _ _ _\n"
+                    , "_ _ _ _ _ _ _ _\n"
+                    , "_ _ _ _ _ _ _ _\n"
+                    , "_ _ _ _ _ _ _ _\n"
+                    , "_ _ _ _ _ _ _ _\n"
                     ]
-board = concat [ "O O O O O O O O\n"
-               , "O O O O O O O O\n"
-               , "O O O O W O O O\n"
-               , "O O O O O O O O\n"
-               , "O O O O O O O O\n"
-               , "O O O O O O O O\n"
-               , "O O O O O O B O\n"
-               , "O O O O O O O O\n"
+board = concat [ "_ _ _ _ _ _ _ _\n"
+               , "_ _ _ _ _ _ _ _\n"
+               , "_ _ _ _ W _ _ _\n"
+               , "_ _ _ _ _ _ _ _\n"
+               , "_ _ _ _ _ _ _ _\n"
+               , "_ _ _ _ _ _ _ _\n"
+               , "_ _ _ _ _ _ B _\n"
+               , "_ _ _ _ _ _ _ _\n"
                ]
 
 queenTests :: [Test]
