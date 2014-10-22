@@ -54,8 +54,12 @@ listTests =
     ([1] :: [Int]) @=? (L.toList . L.fromList) [1]
     ([1, 2] :: [Int]) @=? (L.toList . L.fromList) [1, 2]
     ([1..10] :: [Int]) @=? (L.toList . L.fromList) [1..10]
+  , testCase "has an unconstrained type variable" $ do
+    anyTypeMsg @=? (L.toList . L.fromList) anyTypeMsg
+    ([1..10] :: [Integer]) @=? (L.toList . L.fromList) [1..10]
   ]
   where
     one = L.new (1 :: Int) L.nil
     two = L.new 2 one
     three = L.new 3 two
+    anyTypeMsg = "Should work for any type, not just Int!"
