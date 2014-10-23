@@ -26,4 +26,5 @@ triangleTests = map TestCase
   , Scalene @=? tri 3 4 5
   , Illogical @=? tri 1 1 50
   , Illogical @=? tri 1 2 1
+  , Illogical @=? tri 0 0 0
   ]
