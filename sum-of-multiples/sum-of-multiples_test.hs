@@ -14,9 +14,6 @@ main :: IO ()
 main = exitProperly $ runTestTT $ TestList
        [ TestList sumOfMultiplesTests ]
 
-ints :: [Int] -> [Int]
-ints = id
-
 -- Note that the upper bound is not included in the result
 sumOfMultiplesTests :: [Test]
 sumOfMultiplesTests =
@@ -32,4 +29,6 @@ sumOfMultiplesTests =
     51 @=? sumOfMultiples [7, 13, 17] 20
   , testCase "[43, 47] 10000" $
     2203160 @=? sumOfMultiples [43, 47] 10000
+  , testCase "[5, 25] 51" $
+    275 @=? sumOfMultiples [5,25] 51
   ]
