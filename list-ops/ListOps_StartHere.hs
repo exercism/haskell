@@ -1,3 +1,6 @@
+-- Copy this file to `ListOps.hs` and use it as a starting point for the
+-- exercise.
+
 module ListOps
   ( length
   , reverse
