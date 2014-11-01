@@ -27,6 +27,8 @@ clockTests =
     "11:09" @=? toString (fromHourMin 11 9)
   , testCase "fromInteger should work in minutes" $ do
     "00:03" @=? toString 3
+  , testCase "constructor and fromInteger should be compatible" $ do
+    fromHourMin 1 0 @=? 60
   , testCase "adding clocks" $ do
     "10:03" @=? toString (fromHourMin 10 0 + 3)
     "11:01" @=? toString (fromHourMin 10 0 + 61)
