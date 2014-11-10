@@ -5,16 +5,17 @@ import Control.Arrow (second)
 
 type Grade = Int
 type Student = String
-type School = M.Map Grade (S.Set Student)
+newtype School = School { unSchool :: M.Map Grade (S.Set Student) }
 
 empty :: School
-empty = M.empty
+empty = School M.empty
 
 sorted :: School -> [(Grade, [Student])]
-sorted = map (second S.toAscList) . M.toAscList
+sorted = map (second S.toAscList) . M.toAscList . unSchool
 
 grade :: Grade -> School -> [Student]
-grade gradeNum = S.toAscList . M.findWithDefault S.empty gradeNum
+grade gradeNum = S.toAscList . M.findWithDefault S.empty gradeNum . unSchool
 
 add :: Grade -> Student -> School -> School
-add gradeNum student = M.insertWith S.union gradeNum (S.singleton student)
+add gradeNum student =
+  School . M.insertWith S.union gradeNum (S.singleton student) . unSchool
