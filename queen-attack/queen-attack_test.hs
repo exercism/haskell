@@ -37,6 +37,7 @@ board = concat [ "_ _ _ _ _ _ _ _\n"
 queenTests :: [Test]
 queenTests =
   [ testCase "empty board" $ emptyBoard @=? boardString Nothing Nothing
+  , testCase "one queen" $ emptyBoard @=? boardString (Just (1,5)) Nothing
   , testCase "board" $ board @=? boardString (Just (2, 4)) (Just (6, 6))
   , testCase "attacks" $ do
     False @=? canAttack (2, 3) (4, 7)
