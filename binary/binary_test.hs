@@ -24,4 +24,5 @@ binaryTests = map TestCase
   , 26 @=? toDecimal "11010"
   , 1128 @=? toDecimal "10001101000"
   , 0 @=? toDecimal "carrot"
+  , 0 @=? toDecimal "carrot123"
   ]
