@@ -3,6 +3,7 @@
 module Main where
 import System.Exit (ExitCode(..), exitFailure)
 import System.Posix.Temp (mkdtemp)
+import System.Environment (getArgs)
 import System.Directory
   ( removeDirectoryRecursive, getTemporaryDirectory
   , getCurrentDirectory, setCurrentDirectory, copyFile
@@ -45,8 +46,8 @@ testAssignment dir fn = do
     ExitSuccess -> Nothing
     _           -> Just fn
 
-getAssignments :: FilePath -> IO [FilePath]
-getAssignments dir = getDirectoryContents dir >>= filterM isAssignmentDir
+getAssignments :: FilePath -> [FilePath] -> IO [FilePath]
+getAssignments dir = filterM isAssignmentDir
   where
     isAssignmentDir path = case path of
       '.':_ -> return False
@@ -57,8 +58,12 @@ getAssignments dir = getDirectoryContents dir >>= filterM isAssignmentDir
 main :: IO ()
 main = do
   dir <- (</> assignmentsDir) <$> getCurrentDirectory
+  dirs <- getArgs >>= \args -> case args of
+    [] -> getDirectoryContents dir
+    _  -> return args
   withTemporaryDirectory_ "exercism-haskell" $ do
-    failures <- catMaybes <$> (getAssignments dir >>= mapM (testAssignment dir))
+    failures <- catMaybes <$>
+      (getAssignments dir dirs >>= mapM (testAssignment dir))
     case failures of
       [] -> putStrLn "SUCCESS!"
       xs -> putStrLn ("Failures: " ++ intercalate ", " xs) >> exitFailure
