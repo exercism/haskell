@@ -14,7 +14,7 @@ main :: IO ()
 main = exitProperly $ runTestTT $ TestList
   [ TestList queenTests ]
 
-emptyBoard, board :: String
+emptyBoard, board, boardWithJustW, boardWithJustB :: String
 emptyBoard = concat [ "_ _ _ _ _ _ _ _\n"
                     , "_ _ _ _ _ _ _ _\n"
                     , "_ _ _ _ _ _ _ _\n"
@@ -33,10 +33,30 @@ board = concat [ "_ _ _ _ _ _ _ _\n"
                , "_ _ _ _ _ _ B _\n"
                , "_ _ _ _ _ _ _ _\n"
                ]
+boardWithJustW = concat [ "_ _ _ _ _ _ _ _\n"
+                        , "_ _ _ _ _ _ _ _\n"
+                        , "_ _ _ _ W _ _ _\n"
+                        , "_ _ _ _ _ _ _ _\n"
+                        , "_ _ _ _ _ _ _ _\n"
+                        , "_ _ _ _ _ _ _ _\n"
+                        , "_ _ _ _ _ _ _ _\n"
+                        , "_ _ _ _ _ _ _ _\n"
+                        ]
+boardWithJustB = concat [ "B _ _ _ _ _ _ _\n"
+                        , "_ _ _ _ _ _ _ _\n"
+                        , "_ _ _ _ _ _ _ _\n"
+                        , "_ _ _ _ _ _ _ _\n"
+                        , "_ _ _ _ _ _ _ _\n"
+                        , "_ _ _ _ _ _ _ _\n"
+                        , "_ _ _ _ _ _ _ _\n"
+                        , "_ _ _ _ _ _ _ _\n"
+                        ]               
 
 queenTests :: [Test]
 queenTests =
   [ testCase "empty board" $ emptyBoard @=? boardString Nothing Nothing
+  , testCase "board with just white queen" $ boardWithJustW @=? boardString (Just (2, 4)) Nothing
+  , testCase "board with just black queen" $ boardWithJustB @=? boardString Nothing (Just (0, 0))
   , testCase "board" $ board @=? boardString (Just (2, 4)) (Just (6, 6))
   , testCase "attacks" $ do
     False @=? canAttack (2, 3) (4, 7)
