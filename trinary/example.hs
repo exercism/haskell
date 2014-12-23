@@ -18,6 +18,6 @@ readTri = flip go 0
   where
     go []     acc = acc
     go (c:cs) acc | c >= '0' && c <= maxChar = acc' `seq` go cs acc'
-                  | otherwise = error ("invalid Trinary digit " ++ show c)
+                  | otherwise = 0
       where acc' = acc * base + fromIntegral (fromEnum c - fromEnum '0')
             maxChar = toEnum (fromEnum '0' + pred base)
