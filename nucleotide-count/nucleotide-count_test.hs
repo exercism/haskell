@@ -34,6 +34,8 @@ countTests =
     1 @=? count 'T' "GGGGGTAACCCGG"
   , testCase "validates nucleotides" $
     assertError "invalid nucleotide 'X'" $ count 'X' "GACT"
+  , testCase "validates strand" $
+    assertError "invalid nucleotide 'Y'" $ count 'G' "GACYT"
   ]
 
 nucleotideCountTests :: [Test]
@@ -48,4 +50,6 @@ nucleotideCountTests =
     fromList [('A', 20), ('T', 21), ('C', 12), ('G', 17)] @=?
     nucleotideCounts ("AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAA" ++
                       "GAGTGTCTGATAGCAGC")
+  , testCase "validates strand" $
+    assertError "invalid nucleotide 'P'" $ nucleotideCounts "GPAC"
   ]
