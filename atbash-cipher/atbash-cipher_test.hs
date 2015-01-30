@@ -25,4 +25,5 @@ atbashTests = map TestCase
   , "gifgs rhurx grlm" @=? encode "Truth is fiction."
   , "gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt" @=?
     encode "The quick brown fox jumps over the lazy dog."
+  , "mlmzh xrrrt mlivw" @=? encode "non ascii éignored"
   ]
