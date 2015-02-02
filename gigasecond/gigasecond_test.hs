@@ -1,7 +1,12 @@
 import Test.HUnit (Assertion, (@=?), runTestTT, Test(..), Counts(..))
 import System.Exit (ExitCode(..), exitWith)
 import Gigasecond (fromDay)
-import Data.Time.Calendar (fromGregorian)
+import Data.Time.Clock (UTCTime)
+import Data.Time.Format (readTime)
+import System.Locale (defaultTimeLocale, iso8601DateFormat)
+
+dt :: String -> UTCTime
+dt = readTime defaultTimeLocale (iso8601DateFormat (Just "%T%Z"))
 
 exitProperly :: IO Counts -> IO ()
 exitProperly m = do
@@ -18,10 +23,10 @@ main = exitProperly $ runTestTT $ TestList
 gigasecondTests :: [Test]
 gigasecondTests =
   [ testCase "from apr 25 2011" $
-    fromGregorian 2043 1 1 @=? fromDay (fromGregorian 2011 04 25)
+    dt "2043-01-01T01:46:40Z" @=? fromDay (dt "2011-04-25T00:00:00Z")
   , testCase "from jun 13 1977" $
-    fromGregorian 2009 2 19 @=? fromDay (fromGregorian 1977 6 13)
+    dt "2009-02-19T01:46:40Z" @=? fromDay (dt "1977-06-13T00:00:00Z")
   , testCase "from jul 19 1959" $
-    fromGregorian 1991 3 27 @=? fromDay (fromGregorian 1959 7 19)
+    dt "1991-03-27T01:46:40Z" @=? fromDay (dt "1959-07-19T00:00:00Z")
     -- customize this to test your birthday and find your gigasecond date:
   ]
