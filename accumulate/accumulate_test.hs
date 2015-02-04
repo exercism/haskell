@@ -32,4 +32,9 @@ accumulateTests =
   , testCase "accumulate recursively" $
     [["a1", "a2", "a3"], ["b1", "b2", "b3"], ["c1", "c2", "c3"]] @=?
     accumulate (\c -> accumulate ((c:) . show) ([1, 2, 3] :: [Int])) "abc"
+  , testCase "accumulate non-strict" $
+    ["nice work!"] @=?
+    take 1 (accumulate id
+      ("nice work!" :
+       error "accumulate should be even lazier, don't use reverse!"))
   ]

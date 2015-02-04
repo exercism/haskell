@@ -1,17 +1,22 @@
 module Accumulate (accumulate) where
+
 accumulate :: (a -> b) -> [a] -> [b]
-accumulate = map
+accumulate _ [] = []
+accumulate f (x:xs) = f x : accumulate f xs
+
 {-
 
--- Some other definitions that are easily possible:
-
-accumulate = fmap
+-- Some other reasonable definitions:
 
 accumulate f = foldr ((:) . f) []
 
 accumulate f xs = [f x | x <- xs]
 
-accumulate f (x:xs) = f x : accumulate xs
-accumulate _ [] = []
+-- Commonly submitted inefficient solution (we test for this now):
+
+accumulate f xs = accumulate' []
+  where
+    accumulate' acc []     = acc
+    accumulate' acc (x:xs) = accumulate' (f x : acc) xs
 
 -}
