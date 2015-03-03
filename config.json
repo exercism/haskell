@@ -66,6 +66,7 @@
     "series",
     "sieve",
     "simple-cipher",
+    "connect",
     "parallel-letter-frequency",
     "sgf-parsing",
     "go-counting",
