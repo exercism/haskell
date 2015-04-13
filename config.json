@@ -71,7 +71,8 @@
     "sgf-parsing",
     "go-counting",
     "zipper",
-    "forth"
+    "forth",
+    "pov"
   ],
   "deprecated": [
 
