@@ -27,6 +27,10 @@ sumOfMultiplesTests =
     233168 @=? sumOfMultiplesDefault 1000
   , testCase "[7, 13, 17] 20" $
     51 @=? sumOfMultiples [7, 13, 17] 20
+  , testCase "[4, 6] 15" $
+    30 @=? sumOfMultiples [4, 6] 15
+  , testCase "[5, 6, 8] 150" $
+    4419 @=? sumOfMultiples [5, 6, 8] 150
   , testCase "[43, 47] 10000" $
     2203160 @=? sumOfMultiples [43, 47] 10000
   , testCase "[5, 25] 51" $
