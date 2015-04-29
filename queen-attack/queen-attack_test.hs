@@ -58,12 +58,20 @@ queenTests =
   , testCase "board with just white queen" $ boardWithJustW @=? boardString (Just (2, 4)) Nothing
   , testCase "board with just black queen" $ boardWithJustB @=? boardString Nothing (Just (0, 0))
   , testCase "board" $ board @=? boardString (Just (2, 4)) (Just (6, 6))
-  , testCase "attacks" $ do
-    False @=? canAttack (2, 3) (4, 7)
-    True @=? canAttack (2, 4) (2, 7)
-    True @=? canAttack (5, 4) (2, 4)
-    True @=? canAttack (1, 1) (6, 6)
-    True @=? canAttack (0, 6) (1, 7)
-    True @=? canAttack (4, 1) (6, 3)
-    True @=? canAttack (2, 2) (1, 3)
+  , TestLabel "attacks" $ TestList attackTests
   ]
+
+attackTests :: [Test]
+attackTests = [testCase (show a ++ " should" ++ (if expected then "" else " not") ++ " threaten " ++ show b)
+                        (expected @=? canAttack a b) | (expected, a, b) <- attackCases]
+
+attackCases :: [(Bool, (Int, Int), (Int, Int))]
+attackCases = [
+    (False, (2, 3), (4, 7)),
+    (True, (2, 4), (2, 7)),
+    (True, (5, 4), (2, 4)),
+    (True, (1, 1), (6, 6)),
+    (True, (0, 6), (1, 7)),
+    (True, (4, 1), (6, 3)),
+    (True, (2, 2), (1, 3))]
+
