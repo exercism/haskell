@@ -11,8 +11,8 @@ testCase :: String -> Assertion -> Test
 testCase label assertion = TestLabel label (TestCase assertion)
 
 main :: IO ()
-main = exitProperly $ runTestTT $ TestList
-       [ TestList luhnTests ]
+main = exitProperly $ runTestTT $ TestLabel "Luhn Tests" $
+        TestList luhnTests
 
 int :: Integer -> Integer
 int = id
@@ -28,16 +28,45 @@ luhnTests =
   , testCase "addends" $ do
     ints [1, 4, 1, 4, 1] @=? addends 12121
     ints [7, 6, 6, 1] @=? addends 8631
-  , testCase "checksum" $ do
-    -- NOTE: this differs from the ruby and js, the checksum really should
-    --       be mod 10 like we are testing here.
-    int 2 @=? checksum 4913
-    int 1 @=? checksum 201773
-  , testCase "isValid" $ do
-    False @=? isValid (int 738)
-    True @=? isValid (int 8739567)
-  , testCase "create" $ do
-    int 1230 @=? create 123
-    int 8739567 @=? create 873956
-    int 8372637564 @=? create 837263756
+  , TestLabel "checksum" (TestList checksumTests)
+  , TestLabel "isValid" (TestList validityTests)
+  , TestLabel "create" (TestList creationTests)
   ]
+
+creations :: [(Integer, Integer)]
+creations = [(1230, 123)
+             ,(8739567, 873956)
+             ,(8372637564, 837263756)
+             ,(2323200577663554, 232320057766355)]
+
+creationTests :: [Test]
+creationTests =
+    [testCase ("Creating a valid number from " ++ show n)
+              (expected @=? create n) | (expected, n) <- creations]
+
+-- NOTE: this differs from the ruby and js, the checksum really should
+--       be mod 10 like we are testing here.
+checksums :: [(Integer, Integer)]
+checksums = [(4913, 2)
+            ,(201773, 1)
+            ,(1111, 6)
+            ,(8763, 0)
+            ,(8739567, 0)
+            ,(2323200577663554, 0)]
+
+checksumTests :: [Test]
+checksumTests =
+    [testCase ("The checksum of " ++ show n)
+              (expected @=? checksum n) | (n, expected) <- checksums]
+
+validityChecks :: [(Integer, Bool)]
+validityChecks = [(1111, False)
+                 ,(738, False)
+                 ,(8763, True)
+                 ,(8739567, True)
+                 ,(2323200577663554, True)]
+
+validityTests :: [Test]
+validityTests =
+    [testCase (show n ++ " should" ++ (if expected then "" else "n't") ++ " be valid")
+              (expected @=? isValid n) | (n, expected) <- validityChecks]
