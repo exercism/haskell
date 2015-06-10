@@ -1,9 +1,9 @@
 import Test.HUnit (Assertion, (@?), (@=?), runTestTT, Test(..), Counts(..))
 import System.Exit (ExitCode(..), exitWith)
 import Robot (robotName, mkRobot, resetName)
-import Text.Regex (mkRegex)
-import Text.Regex.Base (matchTest)
-import Control.Applicative ((<$>))
+import Control.Applicative
+import Data.Ix (inRange)
+import Prelude
 
 exitProperly :: IO Counts -> IO ()
 exitProperly m = do
@@ -71,5 +71,9 @@ robotTests =
   ]
 
 matchesPattern :: String -> Bool
-matchesPattern = matchTest pattern
-  where pattern = mkRegex "^[A-Z]{2}[0-9]{3}$"
+matchesPattern s =
+  length s == 5 &&
+  and (zipWith inRange [a, a, d, d, d] s)
+  where
+    a = ('A', 'Z')
+    d = ('0', '9')

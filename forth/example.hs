@@ -16,12 +16,12 @@ import qualified Data.Map.Strict as M
 import Control.Arrow (first)
 
 type Value = Int
-type Word = Text
+type FWord = Text
 data Term 
      = StartDefinition
      | EndDefinition
      | V Value 
-     | W Word
+     | W FWord
      deriving (Show, Ord, Eq)
 
 data Definition
@@ -39,7 +39,7 @@ data Definition
 data ForthState = ForthState
      { forthStack :: [Value]
      , forthCode  :: [Term]
-     , forthWords :: Map Word Definition
+     , forthWords :: Map FWord Definition
      }
      deriving (Show, Eq)
 
@@ -47,10 +47,10 @@ data ForthError
      = DivisionByZero
      | StackUnderflow
      | InvalidWord
-     | UnknownWord Word
+     | UnknownWord FWord
      deriving (Show, Eq)
 
-defaultWords :: Map Word Definition
+defaultWords :: Map FWord Definition
 defaultWords = M.fromList . map (first T.toCaseFold) $
   [ ("+", Add)
   , ("-", Subtract)

@@ -2,9 +2,10 @@ module BST ( BST, bstLeft, bstRight, bstValue,
              singleton, insert, fromList, toList
            ) where
 import Data.List (foldl')
-import Control.Applicative ((<$>), (<|>))
+import Control.Applicative -- ((<$>), (<|>))
 import Data.Monoid ((<>))
 import Data.Maybe (fromJust)
+import Prelude
 
 data BST a = Node { bstValue :: a
                   , bstLeft :: Maybe (BST a)

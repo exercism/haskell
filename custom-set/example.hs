@@ -19,9 +19,9 @@ module CustomSet
 -- This example is a naive unbalanced binary search tree implementation.
 -- No attempt at implementing efficient hedge algorithms was made here.
 -- An even more naive implementation would be to use a list.
-import Prelude hiding (null)
-import Data.Monoid (mempty, mappend)
+import Data.Monoid -- (mempty, mappend)
 import qualified Data.Foldable as F
+import Prelude hiding (null)
 
 data CustomSet a
   = Tip

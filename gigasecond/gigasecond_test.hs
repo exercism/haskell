@@ -1,9 +1,17 @@
+{-# LANGUAGE CPP #-}
 import Test.HUnit (Assertion, (@=?), runTestTT, Test(..), Counts(..))
 import System.Exit (ExitCode(..), exitWith)
 import Gigasecond (fromDay)
 import Data.Time.Clock (UTCTime)
+import System.Locale (iso8601DateFormat)
+#if __GLASGOW_HASKELL__ >= 710
+import Data.Time.Format (TimeLocale, ParseTime, parseTimeOrError, defaultTimeLocale)
+readTime :: ParseTime t => TimeLocale -> String -> String -> t
+readTime = parseTimeOrError True
+#else
+import System.Locale (defaultTimeLocale)
 import Data.Time.Format (readTime)
-import System.Locale (defaultTimeLocale, iso8601DateFormat)
+#endif
 
 dt :: String -> UTCTime
 dt = readTime defaultTimeLocale (iso8601DateFormat (Just "%T%Z"))
