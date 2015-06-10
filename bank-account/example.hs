@@ -3,6 +3,7 @@ module BankAccount ( BankAccount
                    , getBalance, incrementBalance) where
 import Control.Concurrent.STM
 import Control.Applicative
+import Prelude
 
 newtype BankAccount = BankAccount { unBankAccount :: TVar (Maybe Int) }
 

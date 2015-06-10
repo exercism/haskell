@@ -2,9 +2,10 @@
 import Test.HUnit (Assertion, (@=?), runTestTT, Test(..), Counts(..))
 import System.Exit (ExitCode(..), exitWith)
 import Forth (ForthError(..), evalText, empty, formatStack)
-import Control.Applicative ((<$>))
+import Control.Applicative hiding (empty)
 import Control.Monad (foldM)
 import Data.Text (Text)
+import Prelude
 
 exitProperly :: IO Counts -> IO ()
 exitProperly m = do

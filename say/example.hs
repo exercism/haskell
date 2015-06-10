@@ -1,8 +1,9 @@
 module Say (inEnglish) where
 
-import Data.Functor ((<$>))
+import Data.Functor -- ((<$>))
 import Data.Monoid ((<>))
 import Data.Array (Array, listArray, (!))
+import Prelude
 
 smallNumbers :: Array Int String
 smallNumbers = listArray (1, 19)
