@@ -1,9 +1,31 @@
-language: haskell
-ghc:
-  - 7.6
-install:
+language: c
+sudo: false
+addons:
+  apt:
+    sources:
+      - hvr-ghc
+    packages:
+      - ghc-7.6.3
+      - ghc-7.8.4
+      - ghc-7.10.1
+      - cabal-install-1.22
+env:
+  global:
+    - CABALVER=1.22
+  matrix:
+    - GHCVER=7.6.3
+    - GHCVER=7.8.4
+    - GHCVER=7.10.1
+cache:
+  directories:
+    - '$HOME/.ghc'
+    - '$HOME/.cabal'
+before_install:
   - './_test/bootstrap.sh'
+install:
+  - true
 script:
-  - '( export PATH=/opt/hp-2013.2.0.0/bin:$PATH; runhaskell ./_test/check-exercises.hs )'
+  - 'export PATH=/opt/cabal/$CABALVER/bin:/opt/ghc/$GHCVER/bin:$PATH'
+  - 'runhaskell -Wall ./_test/check-exercises.hs'
   - './bin/fetch-configlet'
   - './bin/configlet .'
