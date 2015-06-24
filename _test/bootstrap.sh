@@ -22,4 +22,5 @@ cabal install \
       attoparsec \
       vector \
       parallel \
-      stm
+      stm \
+      old-locale
