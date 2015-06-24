@@ -1,21 +1,26 @@
 #!/bin/bash
-# This installs a Haskell platform to PREFIX=/opt/hp-2013.2.0.0
+# This installs a the prerequisites for a given GHC/Cabal config
 set -x
 set -e
-HP_VER=2013.2.0.0
-HP_URL=https://github.com/etrepum/travis-haskell/releases/download/${HP_VER}/hp-${HP_VER}.tar.bz2
-PREFIX=/opt/hp-${HP_VER}
-sudo apt-get update
-sudo apt-get -y install git gcc make autoconf libtool zlib1g-dev \
-  libncurses-dev libgmp-dev
-if [ ! -e "/usr/lib/libgmp.so.3" ]; then
-  sudo ln -s /usr/lib/x86_64-linux-gnu/libgmp.so.10 /usr/lib/libgmp.so.3
+if [ ! -z "$GHCVER" ]; then
+    export PATH=/opt/ghc/${GHCVER}/bin:$PATH
 fi
-if [ ! -e "/usr/lib/libgmp.so" ]; then
-  sudo ln -s /usr/lib/x86_64-linux-gnu/libgmp.so.10 /usr/lib/libgmp.so
+if [ ! -z "$CABALVER" ]; then
+    export PATH=/opt/cabal/${CABALVER}/bin:$PATH
 fi
-if [ ! -e "${PREFIX}" ]; then
-  ( cd /
-    curl -L "${HP_URL}" | sudo tar jxf - )
-fi
-sudo chmod ugo+rX -R "${PREFIX}"
+cabal update
+# This is a fairly minimal set
+cabal install \
+      primitive \
+      random \
+      tf-random \
+      HUnit \
+      QuickCheck \
+      split \
+      text \
+      bytestring \
+      attoparsec \
+      vector \
+      parallel \
+      stm \
+      old-locale
