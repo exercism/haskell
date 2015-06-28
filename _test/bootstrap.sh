@@ -23,4 +23,5 @@ cabal install \
       vector \
       parallel \
       stm \
-      old-locale
+      old-locale \
+      lens
