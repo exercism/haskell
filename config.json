@@ -72,6 +72,7 @@
     "go-counting",
     "zipper",
     "forth",
+    "lens-person",
     "pov"
   ],
   "deprecated": [
