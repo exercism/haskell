@@ -9,8 +9,8 @@ data Planet = Mercury
             | Uranus
             | Neptune
 
-type Seconds = Float
-type Years = Float
+type Seconds = Double
+type Years = Double
 
 ageOn :: Planet -> Seconds -> Years
 ageOn planet seconds = seconds / secondsPerYear planet

@@ -14,9 +14,9 @@ main :: IO ()
 main = exitProperly $ runTestTT $ TestList
        [ TestList ageOnTests ]
 
-roundsTo :: Float -> Float -> Assertion
+roundsTo :: Double -> Double -> Assertion
 roundsTo a b = approx a @=? approx b
-  where approx :: Float -> Int
+  where approx :: Double -> Int
         approx n = round (n * 100)
 
 ageOnTests :: [Test]
