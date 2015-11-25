@@ -1,3 +1,19 @@
+
+```bash
+$ runhaskell -Wall bob_test.hs
+```
+
+## Making Your First Haskell Module
+
+To create a module that can be loaded with `import Bob (responseFor)`, put this code in `Bob.hs`:
+
+```haskell
+module Bob (responseFor) where
+
+responseFor :: String -> String
+responseFor = undefined
+```
+
 ## (Optional) HLint
 
 HLint is a tool for suggesting possible improvements to Haskell code. These suggestions include ideas such as using alternative functions, simplifying code and spotting redundancies.
