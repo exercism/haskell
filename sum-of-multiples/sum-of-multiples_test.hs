@@ -23,6 +23,8 @@ sumOfMultiplesTests =
     3 @=? sumOfMultiplesDefault 4
   , testCase "10" $
     23 @=? sumOfMultiplesDefault 10
+  , testCase "100" $
+    2318 @=? sumOfMultiplesDefault 100  
   , testCase "1000" $
     233168 @=? sumOfMultiplesDefault 1000
   , testCase "[7, 13, 17] 20" $
