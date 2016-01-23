@@ -18,8 +18,11 @@ main = exitProperly $ runTestTT $ TestList
 ints :: [Int] -> [Int]
 ints = id
 
-int :: Int -> Int
-int = id
+int :: Int -> Maybe Int
+int = Just
+
+intNothing :: Maybe Int
+intNothing = Nothing
 
 seriesTests :: [Test]
 seriesTests = map TestCase
@@ -43,8 +46,8 @@ seriesTests = map TestCase
   , int 28350 @=?
     largestProduct 6 "52677741234314237566414902593461595376319419139427"
   , int 1 @=? largestProduct 0 ""
-    -- unlike the Ruby implementation, no error is expected for too small input
-  , int 1 @=? largestProduct 4 "123"
+  , intNothing @=? largestProduct 1 ""
+  , intNothing @=? largestProduct 4 "123"
     -- edge case :)
   , int 0 @=? largestProduct 2 "00"
   ]
