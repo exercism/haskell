@@ -49,6 +49,7 @@ seriesTests = map TestCase
   , int 1 @=? largestProduct 0 "123"
   , intNothing @=? largestProduct 1 ""
   , intNothing @=? largestProduct 4 "123"
-    -- edge case :)
+    -- if all spans contain zero, result is zero.
+  , int 0 @=? largestProduct 3 "99099"
   , int 0 @=? largestProduct 2 "00"
   ]
