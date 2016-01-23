@@ -46,6 +46,7 @@ seriesTests = map TestCase
   , int 28350 @=?
     largestProduct 6 "52677741234314237566414902593461595376319419139427"
   , int 1 @=? largestProduct 0 ""
+  , int 1 @=? largestProduct 0 "123"
   , intNothing @=? largestProduct 1 ""
   , intNothing @=? largestProduct 4 "123"
     -- edge case :)
