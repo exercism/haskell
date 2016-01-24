@@ -1,4 +1,4 @@
-# Learning Haskell 
+## Learning Haskell 
 
 Haskell is a purely functional language, which is a paradigm separate and fundamentally different than the more
 commonly taught [object oriented approach](https://en.wikipedia.org/wiki/Object-oriented_programming). Because of this,
