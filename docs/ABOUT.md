@@ -32,6 +32,7 @@ quicksort (x:xs) =
         biggerSorted  = quicksort [a | a <- xs, a > x]
     in  smallerSorted ++ [x] ++ biggerSorted
 ```
+[(source)](http://learnyouahaskell.com/recursion#quick-sort)
 
 In addition, Haskell is standardized and has multiple high-quality
 implementations, some of which produce standalone native binaries.
