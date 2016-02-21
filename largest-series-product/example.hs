@@ -9,7 +9,7 @@ slices :: Integral a => Int -> String -> [[a]]
 slices n = go . digits
   where go xs = map (take n) $ take (length xs - pred n) (tails xs)
 
-largestProduct :: Integral a => Int -> String -> a
+largestProduct :: Integral a => Int -> String -> Maybe a
 largestProduct n text = case map product (slices n text) of
-  []       -> 1
-  products -> maximum products
+  []       -> Nothing
+  products -> Just $ maximum products
