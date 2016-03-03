@@ -3,13 +3,12 @@ import Test.HUnit (Assertion, (@=?), runTestTT, Test(..), Counts(..))
 import System.Exit (ExitCode(..), exitWith)
 import Gigasecond (fromDay)
 import Data.Time.Clock (UTCTime)
-import System.Locale (iso8601DateFormat)
 #if __GLASGOW_HASKELL__ >= 710
-import Data.Time.Format (TimeLocale, ParseTime, parseTimeOrError, defaultTimeLocale)
+import Data.Time.Format (TimeLocale, ParseTime, parseTimeOrError, defaultTimeLocale, iso8601DateFormat)
 readTime :: ParseTime t => TimeLocale -> String -> String -> t
 readTime = parseTimeOrError True
 #else
-import System.Locale (defaultTimeLocale)
+import System.Locale (defaultTimeLocale, iso8601DateFormat)
 import Data.Time.Format (readTime)
 #endif
 
