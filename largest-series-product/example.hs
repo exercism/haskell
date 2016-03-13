@@ -1,4 +1,4 @@
-module Series (digits, slices, largestProduct) where
+module Series (largestProduct) where
 import Data.Char (digitToInt)
 import Data.List (tails)
 
