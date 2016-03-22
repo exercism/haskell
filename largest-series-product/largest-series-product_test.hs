@@ -1,6 +1,6 @@
 import Test.HUnit (Assertion, (@=?), runTestTT, Test(..), Counts(..))
 import System.Exit (ExitCode(..), exitWith)
-import Series (digits, slices, largestProduct)
+import Series (largestProduct)
 
 exitProperly :: IO Counts -> IO ()
 exitProperly m = do
@@ -15,9 +15,6 @@ main = exitProperly $ runTestTT $ TestList
   [ TestList seriesTests ]
 
 -- Allow implementations that work with Integral to compile without warning
-ints :: [Int] -> [Int]
-ints = id
-
 int :: Int -> Maybe Int
 int = Just
 
@@ -26,15 +23,7 @@ intNothing = Nothing
 
 seriesTests :: [Test]
 seriesTests = map TestCase
-  [ ints [0..9] @=? digits ['0'..'9']
-  , ints [9,8..0] @=? digits ['9','8'..'0']
-  , ints [8,7..4] @=? digits ['8','7'..'4']
-  , ints [9, 3, 6, 9, 2, 3, 4, 6, 8] @=? digits "936923468"
-  , map ints [[9, 8], [8, 2], [2, 7], [7, 3], [3, 4], [4, 6], [6, 3]] @=?
-    slices 2 "98273463"
-  , map ints [[9, 8, 2], [8, 2, 3], [2, 3, 4], [3, 4, 7]] @=?
-    slices 3 "982347"
-  , int 72 @=? largestProduct 2 "0123456789"
+  [ int 72 @=? largestProduct 2 "0123456789"
   , int 2 @=? largestProduct 2 "12"
   , int 9 @=? largestProduct 2 "19"
   , int 48 @=? largestProduct 2 "576802143"
