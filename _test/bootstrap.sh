@@ -8,6 +8,15 @@ fi
 if [ ! -z "$CABALVER" ]; then
     export PATH=/opt/cabal/${CABALVER}/bin:$PATH
 fi
+
+ghc-pkg list
+
+# DO NOT MERGE: Try to clear that cache manually
+rm -rf $HOME/.ghc
+rm -rf $HOME/.cabal
+
+ghc-pkg list
+
 cabal update
 # This is a fairly minimal set
 cabal install \
