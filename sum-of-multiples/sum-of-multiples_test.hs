@@ -1,6 +1,6 @@
 import Test.HUnit (Assertion, (@=?), runTestTT, Test(..), Counts(..))
 import System.Exit (ExitCode(..), exitWith)
-import SumOfMultiples (sumOfMultiples, sumOfMultiplesDefault)
+import SumOfMultiples (sumOfMultiples)
 
 exitProperly :: IO Counts -> IO ()
 exitProperly m = do
@@ -18,13 +18,13 @@ main = exitProperly $ runTestTT $ TestList
 sumOfMultiplesTests :: [Test]
 sumOfMultiplesTests =
   [ testCase "1" $
-    0 @=? sumOfMultiplesDefault 1
+    0 @=? sumOfMultiples [3, 5] 1
   , testCase "4" $
-    3 @=? sumOfMultiplesDefault 4
+    3 @=? sumOfMultiples [3, 5] 4
   , testCase "10" $
-    23 @=? sumOfMultiplesDefault 10
+    23 @=? sumOfMultiples [3, 5] 10
   , testCase "1000" $
-    233168 @=? sumOfMultiplesDefault 1000
+    233168 @=? sumOfMultiples [3, 5] 1000
   , testCase "[7, 13, 17] 20" $
     51 @=? sumOfMultiples [7, 13, 17] 20
   , testCase "[4, 6] 15" $
