@@ -16,10 +16,7 @@ env:
     - GHCVER=7.6.3
     - GHCVER=7.8.4
     - GHCVER=7.10.1
-cache:
-  directories:
-    - '$HOME/.ghc'
-    - '$HOME/.cabal'
+cache: false
 before_install:
   - './_test/bootstrap.sh'
 install:
