@@ -8,10 +8,6 @@ fi
 if [ ! -z "$CABALVER" ]; then
     export PATH=/opt/cabal/${CABALVER}/bin:$PATH
 fi
-
-# DO NOT MERGE: Debug what cabal is doing, what's the before and after?
-ghc-pkg list
-
 cabal update
 # This is a fairly minimal set
 cabal install \
