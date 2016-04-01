@@ -27,7 +27,7 @@ withTemporaryDirectory_ fp f =
                 (\path -> setCurrentDirectory path >> f)
 
 assignmentsDir :: FilePath
-assignmentsDir = "."
+assignmentsDir = "exercises"
 
 parseModule :: [String] -> String
 parseModule = (!!1) . words . head . filter (isPrefixOf "module ")
@@ -52,8 +52,6 @@ getAssignments dir = filterM isAssignmentDir
     isAssignmentDir path = case path of
       '.':_ -> return False
       '_':_ -> return False
-      "bin" -> return False
-      "docs" -> return False
       _     -> isDirectory <$> getFileStatus (dir </> path)
 
 main :: IO ()
