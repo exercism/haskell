@@ -27,7 +27,7 @@ withTemporaryDirectory_ fp f =
                 (\path -> setCurrentDirectory path >> f)
 
 assignmentsDir :: FilePath
-assignmentsDir = "."
+assignmentsDir = "exercises"
 
 parseModule :: [String] -> String
 parseModule = (!!1) . words . head . filter (isPrefixOf "module ")
