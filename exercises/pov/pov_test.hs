@@ -1,4 +1,4 @@
-import Test.HUnit (Assertion, (@=?), runTestTT, Test(..), Counts(..))
+import Test.HUnit (Assertion, (@=?), (@?), assertFailure, runTestTT, Test(..), Counts(..))
 import System.Exit (ExitCode(..), exitWith)
 import POV(Graph(..), fromPOV, tracePathBetween)
 
@@ -44,19 +44,30 @@ cousins' = Graph x [leaf "kid-a",
                                                         Graph "uncle" [Graph "cousin-0" [],
                                                                        Graph "cousin-1" []]]]]
 
-reparentTestCases :: [(String, Graph String, Maybe (Graph String))]
+reparentTestCases :: [(String, Graph String, Maybe [Graph String])]
 reparentTestCases = [
-    ("reparenting singleton", singleton, Just singleton'),
-    ("reparenting flat", flat, Just flat'),
-    ("reparenting nested", nested, Just nested'),
-    ("reparenting kids", kids, Just kids'),
-    ("reparenting cousins", cousins, Just cousins'),
+    ("reparenting singleton", singleton, Just [singleton']),
+    ("reparenting flat", flat, Just [flat']),
+    ("reparenting nested", nested, Just [nested']),
+    ("reparenting kids", kids, Just [kids']),
+    ("reparenting cousins", cousins, Just [cousins']),
     ("from POV of non-existent node", (leaf "foo"), Nothing)]
 
 reparentingTests :: [Test]
 reparentingTests = do
     (name, input, output) <- reparentTestCases
-    return $ testCase name $ output @=? (fromPOV x input)
+    return $ testCase name $ case (output, fromPOV x input) of
+      (Nothing, observed) -> Nothing @=? observed
+      (Just choices, Nothing) -> assertFailure (showPossibilities choices Nothing)
+      (Just choices, Just observed) -> elem observed choices @? showPossibilities choices (Just observed)
+
+mapWithIndex :: (a -> Int -> b) -> [a] -> [b]
+mapWithIndex f l = zipWith f l [1..]
+
+showPossibilities :: [Graph String] -> Maybe (Graph String) -> String
+showPossibilities graphs got = "rerooted tree should be one of the possibilities:\n" ++ possibilities ++ "but got: " ++ show got
+  where possibilities = unlines (mapWithIndex showWithIndex graphs)
+        showWithIndex g i = show i ++ ": " ++ show g
 
 notFoundTests :: [Test]
 notFoundTests = map notFoundTest [singleton, flat, kids, nested, cousins]
