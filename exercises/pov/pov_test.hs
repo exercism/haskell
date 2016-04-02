@@ -31,11 +31,12 @@ cousins = Graph "grandparent" [Graph "parent" [Graph x [leaf "kid-a", leaf "kid-
                                 Graph "uncle" [(leaf "cousin-0"),
                                                (leaf "cousin-1")]]
 
-singleton', flat', nested', kids', cousins' :: Graph String
+singleton', flat', nested', kids', kids'', cousins', cousins'' :: Graph String
 singleton' = singleton
 flat' = Graph x [Graph "root" (map leaf ["a", "b", "c"])]
 nested' = Graph x [Graph "level-3" [Graph "level-2" [Graph "level-1" [Graph "level-0" []]]]]
 kids' = Graph x [Graph "kid-0" [], Graph "kid-1" [], Graph "root" []]
+kids'' = Graph x [Graph "root" [], Graph "kid-0" [], Graph "kid-1" []]
 cousins' = Graph x [leaf "kid-a",
                     leaf "kid-b",
                     Graph "parent" [Graph "sibling-0" [],
@@ -43,14 +44,22 @@ cousins' = Graph x [leaf "kid-a",
                                    Graph "grandparent" [
                                                         Graph "uncle" [Graph "cousin-0" [],
                                                                        Graph "cousin-1" []]]]]
+cousins'' = Graph x [Graph "parent" [Graph "grandparent" [
+                                                          Graph "uncle" [Graph "cousin-0" [],
+                                                                         Graph "cousin-1" []]],
+                                    Graph "sibling-0" [],
+                                    Graph "sibling-1" []],
+                     leaf "kid-a",
+                     leaf "kid-b"]
+
 
 reparentTestCases :: [(String, Graph String, Maybe [Graph String])]
 reparentTestCases = [
     ("reparenting singleton", singleton, Just [singleton']),
     ("reparenting flat", flat, Just [flat']),
     ("reparenting nested", nested, Just [nested']),
-    ("reparenting kids", kids, Just [kids']),
-    ("reparenting cousins", cousins, Just [cousins']),
+    ("reparenting kids", kids, Just [kids', kids'']),
+    ("reparenting cousins", cousins, Just [cousins', cousins'']),
     ("from POV of non-existent node", (leaf "foo"), Nothing)]
 
 reparentingTests :: [Test]
