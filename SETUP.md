@@ -1,5 +1,5 @@
 Check out [Exercism
-Help](http://help.exercism.io/getting-started-with-haskell.html) for
+Help](http://exercism.io/languages/haskell) for
 instructions to get started writing Haskell.
 
 ## Running Tests
