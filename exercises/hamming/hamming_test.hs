@@ -1,6 +1,6 @@
 import Test.HUnit (Assertion, (@=?), runTestTT, Test(..), Counts(..))
 import System.Exit (ExitCode(..), exitWith)
-import DNA (hammingDistance)
+import Hamming (distance)
 
 exitProperly :: IO Counts -> IO ()
 exitProperly m = do
@@ -17,13 +17,13 @@ main = exitProperly $ runTestTT $ TestList
 hammingDistanceTests :: [Test]
 hammingDistanceTests =
   [ testCase "no difference between empty strands" $
-    0 @=? hammingDistance "" ""
+    0 @=? distance "" ""
   , testCase "no difference between identical strands" $
-    0 @=? hammingDistance "GGACTGA" "GGACTGA"
+    0 @=? distance "GGACTGA" "GGACTGA"
   , testCase "complete hamming distance in small strand" $
-    3 @=? hammingDistance "ACT" "GGA"
+    3 @=? distance "ACT" "GGA"
   , testCase "small hamming distance in middle somewhere" $
-    1 @=? hammingDistance "GGACG" "GGTCG"
+    1 @=? distance "GGACG" "GGTCG"
   , testCase "larger distance" $
-    2 @=? hammingDistance "ACCAGGG" "ACTATGG"
+    2 @=? distance "ACCAGGG" "ACTATGG"
   ]
