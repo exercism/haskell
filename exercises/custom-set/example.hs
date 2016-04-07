@@ -27,7 +27,7 @@ data CustomSet a
   = Tip
   | Bin {-# UNPACK #-} !Int !a !(CustomSet a) !(CustomSet a)
 
-instance (Ord a, Eq a) => Eq (CustomSet a) where
+instance (Ord a) => Eq (CustomSet a) where
   a == b = size a == size b && a `isSubsetOf` b
 
 instance Show a => Show (CustomSet a) where
@@ -47,13 +47,13 @@ size :: CustomSet a -> Int
 size Tip              = 0
 size (Bin s _a _l _r) = s
 
-singleton :: Ord a => a -> CustomSet a
+singleton :: a -> CustomSet a
 singleton x = Bin 1 x Tip Tip
 
 toList :: CustomSet a -> [a]
 toList = F.toList
 
-empty :: Ord a => CustomSet a
+empty :: CustomSet a
 empty = Tip
 
 fromList :: Ord a => [a] -> CustomSet a
