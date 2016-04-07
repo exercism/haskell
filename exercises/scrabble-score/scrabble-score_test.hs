@@ -21,5 +21,5 @@ scrabbleTests = map TestCase
   , 2 @=? scoreWord "at"
   , 6 @=? scoreWord "street"
   , 22 @=? scoreWord "quirky"
-  , 20 @=? scoreWord "MULTIBILLIONAIRE"
+  , 41 @=? scoreWord "OXYPHENBUTAZONE"
   ]
