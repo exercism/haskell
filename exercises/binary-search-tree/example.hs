@@ -38,7 +38,7 @@ bstRight (Node _ _ r) = Just r
 empty :: BST a
 empty = Tip
 
-singleton :: Ord a => a -> BST a
+singleton :: a -> BST a
 singleton x = Node empty x empty
 
 insert :: Ord a => a -> BST a -> BST a
