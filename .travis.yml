@@ -1,3 +1,8 @@
+# The Travis docs (https://docs.travis-ci.com/user/languages/haskell)
+# suggest that we use `language: haskell` and `ghc:` to specify GHC versions.
+# However, as of this writing, Travis only supported versions up to 7.8.
+# If Travis supports all versions we would like to test, then we could switch.
+# Until then, we use the https://github.com/hvr/multi-ghc-travis setup.
 language: c
 sudo: false
 addons:
