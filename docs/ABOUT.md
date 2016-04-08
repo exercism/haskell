@@ -10,7 +10,7 @@ will do nothing else.
 
 **Lazy** (a.k.a "non-strict") means that the compiler will put off
 evaluating a thing until absolutely neccessary.  This lets you safely
-do wierd stuff like operating on an infinite list--the language will
+do weird stuff like operating on an infinite list--the language will
 only create it up to the last value you actually use.
 
 **Statically-typed** means that identifiers have a type set at compile
