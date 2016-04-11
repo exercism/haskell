@@ -62,6 +62,7 @@ cache:
     - '$HOME/.ghc'
     - '$HOME/.cabal'
 before_install:
+  - unset CC
   - './_test/bootstrap.sh'
 install:
   - true
