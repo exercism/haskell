@@ -16,36 +16,43 @@ env:
 matrix:
   include:
     - env: GHCVER=6.12.3
+      compiler: ': #GHC-6.12.3'
       addons:
         apt:
           <<: *apt
           packages: [ghc-6.12.3, *cabal]
     - env: GHCVER=7.0.4
+      compiler: ': #GHC-7.0.4'
       addons:
         apt:
           <<: *apt
           packages: [ghc-7.0.4, *cabal]
     - env: GHCVER=7.2.2
+      compiler: ': #GHC-7.2.2'
       addons:
         apt:
           <<: *apt
           packages: [ghc-7.2.2, *cabal]
     - env: GHCVER=7.4.2
+      compiler: ': #GHC-7.4.2'
       addons:
         apt:
           <<: *apt
           packages: [ghc-7.4.2, *cabal]
     - env: GHCVER=7.6.3
+      compiler: ': #GHC-7.6.3'
       addons:
         apt:
           <<: *apt
           packages: [ghc-7.6.3, *cabal]
     - env: GHCVER=7.8.4
+      compiler: ': #GHC-7.8.4'
       addons:
         apt:
           <<: *apt
           packages: [ghc-7.8.4, *cabal]
     - env: GHCVER=7.10.1
+      compiler: ': #GHC-7.10.1'
       addons:
         apt:
           <<: *apt
