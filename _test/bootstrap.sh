@@ -24,4 +24,5 @@ cabal install \
       parallel \
       stm \
       old-locale \
+      unix \
       lens
