@@ -20,28 +20,28 @@ int4 = 4
 bstTests :: [Test]
 bstTests =
   [ testCase "data is retained" $
-    4 @=? bstValue (singleton int4)
+    Just 4 @=? bstValue (singleton int4)
   , testCase "inserting less" $ do
     let t = insert 2 (singleton int4)
-    4 @=? bstValue t
-    Just 2 @=? bstValue `fmap` bstLeft t
+    Just 4 @=? bstValue t
+    Just 2 @=? (bstLeft t >>= bstValue)
   , testCase "inserting same" $ do
     let t = insert 4 (singleton int4)
-    4 @=? bstValue t
-    Just 4 @=? bstValue `fmap` bstLeft t
+    Just 4 @=? bstValue t
+    Just 4 @=? (bstLeft t >>= bstValue)
   , testCase "inserting right" $ do
     let t = insert 5 (singleton int4)
-    4 @=? bstValue t
-    Just 5 @=? bstValue `fmap` bstRight t
+    Just 4 @=? bstValue t
+    Just 5 @=? (bstRight t >>= bstValue)
   , testCase "complex tree" $ do
     let t = fromList [int4, 2, 6, 1, 3, 7, 5]
-    4 @=? bstValue t
-    Just 2 @=? bstValue `fmap` bstLeft t
-    Just 1 @=? bstValue `fmap` (bstLeft t >>= bstLeft)
-    Just 3 @=? bstValue `fmap` (bstLeft t >>= bstRight)
-    Just 6 @=? bstValue `fmap` bstRight t
-    Just 5 @=? bstValue `fmap` (bstRight t >>= bstLeft)
-    Just 7 @=? bstValue `fmap` (bstRight t >>= bstRight)
+    Just 4 @=? bstValue t
+    Just 2 @=? (bstLeft t >>= bstValue)
+    Just 1 @=? (bstLeft t >>= bstLeft >>= bstValue)
+    Just 3 @=? (bstLeft t >>= bstRight >>= bstValue)
+    Just 6 @=? (bstRight t >>= bstValue)
+    Just 5 @=? (bstRight t >>= bstLeft >>= bstValue)
+    Just 7 @=? (bstRight t >>= bstRight >>= bstValue)
   , testCase "iterating one element" $
     [4] @=? toList (singleton int4)
   , testCase "iterating over smaller element" $

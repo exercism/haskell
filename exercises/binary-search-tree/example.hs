@@ -2,28 +2,45 @@ module BST ( BST, bstLeft, bstRight, bstValue,
              singleton, insert, fromList, toList
            ) where
 import Data.List (foldl')
-import Control.Applicative -- ((<$>), (<|>))
-import Data.Monoid ((<>))
-import Data.Maybe (fromJust)
-import Prelude
 
-data BST a = Node { bstValue :: a
-                  , bstLeft :: Maybe (BST a)
-                  , bstRight :: Maybe (BST a) }
-             deriving (Show, Eq)
+data Node a = Node { nodeValue :: a
+                   , nodeLeft :: BST a
+                   , nodeRight :: BST a }
+              deriving (Show, Eq)
+-- We use newtype instead of type here,
+-- because e.g. Foldable for Maybe doesn't make sense for BST.
+newtype BST a = BST (Maybe (Node a)) deriving (Show, Eq)
+
+fromBST :: BST a -> Maybe (Node a)
+fromBST (BST t) = t
+
+bstValue :: BST a -> Maybe a
+bstValue = fmap nodeValue . fromBST
+
+bstLeft :: BST a -> Maybe (BST a)
+bstLeft = fmap nodeLeft . fromBST
+
+bstRight :: BST a -> Maybe (BST a)
+bstRight = fmap nodeRight . fromBST
+
+empty :: BST a
+empty = BST Nothing
 
 singleton :: Ord a => a -> BST a
-singleton x = Node x Nothing Nothing
+singleton x = BST (Just (Node x empty empty))
 
 insert :: Ord a => a -> BST a -> BST a
-insert x n =
-  if bstValue n >= x
-  then n { bstLeft  = insert x <$> bstLeft  n <|> Just (singleton x) }
-  else n { bstRight = insert x <$> bstRight n <|> Just (singleton x) }
+insert x = maybe (singleton x) (BST . Just . insert' x) . fromBST
+
+insert' :: Ord a => a -> Node a -> Node a
+insert' x n =
+  if nodeValue n >= x
+  then n { nodeLeft  = insert x (nodeLeft  n) }
+  else n { nodeRight = insert x (nodeRight n) }
 
 fromList :: Ord a => [a] -> BST a
-fromList (x:xs) = foldl' (flip insert) (singleton x) xs
-fromList [] = error "tree must not be empty"
+fromList = foldl' (flip insert) empty
 
 toList :: BST a -> [a]
-toList (Node x l r) = fromJust $ (toList <$> l) <> Just [x] <> (toList <$> r)
+toList (BST Nothing) = []
+toList (BST (Just (Node x l r))) = toList l ++ [x] ++ toList r
