@@ -1,6 +1,6 @@
 import Test.HUnit (Assertion, (@=?), runTestTT, Test(..), Counts(..))
 import System.Exit (ExitCode(..), exitWith)
-import BST (bstLeft, bstRight, bstValue, singleton, insert, fromList, toList)
+import BST (bstLeft, bstRight, bstValue, empty, singleton, insert, fromList, toList)
 
 exitProperly :: IO Counts -> IO ()
 exitProperly m = do
@@ -16,6 +16,9 @@ main = exitProperly $ runTestTT $ TestList
 
 int4 :: Int
 int4 = 4
+
+noInts :: [Int]
+noInts = []
 
 bstTests :: [Test]
 bstTests =
@@ -33,6 +36,13 @@ bstTests =
     let t = insert 5 (singleton int4)
     Just 4 @=? bstValue t
     Just 5 @=? (bstRight t >>= bstValue)
+  , testCase "empty list to tree" $
+    empty @=? fromList noInts
+  , testCase "empty list has no value" $
+    Nothing @=? bstValue (fromList noInts)
+  , testCase "inserting into empty" $ do
+    let t = insert int4 empty
+    Just 4 @=? bstValue t
   , testCase "complex tree" $ do
     let t = fromList [int4, 2, 6, 1, 3, 7, 5]
     Just 4 @=? bstValue t
@@ -42,6 +52,8 @@ bstTests =
     Just 6 @=? (bstRight t >>= bstValue)
     Just 5 @=? (bstRight t >>= bstLeft >>= bstValue)
     Just 7 @=? (bstRight t >>= bstRight >>= bstValue)
+  , testCase "empty tree to list" $
+    0 @=? length (toList empty)
   , testCase "iterating one element" $
     [4] @=? toList (singleton int4)
   , testCase "iterating over smaller element" $

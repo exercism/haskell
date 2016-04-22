@@ -1,10 +1,11 @@
 module BST ( BST, bstLeft, bstRight, bstValue,
-             singleton, insert, fromList, toList
+             empty, singleton, insert, fromList, toList
            ) where
 import Data.List (foldl')
 
 data BST a = Tip
            | Node (BST a) a (BST a)
+           deriving (Show, Eq)
 
 bstValue :: BST a -> Maybe a
 bstValue Tip = Nothing
