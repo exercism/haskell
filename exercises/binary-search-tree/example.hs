@@ -2,28 +2,38 @@ module BST ( BST, bstLeft, bstRight, bstValue,
              singleton, insert, fromList, toList
            ) where
 import Data.List (foldl')
-import Control.Applicative -- ((<$>), (<|>))
-import Data.Monoid ((<>))
-import Data.Maybe (fromJust)
-import Prelude
 
-data BST a = Node { bstValue :: a
-                  , bstLeft :: Maybe (BST a)
-                  , bstRight :: Maybe (BST a) }
-             deriving (Show, Eq)
+data BST a = Tip
+           | Node (BST a) a (BST a)
+
+bstValue :: BST a -> Maybe a
+bstValue Tip = Nothing
+bstValue (Node _ v _) = Just v
+
+bstLeft :: BST a -> Maybe (BST a)
+bstLeft Tip = Nothing
+bstLeft (Node l _ _) = Just l
+
+bstRight :: BST a -> Maybe (BST a)
+bstRight Tip = Nothing
+bstRight (Node _ _ r) = Just r
+
+empty :: BST a
+empty = Tip
 
 singleton :: Ord a => a -> BST a
-singleton x = Node x Nothing Nothing
+singleton x = Node empty x empty
 
 insert :: Ord a => a -> BST a -> BST a
-insert x n =
-  if bstValue n >= x
-  then n { bstLeft  = insert x <$> bstLeft  n <|> Just (singleton x) }
-  else n { bstRight = insert x <$> bstRight n <|> Just (singleton x) }
+insert x Tip = singleton x
+insert x (Node l v r) =
+  if v >= x
+  then Node (insert x l) v r
+  else Node l v (insert x r)
 
 fromList :: Ord a => [a] -> BST a
-fromList (x:xs) = foldl' (flip insert) (singleton x) xs
-fromList [] = error "tree must not be empty"
+fromList = foldl' (flip insert) empty
 
 toList :: BST a -> [a]
-toList (Node x l r) = fromJust $ (toList <$> l) <> Just [x] <> (toList <$> r)
+toList Tip = []
+toList (Node l v r) = toList l ++ [v] ++ toList r
