@@ -1,6 +1,7 @@
 module BST ( BST, bstLeft, bstRight, bstValue,
              empty, singleton, insert, fromList, toList
            ) where
+import Data.Foldable (toList)
 import Data.List (foldl')
 
 data Node a = Node { nodeValue :: a
@@ -10,6 +11,15 @@ data Node a = Node { nodeValue :: a
 -- We use newtype instead of type here,
 -- because e.g. Foldable for Maybe doesn't make sense for BST.
 newtype BST a = BST (Maybe (Node a)) deriving (Show, Eq)
+
+-- This allows us to use the toList from Foldable.
+-- This may be seen as gratuitous for just one toList function,
+-- but keep in mind now this BST could use other Foldable functions too,
+-- not just toList.
+instance Foldable BST where
+  foldMap _ (BST Nothing) = mempty
+  foldMap f (BST (Just Node {nodeValue = v, nodeLeft = l, nodeRight = r})) =
+    foldMap f l `mappend` f v `mappend` foldMap f r
 
 fromBST :: BST a -> Maybe (Node a)
 fromBST (BST t) = t
@@ -40,7 +50,3 @@ insert' x n =
 
 fromList :: Ord a => [a] -> BST a
 fromList = foldl' (flip insert) empty
-
-toList :: BST a -> [a]
-toList (BST Nothing) = []
-toList (BST (Just (Node x l r))) = toList l ++ [x] ++ toList r
