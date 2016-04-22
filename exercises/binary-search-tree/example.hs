@@ -1,5 +1,5 @@
 module BST ( BST, bstLeft, bstRight, bstValue,
-             singleton, insert, fromList, toList
+             empty, singleton, insert, fromList, toList
            ) where
 import Data.List (foldl')
 
