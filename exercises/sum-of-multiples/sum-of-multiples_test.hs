@@ -35,4 +35,8 @@ sumOfMultiplesTests =
     2203160 @=? sumOfMultiples [43, 47] 10000
   , testCase "[5, 25] 51" $
     275 @=? sumOfMultiples [5,25] 51
+  , testCase "[1] 100" $
+    4950 @=? sumOfMultiples [1] 100
+  , testCase "[] 10000" $
+    0 @=? sumOfMultiples [] 10000
   ]
