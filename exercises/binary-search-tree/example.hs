@@ -1,29 +1,52 @@
+{-# LANGUAGE CPP #-}
 module BST ( BST, bstLeft, bstRight, bstValue,
-             singleton, insert, fromList, toList
+             empty, singleton, insert, fromList, toList
            ) where
-import Data.List (foldl')
-import Control.Applicative -- ((<$>), (<|>))
-import Data.Monoid ((<>))
-import Data.Maybe (fromJust)
-import Prelude
 
-data BST a = Node { bstValue :: a
-                  , bstLeft :: Maybe (BST a)
-                  , bstRight :: Maybe (BST a) }
-             deriving (Show, Eq)
+#if __GLASGOW_HASKELL__ >= 710
+import Data.Foldable (foldl', toList)
+#else
+-- Foldable, foldMap, mappend, mempty only added to Prelude in 7.10
+import Data.Foldable (Foldable, foldMap, foldl', toList)
+import Data.Monoid (mappend, mempty)
+#endif
+
+data BST a = Tip
+           | Node (BST a) a (BST a)
+           deriving (Show, Eq)
+
+-- This allows us to use the toList from Foldable.
+-- This may be seen as gratuitous for just one toList function,
+-- but keep in mind now this BST could use other Foldable functions too,
+-- not just toList.
+instance Foldable BST where
+  foldMap _f Tip = mempty
+  foldMap f (Node l v r) = foldMap f l `mappend` f v `mappend` foldMap f r
+
+bstValue :: BST a -> Maybe a
+bstValue Tip = Nothing
+bstValue (Node _ v _) = Just v
+
+bstLeft :: BST a -> Maybe (BST a)
+bstLeft Tip = Nothing
+bstLeft (Node l _ _) = Just l
+
+bstRight :: BST a -> Maybe (BST a)
+bstRight Tip = Nothing
+bstRight (Node _ _ r) = Just r
+
+empty :: BST a
+empty = Tip
 
 singleton :: Ord a => a -> BST a
-singleton x = Node x Nothing Nothing
+singleton x = Node empty x empty
 
 insert :: Ord a => a -> BST a -> BST a
-insert x n =
-  if bstValue n >= x
-  then n { bstLeft  = insert x <$> bstLeft  n <|> Just (singleton x) }
-  else n { bstRight = insert x <$> bstRight n <|> Just (singleton x) }
+insert x Tip = singleton x
+insert x (Node l v r) =
+  if v >= x
+  then Node (insert x l) v r
+  else Node l v (insert x r)
 
 fromList :: Ord a => [a] -> BST a
-fromList (x:xs) = foldl' (flip insert) (singleton x) xs
-fromList [] = error "tree must not be empty"
-
-toList :: BST a -> [a]
-toList (Node x l r) = fromJust $ (toList <$> l) <> Just [x] <> (toList <$> r)
+fromList = foldl' (flip insert) empty
