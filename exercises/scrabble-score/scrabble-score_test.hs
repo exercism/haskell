@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -fno-warn-type-defaults #-}
+
 import Test.HUnit ((@=?), runTestTT, Test(..), Counts(..))
 import System.Exit (ExitCode(..), exitWith)
 import Scrabble (scoreLetter, scoreWord)
