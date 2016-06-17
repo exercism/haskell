@@ -26,6 +26,8 @@ sumOfMultiplesTests =
   , testCase "10" $
     23 @=? sumOfMultiples [3, 5] 10
   , testCase "1000" $
+    2318 @=? sumOfMultiples [3, 5] 100
+  , testCase "1000" $
     233168 @=? sumOfMultiples [3, 5] 1000
   , testCase "[7, 13, 17] 20" $
     51 @=? sumOfMultiples [7, 13, 17] 20
@@ -34,10 +36,10 @@ sumOfMultiplesTests =
   , testCase "[5, 6, 8] 150" $
     4419 @=? sumOfMultiples [5, 6, 8] 150
   , testCase "[43, 47] 10000" $
-    2203160 @=? sumOfMultiples [43, 47] 10000
-  , testCase "[5, 25] 51" $
     275 @=? sumOfMultiples [5,25] 51
   , testCase "[1] 100" $
+    2203160 @=? sumOfMultiples [43, 47] 10000
+  , testCase "[5, 25] 51" $
     4950 @=? sumOfMultiples [1] 100
   , testCase "[] 10000" $
     0 @=? sumOfMultiples [] 10000
