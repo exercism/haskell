@@ -12,7 +12,7 @@ addons:
     packages:
       - ghc-7.6.3
       - ghc-7.8.4
-      - ghc-7.10.1
+      - ghc-7.10.3
       - cabal-install-1.22
 env:
   global:
@@ -20,7 +20,7 @@ env:
   matrix:
     - GHCVER=7.6.3
     - GHCVER=7.8.4
-    - GHCVER=7.10.1
+    - GHCVER=7.10.3
 cache:
   directories:
     - '$HOME/.ghc'
