@@ -1,4 +1,5 @@
 import Test.HUnit (Assertion, (@=?), runTestTT, Test(..), Counts(..))
+import Data.List (sort)
 import System.Exit (ExitCode(..), exitWith)
 import POV(Graph(..), fromPOV, tracePathBetween)
 
@@ -19,6 +20,20 @@ leaf v = Graph v []
 
 x :: String
 x = "x"
+
+root :: Graph a -> a
+root (Graph r _) = r
+
+-- In the trees we're making, we don't care about the ordering of children.
+-- This is significant when rerooting on nodes that have a parent and children.
+-- The former parent can go either before or after the former children.
+-- Either choice would be correct in the context of this problem.
+-- So all we need to check is:
+-- 1) The graph is actually rooted on the requested node.
+-- 2) The sorted edge list is correct.
+-- This function helps check the second condition.
+edges :: Graph a -> [(a, a)]
+edges (Graph r children) = map ((,) r . root) children ++ concatMap edges children
 
 singleton, flat, kids, nested, cousins :: Graph String
 singleton = Graph x []
@@ -56,7 +71,12 @@ reparentTestCases = [
 reparentingTests :: [Test]
 reparentingTests = do
     (name, input, output) <- reparentTestCases
-    return $ testCase name $ output @=? (fromPOV x input)
+    [checkRoot name input output, checkEdges name input output]
+      where graphTestCase f testName name input output =
+              testCase (name ++ ": correct " ++ testName) $ f output @=? f (fromPOV x input)
+            checkRoot = graphTestCase (fmap root) "root"
+            checkEdges = graphTestCase sortedEdges "sorted edges"
+            sortedEdges = fmap (sort . edges)
 
 notFoundTests :: [Test]
 notFoundTests = map notFoundTest [singleton, flat, kids, nested, cousins]
