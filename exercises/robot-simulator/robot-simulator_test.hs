@@ -18,9 +18,15 @@ main = exitProperly $ runTestTT $ TestList
 
 robotTests :: [Test]
 robotTests =
-  [ testCase "turning edge cases" $ do
+  [ testCase "turning cases" $ do
+    West  @=? turnLeft North
+    South @=? turnLeft West
+    East  @=? turnLeft South
+    North @=? turnLeft East
+    East  @=? turnRight North
+    South @=? turnRight East
+    West  @=? turnRight South
     North @=? turnRight West
-    West @=? turnLeft North
   , testCase "robbie" $ do
     let robbie :: Robot
         robbie = mkRobot East (-2, 1)
