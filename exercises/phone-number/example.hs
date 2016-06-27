@@ -1,24 +1,28 @@
 module Phone (number, areaCode, prettyPrint) where
 import Data.Char (isDigit)
 
-number :: String -> String
+number :: String -> Maybe String
 number input
-  | len == 10 = digits
-  | len == 11 && head digits == '1' = tail digits
-  | otherwise = replicate 10 '0'
+  | len == 10 = Just digits
+  | len == 11 && head digits == '1' = Just $ tail digits
+  | otherwise = Nothing
   where digits = filter isDigit input
         len = length digits
 
-parts :: String -> (String, String, String)
-parts input = (ac, exchange, subscriber)
-  where
-    (ac, exchangeSubscriber) = splitAt 3 (number input)
-    (exchange, subscriber) = splitAt 3 exchangeSubscriber
+parts :: String -> Maybe (String, String, String)
+parts input = case number input of
+    Nothing   -> Nothing
+    Just digits -> Just (ac, exchange, subscriber)
+      where
+        (ac, exchangeSubscriber) = splitAt 3 digits
+        (exchange, subscriber) = splitAt 3 exchangeSubscriber
 
-areaCode :: String -> String
-areaCode input = ac
-  where (ac, _, _) = parts input
+areaCode :: String -> Maybe String
+areaCode input = case parts input of
+  Just (ac, _, _) -> Just ac
+  Nothing         -> Nothing
 
-prettyPrint :: String -> String
-prettyPrint input = "(" ++ ac ++ ") " ++ exchange ++ "-" ++ subscriber
-  where (ac, exchange, subscriber) = parts input
+prettyPrint :: String -> Maybe String
+prettyPrint input = case parts input of
+  Just (ac, exchange, subscriber) -> Just $ "(" ++ ac ++ ") " ++ exchange ++ "-" ++ subscriber
+  Nothing                         -> Nothing
