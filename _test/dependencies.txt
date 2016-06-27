@@ -1,0 +1,140 @@
+accumulate/example.hs: base
+accumulate/accumulate_test.hs: base HUnit
+allergies/example.hs: base
+allergies/allergies_test.hs: base HUnit
+anagram/example.hs: base
+anagram/anagram_test.hs: base HUnit
+atbash-cipher/example.hs: base split
+atbash-cipher/atbash-cipher_test.hs: base HUnit
+bank-account/example.hs: base stm
+bank-account/bank-account_test.hs: base HUnit
+beer-song/example.hs: base
+beer-song/beer-song_test.hs: base HUnit
+binary/example.hs: base
+binary/binary_test.hs: base HUnit
+binary-search-tree/example.hs: base
+binary-search-tree/binary-search-tree_test.hs: base HUnit
+bob/example.hs: base
+bob/bob_test.hs: base HUnit
+clock/example.hs: base
+clock/clock_test.hs: base HUnit
+connect/example.hs: base array
+connect/connect_test.hs: base HUnit
+crypto-square/example.hs: base split
+crypto-square/crypto-square_test.hs: base HUnit
+custom-set/example.hs: base
+custom-set/custom-set_test.hs: base HUnit
+difference-of-squares/example.hs: base
+difference-of-squares/difference-of-squares_test.hs: base HUnit
+etl/example.hs: base containers
+etl/etl_test.hs: base HUnit containers
+food-chain/example.hs: base array
+food-chain/food-chain_test.hs: base HUnit
+forth/example.hs: base containers text
+forth/forth_test.hs: base HUnit text
+gigasecond/example.hs: base time
+gigasecond/gigasecond_test.hs: base HUnit old-locale time
+go-counting/example.hs: base array containers
+go-counting/go-counting_test.hs: base HUnit containers
+grade-school/example.hs: base containers
+grade-school/grade-school_test.hs: base HUnit
+grains/example.hs: base
+grains/grains_test.hs: base HUnit
+hamming/example.hs: base
+hamming/hamming_test.hs: base HUnit
+hexadecimal/example.hs: base
+hexadecimal/hexadecimal_test.hs: base HUnit
+house/example.hs: base
+house/house_test.hs: base HUnit
+kindergarten-garden/example.hs: base containers split
+kindergarten-garden/kindergarten-garden_test.hs: base HUnit
+largest-series-product/example.hs: base
+largest-series-product/largest-series-product_test.hs: base HUnit
+leap/example.hs: base
+leap/leap_test.hs: base HUnit
+lens-person/example.hs: base lens time
+lens-person/lens-person_test.hs: base HUnit time
+linked-list/example.hs: base stm
+linked-list/linked-list_test.hs: base HUnit
+list-ops/example.hs: base
+list-ops/list-ops_test.hs: base HUnit
+luhn/example.hs: base
+luhn/luhn_test.hs: base HUnit
+matrix/example.hs: base vector
+matrix/matrix_test.hs: base HUnit vector
+meetup/example.hs: base time
+meetup/meetup_test.hs: base HUnit time
+minesweeper/example.hs: base array
+minesweeper/minesweeper_test.hs: base HUnit
+nth-prime/example.hs: base
+nth-prime/nth-prime_test.hs: base HUnit
+nucleotide-count/example.hs: base containers
+nucleotide-count/nucleotide-count_test.hs: base HUnit containers
+ocr-numbers/example.hs: base containers split
+ocr-numbers/ocr-numbers_test.hs: base HUnit
+octal/example.hs: base
+octal/octal_test.hs: base QuickCheck
+palindrome-products/example.hs: base
+palindrome-products/palindrome-products_test.hs: base HUnit containers
+parallel-letter-frequency/example.hs: base containers parallel text
+parallel-letter-frequency/parallel-letter-frequency_test.hs: base HUnit containers text
+pascals-triangle/example.hs: base
+pascals-triangle/pascals-triangle_test.hs: base HUnit
+phone-number/example.hs: base
+phone-number/phone-number_test.hs: base HUnit
+pig-latin/example.hs: base
+pig-latin/pig-latin_test.hs: base HUnit
+pov/example.hs: base
+pov/pov_test.hs: base HUnit
+prime-factors/example.hs: base
+prime-factors/prime-factors_test.hs: base HUnit
+pythagorean-triplet/example.hs: base
+pythagorean-triplet/pythagorean-triplet_test.hs: base HUnit
+queen-attack/example.hs: base
+queen-attack/queen-attack_test.hs: base HUnit
+raindrops/example.hs: base
+raindrops/raindrops_test.hs: base HUnit
+rna-transcription/example.hs: base
+rna-transcription/rna-transcription_test.hs: base HUnit
+robot-name/example.hs: base random
+robot-name/robot-name_test.hs: base HUnit
+robot-simulator/example.hs: base
+robot-simulator/robot-simulator_test.hs: base HUnit
+roman-numerals/example.hs: base
+roman-numerals/roman-numerals_test.hs: base HUnit
+saddle-points/example.hs: base array containers
+saddle-points/saddle-points_test.hs: base HUnit array
+say/example.hs: base array
+say/say_test.hs: base HUnit
+scrabble-score/example.hs: base containers
+scrabble-score/scrabble-score_test.hs: base HUnit
+secret-handshake/example.hs: base
+secret-handshake/secret-handshake_test.hs: base HUnit
+series/example.hs: base
+series/series_test.hs: base HUnit
+sgf-parsing/example.hs: base attoparsec containers text
+sgf-parsing/sgf-parsing_test.hs: base HUnit containers text
+sieve/example.hs: base vector
+sieve/sieve_test.hs: base HUnit
+simple-cipher/example.hs: base random
+simple-cipher/simple-cipher_test.hs: base HUnit
+simple-linked-list/example.hs: base
+simple-linked-list/simple-linked-list_test.hs: base HUnit
+space-age/example.hs: base
+space-age/space-age_test.hs: base HUnit
+strain/example.hs: base
+strain/strain_test.hs: base HUnit
+sublist/example.hs: base
+sublist/sublist_test.hs: base HUnit
+sum-of-multiples/example.hs: base
+sum-of-multiples/sum-of-multiples_test.hs: base HUnit
+triangle/example.hs: base containers
+triangle/triangle_test.hs: base HUnit
+trinary/example.hs: base
+trinary/trinary_test.hs: base QuickCheck
+word-count/example.hs: base containers split
+word-count/word-count_test.hs: base HUnit containers
+wordy/example.hs: base attoparsec text
+wordy/wordy_test.hs: base HUnit
+zipper/example.hs: base
+zipper/zipper_test.hs: base HUnit
