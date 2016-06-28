@@ -1,29 +1,31 @@
 {-# OPTIONS_GHC -fno-warn-type-defaults #-}
 
-import Test.HUnit (Assertion, (@=?), runTestTT, Test(..), Counts(..))
-import System.Exit (ExitCode(..), exitWith)
+import Control.Monad (unless)
+import System.Exit   (exitFailure)
+
+import Test.HUnit
+    ( (~:)
+    , (~=?)
+    , Counts (failures, errors)
+    , Test   (TestList)
+    , runTestTT
+    )
+
 import LeapYear (isLeapYear)
 
-exitProperly :: IO Counts -> IO ()
-exitProperly m = do
-  counts <- m
-  exitWith $ if failures counts /= 0 || errors counts /= 0 then ExitFailure 1 else ExitSuccess
-
-testCase :: String -> Assertion -> Test
-testCase label assertion = TestLabel label (TestCase assertion)
-
 main :: IO ()
-main = exitProperly $ runTestTT $ TestList
-       [ TestList isLeapYearTests ]
+main = do
+         counts <- runTestTT isLeapYearTests
+         unless (failures counts == 0 && errors counts == 0) exitFailure
 
-isLeapYearTests :: [Test]
-isLeapYearTests =
-  [ testCase "vanilla leap year" $
-    True @=? isLeapYear 1996
-  , testCase "any old year" $
-    False @=? isLeapYear 1997
-  , testCase "century" $
-    False @=? isLeapYear 1900
-  , testCase "exceptional century" $
-    True @=? isLeapYear 2400
-  ]
+isLeapYearTests :: Test
+isLeapYearTests = TestList $ map test cases
+  where
+    test (label, year, expected) = label ~: isLeapYear year ~=? expected
+    cases = [ ("leap year"                  , 1996, True )
+            , ("standard and odd year"      , 1997, False)
+            , ("standard even year"         , 1998, False)
+            , ("standard nineteenth century", 1900, False)
+            , ("standard eighteenth century", 1800, False)
+            , ("leap twenty fourth century" , 2400, True )
+            , ("leap y2k"                   , 2000, True ) ]
