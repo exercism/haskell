@@ -114,6 +114,8 @@ This will transform the exercise *leap* in a *stack project* using the
 resolver *lts-6.4*. Change it for your favourite [Stackage snapshot](https://www.stackage.org/snapshots).
 
 *You can make you life easier adding _test to your path.*
+That way you can simply call `stackalize` from anywhere instead of having
+to provide a full path to `_test/stackalize`.
 
 ##### Testing with default settings
 
