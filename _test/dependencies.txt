@@ -94,7 +94,7 @@ queen-attack/example.hs: base
 queen-attack/queen-attack_test.hs: base HUnit
 raindrops/example.hs: base
 raindrops/raindrops_test.hs: base HUnit
-rna-transcription/example.hs: base
+rna-transcription/example.hs: base containers
 rna-transcription/rna-transcription_test.hs: base HUnit
 robot-name/example.hs: base random
 robot-name/robot-name_test.hs: base HUnit
