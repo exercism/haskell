@@ -10,15 +10,15 @@ Please see the [contributing guide](https://github.com/exercism/x-api/blob/maste
 
 ### Development Dependencies
 
-There are currently two distinct ways to set up an environment to colaborate
-with the development of the Haskell track:
+There are currently two distinct ways to set up an environment to collaborate
+on the development of the Haskell track:
 
 - Using a global GHC installation.
 - Using *Stack*.
 
 The first method is more convenient when you just want to write code without
 caring too much about which packages are being used. The second one is better
-to track exercise's dependencies and test them against multiple GHC versions.
+to track exercises' dependencies and test them against multiple GHC versions.
 
 #### Using a global GHC installation
 
@@ -52,7 +52,7 @@ These are already installed in recent version of the Haskell Platform:
 - stm
 - vector
 
-These you will have to add to your instalation:
+These you will have to add to your installation:
 
 - lens
 - old-locale
@@ -99,7 +99,7 @@ SUCCESS!
 #### Using Stack
 
 If you have stack installed, you can use it to handle all the dependencies
-for you. But first, you need to transform the exercises in *stack projects*.
+for you. But first, you need to transform the exercises into *stack projects*.
 
 ##### Creating a project for an exercise
 
@@ -113,7 +113,7 @@ $ _test/stackalize --resolver lts-6.4 exercises/leap
 This will transform the exercise *leap* in a *stack project* using the
 resolver *lts-6.4*. Change it for your favourite [Stackage snapshot](https://www.stackage.org/snapshots).
 
-*You can make you life easier adding _test to your path.*
+*You can make your life easier by adding _test to your PATH.*
 That way you can simply call `stackalize` from anywhere instead of having
 to provide a full path to `_test/stackalize`.
 
@@ -152,7 +152,7 @@ it will not fail when your *pull request* is tested on *Travis-CI*.
 ##### Undoing the stack project
 
 If you need to make a *commit*, you can remove the *stack project* and
-change the exercise back to it's previous form:
+change the exercise back to its previous form:
 
 ```bash
 $ stackalize --undo exercises/leap
@@ -165,7 +165,7 @@ to preserve the cache in case you decide to test it with *stack* again.
 
 Each exercise in the Haskell track is composed of at least two files:
 
-- *name_test.hs*    # Both filenames must be all lowecase and any deviations
+- *name_test.hs*    # Both filenames must be all lowercase and any deviations
 - *example.hs*      # will generate failures in the future.
 
 Optionally, a third file with a stub can also be provided:
