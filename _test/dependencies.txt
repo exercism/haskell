@@ -1,5 +1,7 @@
 accumulate/example.hs: base
 accumulate/accumulate_test.hs: base HUnit
+all-your-base/example.hs: base
+all-your-base/all-your-base_test.hs: base HUnit
 allergies/example.hs: base
 allergies/allergies_test.hs: base HUnit
 anagram/example.hs: base
