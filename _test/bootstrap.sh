@@ -1,6 +1,5 @@
 #!/bin/bash
 # This installs a the prerequisites for a given GHC/Cabal config
-set -x
 set -e
 if [ ! -z "$GHCVER" ]; then
     export PATH=/opt/ghc/${GHCVER}/bin:$PATH
@@ -18,5 +17,11 @@ not_installed=$(comm -23 <(echo "$deps") <(echo "$already_installed"))
 
 if [ -n "$not_installed" ]; then
   cabal update
+
+  echo "$(echo "$not_installed" | wc -l) packages to be installed:"
+  echo "$not_installed"
+
   echo "$not_installed" | xargs cabal install
+else
+  echo "all packages installed already"
 fi
