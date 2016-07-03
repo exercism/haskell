@@ -1,50 +1,111 @@
 # The Travis docs (https://docs.travis-ci.com/user/languages/haskell)
 # suggest that we use `language: haskell` and `ghc:` to specify GHC versions.
 # However, as of this writing, Travis only supported versions up to 7.8.
+# In addition, `language: haskell` doesn't support using Stack, which we use.
 # If Travis supports all versions we would like to test, then we could switch.
-# Until then, we use the https://github.com/hvr/multi-ghc-travis setup.
+# Until then, we use a hybrid of the https://github.com/hvr/multi-ghc-travis and
+# https://www.fpcomplete.com/blog/2016/02/updated-haskell-travis-config setups.
 language: c
-sudo: false
-addons:
-  apt: &apt
-    sources:
-      - hvr-ghc
-cabal: &cabal cabal-install-1.22
-env:
-  global:
-    - CABALVER=1.22
-matrix:
-  include:
-    - env: GHCVER=7.6.3
-      addons:
-        apt:
-          <<: *apt
-          packages: [ghc-7.6.3, *cabal]
-    - env: GHCVER=7.8.4
-      addons:
-        apt:
-          <<: *apt
-          packages: [ghc-7.8.4, *cabal]
-    - env: GHCVER=7.10.3
-      addons:
-        apt:
-          <<: *apt
-          packages: [ghc-7.10.3, *cabal]
-    - env: GHCVER=8.0.1
-      addons:
-        apt:
-          <<: *apt
-          packages: [ghc-8.0.1, *cabal]
+sudo: false                      # Use the container-based infrastructure.
+
 cache:
   directories:
-    - '$HOME/.ghc'
-    - '$HOME/.cabal'
+    - $HOME/.ghc                 # For BUILD=cabal
+    - $HOME/.cabal               # For BUILD=cabal
+    - $HOME/.stack               # Global stack's cache.
+    - $HOME/.foldercache         # Per exercise `.stack-work` cache.
+
+matrix:
+  include:
+    # These are builds using cabal-install to install packages.
+    # The primary motivation is GHC 7.6 support (Stack does not support 7.6).
+    # We would like to keep support of 7.6 since various Linux distros still use it:
+    # - Debian stable (jessie)
+    # - Ubuntu 14.04 LTS (trusty)
+    # - Fedora 20 and 21.
+    # 7.6 is the minimum version we can test since our test runner uses mkdtemp from System.Posix.Temp.
+    # This was only added in unix 2.6.0.0, which ships with GHC 7.6.x.
+    - env: BUILD=cabal CABALVER=1.16 GHCVER=7.6.3
+      addons: {apt: {packages: [cabal-install-1.16, ghc-7.6.3], sources: [hvr-ghc]}}
+    - env: BUILD=cabal CABALVER=1.18 GHCVER=7.8.4
+      addons: {apt: {packages: [cabal-install-1.18, ghc-7.8.4], sources: [hvr-ghc]}}
+    - env: BUILD=cabal CABALVER=1.22 GHCVER=7.10.3
+      addons: {apt: {packages: [cabal-install-1.22, ghc-7.10.3], sources: [hvr-ghc]}}
+    - env: BUILD=cabal CABALVER=1.24 GHCVER=8.0.1
+      addons: {apt: {packages: [cabal-install-1.24, ghc-8.0.1], sources: [hvr-ghc]}}
+
+
+    # These are builds using Stack to install packages.
+    # The advantages:
+    # - reproducible builds
+    # - verification of per-exercise dependencies.
+    - env: BUILD=stack RESOLVER=lts-2.22 # Last GHC 7.8.x snapshot.
+      addons: &stack-addons
+        apt:
+          packages:
+            - libgmp-dev # Stack's GHC depends on this.
+    - env: BUILD=stack RESOLVER=lts-6.4 # Last checked LTS snapshot (GHC 7.10.3).
+      addons:
+        <<: *stack-addons
+    - env: BUILD=stack RESOLVER=nightly-2016-06-21 # Last checked nightly snapshot (GHC 8.0.1).
+      addons:
+        <<: *stack-addons
+    - env: BUILD=stack RESOLVER=lts # Latest LTS snapshot.
+      addons:
+        <<: *stack-addons
+    - env: BUILD=stack RESOLVER=nightly # Latest nightly snapshot.
+      addons:
+        <<: *stack-addons
+  allow_failures:                       # The snapshots `lts` and `nightly` are
+    - env: BUILD=stack RESOLVER=lts     # aliases to the most recent versions.
+    - env: BUILD=stack RESOLVER=nightly # We don't want to fail when a new version
+  fast_finish: true                     # is released, so we list them here.
+
 before_install:
-  - './_test/bootstrap.sh'
+  - export PATH="${TRAVIS_BUILD_DIR}/bin:$PATH"       # For {,fetch-}configlet.
+  - |
+    case "$BUILD" in
+      stack)
+        mkdir -p ${HOME}/bin                          # Create folder for stack.
+        export PATH="${HOME}/bin:$PATH"               # For stack
+        export PATH="${TRAVIS_BUILD_DIR}/_test:$PATH" # For stackalize.
+        ;;
+      cabal)
+        export PATH=/opt/cabal/$CABALVER/bin:/opt/ghc/$GHCVER/bin:$PATH
+        ./_test/bootstrap.sh
+        ;;
+    esac
+
 install:
-  - true
+  - travis_retry fetch-configlet
+  - |
+    set -e
+    if [ "$BUILD" = "stack" ]; then
+      travis_retry curl -L https://www.stackage.org/stack/linux-x86_64 -o pack.tgz
+      tar xzf pack.tgz --wildcards --strip-components=1 -C ${HOME}/bin '*/stack'
+    fi
+
 script:
-  - 'export PATH=/opt/cabal/$CABALVER/bin:/opt/ghc/$GHCVER/bin:$PATH'
-  - 'runhaskell -Wall ./_test/check-exercises.hs'
-  - './bin/fetch-configlet'
-  - './bin/configlet .'
+  - |
+    set -e
+    configlet .
+    case "$BUILD" in
+      stack)
+        for exercise in ${TRAVIS_BUILD_DIR}/exercises/* ; do
+            pushd ${exercise}
+            # `stack --word-dir` fails if not targeting a subdirectory, so we just
+            # symbolic-link `.stack-work` to a subfolder in the cache directory.
+            mkdir -p "${HOME}/.foldercache/${exercise}/.stack-work"
+            ln -f -s "${HOME}/.foldercache/${exercise}/.stack-work"
+            stackalize --resolver lts-0.0       `# This resolver is not used.   `
+            stack test --resolver "${RESOLVER}" `# Select the correct resolver. `\
+                       --install-ghc            `# Download GHC if not in cache.`\
+                       --no-terminal            `# Terminal detection is broken.`\
+                       --pedantic               `# Enable -Wall and -Werror.    `
+            popd
+        done
+        ;;
+      cabal)
+        runhaskell -Wall ./_test/check-exercises.hs
+        ;;
+    esac
