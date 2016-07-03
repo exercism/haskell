@@ -1,6 +1,5 @@
 #!/bin/bash
 # This installs a the prerequisites for a given GHC/Cabal config
-set -x
 set -e
 if [ ! -z "$GHCVER" ]; then
     export PATH=/opt/ghc/${GHCVER}/bin:$PATH
@@ -8,20 +7,21 @@ fi
 if [ ! -z "$CABALVER" ]; then
     export PATH=/opt/cabal/${CABALVER}/bin:$PATH
 fi
-cabal update
-# This is a fairly minimal set
-cabal install \
-      primitive \
-      random \
-      tf-random \
-      HUnit \
-      QuickCheck \
-      split \
-      text \
-      bytestring \
-      attoparsec \
-      vector \
-      parallel \
-      stm \
-      old-locale \
-      lens
+
+# What directory is this script in?
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+deps=$($DIR/dependencies $(ls $DIR/../exercises))
+already_installed=$(ghc-pkg list --names-only --simple-output | tr " " "\n" | sort)
+not_installed=$(comm -23 <(echo "$deps") <(echo "$already_installed"))
+
+if [ -n "$not_installed" ]; then
+  cabal update
+
+  echo "$(echo "$not_installed" | wc -l) packages to be installed:"
+  echo "$not_installed"
+
+  echo "$not_installed" | xargs cabal install
+else
+  echo "all packages installed already"
+fi
