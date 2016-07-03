@@ -8,20 +8,20 @@ fi
 if [ ! -z "$CABALVER" ]; then
     export PATH=/opt/cabal/${CABALVER}/bin:$PATH
 fi
+
+# What directory is this script in?
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+deps=$(
+  cut -d: -f2 "$DIR/dependencies.txt" |
+  xargs echo |
+  tr " " "\n" |
+  sort |
+  uniq |
+  # Exclude packages included in GHC
+  grep -v 'base\|array\|containers\|time'
+)
+
 cabal update
-# This is a fairly minimal set
-cabal install \
-      primitive \
-      random \
-      tf-random \
-      HUnit \
-      QuickCheck \
-      split \
-      text \
-      bytestring \
-      attoparsec \
-      vector \
-      parallel \
-      stm \
-      old-locale \
-      lens
+
+echo "$deps" | xargs cabal install
