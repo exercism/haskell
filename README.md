@@ -14,7 +14,7 @@ There are currently two distinct ways to set up an environment to collaborate
 on the development of the Haskell track:
 
 - Using a global GHC installation.
-- Using *Stack*.
+- Using *Stack*. **(experimental)**
 
 The first method is more convenient when you just want to write code without
 caring too much about which packages are being used. The second one is better
@@ -96,10 +96,15 @@ Cases: 8  Tried: 8  Errors: 0  Failures: 0
 SUCCESS!
 ```
 
-#### Using Stack
+#### Using Stack (experimental)
 
-If you have stack installed, you can use it to handle all the dependencies
-for you. But first, you need to transform the exercises into *stack projects*.
+*This is an experimental method tested only on GNU/Linux. It depends
+on having __bash__ and __GNU getopt__ installed on your system.*
+
+*Please let us know if you find anything wrong with it.*
+
+You can use stack to handle all the dependencies for you. But first, you
+need to transform the exercises into *stack projects*.
 
 ##### Creating a project for an exercise
 
@@ -113,9 +118,9 @@ $ _test/stackalize --resolver lts-6.4 exercises/leap
 This will transform the exercise *leap* in a *stack project* using the
 resolver *lts-6.4*. Change it for your favourite [Stackage snapshot](https://www.stackage.org/snapshots).
 
-*You can make your life easier by adding _test to your PATH.*
-That way you can simply call `stackalize` from anywhere instead of having
-to provide a full path to `_test/stackalize`.
+*You can make your life easier by adding `\_test` to your PATH.*
+*That way you can simply call `stackalize` from anywhere without having
+to provide a path to it.*
 
 ##### Testing with default settings
 
