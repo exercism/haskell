@@ -71,6 +71,7 @@ before_install:
         export PATH="${TRAVIS_BUILD_DIR}/_test:$PATH" # For stackalize.
         ;;
       cabal)
+        export PATH=/opt/cabal/$CABALVER/bin:/opt/ghc/$GHCVER/bin:$PATH
         ./_test/bootstrap.sh
         ;;
     esac
@@ -105,7 +106,6 @@ script:
         done
         ;;
       cabal)
-        export PATH=/opt/cabal/$CABALVER/bin:/opt/ghc/$GHCVER/bin:$PATH
         runhaskell -Wall ./_test/check-exercises.hs
         ;;
     esac

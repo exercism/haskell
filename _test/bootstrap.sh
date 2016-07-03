@@ -1,12 +1,6 @@
 #!/bin/bash
 # This installs a the prerequisites for a given GHC/Cabal config
 set -e
-if [ ! -z "$GHCVER" ]; then
-    export PATH=/opt/ghc/${GHCVER}/bin:$PATH
-fi
-if [ ! -z "$CABALVER" ]; then
-    export PATH=/opt/cabal/${CABALVER}/bin:$PATH
-fi
 
 # What directory is this script in?
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
