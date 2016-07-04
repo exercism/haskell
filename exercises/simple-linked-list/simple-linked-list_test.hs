@@ -18,9 +18,12 @@ listTests :: [Test]
 listTests =
   [ testCase "constructor" $ do
     True @=? L.isNil L.nil
+    False @=? L.isNil one
     1 @=? L.datum one
     True @=? L.isNil (L.next one)
+    False @=? L.isNil two
     2 @=? L.datum two
+    False @=? L.isNil (L.next two)
     1 @=? L.datum (L.next two)
     True @=? L.isNil (L.next $ L.next two)
   , testCase "toList" $ do
