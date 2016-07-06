@@ -4,8 +4,6 @@ bin/configlet.exe
 
 # exercism/xhaskell specific patterns
 *.cabal
-package.yaml
-stack.yaml
 
 # sorted default .gitignore from github/gitignore/Haskell.gitignore
 *.aux
