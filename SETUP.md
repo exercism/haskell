@@ -1,10 +1,27 @@
-Check out [Exercism
-Help](http://exercism.io/languages/haskell) for
-instructions to get started writing Haskell.
 
-## Running Tests
+## Getting Started
 
-Use `runhaskell` (included in the Haskell Platform) to compile and run your
-Haskell code.
+For installation and learning resources, refer to the
+[exercism help page](http://exercism.io/languages/haskell).
 
-    $ runhaskell -Wall bob_test.hs
+## Running the tests
+
+To run the test suite, execute the following command:
+
+```bash
+stack runghc exercise-name_test.hs
+```
+
+Or, for the latter, exercises:
+
+```bash
+stack test
+```
+
+## Running *GHCi*
+
+If you want to play with your solution in GHCi, just run the command:
+
+```bash
+stack ghci
+```
