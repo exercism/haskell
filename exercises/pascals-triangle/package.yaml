@@ -1,10 +1,10 @@
-name: pov
+name: pascals-triangle
 
 dependencies:
   - base
 
 library:
-  exposed-modules: POV
+  exposed-modules: Triangle
   source-dirs: src
   dependencies:
   # - foo       # Here you must list additional packages
@@ -15,5 +15,5 @@ tests:
     main: Tests.hs
     source-dirs: test
     dependencies:
-      - pov
+      - pascals-triangle
       - HUnit

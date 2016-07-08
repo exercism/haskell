@@ -1,10 +1,10 @@
-name: pov
+name: zipper
 
 dependencies:
   - base
 
 library:
-  exposed-modules: POV
+  exposed-modules: Zipper
   source-dirs: src
   dependencies:
   # - foo       # Here you must list additional packages
@@ -15,5 +15,5 @@ tests:
     main: Tests.hs
     source-dirs: test
     dependencies:
-      - pov
+      - zipper
       - HUnit
