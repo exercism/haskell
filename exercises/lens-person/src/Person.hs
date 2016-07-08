@@ -36,10 +36,14 @@ data Gregorian = Gregorian {
 -- Implement these.
 
 bornStreet :: Born -> String
+bornStreet = undefined
 
 setCurrentStreet :: String -> Person -> Person
+setCurrentStreet = undefined
 
 setBirthMonth :: Int -> Person -> Person
+setBirthMonth = undefined
 
 -- | Transform both birth and current street names.
 renameStreets :: (String -> String) -> Person -> Person
+renameStreets = undefined
