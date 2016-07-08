@@ -7,8 +7,8 @@ library:
   exposed-modules: POV
   source-dirs: src
   dependencies:
-#   - foo # Here you must list additional packages
-#   - bar # that you want to use in you solution.
+  # - foo       # Here you must list additional packages
+  # - bar       # you want to use in you solution.
 
 tests:
   test:
