@@ -1,12 +1,14 @@
-name: pov
+name: forth
 
 dependencies:
   - base
+  - text
 
 library:
-  exposed-modules: POV
+  exposed-modules: Forth
   source-dirs: src
   dependencies:
+    - containers
   # - foo       # Here you must list additional packages
   # - bar       # you want to use in your solution.
 
@@ -15,5 +17,5 @@ tests:
     main: Tests.hs
     source-dirs: test
     dependencies:
-      - pov
+      - forth
       - HUnit

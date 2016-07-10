@@ -1,10 +1,10 @@
-name: pov
+name: palindrome-products
 
 dependencies:
   - base
 
 library:
-  exposed-modules: POV
+  exposed-modules: Palindromes
   source-dirs: src
   dependencies:
   # - foo       # Here you must list additional packages
@@ -15,5 +15,6 @@ tests:
     main: Tests.hs
     source-dirs: test
     dependencies:
-      - pov
+      - palindrome-products
+      - containers
       - HUnit

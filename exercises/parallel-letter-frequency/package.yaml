@@ -1,12 +1,15 @@
-name: pov
+name: parallel-letter-frequency
 
 dependencies:
   - base
+  - containers
+  - text
 
 library:
-  exposed-modules: POV
+  exposed-modules: Frequency
   source-dirs: src
   dependencies:
+    - parallel
   # - foo       # Here you must list additional packages
   # - bar       # you want to use in your solution.
 
@@ -15,5 +18,5 @@ tests:
     main: Tests.hs
     source-dirs: test
     dependencies:
-      - pov
+      - parallel-letter-frequency
       - HUnit
