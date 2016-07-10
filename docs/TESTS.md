@@ -1,28 +1,114 @@
 
-```bash
-$ runhaskell -Wall bob_test.hs
+## Running Tests
+
+###### If the exercise's folder looks like this...
+
+```
+./README.md
+./exercise-name_test.hs
 ```
 
-## Making Your First Haskell Module
+Execute the following command to run the tests:
 
-To create a module that can be loaded with `import Bob (responseFor)`, put this code in `Bob.hs`:
+```bash
+stack runghc exercise-name_test.hs
+```
+
+###### Otherwise, it will be like this...
+
+```
+./README.md
+./stack.yaml
+./package.yaml
+./src/ModuleName.hs
+./test/Test.hs
+```
+
+In which case you should type:
+
+```bash
+stack test
+```
+
+## Solving the exercise
+
+A solution to an exercise is a Haskell module. The module's name is defined
+in an *import statement* in the test suite, usually at the beginning:
 
 ```haskell
-module Bob (responseFor) where
+import Control.Monad (unless)
+import System.Exit   (exitFailure)
 
-responseFor :: String -> String
-responseFor = undefined
+import Test.HUnit
+
+import ModuleName (someFunc)
+
+main :: IO ()
+main ...
 ```
 
-## (Optional) HLint
+In this example, the test file imports, in line 6, a module named
+`ModuleName`, that exports a function named `someFunc`. This means you have
+to create a file named `ModuleName.hs` that would be something like this:
 
-HLint is a tool for suggesting possible improvements to Haskell code. These suggestions include ideas such as using alternative functions, simplifying code and spotting redundancies.
+```haskell
+module ModuleName (someFunc) where
 
-Installing HLint is easy:
+someFunc :: ...
+someFunc ...
+```
+
+If the exercise provides it, you'll a find a file with this name already
+in place - in the same folder or in `src/` - which you can use as a starting
+point for your solution.
+
+Just keep in mind that this *stub*, if available, is there just for you
+to get started. Feel free to change it completely if you think it is the
+right thing to do.
+
+#### Using additional packages
+
+If you want to use additional packages to write a more elegant solution,
+you'll need to install the packages or list them in `package.yaml`, depending
+on the type of exercise you are solving.
+
+###### Exercises without a *package.yaml* file
+
+This will install packages `foo` and `bar` to your *implicit global project*:
 
 ```bash
-$ cabal update
-$ cabal install hlint
+stack install foo bar
 ```
 
-Cabal will place the executable in `~/.cabal/bin` on Linux, `%APPDATA%\cabal\bin` on Windows, or `~/Library/Haskell/bin` on OS X.  Once that directory is in your path, run `hlint Bob.hs` to get suggestions for your solution before you submit it.
+###### Exercises with a *package.yaml* file
+
+Just add the packages to your solution's dependencies in `package.yaml`:
+
+```yaml
+library:
+  exposed-modules: ModuleName
+  source-dirs: src
+  dependencies:
+    - foo
+    - bar
+```
+
+#### Running *GHCi*
+
+If you want to play with your solution in GHCi, just run the command:
+
+```bash
+stack ghci
+```
+
+## HLint (optional)
+
+It's highly recommended that you run `hlint` on your solution to see if it
+catches something you are missing:
+
+```bash
+hlint ModuleName.hs
+```
+
+You don't have to accept all the suggestions given by `hlint`, but usually
+they will help you learn how to write beautiful, idiomatic Haskell code.

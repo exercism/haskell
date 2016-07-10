@@ -6,187 +6,65 @@ Exercism exercises in Haskell
 
 ## Contributing Guide
 
-Please see the [contributing guide](https://github.com/exercism/x-api/blob/master/CONTRIBUTING.md#the-exercise-data)
+Please see the [contributing guide](https://github.com/exercism/x-api/blob/master/CONTRIBUTING.md)
 
 ### Development Dependencies
 
-There are currently two distinct ways to set up an environment to collaborate
-on the development of the Haskell track:
-
-- Using a global GHC installation.
-- Using *Stack*. **(experimental)**
-
-The first method is more convenient when you just want to write code without
-caring too much about which packages are being used. The second one is better
-to track exercises' dependencies and test them against multiple GHC versions.
-
-#### Using a global GHC installation
-
-If you have a recent Haskell Platform installed, probably most of the packages
-you need are already installed for you. Otherwise, you can manually install
-the missing ones.
-
-The following is the list of all packages used in this repository, just don't
-trust this list to be updated.
-
-These packages come installed with GHC:
-
-- array
-- base
-- containers
-- filepath
-- directory
-- process
-- time
-- unix
-
-These are already installed in recent version of the Haskell Platform:
-
-- attoparsec
-- HUnit
-- text
-- parallel
-- QuickCheck
-- random
-- split
-- stm
-- vector
-
-These you will have to add to your installation:
-
-- lens
-- old-locale
-
-##### Installing missing packages
+You should have [Stack](http://docs.haskellstack.org/) installed in your
+system to make contributing to this repository easier. Also, until we finish
+migration of all exercises to stack projects
+[#185](https://github.com/exercism/xhaskell/issues/185), you'll need some
+additional packages installed in your *implicit global project*:
 
 ```bash
-$ cabal install lens
+stack setup
+stack install attoparsec HUnit lens old-locale parallel QuickCheck random split stm text vector
 ```
 
-This will download and installed the package named *lens*.
+### Exercises
 
+Currently, we have two types of exercises in this track:
 
-##### Running tests
+###### Stack projects
 
-All the tests:
+We are migrating all the exercises to this new format:
+
+- `stack.yaml` has just one line specifying the current
+[Stack snapshot](https://www.stackage.org/snapshots). We use the same
+resolver for all the exercises.
+- `package.yaml` is a file in the [hpack](https://github.com/sol/hpack#readme)
+format that has all dependencies and build instructions for an exercise.
+- `src/Example.hs` is a sample solution passing the tests.
+- `src/ModuleName.hs` is a *stub solution*.
+- `test/Test.hs` is the test suite.
+
+###### Legacy exercises
+
+Legacy exercises have two or three files and no directories:
+
+- `exercise-name_test.hs` is the tests suite.
+- `example.hs` is a sample solution passing the tests.
+- `ModuleName.hs` is an optional *stub solution*.
+
+### Running Tests
+
+###### Exercises that are stack projects
+
+Rename the file `src/Example.hs` to match the module name and run:
 
 ```bash
-$ ./_test/check-exercises.hs
--- accumulate
-Cases: 5  Tried: 5  Errors: 0  Failures: 0
-[…]
--- wordy
-Cases: 16  Tried: 16  Errors: 0  Failures: 0
--- zipper
-Cases: 8  Tried: 8  Errors: 0  Failures: 0
-SUCCESS!
+stack test --pedantic
 ```
 
-Test only specific exercises:
+If the stub solution is still in the `/src` folder, build will probably fail.
+
+###### Legacy exercises
+
+Rename the file `example.hs` to match the module name and run:
 
 ```bash
-$ ./_test/check-exercises.hs triangle trinary
--- triangle
-Cases: 8  Tried: 8  Errors: 0  Failures: 0
--- trinary
-+++ OK, passed 100 tests.
-+++ OK, passed 100 tests.
-+++ OK, passed 100 tests.
-+++ OK, passed 100 tests.
-SUCCESS!
+stack runghc exercise-name_test.hs
 ```
-
-#### Using Stack (experimental)
-
-*This is an experimental method tested only on GNU/Linux. It depends
-on having __bash__ and __GNU getopt__ installed on your system.*
-
-*Please let us know if you find anything wrong with it.*
-
-You can use stack to handle all the dependencies for you. But first, you
-need to transform the exercises into *stack projects*.
-
-##### Creating a project for an exercise
-
-The `_test/stackalize` bash script will extract the exercise's dependencies
-from `_test/dependencies.txt` and create a *stack project* for you:
-
-```bash
-$ _test/stackalize --resolver lts-6.4 exercises/leap
-```
-
-This will transform the exercise *leap* in a *stack project* using the
-resolver *lts-6.4*. Change it for your favourite [Stackage snapshot](https://www.stackage.org/snapshots).
-
-*You can make your life easier by adding `\_test` to your PATH.*
-*That way you can simply call `stackalize` from anywhere without having
-to provide a path to it.*
-
-##### Testing with default settings
-
-To download, install the compiler and packages needed, compile and test an
-exercise, run the following commands:
-
-```bash
-$ cd exercises/leap
-$ stack test
-```
-
-##### Testing with advanced options
-
-Testing if it compiles without warnings and pass the tests:
-
-```bash
-$ stack clean
-$ stack test --pedantic
-```
-
-Testing with a specific resolver:
-
-```bash
-$ stack test --resolver lts-2.22           # GHC-7.8.4
-$ stack test --resolver lts-6.4            # GHC-7.10.3
-$ stack test --resolver nightly-2016-06-21 # GHC-8.0.1
-$ stack test --resolver nightly            # Newest compiler and packages.
-```
-
-If you are making major changes to an exercise, it's recommended that
-you test it against those three versions of GHC with `--pedantic`, to be sure
-it will not fail when your *pull request* is tested on *Travis-CI*.
-
-##### Undoing the stack project
-
-If you need to make a *commit*, you can remove the *stack project* and
-change the exercise back to its previous form:
-
-```bash
-$ stackalize --undo exercises/leap
-```
-
-This command will intentionally leave the *.stack-work* folder intact,
-to preserve the cache in case you decide to test it with *stack* again.
-
-#### The Exercises
-
-Each exercise in the Haskell track is composed of at least two files:
-
-- *name_test.hs*    # Both filenames must be all lowercase and any deviations
-- *example.hs*      # will generate failures in the future.
-
-Optionally, a third file with a stub can also be provided:
-
-- *ModuleName.hs*   # This file must be named exactly as the module.
-
-#### Tracking dependencies
-
-We also keep track of all the packages used by the examples and test files in
-*_test/dependencies.txt*. If you are implementing a new exercise or changing
-the dependencies of a existing one, please don't forget to update it.
-
-At the moment, we may not detect incorrectly specified dependencies in your
-*pull requests* automatically. But soon we expect *Travis-CI* be able to
-catch it, so please declare in *dependencies.txt* all the packages used by
-the examples and tests.
 
 ## License
 
