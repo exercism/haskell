@@ -6,7 +6,6 @@
   "problems": [
     "leap",
     "accumulate",
-    "rna-transcription",
     "sublist",
     "grains",
     "gigasecond",
@@ -14,6 +13,7 @@
     "sum-of-multiples",
     "strain",
     "hamming",
+    "rna-transcription",
     "space-age",
     "anagram",
     "phone-number",
