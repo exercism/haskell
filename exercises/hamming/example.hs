@@ -1,4 +1,6 @@
 module Hamming (distance) where
 
-distance :: String -> String -> Int
-distance a b = sum . map fromEnum $ zipWith (/=) a b
+distance :: Integral a => String -> String -> Maybe a
+distance (x:xs) (y:ys) = fmap (if x /= y then (+1) else id) $ distance xs ys
+distance    []     []  = Just 0
+distance     _      _  = Nothing
