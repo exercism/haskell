@@ -1,0 +1,20 @@
+name: bank-account
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: BankAccount
+  source-dirs: src
+  dependencies:
+    - stm
+  # - foo       # Here you must list additional packages
+  # - bar       # you want to use in you solution.
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - bank-account
+      - HUnit
