@@ -1,31 +1,112 @@
 {-# OPTIONS_GHC -fno-warn-type-defaults #-}
+{-# LANGUAGE RecordWildCards #-}
 
-import Test.HUnit (Assertion, (@=?), runTestTT, Test(..), Counts(..))
-import System.Exit (ExitCode(..), exitWith)
+import Control.Monad (unless)
+import System.Exit   (exitFailure)
+
+import Test.HUnit
+    ( (~:)
+    , (~=?)
+    , Counts (failures, errors)
+    , Test   (TestList)
+    , runTestTT
+    )
+
 import Hamming (distance)
 
-exitProperly :: IO Counts -> IO ()
-exitProperly m = do
-  counts <- m
-  exitWith $ if failures counts /= 0 || errors counts /= 0 then ExitFailure 1 else ExitSuccess
-
-testCase :: String -> Assertion -> Test
-testCase label assertion = TestLabel label (TestCase assertion)
-
 main :: IO ()
-main = exitProperly $ runTestTT $ TestList
-       [ TestList hammingDistanceTests ]
+main = do
+         counts <- runTestTT tests
+         unless (failures counts == 0 && errors counts == 0) exitFailure
 
-hammingDistanceTests :: [Test]
-hammingDistanceTests =
-  [ testCase "no difference between empty strands" $
-    0 @=? distance "" ""
-  , testCase "no difference between identical strands" $
-    0 @=? distance "GGACTGA" "GGACTGA"
-  , testCase "complete hamming distance in small strand" $
-    3 @=? distance "ACT" "GGA"
-  , testCase "small hamming distance in middle somewhere" $
-    1 @=? distance "GGACG" "GGTCG"
-  , testCase "larger distance" $
-    2 @=? distance "ACCAGGG" "ACTATGG"
-  ]
+tests :: Test
+tests = TestList $ map test cases
+  where
+    test (Case {..}) =   description
+                     ~:  fmap fromIntegral (distance strand1 strand2)
+                     ~=? expected
+
+-- Test cases adapted from x-common/hamming.json from 2016-03-13.
+data Case = Case { description :: String
+                 , strand1     :: String
+                 , strand2     :: String
+                 , expected    :: Maybe Integer
+                 }
+
+cases :: [Case]
+cases = [ Case { description = "identical strands"
+               , strand1     = "A"
+               , strand2     = "A"
+               , expected    = Just 0
+               }
+        , Case { description = "long identical strands"
+               , strand1     = "GGACTGA"
+               , strand2     = "GGACTGA"
+               , expected    = Just 0
+               }
+        , Case { description = "complete distance in single nucleotide strands"
+               , strand1     = "A"
+               , strand2     = "G"
+               , expected    = Just 1
+               }
+        , Case { description = "complete distance in small strands"
+               , strand1     = "AG"
+               , strand2     = "CT"
+               , expected    = Just 2
+               }
+        , Case { description = "small distance in small strands"
+               , strand1     = "AT"
+               , strand2     = "CT"
+               , expected    = Just 1
+               }
+        , Case { description = "small distance"
+               , strand1     = "GGACG"
+               , strand2     = "GGTCG"
+               , expected    = Just 1
+               }
+        , Case { description = "small distance in long strands"
+               , strand1     = "ACCAGGG"
+               , strand2     = "ACTATGG"
+               , expected    = Just 2
+               }
+        , Case { description = "non-unique character in first strand"
+               , strand1     = "AGA"
+               , strand2     = "AGG"
+               , expected    = Just 1
+               }
+        , Case { description = "non-unique character in second strand"
+               , strand1     = "AGG"
+               , strand2     = "AGA"
+               , expected    = Just 1
+               }
+        , Case { description = "same nucleotides in different positions"
+               , strand1     = "TAG"
+               , strand2     = "GAT"
+               , expected    = Just 2
+               }
+        , Case { description = "large distance"
+               , strand1     = "GATACA"
+               , strand2     = "GCATAA"
+               , expected    = Just 4
+               }
+        , Case { description = "large distance in off-by-one strand"
+               , strand1     = "GGACGGATTCTG"
+               , strand2     = "AGGACGGATTCT"
+               , expected    = Just 9
+               }
+        , Case { description = "empty strands"
+               , strand1     = ""
+               , strand2     = ""
+               , expected    = Just 0
+               }
+        , Case { description = "disallow first strand longer"
+               , strand1     = "AATG"
+               , strand2     = "AAA"
+               , expected    = Nothing
+               }
+        , Case { description = "disallow second strand longer"
+               , strand1     = "ATA"
+               , strand2     = "AGTG"
+               , expected    = Nothing
+               }
+        ]
