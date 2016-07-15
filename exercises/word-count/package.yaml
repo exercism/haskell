@@ -1,0 +1,21 @@
+name: word-count
+
+dependencies:
+  - base
+  - containers
+
+library:
+  exposed-modules: WordCount
+  source-dirs: src
+  dependencies:
+    - split
+  # - foo       # Here you must list additional packages
+  # - bar       # you want to use in you solution.
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - word-count
+      - HUnit

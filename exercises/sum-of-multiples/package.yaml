@@ -1,0 +1,19 @@
+name: sum-of-multiples
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: SumOfMultiples
+  source-dirs: src
+  dependencies:
+  # - foo       # Here you must list additional packages
+  # - bar       # you want to use in you solution.
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - sum-of-multiples
+      - HUnit
