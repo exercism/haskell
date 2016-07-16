@@ -1,0 +1,19 @@
+name: hexadecimal
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: Hexadecimal
+  source-dirs: src
+  dependencies:
+  # - foo       # Here you must list additional packages
+  # - bar       # you want to use in you solution.
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - hexadecimal
+      - HUnit

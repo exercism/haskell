@@ -1,0 +1,20 @@
+name: minesweeper
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: Minesweeper
+  source-dirs: src
+  dependencies:
+    - array
+  # - foo       # Here you must list additional packages
+  # - bar       # you want to use in you solution.
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - minesweeper
+      - HUnit
