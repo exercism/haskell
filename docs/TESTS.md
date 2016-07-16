@@ -1,30 +1,7 @@
 
 ## Running Tests
 
-###### If the exercise's folder looks like this...
-
-```
-./README.md
-./exercise-name_test.hs
-```
-
 Execute the following command to run the tests:
-
-```bash
-stack runghc exercise-name_test.hs
-```
-
-###### Otherwise, it will be like this...
-
-```
-./README.md
-./stack.yaml
-./package.yaml
-./src/ModuleName.hs
-./test/Test.hs
-```
-
-In which case you should type:
 
 ```bash
 stack test
@@ -66,23 +43,10 @@ Just keep in mind that this *stub*, if available, is there just for you
 to get started. Feel free to change it completely if you think it is the
 right thing to do.
 
-#### Using additional packages
+#### Using packages
 
-If you want to use additional packages to write a more elegant solution,
-you'll need to install the packages or list them in `package.yaml`, depending
-on the type of exercise you are solving.
-
-###### Exercises without a *package.yaml* file
-
-This will install packages `foo` and `bar` to your *implicit global project*:
-
-```bash
-stack install foo bar
-```
-
-###### Exercises with a *package.yaml* file
-
-Just add the packages to your solution's dependencies in `package.yaml`:
+If you want to use some packages to write a more elegant solution, just
+add the packages to your solution's dependencies in `package.yaml`:
 
 ```yaml
 library:

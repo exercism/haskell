@@ -11,16 +11,6 @@ stack --version
 
 If it outputs Stack's version, then you have it installed correctly.
 
-## Installing dependencies
-
-You'll also need to install some additional packages in your *implicit
-global project*:
-
-```bash
-stack setup
-stack install attoparsec HUnit lens old-locale parallel QuickCheck random split stm text vector
-```
-
 ## Installing HLint (optional)
 
 HLint is a tool for suggesting possible improvements to Haskell code. These
