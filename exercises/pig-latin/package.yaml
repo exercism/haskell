@@ -7,8 +7,8 @@ library:
   exposed-modules: PigLatin
   source-dirs: src
   dependencies:
-  # - foo       # Here you must list additional packages
-  # - bar       # you want to use in your solution.
+  # - foo       # List here the packages you
+  # - bar       # want to use in your solution.
 
 tests:
   test:

@@ -7,9 +7,9 @@ library:
   exposed-modules: Deque
   source-dirs: src
   dependencies:
+  # - foo       # List here the packages you
+  # - bar       # want to use in your solution.
     - stm
-  # - foo       # Here you must list additional packages
-  # - bar       # you want to use in you solution.
 
 tests:
   test:
