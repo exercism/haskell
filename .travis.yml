@@ -11,17 +11,15 @@ cache:
     - $HOME/.foldercache # Per exercise `.stack-work` cache.
 
 env:
- - RESOLVER="lts-2.22"              # Last GHC 7.8.x snapshot.
- - RESOLVER="lts-6.3" CURRENT="YES" # Current snapshot (GHC 7.10.3).
- - RESOLVER="lts"                   # Latest LTS snapshot.
- - RESOLVER="nightly"               # Latest nightly snapshot.
+ - RESOLVER="nightly-2016-07-17" CURRENT="YES" # Equal to each stack.yaml.
+ - RESOLVER="nightly"                          # Latest nightly snapshot.
+ - RESOLVER="lts-2.22"                         # Last GHC 7.8.x snapshot.
+ - RESOLVER="lts-6.7"                          # Last GHC 7.10.x snapshot.
 
 matrix:
-  allow_failures:              # The snapshots `lts` and `nightly` are aliases
-    - env: RESOLVER="lts"      # to the most recent versions. We list them here
-    - env: RESOLVER="nightly"  # to avoid failure if a new version is released.
-    - env: RESOLVER="lts-2.22" # We don't want to fail on an old snapshot.
-  fast_finish: true
+  allow_failures:             # The snapshot `nightly` is just an aliases to
+    - env: RESOLVER="nightly" # the newest version released. We don't want
+  fast_finish: true           # Travis to fail on new incompatible releases.
 
 before_install:
  - mkdir -p ${HOME}/bin                        # Create folder for stack.
