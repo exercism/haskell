@@ -1,0 +1,19 @@
+name: list-ops
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: ListOps
+  source-dirs: src
+  dependencies:
+  # - foo       # List here the packages you
+  # - bar       # want to use in your solution.
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - list-ops
+      - HUnit

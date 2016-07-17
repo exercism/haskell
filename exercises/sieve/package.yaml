@@ -7,9 +7,9 @@ library:
   exposed-modules: Sieve
   source-dirs: src
   dependencies:
+  # - foo       # List here the packages you
+  # - bar       # want to use in your solution.
     - vector
-  # - foo       # Here you must list additional packages
-  # - bar       # you want to use in your solution.
 
 tests:
   test:

@@ -1,0 +1,20 @@
+name: etl
+
+dependencies:
+  - base
+  - containers
+
+library:
+  exposed-modules: ETL
+  source-dirs: src
+  dependencies:
+  # - foo       # List here the packages you
+  # - bar       # want to use in your solution.
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - etl
+      - HUnit
