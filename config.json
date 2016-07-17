@@ -80,7 +80,6 @@
 
   ],
   "ignored": [
-    "_test",
     "docs",
     "img"
   ],

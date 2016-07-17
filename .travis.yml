@@ -1,33 +1,32 @@
-sudo: false                      # Use the container-based infrastructure.
+sudo: false              # Use the container-based infrastructure.
 
 addons:
   apt:
     packages:
-      - libgmp-dev               # Stack's GHC depends on this.
+      - libgmp-dev       # Stack's GHC depends on this.
 
 cache:
   directories:
-    - $HOME/.stack               # Global stack's cache.
-    - $HOME/.foldercache         # Per exercise `.stack-work` cache.
+    - $HOME/.stack       # Global stack's cache.
+    - $HOME/.foldercache # Per exercise `.stack-work` cache.
 
 env:
- - RESOLVER="lts-2.22"           # Last GHC 7.8.x snapshot.
- - RESOLVER="lts-6.4"            # Last checked LTS snapshot (GHC 7.10.3).
- - RESOLVER="nightly-2016-06-21" # Last checked nightly snapshot (GHC 8.0.1).
- - RESOLVER="lts"                # Latest LTS snapshot.
- - RESOLVER="nightly"            # Latest nightly snapshot.
+ - RESOLVER="lts-2.22"              # Last GHC 7.8.x snapshot.
+ - RESOLVER="lts-6.3" CURRENT="YES" # Current snapshot (GHC 7.10.3).
+ - RESOLVER="lts"                   # Latest LTS snapshot.
+ - RESOLVER="nightly"               # Latest nightly snapshot.
 
 matrix:
-  allow_failures:                # The snapshots `lts` and `nightly` are
-    - env: RESOLVER="lts"        # aliases to the most recent versions.
-    - env: RESOLVER="nightly"    # We don't want to fail when a new version
-  fast_finish: true              # is released, so we list them here.
+  allow_failures:              # The snapshots `lts` and `nightly` are aliases
+    - env: RESOLVER="lts"      # to the most recent versions. We list them here
+    - env: RESOLVER="nightly"  # to avoid failure if a new version is released.
+    - env: RESOLVER="lts-2.22" # We don't want to fail on an old snapshot.
+  fast_finish: true
 
 before_install:
- - mkdir -p ${HOME}/bin                          # Create folder for stack.
- - export PATH="${HOME}/bin:$PATH"               # For stack
- - export PATH="${TRAVIS_BUILD_DIR}/bin:$PATH"   # For {,fetch-}configlet.
- - export PATH="${TRAVIS_BUILD_DIR}/_test:$PATH" # For stackalize.
+ - mkdir -p ${HOME}/bin                        # Create folder for stack.
+ - export PATH="${HOME}/bin:$PATH"             # For stack
+ - export PATH="${TRAVIS_BUILD_DIR}/bin:$PATH" # For {,fetch-}configlet.
 
 install:
  - travis_retry fetch-configlet
@@ -38,24 +37,27 @@ script:
  - |
     set -e
     configlet .
+
+    # Explicit set the resolver only if it's not the current one.
+    if [ "${CURRENT}" != "YES" ]; then
+        SET_RESOLVER="--resolver ${RESOLVER}"
+    fi
+
     for exercise in ${TRAVIS_BUILD_DIR}/exercises/* ; do
         pushd ${exercise}
-        # `stack --word-dir` fails if not targeting a subdirectory, so we just
+
+        # `stack --work-dir` fails if not targeting a subdirectory, so we just
         # symbolic-link `.stack-work` to a subfolder in the cache directory.
         mkdir -p "${HOME}/.foldercache/${exercise}/.stack-work"
         ln -f -s "${HOME}/.foldercache/${exercise}/.stack-work"
 
         # Here we prepare the exercise to be tested by Stack.
-        if [ -e "stack.yaml" ] ; then     # If it's a stack project...
-            moduleName=`sed -n 's/ *module \+\([a-zA-Z0-9]\+\).*/\1/p' src/Example.hs`
-            mv src/Example.hs "src/${moduleName}.hs"
-        else                              # If it's not a stack project...
-            stackalize --resolver lts-0.0 # This resolver is not used.
-        fi
+        MODULE=`sed -n 's/ *module \+\([a-zA-Z0-9]\+\).*/\1/p' src/Example.hs`
+        mv src/Example.hs "src/${MODULE}.hs"
 
-        stack test --resolver "${RESOLVER}" `# Select the correct resolver. `\
-                   --install-ghc            `# Download GHC if not in cache.`\
-                   --no-terminal            `# Terminal detection is broken.`\
-                   --pedantic               `# Enable -Wall and -Werror.    `
+        stack test ${SET_RESOLVER} `# Select the correct resolver. `\
+                   --install-ghc   `# Download GHC if not in cache.`\
+                   --no-terminal   `# Terminal detection is broken.`\
+                   --pedantic      `# Enable -Wall and -Werror.    `
         popd
     done
