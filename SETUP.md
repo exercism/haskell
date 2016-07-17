@@ -9,12 +9,6 @@ For installation and learning resources, refer to the
 To run the test suite, execute the following command:
 
 ```bash
-stack runghc exercise-name_test.hs
-```
-
-Or, for the latter, exercises:
-
-```bash
 stack test
 ```
 

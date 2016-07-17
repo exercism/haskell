@@ -11,23 +11,11 @@ Please see the [contributing guide](https://github.com/exercism/x-api/blob/maste
 ### Development Dependencies
 
 You should have [Stack](http://docs.haskellstack.org/) installed in your
-system to make contributing to this repository easier. Also, until we finish
-migration of all exercises to stack projects
-[#185](https://github.com/exercism/xhaskell/issues/185), you'll need some
-additional packages installed in your *implicit global project*:
-
-```bash
-stack setup
-stack install attoparsec HUnit lens old-locale parallel QuickCheck random split stm text vector
-```
+system to make contributing to this repository easier.
 
 ### Exercises
 
-Currently, we have two types of exercises in this track:
-
-###### Stack projects
-
-We are migrating all the exercises to this new format:
+All exercises have the following structure:
 
 - `stack.yaml` has just one line specifying the current
 [Stack snapshot](https://www.stackage.org/snapshots). We use the same
@@ -36,19 +24,9 @@ resolver for all the exercises.
 format that has all dependencies and build instructions for an exercise.
 - `src/Example.hs` is a sample solution passing the tests.
 - `src/ModuleName.hs` is a *stub solution*.
-- `test/Test.hs` is the test suite.
-
-###### Legacy exercises
-
-Legacy exercises have two or three files and no directories:
-
-- `exercise-name_test.hs` is the tests suite.
-- `example.hs` is a sample solution passing the tests.
-- `ModuleName.hs` is an optional *stub solution*.
+- `test/Tests.hs` is the test suite.
 
 ### Running Tests
-
-###### Exercises that are stack projects
 
 Rename the file `src/Example.hs` to match the module name and run:
 
@@ -57,14 +35,6 @@ stack test --pedantic
 ```
 
 If the stub solution is still in the `/src` folder, build will probably fail.
-
-###### Legacy exercises
-
-Rename the file `example.hs` to match the module name and run:
-
-```bash
-stack runghc exercise-name_test.hs
-```
 
 ## License
 
