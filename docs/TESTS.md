@@ -7,6 +7,20 @@ Execute the following command to run the tests:
 stack test
 ```
 
+#### If you get an error message like this...
+
+```
+No compiler found, expected minor version match with...
+Try running "stack setup" to install the correct GHC...
+```
+
+Just do as it says and it will download and install
+the correct compiler version:
+
+```bash
+stack setup
+```
+
 ## Solving the exercise
 
 A solution to an exercise is a Haskell module. The module's name is defined
