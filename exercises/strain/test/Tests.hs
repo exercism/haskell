@@ -46,4 +46,10 @@ strainTests =
   , testCase "discard strings" $ do
     let ws = ["apple", "zebra", "banana", "zombies", "cherimoya", "zealot"]
     ["apple", "banana", "cherimoya"] @=? discard (isPrefixOf "z") ws
+  , testCase "keep non-strict" $ do
+    let ws = "yes" : error "keep should be lazier - don't look at list elements you don't need!"
+    ["yes"] @=? take 1 (keep (const True) ws)
+  , testCase "discard non-strict" $ do
+    let ws = "yes" : error "discard should be lazier - don't look at list elements you don't need!"
+    ["yes"] @=? take 1 (discard (const False) ws)
   ]
