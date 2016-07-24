@@ -17,4 +17,4 @@ tests:
     source-dirs: test
     dependencies:
       - rna-transcription
-      - HUnit
+      - hspec
