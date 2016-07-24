@@ -1,46 +1,36 @@
 {-# OPTIONS_GHC -fno-warn-type-defaults #-}
 
-import Test.HUnit (Assertion, (@=?), runTestTT, Test(..), Counts(..))
-import System.Exit (ExitCode(..), exitWith)
+import Data.Foldable     (for_)
+import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+
 import SumOfMultiples (sumOfMultiples)
 
-exitProperly :: IO Counts -> IO ()
-exitProperly m = do
-  counts <- m
-  exitWith $ if failures counts /= 0 || errors counts /= 0 then ExitFailure 1 else ExitSuccess
-
-testCase :: String -> Assertion -> Test
-testCase label assertion = TestLabel label (TestCase assertion)
-
 main :: IO ()
-main = exitProperly $ runTestTT $ TestList
-       [ TestList sumOfMultiplesTests ]
+main = hspecWith defaultConfig {configFastFail = True} specs
 
--- Note that the upper bound is not included in the result
-sumOfMultiplesTests :: [Test]
-sumOfMultiplesTests =
-  [ testCase "1" $
-    0 @=? sumOfMultiples [3, 5] 1
-  , testCase "4" $
-    3 @=? sumOfMultiples [3, 5] 4
-  , testCase "10" $
-    23 @=? sumOfMultiples [3, 5] 10
-  , testCase "1000" $
-    2318 @=? sumOfMultiples [3, 5] 100
-  , testCase "1000" $
-    233168 @=? sumOfMultiples [3, 5] 1000
-  , testCase "[7, 13, 17] 20" $
-    51 @=? sumOfMultiples [7, 13, 17] 20
-  , testCase "[4, 6] 15" $
-    30 @=? sumOfMultiples [4, 6] 15
-  , testCase "[5, 6, 8] 150" $
-    4419 @=? sumOfMultiples [5, 6, 8] 150
-  , testCase "[43, 47] 10000" $
-    275 @=? sumOfMultiples [5,25] 51
-  , testCase "[1] 100" $
-    2203160 @=? sumOfMultiples [43, 47] 10000
-  , testCase "[5, 25] 51" $
-    4950 @=? sumOfMultiples [1] 100
-  , testCase "[] 10000" $
-    0 @=? sumOfMultiples [] 10000
-  ]
+specs :: Spec
+specs = describe "sum-of-multiples" $
+          describe "sumOfMultiples" $ for_ cases test
+  where
+    test (factors, limit, expected) = it description assertion
+      where
+        description = unwords [show factors, show limit]
+        assertion   = fromIntegral expression `shouldBe` expected
+        expression  = sumOfMultiples (map fromIntegral factors) (fromIntegral limit)
+
+-- Test cases adapted from `exercism/x-common/sum-of-multiples.json` on 2016-07-24.
+
+cases :: [([Integer], Integer, Integer)]
+cases = [ ( [    3,  5],     1,       0)
+        , ( [    3,  5],     4,       3)
+        , ( [    3,  5],    10,      23)
+        , ( [    3,  5],   100,    2318)
+        , ( [    3,  5],  1000,  233168)
+        , ( [7, 13, 17],    20,      51)
+        , ( [    4,  6],    15,      30)
+        , ( [5,  6,  8],   150,    4419)
+        , ( [    5, 25],    51,     275)
+        , ( [   43, 47], 10000, 2203160)
+        , ( [        1],   100,    4950)
+        , ( [         ], 10000,       0) ]
