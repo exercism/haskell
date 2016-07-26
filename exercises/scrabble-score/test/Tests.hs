@@ -1,24 +1,78 @@
 {-# OPTIONS_GHC -fno-warn-type-defaults #-}
+{-# LANGUAGE RecordWildCards #-}
 
-import Test.HUnit ((@=?), runTestTT, Test(..), Counts(..))
-import System.Exit (ExitCode(..), exitWith)
+import Data.Foldable     (for_)
+import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+
 import Scrabble (scoreLetter, scoreWord)
 
-exitProperly :: IO Counts -> IO ()
-exitProperly m = do
-  counts <- m
-  exitWith $ if failures counts /= 0 || errors counts /= 0 then ExitFailure 1 else ExitSuccess
-
 main :: IO ()
-main = exitProperly $ runTestTT $ TestList
-       [ TestList scrabbleTests ]
+main = hspecWith defaultConfig {configFastFail = True} specs
 
-scrabbleTests :: [Test]
-scrabbleTests = map TestCase
-  [ 1 @=? scoreLetter 'a'
-  , 1 @=? scoreLetter 'A'
-  , 2 @=? scoreWord "at"
-  , 6 @=? scoreWord "street"
-  , 22 @=? scoreWord "quirky"
-  , 41 @=? scoreWord "OXYPHENBUTAZONE"
-  ]
+specs :: Spec
+specs = describe "scrabble-score" $ do
+          describe "scoreLetter" $ do
+            it "'a'" $ scoreLetter 'a' `shouldBe`  1
+            it "'Z'" $ scoreLetter 'Z' `shouldBe` 10
+            it "'?'" $ scoreLetter '?' `shouldBe`  0
+          describe "scoreWord" $ for_ cases test
+  where
+
+    test Case{..} = it description assertion
+      where
+        assertion = scoreWord input `shouldBe` fromIntegral expected
+
+-- Test cases adapted from `exercism/x-common/scrabble-score.json` on 2016-07-26.
+
+data Case = Case { description :: String
+                 , input       :: String
+                 , expected    :: Integer
+                 }
+
+cases :: [Case]
+cases = [ Case { description = "lowercase letter"
+               , input       = "a"
+               , expected    = 1
+               }
+        , Case { description = "uppercase letter"
+               , input       = "A"
+               , expected    = 1
+               }
+        , Case { description = "valuable letter"
+               , input       = "f"
+               , expected    = 4
+               }
+        , Case { description = "short word"
+               , input       = "at"
+               , expected    = 2
+               }
+        , Case { description = "short, valuable word"
+               , input       = "zoo"
+               , expected    = 12
+               }
+        , Case { description = "medium word"
+               , input       = "street"
+               , expected    = 6
+               }
+        , Case { description = "medium, valuable word"
+               , input       = "quirky"
+               , expected    = 22
+               }
+        , Case { description = "long, mixed-case word"
+               , input       = "OxyphenButazone"
+               , expected    = 41
+               }
+        , Case { description = "english-like word"
+               , input       = "pinata"
+               , expected    = 8
+               }
+        , Case { description = "non-english letter is not scored"
+               , input       = "piñata"
+               , expected    = 7
+               }
+        , Case { description = "empty input"
+               , input       = ""
+               , expected    = 0
+               }
+        ]
