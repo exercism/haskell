@@ -1,40 +1,40 @@
-import Test.HUnit (Assertion, (@=?), runTestTT, Test(..), Counts(..))
+import Data.Char         (toUpper)
+import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+
 import Accumulate (accumulate)
-import System.Exit (ExitCode(..), exitWith)
-import Data.Char (toUpper)
-
-exitProperly :: IO Counts -> IO ()
-exitProperly m = do
-  counts <- m
-  exitWith $ if failures counts /= 0 || errors counts /= 0 then ExitFailure 1 else ExitSuccess
-
-testCase :: String -> Assertion -> Test
-testCase label assertion = TestLabel label (TestCase assertion)
 
 main :: IO ()
-main = exitProperly $ runTestTT $ TestList
-       [ TestList accumulateTests ]
+main = hspecWith defaultConfig {configFastFail = True} specs
 
-square :: Int -> Int
-square x = x * x
+specs :: Spec
+specs = describe "accumulate" $ do
 
-accumulateTests :: [Test]
-accumulateTests =
-  [ testCase "empty accumulation" $
-    [] @=? accumulate square []
-  , testCase "accumulate squares" $
-    [1, 4, 9] @=? accumulate square [1, 2, 3]
-  , testCase "accumulate upcases" $
-    ["HELLO", "WORLD"] @=? accumulate (map toUpper) ["hello", "world"]
-  , testCase "accumulate reversed strings" $
-    ["eht", "kciuq", "nworb", "xof", "cte"] @=?
-    accumulate reverse ["the", "quick", "brown", "fox", "etc"]
-  , testCase "accumulate recursively" $
-    [["a1", "a2", "a3"], ["b1", "b2", "b3"], ["c1", "c2", "c3"]] @=?
-    accumulate (\c -> accumulate ((c:) . show) ([1, 2, 3] :: [Int])) "abc"
-  , testCase "accumulate non-strict" $
-    ["nice work!"] @=?
-    take 1 (accumulate id
-      ("nice work!" :
-       error "accumulate should be even lazier, don't use reverse!"))
-  ]
+    -- As of 2016-07-27, there was no reference file
+    -- for the test cases in `exercism/x-common`.
+
+    let square x = x * x :: Int
+
+    it "empty accumulation" $
+      accumulate square []
+      `shouldBe` []
+
+    it "accumulate squares" $
+      accumulate square [1, 2, 3]
+      `shouldBe` [1, 4, 9]
+
+    it "accumulate upcases" $
+      accumulate (map toUpper) ["hello", "world"]
+      `shouldBe` ["HELLO", "WORLD"]
+
+    it "accumulate reversed strings" $
+      accumulate reverse ["the", "quick", "brown", "fox", "etc"]
+      `shouldBe` ["eht", "kciuq", "nworb", "xof", "cte"]
+
+    it "accumulate recursively" $
+      accumulate (\c -> accumulate ((c:) . show) ([1, 2, 3] :: [Int])) "abc"
+      `shouldBe` [["a1", "a2", "a3"], ["b1", "b2", "b3"], ["c1", "c2", "c3"]]
+
+    it "accumulate non-strict" $
+      take 1 (accumulate id ("nice work!" : error "accumulate should be even lazier, don't use reverse!"))
+      `shouldBe` ["nice work!"]
