@@ -1,34 +1,58 @@
-import Test.HUnit (Assertion, (@=?), runTestTT, Test(..), Counts(..))
-import System.Exit (ExitCode(..), exitWith)
+{-# LANGUAGE RecordWildCards #-}
+
+import Data.Foldable     (for_)
+import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+
 import DNA (toRNA)
 
-exitProperly :: IO Counts -> IO ()
-exitProperly m = do
-  counts <- m
-  exitWith $ if failures counts /= 0 || errors counts /= 0 then ExitFailure 1 else ExitSuccess
-
-testCase :: String -> Assertion -> Test
-testCase label assertion = TestLabel label (TestCase assertion)
-
-toRNATests :: [Test]
-toRNATests =
-  [ testCase "transcribes cytosine to guanine" $
-    Just "G" @=? toRNA "C"
-  , testCase "transcribes guanine to cytosine" $
-    Just "C" @=? toRNA "G"
-  , testCase "transcribes adenine to uracil" $
-    Just "U" @=? toRNA "A"
-  , testCase "transcribes thymine to adenine" $
-    Just "A" @=? toRNA "T"
-  , testCase "transcribes all ACGT to UGCA" $
-    Just "UGCACCAGAAUU" @=? toRNA "ACGTGGTCTTAA"
-  , testCase "transcribes RNA only nucleotide uracil to Nothing" $
-    Nothing @=? toRNA "U"
-  , testCase "transcribes completely invalid DNA to Nothing" $
-    Nothing @=? toRNA "XXX"
-  , testCase "transcribes partially invalid DNA to Nothing" $
-    Nothing @=? toRNA "ACGTXXXCTTAA"
-  ]
-
 main :: IO ()
-main = exitProperly (runTestTT (TestList toRNATests))
+main = hspecWith defaultConfig {configFastFail = True} specs
+
+specs :: Spec
+specs = describe "rna-transcription" $
+          describe "toRNA" $ for_ cases test
+  where
+    test Case{..} = it description $ toRNA dna `shouldBe` expected
+
+-- Test cases adapted from `exercism/x-common/rna-transcription.json` on 2016-07-24.
+
+data Case = Case { description ::       String
+                 , dna         ::       String
+                 , expected    :: Maybe String
+                 }
+
+cases :: [Case]
+cases = [ Case { description = "rna complement of cytosine is guanine"
+               , dna         =      "C"
+               , expected    = Just "G"
+               }
+        , Case { description = "rna complement of guanine is cytosine"
+               , dna         =      "G"
+               , expected    = Just "C"
+               }
+        , Case { description = "rna complement of thymine is adenine"
+               , dna         =      "T"
+               , expected    = Just "A"
+               }
+        , Case { description = "rna complement of adenine is uracil"
+               , dna         =      "A"
+               , expected    = Just "U"
+               }
+        , Case { description = "rna complement"
+               , dna         =      "ACGTGGTCTTAA"
+               , expected    = Just "UGCACCAGAAUU"
+               }
+        , Case { description = "dna correctly handles invalid input"
+               , dna         = "U"
+               , expected    = Nothing
+               }
+        , Case { description = "dna correctly handles completely invalid input"
+               , dna         = "XXX"
+               , expected    = Nothing
+               }
+        , Case { description = "dna correctly handles partially invalid input"
+               , dna         = "ACGTXXXCTTAA"
+               , expected    = Nothing
+               }
+        ]
