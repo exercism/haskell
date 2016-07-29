@@ -1,43 +1,73 @@
-import Test.HUnit (Assertion, (@=?), runTestTT, Test(..), Counts(..))
-import System.Exit (ExitCode(..), exitWith)
-import Data.Map (fromList)
+{-# OPTIONS_GHC -fno-warn-type-defaults #-}
+{-# LANGUAGE RecordWildCards #-}
+
+import Data.Foldable     (for_)
+import Data.Map          (fromList)
+import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+
+-- base >= 4.8 re-exports Control.Applicative.(<$>).
+import Control.Applicative -- This is only need for <$>,  if GHC <  7.10.
+import Prelude             -- This trick avoids a warning if GHC >= 7.10.
+
 import WordCount (wordCount)
 
-exitProperly :: IO Counts -> IO ()
-exitProperly m = do
-  counts <- m
-  exitWith $ if failures counts /= 0 || errors counts /= 0 then ExitFailure 1 else ExitSuccess
-
-testCase :: String -> Assertion -> Test
-testCase label assertion = TestLabel label (TestCase assertion)
-
-wordCountTests :: [Test]
-wordCountTests =
-  [ testCase "count one word" $
-    fromList [("word", 1)] @=? wordCount "word"
-  , testCase "count one of each" $
-    fromList [("one", 1), ("of", 1), ("each", 1)] @=? wordCount "one of each"
-  , testCase "count multiple occurrences" $
-    fromList [("one", 1), ("fish", 4), ("two", 1),
-              ("red", 1), ("blue", 1)] @=?
-    wordCount "one fish two fish red fish blue fish"
-  , testCase "ignore punctuation" $
-    fromList [("car", 1), ("carpet", 1), ("as", 1),
-              ("java", 1), ("javascript", 1)] @=?
-    wordCount "car : carpet as java : javascript!!&@$%^&"
-  , testCase "include numbers" $
-    fromList [("testing", 2), ("1", 1), ("2", 1)] @=?
-    wordCount "testing, 1, 2 testing"
-  , testCase "normalize case" $
-    fromList [("go", 3)] @=? wordCount "go Go GO"
-  , testCase "prefix punctuation" $
-    fromList [("testing", 2), ("1", 1), ("2", 1)] @=?
-    wordCount "!%%#testing, 1, 2 testing"
-  , testCase "symbols are separators" $
-    fromList [("hey", 1), ("my", 1), ("spacebar", 1),
-              ("is", 1), ("broken", 1)] @=?
-    wordCount "hey,my_spacebar_is_broken."
-  ]
-
 main :: IO ()
-main = exitProperly (runTestTT (TestList wordCountTests))
+main = hspecWith defaultConfig {configFastFail = True} specs
+
+specs :: Spec
+specs = describe "word-count" $
+          describe "wordCount" $ for_ cases test
+  where
+
+    test Case{..} = it description $ returnedMap `shouldBe` expectedMap
+      where
+        returnedMap = wordCount input
+        expectedMap = fromIntegral <$> fromList expected
+
+-- Test cases adapted from `exercism/x-common/word-count.json` on 2016-07-26.
+
+data Case = Case { description :: String
+                 , input       :: String
+                 , expected    :: [(String, Integer)]
+                 }
+
+cases :: [Case]
+cases = [ Case { description = "count one word"
+               , input       = "word"
+               , expected    = [ ("word", 1) ]
+               }
+        , Case { description = "count one of each word"
+               , input       = "one of each"
+               , expected    = [ ("one" , 1)
+                               , ("of"  , 1)
+                               , ("each", 1) ]
+               }
+        , Case { description = "multiple occurrences of a word"
+               , input       = "one fish two fish red fish blue fish"
+               , expected    = [ ("one" , 1)
+                               , ("fish", 4)
+                               , ("two" , 1)
+                               , ("red" , 1)
+                               , ("blue", 1) ]
+               }
+        , Case { description = "ignore punctuation"
+               , input       = "car : carpet as java : javascript!!&@$%^&"
+               , expected    = [ ("car"       , 1)
+                               , ("carpet"    , 1)
+                               , ("as"        , 1)
+                               , ("java"      , 1)
+                               , ("javascript", 1) ]
+               }
+        , Case { description = "include numbers"
+               , input       = "testing, 1, 2 testing"
+               , expected    = [ ("testing", 2)
+                               , ("1"      , 1)
+                               , ("2"      , 1) ]
+               }
+        , Case { description = "normalize case"
+               , input       = "go Go GO Stop stop"
+               , expected    = [ ("go"  , 3)
+                               , ("stop", 2) ]
+               }
+        ]
