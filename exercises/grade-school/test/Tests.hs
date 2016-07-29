@@ -1,45 +1,45 @@
-import Test.HUnit (Assertion, (@=?), runTestTT, Test(..), Counts(..))
-import System.Exit (ExitCode(..), exitWith)
-import qualified School as S
-import Data.List (foldl')
+{-# OPTIONS_GHC -fno-warn-type-defaults #-}
 
-exitProperly :: IO Counts -> IO ()
-exitProperly m = do
-  counts <- m
-  exitWith $ if failures counts /= 0 || errors counts /= 0 then ExitFailure 1 else ExitSuccess
+import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
-testCase :: String -> Assertion -> Test
-testCase label assertion = TestLabel label (TestCase assertion)
+import School (add, empty, grade, sorted)
 
 main :: IO ()
-main = exitProperly $ runTestTT $ TestList
-       [ TestList schoolTests ]
+main = hspecWith defaultConfig {configFastFail = True} specs
 
-gradeWithStudents :: Int -> [String] -> S.School
-gradeWithStudents gradeNum = schoolFromList . zip (repeat gradeNum)
+specs :: Spec
+specs = describe "grade-school" $ do
 
-schoolFromList :: [(Int, String)] -> S.School
-schoolFromList = foldl' (flip $ uncurry S.add) S.empty
+          -- As of 2016-07-27, there was no reference file
+          -- for the test cases in `exercism/x-common`.
 
-schoolTests :: [Test]
-schoolTests =
-  [ testCase "add student" $
-    [(2, ["Aimee"])] @=? S.sorted (S.add 2 "Aimee" S.empty)
-  , testCase "add more students in same class" $
-    [(2, ["Blair", "James", "Paul"])] @=? S.sorted
-    (gradeWithStudents 2 ["James", "Blair", "Paul"])
-  , testCase "add students to different grades" $
-    [(3, ["Chelsea"]), (7, ["Logan"])] @=? S.sorted
-    (schoolFromList [(3, "Chelsea"), (7, "Logan")])
-  , testCase "get students in a grade" $
-    ["Bradley", "Franklin"] @=? S.grade 5
-    (schoolFromList [(5, "Franklin"), (5, "Bradley"), (1, "Jeff")])
-  , testCase "get students in a non-existent grade" $
-    [] @=? S.grade 1 S.empty
-  , testCase "sorted school" $
-    [(3, ["Kyle"]),
-     (4, ["Christopher", "Jennifer"]),
-     (6, ["Kareem"])] @=? S.sorted
-    (schoolFromList [(4, "Jennifer"), (6, "Kareem"),
-                     (4, "Christopher"), (3, "Kyle")])
-  ]
+          let fromList = foldr (uncurry add) empty
+          let fromGrade g = fromList . zip (repeat g)
+
+          it "add student" $
+            sorted (add 2 "Aimee" empty) `shouldBe` [(2, ["Aimee"])]
+
+          it "add more students in same class" $
+            sorted (fromGrade 2 ["James", "Blair", "Paul"])
+            `shouldBe` [(2, ["Blair", "James", "Paul"])]
+
+          it "add students to different grades" $
+            sorted (fromList [(3, "Chelsea"), (7, "Logan")])
+            `shouldBe` [(3, ["Chelsea"]), (7, ["Logan"])]
+
+          it "get students in a grade" $
+            grade 5 (fromList [(5, "Franklin"), (5, "Bradley"), (1, "Jeff")])
+            `shouldBe` ["Bradley", "Franklin"]
+
+          it "get students in a non-existent grade" $
+            grade 1 empty `shouldBe` []
+
+          it "sorted school" $
+            sorted (fromList [ (4, "Jennifer"   )
+                             , (6, "Kareem"     )
+                             , (4, "Christopher")
+                             , (3, "Kyle"       ) ] )
+            `shouldBe` [ (3, ["Kyle"                   ] )
+                       , (4, ["Christopher", "Jennifer"] )
+                       , (6, ["Kareem"                 ] ) ]
