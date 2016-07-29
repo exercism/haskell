@@ -17,5 +17,5 @@ tests:
     source-dirs: test
     dependencies:
       - gigasecond
-      - HUnit
+      - hspec
       - old-locale
