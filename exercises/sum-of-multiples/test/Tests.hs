@@ -1,46 +1,84 @@
 {-# OPTIONS_GHC -fno-warn-type-defaults #-}
+{-# LANGUAGE RecordWildCards #-}
 
-import Test.HUnit (Assertion, (@=?), runTestTT, Test(..), Counts(..))
-import System.Exit (ExitCode(..), exitWith)
+import Data.Foldable     (for_)
+import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+
+-- base >= 4.8 re-exports Control.Applicative.(<$>).
+import Control.Applicative -- This is only need for <$>,  if GHC <  7.10.
+import Prelude             -- This trick avoids a warning if GHC >= 7.10.
+
 import SumOfMultiples (sumOfMultiples)
 
-exitProperly :: IO Counts -> IO ()
-exitProperly m = do
-  counts <- m
-  exitWith $ if failures counts /= 0 || errors counts /= 0 then ExitFailure 1 else ExitSuccess
-
-testCase :: String -> Assertion -> Test
-testCase label assertion = TestLabel label (TestCase assertion)
-
 main :: IO ()
-main = exitProperly $ runTestTT $ TestList
-       [ TestList sumOfMultiplesTests ]
+main = hspecWith defaultConfig {configFastFail = True} specs
 
--- Note that the upper bound is not included in the result
-sumOfMultiplesTests :: [Test]
-sumOfMultiplesTests =
-  [ testCase "1" $
-    0 @=? sumOfMultiples [3, 5] 1
-  , testCase "4" $
-    3 @=? sumOfMultiples [3, 5] 4
-  , testCase "10" $
-    23 @=? sumOfMultiples [3, 5] 10
-  , testCase "1000" $
-    2318 @=? sumOfMultiples [3, 5] 100
-  , testCase "1000" $
-    233168 @=? sumOfMultiples [3, 5] 1000
-  , testCase "[7, 13, 17] 20" $
-    51 @=? sumOfMultiples [7, 13, 17] 20
-  , testCase "[4, 6] 15" $
-    30 @=? sumOfMultiples [4, 6] 15
-  , testCase "[5, 6, 8] 150" $
-    4419 @=? sumOfMultiples [5, 6, 8] 150
-  , testCase "[43, 47] 10000" $
-    275 @=? sumOfMultiples [5,25] 51
-  , testCase "[1] 100" $
-    2203160 @=? sumOfMultiples [43, 47] 10000
-  , testCase "[5, 25] 51" $
-    4950 @=? sumOfMultiples [1] 100
-  , testCase "[] 10000" $
-    0 @=? sumOfMultiples [] 10000
-  ]
+specs :: Spec
+specs = describe "sum-of-multiples" $
+          describe "sumOfMultiples" $ for_ cases test
+  where
+    test Case{..} = it description assertion
+      where
+        description = unwords [show factors, show limit]
+        assertion   = expression `shouldBe` fromIntegral expected
+        expression  = sumOfMultiples (fromIntegral <$> factors)
+                                     (fromIntegral     limit  )
+
+-- Test cases adapted from `exercism/x-common/sum-of-multiples.json` on 2016-07-27.
+
+data Case = Case { factors  :: [Integer]
+                 , limit    ::  Integer
+                 , expected ::  Integer
+                 }
+
+cases :: [Case]
+cases = [ Case { factors  = [3, 5]
+               , limit    = 1
+               , expected = 0
+               }
+        , Case { factors  = [3, 5]
+               , limit    = 4
+               , expected = 3
+               }
+        , Case { factors  = [3, 5]
+               , limit    = 10
+               , expected = 23
+               }
+        , Case { factors  = [3, 5]
+               , limit    = 100
+               , expected = 2318
+               }
+        , Case { factors  = [3, 5]
+               , limit    = 1000
+               , expected = 233168
+               }
+        , Case { factors  = [7, 13, 17]
+               , limit    = 20
+               , expected = 51
+               }
+        , Case { factors  = [4, 6]
+               , limit    = 15
+               , expected = 30
+               }
+        , Case { factors  = [5, 6, 8]
+               , limit    = 150
+               , expected = 4419
+               }
+        , Case { factors  = [5, 25]
+               , limit    = 51
+               , expected = 275
+               }
+        , Case { factors  = [43, 47]
+               , limit    = 10000
+               , expected = 2203160
+               }
+        , Case { factors  = [1]
+               , limit    = 100
+               , expected = 4950
+               }
+        , Case { factors  = []
+               , limit    = 10000
+               , expected = 0
+               }
+        ]
