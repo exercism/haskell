@@ -29,7 +29,6 @@
     "triangle",
     "scrabble-score",
     "roman-numerals",
-    "binary",
     "prime-factors",
     "raindrops",
     "allergies",
@@ -42,7 +41,6 @@
     "queen-attack",
     "binary-search-tree",
     "difference-of-squares",
-    "hexadecimal",
     "largest-series-product",
     "luhn",
     "clock",
@@ -50,8 +48,6 @@
     "house",
     "minesweeper",
     "ocr-numbers",
-    "octal",
-    "trinary",
     "wordy",
     "food-chain",
     "linked-list",
@@ -77,7 +73,10 @@
     "pov"
   ],
   "deprecated": [
-
+    "binary",
+    "hexadecimal",
+    "octal",
+    "trinary"
   ],
   "ignored": [
     "docs",
