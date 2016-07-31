@@ -62,7 +62,7 @@ cases = [ Case { description = "no matches"
                , candidates  = ["gallery", "ballerina", "regally", "clergy", "largely", "leading"]
                , expected    = ["gallery", "regally", "largely"]
                }
-        , Case { description = "does not detect indentical words"
+        , Case { description = "does not detect identical words"
                , subject     = "corn"
                , candidates  = ["corn", "dark", "Corn", "rank", "CORN", "cron", "park"]
                , expected    = ["cron"]
@@ -82,7 +82,7 @@ cases = [ Case { description = "no matches"
                , candidates  = ["cashregister", "carthorse", "radishes"]
                , expected    = ["carthorse"]
                }
-        , Case { description = "detects anagrams using case-insensitve possible matches"
+        , Case { description = "detects anagrams using case-insensitive possible matches"
                , subject     = "orchestra"
                , candidates  = ["cashregister", "Carthorse", "radishes"]
                , expected    = ["Carthorse"]
@@ -102,11 +102,6 @@ cases = [ Case { description = "no matches"
                , candidates  = ["patter"]
                , expected    = []
                }
-        , Case { description = "eliminates anagrams with the same checksum"
-               , subject     = "mass"
-               , candidates  = ["last"]
-               , expected    = []
-               }
         , Case { description = "detects unicode anagrams"
                , subject     = "ΑΒΓ"
                , candidates  = ["ΒΓΑ", "ΒΓΔ", "γβα"]
@@ -121,20 +116,5 @@ cases = [ Case { description = "no matches"
                , subject     = "BANANA"
                , candidates  = ["Banana"]
                , expected    = []
-               }
-        , Case { description = "anagrams must use all letters exactly once"
-               , subject     = "patter"
-               , candidates  = ["tapper"]
-               , expected    = []
-               }
-        , Case { description = "accepts string arguments"
-               , subject     = "ant"
-               , candidates  = ["stand", "tan", "at"]
-               , expected    = ["tan"]
-               }
-        , Case { description = "accepts single string argument"
-               , subject     = "ant"
-               , candidates  = ["tan"]
-               , expected    = ["tan"]
                }
         ]
