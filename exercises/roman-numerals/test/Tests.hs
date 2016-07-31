@@ -1,34 +1,84 @@
-import Test.HUnit ((@=?), runTestTT, Test(..), Counts(..))
-import System.Exit (ExitCode(..), exitWith)
+{-# OPTIONS_GHC -fno-warn-type-defaults #-}
+{-# LANGUAGE RecordWildCards #-}
+
+import Data.Foldable     (for_)
+import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+
 import Roman (numerals)
 
-exitProperly :: IO Counts -> IO ()
-exitProperly m = do
-  counts <- m
-  exitWith $ if failures counts /= 0 || errors counts /= 0 then ExitFailure 1 else ExitSuccess
-
 main :: IO ()
-main = exitProperly $ runTestTT $ TestList
-       [ TestList numeralsTests ]
+main = hspecWith defaultConfig {configFastFail = True} specs
 
-numeralsTests :: [Test]
-numeralsTests = map TestCase $
-  [ "I" @=? numerals 1
-  , "II" @=? numerals 2
-  , "III" @=? numerals 3
-  , "IV" @=? numerals 4
-  , "V" @=? numerals 5
-  , "VI" @=? numerals 6
-  , "IX" @=? numerals 9
-  , "XXVII" @=? numerals 27
-  , "XLVIII" @=? numerals 48
-  , "LIX" @=? numerals 59
-  , "XCIII" @=? numerals 93
-  , "CXLI" @=? numerals 141
-  , "CLXIII" @=? numerals 163
-  , "CDII" @=? numerals 402
-  , "DLXXV" @=? numerals 575
-  , "CMXI" @=? numerals 911
-  , "MXXIV" @=? numerals 1024
-  , "MMM" @=? numerals 3000
-  ]
+specs :: Spec
+specs = describe "roman-numerals" $
+          describe "numerals" $ for_ cases test
+  where
+
+    test Case{..} = it explanation assertion
+      where
+        explanation = show number
+        assertion   = numerals (fromIntegral number) `shouldBe` expected
+
+-- Test cases adapted from `exercism/x-common/roman-numerals.json` on 2016-07-26.
+
+data Case = Case { number   :: Integer
+                 , expected :: String
+                 }
+
+cases :: [Case]
+cases = [ Case { number   = 1
+               , expected = "I"
+               }
+        , Case { number   = 2
+               , expected = "II"
+               }
+        , Case { number   = 3
+               , expected = "III"
+               }
+        , Case { number   = 4
+               , expected = "IV"
+               }
+        , Case { number   = 5
+               , expected = "V"
+               }
+        , Case { number   = 6
+               , expected = "VI"
+               }
+        , Case { number   = 9
+               , expected = "IX"
+               }
+        , Case { number   = 27
+               , expected = "XXVII"
+               }
+        , Case { number   = 48
+               , expected = "XLVIII"
+               }
+        , Case { number   = 59
+               , expected = "LIX"
+               }
+        , Case { number   = 93
+               , expected = "XCIII"
+               }
+        , Case { number   = 141
+               , expected = "CXLI"
+               }
+        , Case { number   = 163
+               , expected = "CLXIII"
+               }
+        , Case { number   = 402
+               , expected = "CDII"
+               }
+        , Case { number   = 575
+               , expected = "DLXXV"
+               }
+        , Case { number   = 911
+               , expected = "CMXI"
+               }
+        , Case { number   = 1024
+               , expected = "MXXIV"
+               }
+        , Case { number   = 3000
+               , expected = "MMM"
+               }
+        ]

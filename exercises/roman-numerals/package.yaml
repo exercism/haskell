@@ -16,4 +16,4 @@ tests:
     source-dirs: test
     dependencies:
       - roman-numerals
-      - HUnit
+      - hspec
