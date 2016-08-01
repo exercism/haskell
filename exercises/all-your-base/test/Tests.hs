@@ -1,29 +1,25 @@
 {-# LANGUAGE RecordWildCards #-}
 
-import Control.Monad (unless)
-import System.Exit   (exitFailure)
-
-import Test.HUnit
-    ( (~:)
-    , (~=?)
-    , Counts (failures, errors)
-    , Test   (TestList)
-    , runTestTT
-    )
+import Data.Foldable     (for_)
+import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
 import Base (rebase)
 
 main :: IO ()
-main = do
-         counts <- runTestTT tests
-         unless (failures counts == 0 && errors counts == 0) exitFailure
+main = hspecWith defaultConfig {configFastFail = True} specs
 
-tests :: Test
-tests = TestList $ map test cases
+specs :: Spec
+specs = describe "all-your-base" $
+          describe "rebase" $ for_ cases test
   where
-    test (Case {..}) =   description
-                     ~:  rebase inputBase outputBase inputDigits
-                     ~=? outputDigits
+
+    test Case{..} = it description assertion
+      where
+        assertion  = expression `shouldBe` outputDigits
+        expression = rebase inputBase outputBase inputDigits
+
+-- Test cases adapted from `exercism/x-common/all-your-base.json` on 2016-06-29.
 
 data Case = Case { description  ::        String
                  , inputBase    ::        Integer
@@ -32,7 +28,6 @@ data Case = Case { description  ::        String
                  , outputDigits :: Maybe [Integer]
                  }
 
--- Test cases adapted from x-common/all-your-base.json from 2016-06-29.
 cases :: [Case]
 cases = [ Case { description  = "single bit one to decimal"
                , inputBase    = 2
@@ -82,8 +77,10 @@ cases = [ Case { description  = "single bit one to decimal"
                , outputBase   = 73
                , outputDigits = Just [6, 10, 45]
                }
+
           -- The following cases are undefined in all-your-base.json.
           -- Here we use [] to represent the lack of digits, i.e., zero.
+
         , Case { description  = "empty list"
                , inputBase    = 2
                , inputDigits  = []
