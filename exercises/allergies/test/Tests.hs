@@ -1,47 +1,95 @@
-import Test.HUnit (Assertion, (@=?), runTestTT, Test(..), Counts(..))
-import System.Exit (ExitCode(..), exitWith)
-import Allergies (Allergen(..), isAllergicTo, allergies)
+{-# OPTIONS_GHC -fno-warn-type-defaults #-}
 
-exitProperly :: IO Counts -> IO ()
-exitProperly m = do
-  counts <- m
-  exitWith $ if failures counts /= 0 || errors counts /= 0 then ExitFailure 1 else ExitSuccess
+import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
-testCase :: String -> Assertion -> Test
-testCase label assertion = TestLabel label (TestCase assertion)
+import Allergies
+  ( Allergen ( Cats
+             , Chocolate
+             , Eggs
+             , Peanuts
+             , Pollen
+             , Shellfish
+             , Strawberries
+             , Tomatoes
+             )
+  , allergies
+  , isAllergicTo
+  )
 
 main :: IO ()
-main = exitProperly $ runTestTT $ TestList
-       [ TestList allergiesTests ]
+main = hspecWith defaultConfig {configFastFail = True} specs
 
-allergiesTests :: [Test]
-allergiesTests =
-  [ testCase "no allergies at all" $
-    [] @=? allergies 0
-  , testCase "allergic to just eggs" $
-    [Eggs] @=? allergies 1
-  , testCase "allergic to just peanuts" $
-    [Peanuts] @=? allergies 2
-  , testCase "allergic to just strawberries" $
-    [Strawberries] @=? allergies 8
-  , testCase "allergic to eggs and peanuts" $
-    [Eggs, Peanuts] @=? allergies 3
-  , testCase "allergic to more than eggs but not peanuts" $
-    [Eggs, Shellfish] @=? allergies 5
-  , testCase "allergic to lots of stuff" $
-    [Strawberries, Tomatoes, Chocolate, Pollen, Cats] @=? allergies 248
-  , testCase "allergic to everything" $
-    [ Eggs, Peanuts, Shellfish, Strawberries, Tomatoes, Chocolate
-    , Pollen, Cats ] @=? allergies 255
-  , testCase "no allergies means not allergic" $ do
-    False @=? isAllergicTo Peanuts 0
-    False @=? isAllergicTo Cats 0
-    False @=? isAllergicTo Strawberries 0
-  , testCase "is allergic to eggs" $
-    True @=? isAllergicTo Eggs 1
-  , testCase "allergic to eggs in addition to other stuff" $
-    True @=? isAllergicTo Eggs 5
-  , testCase "ignore non allergen score parts" $
-    [ Eggs, Shellfish, Strawberries, Tomatoes, Chocolate
-    , Pollen, Cats ] @=? allergies 509
-  ]
+specs :: Spec
+specs = describe "allergies" $ do
+
+          -- Test cases adapted from `exercism/x-common/allergies.json` on 2016-08-01.
+
+          describe "isAllergicTo" $ do
+
+            it "no allergies means not allergic" $ do
+              let score = 0
+              isAllergicTo Peanuts      score `shouldBe` False
+              isAllergicTo Cats         score `shouldBe` False
+              isAllergicTo Strawberries score `shouldBe` False
+
+            it "is allergic to eggs" $ do
+              let score = 1
+              isAllergicTo Eggs         score `shouldBe` True
+
+            it "allergic to eggs in addition to other stuff" $ do
+              let score = 5
+              isAllergicTo Eggs         score `shouldBe` True
+              isAllergicTo Shellfish    score `shouldBe` True
+              isAllergicTo Strawberries score `shouldBe` False
+
+          describe "allergies" $ do
+
+            let xs `shouldMatch` ys =  all (`elem` ys) xs
+                                    && all (`elem` xs) ys
+
+            it "no allergies at all" $
+              allergies   0 `shouldMatch` []
+
+            it "allergic to just eggs" $
+              allergies   1 `shouldMatch` [ Eggs ]
+
+            it "allergic to just peanuts" $
+              allergies   2 `shouldMatch` [ Peanuts ]
+
+            it "allergic to just strawberries" $
+              allergies   8 `shouldMatch` [ Strawberries ]
+
+            it "allergic to eggs and peanuts" $
+              allergies   3 `shouldMatch` [ Eggs
+                                          , Peanuts ]
+
+            it "allergic to more than eggs but not peanuts" $
+              allergies   5 `shouldMatch` [ Eggs
+                                          , Shellfish ]
+
+            it "allergic to lots of stuff" $
+              allergies 248 `shouldMatch` [ Cats
+                                          , Chocolate
+                                          , Pollen
+                                          , Strawberries
+                                          , Tomatoes     ]
+
+            it "allergic to everything" $
+              allergies 255 `shouldMatch` [ Cats
+                                          , Chocolate
+                                          , Eggs
+                                          , Peanuts
+                                          , Pollen
+                                          , Shellfish
+                                          , Strawberries
+                                          , Tomatoes     ]
+
+            it "ignore non allergen score parts" $
+              allergies 509 `shouldMatch` [ Cats
+                                          , Chocolate
+                                          , Eggs
+                                          , Pollen
+                                          , Shellfish
+                                          , Strawberries
+                                          , Tomatoes     ]
