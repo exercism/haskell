@@ -1,27 +1,35 @@
-import Test.HUnit ((@=?), runTestTT, Test(..), Counts(..))
-import System.Exit (ExitCode(..), exitWith)
+{-# OPTIONS_GHC -fno-warn-type-defaults #-}
+
+import Data.Foldable     (for_)
+import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+
 import PrimeFactors (primeFactors)
 
-exitProperly :: IO Counts -> IO ()
-exitProperly m = do
-  counts <- m
-  exitWith $ if failures counts /= 0 || errors counts /= 0 then ExitFailure 1 else ExitSuccess
-
 main :: IO ()
-main = exitProperly $ runTestTT $ TestList
-       [ TestList primeTests ]
+main = hspecWith defaultConfig {configFastFail = True} specs
 
-primeTests :: [Test]
-primeTests = map TestCase
-  [ [] @=? primeFactors 1
-  , [2] @=? primeFactors 2
-  , [3] @=? primeFactors 3
-  , [2, 2] @=? primeFactors 4
-  , [2, 3] @=? primeFactors 6
-  , [2, 2, 2] @=? primeFactors 8
-  , [3, 3] @=? primeFactors 9
-  , [3, 3, 3] @=? primeFactors 27
-  , [5, 5, 5, 5] @=? primeFactors 625
-  , [5, 17, 23, 461] @=? primeFactors 901255
-  , [11, 9539, 894119] @=? primeFactors 93819012551
-  ]
+specs :: Spec
+specs = describe "prime-factors" $
+          describe "primeFactors" $ for_ cases test
+  where
+
+    test (n, expected) = it explanation assertion
+      where
+        explanation = show n
+        assertion   = primeFactors n `shouldBe` expected
+
+    -- As of 2016-07-31, there was no reference file
+    -- for the test cases in `exercism/x-common`.
+
+    cases = [ (          1,                 [] )
+            , (          2,                [2] )
+            , (          3,                [3] )
+            , (          4,             [2, 2] )
+            , (          6,             [2, 3] )
+            , (          8,          [2, 2, 2] )
+            , (          9,             [3, 3] )
+            , (         27,          [3, 3, 3] )
+            , (        625,       [5, 5, 5, 5] )
+            , (     901255,   [5, 17, 23, 461] )
+            , (93819012551, [11, 9539, 894119] ) ]
