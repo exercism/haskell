@@ -1,54 +1,73 @@
-import Test.HUnit (Assertion, (@=?), runTestTT, Test(..), Counts(..))
-import System.Exit (ExitCode(..), exitWith)
-import Garden (garden, defaultGarden, lookupPlants, Plant(..))
+import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
-exitProperly :: IO Counts -> IO ()
-exitProperly m = do
-  counts <- m
-  exitWith $ if failures counts /= 0 || errors counts /= 0 then ExitFailure 1 else ExitSuccess
-
-testCase :: String -> Assertion -> Test
-testCase label assertion = TestLabel label (TestCase assertion)
+import Garden
+  ( Plant ( Clover
+          , Grass
+          , Radishes
+          , Violets
+          )
+  , defaultGarden
+  , garden
+  , lookupPlants
+  )
 
 main :: IO ()
-main = exitProperly $ runTestTT $ TestList
-  [ TestList gardenTests ]
+main = hspecWith defaultConfig {configFastFail = True} specs
 
-gardenTests :: [Test]
-gardenTests =
-  [ testCase "alice tests" $ do
-    let alice = lookupPlants "Alice" . defaultGarden
-    [Radishes, Clover, Grass, Grass] @=? alice "RC\nGG"
-    [Violets, Clover, Radishes, Clover] @=? alice "VC\nRC"
-  , testCase "small garden" $
-    [Clover, Grass, Radishes, Clover] @=?
-    lookupPlants "Bob" (defaultGarden "VVCG\nVVRC")
-  , testCase "medium garden" $ do
-    let g = defaultGarden "VVCCGG\nVVCCGG"
-    [Clover, Clover, Clover, Clover] @=? lookupPlants "Bob" g
-    [Grass, Grass, Grass, Grass] @=? lookupPlants "Charlie" g
-  , testCase "full garden" $ do
-    let g = defaultGarden "VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV"
-        l = flip lookupPlants g
-    [Violets, Radishes, Violets, Radishes] @=? l "Alice"
-    [Clover, Grass, Clover, Clover] @=? l "Bob"
-    [Violets, Violets, Clover, Grass] @=? l "Charlie"
-    [Radishes, Violets, Clover, Radishes] @=? l "David"
-    [Clover, Grass, Radishes, Grass] @=? l "Eve"
-    [Grass, Clover, Violets, Clover] @=? l "Fred"
-    [Clover, Grass, Grass, Clover] @=? l "Ginny"
-    [Violets, Radishes, Radishes, Violets] @=? l "Harriet"
-    [Grass, Clover, Violets, Clover] @=? l "Ileana"
-    [Violets, Clover, Violets, Grass] @=? l "Joseph"
-    [Grass, Clover, Clover, Grass] @=? l "Kincaid"
-    [Grass, Violets, Clover, Violets] @=? l "Larry"
-  , testCase "surprise garden" $ do
-    let g = garden [ "Samantha", "Patricia"
-                   , "Xander", "Roger"
-                   ] "VCRRGVRG\nRVGCCGCV"
-        l = flip lookupPlants g
-    [Violets, Clover, Radishes, Violets] @=? l "Patricia"
-    [Radishes, Radishes, Grass, Clover] @=? l "Roger"
-    [Grass, Violets, Clover, Grass] @=? l "Samantha"
-    [Radishes, Grass, Clover, Violets] @=? l "Xander"
-  ]
+specs :: Spec
+specs = describe "kindergarten-garden" $ do
+
+    -- As of 2016-08-02, there was no reference file
+    -- for the test cases in `exercism/x-common`.
+
+    it "alice tests" $ do
+
+      let alicePlants = lookupPlants "Alice" . defaultGarden
+
+      alicePlants "RC\nGG" `shouldBe` [ Radishes, Clover, Grass   , Grass  ]
+      alicePlants "VC\nRC" `shouldBe` [ Violets , Clover, Radishes, Clover ]
+
+    it "small garden" $ do
+
+      let plants s  = lookupPlants s $ defaultGarden plantList
+          plantList = "VVCG\nVVRC"
+
+      plants "Bob" `shouldBe` [ Clover, Grass, Radishes, Clover ]
+
+    it "medium garden" $ do
+
+      let plants s  = lookupPlants s $ defaultGarden plantList
+          plantList = "VVCCGG\nVVCCGG"
+
+      plants "Bob"     `shouldBe` [ Clover, Clover, Clover, Clover ]
+      plants "Charlie" `shouldBe` [ Grass , Grass , Grass , Grass  ]
+
+    it "full garden" $ do
+
+      let plants s  = lookupPlants s $ defaultGarden plantList
+          plantList = "VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV"
+
+      plants "Alice"   `shouldBe` [ Violets , Radishes, Violets , Radishes ]
+      plants "Bob"     `shouldBe` [ Clover  , Grass   , Clover  , Clover   ]
+      plants "Charlie" `shouldBe` [ Violets , Violets , Clover  , Grass    ]
+      plants "David"   `shouldBe` [ Radishes, Violets , Clover  , Radishes ]
+      plants "Eve"     `shouldBe` [ Clover  , Grass   , Radishes, Grass    ]
+      plants "Fred"    `shouldBe` [ Grass   , Clover  , Violets , Clover   ]
+      plants "Ginny"   `shouldBe` [ Clover  , Grass   , Grass   , Clover   ]
+      plants "Harriet" `shouldBe` [ Violets , Radishes, Radishes, Violets  ]
+      plants "Ileana"  `shouldBe` [ Grass   , Clover  , Violets , Clover   ]
+      plants "Joseph"  `shouldBe` [ Violets , Clover  , Violets , Grass    ]
+      plants "Kincaid" `shouldBe` [ Grass   , Clover  , Clover  , Grass    ]
+      plants "Larry"   `shouldBe` [ Grass   , Violets , Clover  , Violets  ]
+
+    it  "surprise garden" $ do
+
+      let plants s  = lookupPlants s $ garden students plantList
+          plantList = "VCRRGVRG\nRVGCCGCV"
+          students  = ["Samantha", "Patricia", "Xander", "Roger"]
+
+      plants "Patricia" `shouldBe` [ Violets , Clover  , Radishes, Violets ]
+      plants "Roger"    `shouldBe` [ Radishes, Radishes, Grass   , Clover  ]
+      plants "Samantha" `shouldBe` [ Grass   , Violets , Clover  , Grass   ]
+      plants "Xander"   `shouldBe` [ Radishes, Grass   , Clover  , Violets ]
