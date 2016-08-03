@@ -3,7 +3,7 @@ module Triangle (TriangleType(..), triangleType) where
 data TriangleType = Equilateral
                   | Isosceles
                   | Scalene
-                  | Illogical
+                  | Illegal
                   deriving (Eq, Show)
 
 triangleType = undefined
