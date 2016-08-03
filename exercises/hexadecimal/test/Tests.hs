@@ -1,26 +1,34 @@
-import Test.HUnit ((@=?), runTestTT, Test(..), Counts(..))
-import System.Exit (ExitCode(..), exitWith)
+{-# OPTIONS_GHC -fno-warn-type-defaults #-}
+
+import Data.Foldable     (for_)
+import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+
 import Hexadecimal (hexToInt)
 
-exitProperly :: IO Counts -> IO ()
-exitProperly m = do
-  counts <- m
-  exitWith $ if failures counts /= 0 || errors counts /= 0 then ExitFailure 1 else ExitSuccess
-
 main :: IO ()
-main = exitProperly $ runTestTT $ TestList
-       [ TestList hexTests ]
+main = hspecWith defaultConfig {configFastFail = True} specs
 
-hexTests :: [Test]
-hexTests = map TestCase
-  [ 1 @=? hexToInt "1"
-  , 12 @=? hexToInt "c"
-  , 16 @=? hexToInt "10"
-  , 175 @=? hexToInt "af"
-  , 256 @=? hexToInt "100"
-  , 105166 @=? hexToInt "19ace"
-  , 0 @=? hexToInt "carrot"
-  , 0 @=? hexToInt "000000"
-  , 16777215 @=? hexToInt "ffffff"
-  , 16776960 @=? hexToInt "ffff00"
-  ]
+specs :: Spec
+specs = describe "hexadecimal" $
+          describe "hexToInt" $ for_ cases test
+  where
+
+    test (input, expected) = it description assertion
+      where
+        description = show input
+        assertion   = hexToInt input `shouldBe` expected
+
+    -- As of 2016-08-02, there was no reference file
+    -- for the test cases in `exercism/x-common`.
+
+    cases = [ (     "1",        1)
+            , (     "c",       12)
+            , (    "10",       16)
+            , (    "af",      175)
+            , (   "100",      256)
+            , ("19ace" ,   105166)
+            , ("carrot",        0)
+            , ("000000",        0)
+            , ("ffffff", 16777215)
+            , ("ffff00", 16776960) ]
