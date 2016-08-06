@@ -1,72 +1,82 @@
-import Test.HUnit (Assertion, (@=?), runTestTT, Test(..), Counts(..))
-import System.Exit (ExitCode(..), exitWith)
-import Luhn (checkDigit, addends, checksum, isValid, create)
+{-# OPTIONS_GHC -fno-warn-type-defaults #-}
 
-exitProperly :: IO Counts -> IO ()
-exitProperly m = do
-  counts <- m
-  exitWith $ if failures counts /= 0 || errors counts /= 0 then ExitFailure 1 else ExitSuccess
+import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
-testCase :: String -> Assertion -> Test
-testCase label assertion = TestLabel label (TestCase assertion)
+import Luhn (addends, checkDigit, checksum, create, isValid)
 
 main :: IO ()
-main = exitProperly $ runTestTT $ TestLabel "Luhn Tests" $
-        TestList luhnTests
+main = hspecWith defaultConfig {configFastFail = True} specs
 
-int :: Integer -> Integer
-int = id
+specs :: Spec
+specs = describe "luhn" $ do
+    describe "standard tests" $ do
 
-ints :: [Integer] -> [Integer]
-ints = id
+      -- Test cases adapted from `exercism/x-common/luhn.json` on
+      -- 2016-08-04. Some deviations exist and are noted in comments.
 
-luhnTests :: [Test]
-luhnTests =
-  [ testCase "checkDigit" $ do
-    int 7 @=? checkDigit 34567
-    int 0 @=? checkDigit 91370
-  , testCase "addends" $ do
-    ints [1, 4, 1, 4, 1] @=? addends 12121
-    ints [7, 6, 6, 1] @=? addends 8631
-  , TestLabel "checksum" (TestList checksumTests)
-  , TestLabel "isValid" (TestList validityTests)
-  , TestLabel "create" (TestList creationTests)
-  ]
+      it "check digit" $
+        checkDigit 34567 `shouldBe` 7
 
-creations :: [(Integer, Integer)]
-creations = [(1230, 123)
-             ,(8739567, 873956)
-             ,(8372637564, 837263756)
-             ,(2323200577663554, 232320057766355)]
+      it "check digit with input ending in zero" $
+        checkDigit 91370 `shouldBe` 0
 
-creationTests :: [Test]
-creationTests =
-    [testCase ("Creating a valid number from " ++ show n)
-              (expected @=? create n) | (expected, n) <- creations]
+      it "check addends" $
+        addends 12121 `shouldBe` [1, 4, 1, 4, 1]
 
--- NOTE: this differs from the ruby and js, the checksum really should
---       be mod 10 like we are testing here.
-checksums :: [(Integer, Integer)]
-checksums = [(4913, 2)
-            ,(201773, 1)
-            ,(1111, 6)
-            ,(8763, 0)
-            ,(8739567, 0)
-            ,(2323200577663554, 0)]
+      it "check too large addends" $
+        addends 8631 `shouldBe` [7, 6, 6, 1]
 
-checksumTests :: [Test]
-checksumTests =
-    [testCase ("The checksum of " ++ show n)
-              (expected @=? checksum n) | (n, expected) <- checksums]
+      -- The reference test cases expect the checksum function to return
+      -- the simple sum of the transformed digits, not their `mod 10` sum.
+      -- In this track, we insist on the `mod 10`. :)
 
-validityChecks :: [(Integer, Bool)]
-validityChecks = [(1111, False)
-                 ,(738, False)
-                 ,(8763, True)
-                 ,(8739567, True)
-                 ,(2323200577663554, True)]
+      it "checksum" $
+        checksum 4913 `shouldBe` 2      -- The reference test expects 22.
 
-validityTests :: [Test]
-validityTests =
-    [testCase (show n ++ " should" ++ (if expected then "" else "n't") ++ " be valid")
-              (expected @=? isValid n) | (n, expected) <- validityChecks]
+      it "checksum of larger number" $
+        checksum 201773 `shouldBe` 1    -- The reference test expects 21.
+
+      it "check invalid number" $
+        isValid 738 `shouldBe` False
+
+      it "check valid number" $
+        isValid 8739567 `shouldBe` True
+
+      it "create valid number" $
+        create 123 `shouldBe` 1230
+
+      it "create larger valid number" $
+        create 873956 `shouldBe` 8739567
+
+      it "create even larger valid number" $
+        create 837263756 `shouldBe` 8372637564
+
+    describe "track-specific tests" $ do
+
+      -- This track has some tests that were not included in the
+      -- reference test cases from `exercism/x-common/leap.json`.
+
+      it "checksum 1111" $
+        checksum 1111 `shouldBe` 6
+
+      it "checksum 8763" $
+        checksum 8763 `shouldBe` 0
+
+      it "checksum 8739567" $
+        checksum 8739567 `shouldBe` 0
+
+      it "checksum 2323200577663554" $
+        checksum 2323200577663554 `shouldBe` 0
+
+      it "isValid 1111" $
+        isValid 1111 `shouldBe` False
+
+      it "isValid 8763" $
+        isValid 8763 `shouldBe` True
+
+      it "isValid 2323200577663554" $
+        isValid 2323200577663554 `shouldBe` True
+
+      it "create 232320057766355" $
+        create 232320057766355 `shouldBe` 2323200577663554
