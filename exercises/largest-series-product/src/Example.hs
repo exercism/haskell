@@ -1,15 +1,20 @@
 module Series (largestProduct) where
-import Data.Char (digitToInt)
-import Data.List (tails)
 
-digits :: Integral a => String -> [a]
-digits = map $ fromIntegral . digitToInt
+import Control.Monad    ((>=>))
+import Data.Char        (digitToInt, isDigit)
+import Data.List        (tails)
+import Data.Maybe       (mapMaybe)
+import Safe             (maximumMay)
+import Safe.Exact       (takeExactMay)
 
-slices :: Integral a => Int -> String -> [[a]]
-slices n = go . digits
-  where go xs = map (take n) $ take (length xs - pred n) (tails xs)
+-- base >= 4.8 re-exports `Data.Traversable.traverse`.
+import Data.Traversable -- This is only need for `traversable`.
+import Prelude          -- This trick avoids a warning if GHC >= 7.10.
 
-largestProduct :: Integral a => Int -> String -> Maybe a
-largestProduct n text = case map product (slices n text) of
-  []       -> Nothing
-  products -> Just $ maximum products
+largestProduct :: (Integral a, Num b, Ord b) => a -> String -> Maybe b
+largestProduct n = traverse charToNum >=> maximumMay . products
+  where
+    products = mapMaybe (fmap product . takeExactMay (fromIntegral n)) . tails
+    charToNum x
+        | isDigit x = Just . fromIntegral . digitToInt $ x
+        | otherwise = Nothing
