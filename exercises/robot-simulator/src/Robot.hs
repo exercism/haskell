@@ -1,6 +1,5 @@
 module Robot
-    ( Bearing (..)
-    , Robot
+    ( Bearing(East,North,South,West)
     , bearing
     , coordinates
     , mkRobot
@@ -15,8 +14,8 @@ data Bearing = North
              | West
              deriving (Eq, Show)
 
--- The task is to create the data type `Robot`, with `Eq`
--- and `Show` instances, and implement the functions below.
+-- The task is to create the data type `Robot`
+-- and implement the functions below.
 
 bearing :: Robot -> Bearing
 bearing = undefined
