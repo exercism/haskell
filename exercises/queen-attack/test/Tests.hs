@@ -1,77 +1,78 @@
-import Test.HUnit (Assertion, (@=?), runTestTT, Test(..), Counts(..))
-import System.Exit (ExitCode(..), exitWith)
+{-# OPTIONS_GHC -fno-warn-type-defaults #-}
+
+import Data.Foldable     (for_)
+import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+
 import Queens (boardString, canAttack)
 
-exitProperly :: IO Counts -> IO ()
-exitProperly m = do
-  counts <- m
-  exitWith $ if failures counts /= 0 || errors counts /= 0 then ExitFailure 1 else ExitSuccess
-
-testCase :: String -> Assertion -> Test
-testCase label assertion = TestLabel label (TestCase assertion)
-
 main :: IO ()
-main = exitProperly $ runTestTT $ TestList
-  [ TestList queenTests ]
+main = hspecWith defaultConfig {configFastFail = True} specs
 
-emptyBoard, board, boardWithJustW, boardWithJustB :: String
-emptyBoard = concat [ "_ _ _ _ _ _ _ _\n"
-                    , "_ _ _ _ _ _ _ _\n"
-                    , "_ _ _ _ _ _ _ _\n"
-                    , "_ _ _ _ _ _ _ _\n"
-                    , "_ _ _ _ _ _ _ _\n"
-                    , "_ _ _ _ _ _ _ _\n"
-                    , "_ _ _ _ _ _ _ _\n"
-                    , "_ _ _ _ _ _ _ _\n"
-                    ]
-board = concat [ "_ _ _ _ _ _ _ _\n"
-               , "_ _ _ _ _ _ _ _\n"
-               , "_ _ _ _ W _ _ _\n"
-               , "_ _ _ _ _ _ _ _\n"
-               , "_ _ _ _ _ _ _ _\n"
-               , "_ _ _ _ _ _ _ _\n"
-               , "_ _ _ _ _ _ B _\n"
-               , "_ _ _ _ _ _ _ _\n"
-               ]
-boardWithJustW = concat [ "_ _ _ _ _ _ _ _\n"
-                        , "_ _ _ _ _ _ _ _\n"
-                        , "_ _ _ _ W _ _ _\n"
-                        , "_ _ _ _ _ _ _ _\n"
-                        , "_ _ _ _ _ _ _ _\n"
-                        , "_ _ _ _ _ _ _ _\n"
-                        , "_ _ _ _ _ _ _ _\n"
-                        , "_ _ _ _ _ _ _ _\n"
-                        ]
-boardWithJustB = concat [ "B _ _ _ _ _ _ _\n"
-                        , "_ _ _ _ _ _ _ _\n"
-                        , "_ _ _ _ _ _ _ _\n"
-                        , "_ _ _ _ _ _ _ _\n"
-                        , "_ _ _ _ _ _ _ _\n"
-                        , "_ _ _ _ _ _ _ _\n"
-                        , "_ _ _ _ _ _ _ _\n"
-                        , "_ _ _ _ _ _ _ _\n"
-                        ]               
+specs :: Spec
+specs = describe "queen-attack" $ do
 
-queenTests :: [Test]
-queenTests =
-  [ testCase "empty board" $ emptyBoard @=? boardString Nothing Nothing
-  , testCase "board with just white queen" $ boardWithJustW @=? boardString (Just (2, 4)) Nothing
-  , testCase "board with just black queen" $ boardWithJustB @=? boardString Nothing (Just (0, 0))
-  , testCase "board" $ board @=? boardString (Just (2, 4)) (Just (6, 6))
-  , TestLabel "attacks" $ TestList attackTests
-  ]
+    -- Track-specific test cases.
 
-attackTests :: [Test]
-attackTests = [testCase (show a ++ " should" ++ (if expected then "" else " not") ++ " threaten " ++ show b)
-                        (expected @=? canAttack a b) | (expected, a, b) <- attackCases]
+    describe "boardString" $ do
 
-attackCases :: [(Bool, (Int, Int), (Int, Int))]
-attackCases = [
-    (False, (2, 3), (4, 7)),
-    (True, (2, 4), (2, 7)),
-    (True, (5, 4), (2, 4)),
-    (True, (1, 1), (6, 6)),
-    (True, (0, 6), (1, 7)),
-    (True, (4, 1), (6, 3)),
-    (True, (2, 2), (1, 3))]
+      it "empty board" $ boardString Nothing Nothing
+        `shouldBe` unlines [ "_ _ _ _ _ _ _ _"
+                           , "_ _ _ _ _ _ _ _"
+                           , "_ _ _ _ _ _ _ _"
+                           , "_ _ _ _ _ _ _ _"
+                           , "_ _ _ _ _ _ _ _"
+                           , "_ _ _ _ _ _ _ _"
+                           , "_ _ _ _ _ _ _ _"
+                           , "_ _ _ _ _ _ _ _" ]
 
+      it "board with just white queen" $ boardString (Just (2, 4)) Nothing
+        `shouldBe` unlines [ "_ _ _ _ _ _ _ _"
+                           , "_ _ _ _ _ _ _ _"
+                           , "_ _ _ _ W _ _ _"
+                           , "_ _ _ _ _ _ _ _"
+                           , "_ _ _ _ _ _ _ _"
+                           , "_ _ _ _ _ _ _ _"
+                           , "_ _ _ _ _ _ _ _"
+                           , "_ _ _ _ _ _ _ _" ]
+
+      it "board with just black queen" $ boardString Nothing (Just (0, 0))
+        `shouldBe` unlines [ "B _ _ _ _ _ _ _"
+                           , "_ _ _ _ _ _ _ _"
+                           , "_ _ _ _ _ _ _ _"
+                           , "_ _ _ _ _ _ _ _"
+                           , "_ _ _ _ _ _ _ _"
+                           , "_ _ _ _ _ _ _ _"
+                           , "_ _ _ _ _ _ _ _"
+                           , "_ _ _ _ _ _ _ _" ]
+
+      it "board" $ boardString (Just (2, 4)) (Just (6, 6))
+        `shouldBe` unlines [ "_ _ _ _ _ _ _ _"
+                           , "_ _ _ _ _ _ _ _"
+                           , "_ _ _ _ W _ _ _"
+                           , "_ _ _ _ _ _ _ _"
+                           , "_ _ _ _ _ _ _ _"
+                           , "_ _ _ _ _ _ _ _"
+                           , "_ _ _ _ _ _ B _"
+                           , "_ _ _ _ _ _ _ _" ]
+
+    -- Test cases adapted from `exercism/x-common/queen-attack.json` on
+    -- 2016-08-02.
+    -- The function described by the reference file as `create` doesn't
+    -- exist in this track, so only the `canAttack` test cases where
+    -- implemented here
+
+    describe "canAttack" $ do
+
+      let test (description, white, black, expected) =
+            it description $ canAttack white black `shouldBe` expected
+
+          cases = [ ("can not attack"               , (2, 4), (6, 6), False)
+                  , ("can attack on same rank"      , (2, 4), (2, 6), True )
+                  , ("can attack on same file"      , (4, 5), (2, 5), True )
+                  , ("can attack on first diagonal" , (2, 2), (0, 4), True )
+                  , ("can attack on second diagonal", (2, 2), (3, 1), True )
+                  , ("can attack on third diagonal" , (2, 2), (1, 1), True )
+                  , ("can attack on fourth diagonal", (2, 2), (5, 5), True ) ]
+
+      for_ cases test
