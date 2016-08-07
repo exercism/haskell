@@ -16,4 +16,4 @@ tests:
     source-dirs: test
     dependencies:
       - house
-      - HUnit
+      - hspec
