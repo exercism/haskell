@@ -17,4 +17,4 @@ tests:
     source-dirs: test
     dependencies:
       - crypto-square
-      - HUnit
+      - hspec
