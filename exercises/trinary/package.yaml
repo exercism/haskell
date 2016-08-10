@@ -16,4 +16,5 @@ tests:
     source-dirs: test
     dependencies:
       - trinary
+      - hspec
       - QuickCheck

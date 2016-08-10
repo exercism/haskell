@@ -1,9 +1,11 @@
-import Test.QuickCheck
-import Test.QuickCheck.Test (isSuccess)
-import System.Exit (ExitCode(..), exitWith)
-import Trinary (showTri, readTri)
-import qualified Numeric as N
-import Data.Char (intToDigit)
+import Data.Char         (intToDigit)
+import Test.Hspec        (Spec, describe, it)
+import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+import Test.QuickCheck   (Positive(Positive), (==>), property)
+
+import qualified Numeric as Num (showIntAtBase)
+
+import Trinary (readTri, showTri)
 
 {-
 For the appropriate amount of challenge here, you should only
@@ -18,34 +20,28 @@ Handling invalid input is not necessary.
 If you've done the Octal exercise, perhaps you should generalize it.
 -}
 
-exitProperly :: IO Bool -> IO ()
-exitProperly m = do
-  didSucceed <- m
-  exitWith $ if didSucceed then ExitSuccess else ExitFailure 1
-
-refShowTri :: (Integral a, Show a) => a -> String
-refShowTri n = N.showIntAtBase 3 intToDigit n ""
-
-prop_showTri_integral :: (Integral a, Show a) => Positive a -> Property
-prop_showTri_integral (Positive n) = property $ refShowTri n == showTri n
-
-prop_showTri_int :: Positive Int -> Property
-prop_showTri_int = prop_showTri_integral
-
-prop_readTri_integral :: (Integral a, Show a) => Positive a -> Property
-prop_readTri_integral (Positive n) = property $ n == readTri (refShowTri n)
-
-prop_readTri_int :: Positive Int -> Property
-prop_readTri_int = prop_readTri_integral
-
-prop_readInvalidTri_just_digits :: Positive Int -> Property
-prop_readInvalidTri_just_digits n = any (`notElem` ['0'..'2']) (show n) ==> (readTri . show $ n) == (0 :: Int)
-
 main :: IO ()
-main = exitProperly $ all isSuccess `fmap` mapM quickCheckResult
-  [ prop_showTri_integral
-  , prop_showTri_int
-  , prop_readTri_integral
-  , prop_readTri_int
-  , prop_readInvalidTri_just_digits
-  ]
+main = hspecWith defaultConfig {configFastFail = True} specs
+
+specs :: Spec
+specs = describe "trinary" $ do
+
+    -- As of 2016-08-10, there was no reference file
+    -- for the test cases in `exercism/x-common`.
+
+    let refShowTri n = Num.showIntAtBase 3 intToDigit n ""
+
+    it "can show Int trinary" $
+      property $ \(Positive n) -> refShowTri n == showTri (n :: Int)
+
+    it "can show Integer trinary" $
+      property $ \(Positive n) -> refShowTri n == showTri (n :: Integer)
+
+    it "can read Int trinary" $
+      property $ \(Positive n) -> n == readTri (refShowTri (n :: Int))
+
+    it "can read Integer trinary" $
+      property $ \(Positive n) -> n == readTri (refShowTri (n :: Integer))
+
+    it "can read invalid trinary" $
+      \n -> any (`notElem` ['0'..'2']) (show n) ==> (readTri . show $ n) == (0 :: Int)
