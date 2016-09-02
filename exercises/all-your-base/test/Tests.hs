@@ -22,8 +22,8 @@ tests :: Test
 tests = TestList $ map test cases
   where
     test (Case {..}) =   description
-                     ~:  rebase inputBase outputBase inputDigits
-                     ~=? outputDigits
+                     ~:  outputDigits
+                     ~=? rebase inputBase outputBase inputDigits
 
 data Case = Case { description  ::        String
                  , inputBase    ::        Integer
