@@ -1,22 +1,19 @@
 module Scrabble (scoreLetter, scoreWord) where
-import qualified Data.Map as M
-import Data.Maybe (fromJust)
+
 import Data.Char (toUpper)
+import Data.Map  (findWithDefault, fromList)
 
-scoreLetter :: Char -> Int
-scoreLetter = fromJust . flip M.lookup scoreMap . toUpper
+scoreLetter :: Num a => Char -> a
+scoreLetter letter = findWithDefault 0 (toUpper letter) scoreMap
   where
-    scoreMap = M.fromList $ concatMap invert scoreGroups
-    invert (score, letters) = zip letters (repeat score)
-    scoreGroups =
-      [ (1, "AEIOULNRST")
-      , (2, "DG")
-      , (3, "BCMP")
-      , (4, "FHVWY")
-      , (5, "K")
-      , (8, "JX")
-      , (10, "QZ")
-      ]
+    scoreMap   = fromList [(k,v) | (ks, v) <- scoreTable, k <- ks]
+    scoreTable = [ ("AEIOULNRST",  1)
+                 , ("DG"        ,  2)
+                 , ("BCMP"      ,  3)
+                 , ("FHVWY"     ,  4)
+                 , ("K"         ,  5)
+                 , ("JX"        ,  8)
+                 , ("QZ"        , 10) ]
 
-scoreWord :: String -> Int
+scoreWord :: Num a => String -> a
 scoreWord = sum . map scoreLetter

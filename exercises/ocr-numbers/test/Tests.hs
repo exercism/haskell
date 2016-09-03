@@ -1,114 +1,152 @@
-import Test.HUnit (Assertion, (@=?), runTestTT, Test(..), Counts(..))
-import System.Exit (ExitCode(..), exitWith)
+{-# LANGUAGE RecordWildCards #-}
+
+import Data.Foldable     (for_)
+import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+
 import OCR (convert)
 
-exitProperly :: IO Counts -> IO ()
-exitProperly m = do
-  counts <- m
-  exitWith $ if failures counts /= 0 || errors counts /= 0 then ExitFailure 1 else ExitSuccess
-
-testCase :: String -> Assertion -> Test
-testCase label assertion = TestLabel label (TestCase assertion)
-
 main :: IO ()
-main = exitProperly $ runTestTT $ TestList
-       [ TestList ocrTests ]
+main = hspecWith defaultConfig {configFastFail = True} specs
 
-ocrTests :: [Test]
-ocrTests =
-  [ testCase "recognize zero" $
-    "0" @=? convert (unlines
-                     [ " _ "
-                     , "| |"
-                     , "|_|"
-                     , "   " ])
-  , testCase "recognizes one" $
-    "1" @=? convert (unlines
-                     [ "   "
-                     , "  |"
-                     , "  |"
-                     , "   "])
-  , testCase "recognizes two" $
-    "2" @=? convert (unlines
-                     [ " _ "
-                     , " _|"
-                     , "|_ "
-                     , "   "])
-  , testCase "recognizes three" $
-    "3" @=? convert (unlines
-                     [ " _ "
-                     , " _|"
-                     , " _|"
-                     , "   " ])
-  , testCase "recognises four" $
-    "4" @=? convert (unlines
-                     [ "   "
-                     , "|_|"
-                     , "  |"
-                     , "   " ])
-  , testCase "recognizes five" $
-    "5" @=? convert (unlines
-                     [ " _ "
-                     , "|_ "
-                     , " _|"
-                     , "   " ])
-  , testCase "recognizes six" $
-    "6" @=? convert (unlines
-                     [ " _ "
-                     , "|_ "
-                     , "|_|"
-                     , "   "])
-  , testCase "recognizes seven" $
-    "7" @=? convert (unlines
-                     [ " _ "
-                     , "  |"
-                     , "  |"
-                     , "   " ])
-  , testCase "recognizes eight" $
-    "8" @=? convert (unlines
-                     [ " _ "
-                     , "|_|"
-                     , "|_|"
-                     , "   " ])
-  , testCase "recognizes nine" $
-    "9" @=? convert (unlines
-                 [ " _ "
-                 , "|_|"
-                 , " _|"
-                 , "   "])
-  , testCase "recognizes garble" $
-    "?" @=? convert (unlines
-                     [ "   "
-                     , "| |"
-                     , "| |"
-                     , "   " ])
-  , testCase "recognizes ten" $
-    "10" @=? convert (unlines
-                      [ "    _ "
-                      , "  || |"
-                      , "  ||_|"
-                      , "      " ])
-  , testCase "recognizes 110101100" $
-    "110101100" @=? convert (unlines
-                             [ "       _     _        _  _ "
-                             , "  |  || |  || |  |  || || |"
-                             , "  |  ||_|  ||_|  |  ||_||_|"
-                             , "                           " ])
-  , testCase "identify with garble" $
-    "11?10?1?0" @=? convert (unlines
-                             [ "       _     _           _ "
-                             , "  |  || |  || |     || || |"
-                             , "  |  | _|  ||_|  |  ||_||_|"
-                             , "                           " ])
-  , testCase "identify 1234567890" $
-    "1234567890" @=? convert (unlines
-                              [ "    _  _     _  _  _  _  _  _ "
-                              , "  | _| _||_||_ |_   ||_||_|| |"
-                              , "  ||_  _|  | _||_|  ||_| _||_|"
-                              , "                              " ])
-  , testCase "identify 123,456,789" $
-    "123,456,789" @=? convert (unlines
-                               [ "    _  _ "
+specs :: Spec
+specs = describe "ocr-numbers" $
+          describe "convert" $ for_ cases test
+  where
+
+    test Case{..} = it description assertion
+      where
+        assertion = convert (unlines input) `shouldBe` expected
+
+-- Test cases adapted from `exercism/x-common/ocr-numbers.json`
+-- on 2016-08-09. Some deviations exist and are noted in comments.
+
+data Case = Case { description ::  String
+                 , expected    ::  String
+                 , input       :: [String]
+                 }
+
+cases :: [Case]
+cases = [ Case { description = "Recognizes 0"
+               , expected    = "0"
+               , input       = [ " _ "
+                               , "| |"
+                               , "|_|"
+                               , "   " ]
+               }
+        , Case { description = "Recognizes 1"
+               , expected    = "1"
+               , input       = [ "   "
+                               , "  |"
+                               , "  |"
+                               , "   " ]
+               }
+        , Case { description = "Unreadable but correctly sized inputs return ?"
+               , expected    = "?"
+               , input       = [ "   "
+                               , "  _"
+                               , "  |"
+                               , "   " ]
+               }
+
+        {- In this track, the tests to determine if the input
+           has the correct format where not implemented.
+
+        , Case { description = "Input with a number of lines that is not a multiple of four raises an error"
+               , expected    = -1
+               , input       = [ " _ "
+                               , "| |"
+                               , "   " ]
+               }
+        , Case { description = "Input with a number of columns that is not a multiple of three raises an error"
+               , expected    = -1
+               , input       = [ "    "
+                               , "   |"
+                               , "   |"
+                               , "    " ]
+               }
+        -}
+
+        , Case { description = "Recognizes 110101100"
+               , expected    = "110101100"
+               , input       = [ "       _     _        _  _ "
+                               , "  |  || |  || |  |  || || |"
+                               , "  |  ||_|  ||_|  |  ||_||_|"
+                               , "                           " ]
+               }
+        , Case { description = "Garbled numbers in a string are replaced with ?"
+               , expected    = "11?10?1?0"
+               , input       = [ "       _     _           _ "
+                               , "  |  || |  || |     || || |"
+                               , "  |  | _|  ||_|  |  ||_||_|"
+                               , "                           " ]
+               }
+        , Case { description = "Recognizes 2"
+               , expected    = "2"
+               , input       = [ " _ "
+                               , " _|"
+                               , "|_ "
+                               , "   " ]
+               }
+        , Case { description = "Recognizes 3"
+               , expected    = "3"
+               , input       = [ " _ "
+                               , " _|"
+                               , " _|"
+                               , "   " ]
+               }
+        , Case { description = "Recognizes 4"
+               , expected    = "4"
+               , input       = [ "   "
+                               , "|_|"
+                               , "  |"
+                               , "   " ]
+               }
+        , Case { description = "Recognizes 5"
+               , expected    = "5"
+               , input       = [ " _ "
+                               , "|_ "
+                               , " _|"
+                               , "   " ]
+               }
+        , Case { description = "Recognizes 6"
+               , expected    = "6"
+               , input       = [ " _ "
+                               , "|_ "
+                               , "|_|"
+                               , "   " ]
+               }
+        , Case { description = "Recognizes 7"
+               , expected    = "7"
+               , input       = [ " _ "
+                               , "  |"
+                               , "  |"
+                               , "   " ]
+               }
+        , Case { description = "Recognizes 8"
+               , expected    = "8"
+               , input       = [ " _ "
+                               , "|_|"
+                               , "|_|"
+                               , "   " ]
+               }
+        , Case { description = "Recognizes 9"
+               , expected    = "9"
+               , input       = [ " _ "
+                               , "|_|"
+                               , " _|"
+                               , "   " ]
+               }
+        , Case { description = "Recognizes string of decimal numbers"
+               , expected    = "1234567890"
+               , input       = [ "    _  _     _  _  _  _  _  _ "
+                               , "  | _| _||_||_ |_   ||_||_|| |"
+                               , "  ||_  _|  | _||_|  ||_| _||_|"
+                               , "                              " ]
+               }
+        , Case { description = "Numbers separated by empty lines are recognized. Lines are joined by commas."
+               , expected    = "123,456,789"
+               , input       = [ "    _  _ "
                                , "  | _| _|"
                                , "  ||_  _|"
                                , "         "
@@ -119,5 +157,6 @@ ocrTests =
                                , " _  _  _ "
                                , "  ||_||_|"
                                , "  ||_| _|"
-                               , "         " ])
-  ]
+                               , "         " ]
+               }
+        ]

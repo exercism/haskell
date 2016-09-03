@@ -16,4 +16,4 @@ tests:
     source-dirs: test
     dependencies:
       - beer-song
-      - HUnit
+      - hspec

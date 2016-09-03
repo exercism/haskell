@@ -1,5 +1,4 @@
 module Robot (Bearing(..),
-              Robot,
               mkRobot,
               coordinates,
               bearing,

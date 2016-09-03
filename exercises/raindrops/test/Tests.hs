@@ -1,32 +1,38 @@
-import Test.HUnit ((@=?), runTestTT, Test(..), Counts(..))
-import System.Exit (ExitCode(..), exitWith)
+{-# OPTIONS_GHC -fno-warn-type-defaults #-}
+
+import Data.Foldable     (for_)
+import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+
 import Raindrops (convert)
 
-exitProperly :: IO Counts -> IO ()
-exitProperly m = do
-  counts <- m
-  exitWith $ if failures counts /= 0 || errors counts /= 0 then ExitFailure 1 else ExitSuccess
-
 main :: IO ()
-main = exitProperly $ runTestTT $ TestList
-       [ TestList raindropsTests ]
+main = hspecWith defaultConfig {configFastFail = True} specs
 
-raindropsTests :: [Test]
-raindropsTests = map TestCase
-  [ "1" @=? convert 1
-  , "Pling" @=? convert 3
-  , "Plang" @=? convert 5
-  , "Plong" @=? convert 7
-  , "Pling" @=? convert 6
-  , "Pling" @=? convert 9
-  , "Plang" @=? convert 10
-  , "Plong" @=? convert 14
-  , "PlingPlang" @=? convert 15
-  , "PlingPlong" @=? convert 21
-  , "Plang" @=? convert 25
-  , "PlangPlong" @=? convert 35
-  , "Plong" @=? convert 49
-  , "52" @=? convert 52
-  , "PlingPlangPlong" @=? convert 105
-  , "12121" @=? convert 12121
-  ]
+specs :: Spec
+specs = describe "raindrops" $
+          describe "convert" $ for_ cases test
+  where
+
+    test (number, expected) = it description assertion
+      where
+        description = show number
+        assertion   = convert number `shouldBe` expected
+
+    -- Test cases adapted from `exercism/x-common/raindrops.json` on 2016-08-01.
+
+    cases = [ (  1, "1"              )
+            , (  3, "Pling"          )
+            , (  5, "Plang"          )
+            , (  7, "Plong"          )
+            , (  6, "Pling"          )
+            , (  9, "Pling"          )
+            , ( 10, "Plang"          )
+            , ( 14, "Plong"          )
+            , ( 15, "PlingPlang"     )
+            , ( 21, "PlingPlong"     )
+            , ( 25, "Plang"          )
+            , ( 35, "PlangPlong"     )
+            , ( 49, "Plong"          )
+            , ( 52, "52"             )
+            , (105, "PlingPlangPlong") ]

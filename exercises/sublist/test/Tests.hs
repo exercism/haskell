@@ -1,56 +1,134 @@
-import Test.HUnit (Assertion, (@=?), runTestTT, Test(..), Counts(..))
-import System.Exit (ExitCode(..), exitWith)
-import Sublist (Sublist(Equal, Sublist, Superlist, Unequal), sublist)
+{-# LANGUAGE RecordWildCards #-}
 
-exitProperly :: IO Counts -> IO ()
-exitProperly m = do
-  counts <- m
-  exitWith $ if failures counts /= 0 || errors counts /= 0 then ExitFailure 1 else ExitSuccess
+import Data.Foldable     (for_)
+import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
-testCase :: String -> Assertion -> Test
-testCase label assertion = TestLabel label (TestCase assertion)
+import Sublist (Sublist(Equal,Sublist,Superlist,Unequal), sublist)
 
 main :: IO ()
-main = exitProperly $ runTestTT $ TestList
-       [ TestList sublistTests ]
+main = hspecWith defaultConfig {configFastFail = True} specs
 
-sublistTests :: [Test]
-sublistTests =
-  [ testCase "empty equals empty" $ do
-    Equal @=? sublist "" ""
-  , testCase "empty is a sublist of anything" $ do
-    Sublist @=? sublist "" "asdf"
-  , testCase "anything is a superlist of empty" $ do
-    Superlist @=? sublist "asdf" ""
-  , testCase  "1 is not 2" $ do
-    Unequal @=? sublist "1" "2"
-  , testCase "compare larger equal lists" $ do
-    let xs = replicate 1000 'x'
-    Equal @=? sublist xs xs
-  , testCase "sublist at start" $ do
-    Sublist @=? sublist "123" "12345"
-  , testCase "sublist in middle" $ do
-    Sublist @=? sublist "432" "54321"
-  , testCase "sublist at end" $ do
-    Sublist @=? sublist "345" "12345"
-  , testCase "partially matching sublist at start" $ do
-    Sublist @=? sublist "112" "1112"
-  , testCase "sublist early in huge list" $ do
-    Sublist @=? sublist [3, 4, 5] [1 .. 1000000 :: Int] 
-  , testCase "huge sublist not in huge list" $ do
-    Unequal @=? sublist [10 .. 1000001] [1 .. 1000000 :: Int]
-  , testCase "superlist at start" $ do
-    Superlist @=? sublist "12345" "123"
-  , testCase "superlist in middle" $ do
-    Superlist @=? sublist "54321" "432"
-  , testCase "superlist at end" $ do
-    Superlist @=? sublist "12345" "345"
-  , testCase "partially matching superlist at start" $ do
-    Superlist @=? sublist "1112" "112"
-  , testCase "superlist early in huge list" $ do
-    Superlist @=? sublist [1 .. 1000000] [3, 4, 5 :: Int]
-  , testCase "recurring values sublist" $ do
-    Sublist @=? sublist "12123" "1231212321"
-  , testCase "recurring values unequal" $ do
-    Unequal @=? sublist "12123" "1231232321"
-  ]
+specs :: Spec
+specs = describe "sublist" $ do
+          describe "standard tests" $ for_ cases test
+          describe "track specific tests" $ do
+
+            let xs = replicate 1000 'x'
+
+            it "compare larger equal lists" $
+              sublist xs xs
+              `shouldBe` Equal
+
+            it "sublist early in huge list" $
+              sublist [3, 4, 5] [1..1000000 :: Int]
+              `shouldBe` Sublist
+
+            it "huge sublist not in huge list" $
+              sublist [10..1000001] [1..1000000 :: Int]
+              `shouldBe` Unequal
+
+            it "superlist early in huge list" $
+              sublist [1..1000000] [3, 4, 5 :: Int]
+              `shouldBe` Superlist
+  where
+
+    test Case{..} = it explanation assertion
+      where
+        assertion   = sublist listOne listTwo `shouldBe` expectation
+        explanation = unwords [ "sublist"
+                              , show listOne
+                              , show listTwo
+                              , "-"
+                              , description ]
+
+-- Test cases adapted from `exercism/x-common/sublist.json` on 2016-07-27.
+
+data Case = Case { description :: String
+                 , listOne     :: [Integer]
+                 , listTwo     :: [Integer]
+                 , expectation :: Sublist
+                 }
+
+cases :: [Case]
+cases = [ Case { description = "empty lists"
+               , listOne     = []
+               , listTwo     = []
+               , expectation = Equal
+               }
+        , Case { description = "empty list within non empty list"
+               , listOne     = []
+               , listTwo     = [1, 2, 3]
+               , expectation = Sublist
+               }
+        , Case { description = "non empty list contains empty list"
+               , listOne     = [1, 2, 3]
+               , listTwo     = []
+               , expectation = Superlist
+               }
+        , Case { description = "list equals itself"
+               , listOne     = [1, 2, 3]
+               , listTwo     = [1, 2, 3]
+               , expectation = Equal
+               }
+        , Case { description = "different lists"
+               , listOne     = [1, 2, 3]
+               , listTwo     = [2, 3, 4]
+               , expectation = Unequal
+               }
+        , Case { description = "false start"
+               , listOne     = [1, 2, 5]
+               , listTwo     = [0, 1, 2, 3, 1, 2, 5, 6]
+               , expectation = Sublist
+               }
+        , Case { description = "consecutive"
+               , listOne     = [1, 1, 2]
+               , listTwo     = [0, 1, 1, 1, 2, 1, 2]
+               , expectation = Sublist
+               }
+        , Case { description = "sublist at start"
+               , listOne     = [0, 1, 2]
+               , listTwo     = [0, 1, 2, 3, 4, 5]
+               , expectation = Sublist
+               }
+        , Case { description = "sublist in middle"
+               , listOne     = [2, 3, 4]
+               , listTwo     = [0, 1, 2, 3, 4, 5]
+               , expectation = Sublist
+               }
+        , Case { description = "sublist at end"
+               , listOne     = [3, 4, 5]
+               , listTwo     = [0, 1, 2, 3, 4, 5]
+               , expectation = Sublist
+               }
+        , Case { description = "at start of superlist"
+               , listOne     = [0, 1, 2, 3, 4, 5]
+               , listTwo     = [0, 1, 2]
+               , expectation = Superlist
+               }
+        , Case { description = "in middle of superlist"
+               , listOne     = [0, 1, 2, 3, 4, 5]
+               , listTwo     = [2, 3]
+               , expectation = Superlist
+               }
+        , Case { description = "at end of superlist"
+               , listOne     = [0, 1, 2, 3, 4, 5]
+               , listTwo     = [3, 4, 5]
+               , expectation = Superlist
+               }
+        , Case { description = "first list missing element from second list"
+               , listOne     = [1, 3]
+               , listTwo     = [1, 2, 3]
+               , expectation = Unequal
+               }
+        , Case { description = "second list missing element from first list"
+               , listOne     = [1, 2, 3]
+               , listTwo     = [1, 3]
+               , expectation = Unequal
+               }
+        , Case { description = "order matters to a list"
+               , listOne     = [1, 2, 3]
+               , listTwo     = [3, 2, 1]
+               , expectation = Unequal
+               }
+        ]

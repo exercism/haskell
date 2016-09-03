@@ -6,7 +6,7 @@ data Prompt = Silence | Yell | Question | Other
 classify :: String -> Prompt
 classify s | all isSpace s = Silence
            | any isAlpha s && (all isUpper $ filter isAlpha s) = Yell
-           | '?' == last s = Question
+           | '?' == last (filter (not . isSpace) s) = Question
            | otherwise = Other
 
 response :: Prompt -> String

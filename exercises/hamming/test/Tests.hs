@@ -1,32 +1,31 @@
 {-# OPTIONS_GHC -fno-warn-type-defaults #-}
 {-# LANGUAGE RecordWildCards #-}
 
-import Control.Monad (unless)
-import System.Exit   (exitFailure)
+import Data.Foldable     (for_)
+import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
-import Test.HUnit
-    ( (~:)
-    , (~=?)
-    , Counts (failures, errors)
-    , Test   (TestList)
-    , runTestTT
-    )
+-- base >= 4.8 re-exports Control.Applicative.(<$>).
+import Control.Applicative -- This is only need for <$>,  if GHC <  7.10.
+import Prelude             -- This trick avoids a warning if GHC >= 7.10.
 
 import Hamming (distance)
 
 main :: IO ()
-main = do
-         counts <- runTestTT tests
-         unless (failures counts == 0 && errors counts == 0) exitFailure
+main = hspecWith defaultConfig {configFastFail = True} specs
 
-tests :: Test
-tests = TestList $ map test cases
+specs :: Spec
+specs = describe "hamming" $
+          describe "distance" $ for_ cases test
   where
-    test (Case {..}) =   description
-                     ~:  fmap fromIntegral (distance strand1 strand2)
-                     ~=? expected
 
--- Test cases adapted from x-common/hamming.json from 2016-03-13.
+    test Case{..} = it description assertion
+      where
+        assertion  = expression `shouldBe` fromIntegral <$> expected
+        expression = distance strand1 strand2
+
+-- Test cases adapted from `exercism/x-common/hamming.json` on 2016-07-12.
+
 data Case = Case { description :: String
                  , strand1     :: String
                  , strand2     :: String

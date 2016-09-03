@@ -1,47 +1,61 @@
-import Test.HUnit (Assertion, (@=?), runTestTT, Test(..), Counts(..))
-import System.Exit (ExitCode(..), exitWith)
+{-# OPTIONS_GHC -fno-warn-type-defaults #-}
+
+import Data.Either       (isLeft)
+import Data.Map          (fromList)
+import Test.Hspec        (Spec, describe, it, shouldBe, shouldSatisfy)
+import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+
 import DNA (count, nucleotideCounts)
-import Data.Map (fromList)
-
-exitProperly :: IO Counts -> IO ()
-exitProperly m = do
-  counts <- m
-  exitWith $ if failures counts /= 0 || errors counts /= 0 then ExitFailure 1 else ExitSuccess
-
-testCase :: String -> Assertion -> Test
-testCase label assertion = TestLabel label (TestCase assertion)
 
 main :: IO ()
-main = exitProperly $ runTestTT $ TestList
-       [ TestList countTests
-       , TestList nucleotideCountTests]
+main = hspecWith defaultConfig {configFastFail = True} specs
 
-countTests :: [Test]
-countTests =
-  [ testCase "empty dna strand has no adenosine" $
-    Right 0 @=? count 'A' ""
-  , testCase "repetitive cytidine gets counted" $
-    Right 5 @=? count 'C' "CCCCC"
-  , testCase "counts only thymidine" $
-    Right 1 @=? count 'T' "GGGGGTAACCCGG"
-  , testCase "validates nucleotides" $
-    Left "invalid nucleotide 'X'" @=? count 'X' "GACT"
-  , testCase "validates strand" $
-    Left "invalid nucleotide 'Y'" @=? count 'G' "GACYT"
-  ]
+specs :: Spec
+specs = describe "nucleotide-count" $ do
 
-nucleotideCountTests :: [Test]
-nucleotideCountTests =
-  [ testCase "empty dna strand has no nucleotides" $
-    Right (fromList [('A', 0), ('T', 0), ('C', 0), ('G', 0)]) @=?
-    nucleotideCounts ""
-  , testCase "repetitive-sequence-has-only-guanosine" $
-    Right (fromList [('A', 0), ('T', 0), ('C', 0), ('G', 8)]) @=?
-    nucleotideCounts "GGGGGGGG"
-  , testCase "counts all nucleotides" $
-    Right (fromList [('A', 20), ('T', 21), ('C', 12), ('G', 17)]) @=?
-    nucleotideCounts ("AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAA" ++
-                      "GAGTGTCTGATAGCAGC")
-  , testCase "validates strand" $
-    Left "invalid nucleotide 'P'" @=? nucleotideCounts "GPAC"
-  ]
+          -- As of 2016-07-27, there was no reference file
+          -- for the test cases in `exercism/x-common`.
+
+          let x `matches`    y = x `shouldBe`  Right y
+          let x `matchesMap` y = x `shouldBe` (Right . fromList) y
+
+          describe "count" $ do
+
+            it "empty dna strand has no adenosine" $
+              count 'A' "" `matches` 0
+
+            it "repetitive cytidine gets counted" $
+              count 'C' "CCCCC" `matches` 5
+
+            it "counts only thymidine" $
+              count 'T' "GGGGGTAACCCGG" `matches` 1
+
+            it "validates nucleotides" $
+              count 'X' "GACT" `shouldSatisfy` isLeft
+
+            it "validates strand" $
+              count 'G' "GACYT" `shouldSatisfy` isLeft
+
+          describe "nucleotideCounts" $ do
+
+            it "empty dna strand has no nucleotides" $
+              nucleotideCounts "" `matchesMap` [ ('A', 0)
+                                               , ('C', 0)
+                                               , ('G', 0)
+                                               , ('T', 0) ]
+
+            it "repetitive-sequence-has-only-guanosine" $
+              nucleotideCounts "GGGGGGGG" `matchesMap` [ ('A', 0)
+                                                       , ('C', 0)
+                                                       , ('G', 8)
+                                                       , ('T', 0) ]
+
+            it "counts all nucleotides" $
+              nucleotideCounts "AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC"
+              `matchesMap` [ ('A', 20)
+                           , ('C', 12)
+                           , ('G', 17)
+                           , ('T', 21) ]
+
+            it "validates strand" $
+              nucleotideCounts "GPAC" `shouldSatisfy` isLeft

@@ -1,8 +1,10 @@
-import Test.QuickCheck
-import Test.QuickCheck.Test (isSuccess)
-import System.Exit (ExitCode(..), exitWith)
-import Octal (showOct, readOct)
-import qualified Numeric as N
+import Test.Hspec        (Spec, describe, it)
+import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+import Test.QuickCheck   (Positive(Positive), property)
+
+import qualified Numeric as Num (showOct)
+
+import Octal (readOct, showOct)
 
 {-
 For the appropriate amount of challenge here, you should only
@@ -15,28 +17,23 @@ that the solution is efficient.
 Handling invalid input is not necessary.
 -}
 
-exitProperly :: IO Bool -> IO ()
-exitProperly m = do
-  didSucceed <- m
-  exitWith $ if didSucceed then ExitSuccess else ExitFailure 1
-
-prop_showOct_integral :: (Integral a, Show a) => (Positive a) -> Bool
-prop_showOct_integral (Positive n) = N.showOct n "" == showOct n
-
-prop_showOct_int :: (Positive Int) -> Bool
-prop_showOct_int = prop_showOct_integral
-
-
-prop_readOct_integral :: (Integral a, Show a) => (Positive a) -> Bool
-prop_readOct_integral (Positive n) = n == readOct (N.showOct n "")
-
-prop_readOct_int :: (Positive Int) -> Bool
-prop_readOct_int = prop_readOct_integral
-
 main :: IO ()
-main = exitProperly $ all isSuccess `fmap` mapM quickCheckResult
-  [ prop_showOct_integral
-  , prop_showOct_int
-  , prop_readOct_integral
-  , prop_readOct_int
-  ]
+main = hspecWith defaultConfig {configFastFail = True} specs
+
+specs :: Spec
+specs = describe "octal" $ do
+
+    -- As of 2016-08-10, there was no reference file
+    -- for the test cases in `exercism/x-common`.
+
+    it "can show Int octal" $
+      property $ \(Positive n) -> Num.showOct n "" == showOct (n :: Int)
+
+    it "can show Integer octal" $
+      property $ \(Positive n) -> Num.showOct n "" == showOct (n :: Integer)
+
+    it "can read Int octal" $
+      property $ \(Positive n) -> n == readOct (Num.showOct (n :: Int) "")
+
+    it "can read Integer octal" $
+      property $ \(Positive n) -> n == readOct (Num.showOct (n :: Integer) "")

@@ -16,4 +16,5 @@ tests:
     source-dirs: test
     dependencies:
       - octal
+      - hspec
       - QuickCheck

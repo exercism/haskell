@@ -1,53 +1,100 @@
-import Test.HUnit (Assertion, (@=?), runTestTT, Test(..), Counts(..))
-import System.Exit (ExitCode(..), exitWith)
+{-# OPTIONS_GHC -fno-warn-type-defaults #-}
+{-# LANGUAGE RecordWildCards #-}
+
+import Data.Foldable     (for_)
+import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+
+-- base >= 4.8 re-exports Control.Applicative.(<$>).
+import Control.Applicative -- This is only need for <$>,  if GHC <  7.10.
+import Prelude             -- This trick avoids a warning if GHC >= 7.10.
+
 import WordProblem (answer)
 
 -- This is a perfect opportunity to learn some Attoparsec or Parsec!
 
-exitProperly :: IO Counts -> IO ()
-exitProperly m = do
-  counts <- m
-  exitWith $ if failures counts /= 0 || errors counts /= 0 then ExitFailure 1 else ExitSuccess
-
-testCase :: String -> Assertion -> Test
-testCase label assertion = TestLabel label (TestCase assertion)
-
 main :: IO ()
-main = exitProperly $ runTestTT $ TestList
-       [ TestList answerTests ]
+main = hspecWith defaultConfig {configFastFail = True} specs
 
-answerTests :: [Test]
-answerTests =
-  [ testCase "1 + 1" $
-    Just 2 @=? answer "What is 1 plus 1?"
-  , testCase "53 + 2" $
-    Just 55 @=? answer "What is 53 plus 2?"
-  , testCase "(-1) + (-10)" $
-    Just (-11) @=? answer "What is -1 plus -10?"
-  , testCase "123 + 45678" $
-    Just 45801 @=? answer "What is 123 plus 45678?"
-  , testCase "4 - (-12)" $
-    Just 16 @=? answer "What is 4 minus -12?"
-  , testCase "(-3) * 25" $
-    Just (-75) @=? answer "What is -3 multiplied by 25?"
-  , testCase "33 / (-3)" $
-    Just (-11) @=? answer "What is 33 divided by -3?"
-  , testCase "1 + 1 + 1" $
-    Just 3 @=? answer "What is 1 plus 1 plus 1?"
-  , testCase "1 + 5 - (-2)" $
-    Just 8 @=? answer "What is 1 plus 5 minus -2?"
-  , testCase "20 - 4 - 13" $
-    Just 3 @=? answer "What is 20 minus 4 minus 13?"
-  , testCase "17 - 6 + 3" $
-    Just 14 @=? answer "What is 17 minus 6 plus 3?"
-  , testCase "2 * (-2) * 3" $
-    Just (-12) @=? answer "What is 2 multiplied by -2 multiplied by 3?"
-  , testCase "((-3) + 7) * -2" $
-    Just (-8) @=? answer "What is -3 plus 7 multiplied by -2?"
-  , testCase "(-12) / 2 / (-3)" $
-    Just 2 @=? answer "What is -12 divided by 2 divided by -3?"
-  , testCase "What is 53 cubed?" $
-    Nothing @=? answer "What is 53 cubed?"
-  , testCase "Who is the president of the United States?" $
-    Nothing @=? answer "Who is the president of the United States?"
-  ]
+specs :: Spec
+specs = describe "wordy" $
+          describe "answer" $ for_ cases test
+  where
+
+    test Case{..} = it description assertion
+      where
+        assertion   = answer input `shouldBe` fromIntegral <$> expected
+
+-- Test cases adapted from `exercism/x-common/wordy.json` on 2016-08-10.
+
+data Case = Case { description :: String
+                 , input       :: String
+                 , expected    :: Maybe Integer
+                 }
+
+cases :: [Case]
+cases = [ Case { description = "addition"
+               , input       = "What is 1 plus 1?"
+               , expected    = Just 2
+               }
+        , Case { description = "more addition"
+               , input       = "What is 53 plus 2?"
+               , expected    = Just 55
+               }
+        , Case { description = "addition with negative numbers"
+               , input       = "What is -1 plus -10?"
+               , expected    = Just (-11)
+               }
+        , Case { description = "large addition"
+               , input       = "What is 123 plus 45678?"
+               , expected    = Just 45801
+               }
+        , Case { description = "subtraction"
+               , input       = "What is 4 minus -12?"
+               , expected    = Just 16
+               }
+        , Case { description = "multiplication"
+               , input       = "What is -3 multiplied by 25?"
+               , expected    = Just (-75)
+               }
+        , Case { description = "division"
+               , input       = "What is 33 divided by -3?"
+               , expected    = Just (-11)
+               }
+        , Case { description = "multiple additions"
+               , input       = "What is 1 plus 1 plus 1?"
+               , expected    = Just 3
+               }
+        , Case { description = "addition and subtraction"
+               , input       = "What is 1 plus 5 minus -2?"
+               , expected    = Just 8
+               }
+        , Case { description = "multiple subtraction"
+               , input       = "What is 20 minus 4 minus 13?"
+               , expected    = Just 3
+               }
+        , Case { description = "subtraction then addition"
+               , input       = "What is 17 minus 6 plus 3?"
+               , expected    = Just 14
+               }
+        , Case { description = "multiple multiplication"
+               , input       = "What is 2 multiplied by -2 multiplied by 3?"
+               , expected    = Just (-12)
+               }
+        , Case { description = "addition and multiplication"
+               , input       = "What is -3 plus 7 multiplied by -2?"
+               , expected    = Just (-8)
+               }
+        , Case { description = "multiple division"
+               , input       = "What is -12 divided by 2 divided by -3?"
+               , expected    = Just 2
+               }
+        , Case { description = "unknown operation"
+               , input       = "What is 52 cubed?"
+               , expected    = Nothing
+               }
+        , Case { description = "Non math question"
+               , input       = "Who is the President of the United States?"
+               , expected    = Nothing
+               }
+        ]

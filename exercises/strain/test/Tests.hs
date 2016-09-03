@@ -1,55 +1,69 @@
-import Test.HUnit (Assertion, (@=?), runTestTT, Test(..), Counts(..))
-import System.Exit (ExitCode(..), exitWith)
-import Strain (keep, discard)
+import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+
 import Data.List (isPrefixOf)
 
-exitProperly :: IO Counts -> IO ()
-exitProperly m = do
-  counts <- m
-  exitWith $ if failures counts /= 0 || errors counts /= 0 then ExitFailure 1 else ExitSuccess
-
-testCase :: String -> Assertion -> Test
-testCase label assertion = TestLabel label (TestCase assertion)
+import Strain (discard, keep)
 
 main :: IO ()
-main = exitProperly $ runTestTT $ TestList
-       [ TestList strainTests ]
+main = hspecWith defaultConfig {configFastFail = True} specs
 
-ints :: [Int] -> [Int]
-ints = id
+specs :: Spec
+specs = describe "strain" $ do
 
-strainTests :: [Test]
-strainTests =
-  [ testCase "empty keep" $
-    ints [] @=? keep (<10) []
-  , testCase "keep everything" $
-    ints [1, 2, 3] @=? keep (<10) [1, 2, 3]
-  , testCase "keep first and last" $
-    ints [1, 3] @=? keep odd [1, 2, 3]
-  , testCase "keep nothing" $
-    ints [] @=? keep even [1,3,5,7]
-  , testCase "keep neither first nor last" $
-    ints [2] @=? keep even [1, 2, 3]
-  , testCase "keep strings" $ do
-    let ws = ["apple", "zebra", "banana", "zombies", "cherimoya", "zealot"]
-    ["zebra", "zombies", "zealot"] @=? keep (isPrefixOf "z") ws
-  , testCase "empty discard" $
-    ints [] @=? discard (<10) []
-  , testCase "discard everything" $
-    ints [] @=? discard (<10) [1, 2, 3]
-  , testCase "discard first and last" $
-    ints [2] @=? discard odd [1, 2, 3]
-  , testCase "discard nothing" $
-    ints [1,3,5,7] @=? discard even [1,3,5,7]
-  , testCase "discard neither first nor last" $
-    ints [1, 3] @=? discard even [1, 2, 3]
-  , testCase "discard strings" $ do
-    let ws = ["apple", "zebra", "banana", "zombies", "cherimoya", "zealot"]
-    ["apple", "banana", "cherimoya"] @=? discard (isPrefixOf "z") ws
-  , testCase "keep non-strict" $ do
-    let ws = "yes" : error "keep should be lazier - don't look at list elements you don't need!"
-    ["yes"] @=? take 1 (keep (const True) ws)
-  , testCase "discard non-strict" $ do
-    let ws = "yes" : error "discard should be lazier - don't look at list elements you don't need!"
-    ["yes"] @=? take 1 (discard (const False) ws)
-  ]
+    -- As of 2016-07-27, there was no reference file
+    -- for the test cases in `exercism/x-common`.
+
+    it "empty keep" $
+        keep (<10) [] `shouldBe` ([] :: [Int])
+
+    it "keep everything" $
+        keep (<10) [1, 2, 3] `shouldBe` [1, 2, 3 :: Int]
+
+    it "keep first and last" $
+        keep odd [1, 2, 3] `shouldBe` [1, 3 :: Int]
+
+    it "keep nothing" $
+        keep even [1, 3, 5, 7] `shouldBe` ([] :: [Int])
+
+    it "keep neither first nor last" $
+        keep even [1, 2, 3] `shouldBe` [2 :: Int]
+
+    it "keep strings" $
+        keep ("z" `isPrefixOf`)
+        ["apple", "zebra", "banana", "zombies", "cherimoya", "zealot"]
+        `shouldBe`
+        ["zebra", "zombies", "zealot"]
+
+    it "empty discard" $
+        discard (< 10) [] `shouldBe` ([] :: [Int])
+
+    it "discard everything" $
+        discard (< 10) [1, 2, 3] `shouldBe` ([] :: [Int])
+
+    it "discard first and last" $
+        discard odd [1, 2, 3] `shouldBe` [2 :: Int]
+
+    it "discard nothing" $
+        discard even [1, 3, 5, 7] `shouldBe` [1, 3, 5, 7 :: Int]
+
+    it "discard neither first nor last" $
+        discard even [1, 2, 3] `shouldBe` [1, 3 :: Int]
+
+    it "discard strings" $
+        discard ("z" `isPrefixOf`)
+        ["apple", "zebra", "banana", "zombies", "cherimoya", "zealot"]
+        `shouldBe`
+        ["apple", "banana", "cherimoya"]
+
+    it "keep non-strict" $
+        (take 1 . keep (const True))
+        ("yes" : error "keep should be lazier - don't look at list elements you don't need!")
+        `shouldBe`
+        ["yes"]
+
+    it "discard non-strict" $
+        (take 1 . discard (const False))
+        ("yes" : error "discard should be lazier - don't look at list elements you don't need!")
+        `shouldBe`
+        ["yes"]
