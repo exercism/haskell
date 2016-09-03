@@ -8,7 +8,6 @@
     "accumulate",
     "sublist",
     "grains",
-    "gigasecond",
     "bob",
     "sum-of-multiples",
     "strain",
@@ -74,6 +73,7 @@
   ],
   "deprecated": [
     "binary",
+    "gigasecond",
     "hexadecimal",
     "octal",
     "trinary"
