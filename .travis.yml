@@ -13,8 +13,6 @@ cache:
 env:
  - RESOLVER="nightly-2016-07-17" CURRENT="YES" # Equal to each stack.yaml.
  - RESOLVER="nightly"                          # Latest nightly snapshot.
- - RESOLVER="lts-2.22"                         # Last GHC 7.8.x snapshot.
- - RESOLVER="lts-6.7"                          # Last GHC 7.10.x snapshot.
 
 matrix:
   allow_failures:             # The snapshot `nightly` is just an aliases to
