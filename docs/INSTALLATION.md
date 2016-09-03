@@ -1,15 +1,16 @@
 ## Installing Stack
 
-If you don't have Stack installed in your system, follow the
+If you don't have a recent Stack version installed in your system, follow the
 [installation instructions](http://docs.haskellstack.org/en/stable/install_and_upgrade/)
-for your operating system. After completing the install, test that you have
-installed it correctly by running this command in a terminal:
+for your operating system. After completing the installation, test that you
+have installed it correctly by running this command in a terminal:
 
 ```bash
 stack --version
 ```
 
-If it outputs Stack's version, then you have it installed correctly.
+If it outputs a Stack version equal to or greater than 1.1.2, then you have it
+installed correctly.
 
 ## Installing HLint (optional)
 
