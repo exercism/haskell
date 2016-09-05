@@ -12,9 +12,6 @@ specs = describe "minesweeper" $
           describe "annotate" $ for_ cases test
   where
 
-    -- As of 2016-08-09, there was no reference file
-    -- for the test cases in `exercism/x-common`.
-
     test (description, board) = it description assertion
       where
         assertion  = annotate (clearBoard board) `shouldBe` board
@@ -22,21 +19,32 @@ specs = describe "minesweeper" $
         mineOrSpace '*' = '*'
         mineOrSpace  _  = ' '
 
-    cases = [ ("zero size board" , [] )
+    -- Test cases adapted from `exercism/x-common/minesweeper.json`
+    -- on 2016-09-05.
 
-            , ("empty board" , [ "   "
-                               , "   "
-                               , "   " ] )
+    cases = [ ("no rows", [] )
 
-            , ("board full of mines" , [ "***"
-                                       , "***"
-                                       , "***" ] )
+            , ("no columns", [ "" ] )
 
-            , ("surrounded", [ "***"
-                             , "*8*"
-                             , "***" ] )
+            , ("no mines", [ "   "
+                           , "   "
+                           , "   " ] )
+
+            , ("board with only mines", [ "***"
+                                        , "***"
+                                        , "***" ] )
+
+            , ("mine surrounded by spaces", [ "111"
+                                            , "1*1"
+                                            , "111" ] )
+
+            , ("space surrounded by mines", [ "***"
+                                            , "*8*"
+                                            , "***" ] )
 
             , ("horizontal line", [ "1*2*1" ] )
+
+            , ("horizontal line, mines at edges", [ "*1 1*" ] )
 
             , ("vertical line", [ "1"
                                 , "*"
@@ -44,9 +52,22 @@ specs = describe "minesweeper" $
                                 , "*"
                                 , "1" ] )
 
+            , ("vertical line, mines at edges", [ "*"
+                                                , "1"
+                                                , " "
+                                                , "1"
+                                                , "*" ] )
+
             , ("cross", [ " 2*2 "
                         , "25*52"
                         , "*****"
                         , "25*52"
                         , " 2*2 " ] )
+
+            , ("large board", [ "1*22*1"
+                              , "12*322"
+                              , " 123*2"
+                              , "112*4*"
+                              , "1*22*2"
+                              , "111111" ] )
             ]
