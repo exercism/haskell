@@ -1,25 +1,25 @@
 module Minesweeper (annotate) where
 
-import Data.Char (intToDigit)
-import Data.Array (listArray, (!))
+import Data.Char  (intToDigit)
+import Data.Maybe (mapMaybe)
 
 annotate :: [String] -> [String]
-annotate board = [[ out (x, y) | x <- [1 .. xn]] | y <- [1 .. yn]]
+annotate xss = [[ fixTile x (i, j)
+                | (j, x ) <- zip [0..] xs  ]
+                | (i, xs) <- zip [0..] xss ]
   where
-    yn = length board
-    -- assume rectangular input
-    xn | yn > 0    = length (head board)
-       | otherwise = 0
-    out ix
-      | mines ! ix = '*'
-      | otherwise  = showMineCount . sum . neighbors $ ix
-    showMineCount 0 = ' '
-    showMineCount i = intToDigit i
-    isMine = ('*' ==)
-    mines = listArray ((1, 1), (xn, yn)) (map isMine (concat board))
-    neighbors (x, y) =
-      [ fromEnum (mines ! (x', y'))
-      | y' <- [max 1 (y - 1) .. min yn (y + 1)]
-      , x' <- [max 1 (x - 1) .. min xn (x + 1)]
-      , x' /= x || y' /= y
-      ]
+
+    bombs = length . filter (== '*') . mapMaybe (flip lookup tiles) . neighbors
+
+    fixTile ' ' position = case bombs position of
+        0 -> ' '
+        x -> intToDigit x
+    fixTile x _ = x
+
+    neighbors (i, j) = [ (i - 1, j - 1), (i - 1, j), (i - 1, j + 1)
+                       , (i    , j - 1),             (i    , j + 1)
+                       , (i + 1, j - 1), (i + 1, j), (i + 1, j + 1) ]
+
+    tiles = [ ((i, j), x)
+            | (i, xs) <- zip [0 :: Int ..] xss
+            , (j, x ) <- zip [0 :: Int ..] xs  ]
