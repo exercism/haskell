@@ -16,5 +16,4 @@ tests:
     source-dirs: test
     dependencies:
       - palindrome-products
-      - containers
-      - HUnit
+      - hspec
