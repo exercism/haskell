@@ -1,7 +1,12 @@
 module Prime (nth) where
 
-nth :: Int -> Integer
-nth = (primes !!) . pred
+nth :: Int -> Maybe Integer
+nth x
+    | x <= 0    = Nothing
+    | otherwise = Just $ nth' x
+
+nth' :: Int -> Integer
+nth' = (primes !!) . pred
 
 -- all primes > 5 are in the form of 6n+1 or 6n+5 (for n >= 1)
 primes :: [Integer]
