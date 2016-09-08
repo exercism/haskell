@@ -1,7 +1,4 @@
-module Triangle (triangle, row) where
+module Triangle (rows) where
 
-triangle :: Integral a => [[a]]
-triangle = undefined
-
-row :: Integral a => a -> [a]
-row = undefined
+rows :: Int -> [[Integer]]
+rows = undefined
