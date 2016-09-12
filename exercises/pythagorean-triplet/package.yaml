@@ -16,4 +16,4 @@ tests:
     source-dirs: test
     dependencies:
       - pythagorean-triplet
-      - HUnit
+      - hspec
