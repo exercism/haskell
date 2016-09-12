@@ -1,57 +1,58 @@
-import Test.HUnit (Assertion, (@=?), runTestTT, Test(..), Counts(..))
-import System.Exit (ExitCode(..), exitWith)
-import Cipher (caesarEncode, caesarDecode, caesarEncodeRandom)
+import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
-exitProperly :: IO Counts -> IO ()
-exitProperly m = do
-  counts <- m
-  exitWith $ if failures counts /= 0 || errors counts /= 0 then ExitFailure 1 else ExitSuccess
-
-testCase :: String -> Assertion -> Test
-testCase label assertion = TestLabel label (TestCase assertion)
+import Cipher (caesarDecode, caesarEncode, caesarEncodeRandom)
 
 main :: IO ()
-main = exitProperly $ runTestTT $ TestList
-       [ TestList caesarTests ]
+main = hspecWith defaultConfig {configFastFail = True} specs
 
-caesarTests :: [Test]
-caesarTests =
-  [ testCase "no-op encode" $ do
-    ['a'..'z'] @=? caesarEncode "a" ['a'..'z']
-    ['a'..'z'] @=? caesarEncode (repeat 'a') ['a'..'z']
-  , testCase "no-op decode" $ do
-    ['a'..'z'] @=? caesarDecode "a" ['a'..'z']
-    ['a'..'z'] @=? caesarDecode (repeat 'a') ['a'..'z']
-  , testCase "reversible" $ do
-    let k0 = "alkjsdhflkjahsuid"
-    "asdf" @=? caesarDecode k0 (caesarEncode k0 "asdf")
-    let k1 = ['z','y'..'a']
-    "asdf" @=? caesarDecode k1 (caesarEncode k1 "asdf")
-  , testCase "known cipher" $ do
-    let k = ['a'..'j']
-        encode = caesarEncode k
-        decode = caesarDecode k
-    k @=? encode "aaaaaaaaaa"
-    "aaaaaaaaaa" @=? decode k
-    ['a'..'z'] @=? decode (encode ['a'..'z'])
-    'z':['a'..'i'] @=? encode "zzzzzzzzzz"
-  , testCase "double shift" $ do
-    let plaintext = "iamapandabear"
-        ciphertext = "qayaeaagaciai"
-    ciphertext @=? caesarEncode plaintext plaintext
-  , testCase "shift cipher" $ do
-    let encode = caesarEncode "d"
-        decode = caesarDecode "d"
-    "dddddddddd" @=? encode "aaaaaaaaaa"
-    "aaaaaaaaaa" @=? decode "dddddddddd"
-    ['d'..'m'] @=? encode ['a'..'j']
-    ['a'..'j'] @=? decode (encode ['a'..'j'])
-  , testCase "random tests" $ do
-    let plaintext = take 1000 (cycle ['a'..'z'])
-    p1 <- caesarEncodeRandom plaintext
-    plaintext @=? uncurry caesarDecode p1
-    p2 <- caesarEncodeRandom plaintext
-    plaintext @=? uncurry caesarDecode p2
-    -- There's a small chance this could fail, since it's random.
-    False @=? (p1 == p2)
-  ]
+specs :: Spec
+specs = describe "simple-cipher" $ do
+
+    -- As of 2016-09-16, there was no reference file
+    -- for the test cases in `exercism/x-common`.
+
+    it "no-op encode" $ do
+      caesarEncode         "a"  ['a'..'z'] `shouldBe` ['a'..'z']
+      caesarEncode (repeat 'a') ['a'..'z'] `shouldBe` ['a'..'z']
+
+    it "no-op decode" $ do
+      caesarDecode         "a"  ['a'..'z'] `shouldBe` ['a'..'z']
+      caesarDecode (repeat 'a') ['a'..'z'] `shouldBe` ['a'..'z']
+
+    it "reversible" $ do
+      let k0 = "alkjsdhflkjahsuid"
+          k1 = ['z','y'..'a']
+      caesarDecode k0 (caesarEncode k0 "asdf") `shouldBe` "asdf"
+      caesarDecode k1 (caesarEncode k1 "asdf") `shouldBe` "asdf"
+
+    it "known cipher" $ do
+      let k = ['a'..'j']
+          encode = caesarEncode k
+          decode = caesarDecode k
+      encode "aaaaaaaaaa"        `shouldBe` k
+      decode k                   `shouldBe` "aaaaaaaaaa"
+      decode (encode ['a'..'z']) `shouldBe` ['a'..'z']
+      encode "zzzzzzzzzz"        `shouldBe` 'z':['a'..'i']
+
+    it "double shift" $ do
+      let plaintext  = "iamapandabear"
+          ciphertext = "qayaeaagaciai"
+      caesarEncode plaintext plaintext `shouldBe` ciphertext
+
+    it "shift cipher" $ do
+      let encode = caesarEncode "d"
+          decode = caesarDecode "d"
+      encode "aaaaaaaaaa"        `shouldBe` "dddddddddd"
+      decode "dddddddddd"        `shouldBe` "aaaaaaaaaa"
+      encode ['a'..'j']          `shouldBe` ['d'..'m']
+      decode (encode ['a'..'j']) `shouldBe` ['a'..'j']
+
+    it "random tests" $ do
+      let plaintext = take 1000 (cycle ['a'..'z'])
+      p1 <- caesarEncodeRandom plaintext
+      uncurry caesarDecode p1 `shouldBe` plaintext
+      p2 <- caesarEncodeRandom plaintext
+      uncurry caesarDecode p2 `shouldBe` plaintext
+      -- There's a small chance this could fail, since it's random.
+      (p1 == p2) `shouldBe` False
