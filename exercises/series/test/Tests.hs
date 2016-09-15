@@ -27,3 +27,7 @@ specs = describe "series" $ do
       slices 3 "ab"   `shouldBe` []
       slices 3 "012"  `shouldBe` [[0,1,2]]
       slices 3 "0123" `shouldBe` [[0,1,2], [1,2,3]]
+
+    it "slices of zero" $ do
+      slices 0 ""    `shouldBe` [[]]
+      slices 0 "012" `shouldBe` [[]]
