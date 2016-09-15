@@ -1,52 +1,51 @@
-import Test.HUnit (Assertion, (@=?), runTestTT, Test(..), Counts(..))
-import System.Exit (ExitCode(..), exitWith)
+import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+
 import SecretHandshake (handshake)
 
-exitProperly :: IO Counts -> IO ()
-exitProperly m = do
-  counts <- m
-  exitWith $ if failures counts /= 0 || errors counts /= 0 then ExitFailure 1 else ExitSuccess
-
-testCase :: String -> Assertion -> Test
-testCase label assertion = TestLabel label (TestCase assertion)
-
 main :: IO ()
-main = exitProperly $ runTestTT $ TestList
-       [ TestList handshakeTests ]
+main = hspecWith defaultConfig {configFastFail = True} specs
 
--- The trick to this one is defining the appropriate typeclass or typeclasses
--- to make handshake work with both Int and String. Granted, this is probably
--- not good API design for this exercise, but the technique is useful.
--- You may want to see http://www.haskell.org/haskellwiki/List_instance
+specs :: Spec
+specs = describe "secret-handshake" $ do
 
-handshakeTests :: [Test]
-handshakeTests =
-  [ testCase "1 to wink" $ do
-    ["wink"] @=? handshake (1::Int)
-    ["wink"] @=? handshake "1"
-  , testCase "10 to double blink" $ do
-    ["double blink"] @=? handshake (2::Int)
-    ["double blink"] @=? handshake "10"
-  , testCase "100 to close your eyes" $ do
-    ["close your eyes"] @=? handshake (4::Int)
-    ["close your eyes"] @=? handshake "100"
-  , testCase "1000 to jump" $ do
-    ["jump"] @=? handshake (8::Int)
-    ["jump"] @=? handshake "1000"
-  , testCase "11 to wink and double blink" $ do
-    ["wink", "double blink"] @=? handshake (3::Int)
-    ["wink", "double blink"] @=? handshake "11"
-  , testCase "10011 to double blink and wink" $ do
-    ["double blink", "wink"] @=? handshake (19::Int)
-    ["double blink", "wink"] @=? handshake "10011"
-  , testCase "11111 to jump, close your eyes, double blink, and wink" $ do
-    ["jump", "close your eyes", "double blink", "wink"] @=? handshake (31::Int)
-    ["jump", "close your eyes", "double blink", "wink"] @=? handshake "11111"
-  , testCase "zero" $ do
-    [] @=? handshake (0::Int)
-    [] @=? handshake "0"
-  , testCase "gibberish" $
-    [] @=? handshake "piggies"
-  , testCase "partial gibberish" $
-    [] @=? handshake "1piggies"
-  ]
+    -- As of 2016-09-12, there was no reference file
+    -- for the test cases in `exercism/x-common`.
+
+    it "1 to wink" $ do
+      handshake (1 :: Int) `shouldBe` ["wink"]
+      handshake "1"        `shouldBe` ["wink"]
+
+    it "10 to double blink" $ do
+      handshake (2 :: Int) `shouldBe` ["double blink"]
+      handshake "10"       `shouldBe` ["double blink"]
+
+    it "100 to close your eyes" $ do
+      handshake (4 :: Int) `shouldBe` ["close your eyes"]
+      handshake "100"      `shouldBe` ["close your eyes"]
+
+    it "1000 to jump" $ do
+      handshake (8 :: Int) `shouldBe` ["jump"]
+      handshake "1000"     `shouldBe` ["jump"]
+
+    it "11 to wink and double blink" $ do
+      handshake (3 :: Int) `shouldBe` ["wink", "double blink"]
+      handshake "11"       `shouldBe` ["wink", "double blink"]
+
+    it "10011 to double blink and wink" $ do
+      handshake (19 :: Int) `shouldBe` ["double blink", "wink"]
+      handshake "10011"     `shouldBe` ["double blink", "wink"]
+
+    it "11111 to jump, close your eyes, double blink, and wink" $ do
+      handshake (31 :: Int) `shouldBe` ["jump", "close your eyes", "double blink", "wink"]
+      handshake "11111"     `shouldBe` ["jump", "close your eyes", "double blink", "wink"]
+
+    it "zero" $ do
+      handshake (0 :: Int) `shouldBe` []
+      handshake "0"        `shouldBe` []
+
+    it "gibberish" $
+      handshake "piggies" `shouldBe` []
+
+    it "partial gibberish" $
+      handshake "1piggies" `shouldBe` []
