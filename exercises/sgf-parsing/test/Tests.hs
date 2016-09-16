@@ -8,23 +8,7 @@ import Data.Tree
 import Data.Text (Text)
 import Sgf (parseSgf)
 
--- The Sgf module should export a parseSgf module with the following
--- signature:
---
--- parseSgf :: Text -> Maybe (Tree (Map Text [Text]))
---
--- You may find it useful to copy the type definitions for SgfTree and
--- SgfNode from this file.
---
--- The parsec library is part of the Haskell Platform. Please use it to
--- your advantage.
-
--- | A tree of nodes.
 type SgfTree = Tree SgfNode
-
--- | A node is a property list, each key can only occur once.
---
--- Keys may have multiple values associated with them.
 type SgfNode = Map Text [Text]
 
 exitProperly :: IO Counts -> IO ()
