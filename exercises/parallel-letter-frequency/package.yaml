@@ -19,4 +19,4 @@ tests:
     source-dirs: test
     dependencies:
       - parallel-letter-frequency
-      - HUnit
+      - hspec
