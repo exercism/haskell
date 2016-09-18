@@ -1,6 +1,6 @@
-module Connect (Mark(..), resultFor) where
+module Connect (Mark(..), winner) where
 
 data Mark = Cross | Nought deriving (Eq, Show)
 
-resultFor :: [String] -> Maybe Mark
-resultFor = undefined
+winner :: [String] -> Maybe Mark
+winner = undefined

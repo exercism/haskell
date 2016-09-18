@@ -4,19 +4,19 @@ import Data.Foldable     (for_)
 import Test.Hspec        (Spec, describe, it, shouldBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
-import Connect (Mark(Cross,Nought), resultFor)
+import Connect (Mark(Cross,Nought), winner)
 
 main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
 specs = describe "connect" $
-          describe "resultFor" $ for_ cases test
+          describe "winner" $ for_ cases test
   where
 
     test Case{..} = it description assertion
       where
-        assertion  = resultFor testBoard `shouldBe` expected
+        assertion  = winner testBoard `shouldBe` expected
         testBoard  = filter (/=' ') <$> board
 
 -- Test cases adapted from `exercism/x-common` on 2016-09-16.

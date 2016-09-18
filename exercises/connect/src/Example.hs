@@ -1,4 +1,4 @@
-module Connect (resultFor, Mark(..)) where
+module Connect (winner, Mark(..)) where
 
 import Control.Arrow ((***), first, second)
 import Control.Monad.ST (ST, runST)
@@ -84,16 +84,16 @@ tryConnect b mark ca c =
                                      (neighbours b c)
     _ -> return False
 
-resultFor :: [String] -> Maybe Mark
-resultFor lines =
+winner :: [String] -> Maybe Mark
+winner lines =
   let board = parseLines lines
-  in if resultFor' board Cross
+  in if winner' board Cross
         then Just Cross
-        else if resultFor' board Nought
+        else if winner' board Nought
                 then Just Nought
                 else Nothing
-  where resultFor' :: Board -> Mark -> Bool
-        resultFor' b mark =
+  where winner' :: Board -> Mark -> Bool
+        winner' b mark =
           runST $
           do ca <- emptyConnArr b
              or `fmap`
