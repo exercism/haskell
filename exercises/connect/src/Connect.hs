@@ -1,8 +1,6 @@
-module Connect (resultFor, Color(..)) where
+module Connect (Mark(..), resultFor) where
 
-data Color = Black
-           | White
-           deriving (Show,Eq)
+data Mark = Cross | Nought deriving (Eq, Show)
 
-resultFor :: [String] -> Maybe Color
+resultFor :: [String] -> Maybe Mark
 resultFor = undefined

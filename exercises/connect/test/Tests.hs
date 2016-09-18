@@ -4,7 +4,7 @@ import Data.Foldable     (for_)
 import Test.Hspec        (Spec, describe, it, shouldBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
-import Connect (Color(Black,White), resultFor)
+import Connect (Mark(Cross,Nought), resultFor)
 
 main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
@@ -23,7 +23,7 @@ specs = describe "connect" $
 
 data Case = Case { description :: String
                  , board       :: [String]
-                 , expected    :: Maybe Color
+                 , expected    :: Maybe Mark
                  }
 
 cases :: [Case]
@@ -37,11 +37,11 @@ cases = [ Case { description = "an empty board has no winner"
                }
         , Case { description = "X can win on a 1x1 board"
                , board       = [ "X" ]
-               , expected    = Just Black
+               , expected    = Just Cross
                }
         , Case { description = "O can win on a 1x1 board"
                , board       = [ "O" ]
-               , expected    = Just White
+               , expected    = Just Nought
                }
         , Case { description = "only edges does not make a winner"
                , board       = [ "O O O X"
@@ -72,7 +72,7 @@ cases = [ Case { description = "an empty board has no winner"
                                , "  O X O ."
                                , "   X X O X"
                                , "    . O X ." ]
-               , expected    = Just Black
+               , expected    = Just Cross
                }
         , Case { description = "O wins crossing from top to bottom"
                , board       = [ ". O . ."
@@ -80,7 +80,7 @@ cases = [ Case { description = "an empty board has no winner"
                                , "  O O O ."
                                , "   X X O X"
                                , "    . O X ." ]
-               , expected    = Just White
+               , expected    = Just Nought
                }
         , Case { description = "X wins using a convoluted path"
                , board       = [ ". X X . ."
@@ -88,7 +88,7 @@ cases = [ Case { description = "an empty board has no winner"
                                , "  . X . X ."
                                , "   . X X . ."
                                , "    O O O O O" ]
-               , expected    = Just Black
+               , expected    = Just Cross
                }
         , Case { description = "X wins using a spiral path"
                , board       = [ "O X X X X X X X X"
@@ -100,6 +100,6 @@ cases = [ Case { description = "an empty board has no winner"
                                , "      O X X X X X O X O"
                                , "       O O O O O O O X O"
                                , "        X X X X X X X X O" ]
-               , expected    = Just Black
+               , expected    = Just Cross
                }
         ]
