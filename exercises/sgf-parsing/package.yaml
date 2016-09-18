@@ -19,4 +19,4 @@ tests:
     source-dirs: test
     dependencies:
       - sgf-parsing
-      - HUnit
+      - hspec
