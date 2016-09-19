@@ -1,89 +1,39 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-import Test.HUnit (Assertion, (@=?), runTestTT, Test(..), Counts(..))
-import System.Exit (ExitCode(..), exitWith)
-import Data.Map (Map)
-import qualified Data.Map as Map
-import Data.Tree
-import Data.Text (Text)
+import Data.Foldable     (for_)
+import Data.Map          (fromList)
+import Data.Tree         (Tree(Node))
+import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+
 import Sgf (parseSgf)
 
--- The Sgf module should export a parseSgf module with the following
--- signature:
---
--- parseSgf :: Text -> Maybe (Tree (Map Text [Text]))
---
--- You may find it useful to copy the type definitions for SgfTree and
--- SgfNode from this file.
---
--- The parsec library is part of the Haskell Platform. Please use it to
--- your advantage.
-
--- | A tree of nodes.
-type SgfTree = Tree SgfNode
-
--- | A node is a property list, each key can only occur once.
---
--- Keys may have multiple values associated with them.
-type SgfNode = Map Text [Text]
-
-exitProperly :: IO Counts -> IO ()
-exitProperly m = do
-  counts <- m
-  exitWith $ if failures counts /= 0 || errors counts /= 0 then ExitFailure 1 else ExitSuccess
-
-testCase :: String -> Assertion -> Test
-testCase label assertion = TestLabel label (TestCase assertion)
-
--- | Feed the input to 'parseSgf' and check that the result matches what's
---   expected.
-tps :: Text -> Maybe SgfTree -> Test
-tps input expected =
-    let label = "parse " ++ show input
-    in testCase label (expected @=? parseSgf input)
-
 main :: IO ()
-main = exitProperly $ runTestTT $ TestList
-       [ TestList sgfParsingTests ]
+main = hspecWith defaultConfig {configFastFail = True} specs
 
-t :: [(Text, [Text])] -> [SgfTree] -> SgfTree
-t n = Node (Map.fromList n)
+specs :: Spec
+specs = describe "sgf-parsing" $
+          describe "parseSgf" $ for_ cases test
+  where
 
--- Tree, single child
-ts :: [(Text, [Text])] -> SgfTree -> SgfTree
-ts n tr = Node (Map.fromList n) [tr]
+    test (input, expected) = it description assertion
+      where
+        description = unwords ["parse", show input]
+        assertion   = parseSgf input `shouldBe` fmap fromList <$> expected
 
--- Tree, no children
-tn :: [(Text, [Text])] -> SgfTree
-tn n = Node (Map.fromList n) []
+    -- As of 2016-09-18, there was no reference file
+    -- for the test cases in `exercism/x-common`.
 
-sgfParsingTests :: [Test]
-sgfParsingTests =
-  [ tps "" $
-    Nothing 
-  , tps "()" $
-    Nothing
-  , tps ";" $
-    Nothing
-  , tps "(;)" $
-    Just $ tn []
-  , tps "(;A[B])" $
-    Just $ tn [("A", ["B"])]
-  , tps "(;a)" $
-    Nothing
-  , tps "(;a[b])" $
-    Nothing
-  , tps "(;Aa[b])" $
-    Nothing
-  , tps "(;A[B];B[C])" $ 
-    Just $ ts [("A", ["B"])] (tn [("B", ["C"])])
-  , tps "(;A[B](;B[C])(;C[D]))" $ 
-    Just $ t [("A", ["B"])]
-        [ tn [("B", ["C"])]
-        , tn [("C", ["D"])]
-        ]
-  , tps "(;A[b][c][d])" $
-    Just $ tn [("A", ["b", "c", "d"])]
-  , tps "(;A[\\]b\nc\\\nd\t\te\\\\ \\\n\\]])" $
-    Just $ tn [("A", ["]b cd  e\\ ]"])]
-  ]
+    cases = [ (""                                   , Nothing                                                )
+            , ("()"                                 , Nothing                                                )
+            , (";"                                  , Nothing                                                )
+            , ("(;)"                                , Just  $ Node [] []                                     )
+            , ("(;A[B])"                            , Just  $ Node [("A", ["B"])] []                         )
+            , ("(;a)"                               , Nothing                                                )
+            , ("(;a[b])"                            , Nothing                                                )
+            , ("(;Aa[b])"                           , Nothing                                                )
+            , ("(;A[B];B[C])"                       , Just  $ Node [("A", ["B"])] [ Node [("B", ["C"])] [] ] )
+            , ("(;A[B](;B[C])(;C[D]))"              , Just  $ Node [("A", ["B"])] [ Node [("B", ["C"])] []
+                                                                                  , Node [("C", ["D"])] [] ] )
+            , ("(;A[b][c][d])"                      , Just  $ Node [("A", ["b", "c", "d" ])] []              )
+            , ("(;A[\\]b\nc\\\nd\t\te\\\\ \\\n\\]])", Just  $ Node [("A", ["]b cd  e\\ ]"])] []              ) ]
