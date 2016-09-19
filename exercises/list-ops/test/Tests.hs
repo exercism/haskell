@@ -1,7 +1,6 @@
-{-# LANGUAGE DeriveDataTypeable #-} -- Needed for GHC 7.8.
+{-# LANGUAGE DeriveAnyClass #-}
 
 import Control.Exception (Exception, throw, evaluate)
-import Data.Typeable     (Typeable) -- Needed for GHC 7.8.
 import Test.Hspec        (Spec, describe, it, shouldBe, shouldThrow)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
@@ -24,10 +23,7 @@ import ListOps
     , reverse
     )
 
--- We explicitly derive `Typeable` to keep compatibility with GHC 7.8.
-data StrictException = StrictException deriving (Eq, Show, Typeable)
-
-instance Exception StrictException
+data StrictException = StrictException deriving (Eq, Show, Exception)
 
 main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
