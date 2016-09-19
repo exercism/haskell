@@ -62,6 +62,7 @@
     "series",
     "sieve",
     "simple-cipher",
+    "change",
     "connect",
     "parallel-letter-frequency",
     "sgf-parsing",
@@ -416,6 +417,12 @@
     },
     {
       "slug": "simple-cipher",
+      "difficulty": 1,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "change",
       "difficulty": 1,
       "topics": [
       ]
