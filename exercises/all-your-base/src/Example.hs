@@ -1,9 +1,5 @@
 module Base (rebase) where
 
--- base >= 4.8 re-exports Control.Applicative.(<$>)
-import Control.Applicative -- This is only need for <$>,  if GHC <  7.10
-import Prelude             -- This trick avoids a warning if GHC >= 7.10
-
 import Control.Monad (foldM)
 import Data.List     (unfoldr)
 import Data.Tuple    (swap)
