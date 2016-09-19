@@ -5,10 +5,6 @@ import Data.Foldable     (for_)
 import Test.Hspec        (Spec, describe, it, shouldBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
--- base >= 4.8 re-exports Control.Applicative.(<$>).
-import Control.Applicative -- This is only need for <$>,  if GHC <  7.10.
-import Prelude             -- This trick avoids a warning if GHC >= 7.10.
-
 import Hamming (distance)
 
 main :: IO ()
