@@ -39,7 +39,7 @@ cases = [ Case { description = "single coin change"
                , expected = Just [5, 10]
             }
         , Case { description = "change with Lilliputian Coins"
-               , coins = [1, 4, 15, 20, 50
+               , coins = [1, 4, 15, 20, 50]
                , target = 23
                , expected = Just [4, 4, 15]
             }
