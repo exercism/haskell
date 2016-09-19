@@ -61,8 +61,8 @@
     "secret-handshake",
     "series",
     "sieve",
-    "change",
     "simple-cipher",
+    "change",
     "connect",
     "parallel-letter-frequency",
     "sgf-parsing",
@@ -416,13 +416,13 @@
       ]
     },
     {
-      "slug": "change",
+      "slug": "simple-cipher",
       "difficulty": 1,
       "topics": [
       ]
     },
     {
-      "slug": "simple-cipher",
+      "slug": "change",
       "difficulty": 1,
       "topics": [
       ]
