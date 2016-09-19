@@ -1,12 +1,9 @@
 module Matrix (saddlePoints) where
 import Data.Array (Ix, Array, assocs, bounds)
-import Data.Monoid -- (Monoid, mappend, mempty)
 import Data.Maybe (maybeToList)
-import Data.Functor -- ((<$>))
 import Control.Monad (guard)
 import qualified Data.Set as S
 import qualified Data.Map as M
-import Prelude
 
 data Axis a b = Row !a
               | Col !b
