@@ -18,4 +18,3 @@ tests:
     dependencies:
       - gigasecond
       - hspec
-      - old-locale

@@ -1,12 +1,8 @@
-{-# LANGUAGE CPP #-}
-
 import Data.Time.Clock   (UTCTime)
 import Test.Hspec        (Spec, describe, it, shouldBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
 import Gigasecond (fromDay)
-
-#if MIN_VERSION_time(1,5,0)
 
 import Data.Time.Format
   ( ParseTime
@@ -18,13 +14,6 @@ import Data.Time.Format
 
 readTime :: ParseTime t => TimeLocale -> String -> String -> t
 readTime = parseTimeOrError True
-
-#else
-
-import Data.Time.Format (readTime)
-import System.Locale    (defaultTimeLocale, iso8601DateFormat)
-
-#endif
 
 main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
