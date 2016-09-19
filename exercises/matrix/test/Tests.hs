@@ -1,5 +1,5 @@
 import Control.Arrow     ((&&&))
-import Test.Hspec        (Spec, describe, it, shouldBe, shouldSatisfy)
+import Test.Hspec        (Spec, describe, it, shouldBe, shouldNotBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
 import qualified Data.Vector as Vector (fromList)
@@ -55,9 +55,6 @@ specs = describe "matrix" $ do
       (rows &&& cols) (intMatrix "1 2") `shouldBe` (1, 2)
 
     it "eq" $ do
-
-      -- `shouldNotBe` is not availabe on lts-2.22.
-      let x `shouldNotBe` y = x `shouldSatisfy` (/= y)
 
       intMatrix "1 2" `shouldBe`    intMatrix "1 2"
       intMatrix "2 3" `shouldNotBe` intMatrix "1 2 3"
