@@ -11,25 +11,6 @@ import BankAccount
   , openAccount
   )
 
-{-
-The BankAccount module should support four calls:
-
-openAccount
-  Called at the start of each test. Returns a BankAccount.
-
-closeAccount account
-  Called at the end of each test.
-
-getBalance account
-  Get the balance of the bank account.
-
-updateBalance account amount
-  Increment the balance of the bank account by the given amount.
-  The amount may be negative for a withdrawal.
-
-The initial balance of the bank account should be 0.
--}
-
 main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
