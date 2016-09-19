@@ -1,6 +1,4 @@
 module Raindrops (convert) where
-import Data.Monoid -- (mappend)
-import Prelude
 
 convert :: Int -> String
 convert n = maybe (show n) id maybeSound
