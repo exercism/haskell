@@ -19,9 +19,7 @@ specs = describe "nth-prime" $
       where
         assertion = nth (fromIntegral input) `shouldBe` expected
 
--- As of 2016-09-06, there was no reference file for the test cases in
--- `exercism/x-common`, so we adapted the test cases available in the
--- pull request `exercism/x-common#332`.
+-- Test cases adapted from `exercism/x-common` on 2016-09-19.
 
 data Case = Case { description :: String
                  , input       :: Integer
