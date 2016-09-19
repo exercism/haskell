@@ -19,12 +19,11 @@ findFewestCoins target coins = minChange target sortedCoins [] Nothing
         worseResult = maybe False (\x -> length x <= length candidate) bestResult
         newBestResult = addCoin target' coins' candidate bestResult
 
-    addCoin target' coins'@(coin:_) candidate bestResult
-      | newTarget >= 0 = minChange newTarget coins' (coin:candidate) bestResult
+    addCoin target' coins'@(coin:_) candidate
+      | newTarget >= 0 = minChange newTarget coins' (coin:candidate)
       where newTarget = target' - coin
-    addCoin _ _ _ bestResult = bestResult
+    addCoin _ _ _ = id
 
-    dropCoin target' (_:restCoins) candidate bestResult =
-      minChange target' restCoins candidate bestResult
-    dropCoin _ _ _ bestResult = bestResult
+    dropCoin target' (_:restCoins) = minChange target' restCoins
+    dropCoin _ _ = flip const
 
