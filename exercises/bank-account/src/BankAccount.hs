@@ -6,9 +6,6 @@ module BankAccount
     , openAccount
     ) where
 
--- The task is to create the data type `BankAccount` and
--- and implement the functions below.
-
 closeAccount :: BankAccount -> IO ()
 closeAccount = undefined
 
