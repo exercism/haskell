@@ -9,11 +9,6 @@ import Clock (fromHourMin, toString)
 main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
--- Clock should define a data type that is an instance of Eq and
--- Num such that the `fromInteger` converts minutes
--- to 24 hour clock time. It is not necessary to have
--- a sensible implementation of `abs` or `signum`.
-
 specs :: Spec
 specs = describe "clock" $ do
 
