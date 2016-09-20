@@ -2,10 +2,9 @@
 module WordProblem (answer) where
 import Data.Text (pack)
 import Data.List (foldl')
-import Control.Applicative -- (pure, (<|>), (<$>), (<*>), (<*), (*>))
+import Control.Applicative ((<|>))
 import Data.Attoparsec.Text
   ( Parser, signed, decimal, space, maybeResult, parse, many' )
-import Prelude
 
 answerParser :: Parser Int
 answerParser = do
