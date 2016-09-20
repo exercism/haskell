@@ -1,8 +1,5 @@
 module Deque (Deque, mkDeque, pop, push, shift, unshift) where
 
--- The task is to create the data type `Deque`
--- and implement the functions below.
-
 mkDeque :: IO (Deque a)
 mkDeque = undefined
 
