@@ -1,7 +1,7 @@
 {-# OPTIONS_GHC -fno-warn-type-defaults #-}
 
 import Data.Ix           (inRange)
-import Test.Hspec        (Spec, describe, it, shouldBe, shouldSatisfy)
+import Test.Hspec        (Spec, describe, it, shouldBe, shouldNotBe, shouldSatisfy)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
 import Robot (mkRobot, resetName, robotName)
@@ -25,9 +25,6 @@ specs = describe "robot-name" $ do
           let d = ('0', '9')
           let matchesPattern s = length s == 5
                                  && and (zipWith inRange [a, a, d, d, d] s)
-
-          -- `shouldNotBe` is not availabe on lts-2.22.
-          let x `shouldNotBe` y = x `shouldSatisfy` (/= y)
 
           it "name should match expected pattern" $
             mkRobot >>= robotName >>= (`shouldSatisfy` matchesPattern)
