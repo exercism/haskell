@@ -21,11 +21,6 @@ import CustomSet
   , union
   )
 
--- If you're interested in writing an efficient implementation but don't quite
--- know where to start, the best primer I know of is Chris Okasaki's
--- "Purely Functional Data Structures", which you can read a version of here:
--- https://www.cs.cmu.edu/~rwh/theses/okasaki.pdf
-
 main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 

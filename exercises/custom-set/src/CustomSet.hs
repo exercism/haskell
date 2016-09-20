@@ -17,9 +17,6 @@ module CustomSet
 
 import Prelude hiding (null)
 
--- The task is to create the data type `CustomSet`, with `Eq`
--- and `Show` instances, and implement the functions below.
-
 delete :: a -> CustomSet a -> CustomSet a
 delete = undefined
 
