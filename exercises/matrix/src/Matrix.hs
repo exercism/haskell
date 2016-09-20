@@ -14,16 +14,6 @@ module Matrix
 
 import Data.Vector (Vector)
 
--- Implementation of a row-major matrix for any type, using Data.Vector.
---
--- No validation of input is required. Let it fail if the matrix is not
--- rectangular, invalid chars are encountered, etc.
---
--- shape is (rows, cols)
---
--- The task is to create the data type `Matrix`, with `Eq`
--- and `Show` instances, and implement the functions below.
-
 cols :: Matrix a -> Int
 cols = undefined
 
