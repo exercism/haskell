@@ -2,8 +2,6 @@ module BankAccount ( BankAccount
                    , openAccount, closeAccount
                    , getBalance, incrementBalance) where
 import Control.Concurrent.STM
-import Control.Applicative
-import Prelude
 
 newtype BankAccount = BankAccount { unBankAccount :: TVar (Maybe Int) }
 
