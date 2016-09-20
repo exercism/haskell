@@ -23,62 +23,62 @@ specs = describe "roman-numerals" $
 -- Test cases adapted from `exercism/x-common/roman-numerals.json` on 2016-07-26.
 
 data Case = Case { number   :: Integer
-                 , expected :: String
+                 , expected :: Maybe String
                  }
 
 cases :: [Case]
 cases = [ Case { number   = 1
-               , expected = "I"
+               , expected = Just "I"
                }
         , Case { number   = 2
-               , expected = "II"
+               , expected = Just "II"
                }
         , Case { number   = 3
-               , expected = "III"
+               , expected = Just "III"
                }
         , Case { number   = 4
-               , expected = "IV"
+               , expected = Just "IV"
                }
         , Case { number   = 5
-               , expected = "V"
+               , expected = Just "V"
                }
         , Case { number   = 6
-               , expected = "VI"
+               , expected = Just "VI"
                }
         , Case { number   = 9
-               , expected = "IX"
+               , expected = Just "IX"
                }
         , Case { number   = 27
-               , expected = "XXVII"
+               , expected = Just "XXVII"
                }
         , Case { number   = 48
-               , expected = "XLVIII"
+               , expected = Just "XLVIII"
                }
         , Case { number   = 59
-               , expected = "LIX"
+               , expected = Just "LIX"
                }
         , Case { number   = 93
-               , expected = "XCIII"
+               , expected = Just "XCIII"
                }
         , Case { number   = 141
-               , expected = "CXLI"
+               , expected = Just "CXLI"
                }
         , Case { number   = 163
-               , expected = "CLXIII"
+               , expected = Just "CLXIII"
                }
         , Case { number   = 402
-               , expected = "CDII"
+               , expected = Just "CDII"
                }
         , Case { number   = 575
-               , expected = "DLXXV"
+               , expected = Just "DLXXV"
                }
         , Case { number   = 911
-               , expected = "CMXI"
+               , expected = Just "CMXI"
                }
         , Case { number   = 1024
-               , expected = "MXXIV"
+               , expected = Just "MXXIV"
                }
         , Case { number   = 3000
-               , expected = "MMM"
+               , expected = Just "MMM"
                }
         ]
