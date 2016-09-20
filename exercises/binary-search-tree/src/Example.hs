@@ -1,15 +1,8 @@
-{-# LANGUAGE CPP #-}
 module BST ( BST, bstLeft, bstRight, bstValue,
              empty, singleton, insert, fromList, toList
            ) where
 
-#if __GLASGOW_HASKELL__ >= 710
 import Data.Foldable (foldl', toList)
-#else
--- Foldable, foldMap, mappend, mempty only added to Prelude in 7.10
-import Data.Foldable (Foldable, foldMap, foldl', toList)
-import Data.Monoid (mappend, mempty)
-#endif
 
 data BST a = Tip
            | Node (BST a) a (BST a)
