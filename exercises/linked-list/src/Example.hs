@@ -1,11 +1,9 @@
 {-# LANGUAGE TupleSections #-}
 module Deque (Deque, mkDeque, push, pop, shift, unshift) where
 
-import Control.Applicative -- ((<$>), (<*>))
 import Control.Concurrent.STM ( STM, TMVar, takeTMVar, putTMVar, readTMVar
                               , swapTMVar, atomically, newEmptyTMVar, newTMVar)
 import Control.Monad (void)
-import Prelude
 
 data Node a = Node { nodeValue :: a
                    , nodeNext :: TMVar (Node a)
