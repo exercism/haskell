@@ -4,30 +4,6 @@ import Data.List (foldl', sort)
 import qualified Data.Set as Set
 import Counting (Color(..), territories, territoryFor)
 
--- Your code should define the following types:
---
---   data Color = Black | White
---     deriving (Eq, Ord, Show) -- More derivations are allowed
---
--- The signatures below assume the following type alias:
---
---   type Coord = (Int, Int)
---
--- Your code should define the following functions:
---
--- territories :: [[Char]] -> [(Set Coord, Maybe Color)]
---
---   Returns the coordinates (1 based, top left is (1,1)) of of the points
---   in each territory along with who "owns" the territory. A territory is
---   owned by one of the players if that player's stones are the only
---   stones adjacent to the territory.
---
--- territoryFor :: [[Char]] -> Coord -> Maybe (Set Coord, Maybe Color)
---
---   Returns the territory that contains the coordinate along with the
---   owner of the territory. If the coordinate does not point to an empty
---   location returns Nothing.
-
 exitProperly :: IO Counts -> IO ()
 exitProperly m = do
   counts <- m
