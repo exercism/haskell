@@ -10,9 +10,6 @@ module LinkedList
     , toList
     ) where
 
--- The task is to create the data type `LinkedList`
--- and implement the functions below.
-
 datum :: LinkedList a -> a
 datum = undefined
 
