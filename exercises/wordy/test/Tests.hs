@@ -7,8 +7,6 @@ import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
 import WordProblem (answer)
 
--- This is a perfect opportunity to learn some Attoparsec or Parsec!
-
 main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
