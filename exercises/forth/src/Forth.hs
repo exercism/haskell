@@ -1,4 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
+
 module Forth
   ( ForthError(..)
   , ForthState
@@ -9,8 +10,6 @@ module Forth
 
 import Data.Text (Text)
 
-data ForthState -- TODO: define this data type
-
 data ForthError
      = DivisionByZero
      | StackUnderflow
@@ -19,13 +18,10 @@ data ForthError
      deriving (Show, Eq)
 
 empty :: ForthState
-empty = error "TODO: An empty ForthState"
+empty = undefined
 
 evalText :: Text -> ForthState -> Either ForthError ForthState
-evalText = error "TODO: Evaluate an input Text, returning the new state"
+evalText = undefined
 
 formatStack :: ForthState -> Text
-formatStack = error "TODO: Return the current stack as Text with the element \
-                    \on top of the stack being the rightmost element in the \
-                    \output"
-
+formatStack = undefined
