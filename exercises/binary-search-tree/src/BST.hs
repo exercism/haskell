@@ -10,9 +10,6 @@ module BST
     , toList
     ) where
 
--- The task is to create the data type `BST`, with `Eq`
--- and `Show` instances, and implement the functions below.
-
 bstLeft :: BST a -> Maybe (BST a)
 bstLeft = undefined
 
