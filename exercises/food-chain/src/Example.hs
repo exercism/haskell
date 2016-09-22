@@ -15,7 +15,7 @@ animalNames = listArray (Fly, Horse) $ map showLower [Fly ..]
                       in (toLower h : t)
 
 song :: String
-song = unlines $ map verse [Fly ..]
+song = init . unlines $ map verse [Fly ..]
 
 verse :: Animal -> String
 verse animal = swallow animal ++ unlines (map catches prey)
