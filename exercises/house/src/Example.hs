@@ -1,7 +1,9 @@
 module House (rhyme) where
 
+import Data.List (intercalate)
+
 rhyme :: String
-rhyme = unlines $ map ("This is " ++) $ scanl1 f pieces
+rhyme = intercalate "\n" $ map ("This is " ++) $ scanl1 f pieces
   where f tail' piece = piece ++ ' ' : tail'
 
 pieces :: [String]
