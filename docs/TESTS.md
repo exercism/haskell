@@ -27,10 +27,8 @@ A solution to an exercise is a Haskell module. The module's name is defined
 in an *import statement* in the test suite, usually at the beginning:
 
 ```haskell
-import Control.Monad (unless)
-import System.Exit   (exitFailure)
-
-import Test.HUnit
+import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
 import ModuleName (someFunc)
 
@@ -38,7 +36,7 @@ main :: IO ()
 main ...
 ```
 
-In this example, the test file imports, in line 6, a module named
+In this example, the test file imports, in line 4, a module named
 `ModuleName`, that exports a function named `someFunc`. This means you have
 to create a file named `ModuleName.hs` that would be something like this:
 
@@ -49,13 +47,11 @@ someFunc :: ...
 someFunc ...
 ```
 
-If the exercise provides it, you'll a find a file with this name already
-in place - in the same folder or in `src/` - which you can use as a starting
-point for your solution.
+You'll a find a file with this name already in place in `src/`,
+which you can use as a starting point for your solution.
 
-Just keep in mind that this *stub*, if available, is there just for you
-to get started. Feel free to change it completely if you think it is the
-right thing to do.
+Just keep in mind that this *stub* is there just for you to get started.
+Feel free to change it completely if you think it is the right thing to do.
 
 #### Using packages
 

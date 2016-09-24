@@ -25,6 +25,7 @@ format that has all dependencies and build instructions for an exercise.
 - `src/Example.hs` is a sample solution passing the tests.
 - `src/ModuleName.hs` is a *stub solution*.
 - `test/Tests.hs` is the test suite.
+- `HINTS.md` is an optional file containing instructions and/or hints.
 
 ### Running Tests
 
