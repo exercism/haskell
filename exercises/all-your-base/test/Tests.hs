@@ -107,7 +107,7 @@ cases = [ Case { description  = "single bit one to decimal"
                }
         , Case { description  = "negative digit"
                , inputBase    = 2
-               , inputDigits  = [1, (-1), 1, 0, 1, 0]
+               , inputDigits  = [1, -1, 1, 0, 1, 0]
                , outputBase   = 10
                , outputDigits = Nothing
                }
@@ -142,7 +142,7 @@ cases = [ Case { description  = "single bit one to decimal"
                , outputDigits = Nothing
                }
         , Case { description  = "first base is negative"
-               , inputBase    = (-2)
+               , inputBase    = -2
                , inputDigits  = [1]
                , outputBase   = 10
                , outputDigits = Nothing
@@ -150,13 +150,13 @@ cases = [ Case { description  = "single bit one to decimal"
         , Case { description  = "second base is negative"
                , inputBase    = 2
                , inputDigits  = [1]
-               , outputBase   = (-7)
+               , outputBase   = -7
                , outputDigits = Nothing
                }
         , Case { description  = "both bases are negative"
-               , inputBase    = (-2)
+               , inputBase    = -2
                , inputDigits  = [1]
-               , outputBase   = (-7)
+               , outputBase   = -7
                , outputDigits = Nothing
                }
         ]

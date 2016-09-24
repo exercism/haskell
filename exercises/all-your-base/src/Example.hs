@@ -16,7 +16,7 @@ rebase ibase obase ds
         f acc x | x >= 0 && x < base = Just (acc * base + x)
                 | otherwise          = Nothing
 
-    toDigits base n = reverse . unfoldr f $ n
+    toDigits base = reverse . unfoldr f
       where
         f 0 = Nothing
         f x = Just . swap $ x `divMod` base
