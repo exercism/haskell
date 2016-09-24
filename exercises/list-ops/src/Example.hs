@@ -28,7 +28,7 @@ length :: [a] -> Int
 length = foldl' (\acc _ -> 1 + acc) 0
 
 reverse :: [a] -> [a]
-reverse = foldl' (\acc x -> x : acc) []
+reverse = foldl' (flip (:)) []
 
 map :: (a -> b) -> [a] -> [b]
 map f = foldr (\x acc -> f x : acc) []
