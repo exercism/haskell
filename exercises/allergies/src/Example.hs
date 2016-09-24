@@ -14,4 +14,4 @@ isAllergicTo :: Allergen -> Int -> Bool
 isAllergicTo allergen code = testBit code (fromEnum allergen)
 
 allergies :: Int -> [Allergen]
-allergies code = filter (flip isAllergicTo code) [Eggs ..]
+allergies code = filter (`isAllergicTo` code) [Eggs ..]
