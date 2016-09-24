@@ -10,6 +10,15 @@ stack test
 #### If you get an error message like this...
 
 ```
+No .cabal file found in directory
+```
+
+You are probably running an old stack version and need
+to upgrade it.
+
+#### Otherwise, if you get an error message like this...
+
+```
 No compiler found, expected minor version match with...
 Try running "stack setup" to install the correct GHC...
 ```
