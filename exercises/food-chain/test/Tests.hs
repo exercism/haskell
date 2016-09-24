@@ -1,5 +1,5 @@
-import Data.Function     (on)
-import Test.Hspec        (Spec, describe, it, shouldBe)
+import Control.Monad     (unless)
+import Test.Hspec        (Spec, describe, expectationFailure, it, shouldBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
 import FoodChain (song)
@@ -24,12 +24,16 @@ specs = describe "food-chain" $
             it "matches full song" $ song `shouldBe` lyrics
   where
 
-    lineAssertions = (go shouldBe `on` zip [1 :: Int ..] . lines) song lyrics
+    lineAssertions = zipWith checkLine [1 :: Int ..] $ zipMaybe (lines song) (lines lyrics)
 
-    go _    []     []  = []
-    go f (x:xs)    []  = f (Just x) Nothing  : go f xs []
-    go f    []  (y:ys) = f Nothing  (Just y) : go f [] ys
-    go f (x:xs) (y:ys) = f (Just x) (Just y) : go f xs ys
+    checkLine lineno (got, want) =
+      unless (got == want) $
+        expectationFailure $ "mismatch at line " ++ show lineno ++ "\nexpected: " ++ show want ++ "\n but got: " ++ show got
+
+    zipMaybe    []     []  = []
+    zipMaybe (x:xs)    []  = (Just x , Nothing) : zipMaybe xs []
+    zipMaybe    []  (y:ys) = (Nothing, Just y ) : zipMaybe [] ys
+    zipMaybe (x:xs) (y:ys) = (Just x , Just y ) : zipMaybe xs ys
 
 -- Lyrics extracted from `exercism/x-common` on 2016-09-21.
 
