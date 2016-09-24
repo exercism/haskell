@@ -41,10 +41,10 @@ flat = Graph "root" (map leaf ["a", "b", x, "c"])
 nested = Graph "level-0" [Graph "level-1" [Graph "level-2" [Graph "level-3" [Graph x []]]]]
 kids = Graph "root" [Graph x [Graph "kid-0" [], Graph "kid-1" []]]
 cousins = Graph "grandparent" [Graph "parent" [Graph x [leaf "kid-a", leaf "kid-b"],
-                                               (leaf "sibling-0"),
-                                               (leaf "sibling-1")],
-                                Graph "uncle" [(leaf "cousin-0"),
-                                               (leaf "cousin-1")]]
+                                               leaf "sibling-0",
+                                               leaf "sibling-1"],
+                                Graph "uncle" [leaf "cousin-0",
+                                               leaf "cousin-1"]]
 
 singleton', flat', nested', kids', cousins' :: Graph String
 singleton' = singleton
@@ -66,7 +66,7 @@ reparentTestCases = [
     ("reparenting nested", nested, Just nested'),
     ("reparenting kids", kids, Just kids'),
     ("reparenting cousins", cousins, Just cousins'),
-    ("from POV of non-existent node", (leaf "foo"), Nothing)]
+    ("from POV of non-existent node", leaf "foo", Nothing)]
 
 reparentingTests :: [Test]
 reparentingTests = do
@@ -81,18 +81,18 @@ reparentingTests = do
 notFoundTests :: [Test]
 notFoundTests = map notFoundTest [singleton, flat, kids, nested, cousins]
     where name = "Should not be able to find a missing node"
-          notFoundTest g = testCase name $ Nothing @=? (fromPOV "NOT THERE" g)
+          notFoundTest g = testCase name $ Nothing @=? fromPOV "NOT THERE" g
 
 untraceableTest :: Test
 untraceableTest = testCase "Cannot trace between un-connected nodes" assertion
-    where assertion = Nothing @=? (tracePathBetween x "NOT THERE" cousins)
+    where assertion = Nothing @=? tracePathBetween x "NOT THERE" cousins
 
 tracePathTest :: Test
 tracePathTest = testCase "Can trace a path from x -> cousin" assertion
-    where assertion = expectedPath @=? (tracePathBetween x "cousin-1" cousins)
+    where assertion = expectedPath @=? tracePathBetween x "cousin-1" cousins
           expectedPath = Just ["x", "parent", "grandparent", "uncle", "cousin-1"]
 
 leafToLeaf :: Test
 leafToLeaf = testCase "Can trace from a leaf to a leaf" assertion
-    where assertion = expectedPath @=? (tracePathBetween "kid-a" "cousin-0" cousins)
+    where assertion = expectedPath @=? tracePathBetween "kid-a" "cousin-0" cousins
           expectedPath = Just ["kid-a", "x", "parent", "grandparent", "uncle", "cousin-0"]

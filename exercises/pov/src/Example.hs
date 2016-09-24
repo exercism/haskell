@@ -1,13 +1,13 @@
 module POV (Graph(Graph), fromPOV, tracePathBetween) where
 
-import Data.Maybe(listToMaybe, catMaybes)
+import Data.Maybe(listToMaybe, mapMaybe)
 
 data Graph a = Graph { value :: a, children :: [Graph a] } deriving (Show, Eq)
 data Crumb a = Crumb a [Graph a] [Graph a] deriving (Show, Eq)
-data Zipper a = Zipper { node :: (Graph a), path ::  [Crumb a] }
+data Zipper a = Zipper { node :: Graph a, path :: [Crumb a] }
 
 fromPOV :: Eq a => a -> Graph a -> Maybe (Graph a)
-fromPOV x = (fmap reparent) . (findLoc x) . rootZipper
+fromPOV x = fmap reparent . findLoc x . rootZipper
 
 tracePathBetween :: Eq a => a -> a -> Graph a -> Maybe [a]
 tracePathBetween from to g =
@@ -15,26 +15,26 @@ tracePathBetween from to g =
 
 reparent :: Eq a => Zipper a -> Graph a
 reparent (Zipper g []) = g
-reparent (Zipper g (c:cs)) = Graph (value g) $ (children g) ++ [reparented]
+reparent (Zipper g (c:cs)) = Graph (value g) $ children g ++ [reparented]
     where reparented = reparent (Zipper (crumbToGraph c) cs)
 
 down :: Zipper a -> Maybe (Zipper a)
-down (Zipper (Graph v (k:kids)) crumbs) = Just (Zipper k ((Crumb v [] kids):crumbs))
+down (Zipper (Graph v (k : kids)) crumbs) = Just $ Zipper k $ Crumb v [] kids : crumbs
 down _ = Nothing
 
 right :: Zipper a -> Maybe (Zipper a)
-right (Zipper here ((Crumb v lefts (r:rights)):cs)) = Just (Zipper r (shifted:cs))
+right (Zipper here (Crumb v lefts (r : rights) : cs)) = Just $ Zipper r $ shifted : cs
     where shifted = Crumb v (lefts ++ [here]) rights
 right _ = Nothing
 
 findLoc :: Eq a => a -> Zipper a -> Maybe (Zipper a)
 findLoc x loc
     | x == (value . node $ loc) = Just loc
-    | otherwise = listToMaybe $ catMaybes $ map look [down, right]
+    | otherwise = listToMaybe $ mapMaybe look [down, right]
     where look dir = dir loc >>= findLoc x
 
 trail :: Zipper a -> [Graph a]
-trail = reverse . (map crumbToGraph) . path
+trail = reverse . map crumbToGraph . path
 
 crumbToGraph :: Crumb a -> Graph a
 crumbToGraph (Crumb x lefts rights) = Graph x (lefts ++ rights)
