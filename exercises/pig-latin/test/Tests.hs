@@ -38,5 +38,5 @@ specs = describe "pig-latin" $
         it "word beginning with yt" $ translate "yttria" `shouldBe` "yttriaay"
         it "word beginning with xr" $ translate "xray"   `shouldBe` "xrayay"
 
-    describe "phrases are translated" $ do
+    describe "phrases are translated" $
         it "a whole phrase" $ translate "quick fast run" `shouldBe` "ickquay astfay unray"
