@@ -13,8 +13,7 @@ nil :: LinkedList a
 nil = Nil
 
 fromList :: [a] -> LinkedList a
-fromList [] = Nil
-fromList (x:xs) = Cons x $ fromList xs
+fromList = foldr Cons Nil
 
 toList :: LinkedList a -> [a]
 toList Nil = []
