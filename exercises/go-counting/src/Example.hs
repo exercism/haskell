@@ -6,7 +6,7 @@ module Counting (
 
 import           Data.Array.IArray ((!), Array)
 import qualified Data.Array.IArray as Array
-import           Data.Maybe (catMaybes, mapMaybe)
+import           Data.Maybe (catMaybes, isNothing, mapMaybe)
 import           Data.Set (Set)
 import qualified Data.Set as Set
 
@@ -26,7 +26,7 @@ data Color = Black | White
 --
 -- The character 'B' will mean black, the character 'W' will mean white and
 -- every other character will mean an empty square.
-territories :: [[Char]] -> [(Set Coord, Maybe Color)]
+territories :: [String] -> [(Set Coord, Maybe Color)]
 territories ls =
     let b   = buildBoard ls
         fps = freePoints b
@@ -43,7 +43,7 @@ territories ls =
 --   territory returns Nothing.
 --
 -- See 'territories' for notes about the expected board format.
-territoryFor :: [[Char]] -> Coord -> Maybe (Set Coord, Maybe Color)
+territoryFor :: [String] -> Coord -> Maybe (Set Coord, Maybe Color)
 territoryFor ls c =
     let b = buildBoard ls
         s = groupContaining b c
@@ -58,7 +58,7 @@ territoryFor ls c =
 -- every other character will mean an empty square.
 --
 -- The input must contain at least one line.
-buildBoard :: [[Char]] -> Board
+buildBoard :: [String] -> Board
 buildBoard ls =
     let xmax = length (head ls)
         ymax = length ls
@@ -89,7 +89,7 @@ inBounds b (cx, cy) =
 --
 -- Does not check if the point is valid.
 isFreePoint :: Board -> Coord -> Bool
-isFreePoint b c = b ! c == Nothing
+isFreePoint b c = isNothing (b ! c)
 
 -- | Get the adjacent valid coordinates for a coordinate.
 adjacentCoords :: Board -> Coord -> [Coord]
