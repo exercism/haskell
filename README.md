@@ -37,6 +37,15 @@ stack test --pedantic
 
 If the stub solution is still in the `/src` folder, build will probably fail.
 
+### Running HLint
+
+All code in this repository should be as idiomatic as possible, so it is
+highly recommended to run `hlint` on your sources before opening a
+*pull request*.
+
+Unless there is a good reason to ignore a suggestion, all submitted
+code is expected to return **No hints** when processed by it.
+
 ## License
 
 The MIT License (MIT)
