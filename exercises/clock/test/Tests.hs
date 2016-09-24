@@ -16,13 +16,13 @@ specs = describe "clock" $ do
 
     describe "track-specific tests" $ do
 
-      it "fromInteger should work in minutes" $ do
+      it "fromInteger should work in minutes" $
         toString 3 `shouldBe` "00:03"
 
-      it "constructor and fromInteger should be compatible" $ do
+      it "constructor and fromInteger should be compatible" $
         60 `shouldBe` fromHourMin 1 0
 
-      it "negate works" $ do
+      it "negate works" $
         negate (fromHourMin 23 55) `shouldBe` 5
 
     -- Test cases extracted from x-common/clock.json from 2016-03-29
