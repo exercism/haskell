@@ -67,21 +67,21 @@ specs = describe "matrix" $ do
       transpose (intMatrix "1\n2\n3"      ) `shouldBe` intMatrix "1 2 3"
       transpose (intMatrix "1 4\n2 5\n3 6") `shouldBe` intMatrix "1 2 3\n4 5 6"
 
-    it "reshape" $ do
+    it "reshape" $
       reshape (2, 2) (intMatrix "1 2 3 4") `shouldBe` intMatrix "1 2\n3 4"
 
-    it "flatten" $ do
+    it "flatten" $
       flatten (intMatrix "1 2\n3 4") `shouldBe` vector [1, 2, 3, 4]
 
-    it "matrix of chars" $ do
+    it "matrix of chars" $
       fromString "'f' 'o' 'o'\n'b' 'a' 'r'" `shouldBe` fromList ["foo", "bar"]
 
-    it "matrix of strings" $ do
+    it "matrix of strings" $ 
        fromString "\"this one\"\n\"may be tricky!\""
        `shouldBe` fromList [ ["this one"      ]
                            , ["may be tricky!"] ]
 
-    it "matrix of strings 2" $ do
+    it "matrix of strings 2" $ 
        fromString "\"this one\" \"one\" \n\"may be tricky!\" \"really tricky\""
        `shouldBe` fromList [ ["this one"      , "one"          ]
                            , ["may be tricky!", "really tricky"] ]
