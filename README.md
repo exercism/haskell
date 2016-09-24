@@ -29,13 +29,24 @@ format that has all dependencies and build instructions for an exercise.
 
 ### Running Tests
 
-Rename the file `src/Example.hs` to match the module name and run:
+In order to be accepted by Travis-CI, every exercise must compile without
+warnings and the example solution must pass the tests without failures.
+
+To test an exercise, first you need to rename the file `src/Example.hs`
+to match the module name, but - because we already have a *stub solution*
+in place - we have to move it first, otherwise it will be overwritten.
+
+Running `stack test --pedantic` compiles and run the tests with
+`-Wall -Werror`, but unfortunately it doesn't recompile unchanged
+source code already compiled with warnings.
+
+To be really sure that everything compiles correctly without
+warnings, your must first run `stack clean`.
 
 ```bash
+stack clean
 stack test --pedantic
 ```
-
-If the stub solution is still in the `/src` folder, build will probably fail.
 
 ### Running HLint
 
