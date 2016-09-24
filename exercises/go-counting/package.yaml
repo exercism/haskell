@@ -18,4 +18,5 @@ tests:
     source-dirs: test
     dependencies:
       - go-counting
-      - HUnit
+      - hspec
+      - multiset

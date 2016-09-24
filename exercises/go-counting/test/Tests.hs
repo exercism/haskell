@@ -1,98 +1,89 @@
-import Test.HUnit (Assertion, (@=?), runTestTT, Test(..), Counts(..))
-import System.Exit (ExitCode(..), exitWith)
-import Data.List (foldl', sort)
-import qualified Data.Set as Set
-import Counting (Color(..), territories, territoryFor)
+import Data.Bifunctor    (first)
+import Data.MultiSet     (fromOccurList, toOccurList)
+import Data.Set          (toAscList)
+import Data.Tuple        (swap)
+import Test.Hspec        (Spec, describe, it, shouldBe, shouldMatchList)
+import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
-exitProperly :: IO Counts -> IO ()
-exitProperly m = do
-  counts <- m
-  exitWith $ if failures counts /= 0 || errors counts /= 0 then ExitFailure 1 else ExitSuccess
-
-testCase :: String -> Assertion -> Test
-testCase label assertion = TestLabel label (TestCase assertion)
+import Counting (Color(Black,White), territories, territoryFor)
 
 main :: IO ()
-main = exitProperly $ runTestTT $ TestList
-       [ TestList countingTests ]
+main = hspecWith defaultConfig {configFastFail = True} specs
 
-type Coord = (Int, Int)
+specs :: Spec
+specs = describe "go-counting" $ do
 
--- Helper for invoking 'territories' and getting an easy to compare result.
-terrs :: [[Char]] -> [([Coord], Maybe Color)]
-terrs = sort . map worker . territories
-  where
-    worker (s, o) = (Set.toAscList s, o)
+    -- As of 2016-07-27, there was no reference file
+    -- for the test cases in `exercism/x-common`.
 
--- Helper for invoking 'territoryFor' and getting an easy to compare
--- result.
-terrFor :: [[Char]] -> Coord -> Maybe ([Coord], Maybe Color)
-terrFor b c = case territoryFor b c of
-                  Nothing     -> Nothing
-                  Just (s, o) -> Just (Set.toAscList s, o)
+    let board5x5 = [ "  B  "
+                   , " B B "
+                   , "B W B"
+                   , " W W "
+                   , "  W  " ]
 
--- | The score for black, white and none respectively.
-data Score = Score {
-    scoreBlack :: !Int,
-    scoreWhite :: !Int,
-    scoreNone  :: !Int
-} deriving (Eq, Show)
+        board9x9 = [ "  B   B  "
+                   , "B   B   B"
+                   , "WBBBWBBBW"
+                   , "W W W W W"
+                   , "         "
+                   , " W W W W "
+                   , "B B   B B"
+                   , " W BBB W "
+                   , "   B B   " ]
 
--- Board to points: black, white, none.
-score :: [[Char]] -> Score
-score = foldl' worker (Score 0 0 0) . territories
-  where
-    worker sc (s, Just Black) = sc { scoreBlack = scoreBlack sc + Set.size s }
-    worker sc (s, Just White) = sc { scoreWhite = scoreWhite sc + Set.size s }
-    worker sc (s, Nothing)    = sc { scoreNone  = scoreNone sc  + Set.size s }
+        shouldHaveTerritories = shouldMatchList
+                              . map (first toAscList)
+                              . territories
 
-board5x5 :: [[Char]]
-board5x5 =
-    ["  B  ",
-     " B B ",
-     "B W B",
-     " W W ",
-     "  W  "]
+        shouldScore = shouldMatchList
+                    . toOccurList
+                    . fromOccurList
+                    . map (swap . first length)
+                    . territories
 
-board9x9 :: [[Char]]
-board9x9 =
-    ["  B   B  ",
-     "B   B   B",
-     "WBBBWBBBW",
-     "W W W W W",
-     "         ",
-     " W W W W ",
-     "B B   B B",
-     " W BBB W ",
-     "   B B   "]
+        territoryIn xss = fmap (first toAscList) . territoryFor xss
 
-countingTests :: [Test]
-countingTests =
-    [ testCase "minimal board, no territories" $
-        [] @=? terrs ["B"],
-      testCase "one territory, covering the whole board" $
-        [([(1,1)], Nothing)] @=? terrs [" "],
-      testCase "two territories, rectangular board" $
-        [([(1,1), (1,2)], Just Black),
-         ([(4,1), (4,2)], Just White)]
-        @=? terrs [" BW ", " BW "],
-      testCase "5x5 score" $
-        Score 6 1 9 @=? score board5x5,
-      testCase "5x5 territory for black" $
-        Just ([(1,1), (1,2), (2,1)], Just Black)
-        @=? terrFor board5x5 (1,2),
-      testCase "5x5 territory for white" $
-        Just ([(3,4)], Just White)
-        @=? terrFor board5x5 (3,4),
-      testCase "5x5 open territory" $
-        Just ([(1,4), (1,5), (2,5)], Nothing)
-        @=? terrFor board5x5 (2,5),
-      testCase "5x5 non-territory (stone)" $
-        Nothing @=? terrFor board5x5 (2,2),
-      testCase "5x5 non-territory (too low coordinate)" $
-        Nothing @=? terrFor board5x5 (0,2),
-      testCase "5x5 non-territory (too high coordinate)" $
-        Nothing @=? terrFor board5x5 (2,6),
-      testCase "9x9 score" $
-        Score 14 0 33 @=? score board9x9
-    ]
+    it "minimal board, no territories" $
+      [ "B" ] `shouldHaveTerritories` []
+
+    it "one territory, covering the whole board" $
+      [ " " ] `shouldHaveTerritories` [([ (1, 1) ], Nothing)]
+
+    it "two territories, rectangular board" $
+      [ " BW "
+      , " BW " ] `shouldHaveTerritories` [ ([ (1, 1)
+                                            , (1, 2) ], Just Black)
+                                         , ([ (4, 1)
+                                            , (4, 2) ], Just White) ]
+
+    it "5x5 score" $
+      board5x5 `shouldScore` [ (Nothing   , 9)
+                             , (Just Black, 6)
+                             , (Just White, 1) ]
+
+    it "5x5 territory for black" $
+      territoryIn board5x5 (1, 2) `shouldBe` Just ([ (1, 1)
+                                                   , (1, 2)
+                                                   , (2, 1) ], Just Black)
+
+    it "5x5 territory for white" $
+      territoryIn board5x5 (3, 4) `shouldBe` Just ([ (3, 4) ], Just White)
+
+    it "5x5 open territory" $
+      territoryIn board5x5 (2, 5) `shouldBe` Just ([ (1, 4)
+                                                   , (1, 5)
+                                                   , (2, 5) ], Nothing)
+
+    it "5x5 non-territory (stone)" $
+      territoryIn board5x5 (2, 2) `shouldBe` Nothing
+
+    it "5x5 non-territory (too low coordinate)" $
+      territoryIn board5x5 (0, 2) `shouldBe` Nothing
+
+    it "5x5 non-territory (too high coordinate)" $
+      territoryIn board5x5 (2, 6) `shouldBe` Nothing
+
+    it "9x9 score" $
+      board9x9 `shouldScore` [ (Nothing   , 33)
+                             , (Just Black, 14) ]
