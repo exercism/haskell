@@ -165,7 +165,7 @@ specs = describe "custom-set" $ do
 
       -- Track-specific test cases.
 
-      describe "delete" $ do
+      describe "delete" $
 
         it "delete existing element" $
           delete 2 (fromList [1, 2, 3]) `shouldBe` fromList [1, 3]

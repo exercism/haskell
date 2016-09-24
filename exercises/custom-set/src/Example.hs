@@ -90,7 +90,7 @@ isSubsetOf :: Ord a => CustomSet a -> CustomSet a -> Bool
 isSubsetOf a b = size a <= size b && F.all (`member` b) a
 
 intersection :: Ord a => CustomSet a -> CustomSet a -> CustomSet a
-intersection a b = F.foldl' go empty b
+intersection a = F.foldl' go empty
   where go acc x = if x `member` a then insert x acc else acc
 
 isDisjointFrom :: Ord a => CustomSet a -> CustomSet a -> Bool
