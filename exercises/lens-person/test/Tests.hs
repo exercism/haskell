@@ -1,59 +1,67 @@
-import           Data.Char          (toUpper)
-import           Data.Time.Calendar (fromGregorian)
-import           System.Exit        (ExitCode (..), exitWith)
-import           Test.HUnit         (Assertion, Counts (..), Test (..),
-                                     runTestTT, (@=?))
+import Data.Char          (toUpper)
+import Data.Time.Calendar (fromGregorian)
+import Test.Hspec         (Spec, describe, it, shouldBe)
+import Test.Hspec.Runner  (configFastFail, defaultConfig, hspecWith)
 
-import           Person             (Address (..), Born (..),
-                                     Name (..), Person (..), bornStreet,
-                                     renameStreets, setBirthMonth,
-                                     setCurrentStreet)
-
-testCase :: String -> Assertion -> Test
-testCase label assertion = TestLabel label (TestCase assertion)
-
-exitProperly :: IO Counts -> IO ()
-exitProperly m = do
-  counts <- m
-  exitWith $ if failures counts /= 0 || errors counts /= 0 then ExitFailure 1 else ExitSuccess
+import Person
+  ( Address (..)
+  , Born    (..)
+  , Name    (..)
+  , Person  (..)
+  , bornStreet
+  , renameStreets
+  , setBirthMonth
+  , setCurrentStreet
+  )
 
 main :: IO ()
-main = exitProperly $ runTestTT $ TestList
-       [ TestList personTests ]
+main = hspecWith defaultConfig {configFastFail = True} specs
+
+specs :: Spec
+specs = describe "lens-person" $ do
+
+    -- As of 2016-09-25, there was no reference file
+    -- for the test cases in `exercism/x-common`.
+
+    it "bornStreet" $
+      (bornStreet . _born) testPerson
+      `shouldBe` "Longway"
+
+    it "setCurrentStreet" $
+      (_street . _address . setCurrentStreet "Middleroad") testPerson
+      `shouldBe` "Middleroad"
+
+    it "setBirthMonth" $
+      (_bornOn . _born . setBirthMonth 9) testPerson
+      `shouldBe` fromGregorian 1984 9 12
+
+    it "renameStreets birth" $
+      (_street . _bornAt . _born . renameStreets (map toUpper)) testPerson
+      `shouldBe` "LONGWAY"
+
+    it "renameStreets current" $
+      (_street . _address . renameStreets (map toUpper)) testPerson
+      `shouldBe` "SHORTLANE"
 
 testPerson :: Person
 testPerson = Person {
                _name = Name {
-                   _foreNames = "Jane Joanna",
-                   _surName = "Doe"
-               },
+                         _foreNames = "Jane Joanna",
+                         _surName   = "Doe"
+                       },
                _born = Born {
                          _bornAt = Address {
-                             _street = "Longway",
-                             _houseNumber = 1024,
-                             _place = "Springfield",
-                             _country = "United States"
-                         },
+                                     _street      = "Longway"      ,
+                                     _houseNumber = 1024           ,
+                                     _place       = "Springfield"  ,
+                                     _country     = "United States"
+                                   },
                          _bornOn = fromGregorian 1984 4 12
                        },
                _address = Address {
-                            _street = "Shortlane",
-                            _houseNumber = 2,
-                            _place = "Fallmeadow",
-                            _country = "Canada"
+                            _street      = "Shortlane" ,
+                            _houseNumber = 2           ,
+                            _place       = "Fallmeadow",
+                            _country     = "Canada"
                           }
              }
-
-personTests :: [Test]
-personTests =
-  [ testCase "bornStreet" $
-    "Longway" @=? bornStreet (_born testPerson),
-    testCase "setCurrentStreet" $
-    "Middleroad" @=? (_street . _address) (setCurrentStreet "Middleroad" testPerson),
-    testCase "setBirthMonth" $
-    fromGregorian 1984 9 12 @=? (_bornOn . _born) (setBirthMonth 9 testPerson),
-    testCase "renameStreets birth" $
-    "LONGWAY" @=? (_street . _bornAt . _born) (renameStreets (map toUpper) testPerson),
-    testCase "renameStreets current" $
-    "SHORTLANE" @=? (_street . _address) (renameStreets (map toUpper) testPerson)
-  ]
