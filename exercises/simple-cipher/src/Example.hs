@@ -1,5 +1,6 @@
 module Cipher (caesarEncode, caesarDecode, caesarEncodeRandom) where
 
+import Data.Char     (isAsciiLower)
 import System.Random (newStdGen, randomRs)
 
 caesarEncode, caesarDecode :: String -> String -> String
@@ -15,9 +16,8 @@ caesarEncodeRandom xs = do
 caesar :: (Int -> Int -> Int) -> String -> String -> String
 caesar op = zipWith rotate . cycle
   where
-    rotate k x = if isAlpha k && isAlpha x
+    rotate k x = if isAsciiLower k && isAsciiLower x
                 then toAlpha (op (fromAlpha x) (fromAlpha k) `mod` 26)
                 else x
     fromAlpha = subtract (fromEnum 'a') . fromEnum
     toAlpha = toEnum . (fromEnum 'a' +)
-    isAlpha x = x >= 'a' && x <= 'z'
