@@ -9,7 +9,7 @@ annotate xss = [[ fixTile x (i, j)
                 | (i, xs) <- zip [0..] xss ]
   where
 
-    bombs = length . filter (== '*') . mapMaybe (flip lookup tiles) . neighbors
+    bombs = length . filter (== '*') . mapMaybe (`lookup` tiles) . neighbors
 
     fixTile ' ' position = case bombs position of
         0 -> ' '
