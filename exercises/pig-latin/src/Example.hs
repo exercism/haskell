@@ -4,7 +4,7 @@ import Data.List (isSuffixOf)
 
 consonantCluster :: String -> (String, String)
 consonantCluster = qu . break (`elem` "aeiou")
-  where qu (cs, ('u':rest)) | "q" `isSuffixOf` cs = (cs ++ "u", rest)
+  where qu (cs, 'u':rest) | "q" `isSuffixOf` cs = (cs ++ "u", rest)
         qu pair = pair
 
 translateWord :: String -> String
