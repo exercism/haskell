@@ -18,6 +18,7 @@ foldl' f = go
     go acc [] = acc
     go acc (x:xs) = let acc' = f acc x in acc' `seq` go acc' xs
 
+{-# ANN foldr "HLint: ignore Use foldr" #-}
 foldr :: (a -> b -> b) -> b -> [a] -> b
 foldr f x0 = go
   where
