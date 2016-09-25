@@ -104,12 +104,12 @@ with1 f s = case forthStack s of
 step :: Term -> ForthState -> Either ForthError ForthState
 step t s = case t of
   StartDefinition -> case break (EndDefinition ==) (forthCode s) of
-    ((W w:xs), (EndDefinition:ys)) ->
+    (W w:xs, EndDefinition:ys) ->
       runInterpreter s { forthWords = M.insert w (User xs) (forthWords s)
                        , forthCode  = ys
                        }
-    (_, (EndDefinition:_)) -> Left InvalidWord
-    _                      -> return s { forthCode = t : forthCode s  }
+    (_, EndDefinition:_) -> Left InvalidWord
+    _                    -> return s { forthCode = t : forthCode s  }
   EndDefinition   -> Left InvalidWord
   V v             -> push v s >>= runInterpreter
   W w             ->
