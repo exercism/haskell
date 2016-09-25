@@ -10,7 +10,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "pascals-triangle" $ do
+specs = describe "pascals-triangle" $
           describe "rows" $ for_ rowsCases rowsTest
   where
 
