@@ -25,17 +25,18 @@ specs = describe "robot-name" $ do
           let d = ('0', '9')
           let matchesPattern s = length s == 5
                                  && and (zipWith inRange [a, a, d, d, d] s)
+          let testPersistence r = do
+                n1 <- robotName r
+                n2 <- robotName r
+                n3 <- robotName r
+                n1 `shouldBe` n2
+                n1 `shouldBe` n3
 
           it "name should match expected pattern" $
             mkRobot >>= robotName >>= (`shouldSatisfy` matchesPattern)
 
-          it "name is persistent" $ do
-            r <- mkRobot
-            n1 <- robotName r
-            n2 <- robotName r
-            n3 <- robotName r
-            n1 `shouldBe` n2
-            n1 `shouldBe` n3
+          it "name is persistent" $
+            mkRobot >>= testPersistence
 
           it "different robots have different names" $ do
             n1 <- mkRobot >>= robotName
@@ -49,12 +50,7 @@ specs = describe "robot-name" $ do
 
           it "new name is persistent" $ do
             r <- mkRobot
-            resetName r
-            n1 <- robotName r
-            n2 <- robotName r
-            n3 <- robotName r
-            n1 `shouldBe` n2
-            n1 `shouldBe` n3
+            resetName r >> testPersistence r
 
           it "new name is different from old name" $ do
             r <- mkRobot
