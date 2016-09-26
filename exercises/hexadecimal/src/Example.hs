@@ -1,5 +1,6 @@
 module Hexadecimal (hexToInt) where
 
+{-# ANN digitToInt "HLint: ignore Use isDigit" #-}
 digitToInt :: Char -> Maybe Int
 digitToInt c
   | c >= '0' && c <= '9' = Just $ n - fromEnum '0'
