@@ -46,7 +46,7 @@ specs = describe "bank-account" $ do
     it "closed banks hold no balance" $ do
         account    <-    openAccount
         getBalance       account    `shouldReturn` Just  0
-        incrementBalance account 10 `shouldReturn` Just 10
+        incrementBalance account 15 `shouldReturn` Just 15
         closeAccount     account
         getBalance       account    `shouldReturn` Nothing
         incrementBalance account 10 `shouldReturn` Nothing
