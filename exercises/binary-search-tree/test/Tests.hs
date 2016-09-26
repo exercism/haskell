@@ -54,7 +54,7 @@ specs = describe "binary-seach-tree" $ do
 
     it "complex tree" $ do
       let t = fromList [int4, 2, 6, 1, 3, 7, 5]
-      (bstValue t                          ) `shouldBe` Just 4
+      bstValue  t                            `shouldBe` Just 4
       (bstLeft  t >>= bstValue             ) `shouldBe` Just 2
       (bstLeft  t >>= bstLeft  >>= bstValue) `shouldBe` Just 1
       (bstLeft  t >>= bstRight >>= bstValue) `shouldBe` Just 3
