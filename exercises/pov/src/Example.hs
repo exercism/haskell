@@ -1,25 +1,25 @@
-module POV (Graph(Graph), fromPOV, tracePathBetween) where
+module POV (fromPOV, tracePathBetween) where
 
 import Data.Maybe(listToMaybe, mapMaybe)
+import Data.Tree(Tree(Node), rootLabel, subForest)
 
-data Graph a = Graph { value :: a, children :: [Graph a] } deriving (Show, Eq)
-data Crumb a = Crumb a [Graph a] [Graph a] deriving (Show, Eq)
-data Zipper a = Zipper { node :: Graph a, path :: [Crumb a] }
+data Crumb a = Crumb a [Tree a] [Tree a] deriving (Show, Eq)
+data Zipper a = Zipper { node :: Tree a, path :: [Crumb a] }
 
-fromPOV :: Eq a => a -> Graph a -> Maybe (Graph a)
+fromPOV :: Eq a => a -> Tree a -> Maybe (Tree a)
 fromPOV x = fmap reparent . findLoc x . rootZipper
 
-tracePathBetween :: Eq a => a -> a -> Graph a -> Maybe [a]
+tracePathBetween :: Eq a => a -> a -> Tree a -> Maybe [a]
 tracePathBetween from to g =
-    fromPOV from g |>= rootZipper >>= findLoc to |>= trail |>= map value |>= (++ [to])
+    fromPOV from g |>= rootZipper >>= findLoc to |>= trail |>= map rootLabel |>= (++ [to])
 
-reparent :: Eq a => Zipper a -> Graph a
+reparent :: Eq a => Zipper a -> Tree a
 reparent (Zipper g []) = g
-reparent (Zipper g (c:cs)) = Graph (value g) $ children g ++ [reparented]
-    where reparented = reparent (Zipper (crumbToGraph c) cs)
+reparent (Zipper g (c:cs)) = Node (rootLabel g) $ subForest g ++ [reparented]
+    where reparented = reparent (Zipper (crumbToTree c) cs)
 
 down :: Zipper a -> Maybe (Zipper a)
-down (Zipper (Graph v (k : kids)) crumbs) = Just $ Zipper k $ Crumb v [] kids : crumbs
+down (Zipper (Node v (k : kids)) crumbs) = Just $ Zipper k $ Crumb v [] kids : crumbs
 down _ = Nothing
 
 right :: Zipper a -> Maybe (Zipper a)
@@ -29,17 +29,17 @@ right _ = Nothing
 
 findLoc :: Eq a => a -> Zipper a -> Maybe (Zipper a)
 findLoc x loc
-    | x == (value . node $ loc) = Just loc
+    | x == (rootLabel . node $ loc) = Just loc
     | otherwise = listToMaybe $ mapMaybe look [down, right]
     where look dir = dir loc >>= findLoc x
 
-trail :: Zipper a -> [Graph a]
-trail = reverse . map crumbToGraph . path
+trail :: Zipper a -> [Tree a]
+trail = reverse . map crumbToTree . path
 
-crumbToGraph :: Crumb a -> Graph a
-crumbToGraph (Crumb x lefts rights) = Graph x (lefts ++ rights)
+crumbToTree :: Crumb a -> Tree a
+crumbToTree (Crumb x lefts rights) = Node x (lefts ++ rights)
 
-rootZipper :: Graph a -> Zipper a
+rootZipper :: Tree a -> Zipper a
 rootZipper g = Zipper g []
 
 infixl 1 |>= -- allow pure and monadic functions in pipe.

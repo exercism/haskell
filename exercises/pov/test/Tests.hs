@@ -1,28 +1,81 @@
-import Test.HUnit (Assertion, (@=?), runTestTT, Test(..), Counts(..))
-import Data.List (sort)
-import System.Exit (ExitCode(..), exitWith)
-import POV(Graph(..), fromPOV, tracePathBetween)
+{-# LANGUAGE TupleSections #-}
 
-exitProperly :: IO Counts -> IO ()
-exitProperly m = do
-  counts <- m
-  exitWith $ if failures counts /= 0 || errors counts /= 0 then ExitFailure 1 else ExitSuccess
+import Data.Foldable     (for_)
+import Data.Function     (on)
+import Data.Tree         (Tree(Node), rootLabel)
+import Data.List         (sort)
+import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
-testCase :: String -> Assertion -> Test
-testCase label assertion = TestLabel label (TestCase assertion)
+import POV (fromPOV, tracePathBetween)
 
 main :: IO ()
-main = exitProperly $ runTestTT $ TestList
-       [ TestList ((tracePathTest : untraceableTest : leafToLeaf : reparentingTests) ++ notFoundTests) ]
+main = hspecWith defaultConfig {configFastFail = True} specs
 
-leaf :: a -> Graph a
-leaf v = Graph v []
+specs :: Spec
+specs = describe "pov" $ do
 
-x :: String
-x = "x"
+    -- As of 2016-09-28, there was no reference file
+    -- for the test cases in `exercism/x-common`.
 
-root :: Graph a -> a
-root (Graph r _) = r
+    describe "fromPOV" $ do
+
+      let cases =
+            [ ("reparenting singleton"        , singleton , Just singleton')
+            , ("reparenting flat"             , flat      , Just flat'     )
+            , ("reparenting nested"           , nested    , Just nested'   )
+            , ("reparenting kids"             , kids      , Just kids'     )
+            , ("reparenting cousins"          , cousins   , Just cousins'  )
+            , ("from POV of non-existent node", leaf "foo", Nothing        ) ]
+
+          rootShouldMatch  = shouldBe `on` fmap rootLabel
+          edgesShouldMatch = shouldBe `on` fmap (sort . toEdges)
+
+          test (name, input, output) = describe name $ do
+            it "correct root"  $ fromPOV "x" input `rootShouldMatch`  output
+            it "correct edges" $ fromPOV "x" input `edgesShouldMatch` output
+
+          in for_ cases test
+
+      describe "Should not be able to find a missing node" $
+
+        let cases = [ ("singleton", singleton)
+                    , ("flat"     , flat     )
+                    , ("kids"     , kids     )
+                    , ("nested"   , nested   )
+                    , ("cousins"  , cousins  ) ]
+
+            test (name, g) = it name $ fromPOV "NOT THERE" g `shouldBe` Nothing
+
+            in for_ cases test
+
+    describe "tracePathBetween" $ do
+
+      it "Can trace a path from x -> cousin" $
+        tracePathBetween "x" "cousin-1" cousins
+        `shouldBe` Just [ "x"
+                        , "parent"
+                        , "grandparent"
+                        , "uncle"
+                        , "cousin-1"    ]
+
+      it "Cannot trace between un-connected nodes" $
+        tracePathBetween "x" "NOT THERE" cousins
+        `shouldBe` Nothing
+
+      it "Can trace from a leaf to a leaf" $
+        tracePathBetween "kid-a" "cousin-0" cousins
+        `shouldBe` Just [ "kid-a"
+                        , "x"
+                        , "parent"
+                        , "grandparent"
+                        , "uncle"
+                        , "cousin-0"    ]
+
+-- Functions used in the tests.
+
+leaf :: a -> Tree a
+leaf v = Node v []
 
 -- In the trees we're making, we don't care about the ordering of children.
 -- This is significant when rerooting on nodes that have a parent and children.
@@ -32,67 +85,93 @@ root (Graph r _) = r
 -- 1) The graph is actually rooted on the requested node.
 -- 2) The sorted edge list is correct.
 -- This function helps check the second condition.
-edges :: Graph a -> [(a, a)]
-edges (Graph r children) = map ((,) r . root) children ++ concatMap edges children
 
-singleton, flat, kids, nested, cousins :: Graph String
-singleton = Graph x []
-flat = Graph "root" (map leaf ["a", "b", x, "c"])
-nested = Graph "level-0" [Graph "level-1" [Graph "level-2" [Graph "level-3" [Graph x []]]]]
-kids = Graph "root" [Graph x [Graph "kid-0" [], Graph "kid-1" []]]
-cousins = Graph "grandparent" [Graph "parent" [Graph x [leaf "kid-a", leaf "kid-b"],
-                                               leaf "sibling-0",
-                                               leaf "sibling-1"],
-                                Graph "uncle" [leaf "cousin-0",
-                                               leaf "cousin-1"]]
+toEdges :: Ord a => Tree a -> [(a, a)]
+toEdges (Node r ts) = map ((r,) . rootLabel) ts ++ concatMap toEdges ts
 
-singleton', flat', nested', kids', cousins' :: Graph String
-singleton' = singleton
-flat' = Graph x [Graph "root" (map leaf ["a", "b", "c"])]
-nested' = Graph x [Graph "level-3" [Graph "level-2" [Graph "level-1" [Graph "level-0" []]]]]
-kids' = Graph x [Graph "kid-0" [], Graph "kid-1" [], Graph "root" []]
-cousins' = Graph x [leaf "kid-a",
-                    leaf "kid-b",
-                    Graph "parent" [Graph "sibling-0" [],
-                                   Graph "sibling-1" [],
-                                   Graph "grandparent" [
-                                                        Graph "uncle" [Graph "cousin-0" [],
-                                                                       Graph "cousin-1" []]]]]
+-- Trees used in the tests.
 
-reparentTestCases :: [(String, Graph String, Maybe (Graph String))]
-reparentTestCases = [
-    ("reparenting singleton", singleton, Just singleton'),
-    ("reparenting flat", flat, Just flat'),
-    ("reparenting nested", nested, Just nested'),
-    ("reparenting kids", kids, Just kids'),
-    ("reparenting cousins", cousins, Just cousins'),
-    ("from POV of non-existent node", leaf "foo", Nothing)]
+singleton , flat , kids , nested , cousins  :: Tree String
+singleton', flat', kids', nested', cousins' :: Tree String
 
-reparentingTests :: [Test]
-reparentingTests = do
-    (name, input, output) <- reparentTestCases
-    [checkRoot name input output, checkEdges name input output]
-      where graphTestCase f testName name input output =
-              testCase (name ++ ": correct " ++ testName) $ f output @=? f (fromPOV x input)
-            checkRoot = graphTestCase (fmap root) "root"
-            checkEdges = graphTestCase sortedEdges "sorted edges"
-            sortedEdges = fmap (sort . edges)
+singleton = leaf "x"
 
-notFoundTests :: [Test]
-notFoundTests = map notFoundTest [singleton, flat, kids, nested, cousins]
-    where name = "Should not be able to find a missing node"
-          notFoundTest g = testCase name $ Nothing @=? fromPOV "NOT THERE" g
+singleton' = leaf "x"
 
-untraceableTest :: Test
-untraceableTest = testCase "Cannot trace between un-connected nodes" assertion
-    where assertion = Nothing @=? tracePathBetween x "NOT THERE" cousins
+flat = Node "root"
+           [ leaf "a"
+           , leaf "b"
+           , leaf "x"
+           , leaf "c"
+           ]
 
-tracePathTest :: Test
-tracePathTest = testCase "Can trace a path from x -> cousin" assertion
-    where assertion = expectedPath @=? tracePathBetween x "cousin-1" cousins
-          expectedPath = Just ["x", "parent", "grandparent", "uncle", "cousin-1"]
+flat' = Node "x"
+            [ Node "root"
+                  [ leaf "a"
+                  , leaf "b"
+                  , leaf "c"
+                  ]
+            ]
 
-leafToLeaf :: Test
-leafToLeaf = testCase "Can trace from a leaf to a leaf" assertion
-    where assertion = expectedPath @=? tracePathBetween "kid-a" "cousin-0" cousins
-          expectedPath = Just ["kid-a", "x", "parent", "grandparent", "uncle", "cousin-0"]
+kids = Node "root"
+           [ Node "x"
+                 [ leaf "kid-0"
+                 , leaf "kid-1"
+                 ]
+           ]
+
+kids' = Node "x"
+            [ leaf "kid-0"
+            , leaf "kid-1"
+            , leaf "root"
+            ]
+
+nested = Node "level-0"
+             [ Node "level-1"
+                   [ Node "level-2"
+                         [ Node "level-3"
+                               [ leaf "x"
+                               ]
+                         ]
+                   ]
+             ]
+
+nested' = Node "x"
+              [ Node "level-3"
+                    [ Node "level-2"
+                          [ Node "level-1"
+                                [ leaf "level-0"
+                                ]
+                          ]
+                    ]
+              ]
+
+cousins = Node "grandparent"
+              [ Node "parent"
+                    [ Node "x"
+                          [ leaf "kid-a"
+                          , leaf "kid-b"
+                          ]
+                    , leaf "sibling-0"
+                    , leaf "sibling-1"
+                    ]
+              , Node "uncle"
+                    [ leaf "cousin-0"
+                    , leaf "cousin-1"
+                    ]
+              ]
+
+cousins' = Node "x"
+               [ leaf "kid-a"
+               , leaf "kid-b"
+               , Node "parent"
+                     [ leaf "sibling-0"
+                     , leaf "sibling-1"
+                     , Node "grandparent"
+                           [ Node "uncle"
+                                 [ leaf "cousin-0"
+                                 , leaf "cousin-1"
+                                 ]
+                           ]
+                     ]
+               ]
