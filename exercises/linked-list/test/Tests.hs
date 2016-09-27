@@ -6,6 +6,7 @@ import Deque (mkDeque, pop, push, shift, unshift)
 main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
+{-# ANN module "HLint: ignore Reduce duplication" #-}
 specs :: Spec
 specs = describe "linked-list" $ do
 
