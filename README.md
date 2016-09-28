@@ -50,12 +50,16 @@ stack test --pedantic
 
 ### Running HLint
 
-All code in this repository should be as idiomatic as possible, so it is
-highly recommended to run `hlint` on your sources before opening a
-*pull request*.
+All code in this repository should be as idiomatic as possible, so we
+enforce in [Travis-CI] that it returns `No hints` when processed by
+HLint.
 
-Unless there is a good reason to ignore a suggestion, all submitted
-code is expected to return **No hints** when processed by it.
+It is highly recommended to run `hlint` on your sources before opening
+a *pull request*, so you can fix your code before submitting it for review.
+
+If you are certain that a suggestion given by `hlint` would make the
+code worse, you can [suppress it](https://github.com/ndmitchell/hlint#customizing-the-hints)
+with annotations in the source file.
 
 ## License
 
