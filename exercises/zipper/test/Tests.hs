@@ -1,52 +1,64 @@
-import Test.HUnit (Assertion, (@=?), runTestTT, Test(..), Counts(..))
-import System.Exit (ExitCode(..), exitWith)
-import Data.Maybe (fromJust)
+import Data.Maybe        (fromJust)
+import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+
 import Zipper
-
-exitProperly :: IO Counts -> IO ()
-exitProperly m = do
-  counts <- m
-  exitWith $ if failures counts /= 0 || errors counts /= 0 then ExitFailure 1 else ExitSuccess
-
-testCase :: String -> Assertion -> Test
-testCase label assertion = TestLabel label (TestCase assertion)
+ ( BinTree(BT)
+ , fromTree
+ , left
+ , right
+ , setLeft
+ , setRight
+ , setValue
+ , toTree
+ , up
+ , value
+ )
 
 main :: IO ()
-main = exitProperly $ runTestTT $ TestList
-       [ TestList zipperTests ]
+main = hspecWith defaultConfig {configFastFail = True} specs
 
-empty :: Maybe (BinTree a)
-empty = Nothing
+specs :: Spec
+specs = describe "zipper" $ do
 
-bt :: Int -> Maybe (BinTree Int) -> Maybe (BinTree Int) -> Maybe (BinTree Int)
-bt v l r = Just (BT v l r)
+    -- As of 2016-09-27, there was no reference file
+    -- for the test cases in `exercism/x-common`.
 
-leaf :: Int -> Maybe (BinTree Int)
-leaf v = bt v Nothing Nothing
+    let leaf v     = node v Nothing Nothing
+        node v l r = Just (BT v l r :: BinTree Int)
+        t1         = BT 1 (node 2 Nothing  $ leaf 3) $ leaf 4
+        t2         = BT 1 (node 5 Nothing  $ leaf 3) $ leaf 4
+        t3         = BT 1 (node 2 (leaf 5) $ leaf 3) $ leaf 4
+        t4         = BT 1 (leaf 2                  ) $ leaf 4
 
-t1, t2, t3, t4 :: BinTree Int
-t1 = BT 1 (bt 2 empty    (leaf 3)) (leaf 4)
-t2 = BT 1 (bt 5 empty    (leaf 3)) (leaf 4)
-t3 = BT 1 (bt 2 (leaf 5) (leaf 3)) (leaf 4)
-t4 = BT 1 (leaf 2)                 (leaf 4)
+    it "data is retained" $
+      toTree (fromTree t1)
+      `shouldBe` t1
 
-zipperTests :: [Test]
-zipperTests =
-  [ testCase "data is retained" $
-    t1 @=? toTree (fromTree t1)
-  , testCase "left, right and value" $
-    3 @=? (value . fromJust . right . fromJust . left . fromTree $ t1)
-  , testCase "dead end" $
-    Nothing @=? (left . fromJust . left . fromTree $ t1)
-  , testCase "tree from deep focus" $
-    t1 @=? (toTree . fromJust . right . fromJust . left . fromTree $ t1)
-  , testCase "setValue" $
-    t2 @=? (toTree . setValue 5 . fromJust . left . fromTree $ t1)
-  , testCase "setLeft with Just" $
-    t3 @=? (toTree . setLeft (Just (BT 5 Nothing Nothing)) . fromJust . left . fromTree $ t1)
-  , testCase "setRight with Nothing" $
-    t4 @=? (toTree . setRight Nothing . fromJust . left . fromTree $ t1)
-  , testCase "different paths to same zipper" $
-    (right . fromTree $ t1) @=?
-    (right . fromJust . up . fromJust . left . fromTree $ t1)
-  ]
+    it "left, right and value" $
+      (value . fromJust . right . fromJust . left . fromTree) t1
+      `shouldBe` 3
+
+    it "dead end" $
+      (left . fromJust . left . fromTree) t1
+      `shouldBe` Nothing
+
+    it "tree from deep focus" $
+      (toTree . fromJust . right . fromJust . left . fromTree) t1
+      `shouldBe` t1
+
+    it "setValue" $
+      (toTree . setValue 5 . fromJust . left . fromTree) t1
+      `shouldBe` t2
+
+    it "setLeft with Just" $
+      (toTree . setLeft (leaf 5) . fromJust . left . fromTree) t1
+      `shouldBe` t3
+
+    it "setRight with Nothing" $
+      (toTree . setRight Nothing . fromJust . left . fromTree) t1
+      `shouldBe` t4
+
+    it "different paths to same zipper" $
+      (right . fromJust . up . fromJust . left . fromTree) t1
+      `shouldBe` (right . fromTree) t1
