@@ -7,7 +7,7 @@ import System.Random (randomRIO)
 data Robot = Robot { robotNameVar :: MVar String }
 
 mkRobot :: IO Robot
-mkRobot = generateName >>= newMVar >>= return . Robot
+mkRobot = fmap Robot $ generateName >>= newMVar
 
 resetName :: Robot -> IO ()
 resetName r = void (generateName >>= swapMVar (robotNameVar r))
@@ -16,7 +16,7 @@ robotName :: Robot -> IO String
 robotName = readMVar . robotNameVar
 
 generateName :: IO String
-generateName = mapM randomRIO pattern
-  where pattern = [ letter, letter, digit, digit, digit ]
-        letter = ('A', 'Z')
-        digit = ('0', '9')
+generateName = mapM randomRIO [ letter, letter, digit, digit, digit ]
+  where
+    letter = ('A', 'Z')
+    digit  = ('0', '9')
