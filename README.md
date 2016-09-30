@@ -51,7 +51,7 @@ stack test --pedantic
 ### Running HLint
 
 All code in this repository should be as idiomatic as possible, so we
-enforce in [Travis-CI] that it returns `No hints` when processed by
+enforce in Travis-CI that it returns `No hints` when processed by
 HLint.
 
 It is highly recommended to run `hlint` on your sources before opening
