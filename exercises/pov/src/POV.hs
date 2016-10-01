@@ -1,9 +1,9 @@
-module POV (Graph(Graph), fromPOV, tracePathBetween) where
+module POV (fromPOV, tracePathBetween) where
 
-data Graph a = Graph a [Graph a] deriving (Eq, Show)
+import Data.Tree (Tree)
 
-fromPOV :: Eq a => a -> Graph a -> Maybe (Graph a)
+fromPOV :: Eq a => a -> Tree a -> Maybe (Tree a)
 fromPOV = undefined
 
-tracePathBetween :: Eq a => a -> a -> Graph a -> Maybe [a]
+tracePathBetween :: Eq a => a -> a -> Tree a -> Maybe [a]
 tracePathBetween = undefined

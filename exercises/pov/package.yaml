@@ -2,6 +2,7 @@ name: pov
 
 dependencies:
   - base
+  - containers
 
 library:
   exposed-modules: POV
@@ -16,4 +17,4 @@ tests:
     source-dirs: test
     dependencies:
       - pov
-      - HUnit
+      - hspec
