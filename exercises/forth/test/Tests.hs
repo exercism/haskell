@@ -1,74 +1,78 @@
 {-# LANGUAGE OverloadedStrings #-}
-import Test.HUnit (Assertion, (@=?), runTestTT, Test(..), Counts(..))
-import System.Exit (ExitCode(..), exitWith)
-import Forth (ForthError(..), evalText, empty, formatStack)
-import Control.Monad (foldM)
-import Data.Text (Text)
 
-exitProperly :: IO Counts -> IO ()
-exitProperly m = do
-  counts <- m
-  exitWith $ if failures counts /= 0 || errors counts /= 0 then ExitFailure 1 else ExitSuccess
+import Control.Monad     (foldM)
+import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
-testCase :: String -> Assertion -> Test
-testCase label assertion = TestLabel label (TestCase assertion)
+import Forth (ForthError(..), empty, evalText, formatStack)
 
 main :: IO ()
-main = exitProperly $ runTestTT $ TestList
-       [ TestList forthTests ]
+main = hspecWith defaultConfig {configFastFail = True} specs
 
-runTexts :: [Text] -> Either ForthError Text
-runTexts xs = formatStack <$> foldM (flip evalText) empty xs
+specs :: Spec
+specs = describe "forth" $ do
 
-forthTests :: [Test]
-forthTests =
-  [ testCase "no input, no stack" $
-    "" @=? formatStack empty
-  , testCase "numbers just get pushed onto the stack" $
-    Right "1 2 3 4 5" @=? runTexts ["1 2 3 4 5"]
-  , testCase "non-word characters are separators" $
-    -- Note the Ogham Space Mark ( ), this is a spacing character.
-    Right "1 2 3 4 5 6 7" @=? runTexts ["1\NUL2\SOH3\n4\r5 6\t7"]
-  , testCase "basic arithmetic" $ do
-    Right "-1" @=? runTexts ["1 2 + 4 -"]
-    Right "2" @=? runTexts ["2 4 * 3 /"]
-  , testCase "division by zero" $
-    Left DivisionByZero @=? runTexts ["4 2 2 - /"]
-  , testCase "dup" $ do
-    Right "1 1" @=? runTexts ["1 DUP"]
-    Right "1 2 2" @=? runTexts ["1 2 Dup"]
-    Left StackUnderflow @=? runTexts ["dup"]
-  , testCase "drop" $ do
-    Right "" @=? runTexts ["1 drop"]
-    Right "1" @=? runTexts ["1 2 drop"]
-    Left StackUnderflow @=? runTexts ["drop"]
-  , testCase "swap" $ do
-    Right "2 1" @=? runTexts ["1 2 swap"]
-    Right "1 3 2" @=? runTexts ["1 2 3 swap"]
-    Left StackUnderflow @=? runTexts ["1 swap"]
-    Left StackUnderflow @=? runTexts ["swap"]
-  , testCase "over" $ do
-    Right "1 2 1" @=? runTexts ["1 2 over"]
-    Right "1 2 3 2" @=? runTexts ["1 2 3 over"]
-    Left StackUnderflow @=? runTexts ["1 over"]
-    Left StackUnderflow @=? runTexts ["over"]
-  , testCase "defining a new word" $
-    Right "1 1 1" @=? runTexts [ ": dup-twice dup dup ;"
-                               , "1 dup-twice"
-                               ]
-  , testCase "redefining an existing word" $
-    Right "1 1 1" @=? runTexts [ ": foo dup ;"
-                               , ": foo dup dup ;"
-                               , "1 foo"
-                               ]
-  , testCase "redefining an existing built-in word" $
-    Right "1 1" @=? runTexts [ ": swap dup ;"
-                             , "1 swap"
-                             ]
-  , testCase "defining words with odd characters" $
-    Right "220371" @=? runTexts [": € 220371 ; €"]
-  , testCase "defining a number" $
-    Left InvalidWord @=? runTexts [": 1 2 ;"]
-  , testCase "calling a non-existing word" $
-    Left (UnknownWord "foo") @=? runTexts ["1 foo"]
-  ]
+    -- As of 2016-10-02, there was no reference file
+    -- for the test cases in `exercism/x-common`.
+
+    let runTexts = fmap formatStack . foldM (flip evalText) empty
+
+    it "no input, no stack" $
+      formatStack empty `shouldBe` ""
+
+    it "numbers just get pushed onto the stack" $
+      runTexts ["1 2 3 4 5"] `shouldBe` Right "1 2 3 4 5"
+
+    it "non-word characters are separators" $
+      runTexts ["1\NUL2\SOH3\n4\r5 6\t7"] `shouldBe` Right "1 2 3 4 5 6 7"
+
+    it "basic arithmetic" $ do
+      runTexts ["1 2 + 4 -"] `shouldBe` Right "-1"
+      runTexts ["2 4 * 3 /"] `shouldBe` Right "2"
+
+    it "division by zero" $
+      runTexts ["4 2 2 - /"] `shouldBe` Left DivisionByZero
+
+    it "dup" $ do
+      runTexts ["1 DUP"  ] `shouldBe` Right "1 1"
+      runTexts ["1 2 Dup"] `shouldBe` Right "1 2 2"
+      runTexts ["dup"    ] `shouldBe` Left StackUnderflow
+
+    it "drop" $ do
+      runTexts ["1 drop"  ] `shouldBe` Right ""
+      runTexts ["1 2 drop"] `shouldBe` Right "1"
+      runTexts ["drop"    ] `shouldBe` Left StackUnderflow
+
+    it "swap" $ do
+      runTexts ["1 2 swap"  ] `shouldBe` Right "2 1"
+      runTexts ["1 2 3 swap"] `shouldBe` Right "1 3 2"
+      runTexts ["1 swap"    ] `shouldBe` Left StackUnderflow
+      runTexts ["swap"      ] `shouldBe` Left StackUnderflow
+
+    it "over" $ do
+      runTexts ["1 2 over"  ] `shouldBe` Right "1 2 1"
+      runTexts ["1 2 3 over"] `shouldBe` Right "1 2 3 2"
+      runTexts ["1 over"    ] `shouldBe` Left StackUnderflow
+      runTexts ["over"      ] `shouldBe` Left StackUnderflow
+
+    it "defining a new word" $
+      runTexts [ ": dup-twice dup dup ;"
+               , "1 dup-twice"           ] `shouldBe` Right "1 1 1"
+
+    it "redefining an existing word" $
+      runTexts [ ": foo dup ;"
+               , ": foo dup dup ;"
+               , "1 foo"           ] `shouldBe` Right "1 1 1"
+
+    it "redefining an existing built-in word" $
+      runTexts [ ": swap dup ;"
+               , "1 swap"       ] `shouldBe` Right "1 1"
+
+    it "defining words with odd characters" $
+      runTexts [": € 220371 ; €"] `shouldBe` Right "220371"
+
+    it "defining a number" $
+      runTexts [": 1 2 ;"] `shouldBe` Left InvalidWord
+
+    it "calling a non-existing word" $
+      runTexts ["1 foo"] `shouldBe` Left (UnknownWord "foo")
