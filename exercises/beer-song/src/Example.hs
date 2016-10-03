@@ -1,5 +1,7 @@
-module Beer (verse, sing) where
+module Beer (song) where
+
 import Data.Char (toUpper)
+import Data.List (intercalate)
 
 capitalize :: String -> String
 capitalize (h : t) = toUpper h : t
@@ -30,5 +32,5 @@ verse n = unlines
   [ capitalize (stanza n) ++ " on the wall, " ++ stanza n ++ "."
   , action n ++ ", " ++ stanza (pred n) ++ " on the wall." ]
 
-sing :: Int -> Int -> String
-sing from to = unlines $ map verse [from, from - 1 .. to]
+song :: String
+song = intercalate "\n" $ map verse [99, 98 .. 0]
