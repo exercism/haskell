@@ -1,93 +1,53 @@
-import Test.Hspec        (Spec, describe, it, shouldBe)
+{-# LANGUAGE RecordWildCards #-}
+
+import Data.Char         (isSpace)
+import Data.Foldable     (for_)
+import Data.Function     (on)
+import Test.Hspec        (Spec, describe, it, shouldBe, shouldMatchList)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
-import CryptoSquare
-  ( ciphertext
-  , normalizeCiphertext 
-  , normalizePlaintext
-  , plaintextSegments
-  )
+import CryptoSquare (encode)
 
 main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "crypto-square" $ do
+specs = describe "crypto-square" $
+          describe "encode" $ for_ cases test
+  where
 
-    -- Test cases adapted from `exercism/x-common/crypto-square.json`
-    -- on 2016-08-02. Some deviations exist and are noted in comments.
+    test Case{..} = describe description $ do
 
-    describe "normalizePlaintext" $ do
+      let shouldMatchWords  = shouldBe        `on` words
+          shouldMatchString = shouldBe        `on` filter (not . isSpace)
+          shouldMatchChars  = shouldMatchList `on` filter (not . isSpace)
 
-      it "Lowercase" $
-          normalizePlaintext "Hello"
-          `shouldBe`         "hello"
+      it "normalizes the input"    $ encode input `shouldMatchChars`  expected
+      it "reorders the characters" $ encode input `shouldMatchString` expected
+      it "groups the output"       $ encode input `shouldMatchWords`  expected
 
-      it "Remove spaces" $
-          normalizePlaintext "Hi there"
-          `shouldBe`         "hithere"
+-- Test cases created from scratch on 2016-10-05, diverging from `x-common`.
 
-      it "Remove punctuation" $
-          normalizePlaintext "@1, 2%, 3 Go!"
-          `shouldBe`         "123go"
+data Case = Case { description :: String
+                 , input       :: String
+                 , expected    :: String
+                 }
 
-    describe "plaintextSegments" $ do
-
-      it "empty plaintext results in an empty rectangle" $
-          plaintextSegments ""
-          `shouldBe`        []
-
-      it "4 character plaintext results in an 2x2 rectangle" $
-          plaintextSegments "Ab Cd"
-          `shouldBe`        [ "ab"
-                            , "cd" ]
-
-      it "9 character plaintext results in an 3x3 rectangle" $
-          plaintextSegments "This is fun!"
-          `shouldBe`        [ "thi"
-                            , "sis"
-                            , "fun" ]
-
-      it "54 character plaintext results in an 8x7 rectangle" $
-          plaintextSegments "If man was meant to stay on the ground, god would have given us roots."
-          `shouldBe`        [ "ifmanwas"
-                            , "meanttos"
-                            , "tayonthe"
-                            , "groundgo"
-                            , "dwouldha"
-                            , "vegivenu"
-                            , "sroots"  ]
-
-    describe "ciphertext" $ do
-
-    -- The function described by the reference file in `x-common`
-    -- as `encoded` is called `ciphertext` in this track.
-
-      it "empty plaintext results in an empty encode" $
-          ciphertext ""
-          `shouldBe` ""
-
-      it "Non-empty plaintext results in the combined plaintext segments" $
-          ciphertext "If man was meant to stay on the ground, god would have given us roots."
-          `shouldBe` "imtgdvsfearwermayoogoanouuiontnnlvtwttddesaohghnsseoau"
-
-    describe "normalizeCiphertext" $ do
-
-    -- The function described by the reference file in `x-common`
-    -- as `ciphertext` is called `normalizeCiphertext` in this track.
-
-      it "empty plaintext results in an empty ciphertext" $
-          normalizeCiphertext ""
-          `shouldBe`          ""
-
-      it "9 character plaintext results in 3 chunks of 3 characters" $
-          normalizeCiphertext "This is fun!"
-          `shouldBe`          "tsf hiu isn"
-
-    {- In this track the encoded text chunks are not padded with spaces.
-
-      it "54 character plaintext results in 7 chunks, the last two padded with spaces" $
-          normalizeCiphertext "If man was meant to stay on the ground, god would have given us roots."
-          `shouldBe`          "imtgdvs fearwer mayoogo anouuio ntnnlvt wttddes aohghn  sseoau "
-
-    -}
+cases :: [Case]
+cases = [ Case { description = "perfect square, all lowercase with space"
+               , input       = "a dog"
+               , expected    = "ao dg"
+               }
+        , Case { description = "perfect rectangle, mixed case"
+               , input       = "A camel"
+               , expected    = "am ce al"
+               }
+        , Case { description = "incomplete square with punctuation"
+               , input       = "Wait, fox!"
+               , expected    = "wtx af io"
+               }
+        , Case { description = "incomplete rectangle with symbols"
+               , input       = "cat | cut -d@ -f1 | sort | uniq"
+               , expected    = "ctoi adrq tft c1u usn"
+               }
+        ]
