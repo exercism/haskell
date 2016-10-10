@@ -1,7 +1,8 @@
 {-# LANGUAGE RecordWildCards #-}
 
 import Data.Foldable     (for_)
-import Test.Hspec        (Spec, describe, it, shouldBe)
+import GHC.Exts          (fromList, toList)
+import Test.Hspec        (Spec, describe, it, shouldMatchList)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
 import Anagram (anagramsFor)
@@ -14,9 +15,14 @@ specs = describe "anagram" $
           describe "anagramsFor" $ for_ cases test
   where
 
-    test Case{..} = it description $ expression `shouldBe` expected
+    test Case{..} = it description $ expression `shouldMatchList` expected
       where
-        expression = anagramsFor subject candidates
+        expression = map toList
+                   . toList
+                   . anagramsFor (fromList subject)
+                   . fromList
+                   . map fromList
+                   $ candidates
 
 -- Test cases adapted from `exercism/x-common/anagrams.json` on 2016-07-25.
 

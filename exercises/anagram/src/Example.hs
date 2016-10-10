@@ -1,10 +1,13 @@
 module Anagram (anagramsFor) where
-import Data.List (sort)
-import Data.Char (toLower)
 
-anagramsFor :: String -> [String] -> [String]
-anagramsFor word = filter (isAnagram . normalize)
+import Data.Function  (on)
+import Data.MultiSet  (fromList)
+import Data.Set       (Set, filter)
+import Data.Text      (Text, toLower, unpack)
+import Prelude hiding (filter)
+
+anagramsFor :: Text -> Set Text -> Set Text
+anagramsFor x = filter (\w -> x `isDistinctOf` w && x `isAnagramOf` w)
   where
-    normalize xs = let nxs = map toLower xs in (nxs, sort nxs)
-    (nw, sw) = normalize word
-    isAnagram (w, s) = nw /= w && sw == s
+    isDistinctOf = (/=) `on` toLower
+    isAnagramOf  = (==) `on` fromList . unpack . toLower
