@@ -42,6 +42,13 @@ script:
         SET_RESOLVER="--resolver ${RESOLVER}"
     fi
 
+    test_exercise () {
+        stack test ${SET_RESOLVER} `# Select the correct resolver. `\
+                   --install-ghc   `# Download GHC if not in cache.`\
+                   --no-terminal   `# Terminal detection is broken.`\
+                   --pedantic      `# Enable -Wall and -Werror.    `
+    }
+
     for exercise in ${TRAVIS_BUILD_DIR}/exercises/* ; do
         pushd ${exercise}
 
@@ -50,13 +57,25 @@ script:
         mkdir -p "${HOME}/.foldercache/${exercise}/.stack-work"
         ln -f -s "${HOME}/.foldercache/${exercise}/.stack-work"
 
-        # Here we prepare the exercise to be tested by Stack.
-        MODULE=`sed -n 's/ *module \+\([a-zA-Z0-9]\+\).*/\1/p' src/Example.hs`
-        mv src/Example.hs "src/${MODULE}.hs"
+        if [ -f src/Example.hs ]; then
+            # Here we prepare the exercise to be tested by Stack.
+            MODULE=`sed -n 's/ *module \+\([a-zA-Z0-9]\+\).*/\1/p' src/Example.hs`
+            mv src/Example.hs "src/${MODULE}.hs"
 
-        stack test ${SET_RESOLVER} `# Select the correct resolver. `\
-                   --install-ghc   `# Download GHC if not in cache.`\
-                   --no-terminal   `# Terminal detection is broken.`\
-                   --pedantic      `# Enable -Wall and -Werror.    `
+            test_exercise
+        elif ! stat -t examples/*/ > /dev/null 2>&1; then
+            echo "No examples for ${exercise}!"
+            exit 1
+        else
+            for example in examples/*/ ; do
+                echo "testing ${example}"
+                rm -f src/*.hs
+                mv ${example}/*.hs src
+                mv ${example}/package.yaml .
+
+                test_exercise
+            done
+        fi
+
         popd
     done
