@@ -251,6 +251,12 @@
       ]
     },
     {
+      "slug": "zebra-puzzle",
+      "difficulty": 1,
+      "topics": [
+      ]
+    },
+    {
       "slug": "minesweeper",
       "difficulty": 1,
       "topics": [
