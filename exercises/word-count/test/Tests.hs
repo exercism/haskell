@@ -1,9 +1,11 @@
 {-# OPTIONS_GHC -fno-warn-type-defaults #-}
 {-# LANGUAGE RecordWildCards #-}
 
+import Data.Bifunctor    (bimap)
+import Data.Char         (toLower)
 import Data.Foldable     (for_)
-import Data.Map          (fromList)
-import Test.Hspec        (Spec, describe, it, shouldBe)
+import GHC.Exts          (fromList, toList)
+import Test.Hspec        (Spec, describe, it, shouldMatchList)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
 import WordCount (wordCount)
@@ -15,11 +17,18 @@ specs :: Spec
 specs = describe "word-count" $
           describe "wordCount" $ for_ cases test
   where
-
-    test Case{..} = it description $ returnedMap `shouldBe` expectedMap
+    -- Here we used `fromIntegral`, `fromList` and `toList` to generalize
+    -- the tests, accepting any function that receives a string-like argumment
+    -- and returns a type that can be converted to [(String, Integer)].
+    -- Also, the words are lower-cased before comparison and the output's
+    -- order is ignored.
+    test Case{..} = it description $ expression `shouldMatchList` expected
       where
-        returnedMap = wordCount input
-        expectedMap = fromIntegral <$> fromList expected
+        expression = map (bimap (map toLower . toList) fromIntegral)
+                   . toList
+                   . wordCount
+                   . fromList
+                   $ input
 
 -- Test cases adapted from `exercism/x-common/word-count.json` on 2016-07-26.
 
