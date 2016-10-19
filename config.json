@@ -11,19 +11,7 @@
       ]
     },
     {
-      "slug": "accumulate",
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "slug": "sublist",
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "slug": "grains",
+      "slug": "space-age",
       "difficulty": 1,
       "topics": [
       ]
@@ -35,181 +23,13 @@
       ]
     },
     {
-      "slug": "sum-of-multiples",
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "slug": "strain",
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "slug": "hamming",
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
       "slug": "rna-transcription",
       "difficulty": 1,
       "topics": [
       ]
     },
     {
-      "slug": "space-age",
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "slug": "anagram",
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "slug": "phone-number",
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "slug": "nucleotide-count",
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "slug": "grade-school",
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "slug": "simple-linked-list",
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "slug": "list-ops",
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "slug": "word-count",
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "slug": "etl",
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "slug": "robot-name",
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "slug": "meetup",
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "slug": "beer-song",
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "slug": "triangle",
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "slug": "scrabble-score",
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "slug": "roman-numerals",
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "slug": "prime-factors",
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "slug": "raindrops",
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "slug": "allergies",
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "slug": "atbash-cipher",
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "slug": "all-your-base",
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "slug": "bank-account",
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "slug": "crypto-square",
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "slug": "kindergarten-garden",
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "slug": "robot-simulator",
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "slug": "queen-attack",
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "slug": "binary-search-tree",
+      "slug": "sum-of-multiples",
       "difficulty": 1,
       "topics": [
       ]
@@ -221,194 +41,374 @@
       ]
     },
     {
-      "slug": "largest-series-product",
-      "difficulty": 1,
+      "slug": "grains",
+      "difficulty": 2,
       "topics": [
       ]
     },
     {
-      "slug": "luhn",
-      "difficulty": 1,
+      "slug": "hamming",
+      "difficulty": 2,
       "topics": [
       ]
     },
     {
-      "slug": "clock",
-      "difficulty": 1,
+      "slug": "nucleotide-count",
+      "difficulty": 2,
       "topics": [
       ]
     },
     {
-      "slug": "matrix",
-      "difficulty": 1,
+      "slug": "grade-school",
+      "difficulty": 2,
       "topics": [
       ]
     },
     {
-      "slug": "house",
-      "difficulty": 1,
+      "slug": "etl",
+      "difficulty": 2,
       "topics": [
       ]
     },
     {
-      "slug": "zebra-puzzle",
-      "difficulty": 1,
+      "slug": "raindrops",
+      "difficulty": 2,
       "topics": [
       ]
     },
     {
-      "slug": "minesweeper",
-      "difficulty": 1,
+      "slug": "accumulate",
+      "difficulty": 3,
       "topics": [
       ]
     },
     {
-      "slug": "ocr-numbers",
-      "difficulty": 1,
+      "slug": "strain",
+      "difficulty": 3,
       "topics": [
       ]
     },
     {
-      "slug": "wordy",
-      "difficulty": 1,
+      "slug": "phone-number",
+      "difficulty": 3,
       "topics": [
       ]
     },
     {
-      "slug": "food-chain",
-      "difficulty": 1,
+      "slug": "beer-song",
+      "difficulty": 3,
       "topics": [
       ]
     },
     {
-      "slug": "linked-list",
-      "difficulty": 1,
+      "slug": "triangle",
+      "difficulty": 3,
       "topics": [
       ]
     },
     {
-      "slug": "custom-set",
-      "difficulty": 1,
+      "slug": "scrabble-score",
+      "difficulty": 3,
       "topics": [
       ]
     },
     {
-      "slug": "nth-prime",
-      "difficulty": 1,
+      "slug": "kindergarten-garden",
+      "difficulty": 3,
       "topics": [
       ]
     },
     {
-      "slug": "palindrome-products",
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "slug": "pascals-triangle",
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "slug": "pig-latin",
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "slug": "pythagorean-triplet",
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "slug": "saddle-points",
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "slug": "say",
-      "difficulty": 1,
+      "slug": "robot-simulator",
+      "difficulty": 3,
       "topics": [
       ]
     },
     {
       "slug": "secret-handshake",
-      "difficulty": 1,
+      "difficulty": 3,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "anagram",
+      "difficulty": 4,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "simple-linked-list",
+      "difficulty": 4,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "list-ops",
+      "difficulty": 4,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "word-count",
+      "difficulty": 4,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "meetup",
+      "difficulty": 4,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "roman-numerals",
+      "difficulty": 4,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "prime-factors",
+      "difficulty": 4,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "allergies",
+      "difficulty": 4,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "all-your-base",
+      "difficulty": 4,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "largest-series-product",
+      "difficulty": 4,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "clock",
+      "difficulty": 4,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "matrix",
+      "difficulty": 4,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "house",
+      "difficulty": 4,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "pascals-triangle",
+      "difficulty": 4,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "pythagorean-triplet",
+      "difficulty": 4,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "saddle-points",
+      "difficulty": 4,
       "topics": [
       ]
     },
     {
       "slug": "series",
-      "difficulty": 1,
+      "difficulty": 4,
       "topics": [
       ]
     },
     {
       "slug": "sieve",
-      "difficulty": 1,
+      "difficulty": 4,
       "topics": [
       ]
     },
     {
-      "slug": "simple-cipher",
-      "difficulty": 1,
+      "slug": "atbash-cipher",
+      "difficulty": 5,
       "topics": [
       ]
     },
     {
-      "slug": "change",
-      "difficulty": 1,
+      "slug": "crypto-square",
+      "difficulty": 5,
       "topics": [
       ]
     },
     {
-      "slug": "connect",
-      "difficulty": 1,
+      "slug": "nth-prime",
+      "difficulty": 5,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "binary-search-tree",
+      "difficulty": 5,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "luhn",
+      "difficulty": 5,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "queen-attack",
+      "difficulty": 5,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "ocr-numbers",
+      "difficulty": 5,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "food-chain",
+      "difficulty": 5,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "custom-set",
+      "difficulty": 5,
       "topics": [
       ]
     },
     {
       "slug": "parallel-letter-frequency",
-      "difficulty": 1,
+      "difficulty": 5,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "simple-cipher",
+      "difficulty": 6,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "palindrome-products",
+      "difficulty": 6,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "robot-name",
+      "difficulty": 6,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "pig-latin",
+      "difficulty": 6,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "say",
+      "difficulty": 6,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "bank-account",
+      "difficulty": 6,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "sublist",
+      "difficulty": 6,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "linked-list",
+      "difficulty": 6,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "zebra-puzzle",
+      "difficulty": 7,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "minesweeper",
+      "difficulty": 7,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "wordy",
+      "difficulty": 7,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "change",
+      "difficulty": 7,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "connect",
+      "difficulty": 8,
       "topics": [
       ]
     },
     {
       "slug": "sgf-parsing",
-      "difficulty": 1,
+      "difficulty": 9,
       "topics": [
       ]
     },
     {
       "slug": "go-counting",
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "slug": "zipper",
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "slug": "forth",
-      "difficulty": 1,
+      "difficulty": 9,
       "topics": [
       ]
     },
     {
       "slug": "lens-person",
-      "difficulty": 1,
+      "difficulty": 9,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "zipper",
+      "difficulty": 10,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "forth",
+      "difficulty": 10,
       "topics": [
       ]
     },
     {
       "slug": "pov",
-      "difficulty": 1,
+      "difficulty": 10,
       "topics": [
       ]
     }
