@@ -52,12 +52,12 @@ script:
     for exercise in ${TRAVIS_BUILD_DIR}/exercises/* ; do
         pushd ${exercise}
 
-        # `stack --work-dir` fails if not targeting a subdirectory, so we just
-        # symbolic-link `.stack-work` to a subfolder in the cache directory.
-        mkdir -p "${HOME}/.foldercache/${exercise}/.stack-work"
-        ln -f -s "${HOME}/.foldercache/${exercise}/.stack-work"
-
         if [ -f src/Example.hs ]; then
+            # `stack --work-dir` fails if not targeting a subdirectory, so we just
+            # symbolic-link `.stack-work` to a subfolder in the cache directory.
+            mkdir -p "${HOME}/.foldercache/${exercise}/.stack-work"
+            ln -f -s "${HOME}/.foldercache/${exercise}/.stack-work"
+
             # Here we prepare the exercise to be tested by Stack.
             MODULE=`sed -n 's/ *module \+\([a-zA-Z0-9]\+\).*/\1/p' src/Example.hs`
             mv src/Example.hs "src/${MODULE}.hs"
@@ -68,6 +68,10 @@ script:
             exit 1
         else
             for example in examples/*/ ; do
+                examplename=$(basename "$example")
+                mkdir -p "${HOME}/.foldercache/${exercise}/${examplename}/.stack-work"
+                ln -f -s "${HOME}/.foldercache/${exercise}/${examplename}/.stack-work"
+
                 echo "testing ${example}"
                 rm -f src/*.hs
                 mv ${example}/*.hs src
