@@ -2,6 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 
 import Data.Foldable     (for_)
+import Data.Function     (on)
 import Test.Hspec        (Spec, describe, it, shouldBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
@@ -14,12 +15,18 @@ specs :: Spec
 specs = describe "space-age" $
           describe "ageOn" $ for_ cases test
   where
-
-    test Case{..} = it description assertion
+    -- Here we used `fromIntegral`, `fromRational` and `toRational` to
+    -- generalize the test suite, allowing any function that takes a
+    -- `Planet` and a number, returning an instance of `Real`.
+    test Case{..} = it description $ expression `shouldBeAround` expected
       where
-        expression  = ageOn planet $ fromIntegral seconds
-        assertion   = roundAge expression `shouldBe` roundAge expected
-        roundAge    = (/ 100) . fromIntegral . round . (* 100)
+        expression = fromRational
+                   . toRational
+                   . ageOn planet
+                   . fromIntegral
+                   $ seconds
+        shouldBeAround = shouldBe `on` roundTo 2
+        roundTo n = (/ 10 ^ n) . fromIntegral . round . (* 10 ^ n)
 
 -- Test cases adapted from `exercism/x-common/space-age.json` on 2016-07-27.
 
