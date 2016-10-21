@@ -1,3 +1,6 @@
 module SpaceAge (Planet(..), ageOn) where
 
-ageOn = undefined
+data Planet
+
+ageOn :: Planet -> Float -> Float
+ageOn planet seconds = undefined
