@@ -1,3 +1,4 @@
 module WordCount (wordCount) where
 
-wordCount = undefined
+wordCount :: String -> [(String, Int)]
+wordCount xs = undefined
