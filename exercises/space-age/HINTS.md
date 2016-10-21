@@ -11,3 +11,6 @@ don't let it restrict your creativity:
 ```haskell
 ageOn :: Planet -> Float -> Float
 ```
+
+Keep in mind that the test suite will not compile until you correctly
+implement the data type `Planet`.
