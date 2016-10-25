@@ -24,7 +24,7 @@ specs = describe "anagram" $
                    . map fromList
                    $ candidates
 
--- Test cases adapted from `exercism/x-common/anagrams.json` on 2016-07-25.
+-- Test cases adapted from `exercism/x-common` on 2016-10-26.
 
 data Case = Case { description ::  String
                  , subject     ::  String
@@ -106,16 +106,6 @@ cases = [ Case { description = "no matches"
         , Case { description = "anagrams must use all letters exactly once"
                , subject     = "tapper"
                , candidates  = ["patter"]
-               , expected    = []
-               }
-        , Case { description = "detects unicode anagrams"
-               , subject     = "ΑΒΓ"
-               , candidates  = ["ΒΓΑ", "ΒΓΔ", "γβα"]
-               , expected    = ["ΒΓΑ", "γβα"]
-               }
-        , Case { description = "eliminates misleading unicode anagrams"
-               , subject     = "ΑΒΓ"
-               , candidates  = ["ABΓ"]
                , expected    = []
                }
         , Case { description = "capital word is not own anagram"
