@@ -149,12 +149,6 @@
       ]
     },
     {
-      "slug": "word-count",
-      "difficulty": 4,
-      "topics": [
-      ]
-    },
-    {
       "slug": "meetup",
       "difficulty": 4,
       "topics": [
@@ -252,6 +246,12 @@
     },
     {
       "slug": "nth-prime",
+      "difficulty": 5,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "word-count",
       "difficulty": 5,
       "topics": [
       ]
