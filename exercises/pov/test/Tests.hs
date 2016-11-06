@@ -52,6 +52,17 @@ specs = describe "pov" $ do
 
     describe "tracePathBetween" $ do
 
+      it "Can find path from x -> parent" $
+        tracePathBetween "x" "parent" simple
+        `shouldBe` Just [ "x"
+                        , "parent" ]
+
+      it "Can find path from x -> sibling" $
+        tracePathBetween "x" "b" flat
+        `shouldBe` Just [ "x"
+                        , "root"
+                        , "b"    ]
+
       it "Can trace a path from x -> cousin" $
         tracePathBetween "x" "cousin-1" cousins
         `shouldBe` Just [ "x"
