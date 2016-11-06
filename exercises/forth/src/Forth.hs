@@ -4,7 +4,7 @@ module Forth
   ( ForthError(..)
   , ForthState
   , evalText
-  , formatStack
+  , toList
   , empty
   ) where
 
@@ -23,5 +23,5 @@ empty = undefined
 evalText :: Text -> ForthState -> Either ForthError ForthState
 evalText = undefined
 
-formatStack :: ForthState -> Text
-formatStack = undefined
+toList :: ForthState -> [Int]
+toList = undefined
