@@ -22,6 +22,7 @@ specs = describe "pov" $ do
 
       let cases =
             [ ("reparenting singleton"        , singleton , Just singleton')
+            , ("reparenting with sibling"     , simple    , Just simple'   )
             , ("reparenting flat"             , flat      , Just flat'     )
             , ("reparenting nested"           , nested    , Just nested'   )
             , ("reparenting kids"             , kids      , Just kids'     )
@@ -91,12 +92,23 @@ toEdges (Node r ts) = map ((r,) . rootLabel) ts ++ concatMap toEdges ts
 
 -- Trees used in the tests.
 
-singleton , flat , kids , nested , cousins  :: Tree String
-singleton', flat', kids', nested', cousins' :: Tree String
+singleton , simple , flat , kids , nested , cousins  :: Tree String
+singleton', simple', flat', kids', nested', cousins' :: Tree String
 
 singleton = leaf "x"
 
 singleton' = leaf "x"
+
+simple = Node "parent"
+             [ leaf "x"
+             , leaf "sibling"
+             ]
+
+simple' = Node "x"
+              [ Node "parent"
+                    [ leaf "sibling"
+                    ]
+              ]
 
 flat = Node "root"
            [ leaf "a"
