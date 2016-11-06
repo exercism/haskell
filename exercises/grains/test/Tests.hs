@@ -24,8 +24,7 @@ specs = describe "grains" $ do
       where
         assertion = fromIntegral total `shouldBe` expected
 
--- As of 2016-07-27, there was no reference file
--- for the test cases in `exercism/x-common`.
+-- Test cases adapted from `exercism/x-common/grains` on 2016-11-06.
 
 squareCases :: [(String, Integer, Maybe Integer)]
 squareCases =
