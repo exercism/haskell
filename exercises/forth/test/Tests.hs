@@ -12,8 +12,7 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = describe "forth" $ do
 
-    -- As of 2016-10-02, there was no reference file
-    -- for the test cases in `exercism/x-common`.
+    -- Test cases adapted from `exercism/x-common/forth` on 2016-11-06.
 
     let runTexts = fmap toList . foldM (flip evalText) empty
 
@@ -27,9 +26,41 @@ specs = describe "forth" $ do
       it "all non-word characters are separators" $
         runTexts ["1\NUL2\SOH3\n4\r5 6\t7"] `shouldBe` Right [1, 2, 3, 4, 5, 6, 7]
 
-    describe "division" $
+    describe "addition" $ do
+      it "can add two numbers" $
+        runTexts ["1 2 +"] `shouldBe` Right [3]
+      it "errors if there is nothing on the stack" $
+        runTexts ["+"] `shouldBe` Left StackUnderflow
+      it "errors if there is only one value on the stack" $
+        runTexts ["1 +"] `shouldBe` Left StackUnderflow
+
+    describe "subtraction" $ do
+      it "can subtract two numbers" $
+        runTexts ["3 4 -"] `shouldBe` Right [-1]
+      it "errors if there is nothing on the stack" $
+        runTexts ["-"] `shouldBe` Left StackUnderflow
+      it "errors if there is only one value on the stack" $
+        runTexts ["1 -"] `shouldBe` Left StackUnderflow
+
+    describe "multiplication" $ do
+      it "can multiply two numbers" $
+        runTexts ["2 4 *"] `shouldBe` Right [8]
+      it "errors if there is nothing on the stack" $
+        runTexts ["*"] `shouldBe` Left StackUnderflow
+      it "errors if there is only one value on the stack" $
+        runTexts ["1 *"] `shouldBe` Left StackUnderflow
+
+    describe "division" $ do
+      it "can divide two numbers" $
+        runTexts ["12 3 /"] `shouldBe` Right [4]
+      it "performs integer division" $
+        runTexts ["8 3 /"] `shouldBe` Right [2]
       it "errors if dividing by zero" $
         runTexts ["4 0 /"] `shouldBe` Left DivisionByZero
+      it "errors if there is nothing on the stack" $
+        runTexts ["/"] `shouldBe` Left StackUnderflow
+      it "errors if there is only one value on the stack" $
+        runTexts ["1 /"] `shouldBe` Left StackUnderflow
 
     describe "combined arithmetic" $ do
       it "addition and subtraction" $
@@ -78,6 +109,10 @@ specs = describe "forth" $ do
       it "can consist of built-in words" $
         runTexts [ ": dup-twice dup dup ;"
                  , "1 dup-twice"           ] `shouldBe` Right [1, 1, 1]
+
+      it "execute in the right order" $
+        runTexts [ ": countup 1 2 3 ;"
+                 , "countup"           ] `shouldBe` Right [1, 2, 3]
 
       it "can override other user-defined words" $
         runTexts [ ": foo dup ;"
