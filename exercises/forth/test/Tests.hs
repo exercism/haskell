@@ -25,7 +25,7 @@ specs = describe "forth" $ do
         runTexts ["1 2 3 4 5"] `shouldBe` Right [1, 2, 3, 4, 5]
 
       it "all non-word characters are separators" $
-        runTexts ["1\NUL2\SOH3\n4\r5 6\t7"] `shouldBe` Right [1, 2, 3, 4, 5, 6, 7]
+        runTexts ["1\NUL2\SOH3\n4\r5 6\t7"] `shouldBe` Right [1, 2, 3, 4, 5, 6, 7]
 
     describe "division" $
       it "errors if dividing by zero" $
