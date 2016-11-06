@@ -15,8 +15,7 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = describe "pov" $ do
 
-    -- As of 2016-09-28, there was no reference file
-    -- for the test cases in `exercism/x-common`.
+    -- Test cases adapted from `exercism/x-common/pov` on 2016-11-06.
 
     describe "fromPOV" $ do
 
@@ -71,10 +70,6 @@ specs = describe "pov" $ do
                         , "uncle"
                         , "cousin-1"    ]
 
-      it "Cannot trace between un-connected nodes" $
-        tracePathBetween "x" "NOT THERE" cousins
-        `shouldBe` Nothing
-
       it "Can trace from a leaf to a leaf" $
         tracePathBetween "kid-a" "cousin-0" cousins
         `shouldBe` Just [ "kid-a"
@@ -83,6 +78,14 @@ specs = describe "pov" $ do
                         , "grandparent"
                         , "uncle"
                         , "cousin-0"    ]
+
+      it "Cannot trace if destination does not exist" $
+        tracePathBetween "x" "NOT THERE" cousins
+        `shouldBe` Nothing
+
+      it "Cannot trace if source does not exist" $
+        tracePathBetween "NOT THERE" "x" cousins
+        `shouldBe` Nothing
 
 -- Functions used in the tests.
 
