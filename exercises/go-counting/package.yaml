@@ -10,7 +10,6 @@ library:
   dependencies:
   # - foo       # List here the packages you
   # - bar       # want to use in your solution.
-    - array
 
 tests:
   test:
