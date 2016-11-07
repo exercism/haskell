@@ -10,7 +10,7 @@ specs :: Spec
 specs = describe "pig-latin" $
           describe "translate" $ do
 
-    -- Test cases adapted from `exercism/x-common/pig-latin.json` on 2016-09-08.
+    -- Test cases adapted from `exercism/x-common/pig-latin.json` on 2016-11-06.
 
     describe "ay is added to words that start with vowels" $ do
         it "word beginning with a" $ translate "apple"  `shouldBe` "appleay"
@@ -30,6 +30,7 @@ specs = describe "pig-latin" $
         it "word beginning with ch"  $ translate "chair"   `shouldBe` "airchay"
         it "word beginning with qu"  $ translate "queen"   `shouldBe` "eenquay"
         it "word beginning with qu and a preceding consonant" $ translate "square" `shouldBe` "aresquay"
+        it "... but not words beginning with a vowel then qu" $ translate "equal"  `shouldBe` "equalay"
         it "word beginning with th"  $ translate "therapy" `shouldBe` "erapythay"
         it "word beginning with thr" $ translate "thrush"  `shouldBe` "ushthray"
         it "word beginning with sch" $ translate "school"  `shouldBe` "oolschay"
