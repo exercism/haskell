@@ -19,8 +19,7 @@ specs = describe "say" $
         description = show n
         assertion   = inEnglish n `shouldBe` expected
 
-    -- As of 2016-09-12, there was no reference file
-    -- for the test cases in `exercism/x-common`.
+    -- Test cases adapted from `exercism/x-common/say` on 2016-11-06.
 
     cases = [ (            0, Just "zero"                                )
             , (            1, Just "one"                                 )
@@ -41,4 +40,7 @@ specs = describe "say" $
                                    \three hundred twenty-one thousand \
                                    \one hundred twenty-three"            )
             , (           -1, Nothing                                    )
+         -- Even though the x-common tests have this case,
+         -- we decide not to test it, to give freedom to go to trillions if desired.
+         -- , (1000000000000, Nothing                                    )
             ]
