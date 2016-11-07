@@ -22,8 +22,9 @@ All exercises have the following structure:
 resolver for all the exercises.
 - `package.yaml` is a file in the [hpack](https://github.com/sol/hpack#readme)
 format that has all dependencies and build instructions for an exercise.
-- `src/Example.hs` is a sample solution passing the tests.
 - `src/ModuleName.hs` is a *stub solution*.
+- `src/examples/success-foo/package.yaml` has dependencies for the example solution named `foo`.
+- `src/examples/success-foo/src/ModuleName.hs` is the source code of the sample solution.
 - `test/Tests.hs` is the test suite.
 - `HINTS.md` is an optional file containing instructions and/or hints.
 
