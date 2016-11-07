@@ -3,7 +3,7 @@ module Forth
   ( ForthError(..)
   , ForthState
   , evalText
-  , formatStack
+  , toList
   , empty
   ) where
 
@@ -147,5 +147,5 @@ stepWord (User xs) = mapCode (xs ++)
 evalText :: Text -> ForthState -> Either ForthError ForthState
 evalText = eval . parseText
 
-formatStack :: ForthState -> Text
-formatStack = T.pack . unwords . map show . reverse . forthStack
+toList :: ForthState -> [Int]
+toList = reverse . forthStack
