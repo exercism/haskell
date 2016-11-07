@@ -15,13 +15,13 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = describe "pov" $ do
 
-    -- As of 2016-09-28, there was no reference file
-    -- for the test cases in `exercism/x-common`.
+    -- Test cases adapted from `exercism/x-common/pov` on 2016-11-06.
 
     describe "fromPOV" $ do
 
       let cases =
             [ ("reparenting singleton"        , singleton , Just singleton')
+            , ("reparenting with sibling"     , simple    , Just simple'   )
             , ("reparenting flat"             , flat      , Just flat'     )
             , ("reparenting nested"           , nested    , Just nested'   )
             , ("reparenting kids"             , kids      , Just kids'     )
@@ -51,6 +51,17 @@ specs = describe "pov" $ do
 
     describe "tracePathBetween" $ do
 
+      it "Can find path from x -> parent" $
+        tracePathBetween "x" "parent" simple
+        `shouldBe` Just [ "x"
+                        , "parent" ]
+
+      it "Can find path from x -> sibling" $
+        tracePathBetween "x" "b" flat
+        `shouldBe` Just [ "x"
+                        , "root"
+                        , "b"    ]
+
       it "Can trace a path from x -> cousin" $
         tracePathBetween "x" "cousin-1" cousins
         `shouldBe` Just [ "x"
@@ -58,10 +69,6 @@ specs = describe "pov" $ do
                         , "grandparent"
                         , "uncle"
                         , "cousin-1"    ]
-
-      it "Cannot trace between un-connected nodes" $
-        tracePathBetween "x" "NOT THERE" cousins
-        `shouldBe` Nothing
 
       it "Can trace from a leaf to a leaf" $
         tracePathBetween "kid-a" "cousin-0" cousins
@@ -71,6 +78,14 @@ specs = describe "pov" $ do
                         , "grandparent"
                         , "uncle"
                         , "cousin-0"    ]
+
+      it "Cannot trace if destination does not exist" $
+        tracePathBetween "x" "NOT THERE" cousins
+        `shouldBe` Nothing
+
+      it "Cannot trace if source does not exist" $
+        tracePathBetween "NOT THERE" "x" cousins
+        `shouldBe` Nothing
 
 -- Functions used in the tests.
 
@@ -91,12 +106,23 @@ toEdges (Node r ts) = map ((r,) . rootLabel) ts ++ concatMap toEdges ts
 
 -- Trees used in the tests.
 
-singleton , flat , kids , nested , cousins  :: Tree String
-singleton', flat', kids', nested', cousins' :: Tree String
+singleton , simple , flat , kids , nested , cousins  :: Tree String
+singleton', simple', flat', kids', nested', cousins' :: Tree String
 
 singleton = leaf "x"
 
 singleton' = leaf "x"
+
+simple = Node "parent"
+             [ leaf "x"
+             , leaf "sibling"
+             ]
+
+simple' = Node "x"
+              [ Node "parent"
+                    [ leaf "sibling"
+                    ]
+              ]
 
 flat = Node "root"
            [ leaf "a"
