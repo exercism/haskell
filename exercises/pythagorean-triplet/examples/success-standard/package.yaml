@@ -1,0 +1,16 @@
+name: pythagorean-triplet
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: Triplet
+  source-dirs: src
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - pythagorean-triplet
+      - hspec

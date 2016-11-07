@@ -1,0 +1,16 @@
+name: simple-linked-list
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: LinkedList
+  source-dirs: src
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - simple-linked-list
+      - hspec

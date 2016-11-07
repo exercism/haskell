@@ -1,0 +1,16 @@
+name: palindrome-products
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: Palindromes
+  source-dirs: src
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - palindrome-products
+      - hspec

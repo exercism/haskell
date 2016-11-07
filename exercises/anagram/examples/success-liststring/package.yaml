@@ -1,0 +1,16 @@
+name: anagram
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: Anagram
+  source-dirs: src
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - anagram
+      - hspec

@@ -1,0 +1,16 @@
+name: luhn
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: Luhn
+  source-dirs: src
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - luhn
+      - hspec

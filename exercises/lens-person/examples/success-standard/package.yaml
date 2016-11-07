@@ -1,0 +1,19 @@
+name: lens-person
+
+dependencies:
+  - base
+  - time
+
+library:
+  exposed-modules: Person
+  source-dirs: src
+  dependencies:
+    - lens
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - lens-person
+      - hspec
