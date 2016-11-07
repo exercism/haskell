@@ -1,0 +1,18 @@
+name: crypto-square
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: CryptoSquare
+  source-dirs: src
+  dependencies:
+    - split
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - crypto-square
+      - hspec

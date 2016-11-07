@@ -1,0 +1,17 @@
+name: matrix
+
+dependencies:
+  - base
+  - vector
+
+library:
+  exposed-modules: Matrix
+  source-dirs: src
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - matrix
+      - hspec

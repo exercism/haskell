@@ -1,0 +1,16 @@
+name: hexadecimal
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: Hexadecimal
+  source-dirs: src
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - hexadecimal
+      - hspec

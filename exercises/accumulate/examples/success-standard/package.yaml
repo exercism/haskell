@@ -1,0 +1,16 @@
+name: accumulate
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: Accumulate
+  source-dirs: src
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - accumulate
+      - hspec

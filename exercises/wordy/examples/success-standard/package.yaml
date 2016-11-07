@@ -1,0 +1,19 @@
+name: wordy
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: WordProblem
+  source-dirs: src
+  dependencies:
+    - attoparsec
+    - text
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - wordy
+      - hspec

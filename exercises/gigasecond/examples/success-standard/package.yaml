@@ -1,0 +1,17 @@
+name: gigasecond
+
+dependencies:
+  - base
+  - time
+
+library:
+  exposed-modules: Gigasecond
+  source-dirs: src
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - gigasecond
+      - hspec

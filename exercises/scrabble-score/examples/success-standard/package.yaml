@@ -1,0 +1,18 @@
+name: scrabble-score
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: Scrabble
+  source-dirs: src
+  dependencies:
+    - containers
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - scrabble-score
+      - hspec

@@ -1,0 +1,18 @@
+name: say
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: Say
+  source-dirs: src
+  dependencies:
+    - array
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - say
+      - hspec

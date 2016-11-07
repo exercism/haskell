@@ -1,0 +1,16 @@
+name: roman-numerals
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: Roman
+  source-dirs: src
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - roman-numerals
+      - hspec

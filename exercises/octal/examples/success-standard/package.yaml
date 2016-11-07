@@ -1,17 +1,17 @@
-name: anagram
+name: octal
 
 dependencies:
   - base
 
 library:
-  exposed-modules: Anagram
+  exposed-modules: Octal
   source-dirs: src
-  dependencies:
 
 tests:
   test:
     main: Tests.hs
     source-dirs: test
     dependencies:
-      - anagram
+      - octal
       - hspec
+      - QuickCheck

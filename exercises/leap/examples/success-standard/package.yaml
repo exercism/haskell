@@ -1,0 +1,16 @@
+name: leap
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: LeapYear
+  source-dirs: src
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - leap
+      - hspec

@@ -1,0 +1,19 @@
+name: ocr-numbers
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: OCR
+  source-dirs: src
+  dependencies:
+    - containers
+    - split
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - ocr-numbers
+      - hspec

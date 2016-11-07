@@ -1,0 +1,16 @@
+name: nth-prime
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: Prime
+  source-dirs: src
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - nth-prime
+      - hspec

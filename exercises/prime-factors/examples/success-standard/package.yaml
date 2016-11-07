@@ -1,0 +1,16 @@
+name: prime-factors
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: PrimeFactors
+  source-dirs: src
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - prime-factors
+      - hspec

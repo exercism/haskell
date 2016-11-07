@@ -1,0 +1,18 @@
+name: simple-cipher
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: Cipher
+  source-dirs: src
+  dependencies:
+    - random
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - simple-cipher
+      - hspec

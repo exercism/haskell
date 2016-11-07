@@ -1,0 +1,17 @@
+name: nucleotide-count
+
+dependencies:
+  - base
+  - containers
+
+library:
+  exposed-modules: DNA
+  source-dirs: src
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - nucleotide-count
+      - hspec

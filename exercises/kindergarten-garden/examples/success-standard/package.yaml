@@ -1,0 +1,19 @@
+name: kindergarten-garden
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: Garden
+  source-dirs: src
+  dependencies:
+    - containers
+    - split
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - kindergarten-garden
+      - hspec

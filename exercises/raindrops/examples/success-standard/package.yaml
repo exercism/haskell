@@ -1,0 +1,16 @@
+name: raindrops
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: Raindrops
+  source-dirs: src
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - raindrops
+      - hspec

@@ -1,0 +1,16 @@
+name: sublist
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: Sublist
+  source-dirs: src
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - sublist
+      - hspec
