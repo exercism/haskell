@@ -1,3 +1,4 @@
 module Series (slices) where
 
-slices = undefined
+slices :: Int -> String -> [[Int]]
+slices n xs = undefined

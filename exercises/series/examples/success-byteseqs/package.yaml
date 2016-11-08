@@ -1,0 +1,19 @@
+name: series
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: Series
+  source-dirs: src
+  dependencies:
+    - bytestring
+    - containers
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - series
+      - hspec
