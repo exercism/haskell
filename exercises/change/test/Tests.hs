@@ -1,6 +1,7 @@
 {-# LANGUAGE RecordWildCards #-}
 
 import Data.Foldable     (for_)
+import Data.List         (sort)
 import Test.Hspec        (Spec, describe, it, shouldBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
@@ -17,7 +18,7 @@ specs = describe "Change" $
     test Case{..} = it description assertion
       where
         assertion  = expression `shouldBe` expected
-        expression = findFewestCoins target coins
+        expression = sort <$> findFewestCoins target coins
 
 -- Test cases adapted from `exercism/x-common` on 2016-09-17.
 
