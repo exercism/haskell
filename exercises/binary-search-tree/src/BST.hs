@@ -10,6 +10,8 @@ module BST
     , toList
     ) where
 
+data BST a = Dummy deriving (Eq, Show)
+
 bstLeft :: BST a -> Maybe (BST a)
 bstLeft = undefined
 
