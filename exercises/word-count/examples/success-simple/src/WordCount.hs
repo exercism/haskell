@@ -9,5 +9,9 @@ wordCount :: String -> [(String, Int)]
 wordCount = map (head &&& length)
           . group
           . sort
-          . map (map toLower)
-          . wordsBy (not . isAlphaNum)
+          . map (stripQuote . map toLower)
+          . wordsBy (\c -> not (isAlphaNum c) && c /= '\'')
+
+stripQuote :: String -> String
+stripQuote ('\'':t) = init t
+stripQuote s = s

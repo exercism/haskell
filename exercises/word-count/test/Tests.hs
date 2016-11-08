@@ -30,7 +30,7 @@ specs = describe "word-count" $
                    . fromList
                    $ input
 
--- Test cases adapted from `exercism/x-common/word-count.json` on 2016-07-26.
+-- Test cases adapted from `exercism/x-common/word-count` on 2016-11-06.
 
 data Case = Case { description :: String
                  , input       :: String
@@ -56,6 +56,18 @@ cases = [ Case { description = "count one word"
                                , ("red" , 1)
                                , ("blue", 1) ]
                }
+        , Case { description = "handles cramped lists"
+               , input       = "one,two,three"
+               , expected    = [ ("one"  , 1)
+                               , ("two"  , 1)
+                               , ("three", 1) ]
+               }
+        , Case { description = "handles expanded lists"
+               , input       = "one,\ntwo,\nthree"
+               , expected    = [ ("one"  , 1)
+                               , ("two"  , 1)
+                               , ("three", 1) ]
+               }
         , Case { description = "ignore punctuation"
                , input       = "car : carpet as java : javascript!!&@$%^&"
                , expected    = [ ("car"       , 1)
@@ -74,5 +86,22 @@ cases = [ Case { description = "count one word"
                , input       = "go Go GO Stop stop"
                , expected    = [ ("go"  , 3)
                                , ("stop", 2) ]
+               }
+        , Case { description = "with apostrophes"
+               , input       = "First: don't laugh. Then: don't cry."
+               , expected    = [ ("first", 1)
+                               , ("don't", 2)
+                               , ("laugh", 1)
+                               , ("then" , 1)
+                               , ("cry"  , 1) ]
+               }
+        , Case { description = "with quotations"
+               , input       = "Joe can't tell between 'large' and large."
+               , expected    = [ ("joe"    , 1)
+                               , ("can't"  , 1)
+                               , ("tell"   , 1)
+                               , ("between", 1)
+                               , ("large"  , 2)
+                               , ("and"    , 1) ]
                }
         ]
