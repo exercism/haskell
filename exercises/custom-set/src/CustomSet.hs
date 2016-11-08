@@ -1,6 +1,5 @@
 module CustomSet
-  ( CustomSet
-  , delete
+  ( delete
   , difference
   , empty
   , fromList
@@ -16,6 +15,8 @@ module CustomSet
   ) where
 
 import Prelude hiding (null)
+
+data CustomSet a = Dummy deriving (Eq, Show)
 
 delete :: a -> CustomSet a -> CustomSet a
 delete = undefined
