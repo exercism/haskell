@@ -58,8 +58,10 @@ script:
         else
             for example in examples/*/ ; do
                 examplename=$(basename "$example")
-                mkdir -p "${HOME}/.foldercache/${exercise}/${examplename}/.stack-work"
-                ln -f -s "${HOME}/.foldercache/${exercise}/${examplename}/.stack-work"
+                exercisename=$(basename "$exercise")
+                examplecache="${HOME}/.foldercache/${exercisename}/${examplename}/.stack-work"
+                mkdir -p "$examplecache"
+                ln -f -s "$examplecache"
 
                 echo "testing ${example}"
                 rm -f src/*.hs
