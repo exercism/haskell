@@ -17,6 +17,8 @@ data ForthError
      | UnknownWord Text
      deriving (Show, Eq)
 
+data ForthState = Dummy
+
 empty :: ForthState
 empty = undefined
 
