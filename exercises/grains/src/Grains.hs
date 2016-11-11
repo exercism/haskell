@@ -1,5 +1,7 @@
 module Grains (square, total) where
 
-square = undefined
+square :: Integer -> Maybe Integer
+square n = undefined
 
+total :: Integer
 total = undefined
