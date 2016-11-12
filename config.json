@@ -383,6 +383,12 @@
       ]
     },
     {
+      "slug": "dominoes",
+      "difficulty": 8,
+      "topics": [
+      ]
+    },
+    {
       "slug": "sgf-parsing",
       "difficulty": 9,
       "topics": [
