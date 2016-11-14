@@ -50,6 +50,7 @@ script:
     }
 
     for exercise in ${TRAVIS_BUILD_DIR}/exercises/* ; do
+        exercisename=$(basename "$exercise")
         pushd ${exercise}
 
         if ! stat -t examples/*/ > /dev/null 2>&1; then
@@ -58,7 +59,6 @@ script:
         else
             for example in examples/*/ ; do
                 examplename=$(basename "$example")
-                exercisename=$(basename "$exercise")
                 examplecache="${HOME}/.foldercache/${exercisename}/${examplename}/.stack-work"
                 mkdir -p "$examplecache"
                 ln -f -s "$examplecache"
