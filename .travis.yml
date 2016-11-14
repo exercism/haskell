@@ -15,7 +15,7 @@ env:
  - RESOLVER="nightly"                          # Latest nightly snapshot.
 
 matrix:
-  allow_failures:             # The snapshot `nightly` is just an aliases to
+  allow_failures:             # The snapshot `nightly` is just an alias to
     - env: RESOLVER="nightly" # the newest version released. We don't want
   fast_finish: true           # Travis to fail on new incompatible releases.
 
