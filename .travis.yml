@@ -59,16 +59,21 @@ script:
         else
             for example in examples/*/ ; do
                 examplename=$(basename "$example")
+
+                buildfolder="${TRAVIS_BUILD_DIR}/build/${exercisename}/${examplename}"
+                mkdir -p "${buildfolder}"
+                cp -r stack.yaml test ${example}/* "${buildfolder}"
+
+                pushd $buildfolder
+
                 examplecache="${HOME}/.foldercache/${exercisename}/${examplename}/.stack-work"
                 mkdir -p "$examplecache"
                 ln -f -s "$examplecache"
 
                 echo "testing ${example}"
-                rm -f src/*.hs
-                mv ${example}/src/*.hs src
-                mv ${example}/package.yaml .
-
                 test_exercise
+
+                popd
             done
         fi
 
