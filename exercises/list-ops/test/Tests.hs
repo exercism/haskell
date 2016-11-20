@@ -7,6 +7,7 @@ import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 import Prelude hiding
     ( (++)
     , concat
+    , filter
     , foldr
     , length
     , map
@@ -16,6 +17,7 @@ import Prelude hiding
 import ListOps
     ( (++)
     , concat
+    , filter
     , foldl'
     , foldr
     , length
