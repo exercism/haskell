@@ -1,7 +1,6 @@
 module Bowling (bowlingStart, roll, score) where
 
--- modify this appropriately
-data Bowling = Bowling
+data Bowling = Dummy
 
 bowlingStart :: Bowling
 bowlingStart = undefined
