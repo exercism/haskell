@@ -1,0 +1,16 @@
+name: bowling
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: Bowling
+  source-dirs: src
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - bowling
+      - hspec
