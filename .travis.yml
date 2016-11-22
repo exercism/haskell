@@ -15,7 +15,7 @@ env:
  - RESOLVER="nightly"                          # Latest nightly snapshot.
 
 matrix:
-  allow_failures:             # The snapshot `nightly` is just an aliases to
+  allow_failures:             # The snapshot `nightly` is just an alias to
     - env: RESOLVER="nightly" # the newest version released. We don't want
   fast_finish: true           # Travis to fail on new incompatible releases.
 
@@ -50,6 +50,7 @@ script:
     }
 
     for exercise in ${TRAVIS_BUILD_DIR}/exercises/* ; do
+        exercisename=$(basename "$exercise")
         pushd ${exercise}
 
         if ! stat -t examples/*/ > /dev/null 2>&1; then
@@ -58,17 +59,21 @@ script:
         else
             for example in examples/*/ ; do
                 examplename=$(basename "$example")
-                exercisename=$(basename "$exercise")
+
+                buildfolder="${TRAVIS_BUILD_DIR}/build/${exercisename}/${examplename}"
+                mkdir -p "${buildfolder}"
+                cp -r stack.yaml test ${example}/* "${buildfolder}"
+
+                pushd $buildfolder
+
                 examplecache="${HOME}/.foldercache/${exercisename}/${examplename}/.stack-work"
                 mkdir -p "$examplecache"
                 ln -f -s "$examplecache"
 
                 echo "testing ${example}"
-                rm -f src/*.hs
-                mv ${example}/src/*.hs src
-                mv ${example}/package.yaml .
-
                 test_exercise
+
+                popd
             done
         fi
 
