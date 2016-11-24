@@ -1,12 +1,19 @@
 ## Hints
 
-To complete this exercise, you need to create the data type `Bowling`
-and implement the following functions:
+To complete this exercise you need to implement the function `score`,
+that takes a sequence of bowling *rolls* and returns the final score or
+the appropriate error:
 
-- `bowlingStart` returns an empty `Bowling`.
-- `roll` evaluates an input roll, returning the new `Bowling`.
-- `score` calculates the total score at the end if it is regular game.
+```haskell
+score :: [Int] -> Either BowlingError Int
 
-You will find a dummy data declaration and type signatures already in place,
-but it is up to you to define the functions and create a meaningful data type,
-newtype or type synonym.
+data BowlingError = IncompleteGame
+                  | InvalidRoll { rollIndex :: Int, rollValue :: Int }
+                  deriving (Eq, Show)
+```
+
+You will find these definitions already in place, but it is up to you
+to define the function.
+
+Keep in mind that the test suite expects the rolls to be numbered
+starting from zero.
