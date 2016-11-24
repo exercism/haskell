@@ -1,13 +1,9 @@
-module Bowling (bowlingStart, roll, score) where
+module Bowling (score, BowlingError(..)) where
 
-data Bowling = Dummy
+data BowlingError = IncompleteGame
+                  | InvalidRoll { rollIndex :: Int, rollValue :: Int }
+  deriving (Eq, Show)
 
-bowlingStart :: Bowling
-bowlingStart = undefined
-
-roll :: Bowling -> Int -> Bowling
-roll = undefined
-
-score :: Bowling -> Maybe Int
+score :: [Int] -> Either BowlingError Int
 score = undefined
 

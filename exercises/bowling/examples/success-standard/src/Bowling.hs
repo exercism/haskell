@@ -1,50 +1,54 @@
-module Bowling (bowlingStart, roll, score) where
+module Bowling (score, BowlingError(..)) where
 
 import Data.List  (tails)
 
-data Bowling = BowlingScore [Frame] |
-               BowlingFailure
+data BowlingError = IncompleteGame
+                  | InvalidRoll { rollIndex :: Int, rollValue :: Int }
+  deriving (Eq, Show)
 
 type Roll = Int
 
-data Frame = Frame { rolls :: [Roll], finalFrame :: Bool }
+data Frame = Frame { whichFrame :: Int, rolls :: [Roll] }
 
-bowlingStart :: Bowling
-bowlingStart = BowlingScore [Frame [] False]
+type ScoreState = Either BowlingError (Frame, Int, Int) -- (frame, rollIndex, totalScore)
 
-roll :: Bowling -> Int -> Bowling
-roll BowlingFailure _ = BowlingFailure
-roll _ r | r < 0 || r > 10 = BowlingFailure
-roll (BowlingScore (f@(Frame rs True):fs)) r
-  | length rs < 2 = BowlingScore $ addRoll f r:fs
-  | throws f == 2 && (head rs == 10 || spare f) = addFillBall
-  | otherwise = BowlingFailure -- no more rolls possible
+score :: [Int] -> Either BowlingError Int
+score rolls' = totalScoreState >>= completedScore
   where
-    addFillBall :: Bowling
+    totalScoreState = foldl scoreRoll startState rolls''
+    startState = Right (Frame 1 [], 0, 0)
+    rolls'' = filter (not . null) $ tails rolls'
+    completedScore :: (Frame, Int, Int) -> Either BowlingError Int
+    completedScore (f, _, totalScore)
+      | complete f && finalFrame f = Right totalScore
+      | otherwise = Left IncompleteGame
+
+scoreRoll :: ScoreState -> [Roll] -> ScoreState
+scoreRoll scoreState rolls' = do
+  (f, ri, s) <- scoreState
+  scoreRoll' f ri s rolls'
+
+scoreRoll' :: Frame -> Int -> Int -> [Roll] -> ScoreState
+scoreRoll' _ ri _ (r:_) | r < 0 || r > 10 = Left $ InvalidRoll ri r
+scoreRoll' f@(Frame 10 (fr:_)) ri totalScore (r:_)
+  | throws f < 2 = Right (addRoll f r, succ ri, totalScore + fr + r)
+  | throws f == 2 && (fr == 10 || spare f) = addFillBall
+  | otherwise = Left $ InvalidRoll ri r -- no more rolls possible
+  where
+    addFillBall :: ScoreState
     addFillBall
-      | firstRoll == 10 && secondRoll /= 10 && secondRoll + r > 10 = BowlingFailure
-      | otherwise = BowlingScore $ addRoll f r:fs
+      | firstRoll == 10 && secondRoll /= 10 && secondRoll + r > 10 = Left $ InvalidRoll ri r
+      | otherwise = Right (addRoll f r, succ ri, totalScore + r)
       where [firstRoll, secondRoll] = rolls f
-roll (BowlingScore (f@(Frame _ False):fs)) r
-  | complete f = BowlingScore $ Frame [r] (length fs == 8):f:fs
-  | pins f + r <= 10 = BowlingScore $ addRoll f r:fs
-roll _ _ = BowlingFailure
-
-score :: Bowling -> Maybe Int
-score BowlingFailure = Nothing
-score (BowlingScore fs)
-  | length fs < 10 || any (not . complete) fs = Nothing -- incomplete game
-  | otherwise = Just $ foldl addScore 0 fsTails
-  where
-    fsTails = take 10 . tails . reverse $ fs
-
-    addScore :: Int -> [Frame] -> Int
-    addScore acc (f:fts) = acc + fscore f fts
-    addScore acc [] = acc
+scoreRoll' f@(Frame n _) ri totalScore rs@(r:_)
+  | complete f = Right (Frame (succ n) [r], succ ri, totalScore + fscore f rs)
+  | pins f + r <= 10 = Right (addRoll f r, succ ri, totalScore)
+scoreRoll' _ ri _ (r:_) = Left $ InvalidRoll ri r
+scoreRoll' _ _ _ _ = undefined -- to avoid compiler warning
 
 -- Frame functions
 addRoll :: Frame -> Roll -> Frame
-addRoll f r = Frame (rolls f ++ [r]) (finalFrame f)
+addRoll f r = Frame (whichFrame f) (rolls f ++ [r])
 
 throws :: Frame -> Int
 throws = length . rolls
@@ -58,23 +62,23 @@ strike f = throws f == 1 && pins f == 10
 spare :: Frame -> Bool
 spare f = throws f == 2 && pins f == 10
 
+finalFrame :: Frame -> Bool
+finalFrame (Frame n _) = n == 10
+
 complete :: Frame -> Bool
 complete f
   | not $ finalFrame f = strike f || throws f == 2
   | head (rolls f) == 10 || sum (take 2 $ rolls f) == 10 = throws f == 3
   | otherwise = throws f == 2
 
-fscore :: Frame -> [Frame] -> Int
-fscore f nextFrames = pins f + bonus
+fscore :: Frame -> [Roll] -> Int
+fscore f rs = pins f + bonus
   where
     bonus
       | finalFrame f = 0
       | strike f = nextRoll + nextToNextRoll
       | spare f  = nextRoll
       | otherwise = 0
-    nextRoll = head nextFrameRolls
-    nextToNextRoll
-      | length nextFrameRolls > 1 = head $ tail nextFrameRolls
-      | otherwise = head nextToNextFrameRolls
-    nextFrameRolls = rolls $ head nextFrames
-    nextToNextFrameRolls = rolls . head . tail $ nextFrames
+    nextRoll = head rs
+    nextToNextRoll = head $ tail rs
+

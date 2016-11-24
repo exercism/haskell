@@ -1,12 +1,6 @@
 ## Hints
 
-To complete this exercise, you need to create the data type `Bowling`
-and implement the following functions:
+For a functional language like Haskell it makes sense to calculate the game result in one go from the list of rolls (without an extra `roll` function).
+This result can then either be the total game score or an error for a list of irregular rolls.
 
-- `bowlingStart` returns an empty `Bowling`.
-- `roll` evaluates an input roll, returning the new `Bowling`.
-- `score` calculates the total score at the end if it is regular game.
-
-You will find a dummy data declaration and type signatures already in place,
-but it is up to you to define the functions and create a meaningful data type,
-newtype or type synonym.
+You will find a data declaration for the possible errors as well as the type signature for the `score` function.
