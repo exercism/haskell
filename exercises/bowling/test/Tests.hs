@@ -16,7 +16,7 @@ specs = describe "bowling" $
 
     test Case{..} = it description assertion
       where
-        assertion  = result `shouldBe` expected
+        assertion = result `shouldBe` expected
         result = score rolls
 
 -- Test cases adapted from `exercism/x-common/bowling` on 2016-11-20.
