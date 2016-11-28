@@ -62,7 +62,7 @@ script:
 
                 buildfolder="${TRAVIS_BUILD_DIR}/build/${exercisename}/${examplename}"
                 mkdir -p "${buildfolder}"
-                cp -r stack.yaml test ${example}/* "${buildfolder}"
+                cp -rL stack.yaml test ${example}/* "${buildfolder}"
 
                 pushd $buildfolder
 
