@@ -4,7 +4,7 @@ import Control.Concurrent (MVar, readMVar, swapMVar, newMVar)
 import Control.Monad (void)
 import System.Random (randomRIO)
 
-data Robot = Robot { robotNameVar :: MVar String }
+newtype Robot = Robot { robotNameVar :: MVar String }
 
 mkRobot :: IO Robot
 mkRobot = fmap Robot $ generateName >>= newMVar
