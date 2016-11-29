@@ -15,7 +15,7 @@ specs = describe "bob" $
   where
     test Case{..} = it description $ responseFor input `shouldBe` expected
 
--- Test cases adapted from `exercism/x-common/bob.json` on 2016-07-24.
+-- Test cases adapted from `exercism/x-common/bob.json` on 2016-11-29.
 
 data Case = Case { description :: String
                  , input       :: String
@@ -75,14 +75,6 @@ cases = [ Case { description = "stating something"
                , input       = "ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!"
                , expected    = "Whoa, chill out!"
                }
-        , Case { description = "shouting with umlauts"
-               , input       = "ÜMLÄÜTS!"
-               , expected    = "Whoa, chill out!"
-               }
-        , Case { description = "calmly speaking with umlauts"
-               , input       = "ÜMLäÜTS!"
-               , expected    = "Whatever."
-               }
         , Case { description = "shouting with no exclamation mark"
                , input       = "I HATE YOU"
                , expected    = "Whoa, chill out!"
@@ -124,7 +116,7 @@ cases = [ Case { description = "stating something"
                , expected    = "Sure."
                }
         , Case { description = "other whitespace"
-               , input       = "\n\r \t\x000b\x00a0\x2002"
+               , input       = "\n\r \t"
                , expected    = "Fine. Be that way!"
                }
         , Case { description = "non-question ending with whitespace"
