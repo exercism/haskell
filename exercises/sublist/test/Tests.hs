@@ -42,7 +42,7 @@ specs = describe "sublist" $ do
                               , "-"
                               , description ]
 
--- Test cases adapted from `exercism/x-common/sublist.json` on 2016-07-27.
+-- Test cases adapted from `exercism/x-common/sublist.json` on 2016-11-29.
 
 data Case = Case { description :: String
                  , listOne     :: [Integer]
@@ -129,6 +129,11 @@ cases = [ Case { description = "empty lists"
         , Case { description = "order matters to a list"
                , listOne     = [1, 2, 3]
                , listTwo     = [3, 2, 1]
+               , expectation = Unequal
+               }
+        , Case { description = "same digits but different numbers"
+               , listOne     = [1, 0, 1]
+               , listTwo     = [10, 1]
                , expectation = Unequal
                }
         ]
