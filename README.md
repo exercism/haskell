@@ -6,38 +6,133 @@ Exercism exercises in Haskell
 
 ## Contributing Guide
 
-Please see the [contributing guide](https://github.com/exercism/x-api/blob/master/CONTRIBUTING.md)
+- [Asking for help](#asking-for-help)
+- [How to contribute](#how-to-contribute)
+  * [Reporting or fixing bugs](#reporting-or-fixing-bugs)
+  * [Reviewing issues and pull requests](#reviewing-issues-and-pull)
+  * [Porting exercises](#porting-exercises)
+  * [Updating an exercise test suite](#updating-an-exercise-test-suite)
+- [Repository structure and conventions](#repository-structure-and-conventions)
+  * [Directory structure](#directory-structure)
+  * [Exercise structure](#exercise-structure)
+- [Writing an issue](#writing-an-issue)
+- [Writing a pull request](#writing-a-pull-request)
+- [Development Dependencies](#development-dependencies)
+- [Stub solution](#stub-solution)
+- [Example solution](#example-solution)
+- [Test suite](#test-suite)
+- [Running tests](#running-tests)
+- [Running HLint](#running-hlint)
 
-### Development Dependencies
+### Asking for help
+When in doubt just ask!
+- [gitter support](https://gitter.im/exercism/support): more specific/technical questions.
+- [gitter dev](https://gitter.im/exercism/dev): technical questions.
 
-You should have [Stack](http://docs.haskellstack.org/) installed in your
-system to make contributing to this repository easier.
+In any case, don't be afraid or shy! We promise to be friendly and as helpful as
+possible.
 
-### Exercises
+### How to contribute
+As a first step we recommend you read the [contributing guide](https://github.com/exercism/x-common/blob/master/CONTRIBUTING.md).
 
-All exercises have the following structure:
+#### Reporting or fixing bugs
+Typical examples for a bug: A typo, a missing test case, an unclear or ambiguous
+problem description.
+- If you are unsure whether you have really found a bug [just ask](#asking-for-help).
+- To report a bug you can [write an issue](#writing-an-issue).
+- If you already have a fix for it you may [write a pull request](#writing-a-pull-request).
 
+#### Reviewing issues and pull requests
+If you have a dedicated opinion you are welcome to [write a comment](https://help.github.com/articles/commenting-on-a-pull-request/) for an [issue](https://github.com/exercism/xhaskell/issue) or a [pull request](https://github.com/exercism/xhaskell/pull).
+Please be detailed and include reasons, links or arguments to support your opinion.
+
+#### Porting exercises
+Here is the [list of missing exercises](http://exercism.io/languages/haskell/todo). See here for more information about [porting an exercise](https://github.com/exercism/x-common/blob/master/CONTRIBUTING.md#porting-an-exercise-to-another-language-track).
+Of course you can also add a totally new exercise, but it might be a good idea to first discuss it in one of [our forums](#asking-for-help).
+
+#### Updating an exercise test suite
+Updating a test suite of an existing exercise is special because it usually affects all languages. Read more about it [here](https://github.com/exercism/x-common/blob/master/CONTRIBUTING.md#updating-an-exercise-test-suite).
+Note that the whole test suite must run with the sample solution within a couple of seconds.
+
+### Repository structure and conventions
+[Here](https://github.com/exercism/x-common/blob/master/CONTRIBUTING.md#track-anatomy) is a general description of all the files and directories that are not explicitly described below.
+
+#### Directory structure
+```bash
+├── .gitignore
+├── .travis.yml
+├── LICENSE
+├── README.md
+├── SETUP.md
+├── bin
+│ └── fetch‐configlet
+├── config.json
+├── docs
+│ ├── ABOUT.md
+│ ├── INSTALLATION.md
+│ ├── LEARNING.md
+│ ├── RESOURCES.md
+│ └── TESTS.md
+└── exercises
+  └── accumulate
+  │ ├── HINTS.md
+  │ ├── package.yaml
+  │ ├── stack.yaml
+  │ ├── examples
+  │ │ └── success-standard
+  │ │   ├── package.yaml
+  │ │   └── src
+  │ │     └── Accumuĺate.hs
+  │ ├── src
+  │ │ └── Accumuĺate.hs
+  │ └── test
+  │   └── Tests.hs
+  └── allergies
+  │ ├── ...
+  └── ...
+```
+- `config.json`: Every exercise has to be registered here. It has a unique name and a difficulty. The sequence order is also the default order in which the exercises are fetched.
+
+### Exercise structure
+Each exercise has the following structure:
 - `stack.yaml` has just one line specifying the current
 [Stack snapshot](https://www.stackage.org/snapshots). We use the same
 resolver for all the exercises.
 - `package.yaml` is a file in the [hpack](https://github.com/sol/hpack#readme)
 format that has all dependencies and build instructions for an exercise.
-- `src/ModuleName.hs` is a *stub solution*.
-- `src/examples/success-foo/package.yaml` has dependencies for the example solution named `foo`.
-- `src/examples/success-foo/src/ModuleName.hs` is the source code of the sample solution.
-- `test/Tests.hs` is the test suite.
-- `HINTS.md` is an optional file containing instructions and/or hints.
+- `HINTS.md` is an optional file containing instructions and/or hints. It is used together with the respective `description.md` for the exercise from [x-common](https://github.com/exercism/x-common) to build the `README.md` file.
+- `src/ModuleName.hs` is a [stub solution](#stub-solution).
+- `examples/success-<name>/package.yaml` contains library dependencies for the [example solution](#example-solution). `<name>` is a unique name for the example - usually "standard" (as in `success-standard`), but it can be some other name in case of multiple example solutions.
+- `examples/success-<name>/src/ModuleName.hs` is the source code of the sample solution.
+- `test/Tests.hs` is the [test suite](#test-suite).
+
+### Writing an issue
+To report a bug you should [create an issue](https://help.github.com/articles/creating-an-issue/) [here](https://github.com/exercism/xhaskell/issue).
+
+### Writing a pull request
+To fix a bug you should [create a pull request from a fork](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) [here](https://github.com/exercism/xhaskell/pull). See also [here](https://github.com/exercism/x-common/blob/master/CONTRIBUTING.md#git-basics) for more information.
+
+### Development Dependencies
+You should have [Stack](http://docs.haskellstack.org/) installed in your system to make contributing to this repository easier.
+
+### Stub solution
+The stub solution must compile together with the test suite. It should be as general as possible in order to not exclude any possible solutions. It should take Haskell specifics into account (for example use `Maybe` instead of a dummy return value). It should not contain any comments (people might forget to remove them), you can use the hints file instead.
+
+### Example solution
+The example solution could be inspiration for other language implementors. It doesn't need to be perfect or very elegant. But it should be efficient enough for the test suite to finish in only a few seconds.
+
+### Test suite
+The test suite should be derived from the respective `x-common/exercises/<exercise-name>/canonical-data.json` and comply to some formatting and coding standards (to get an idea you may look at some of the existing tests).
 
 ### Running Tests
+In order to be accepted by Travis-CI, every exercise must be registered in
+`config.json`, it must compile without warnings and the example solution must
+pass the tests without failures. Additionally the tests should not run longer than
+a few seconds.
 
-In order to be accepted by Travis-CI, every exercise must compile without
-warnings and the example solution must pass the tests without failures.
+First you need to provide an [example solution](#example-solution).
 
-To test an exercise, first you need to rename the file `src/Example.hs`
-to match the module name, but - because we already have a *stub solution*
-in place - we have to move it first, otherwise it will be overwritten.
-
-Running `stack test --pedantic` compiles and run the tests with
+Running `stack test --pedantic` compiles and runs the tests with
 `-Wall -Werror`, but unfortunately it doesn't recompile unchanged
 source code already compiled with warnings.
 
@@ -50,13 +145,12 @@ stack test --pedantic
 ```
 
 ### Running HLint
-
 All code in this repository should be as idiomatic as possible, so we
 enforce in Travis-CI that it returns `No hints` when processed by
 HLint.
 
 It is highly recommended to run `hlint` on your sources before opening
-a *pull request*, so you can fix your code before submitting it for review.
+a [pull request](#writing-a-pull-request), so you can fix your code before submitting it for review.
 
 If you are certain that a suggestion given by `hlint` would make the
 code worse, you can [suppress it](https://github.com/ndmitchell/hlint#customizing-the-hints)
