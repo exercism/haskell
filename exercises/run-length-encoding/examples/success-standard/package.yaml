@@ -1,0 +1,16 @@
+name: run-length-encoding
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: RunLength
+  source-dirs: src
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - run-length-encoding
+      - hspec
