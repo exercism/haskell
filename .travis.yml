@@ -49,7 +49,7 @@ script:
                    --pedantic      `# Enable -Wall and -Werror.    `
     }
 
-    for exercise in ${TRAVIS_BUILD_DIR}/exercises/* ; do
+    for exercise in ${TRAVIS_BUILD_DIR}/exercises/*/ ; do
         exercisename=$(basename "$exercise")
         pushd ${exercise}
 
