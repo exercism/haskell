@@ -1,5 +1,7 @@
 module Robot (Robot, mkRobot, resetName, robotName) where
 
+data Robot = Dummy
+
 mkRobot :: IO Robot
 mkRobot = undefined
 
