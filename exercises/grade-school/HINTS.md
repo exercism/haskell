@@ -8,6 +8,6 @@ and implement the following functions:
 - `grade`
 - `sorted`
 
-You will find a dummy data declaration already in place, but it is up to you to
-define the functions and create a meaningful data type, newtype or type
-synonym.
+You will find a dummy data declaration and type signatures already in
+place, but it is up to you to define the functions and create a meaningful
+data type, newtype or type synonym.
