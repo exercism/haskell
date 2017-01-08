@@ -10,6 +10,8 @@ module LinkedList
     , toList
     ) where
 
+data LinkedList a = Dummy
+
 datum :: LinkedList a -> a
 datum = undefined
 

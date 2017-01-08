@@ -14,8 +14,9 @@ with `Eq` and `Show` instances, and implement the following functions:
 - `shape`
 - `transpose`
 
-You will find the type signatures already in place, but it is up to you
-to define the functions.
+You will find a dummy data declaration and type signatures already in place,
+but it is up to you to define the functions and create a meaningful data type,
+newtype or type synonym.
 
 No validation of input is required. Let it fail if the matrix is not
 rectangular, invalid chars are encountered, etc.

@@ -6,6 +6,8 @@ module BankAccount
     , openAccount
     ) where
 
+data BankAccount = Dummy
+
 closeAccount :: BankAccount -> IO ()
 closeAccount = undefined
 
