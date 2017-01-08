@@ -63,7 +63,6 @@ Note that the whole test suite must run with the sample solution within a couple
 ├── .travis.yml
 ├── LICENSE
 ├── README.md
-├── SETUP.md
 ├── bin
 │ └── fetch‐configlet
 ├── config.json
@@ -74,6 +73,7 @@ Note that the whole test suite must run with the sample solution within a couple
 │ ├── RESOURCES.md
 │ └── TESTS.md
 └── exercises
+  ├── TRACK_HINTS.md
   └── accumulate
   │ ├── HINTS.md
   │ ├── package.yaml
