@@ -6,5 +6,6 @@ with `Eq` and `Show` instances, and implement the following functions:
 - `allergies`
 - `isAllergicTo`
 
-Your can use the provided signatures if you are unsure about the types, but
-don't let them restrict your creativity.
+You will find a dummy data declaration and type signatures already in place,
+but it is up to you to define the functions and create a meaningful data type,
+newtype or type synonym.
