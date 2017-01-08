@@ -16,6 +16,8 @@ data BinTree a = BT { btValue :: a
                     , btRight :: Maybe (BinTree a)
                     } deriving (Eq, Show)
 
+data Zipper a = Dummy deriving (Eq, Show)
+
 fromTree :: BinTree a -> Zipper a
 fromTree = undefined
 
