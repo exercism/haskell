@@ -14,6 +14,8 @@ module Matrix
 
 import Data.Vector (Vector)
 
+data Matrix a = Dummy deriving (Eq, Show)
+
 cols :: Matrix a -> Int
 cols = undefined
 
