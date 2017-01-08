@@ -2,10 +2,14 @@ module School (School, add, empty, grade, sorted) where
 
 data School = Dummy
 
-add = undefined
+add :: Int -> String -> School -> School
+add gradeNum student school = undefined
 
+empty :: School
 empty = undefined
 
-grade = undefined
+grade :: Int -> School -> [String]
+grade gradeNum school = undefined
 
-sorted = undefined
+sorted :: School -> [(Int, [String])]
+sorted school = undefined

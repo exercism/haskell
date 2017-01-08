@@ -1,2 +1,0 @@
-No type signatures on functions (TODO: Should we have them?),
-and this makes it impossible to ensure that the result of `grade` is `Eq`.
