@@ -14,6 +14,8 @@ data Bearing = North
              | West
              deriving (Eq, Show)
 
+data Robot = Dummy
+
 bearing :: Robot -> Bearing
 bearing = undefined
 
