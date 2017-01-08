@@ -53,6 +53,27 @@ script:
         exercisename=$(basename "$exercise")
         pushd ${exercise}
 
+        examplename="stub"
+        buildfolder="${TRAVIS_BUILD_DIR}/build/${exercisename}/${examplename}"
+        mkdir -p "${buildfolder}"
+        cp -rL stack.yaml package.yaml src test "${buildfolder}"
+
+        pushd $buildfolder
+
+        examplecache="${HOME}/.foldercache/${exercisename}/${examplename}/.stack-work"
+        mkdir -p "$examplecache"
+        ln -f -s "$examplecache"
+
+        if [ -f "${exercise}/.meta/DONT-TEST-STUB" ]; then
+            echo "only building stub"
+            stack build ${SET_RESOLVER} --install-ghc --no-terminal
+        else
+            echo "testing stub"
+            stack test ${SET_RESOLVER} --install-ghc --no-terminal --no-run-tests
+        fi
+
+        popd
+
         if ! stat -t examples/*/ > /dev/null 2>&1; then
             echo "No examples for ${exercise}!"
             exit 1

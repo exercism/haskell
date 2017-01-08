@@ -116,7 +116,13 @@ To fix a bug you should [create a pull request from a fork](https://help.github.
 You should have [Stack](http://docs.haskellstack.org/) installed in your system to make contributing to this repository easier.
 
 ### Stub solution
-The stub solution must compile together with the test suite. It should be as general as possible in order to not exclude any possible solutions. It should take Haskell specifics into account (for example use `Maybe` instead of a dummy return value). It should not contain any comments (people might forget to remove them), you can use the hints file instead.
+The stub solution should be as general as possible in order to not exclude any possible solutions. It should take Haskell specifics into account (for example use `Maybe` instead of a dummy return value). It should not contain any comments (people might forget to remove them), you can use the hints file instead.
+
+The stub solution must compile by itself (with `stack build`).
+Ideally, it would also compile together with the test suite (with `stack test --no-run-tests`).
+These two conditions are enforced by Travis.
+If the second condition cannot be met for a good reason, place the explanation in `.meta/DONT-TEST-STUB` to circumvent the check.
+The first condition is always enforced and cannot be circumvented.
 
 ### Example solution
 The example solution could be inspiration for other language implementors. It doesn't need to be perfect or very elegant. But it should be efficient enough for the test suite to finish in only a few seconds.
