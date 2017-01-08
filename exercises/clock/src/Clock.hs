@@ -1,5 +1,7 @@
 module Clock (clockHour, clockMin, fromHourMin, toString) where
 
+data Clock = Dummy
+
 clockHour :: Clock -> Int
 clockHour = undefined
 
