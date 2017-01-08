@@ -1,5 +1,7 @@
 module Deque (Deque, mkDeque, pop, push, shift, unshift) where
 
+data Deque a = Dummy
+
 mkDeque :: IO (Deque a)
 mkDeque = undefined
 
