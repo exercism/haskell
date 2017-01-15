@@ -13,25 +13,25 @@ import Prelude hiding
   ( length, reverse, map, filter, foldr, (++), concat )
 
 foldl' :: (b -> a -> b) -> b -> [a] -> b
-foldl' = undefined
+foldl' = error "You need to implement this function."
 
 foldr :: (a -> b -> b) -> b -> [a] -> b
-foldr = undefined
+foldr = error "You need to implement this function."
 
 length :: [a] -> Int
-length = undefined
+length = error "You need to implement this function."
 
 reverse :: [a] -> [a]
-reverse = undefined
+reverse = error "You need to implement this function."
 
 map :: (a -> b) -> [a] -> [b]
-map = undefined
+map = error "You need to implement this function."
 
 filter :: (a -> Bool) -> [a] -> [a]
-filter = undefined
+filter = error "You need to implement this function."
 
 (++) :: [a] -> [a] -> [a]
-xs ++ ys = undefined
+xs ++ ys = error "You need to implement this function."
 
 concat :: [[a]] -> [a]
-concat = undefined
+concat = error "You need to implement this function."

@@ -18,4 +18,4 @@ data Schedule = First
               | Teenth
 
 meetupDay :: Schedule -> Weekday -> Integer -> Int -> Day
-meetupDay schedule weekday year month = undefined
+meetupDay schedule weekday year month = error "You need to implement this function."

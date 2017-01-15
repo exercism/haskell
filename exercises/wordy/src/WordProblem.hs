@@ -1,3 +1,3 @@
 module WordProblem (answer) where
 
-answer = undefined
+answer = error "You need to implement this function."

@@ -3,4 +3,4 @@ module Connect (Mark(..), winner) where
 data Mark = Cross | Nought deriving (Eq, Show)
 
 winner :: [String] -> Maybe Mark
-winner = undefined
+winner = error "You need to implement this function."

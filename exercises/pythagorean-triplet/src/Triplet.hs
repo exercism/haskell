@@ -1,7 +1,7 @@
 module Triplet (isPythagorean, mkTriplet, pythagoreanTriplets) where
 
-isPythagorean = undefined
+isPythagorean = error "You need to implement this function."
 
-mkTriplet = undefined
+mkTriplet = error "You need to implement this function."
 
-pythagoreanTriplets = undefined
+pythagoreanTriplets = error "You need to implement this function."

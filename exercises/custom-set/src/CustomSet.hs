@@ -19,40 +19,40 @@ import Prelude hiding (null)
 data CustomSet a = Dummy deriving (Eq, Show)
 
 delete :: a -> CustomSet a -> CustomSet a
-delete = undefined
+delete = error "You need to implement this function."
 
 difference :: CustomSet a -> CustomSet a -> CustomSet a
-difference = undefined
+difference = error "You need to implement this function."
 
 empty :: CustomSet a
-empty = undefined
+empty = error "You need to implement this function."
 
 fromList :: [a] -> CustomSet a
-fromList = undefined
+fromList = error "You need to implement this function."
 
 insert :: a -> CustomSet a -> CustomSet a
-insert = undefined
+insert = error "You need to implement this function."
 
 intersection :: CustomSet a -> CustomSet a -> CustomSet a
-intersection = undefined
+intersection = error "You need to implement this function."
 
 isDisjointFrom :: CustomSet a -> CustomSet a -> Bool
-isDisjointFrom = undefined
+isDisjointFrom = error "You need to implement this function."
 
 isSubsetOf :: CustomSet a -> CustomSet a -> Bool
-isSubsetOf = undefined
+isSubsetOf = error "You need to implement this function."
 
 member :: a -> CustomSet a -> Bool
-member = undefined
+member = error "You need to implement this function."
 
 null :: CustomSet a -> Bool
-null = undefined
+null = error "You need to implement this function."
 
 size :: CustomSet a -> Int
-size = undefined
+size = error "You need to implement this function."
 
 toList :: CustomSet a -> [a]
-toList = undefined
+toList = error "You need to implement this function."
 
 union :: CustomSet a -> CustomSet a -> CustomSet a
-union = undefined
+union = error "You need to implement this function."

@@ -1,11 +1,11 @@
 module Luhn (addends, checkDigit, checksum, create, isValid) where
 
-addends = undefined
+addends = error "You need to implement this function."
 
-checkDigit = undefined
+checkDigit = error "You need to implement this function."
 
-checksum = undefined
+checksum = error "You need to implement this function."
 
-create = undefined
+create = error "You need to implement this function."
 
-isValid = undefined
+isValid = error "You need to implement this function."

@@ -1,7 +1,7 @@
 module RunLength (decode, encode) where
 
 decode :: String -> String
-decode = undefined
+decode = error "You need to implement this function."
 
 encode :: String -> String
-encode = undefined
+encode = error "You need to implement this function."

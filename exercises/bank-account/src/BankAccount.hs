@@ -9,13 +9,13 @@ module BankAccount
 data BankAccount = Dummy
 
 closeAccount :: BankAccount -> IO ()
-closeAccount = undefined
+closeAccount = error "You need to implement this function."
 
 getBalance :: BankAccount -> IO (Maybe Integer)
-getBalance = undefined
+getBalance = error "You need to implement this function."
 
 incrementBalance :: BankAccount -> Integer -> IO (Maybe Integer)
-incrementBalance = undefined
+incrementBalance = error "You need to implement this function."
 
 openAccount :: IO BankAccount
-openAccount = undefined
+openAccount = error "You need to implement this function."

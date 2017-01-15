@@ -10,4 +10,4 @@ data Planet = Mercury
             | Neptune
 
 ageOn :: Planet -> Float -> Float
-ageOn planet seconds = undefined
+ageOn planet seconds = error "You need to implement this function."

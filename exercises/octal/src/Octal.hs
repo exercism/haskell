@@ -1,5 +1,5 @@
 module Octal (readOct, showOct) where
 
-readOct = undefined
+readOct = error "You need to implement this function."
 
-showOct = undefined
+showOct = error "You need to implement this function."

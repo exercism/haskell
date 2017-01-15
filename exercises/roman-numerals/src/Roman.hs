@@ -1,3 +1,3 @@
 module Roman (numerals) where
 
-numerals = undefined
+numerals = error "You need to implement this function."

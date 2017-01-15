@@ -1,5 +1,5 @@
 module Scrabble (scoreLetter, scoreWord) where
 
-scoreLetter = undefined
+scoreLetter = error "You need to implement this function."
 
-scoreWord = undefined
+scoreWord = error "You need to implement this function."

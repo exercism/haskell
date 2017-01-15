@@ -1,3 +1,3 @@
 module Raindrops (convert) where
 
-convert = undefined
+convert = error "You need to implement this function."

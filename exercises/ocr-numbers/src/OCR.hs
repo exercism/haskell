@@ -1,4 +1,4 @@
 module OCR (convert) where
 
 convert :: String -> String
-convert = undefined
+convert = error "You need to implement this function."

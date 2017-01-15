@@ -1,10 +1,10 @@
 module Phone (areaCode, number, prettyPrint) where
 
 areaCode :: String -> Maybe String
-areaCode = undefined
+areaCode = error "You need to implement this function."
 
 number :: String -> Maybe String
-number = undefined
+number = error "You need to implement this function."
 
 prettyPrint :: String -> Maybe String
-prettyPrint = undefined
+prettyPrint = error "You need to implement this function."

@@ -1,7 +1,7 @@
 module Grains (square, total) where
 
 square :: Integer -> Maybe Integer
-square n = undefined
+square n = error "You need to implement this function."
 
 total :: Integer
-total = undefined
+total = error "You need to implement this function."

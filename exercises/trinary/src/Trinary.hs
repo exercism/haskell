@@ -1,5 +1,5 @@
 module Trinary (readTri, showTri) where
 
-readTri = undefined
+readTri = error "You need to implement this function."
 
-showTri = undefined
+showTri = error "You need to implement this function."

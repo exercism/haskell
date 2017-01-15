@@ -19,28 +19,28 @@ data BinTree a = BT { btValue :: a
 data Zipper a = Dummy deriving (Eq, Show)
 
 fromTree :: BinTree a -> Zipper a
-fromTree = undefined
+fromTree = error "You need to implement this function."
 
 toTree :: Zipper a -> BinTree a
-toTree = undefined
+toTree = error "You need to implement this function."
 
 value :: Zipper a -> a
-value = undefined
+value = error "You need to implement this function."
 
 left :: Zipper a -> Maybe (Zipper a)
-left = undefined
+left = error "You need to implement this function."
 
 right :: Zipper a -> Maybe (Zipper a)
-right = undefined
+right = error "You need to implement this function."
 
 up :: Zipper a -> Maybe (Zipper a)
-up = undefined
+up = error "You need to implement this function."
 
 setValue :: a -> Zipper a -> Zipper a
-setValue = undefined
+setValue = error "You need to implement this function."
 
 setLeft :: Maybe (BinTree a) -> Zipper a -> Zipper a
-setLeft = undefined
+setLeft = error "You need to implement this function."
 
 setRight :: Maybe (BinTree a) -> Zipper a -> Zipper a
-setRight = undefined
+setRight = error "You need to implement this function."

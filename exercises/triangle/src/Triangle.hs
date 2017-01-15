@@ -6,4 +6,4 @@ data TriangleType = Equilateral
                   | Illegal
                   deriving (Eq, Show)
 
-triangleType = undefined
+triangleType = error "You need to implement this function."

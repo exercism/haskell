@@ -1,3 +1,3 @@
 module Sieve (primesUpTo) where
 
-primesUpTo = undefined
+primesUpTo = error "You need to implement this function."

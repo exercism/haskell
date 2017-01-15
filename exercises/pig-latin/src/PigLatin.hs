@@ -1,4 +1,4 @@
 module PigLatin (translate) where
 
 translate :: String -> String
-translate = undefined
+translate = error "You need to implement this function."

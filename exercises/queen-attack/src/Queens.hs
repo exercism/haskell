@@ -1,7 +1,7 @@
 module Queens (boardString, canAttack) where
 
 boardString :: Maybe (Int, Int) -> Maybe (Int, Int) -> String
-boardString white black = undefined
+boardString white black = error "You need to implement this function."
 
 canAttack :: (Int, Int) -> (Int, Int) -> Bool
-canAttack = undefined
+canAttack = error "You need to implement this function."
