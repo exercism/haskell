@@ -3,13 +3,13 @@ module Clock (clockHour, clockMin, fromHourMin, toString) where
 data Clock = Dummy
 
 clockHour :: Clock -> Int
-clockHour = undefined
+clockHour = error "You need to implement this function."
 
 clockMin :: Clock -> Int
-clockMin = undefined
+clockMin = error "You need to implement this function."
 
 fromHourMin :: Int -> Int -> Clock
-fromHourMin = undefined
+fromHourMin = error "You need to implement this function."
 
 toString :: Clock -> String
-toString = undefined
+toString = error "You need to implement this function."

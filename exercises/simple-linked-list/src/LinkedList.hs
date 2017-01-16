@@ -13,25 +13,25 @@ module LinkedList
 data LinkedList a = Dummy
 
 datum :: LinkedList a -> a
-datum = undefined
+datum = error "You need to implement this function."
 
 fromList :: [a] -> LinkedList a
-fromList = undefined
+fromList = error "You need to implement this function."
 
 isNil :: LinkedList a -> Bool
-isNil = undefined
+isNil = error "You need to implement this function."
 
 new :: a -> LinkedList a -> LinkedList a
-new = undefined
+new = error "You need to implement this function."
 
 next :: LinkedList a -> LinkedList a
-next = undefined
+next = error "You need to implement this function."
 
 nil :: LinkedList a
-nil = undefined
+nil = error "You need to implement this function."
 
 reverseLinkedList :: LinkedList a -> LinkedList a
-reverseLinkedList = undefined
+reverseLinkedList = error "You need to implement this function."
 
 toList :: LinkedList a -> [a]
-toList = undefined
+toList = error "You need to implement this function."

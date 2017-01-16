@@ -11,7 +11,7 @@ data Allergen = Eggs
               deriving (Eq)
 
 allergies :: Int -> [Allergen]
-allergies = undefined
+allergies = error "You need to implement this function."
 
 isAllergicTo :: Allergen -> Int -> Bool
-isAllergicTo = undefined
+isAllergicTo = error "You need to implement this function."

@@ -13,25 +13,25 @@ module BST
 data BST a = Dummy deriving (Eq, Show)
 
 bstLeft :: BST a -> Maybe (BST a)
-bstLeft = undefined
+bstLeft = error "You need to implement this function."
 
 bstRight :: BST a -> Maybe (BST a)
-bstRight = undefined
+bstRight = error "You need to implement this function."
 
 bstValue :: BST a -> Maybe a
-bstValue = undefined
+bstValue = error "You need to implement this function."
 
 empty :: BST a
-empty = undefined
+empty = error "You need to implement this function."
 
 fromList :: Ord a => [a] -> BST a
-fromList = undefined
+fromList = error "You need to implement this function."
 
 insert :: Ord a => a -> BST a -> BST a
-insert = undefined
+insert = error "You need to implement this function."
 
 singleton :: a -> BST a
-singleton = undefined
+singleton = error "You need to implement this function."
 
 toList :: BST a -> [a]
-toList = undefined
+toList = error "You need to implement this function."

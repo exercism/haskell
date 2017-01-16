@@ -17,19 +17,19 @@ data Bearing = North
 data Robot = Dummy
 
 bearing :: Robot -> Bearing
-bearing = undefined
+bearing = error "You need to implement this function."
 
 coordinates :: Robot -> (Integer, Integer)
-coordinates = undefined
+coordinates = error "You need to implement this function."
 
 mkRobot :: Bearing -> (Integer, Integer) -> Robot
-mkRobot = undefined
+mkRobot = error "You need to implement this function."
 
 simulate :: Robot -> String -> Robot
-simulate = undefined
+simulate = error "You need to implement this function."
 
 turnLeft :: Bearing -> Bearing
-turnLeft = undefined
+turnLeft = error "You need to implement this function."
 
 turnRight :: Bearing -> Bearing
-turnRight = undefined
+turnRight = error "You need to implement this function."

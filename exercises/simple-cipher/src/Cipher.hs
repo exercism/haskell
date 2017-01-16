@@ -1,10 +1,10 @@
 module Cipher (caesarDecode, caesarEncode, caesarEncodeRandom) where
 
 caesarDecode :: String -> String -> String
-caesarDecode = undefined
+caesarDecode = error "You need to implement this function."
 
 caesarEncode :: String -> String -> String
-caesarEncode = undefined
+caesarEncode = error "You need to implement this function."
 
 caesarEncodeRandom :: String -> IO (String, String)
-caesarEncodeRandom = undefined
+caesarEncodeRandom = error "You need to implement this function."

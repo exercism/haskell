@@ -1,3 +1,3 @@
 module Prime (nth) where
 
-nth = undefined
+nth = error "You need to implement this function."

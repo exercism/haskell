@@ -1,10 +1,10 @@
 module Squares (difference, squareOfSums, sumOfSquares) where
 
 difference :: Integral a => a -> a
-difference = undefined
+difference = error "You need to implement this function."
 
 squareOfSums :: Integral a => a -> a
-squareOfSums = undefined
+squareOfSums = error "You need to implement this function."
 
 sumOfSquares :: Integral a => a -> a
-sumOfSquares = undefined
+sumOfSquares = error "You need to implement this function."

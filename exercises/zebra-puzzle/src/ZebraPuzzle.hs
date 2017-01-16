@@ -8,5 +8,5 @@ data Solution = Solution { waterDrinker :: Resident
                          } deriving (Eq, Show)
 
 solve :: Solution
-solve = undefined
+solve = error "You need to implement this function."
 

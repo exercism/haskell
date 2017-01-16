@@ -14,10 +14,10 @@ data Plant = Clover
            deriving (Eq, Show)
 
 defaultGarden :: String -> Map String [Plant]
-defaultGarden = undefined
+defaultGarden = error "You need to implement this function."
 
 garden :: [String] -> String -> Map String [Plant]
-garden = undefined
+garden = error "You need to implement this function."
 
 lookupPlants :: String -> Map String [Plant] -> [Plant]
-lookupPlants = undefined
+lookupPlants = error "You need to implement this function."

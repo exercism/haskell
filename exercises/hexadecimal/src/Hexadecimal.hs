@@ -1,3 +1,3 @@
 module Hexadecimal (hexToInt) where
 
-hexToInt = undefined
+hexToInt = error "You need to implement this function."

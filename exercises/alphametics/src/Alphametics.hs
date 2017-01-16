@@ -1,4 +1,4 @@
 module Alphametics (solve) where
 
 solve :: String -> Maybe [(Char, Int)]
-solve puzzle = undefined
+solve puzzle = error "You need to implement this function."

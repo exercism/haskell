@@ -1,3 +1,3 @@
 module SecretHandshake (handshake) where
 
-handshake = undefined
+handshake = error "You need to implement this function."

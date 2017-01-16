@@ -31,13 +31,13 @@ data Address = Address { _street      :: String
                        }
 
 bornStreet :: Born -> String
-bornStreet = undefined
+bornStreet = error "You need to implement this function."
 
 setCurrentStreet :: String -> Person -> Person
-setCurrentStreet = undefined
+setCurrentStreet = error "You need to implement this function."
 
 setBirthMonth :: Int -> Person -> Person
-setBirthMonth = undefined
+setBirthMonth = error "You need to implement this function."
 
 renameStreets :: (String -> String) -> Person -> Person
-renameStreets = undefined
+renameStreets = error "You need to implement this function."

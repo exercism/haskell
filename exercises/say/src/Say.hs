@@ -1,3 +1,3 @@
 module Say (inEnglish) where
 
-inEnglish = undefined
+inEnglish = error "You need to implement this function."

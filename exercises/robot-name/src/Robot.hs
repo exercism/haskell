@@ -3,10 +3,10 @@ module Robot (Robot, mkRobot, resetName, robotName) where
 data Robot = Dummy
 
 mkRobot :: IO Robot
-mkRobot = undefined
+mkRobot = error "You need to implement this function."
 
 resetName :: Robot -> IO ()
-resetName = undefined
+resetName = error "You need to implement this function."
 
 robotName :: Robot -> IO String
-robotName = undefined
+robotName = error "You need to implement this function."

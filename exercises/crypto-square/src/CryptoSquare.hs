@@ -1,4 +1,4 @@
 module CryptoSquare (encode) where
 
 encode :: String -> String
-encode = undefined
+encode = error "You need to implement this function."

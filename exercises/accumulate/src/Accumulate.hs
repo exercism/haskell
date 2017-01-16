@@ -1,4 +1,4 @@
 module Accumulate (accumulate) where
 
 accumulate :: (a -> b) -> [a] -> [b]
-accumulate = undefined
+accumulate = error "You need to implement this function."

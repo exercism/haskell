@@ -1,3 +1,3 @@
 module Hamming (distance) where
 
-distance = undefined
+distance = error "You need to implement this function."

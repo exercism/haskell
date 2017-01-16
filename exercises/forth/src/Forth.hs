@@ -20,10 +20,10 @@ data ForthError
 data ForthState = Dummy
 
 empty :: ForthState
-empty = undefined
+empty = error "You need to implement this function."
 
 evalText :: Text -> ForthState -> Either ForthError ForthState
-evalText = undefined
+evalText = error "You need to implement this function."
 
 toList :: ForthState -> [Int]
-toList = undefined
+toList = error "You need to implement this function."

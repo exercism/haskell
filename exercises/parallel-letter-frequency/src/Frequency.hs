@@ -4,4 +4,4 @@ import Data.Map  (Map)
 import Data.Text (Text)
 
 frequency :: Int -> [Text] -> Map Char Int
-frequency nWorkers texts = undefined
+frequency nWorkers texts = error "You need to implement this function."
