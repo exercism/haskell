@@ -2,8 +2,8 @@
 
 module Person where
 
-import           Control.Lens
-import           Data.Time.Calendar
+import Control.Lens
+import Data.Time.Calendar
 
 data Person = Person {
       _name    :: Name,
