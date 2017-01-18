@@ -8,7 +8,6 @@ library:
   exposed-modules: Person
   source-dirs: src
   dependencies:
-    - lens
 
 tests:
   test:
