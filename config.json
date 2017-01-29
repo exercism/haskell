@@ -32,6 +32,7 @@
       "slug": "rna-transcription",
       "difficulty": 1,
       "topics": [
+        "Maybe"
       ]
     },
     {
@@ -50,24 +51,28 @@
       "slug": "grains",
       "difficulty": 2,
       "topics": [
+        "Maybe"
       ]
     },
     {
       "slug": "hamming",
       "difficulty": 2,
       "topics": [
+        "Maybe"
       ]
     },
     {
       "slug": "nucleotide-count",
       "difficulty": 2,
       "topics": [
+        "Either"
       ]
     },
     {
       "slug": "grade-school",
       "difficulty": 2,
       "topics": [
+        "Define type"
       ]
     },
     {
@@ -86,24 +91,30 @@
       "slug": "accumulate",
       "difficulty": 3,
       "topics": [
+        "Lazy evaluation",
+        "Library reimplementation"
       ]
     },
     {
       "slug": "strain",
       "difficulty": 3,
       "topics": [
+        "Lazy evaluation",
+        "Library reimplementation"
       ]
     },
     {
       "slug": "phone-number",
       "difficulty": 3,
       "topics": [
+        "Maybe"
       ]
     },
     {
       "slug": "beer-song",
       "difficulty": 3,
       "topics": [
+        "Refactoring"
       ]
     },
     {
@@ -128,12 +139,14 @@
       "slug": "robot-simulator",
       "difficulty": 3,
       "topics": [
+        "Define type"
       ]
     },
     {
       "slug": "secret-handshake",
       "difficulty": 3,
       "topics": [
+        "instance custom"
       ]
     },
     {
@@ -146,12 +159,16 @@
       "slug": "simple-linked-list",
       "difficulty": 4,
       "topics": [
+        "Define type",
+        "Library reimplementation"
       ]
     },
     {
       "slug": "list-ops",
       "difficulty": 4,
       "topics": [
+        "Accumulator-strictness",
+        "Library reimplementation"
       ]
     },
     {
@@ -164,6 +181,7 @@
       "slug": "roman-numerals",
       "difficulty": 4,
       "topics": [
+        "Maybe"
       ]
     },
     {
@@ -182,30 +200,36 @@
       "slug": "all-your-base",
       "difficulty": 4,
       "topics": [
+        "Maybe"
       ]
     },
     {
       "slug": "largest-series-product",
       "difficulty": 4,
       "topics": [
+        "Maybe"
       ]
     },
     {
       "slug": "clock",
       "difficulty": 4,
       "topics": [
+        "Define type",
+        "instance Num"
       ]
     },
     {
       "slug": "matrix",
       "difficulty": 4,
       "topics": [
+        "Define type"
       ]
     },
     {
       "slug": "house",
       "difficulty": 4,
       "topics": [
+        "Refactoring"
       ]
     },
     {
@@ -254,6 +278,7 @@
       "slug": "nth-prime",
       "difficulty": 5,
       "topics": [
+        "Maybe"
       ]
     },
     {
@@ -266,6 +291,8 @@
       "slug": "binary-search-tree",
       "difficulty": 5,
       "topics": [
+        "Define type",
+        "Maybe"
       ]
     },
     {
@@ -278,6 +305,7 @@
       "slug": "queen-attack",
       "difficulty": 5,
       "topics": [
+        "Maybe"
       ]
     },
     {
@@ -290,12 +318,15 @@
       "slug": "food-chain",
       "difficulty": 5,
       "topics": [
+        "Refactoring"
       ]
     },
     {
       "slug": "custom-set",
       "difficulty": 5,
       "topics": [
+        "Define type",
+        "Library reimplementation"
       ]
     },
     {
@@ -308,6 +339,9 @@
       "slug": "simple-cipher",
       "difficulty": 6,
       "topics": [
+        "IO monad",
+        "Random",
+        "Mutable state"
       ]
     },
     {
@@ -320,6 +354,9 @@
       "slug": "robot-name",
       "difficulty": 6,
       "topics": [
+        "Define type",
+        "IO monad",
+        "Random"
       ]
     },
     {
@@ -332,12 +369,17 @@
       "slug": "say",
       "difficulty": 6,
       "topics": [
+        "Maybe"
       ]
     },
     {
       "slug": "bank-account",
       "difficulty": 6,
       "topics": [
+        "Define type",
+        "IO monad",
+        "Maybe",
+        "Mutable state"
       ]
     },
     {
@@ -350,6 +392,11 @@
       "slug": "linked-list",
       "difficulty": 6,
       "topics": [
+        "Define type",
+        "IO monad",
+        "Library reimplementation",
+        "Maybe",
+        "Mutable state"
       ]
     },
     {
@@ -368,48 +415,56 @@
       "slug": "wordy",
       "difficulty": 7,
       "topics": [
+        "Maybe"
       ]
     },
     {
       "slug": "change",
       "difficulty": 7,
       "topics": [
+        "Maybe"
       ]
     },
     {
       "slug": "alphametics",
       "difficulty": 7,
       "topics": [
+        "Maybe"
       ]
     },
     {
       "slug": "bowling",
       "difficulty": 7,
       "topics": [
+        "Either"
       ]
     },
     {
       "slug": "connect",
       "difficulty": 8,
       "topics": [
+        "Maybe"
       ]
     },
     {
       "slug": "dominoes",
       "difficulty": 8,
       "topics": [
+        "Maybe"
       ]
     },
     {
       "slug": "sgf-parsing",
       "difficulty": 9,
       "topics": [
+        "Maybe"
       ]
     },
     {
       "slug": "go-counting",
       "difficulty": 9,
       "topics": [
+        "Maybe"
       ]
     },
     {
@@ -422,18 +477,23 @@
       "slug": "zipper",
       "difficulty": 10,
       "topics": [
+        "Define type",
+        "Maybe"
       ]
     },
     {
       "slug": "forth",
       "difficulty": 10,
       "topics": [
+        "Define type",
+        "Either"
       ]
     },
     {
       "slug": "pov",
       "difficulty": 10,
       "topics": [
+        "Maybe"
       ]
     }
   ],
