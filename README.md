@@ -127,6 +127,14 @@ The first condition is always enforced and cannot be circumvented.
 ### Example solution
 The example solution could be inspiration for other language implementors. It doesn't need to be perfect or very elegant. But it should be efficient enough for the test suite to finish in only a few seconds.
 
+Examples are named `<type>-<name>`.
+There are three possible types of examples:
+
+* success: The example is expected to pass the tests.
+  There should be at least one of these per exercise.
+* fail: The example is expected to build, but fail the tests.
+* error: The example is expected to fail to build.
+
 ### Test suite
 The test suite should be derived from the respective `x-common/exercises/<exercise-name>/canonical-data.json` and comply to some formatting and coding standards (to get an idea you may look at some of the existing tests).
 
