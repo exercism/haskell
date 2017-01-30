@@ -1,0 +1,35 @@
+#!/bin/sh
+
+if [ $# -eq 0 ]; then
+    echo "usage: $0 /path/to/exercise/example"
+    exit 1
+fi
+
+exampledir=$(cd "$1" && pwd)
+
+examplename=$(basename "$exampledir")
+exercisedir=$(cd "$exampledir/../.." && pwd)
+exercisename=$(basename "$exercisedir")
+xhaskell=$(cd "$(dirname "$0")/.." && pwd)
+
+buildfolder="${TRAVIS_BUILD_DIR:-$xhaskell}/build/${exercisename}/${examplename}"
+mkdir -p "${buildfolder}"
+cp -rL ${exercisedir}/stack.yaml ${exercisedir}/test ${exampledir}/* "${buildfolder}"
+
+cd $buildfolder
+
+if [ -n "$TRAVIS" ]; then
+    cachedir="$HOME"
+else
+    cachedir="$xhaskell"
+fi
+examplecache="${cachedir}/.foldercache/${exercisename}/${examplename}/.stack-work"
+mkdir -p "$examplecache"
+ln -f -s "$examplecache"
+
+echo "testing ${exampledir}"
+# SET_RESOLVER passed by .travis.yml - sets --resolver if not current.
+stack test ${SET_RESOLVER} `# Select the correct resolver. `\
+           --install-ghc   `# Download GHC if not in cache.`\
+           --no-terminal   `# Terminal detection is broken.`\
+           --pedantic      `# Enable -Wall and -Werror.    `

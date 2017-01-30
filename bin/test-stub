@@ -1,0 +1,35 @@
+#!/bin/sh
+
+if [ $# -eq 0 ]; then
+    echo "usage: $0 /path/to/exercise"
+    exit 1
+fi
+
+exercisedir=$(cd "$1" && pwd)
+exercisename=$(basename "$exercisedir")
+examplename="stub"
+xhaskell=$(cd "$(dirname "$0")/.." && pwd)
+
+buildfolder="${TRAVIS_BUILD_DIR:-$xhaskell}/build/${exercisename}/${examplename}"
+mkdir -p "${buildfolder}"
+cp -rL ${exercisedir}/stack.yaml ${exercisedir}/package.yaml ${exercisedir}/src ${exercisedir}/test "${buildfolder}"
+
+cd $buildfolder
+
+if [ -n "$TRAVIS" ]; then
+    cachedir="$HOME"
+else
+    cachedir="$xhaskell"
+fi
+examplecache="${cachedir}/.foldercache/${exercisename}/${examplename}/.stack-work"
+mkdir -p "$examplecache"
+ln -f -s "$examplecache"
+
+# SET_RESOLVER passed by .travis.yml - sets --resolver if not current.
+if [ -f "${exercisedir}/.meta/DONT-TEST-STUB" ]; then
+    echo "only building stub"
+    stack build ${SET_RESOLVER} --install-ghc --no-terminal
+else
+    echo "testing stub"
+    stack test ${SET_RESOLVER} --install-ghc --no-terminal --no-run-tests
+fi

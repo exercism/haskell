@@ -138,17 +138,12 @@ a few seconds.
 
 First you need to provide an [example solution](#example-solution).
 
-Running `stack test --pedantic` compiles and runs the tests with
-`-Wall -Werror`, but unfortunately it doesn't recompile unchanged
-source code already compiled with warnings.
+We provide three scripts in the `bin` directory of this repository to run the tests.
+These are the same scripts as those used by Travis CI.
 
-To be really sure that everything compiles correctly without
-warnings, your must first run `stack clean`.
-
-```bash
-stack clean
-stack test --pedantic
-```
+* `test-example path/to/example/dir` runs the tests on a single example.
+* `test-all-examples path/to/exercise/dir` runs the tests on all examples for an exercise.
+* `test-stub path/to/exercise/dir` checks that the stub for the given exercise compiles.
 
 ### Running HLint
 All code in this repository should be as idiomatic as possible, so we
