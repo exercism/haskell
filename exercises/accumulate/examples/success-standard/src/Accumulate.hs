@@ -12,11 +12,4 @@ accumulate f = foldr ((:) . f) []
 
 accumulate f xs = [f x | x <- xs]
 
--- Commonly submitted inefficient solution (we test for this now):
-
-accumulate f = accumulate' []
-  where
-    accumulate' acc []     = reverse acc
-    accumulate' acc (x:xs) = accumulate' (f x : acc) xs
-
 -}
