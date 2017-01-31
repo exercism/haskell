@@ -9,43 +9,40 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = describe "secret-handshake" $ do
 
-    -- As of 2016-09-12, there was no reference file
-    -- for the test cases in `exercism/x-common`.
+    -- Test cases adapted from `exercism/x-common/secret-handshake` on 2017-01-31.
 
-    it "1 to wink" $ do
+    it "wink for 1" $
       handshake (1 :: Int) `shouldBe` ["wink"]
-      handshake "1"        `shouldBe` ["wink"]
 
-    it "10 to double blink" $ do
+    it "double blink for 10" $
       handshake (2 :: Int) `shouldBe` ["double blink"]
-      handshake "10"       `shouldBe` ["double blink"]
 
-    it "100 to close your eyes" $ do
+    it "close your eyes for 100" $
       handshake (4 :: Int) `shouldBe` ["close your eyes"]
-      handshake "100"      `shouldBe` ["close your eyes"]
 
-    it "1000 to jump" $ do
+    it "jump for 1000" $
       handshake (8 :: Int) `shouldBe` ["jump"]
-      handshake "1000"     `shouldBe` ["jump"]
 
-    it "11 to wink and double blink" $ do
+    it "combine two actions" $
       handshake (3 :: Int) `shouldBe` ["wink", "double blink"]
-      handshake "11"       `shouldBe` ["wink", "double blink"]
 
-    it "10011 to double blink and wink" $ do
+    it "reverse two actions" $
       handshake (19 :: Int) `shouldBe` ["double blink", "wink"]
-      handshake "10011"     `shouldBe` ["double blink", "wink"]
 
-    it "11111 to jump, close your eyes, double blink, and wink" $ do
+    it "reversing one action gives the same action" $
+      handshake (24 :: Int) `shouldBe` ["jump"]
+
+    it "reversing no actions still gives no actions" $
+      handshake (16 :: Int) `shouldBe` []
+
+    it "all possible actions" $
+      handshake (15 :: Int) `shouldBe` ["wink", "double blink", "close your eyes", "jump"]
+
+    it "reverse all possible actions" $
       handshake (31 :: Int) `shouldBe` ["jump", "close your eyes", "double blink", "wink"]
-      handshake "11111"     `shouldBe` ["jump", "close your eyes", "double blink", "wink"]
 
-    it "zero" $ do
+    it "do nothing for zero" $
       handshake (0 :: Int) `shouldBe` []
-      handshake "0"        `shouldBe` []
 
-    it "gibberish" $
-      handshake "piggies" `shouldBe` []
-
-    it "partial gibberish" $
-      handshake "1piggies" `shouldBe` []
+    it "do nothing if lower 5 bits not set" $
+      handshake (32 :: Int) `shouldBe` []
