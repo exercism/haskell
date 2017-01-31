@@ -1,9 +1,6 @@
-module DNA (count, nucleotideCounts) where
+module DNA (nucleotideCounts) where
 
-import Data.Map.Strict (Map, (!), fromDistinctAscList, fromListWith, findWithDefault)
-
-count :: Char -> String -> Either String Int
-count x xs = (!) <$> nucleotideCounts xs <*> valid x
+import Data.Map.Strict (Map, fromDistinctAscList, fromListWith, findWithDefault)
 
 nucleotideCounts :: String -> Either String (Map Char Int)
 nucleotideCounts xs = fromDistinctAscList <$> mapM count' "ACGT"
