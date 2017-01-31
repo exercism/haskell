@@ -19,17 +19,12 @@ specs = describe "prime-factors" $
         explanation = show n
         assertion   = primeFactors n `shouldBe` expected
 
-    -- As of 2016-07-31, there was no reference file
-    -- for the test cases in `exercism/x-common`.
+    -- Test cases adapted from `exercism/x-common/prime-factors` on 2017-02-01.
 
     cases = [ (          1,                 [] )
             , (          2,                [2] )
-            , (          3,                [3] )
-            , (          4,             [2, 2] )
-            , (          6,             [2, 3] )
-            , (          8,          [2, 2, 2] )
             , (          9,             [3, 3] )
-            , (         27,          [3, 3, 3] )
-            , (        625,       [5, 5, 5, 5] )
+            , (          8,          [2, 2, 2] )
+            , (         12,          [2, 2, 3] )
             , (     901255,   [5, 17, 23, 461] )
             , (93819012551, [11, 9539, 894119] ) ]
