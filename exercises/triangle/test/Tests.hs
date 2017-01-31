@@ -55,6 +55,10 @@ specs = describe "triangle" $
               , (3, 4, 5)
               , Scalene
               )
+            , ( "2a == b+c looks like equilateral, but isn't always"
+              , (5, 4, 6)
+              , Scalene
+              )
             , ( "larger scalene triangle"
               , (10, 11, 12)
               , Scalene
