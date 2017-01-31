@@ -14,7 +14,7 @@ xhaskell=$(cd "$(dirname "$0")/.." && pwd)
 
 buildfolder="${TRAVIS_BUILD_DIR:-$xhaskell}/build/${exercisename}/${examplename}"
 mkdir -p "${buildfolder}"
-cp -rL ${exercisedir}/stack.yaml ${exercisedir}/test ${exampledir}/* "${buildfolder}"
+cp -R -L ${exercisedir}/stack.yaml ${exercisedir}/test ${exampledir}/* "${buildfolder}"
 
 cd $buildfolder
 
