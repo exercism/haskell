@@ -12,8 +12,16 @@ exercisedir=$(cd "$exampledir/../.." && pwd)
 exercisename=$(basename "$exercisedir")
 xhaskell=$(cd "$(dirname "$0")/.." && pwd)
 
-buildfolder="${TRAVIS_BUILD_DIR:-$xhaskell}/build/${exercisename}/${examplename}"
+# We would ideally use a tmpdir here,
+# but stack will invalidate its cache if the path changes,
+# so the best alternative seems to be to put it in xhaskell.
+buildfolder="${xhaskell}/build/${exercisename}/${examplename}"
 mkdir -p "${buildfolder}"
+cleanup() {
+    rm -r "${xhaskell}/build"
+}
+trap cleanup EXIT INT TERM
+
 cp -R -L ${exercisedir}/stack.yaml ${exercisedir}/test ${exampledir}/* "${buildfolder}"
 
 cd $buildfolder
