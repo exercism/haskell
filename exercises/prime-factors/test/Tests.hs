@@ -14,22 +14,16 @@ specs = describe "prime-factors" $
           describe "primeFactors" $ for_ cases test
   where
 
-    test (n, expected) = it explanation assertion
+    test (description, n, expected) = it description assertion
       where
-        explanation = show n
         assertion   = primeFactors n `shouldBe` expected
 
-    -- As of 2016-07-31, there was no reference file
-    -- for the test cases in `exercism/x-common`.
+    -- Test cases adapted from `exercism/x-common/prime-factors` on 2017-02-01.
 
-    cases = [ (          1,                 [] )
-            , (          2,                [2] )
-            , (          3,                [3] )
-            , (          4,             [2, 2] )
-            , (          6,             [2, 3] )
-            , (          8,          [2, 2, 2] )
-            , (          9,             [3, 3] )
-            , (         27,          [3, 3, 3] )
-            , (        625,       [5, 5, 5, 5] )
-            , (     901255,   [5, 17, 23, 461] )
-            , (93819012551, [11, 9539, 894119] ) ]
+    cases = [ ("no factors",                              1,                 [] )
+            , ("prime number",                            2,                [2] )
+            , ("square of a prime",                       9,             [3, 3] )
+            , ("cube of a prime",                         8,          [2, 2, 2] )
+            , ("product of primes and non-primes",       12,          [2, 2, 3] )
+            , ("product of primes",                  901255,   [5, 17, 23, 461] )
+            , ("factors include a large prime", 93819012551, [11, 9539, 894119] ) ]
