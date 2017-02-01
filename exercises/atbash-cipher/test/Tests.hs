@@ -16,7 +16,7 @@ specs = describe "atbash-cipher" $ do
   where
     test f Case{..} = it description $ f phrase `shouldBe` expected
 
--- Test cases adapted from `exercism/x-common/atbash-cipher.json` on 2016-08-02.
+-- Test cases adapted from `exercism/x-common/atbash-cipher.json` on 2017-02-01.
 
 data Case = Case { description :: String
                  , phrase      :: String
@@ -56,10 +56,6 @@ encodeCases =
     , Case { description = "encode all the letters"
            , phrase      = "The quick brown fox jumps over the lazy dog."
            , expected    = "gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt"
-           }
-    , Case { description = "encode ignores non ascii"
-           , phrase      = "non ascii éignored"
-           , expected    = "mlmzh xrrrt mlivw"
            }
     ]
 
