@@ -12,24 +12,23 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = describe "etl" $
 
-  -- As of 2016-07-27, there was no reference file
-  -- for the test cases in `exercism/x-common`.
+  -- Test cases adapted from `exercism/x-common/etl` on 2017-01-31.
 
   describe "transform" $ do
 
-    it "transform one value" $
+    it "a single letter" $
       transform (fromList [(1, "A")])
       `shouldBe` fromList [('a', 1)]
 
-    it "transform multiple keys from one value" $
-      transform (fromList [(1, "AE")])
-      `shouldBe` fromList [('a', 1), ('e', 1)]
+    it "single score with multiple letters" $
+      transform (fromList [(1, "AEIOU")])
+      `shouldBe` fromList [('a', 1), ('e', 1), ('i', 1), ('o', 1), ('u', 1)]
 
-    it "transform multiple keys from multiple values" $
-      transform (fromList [(1, "A"), (4, "B")])
-      `shouldBe` fromList [('a', 1), ('b', 4)]
+    it "multiple scores with multiple letters" $
+      transform (fromList [(1, "AE"), (2, "DG")])
+      `shouldBe` fromList [('a', 1), ('e', 1), ('d', 2), ('g', 2)]
 
-    it "full dataset" $
+    it "multiple scores with differing numbers of letters" $
       transform (fromList fullInput)
       `shouldBe` fromList fullOutput
 
