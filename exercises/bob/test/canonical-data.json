@@ -1,0 +1,184 @@
+{
+  "exercise":"bob",
+  "version":"0.1.0",
+  "comments":[
+    "Whatever."
+  ],
+  "group":[
+    {
+      "response":{
+        "description":"stating something",
+        "input":"Tom-ay-to, tom-aaaah-to.",
+        "expected":"Whatever."
+      }
+    },
+    {
+      "response":{
+        "description":"shouting",
+        "input":"WATCH OUT!",
+        "expected":"Whoa, chill out!"
+      }
+    },
+    {
+      "response":{
+        "description":"shouting gibberish",
+        "input":"FCECDFCAAB",
+        "expected":"Whoa, chill out!"
+      }
+    },
+    {
+      "response":{
+        "description":"asking a question",
+        "input":"Does this cryogenic chamber make me look fat?",
+        "expected":"Sure."
+      }
+    },
+    {
+      "response":{
+        "description":"asking a numeric question",
+        "input":"You are, what, like 15?",
+        "expected":"Sure."
+      }
+    },
+    {
+      "response":{
+        "description":"asking gibberish",
+        "input":"fffbbcbeab?",
+        "expected":"Sure."
+      }
+    },
+    {
+      "response":{
+        "description":"talking forcefully",
+        "input":"Let's go make out behind the gym!",
+        "expected":"Whatever."
+      }
+    },
+    {
+      "response":{
+        "description":"using acronyms in regular speech",
+        "input":"It's OK if you don't want to go to the DMV.",
+        "expected":"Whatever."
+      }
+    },
+    {
+      "response":{
+        "description":"forceful question",
+        "input":"WHAT THE HELL WERE YOU THINKING?",
+        "expected":"Whoa, chill out!"
+      }
+    },
+    {
+      "response":{
+        "description":"shouting numbers",
+        "input":"1, 2, 3 GO!",
+        "expected":"Whoa, chill out!"
+      }
+    },
+    {
+      "response":{
+        "description":"only numbers",
+        "input":"1, 2, 3",
+        "expected":"Whatever."
+      }
+    },
+    {
+      "response":{
+        "description":"question with only numbers",
+        "input":"4?",
+        "expected":"Sure."
+      }
+    },
+    {
+      "response":{
+        "description":"shouting with special characters",
+        "input":"ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!",
+        "expected":"Whoa, chill out!"
+      }
+    },
+    {
+      "response":{
+        "description":"shouting with no exclamation mark",
+        "input":"I HATE YOU",
+        "expected":"Whoa, chill out!"
+      }
+    },
+    {
+      "response":{
+        "description":"statement containing question mark",
+        "input":"Ending with ? means a question.",
+        "expected":"Whatever."
+      }
+    },
+    {
+      "response":{
+        "description":"non-letters with question",
+        "input":":) ?",
+        "expected":"Sure."
+      }
+    },
+    {
+      "response":{
+        "description":"prattling on",
+        "input":"Wait! Hang on. Are you going to be OK?",
+        "expected":"Sure."
+      }
+    },
+    {
+      "response":{
+        "description":"silence",
+        "input":"",
+        "expected":"Fine. Be that way!"
+      }
+    },
+    {
+      "response":{
+        "description":"prolonged silence",
+        "input":"          ",
+        "expected":"Fine. Be that way!"
+      }
+    },
+    {
+      "response":{
+        "description":"alternate silence",
+        "input":"\t\t\t\t\t\t\t\t\t\t",
+        "expected":"Fine. Be that way!"
+      }
+    },
+    {
+      "response":{
+        "description":"multiple line question",
+        "input":"\nDoes this cryogenic chamber make me look fat?\nno",
+        "expected":"Whatever."
+      }
+    },
+    {
+      "response":{
+        "description":"starting with whitespace",
+        "input":"         hmmmmmmm...",
+        "expected":"Whatever."
+      }
+    },
+    {
+      "response":{
+        "description":"ending with whitespace",
+        "input":"Okay if like my  spacebar  quite a bit?   ",
+        "expected":"Sure."
+      }
+    },
+    {
+      "response":{
+        "description":"other whitespace",
+        "input":"\n\r \t",
+        "expected":"Fine. Be that way!"
+      }
+    },
+    {
+      "response":{
+        "description":"non-question ending with whitespace",
+        "input":"This is a statement ending with whitespace      ",
+        "expected":"Whatever."
+      }
+    }
+  ]
+}
