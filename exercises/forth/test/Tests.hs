@@ -12,7 +12,7 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = describe "forth" $ do
 
-    -- Test cases adapted from `exercism/x-common/forth` on 2016-11-06.
+    -- Test cases adapted from `exercism/x-common/forth` on 2017-02-01.
 
     let runTexts = fmap toList . foldM (flip evalText) empty
 
@@ -122,9 +122,6 @@ specs = describe "forth" $ do
       it "can override built-in words" $
         runTexts [ ": swap dup ;"
                  , "1 swap"       ] `shouldBe` Right [1, 1]
-
-      it "can consist of arbitrary characters such as Unicode characters" $
-        runTexts [": € 220371 ; €"] `shouldBe` Right [220371]
 
       it "cannot redefine numbers" $
         runTexts [": 1 2 ;"] `shouldBe` Left InvalidWord
