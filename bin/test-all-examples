@@ -1,0 +1,20 @@
+#!/bin/sh
+
+set -e
+
+if [ $# -eq 0 ]; then
+    echo "usage: $0 /path/to/exercise"
+    exit 1
+fi
+
+exercisedir=$1
+
+if ! stat -t ${exercisedir}/examples/*/ > /dev/null 2>&1; then
+    echo "No examples for ${exercisedir}!"
+    exit 1
+else
+    mydir=$(dirname $0)
+    for example in ${exercisedir}/examples/*/ ; do
+        $mydir/test-example $example
+    done
+fi

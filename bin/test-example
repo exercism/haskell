@@ -1,0 +1,73 @@
+#!/bin/sh
+
+if [ $# -eq 0 ]; then
+    echo "usage: $0 /path/to/exercise/example"
+    exit 1
+fi
+
+exampledir=$(cd "$1" && pwd)
+
+examplename=$(basename "$exampledir")
+exercisedir=$(cd "$exampledir/../.." && pwd)
+exercisename=$(basename "$exercisedir")
+xhaskell=$(cd "$(dirname "$0")/.." && pwd)
+
+# We would ideally use a tmpdir here,
+# but stack will invalidate its cache if the path changes,
+# so the best alternative seems to be to put it in xhaskell.
+buildfolder="${xhaskell}/build/${exercisename}/${examplename}"
+mkdir -p "${buildfolder}"
+cleanup() {
+    rm -r "${xhaskell}/build"
+}
+trap cleanup EXIT INT TERM
+
+cp -R -L ${exercisedir}/stack.yaml ${exercisedir}/test ${exampledir}/* "${buildfolder}"
+
+cd $buildfolder
+
+if [ -n "$TRAVIS" ]; then
+    cachedir="$HOME"
+else
+    cachedir="$xhaskell"
+fi
+examplecache="${cachedir}/.foldercache/${exercisename}/${examplename}/.stack-work"
+mkdir -p "$examplecache"
+ln -f -s "$examplecache"
+
+exampletype=$(echo "$examplename" | cut -d- -f1)
+
+runstack () {
+    # SET_RESOLVER passed by .travis.yml - sets --resolver if not current.
+    stack "$@" ${SET_RESOLVER} `# Select the correct resolver. `\
+               --install-ghc   `# Download GHC if not in cache.`\
+               --no-terminal   `# Terminal detection is broken.`\
+               --pedantic      `# Enable -Wall and -Werror.    `
+}
+
+if [ "$exampletype" = "success" ]; then
+    echo "testing ${exampledir} - should succeed"
+    # Implicit exit value: this is last thing in this path,
+    # so the script's exit value = stack's exit value.
+    # If statements are reordered, please preserve this property.
+    runstack "test"
+elif [ "$exampletype" = "fail" ]; then
+    echo "testing ${exampledir} - should build, but fail tests"
+    if ! runstack "build"; then
+        echo "${exampledir} build failed unexpectedly"
+        exit 1
+    fi
+    if runstack "test"; then
+        echo "${exampledir} test succeeded unexpectedly"
+        exit 1
+    fi
+elif [ "$exampletype" = "error" ]; then
+    echo "testing ${exampledir} - should fail to build"
+    if runstack "test" "--no-run-tests"; then
+        echo "${exampledir} build succeeded unexpectedly"
+        exit 1
+    fi
+else
+    echo "unknown example type: ${exampledir}"
+    exit 1
+fi

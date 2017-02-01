@@ -127,6 +127,14 @@ The first condition is always enforced and cannot be circumvented.
 ### Example solution
 The example solution could be inspiration for other language implementors. It doesn't need to be perfect or very elegant. But it should be efficient enough for the test suite to finish in only a few seconds.
 
+Examples are named `<type>-<name>`.
+There are three possible types of examples:
+
+* success: The example is expected to pass the tests.
+  There should be at least one of these per exercise.
+* fail: The example is expected to build, but fail the tests.
+* error: The example is expected to fail to build.
+
 ### Test suite
 The test suite should be derived from the respective `x-common/exercises/<exercise-name>/canonical-data.json` and comply to some formatting and coding standards (to get an idea you may look at some of the existing tests).
 
@@ -138,17 +146,12 @@ a few seconds.
 
 First you need to provide an [example solution](#example-solution).
 
-Running `stack test --pedantic` compiles and runs the tests with
-`-Wall -Werror`, but unfortunately it doesn't recompile unchanged
-source code already compiled with warnings.
+We provide three scripts in the `bin` directory of this repository to run the tests.
+These are the same scripts as those used by Travis CI.
 
-To be really sure that everything compiles correctly without
-warnings, your must first run `stack clean`.
-
-```bash
-stack clean
-stack test --pedantic
-```
+* `test-example path/to/example/dir` runs the tests on a single example.
+* `test-all-examples path/to/exercise/dir` runs the tests on all examples for an exercise.
+* `test-stub path/to/exercise/dir` checks that the stub for the given exercise compiles.
 
 ### Running HLint
 All code in this repository should be as idiomatic as possible, so we
