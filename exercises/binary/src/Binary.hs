@@ -1,3 +1,3 @@
 module Binary (toDecimal) where
 
-toDecimal = error "You need to implement this function."
+toDecimal xs = error "You need to implement this function."
