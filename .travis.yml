@@ -11,7 +11,7 @@ cache:
     - $HOME/.foldercache # Per exercise `.stack-work` cache.
 
 env:
- - RESOLVER="lts-7.16" CURRENT="YES" # Equal to each stack.yaml.
+ - RESOLVER="lts-8.2" CURRENT="YES"  # Equal to each stack.yaml.
  - RESOLVER="nightly"                # Latest nightly snapshot.
 
 matrix:
