@@ -14,4 +14,4 @@ allergies :: Int -> [Allergen]
 allergies = error "You need to implement this function."
 
 isAllergicTo :: Allergen -> Int -> Bool
-isAllergicTo = error "You need to implement this function."
+isAllergicTo allergen n = error "You need to implement this function."
