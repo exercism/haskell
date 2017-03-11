@@ -5,5 +5,5 @@ data BowlingError = IncompleteGame
   deriving (Eq, Show)
 
 score :: [Int] -> Either BowlingError Int
-score = error "You need to implement this function."
+score rolls = error "You need to implement this function."
 
