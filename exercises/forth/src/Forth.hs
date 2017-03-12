@@ -23,7 +23,7 @@ empty :: ForthState
 empty = error "You need to implement this function."
 
 evalText :: Text -> ForthState -> Either ForthError ForthState
-evalText = error "You need to implement this function."
+evalText text stack = error "You need to implement this function."
 
 toList :: ForthState -> [Int]
-toList = error "You need to implement this function."
+toList stack = error "You need to implement this function."
