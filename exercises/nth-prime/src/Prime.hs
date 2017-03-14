@@ -1,3 +1,4 @@
 module Prime (nth) where
 
-nth = error "You need to implement this function."
+nth :: Int -> Maybe Integer
+nth n = error "You need to implement this function."
