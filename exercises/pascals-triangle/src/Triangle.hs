@@ -1,4 +1,4 @@
 module Triangle (rows) where
 
 rows :: Int -> [[Integer]]
-rows = error "You need to implement this function."
+rows x = error "You need to implement this function."
