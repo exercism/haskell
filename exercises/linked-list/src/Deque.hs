@@ -6,13 +6,13 @@ mkDeque :: IO (Deque a)
 mkDeque = error "You need to implement this function."
 
 pop :: Deque a -> IO (Maybe a)
-pop = error "You need to implement this function."
+pop deque = error "You need to implement this function."
 
 push :: Deque a -> a -> IO ()
-push = error "You need to implement this function."
+push deque x = error "You need to implement this function."
 
 unshift :: Deque a -> a -> IO ()
-unshift = error "You need to implement this function."
+unshift deque x = error "You need to implement this function."
 
 shift :: Deque a -> IO (Maybe a)
-shift = error "You need to implement this function."
+shift deque = error "You need to implement this function."
