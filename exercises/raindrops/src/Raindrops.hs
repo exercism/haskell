@@ -1,3 +1,4 @@
 module Raindrops (convert) where
 
-convert = error "You need to implement this function."
+convert :: Int -> String
+convert n = error "You need to implement this function."
