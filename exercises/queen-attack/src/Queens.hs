@@ -4,4 +4,4 @@ boardString :: Maybe (Int, Int) -> Maybe (Int, Int) -> String
 boardString white black = error "You need to implement this function."
 
 canAttack :: (Int, Int) -> (Int, Int) -> Bool
-canAttack = error "You need to implement this function."
+canAttack queenA queenB = error "You need to implement this function."

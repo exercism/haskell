@@ -1,3 +1,4 @@
 module Roman (numerals) where
 
-numerals = error "You need to implement this function."
+numerals :: Integer -> Maybe String
+numerals n = error "You need to implement this function."

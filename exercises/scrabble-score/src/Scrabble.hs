@@ -1,5 +1,7 @@
 module Scrabble (scoreLetter, scoreWord) where
 
-scoreLetter = error "You need to implement this function."
+scoreLetter :: Char -> Integer
+scoreLetter letter = error "You need to implement this function."
 
-scoreWord = error "You need to implement this function."
+scoreWord :: String -> Integer
+scoreWord word = error "You need to implement this function."
