@@ -1,3 +1,4 @@
 module WordProblem (answer) where
 
-answer = error "You need to implement this function."
+answer :: String -> Maybe Integer
+answer problem = error "You need to implement this function."

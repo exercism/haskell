@@ -1,3 +1,4 @@
 module SumOfMultiples (sumOfMultiples) where
 
-sumOfMultiples = error "You need to implement this function."
+sumOfMultiples :: [Integer] -> Integer -> Integer
+sumOfMultiples factors limit = error "You need to implement this function."
