@@ -5,6 +5,7 @@ module LinkedList ( LinkedList
 data LinkedList a = Nil
                   | Cons { datum :: a
                          , next :: LinkedList a }
+  deriving (Eq, Show)
 
 new :: a -> LinkedList a -> LinkedList a
 new = Cons

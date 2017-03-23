@@ -17,3 +17,4 @@ tests:
     dependencies:
       - simple-linked-list
       - hspec
+      - QuickCheck
