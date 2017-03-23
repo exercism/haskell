@@ -10,7 +10,7 @@ module LinkedList
     , toList
     ) where
 
-data LinkedList a = Dummy
+data LinkedList a = Dummy deriving (Eq, Show)
 
 datum :: LinkedList a -> a
 datum linkedList = error "You need to implement this function."

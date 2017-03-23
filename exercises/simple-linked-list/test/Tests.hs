@@ -1,5 +1,10 @@
+{-# LANGUAGE ScopedTypeVariables #-}
+{-# OPTIONS_GHC -fno-warn-orphans #-}
+
 import Test.Hspec        (Spec, describe, it, shouldBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+import Test.QuickCheck   (property)
+import Test.QuickCheck.Arbitrary
 
 import LinkedList
   ( datum
@@ -10,7 +15,15 @@ import LinkedList
   , nil
   , reverseLinkedList
   , toList
+  , LinkedList
   )
+
+instance (Arbitrary a) => Arbitrary (LinkedList a) where
+  arbitrary = fromList <$> arbitrary
+
+nthDatum :: LinkedList a -> Int -> a
+nthDatum xs 0 = datum xs
+nthDatum xs n = nthDatum (next xs) (pred n)
 
 main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
@@ -55,7 +68,7 @@ specs = describe "simple-linked-list" $ do
                 datum (next fl21)        `shouldBe` 1
                 isNil (next $ next fl21) `shouldBe` True
 
-            it "reverseList" $ do
+            it "reverseLinkedList" $ do
                 isNil (reverseLinkedList nil) `shouldBe` True
                 datum r1                      `shouldBe` 1
                 isNil (next r1)               `shouldBe` True
@@ -75,3 +88,26 @@ specs = describe "simple-linked-list" $ do
             it "has an unconstrained type variable" $ do
                 (toList . fromList) msg     `shouldBe` msg
                 (toList . fromList) [1..10] `shouldBe` ([1..10] :: [Integer])
+
+            it "arbitrary reverseLinkedList" $
+                property $ \(xs :: LinkedList Int) ->
+                  reverseLinkedList xs == (fromList . reverse . toList) xs
+
+            it "arbitrary (fromList . toList)" $
+                property $ \(xs :: LinkedList Int) ->
+                  (fromList . toList) xs == xs
+
+            it "arbitrary (toList . fromList)" $
+                property $ \(xs :: [Int]) ->
+                  (toList . fromList) xs == xs
+
+            it "arbitrary (reverseLinkedList . reverseLinkedList)" $
+                property $ \(xs :: LinkedList Int) ->
+                  (reverseLinkedList . reverseLinkedList) xs == xs
+
+            it "arbitrary datum" $
+                property $ \(xs :: [Int]) ->
+                  let ll = fromList xs
+                      sameNthDatum n = nthDatum ll n == xs !! n
+                      indices = [0..pred $ length xs] in
+                    all sameNthDatum indices
