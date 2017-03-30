@@ -61,6 +61,13 @@
       ]
     },
     {
+      "slug": "acronym",
+      "difficulty": 2,
+      "topics": [
+        "String Manipulation"
+      ]
+    },
+    {
       "slug": "hamming",
       "difficulty": 2,
       "topics": [
