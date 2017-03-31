@@ -510,7 +510,6 @@
     "trinary"
   ],
   "ignored": [
-    "common",
     "docs",
     "img"
   ],
