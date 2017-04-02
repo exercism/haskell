@@ -497,7 +497,8 @@
       "difficulty": 10,
       "topics": [
         "Define type",
-        "Either"
+        "Either",
+        "Stack"
       ]
     },
     {
