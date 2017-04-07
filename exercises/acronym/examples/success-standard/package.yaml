@@ -6,7 +6,6 @@ dependencies:
 library:
   exposed-modules: Acronym
   source-dirs: src
-  dependencies:
 
 tests:
   test:
