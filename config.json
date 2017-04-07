@@ -280,6 +280,13 @@
       ]
     },
     {
+      "slug": "bracket-push",
+      "difficulty": 5,
+      "topics": [
+          "Stack"
+      ]
+    },
+    {
       "slug": "crypto-square",
       "difficulty": 5,
       "topics": [
@@ -497,7 +504,8 @@
       "difficulty": 10,
       "topics": [
         "Define type",
-        "Either"
+        "Either",
+        "Stack"
       ]
     },
     {
