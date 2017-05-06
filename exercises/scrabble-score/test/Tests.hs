@@ -23,8 +23,6 @@ specs = describe "scrabble-score" $ do
       where
         assertion = scoreWord input `shouldBe` fromIntegral expected
 
--- Test cases adapted from `exercism/x-common/scrabble-score.json` on 2017-02-01.
-
 data Case = Case { description :: String
                  , input       :: String
                  , expected    :: Integer
