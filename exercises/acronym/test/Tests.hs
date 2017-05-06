@@ -15,11 +15,6 @@ specs = describe "acronym" $
   where
     test Case {..} = it description $ abbreviate input `shouldBe` expected
 
--- Adapted from
--- Source: exercism/x-common/exercises/acronym/canonical-data.json
--- Version: 1.0.0
--- Date: 2017-03-31
-
 data Case = Case { description :: String
                  , input       :: String
                  , expected    :: String
