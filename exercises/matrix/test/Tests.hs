@@ -24,9 +24,6 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = describe "matrix" $ do
 
-    -- As of 2016-08-08, there was no reference file
-    -- for the test cases in `exercism/x-common`.
-
     let intMatrix = fromString :: String -> Matrix Int
     let vector = Vector.fromList
 
