@@ -19,8 +19,6 @@ specs = describe "say" $
         description = show n
         assertion   = inEnglish n `shouldBe` expected
 
-    -- Test cases adapted from `exercism/x-common/say` on 2016-11-06.
-
     cases = [ (            0, Just "zero"                                )
             , (            1, Just "one"                                 )
             , (           14, Just "fourteen"                            )
