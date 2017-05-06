@@ -30,8 +30,6 @@ specs = describe "word-count" $
                    . fromList
                    $ input
 
--- Test cases adapted from `exercism/x-common/word-count` on 2016-11-06.
-
 data Case = Case { description :: String
                  , input       :: String
                  , expected    :: [(String, Integer)]
