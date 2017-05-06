@@ -21,8 +21,6 @@ specs = describe "sieve" $
                     `shouldBe`
                     fromIntegral <$> expected
 
--- Test cases adapted from `exercism/x-common` on 2016-09-12.
-
 data Case = Case { description ::  String
                  , limit       ::  Integer
                  , expected    :: [Integer]
