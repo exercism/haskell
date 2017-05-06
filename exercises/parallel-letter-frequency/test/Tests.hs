@@ -14,9 +14,6 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = describe "parallel-letter-frequency" $ do
 
-    -- As of 2016-09-16, there was no reference file
-    -- for the test cases in `exercism/x-common`.
-
     let odeAnDieFreude = concat             -- Poem by Friedrich Schiller.
           [ "Freude schöner Götterfunken"   -- The corresponding music is
           , "Tochter aus Elysium,"          -- the European Anthem.
