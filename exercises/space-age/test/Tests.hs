@@ -28,8 +28,6 @@ specs = describe "space-age" $
         shouldBeAround = shouldBe `on` roundTo 2
         roundTo n = (/ 10 ^ n) . fromIntegral . round . (* 10 ^ n)
 
--- Test cases adapted from `exercism/x-common/space-age.json` on 2016-07-27.
-
 data Case = Case { description :: String
                  , planet      :: Planet
                  , seconds     :: Integer
