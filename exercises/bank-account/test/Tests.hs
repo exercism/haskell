@@ -17,9 +17,6 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = describe "bank-account" $ do
 
-    -- As of 2016-08-01, there was no reference file
-    -- for the test cases in `exercism/x-common`.
-
     it "initial balance is 0" $ do
         account  <-  openAccount
         getBalance   account `shouldReturn` Just 0
