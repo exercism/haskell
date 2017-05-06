@@ -25,8 +25,6 @@ specs = describe "clock" $ do
       it "negate works" $
         negate (fromHourMin 23 55) `shouldBe` 5
 
-    -- Test cases extracted from x-common/clock.json from 2016-03-29
-
     describe "standard tests" $ do
 
       describe "create" $ for_ createCases createTest
