@@ -10,9 +10,6 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = describe "accumulate" $ do
 
-    -- As of 2016-07-27, there was no reference file
-    -- for the test cases in `exercism/x-common`.
-
     let square x = x * x :: Int
 
     it "empty accumulation" $
