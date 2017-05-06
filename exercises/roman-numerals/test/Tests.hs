@@ -20,8 +20,6 @@ specs = describe "roman-numerals" $
         explanation = show number
         assertion   = numerals (fromIntegral number) `shouldBe` expected
 
--- Test cases adapted from `exercism/x-common/roman-numerals.json` on 2016-07-26.
-
 data Case = Case { number   :: Integer
                  , expected :: Maybe String
                  }
