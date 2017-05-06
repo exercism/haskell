@@ -26,9 +26,6 @@ specs = describe "palindrome-products" $ for_ cases test
           it "value"   $ value             `shouldBe` lPal
           it "factors" $ normalize factors `shouldBe` lPalFactors
 
-    -- As of 2016-09-07, there was no reference file
-    -- for the test cases in `exercism/x-common`.
-
     cases = [ ("palindromes from single digit factors",     1,     9,         1, [(    1,     1)],          9, [(1, 9), (3, 3)])
             , ("palindromes from double digit factors",    10,    99,       121, [(   11,    11)],       9009, [(   91,    99)])
             , ("palindromes from triple digit factors",   100,   999,     10201, [(  101,   101)],     906609, [(  913,   993)])
