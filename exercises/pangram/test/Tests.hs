@@ -15,11 +15,6 @@ specs = describe "pangram" $
   where
     test Case{..} = it description $ isPangram input `shouldBe` expected
 
--- Adapted from
--- Source: exercism/x-common/exercises/pangram/canonical-data.json
--- Version: 1.0.0
--- Date: 2017-03-28.
-
 data Case = Case { description :: String
                  , input       :: String
                  , expected    :: Bool
