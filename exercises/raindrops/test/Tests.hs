@@ -19,8 +19,6 @@ specs = describe "raindrops" $
         description = show number
         assertion   = convert number `shouldBe` expected
 
-    -- Test cases adapted from `exercism/x-common` on 2016-09-19.
-
     cases = [ (   1, "1"              )
             , (   3, "Pling"          )
             , (   5, "Plang"          )
