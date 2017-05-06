@@ -19,8 +19,6 @@ specs = describe "all-your-base" $
         assertion  = expression `shouldBe` outputDigits
         expression = rebase inputBase outputBase inputDigits
 
--- Test cases adapted from `exercism/x-common/all-your-base.json` on 2016-06-29.
-
 data Case = Case { description  ::        String
                  , inputBase    ::        Integer
                  , inputDigits  ::       [Integer]
