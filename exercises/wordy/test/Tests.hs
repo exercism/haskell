@@ -19,8 +19,6 @@ specs = describe "wordy" $
       where
         assertion   = answer input `shouldBe` fromIntegral <$> expected
 
--- Test cases adapted from `exercism/x-common/wordy.json` on 2016-08-10.
-
 data Case = Case { description :: String
                  , input       :: String
                  , expected    :: Maybe Integer
