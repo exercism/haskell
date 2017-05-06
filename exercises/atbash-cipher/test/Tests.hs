@@ -16,8 +16,6 @@ specs = describe "atbash-cipher" $ do
   where
     test f Case{..} = it description $ f phrase `shouldBe` expected
 
--- Test cases adapted from `exercism/x-common/atbash-cipher.json` on 2017-02-01.
-
 data Case = Case { description :: String
                  , phrase      :: String
                  , expected    :: String
