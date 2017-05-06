@@ -12,8 +12,6 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = describe "etl" $
 
-  -- Test cases adapted from `exercism/x-common/etl` on 2017-01-31.
-
   describe "transform" $ do
 
     it "a single letter" $
