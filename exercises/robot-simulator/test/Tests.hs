@@ -23,9 +23,6 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = describe "robot-simulator" $ do
 
-    -- Test cases adapted from `exercism/x-common/robot-simulator.json`
-    -- on 2016-08-02. Some deviations exist and are noted in comments.
-
     describe "mkRobot" $ do
 
     -- The function described by the reference file
