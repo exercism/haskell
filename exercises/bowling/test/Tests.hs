@@ -19,8 +19,6 @@ specs = describe "bowling" $
         assertion = result `shouldBe` expected
         result = score rolls
 
--- Test cases adapted from `exercism/x-common/bowling` on 2016-11-20.
-
 data Case = Case { description :: String
                  , rolls       :: [Int]
                  , expected    :: Either BowlingError Int
