@@ -33,9 +33,6 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = describe "list-ops" $ do
 
-    -- As of 2016-07-27, there was no reference file
-    -- for the test cases in `exercism/x-common`.
-
     let big = 100000 :: Int
 
     it "length of empty list" $
