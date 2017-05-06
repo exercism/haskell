@@ -21,8 +21,6 @@ specs = describe "alphametics" $
         shouldMatchSolution = shouldBe `on` fmap sort
         assertion = solve puzzle `shouldMatchSolution` expected
 
--- Test cases adapted from `exercism/x-common/exercises/alphametics/canonical-data.json` on 2016-10-26.
-
 data Case = Case { description :: String
                  , puzzle      :: String
                  , expected    :: Maybe[(Char, Int)]
