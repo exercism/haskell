@@ -19,9 +19,6 @@ specs = describe "hexadecimal" $
         description = show input
         assertion   = hexToInt input `shouldBe` expected
 
-    -- As of 2016-08-02, there was no reference file
-    -- for the test cases in `exercism/x-common`.
-
     cases = [ (     "1",        1)
             , (     "c",       12)
             , (    "10",       16)
