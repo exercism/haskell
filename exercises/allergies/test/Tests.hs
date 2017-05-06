@@ -23,8 +23,6 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = describe "allergies" $ do
 
-          -- Test cases adapted from `exercism/x-common/allergies.json` on 2016-08-01.
-
           describe "isAllergicTo" $ do
 
             it "no allergies means not allergic" $ do
