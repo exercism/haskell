@@ -20,8 +20,6 @@ specs = describe "leap" $
         explanation = unwords [show input, "-", description]
         assertion   = isLeapYear (fromIntegral input) `shouldBe` expected
 
--- Test cases adapted from `exercism/x-common/leap.json` on 2016-07-27.
-
 data Case = Case { description :: String
                  , input       :: Integer
                  , expected    :: Bool
