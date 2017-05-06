@@ -16,4 +16,7 @@ tests:
     source-dirs: test
     dependencies:
       - bob
+      - aeson
+      - bytestring
       - hspec
+      - HUnit

@@ -1,126 +1,75 @@
-{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE OverloadedStrings #-}
 
-import Data.Foldable     (for_)
-import Test.Hspec        (Spec, describe, it, shouldBe)
-import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+-- Basic imports
+import Control.Applicative ((<|>), liftA2)
+import Control.Monad       ((>=>))
 
+-- To construct the tests.
+import Test.Hspec          (Spec, describe, it)
+import Test.Hspec.Runner   (configFastFail, defaultConfig, hspecWith)
+import Test.HUnit          (assertEqual)
+
+-- To parse the JSON file.
+import Data.Aeson          ((.:), eitherDecodeStrict', withArray, withObject)
+import Data.Aeson.Types    (Parser, Value, parseEither)
+import GHC.Exts            (toList)
+
+-- To read the JSON file.
+import Data.ByteString     (readFile)
+import Prelude     hiding  (readFile)
+
+-- The module to be tested.
 import Bob (responseFor)
 
+-- Read, decode and run the tests.
 main :: IO ()
-main = hspecWith defaultConfig {configFastFail = True} specs
-
-specs :: Spec
-specs = describe "bob" $
-          describe "responseFor" $ for_ cases test
+main = readJSON >>= parseOrError parseJSON >>= runTests
   where
-    test Case{..} = it description $ responseFor input `shouldBe` expected
+    readJSON     = readFile "test/canonical-data.json"
+    parseOrError = (either error pure .)
+    parseJSON    = eitherDecodeStrict' >=> parseEither parseCanonical
+    runTests     = hspecWith defaultConfig {configFastFail = True}
 
--- Test cases adapted from `exercism/x-common/bob.json` on 2016-11-29.
+-- | Top-level JSON parser.
+--
+-- Depends on 'parsers' to parse single test cases.
+parseCanonical :: Value -> Parser Spec
+parseCanonical = parseTop
+  where
+    parseTop = withObject "top-level" $ \o -> do
+      exercise <- o .: "exercise"
+      version  <- o .: "version"
+      specs    <- o .: "group" >>= parseGroup
+      let topName = exercise ++ "-" ++ version
+      return . describe topName . sequence_ $ specs
 
-data Case = Case { description :: String
-                 , input       :: String
-                 , expected    :: String
-                 }
+    parseGroup = withArray "group" (traverse parseItem . toList)
 
-cases :: [Case]
-cases = [ Case { description = "stating something"
-               , input       = "Tom-ay-to, tom-aaaah-to."
-               , expected    = "Whatever."
-               }
-        , Case { description = "shouting"
-               , input       = "WATCH OUT!"
-               , expected    = "Whoa, chill out!"
-               }
-        , Case { description = "shouting gibberish"
-               , input       = "FCECDFCAAB"
-               , expected    = "Whoa, chill out!"
-               }
-        , Case { description = "asking a question"
-               , input       = "Does this cryogenic chamber make me look fat?"
-               , expected    = "Sure."
-               }
-        , Case { description = "asking a numeric question"
-               , input       = "You are, what, like 15?"
-               , expected    = "Sure."
-               }
-        , Case { description = "asking gibberish"
-               , input       = "fffbbcbeab?"
-               , expected    = "Sure."
-               }
-        , Case { description = "talking forcefully"
-               , input       = "Let's go make out behind the gym!"
-               , expected    = "Whatever."
-               }
-        , Case { description = "using acronyms in regular speech"
-               , input       = "It's OK if you don't want to go to the DMV."
-               , expected    = "Whatever."
-               }
-        , Case { description = "forceful question"
-               , input       = "WHAT THE HELL WERE YOU THINKING?"
-               , expected    = "Whoa, chill out!"
-               }
-        , Case { description = "shouting numbers"
-               , input       = "1, 2, 3 GO!"
-               , expected    = "Whoa, chill out!"
-               }
-        , Case { description = "only numbers"
-               , input       = "1, 2, 3"
-               , expected    = "Whatever."
-               }
-        , Case { description = "question with only numbers"
-               , input       = "4?"
-               , expected    = "Sure."
-               }
-        , Case { description = "shouting with special characters"
-               , input       = "ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!"
-               , expected    = "Whoa, chill out!"
-               }
-        , Case { description = "shouting with no exclamation mark"
-               , input       = "I HATE YOU"
-               , expected    = "Whoa, chill out!"
-               }
-        , Case { description = "statement containing question mark"
-               , input       = "Ending with ? means a question."
-               , expected    = "Whatever."
-               }
-        , Case { description = "non-letters with question"
-               , input       = ":) ?"
-               , expected    = "Sure."
-               }
-        , Case { description = "prattling on"
-               , input       = "Wait! Hang on. Are you going to be OK?"
-               , expected    = "Sure."
-               }
-        , Case { description = "silence"
-               , input       = ""
-               , expected    = "Fine. Be that way!"
-               }
-        , Case { description = "prolonged silence"
-               , input       = "          "
-               , expected    = "Fine. Be that way!"
-               }
-        , Case { description = "alternate silence"
-               , input       = "\t\t\t\t\t\t\t\t\t\t"
-               , expected    = "Fine. Be that way!"
-               }
-        , Case { description = "multiple line question"
-               , input       = "\nDoes this cryogenic chamber make me look fat?\nno"
-               , expected    = "Whatever."
-               }
-        , Case { description = "starting with whitespace"
-               , input       = "         hmmmmmmm..."
-               , expected    = "Whatever."
-               }
-        , Case { description = "ending with whitespace"
-               , input       = "Okay if like my  spacebar  quite a bit?   "
-               , expected    = "Sure."
-               }
-        , Case { description = "other whitespace"
-               , input       = "\n\r \t"
-               , expected    = "Fine. Be that way!"
-               }
-        , Case { description = "non-question ending with whitespace"
-               , input       = "This is a statement ending with whitespace      "
-               , expected    = "Whatever."
-               }
-        ]
+    parseItem i = parseLabeledGroup i <|> parseTest i
+
+    parseLabeledGroup = withObject "group" $ \o -> do
+      description <- o .: "description"
+      specs       <- o .: "group" >>= parseGroup
+      return . describe description . sequence_ $ specs
+
+    parseTest = foldr1 (liftA2 (<|>)) parsers
+
+--
+-- Exercise-specific code.
+--
+
+-- List of exercise-specific test case parsers.
+parsers :: [Value -> Parser Spec]
+parsers = [parseResponse]
+
+-- | Parse a "response"-type test case.
+parseResponse :: Value -> Parser Spec
+parseResponse = withObject "response" $ \t -> do
+    o           <- t .: "response"
+    description <- o .: "description"
+    input       <- o .: "input"
+    expected    <- o .: "expected"
+    return $ it description $
+                  assertEqual ("responseFor " ++ show input)
+                    expected
+                    (responseFor input)
