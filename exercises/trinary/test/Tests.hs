@@ -13,9 +13,6 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = describe "trinary" $ do
 
-    -- As of 2016-08-10, there was no reference file
-    -- for the test cases in `exercism/x-common`.
-
     let refShowTri n = Num.showIntAtBase 3 intToDigit n ""
 
     it "can show Int trinary" $
