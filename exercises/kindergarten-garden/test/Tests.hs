@@ -18,9 +18,6 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = describe "kindergarten-garden" $ do
 
-    -- As of 2016-08-02, there was no reference file
-    -- for the test cases in `exercism/x-common`.
-
     it "alice tests" $ do
 
       let alicePlants = lookupPlants "Alice" . defaultGarden
