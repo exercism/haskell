@@ -29,9 +29,6 @@ specs = describe "custom-set" $ do
 
     describe "standard tests" $ do
 
-      -- Test cases adapted from `exercism/x-common/custom-set.json`
-      -- on 2016-09-03.
-
       describe "null" $ do
 
         it "sets with no elements are empty" $
