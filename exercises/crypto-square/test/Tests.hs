@@ -26,8 +26,6 @@ specs = describe "crypto-square" $
       it "reorders the characters" $ encode input `shouldMatchString` expected
       it "groups the output"       $ encode input `shouldMatchWords`  expected
 
--- Test cases created from scratch on 2016-10-05, diverging from `x-common`.
-
 data Case = Case { description :: String
                  , input       :: String
                  , expected    :: String
