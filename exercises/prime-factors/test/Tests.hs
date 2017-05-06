@@ -18,8 +18,6 @@ specs = describe "prime-factors" $
       where
         assertion   = primeFactors n `shouldBe` expected
 
-    -- Test cases adapted from `exercism/x-common/prime-factors` on 2017-02-01.
-
     cases = [ ("no factors",                              1,                 [] )
             , ("prime number",                            2,                [2] )
             , ("square of a prime",                       9,             [3, 3] )
