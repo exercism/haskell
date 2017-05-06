@@ -15,11 +15,6 @@ specs = describe "bracket-push" $
   where
     test Case{..} = it description $ arePaired input `shouldBe` expected
 
--- Adapted from
--- Source: exercism/x-common/exercises/bracket-push/canonical-data.json
--- Version: 1.1.0
--- Date: 2017-04-07.
-
 data Case = Case { description :: String
                  , input       :: String
                  , expected    :: Bool
