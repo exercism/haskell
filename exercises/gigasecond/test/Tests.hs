@@ -22,9 +22,6 @@ specs :: Spec
 specs = describe "gigasecond" $
           describe "fromDay" $ do
 
-            -- Test cases loosely based on reference file
-            -- at `exercism/x-common/gigasecond.json`.
-
             let dt = readTime defaultTimeLocale
                      (iso8601DateFormat (Just "%T%Z")) :: String -> UTCTime
 
