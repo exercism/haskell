@@ -1,4 +1,5 @@
 name: largest-series-product
+version: 0.9.0.1 # 2016-07-27
 
 dependencies:
   - base
