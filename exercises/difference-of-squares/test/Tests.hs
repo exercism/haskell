@@ -11,9 +11,6 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = describe "differenceOfSquares" $ do
 
-    -- Test cases adapted from `exercism/x-common/difference-of-squares.json`
-    -- on 2016-08-03.
-
     describe "squareOfSums" $ do
       it "square of sum 5"   $ squareOfSums   5 `shouldBe`      225
       it "square of sum 10"  $ squareOfSums  10 `shouldBe`     3025
