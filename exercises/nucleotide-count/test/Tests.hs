@@ -13,8 +13,6 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = describe "nucleotide-count" $ do
 
-          -- Test cases adapted from `exercism/x-common/triangle.json` on 2017-01-31.
-
           let x `matchesMap` y = x `shouldBe` (Right . fromList) y
 
           describe "nucleotideCounts" $ do

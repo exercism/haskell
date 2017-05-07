@@ -11,9 +11,6 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = describe "strain" $ do
 
-    -- As of 2016-07-27, there was no reference file
-    -- for the test cases in `exercism/x-common`.
-
     it "empty keep" $
         keep (<10) [] `shouldBe` ([] :: [Int])
 

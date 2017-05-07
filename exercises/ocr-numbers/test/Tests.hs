@@ -18,9 +18,6 @@ specs = describe "ocr-numbers" $
       where
         assertion = convert (unlines input) `shouldBe` expected
 
--- Test cases adapted from `exercism/x-common/ocr-numbers.json`
--- on 2016-08-09. Some deviations exist and are noted in comments.
-
 data Case = Case { description ::  String
                  , expected    ::  String
                  , input       :: [String]

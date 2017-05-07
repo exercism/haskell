@@ -24,8 +24,6 @@ specs = describe "anagram" $
                    . map fromList
                    $ candidates
 
--- Test cases adapted from `exercism/x-common` on 2016-10-26.
-
 data Case = Case { description ::  String
                  , subject     ::  String
                  , candidates  :: [String]

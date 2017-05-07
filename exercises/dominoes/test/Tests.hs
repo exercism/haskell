@@ -49,8 +49,6 @@ specs = describe "dominoes" $
             expectationFailure $
               printf "In chain %s:\n\t   right end of %s (%s)\n\tand left end of %s (%s)\n\tdidn't match!" (show l) name1 (show d1) name2 (show d2)
 
--- Test cases adapted from `exercism/x-common/dominoes` on 2016-11-11.
-
 data Case = Case { description :: String
                  , input       :: [(Int, Int)]
                  , expected    :: Bool

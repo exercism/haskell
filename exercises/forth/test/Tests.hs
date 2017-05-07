@@ -12,8 +12,6 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = describe "forth" $ do
 
-    -- Test cases adapted from `exercism/x-common/forth` on 2017-02-01.
-
     let runTexts = fmap toList . foldM (flip evalText) empty
 
     describe "parsing and numbers" $ do

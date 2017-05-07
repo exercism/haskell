@@ -14,9 +14,6 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = describe "series" $ do
 
-    -- As of 2016-11-08, there was no reference file
-    -- for the test cases in `exercism/x-common`.
-
     let x `shouldHaveSlices` yss = (map toList . toList) x `shouldBe` yss
 
     it "slices of one" $ do

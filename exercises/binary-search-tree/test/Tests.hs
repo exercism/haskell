@@ -18,9 +18,6 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = describe "binary-seach-tree" $ do
 
-    -- As of 2016-08-03, there was no reference file
-    -- for the test cases in `exercism/x-common`.
-
     let int4   = 4  ::  Int
     let noInts = [] :: [Int]
 

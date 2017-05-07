@@ -20,9 +20,6 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = describe "lens-person" $ do
 
-    -- As of 2016-09-25, there was no reference file
-    -- for the test cases in `exercism/x-common`.
-
     it "bornStreet" $
       (bornStreet . _born) testPerson
       `shouldBe` "Longway"

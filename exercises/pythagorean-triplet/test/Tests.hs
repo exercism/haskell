@@ -27,9 +27,6 @@ specs = describe "pythagorean-triplet" $ do
 
     uncurry3 f (x, y, z) = f x y z
 
-    -- As of 2016-09-12, there was no reference file
-    -- for the test cases in `exercism/x-common`.
-
     isPythagoreanCases = [ ( (3, 4, 5), True )
                          , ( (3, 5, 4), True )
                          , ( (4, 3, 5), True )

@@ -21,9 +21,6 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = describe "zipper" $ do
 
-    -- As of 2016-09-27, there was no reference file
-    -- for the test cases in `exercism/x-common`.
-
     let leaf v     = node v Nothing Nothing
         node v l r = Just (BT v l r :: BinTree Int)
         t1         = BT 1 (node 2 Nothing  $ leaf 3) $ leaf 4

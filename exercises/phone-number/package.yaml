@@ -1,4 +1,5 @@
 name: phone-number
+version: 0.9.0.1 # 2017-01-31
 
 dependencies:
   - base

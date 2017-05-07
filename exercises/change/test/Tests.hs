@@ -20,8 +20,6 @@ specs = describe "Change" $
         assertion  = expression `shouldBe` expected
         expression = sort <$> findFewestCoins target coins
 
--- Test cases adapted from `exercism/x-common` on 2016-09-17.
-
 data Case = Case { description  ::        String
                  , coins        ::       [Integer]
                  , target       ::        Integer

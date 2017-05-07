@@ -11,9 +11,6 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = describe "largest-series-product" $
 
-    -- Test cases adapted from `exercism/x-common/largest-series-product.json`
-    -- on 2016-07-27.
-
     describe "largestProduct" $ do
 
       it "can find the largest product of 2 with numbers in order" $

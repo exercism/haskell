@@ -42,8 +42,6 @@ specs = describe "sublist" $ do
                               , "-"
                               , description ]
 
--- Test cases adapted from `exercism/x-common/sublist.json` on 2016-11-29.
-
 data Case = Case { description :: String
                  , listOne     :: [Integer]
                  , listTwo     :: [Integer]

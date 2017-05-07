@@ -20,8 +20,6 @@ specs = describe "hamming" $
         assertion  = expression `shouldBe` fromIntegral <$> expected
         expression = distance strand1 strand2
 
--- Test cases adapted from `exercism/x-common/hamming.json` on 2016-07-12.
-
 data Case = Case { description :: String
                  , strand1     :: String
                  , strand2     :: String

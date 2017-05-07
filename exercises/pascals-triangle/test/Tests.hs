@@ -18,8 +18,6 @@ specs = describe "pascals-triangle" $
       where
         assertion = rows n `shouldBe` expected
 
-    -- Test cases adapted from `exercism/x-common` on 2016-09-14.
-
     rowsCases = [ ("no rows"      , 0, [                                    ])
                 , ("single row"   , 1, [[1]                                 ])
                 , ("two rows"     , 2, [[1], [1, 1]                         ])

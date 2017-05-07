@@ -21,8 +21,6 @@ specs = describe "meetup" $
         returnedDay = meetupDay week dayofweek year month
         expectedDay = fromGregorian year month dayofmonth
 
--- Test cases adapted from `exercism/x-common/meetup.json` on 2016-07-26.
-
 data Case = Case { description :: String
                  , year        :: Integer
                  , month       :: Int

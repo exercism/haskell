@@ -17,10 +17,6 @@ specs = describe "run-length-encoding" $ do
   where
     test f Case{..} = it description $ f input `shouldBe` expected
 
--- Test cases adapted from file
--- `exercism/x-common/exercises/run-length-encoding/canonical-data.json`
--- on 2016-12-26.
-
 data Case = Case { description :: String
                  , input       :: String
                  , expected    :: String

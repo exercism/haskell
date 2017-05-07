@@ -19,9 +19,6 @@ specs = describe "minesweeper" $
         mineOrSpace '*' = '*'
         mineOrSpace  _  = ' '
 
-    -- Test cases adapted from `exercism/x-common/minesweeper.json`
-    -- on 2016-09-05.
-
     cases = [ ("no rows", [] )
 
             , ("no columns", [ "" ] )

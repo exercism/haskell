@@ -15,8 +15,6 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = describe "pov" $ do
 
-    -- Test cases adapted from `exercism/x-common/pov` on 2016-11-06.
-
     describe "fromPOV" $ do
 
       let cases =

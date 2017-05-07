@@ -31,9 +31,6 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = describe "simple-linked-list" $ do
 
-            -- As of 2016-07-27, there was no reference file
-            -- for the test cases in `exercism/x-common`.
-
             let n1   = new (1 :: Int) nil
             let n21  = new 2 n1
             let n321 = new 3 n21

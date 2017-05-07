@@ -25,9 +25,6 @@ specs = describe "triangle" $
       where
         assertion = triangleType a b c `shouldBe` expected
 
-    -- Test cases created from old version of `x-common` tests on 2017-01-31,
-    -- diverging from `exercism/x-common/triangle`.
-
     cases = [ ( "equilateral triangle has all sides equal"
               , (2, 2, 2)
               , Equilateral

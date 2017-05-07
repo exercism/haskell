@@ -19,7 +19,6 @@ specs = describe "binary" $
       where
         assertion = toDecimal binary `shouldBe` fromIntegral expected
 
--- Test cases adapted from `exercism/x-common/binary.json` on 2016-07-26.
 -- Some descriptions mentioning "errors" where changed to avoid confusion.
 
 data Case = Case { description :: String

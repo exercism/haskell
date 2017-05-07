@@ -12,9 +12,6 @@ specs :: Spec
 specs = describe "luhn" $ do
     describe "standard tests" $ do
 
-      -- Test cases adapted from `exercism/x-common/luhn.json` on
-      -- 2016-08-04. Some deviations exist and are noted in comments.
-
       it "check digit" $
         checkDigit 34567 `shouldBe` 7
 

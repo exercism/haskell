@@ -21,9 +21,6 @@ specs = describe "sgf-parsing" $
         description = unwords ["parse", show input]
         assertion   = parseSgf input `shouldBe` fmap fromList <$> expected
 
-    -- As of 2016-09-18, there was no reference file
-    -- for the test cases in `exercism/x-common`.
-
     cases = [ (""                                   , Nothing                                                )
             , ("()"                                 , Nothing                                                )
             , (";"                                  , Nothing                                                )

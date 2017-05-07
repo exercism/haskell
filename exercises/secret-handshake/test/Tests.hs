@@ -9,8 +9,6 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = describe "secret-handshake" $ do
 
-    -- Test cases adapted from `exercism/x-common/secret-handshake` on 2017-01-31.
-
     it "wink for 1" $
       handshake (1 :: Int) `shouldBe` ["wink"]
 

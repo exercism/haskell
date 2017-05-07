@@ -22,9 +22,6 @@ specs = describe "saddle-points" $
         columns   = length $ head xss
         matrix    = listArray ((0, 0), (rows - 1, columns - 1)) (concat xss)
 
-    -- As of 2016-09-12, there was no reference file
-    -- for the test cases in `exercism/x-common`.
-
     cases = [ ("Example from README", [ [9, 8, 7]
                                       , [5, 3, 2]
                                       , [6, 6, 7] ], [(1, 0)] )

@@ -11,9 +11,6 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = describe "grade-school" $ do
 
-          -- As of 2016-07-27, there was no reference file
-          -- for the test cases in `exercism/x-common`.
-
           let fromList = foldr (uncurry add) empty
           let fromGrade g = fromList . zip (repeat g)
 

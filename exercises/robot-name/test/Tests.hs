@@ -18,9 +18,6 @@ would likely not be in the business of resetting the name.
 specs :: Spec
 specs = describe "robot-name" $ do
 
-          -- As of 2016-07-30, there was no reference file
-          -- for the test cases in `exercism/x-common`.
-
           let a = ('A', 'Z')
           let d = ('0', '9')
           let matchesPattern s = length s == 5

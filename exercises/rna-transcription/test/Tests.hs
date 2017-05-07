@@ -15,8 +15,6 @@ specs = describe "rna-transcription" $
   where
     test Case{..} = it description $ toRNA dna `shouldBe` expected
 
--- Test cases adapted from `exercism/x-common/rna-transcription.json` on 2016-07-24.
-
 data Case = Case { description ::       String
                  , dna         ::       String
                  , expected    :: Maybe String

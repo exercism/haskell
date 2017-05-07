@@ -15,8 +15,6 @@ specs = describe "phone-number" $
   where
     test Case{..} = it description $ number input `shouldBe` expected
 
--- Test cases adapted from `exercism/x-common/phone-number` on 2017-01-31.
-
 data Case = Case { description ::       String
                  , input       ::       String
                  , expected    :: Maybe String

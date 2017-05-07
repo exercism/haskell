@@ -1,4 +1,5 @@
 name: parallel-letter-frequency
+version: 0.1.0.1
 
 dependencies:
   - base

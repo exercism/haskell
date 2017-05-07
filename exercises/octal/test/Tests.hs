@@ -12,9 +12,6 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = describe "octal" $ do
 
-    -- As of 2016-08-10, there was no reference file
-    -- for the test cases in `exercism/x-common`.
-
     it "can show Int octal" $
       property $ \(Positive n) -> Num.showOct n "" == showOct (n :: Int)
 

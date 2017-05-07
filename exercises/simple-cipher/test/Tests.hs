@@ -9,9 +9,6 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = describe "simple-cipher" $ do
 
-    -- As of 2016-09-16, there was no reference file
-    -- for the test cases in `exercism/x-common`.
-
     it "no-op encode" $ do
       caesarEncode         "a"  ['a'..'z'] `shouldBe` ['a'..'z']
       caesarEncode (repeat 'a') ['a'..'z'] `shouldBe` ['a'..'z']

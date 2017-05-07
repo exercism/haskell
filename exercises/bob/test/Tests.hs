@@ -15,8 +15,6 @@ specs = describe "bob" $
   where
     test Case{..} = it description $ responseFor input `shouldBe` expected
 
--- Test cases adapted from `exercism/x-common/bob.json` on 2016-11-29.
-
 data Case = Case { description :: String
                  , input       :: String
                  , expected    :: String

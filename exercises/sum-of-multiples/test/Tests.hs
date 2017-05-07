@@ -21,8 +21,6 @@ specs = describe "sum-of-multiples" $
         expression  = sumOfMultiples (fromIntegral <$> factors)
                                      (fromIntegral     limit  )
 
--- Test cases adapted from `exercism/x-common/sum-of-multiples.json` on 2016-07-27.
-
 data Case = Case { factors  :: [Integer]
                  , limit    ::  Integer
                  , expected ::  Integer

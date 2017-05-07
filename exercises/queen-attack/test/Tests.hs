@@ -56,8 +56,6 @@ specs = describe "queen-attack" $ do
                            , "_ _ _ _ _ _ B _"
                            , "_ _ _ _ _ _ _ _" ]
 
-    -- Test cases adapted from `exercism/x-common/queen-attack.json` on
-    -- 2016-08-02.
     -- The function described by the reference file as `create` doesn't
     -- exist in this track, so only the `canAttack` test cases where
     -- implemented here

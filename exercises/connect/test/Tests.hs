@@ -19,8 +19,6 @@ specs = describe "connect" $
         assertion  = winner testBoard `shouldBe` expected
         testBoard  = filter (/=' ') <$> board
 
--- Test cases adapted from `exercism/x-common` on 2016-09-16.
-
 data Case = Case { description :: String
                  , board       :: [String]
                  , expected    :: Maybe Mark
