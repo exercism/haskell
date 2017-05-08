@@ -52,6 +52,11 @@ cases = [ Case { description = "single coin change"
                , target = 999
                , expected = Just [2, 2, 5, 20, 20, 50, 100, 100, 100, 100, 100, 100, 100, 100, 100]
             }
+        , Case { description = "possible change without unit coins available"
+               , coins = [2, 5, 10, 20, 50]
+               , target = 21
+               , expected = Just [2, 2, 2, 5, 10]
+            }
         , Case { description = "no coins make 0 change"
                , coins = [1, 5, 10, 21, 25]
                , target = 0
@@ -60,6 +65,11 @@ cases = [ Case { description = "single coin change"
         , Case { description = "error testing for change smaller than the smallest of coins"
                , coins = [5, 10]
                , target = 3
+               , expected = Nothing
+             }
+        , Case { description = "error if no combination can add up to target"
+               , coins = [5, 10]
+               , target = 94
                , expected = Nothing
              }
         , Case { description = "cannot find negative change values"
