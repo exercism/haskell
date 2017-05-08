@@ -18,21 +18,21 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = describe "kindergarten-garden" $ do
 
-    it "alice tests" $ do
+    it "garden with single student" $ do
 
       let alicePlants = lookupPlants "Alice" . defaultGarden
 
       alicePlants "RC\nGG" `shouldBe` [ Radishes, Clover, Grass   , Grass  ]
       alicePlants "VC\nRC" `shouldBe` [ Violets , Clover, Radishes, Clover ]
 
-    it "small garden" $ do
+    it "garden with two students" $ do
 
       let plants s  = lookupPlants s $ defaultGarden plantList
           plantList = "VVCG\nVVRC"
 
       plants "Bob" `shouldBe` [ Clover, Grass, Radishes, Clover ]
 
-    it "medium garden" $ do
+    it "garden with three students" $ do
 
       let plants s  = lookupPlants s $ defaultGarden plantList
           plantList = "VVCCGG\nVVCCGG"
@@ -47,18 +47,10 @@ specs = describe "kindergarten-garden" $ do
 
       plants "Alice"   `shouldBe` [ Violets , Radishes, Violets , Radishes ]
       plants "Bob"     `shouldBe` [ Clover  , Grass   , Clover  , Clover   ]
-      plants "Charlie" `shouldBe` [ Violets , Violets , Clover  , Grass    ]
-      plants "David"   `shouldBe` [ Radishes, Violets , Clover  , Radishes ]
-      plants "Eve"     `shouldBe` [ Clover  , Grass   , Radishes, Grass    ]
-      plants "Fred"    `shouldBe` [ Grass   , Clover  , Violets , Clover   ]
-      plants "Ginny"   `shouldBe` [ Clover  , Grass   , Grass   , Clover   ]
-      plants "Harriet" `shouldBe` [ Violets , Radishes, Radishes, Violets  ]
-      plants "Ileana"  `shouldBe` [ Grass   , Clover  , Violets , Clover   ]
-      plants "Joseph"  `shouldBe` [ Violets , Clover  , Violets , Grass    ]
       plants "Kincaid" `shouldBe` [ Grass   , Clover  , Clover  , Grass    ]
       plants "Larry"   `shouldBe` [ Grass   , Violets , Clover  , Violets  ]
 
-    it  "surprise garden" $ do
+    it  "non-alphabetical student list" $ do
 
       let plants s  = lookupPlants s $ garden students plantList
           plantList = "VCRRGVRG\nRVGCCGCV"
