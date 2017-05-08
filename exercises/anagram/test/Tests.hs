@@ -46,7 +46,7 @@ cases = [ Case { description = "no matches"
                , candidates  = ["eagle"]
                , expected    = []
                }
-        , Case { description = "detects multiple anagrams"
+        , Case { description = "detects two anagrams"
                , subject     = "master"
                , candidates  = ["stream", "pigeon", "maters"]
                , expected    = ["stream", "maters"]
@@ -61,7 +61,7 @@ cases = [ Case { description = "no matches"
                , candidates  = ["enlists", "google", "inlets", "banana"]
                , expected    = ["inlets"]
                }
-        , Case { description = "detects multiple anagrams"
+        , Case { description = "detects three anagrams"
                , subject     = "allergy"
                , candidates  = ["gallery", "ballerina", "regally", "clergy", "largely", "leading"]
                , expected    = ["gallery", "regally", "largely"]
