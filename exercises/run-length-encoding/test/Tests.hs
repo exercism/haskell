@@ -40,6 +40,14 @@ encodeCases =
            , input       = "WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWB"
            , expected    = "12WB12W3B24WB"
            }
+    , Case { description = "encode whitespace"
+           , input       = "  hsqq qww  "
+           , expected    = "2 hs2q q2w2 "
+           }
+    , Case { description = "encode lowercase"
+           , input       = "aabbbcccc"
+           , expected    = "2a3b4c"
+           }
     ]
 
 decodeCases :: [Case]
@@ -59,6 +67,14 @@ decodeCases =
     , Case { description = "decode with single values"
            , input       = "12WB12W3B24WB"
            , expected    = "WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWB"
+           }
+    , Case { description = "decode whitespace"
+           , input       = "2 hs2q q2w2 "
+           , expected    = "  hsqq qww  "
+           }
+    , Case { description = "decode lowercase"
+           , input       = "2a3b4c"
+           , expected    = "aabbbcccc"
            }
     ]
 
