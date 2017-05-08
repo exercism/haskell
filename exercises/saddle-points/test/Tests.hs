@@ -26,19 +26,19 @@ specs = describe "saddle-points" $
                                       , [5, 3, 2]
                                       , [6, 6, 7] ], [(1, 0)] )
 
-            , ( "no saddle point", [ [2, 1]
-                                   , [1, 2] ], [] )
+            , ( "empty matrix has none", [], [] )
 
-            , ( "a saddle point", [ [1, 2]
-                                  , [3, 4] ], [(0, 1)] )
-
-            , ( "another saddle point", [ [18,  3, 39, 19,  91]
-                                        , [38, 10,  8, 77, 320]
-                                        , [ 3,  4,  8,  6,   7] ], [(2, 2)] )
+            , ( "no saddle point", [ [1, 2, 3]
+                                   , [3, 1, 2]
+                                   , [2, 3, 1] ], [] )
 
             , ("multiple saddle points", [ [4, 5, 4]
                                          , [3, 5, 5]
                                          , [1, 5, 4] ], [ (0, 1)
                                                         , (1, 1)
                                                         , (2, 1) ] )
+            , ( "bottom-right corner", [ [8, 7, 9]
+                                       , [6, 7, 6]
+                                       , [3, 2, 5] ], [(2, 2)] )
+
             ]
