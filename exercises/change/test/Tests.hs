@@ -2,7 +2,7 @@
 
 import Data.Foldable     (for_)
 import Data.List         (sort)
-import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec        (Spec, it, shouldBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
 import Change (findFewestCoins)
@@ -11,8 +11,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "Change" $
-          describe "change" $ for_ cases test
+specs = for_ cases test
   where
 
     test Case{..} = it description assertion
