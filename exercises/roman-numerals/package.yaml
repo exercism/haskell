@@ -1,5 +1,5 @@
 name: roman-numerals
-version: 0.9.0.1 # 2016-07-26
+version: 1.0.0.2
 
 dependencies:
   - base
