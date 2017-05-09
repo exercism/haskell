@@ -26,31 +26,19 @@ data Case = Case { description :: String
                  }
 
 cases :: [Case]
-cases = [ Case { description = "leap year"
-               , input       = 1996
+cases = [ Case { description = "year not divisible by 4: common year"
+               , input       = 2015
+               , expected    = False
+               }
+        , Case { description = "year divisible by 4, not divisible by 100: leap year"
+               , input       = 2016
                , expected    = True
                }
-        , Case { description = "standard and odd year"
-               , input       = 1997
+        , Case { description = "year divisible by 100, not divisible by 400: common year"
+               , input       = 2100
                , expected    = False
                }
-        , Case { description = "standard even year"
-               , input       = 1998
-               , expected    = False
-               }
-        , Case { description = "standard nineteenth century"
-               , input       = 1900
-               , expected    = False
-               }
-        , Case { description = "standard eighteenth century"
-               , input       = 1800
-               , expected    = False
-               }
-        , Case { description = "leap twenty fourth century"
-               , input       = 2400
-               , expected    = True
-               }
-        , Case { description = "leap y2k"
+        , Case { description = "year divisible by 400: leap year"
                , input       = 2000
                , expected    = True
                }

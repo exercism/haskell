@@ -23,30 +23,34 @@ data Case = Case { description ::       String
 cases :: [Case]
 cases =
     [ Case { description = "cleans the number"
-           , input       = "(123) 456-7890"
-           , expected    = Just "1234567890"
+           , input       = "(223) 456-7890"
+           , expected    = Just "2234567890"
            }
-    , Case { description = "cleans number with dots"
-           , input       = "123.456.7890"
-           , expected    = Just "1234567890"
+    , Case { description = "cleans numbers with dots"
+           , input       = "223.456.7890"
+           , expected    = Just "2234567890"
            }
     , Case { description = "cleans numbers with multiple spaces"
-           , input       = "123 456   7890   "
-           , expected    = Just "1234567890"
+           , input       = "223 456   7890   "
+           , expected    = Just "2234567890"
            }
     , Case { description = "invalid when 9 digits"
            , input       = "123456789"
            , expected    = Nothing
            }
-    , Case { description = "invalid when 11 digits"
-           , input       = "21234567890"
+    , Case { description = "invalid when 11 digits does not start with a 1"
+           , input       = "22234567890"
            , expected    = Nothing
            }
-    , Case { description = "valid when 11 digits and first is 1"
-           , input       = "11234567890"
-           , expected    = Just "1234567890"
+    , Case { description = "valid when 11 digits and starting with 1"
+           , input       = "12234567890"
+           , expected    = Just "2234567890"
            }
-    , Case { description = "invalid when 12 digits"
+    , Case { description = "valid when 11 digits and starting with 1 even with punctuation"
+           , input       = "+1 (223) 456-7890"
+           , expected    = Just "2234567890"
+           }
+    , Case { description = "invalid when more than 11 digits"
            , input       = "321234567890"
            , expected    = Nothing
            }
@@ -58,8 +62,12 @@ cases =
            , input       = "123-@:!-7890"
            , expected    = Nothing
            }
-    , Case { description = "invalid with right number of digits but letters mixed in"
-           , input       = "1a2b3c4d5e6f7g8h9i0j"
+    , Case { description = "invalid if area code does not start with 2-9"
+           , input       = "(123) 456-7890"
+           , expected    = Nothing
+           }
+    , Case { description = "invalid if exchange code does not start with 2-9"
+           , input       = "(223) 056-7890"
            , expected    = Nothing
            }
     ]

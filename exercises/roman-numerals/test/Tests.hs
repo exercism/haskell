@@ -17,66 +17,85 @@ specs = describe "roman-numerals" $
 
     test Case{..} = it explanation assertion
       where
-        explanation = show number
+        explanation = show number ++ ": " ++ description
         assertion   = numerals (fromIntegral number) `shouldBe` expected
 
-data Case = Case { number   :: Integer
-                 , expected :: Maybe String
+data Case = Case { description :: String
+                 , number      :: Integer
+                 , expected    :: Maybe String
                  }
 
 cases :: [Case]
-cases = [ Case { number   = 1
-               , expected = Just "I"
+cases = [ Case { description = "1 is a single I"
+               , number      = 1
+               , expected    = Just "I"
                }
-        , Case { number   = 2
-               , expected = Just "II"
+        , Case { description = "2 is two I's"
+               , number      = 2
+               , expected    = Just "II"
                }
-        , Case { number   = 3
-               , expected = Just "III"
+        , Case { description = "3 is three I's"
+               , number      = 3
+               , expected    = Just "III"
                }
-        , Case { number   = 4
-               , expected = Just "IV"
+        , Case { description = "4, being 5 - 1, is IV"
+               , number      = 4
+               , expected    = Just "IV"
                }
-        , Case { number   = 5
-               , expected = Just "V"
+        , Case { description = "5 is a single V"
+               , number      = 5
+               , expected    = Just "V"
                }
-        , Case { number   = 6
-               , expected = Just "VI"
+        , Case { description = "6, being 5 + 1, is VI"
+               , number      = 6
+               , expected    = Just "VI"
                }
-        , Case { number   = 9
-               , expected = Just "IX"
+        , Case { description = "9, being 10 - 1, is IX"
+               , number      = 9
+               , expected    = Just "IX"
                }
-        , Case { number   = 27
-               , expected = Just "XXVII"
+        , Case { description = "20 is two X's"
+               , number      = 27
+               , expected    = Just "XXVII"
                }
-        , Case { number   = 48
-               , expected = Just "XLVIII"
+        , Case { description = "48 is not 50 - 2 but rather 40 + 8"
+               , number      = 48
+               , expected    = Just "XLVIII"
                }
-        , Case { number   = 59
-               , expected = Just "LIX"
+        , Case { description = "50 is a single L"
+               , number      = 59
+               , expected    = Just "LIX"
                }
-        , Case { number   = 93
-               , expected = Just "XCIII"
+        , Case { description = "90, being 100 - 10, is XC"
+               , number      = 93
+               , expected    = Just "XCIII"
                }
-        , Case { number   = 141
-               , expected = Just "CXLI"
+        , Case { description = "100 is a single C"
+               , number      = 141
+               , expected    = Just "CXLI"
                }
-        , Case { number   = 163
-               , expected = Just "CLXIII"
+        , Case { description = "60, being 50 + 10, is LX"
+               , number      = 163
+               , expected    = Just "CLXIII"
                }
-        , Case { number   = 402
-               , expected = Just "CDII"
+        , Case { description = "400, being 500 - 100, is CD"
+               , number      = 402
+               , expected    = Just "CDII"
                }
-        , Case { number   = 575
-               , expected = Just "DLXXV"
+        , Case { description = "500 is a single D"
+               , number      = 575
+               , expected    = Just "DLXXV"
                }
-        , Case { number   = 911
-               , expected = Just "CMXI"
+        , Case { description = "900, being 1000 - 100, is CM"
+               , number      = 911
+               , expected    = Just "CMXI"
                }
-        , Case { number   = 1024
-               , expected = Just "MXXIV"
+        , Case { description = "1000 is a single M"
+               , number      = 1024
+               , expected    = Just "MXXIV"
                }
-        , Case { number   = 3000
-               , expected = Just "MMM"
+        , Case { description = "3000 is three M's"
+               , number      = 3000
+               , expected    = Just "MMM"
                }
         ]

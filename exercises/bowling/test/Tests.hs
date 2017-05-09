@@ -82,15 +82,15 @@ cases = [ Case { description = "should be able to score a game with all zeros"
                , expected    = Right 300
                }
         , Case { description = "rolls can not score negative points"
-               , rolls       = [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+               , rolls       = [-1]
                , expected    = Left $ InvalidRoll 0 (-1)
                }
         , Case { description = "a roll can not score more than 10 points"
-               , rolls       = [11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+               , rolls       = [11]
                , expected    = Left $ InvalidRoll 0 11
                }
         , Case { description = "two rolls in a frame can not score more than 10 points"
-               , rolls       = [5, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+               , rolls       = [5, 6]
                , expected    = Left $ InvalidRoll 1 6
                }
         , Case { description = "bonus roll after a strike in the last frame can not score more than 10 points"
@@ -121,7 +121,7 @@ cases = [ Case { description = "should be able to score a game with all zeros"
                , rolls       = [0, 0]
                , expected    = Left IncompleteGame
                }
-        , Case { description = "a game with more than ten frames can not be scored"
+        , Case { description = "cannot roll if game already has ten frames"
                , rolls       = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
                , expected    = Left $ InvalidRoll 20 0
                }
