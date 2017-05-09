@@ -68,14 +68,11 @@ specs = describe "pov" $ do
                         , "uncle"
                         , "cousin-1"    ]
 
-      it "Can trace from a leaf to a leaf" $
-        tracePathBetween "kid-a" "cousin-0" cousins
-        `shouldBe` Just [ "kid-a"
-                        , "x"
-                        , "parent"
-                        , "grandparent"
-                        , "uncle"
-                        , "cousin-0"    ]
+      it "Can find path from nodes other than x" $
+        tracePathBetween "a" "c" flat
+        `shouldBe` Just [ "a"
+                        , "root"
+                        , "c"    ]
 
       it "Cannot trace if destination does not exist" $
         tracePathBetween "x" "NOT THERE" cousins
