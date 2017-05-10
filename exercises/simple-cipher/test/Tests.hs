@@ -1,4 +1,4 @@
-import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec        (Spec, it, shouldBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
 import Cipher (caesarDecode, caesarEncode, caesarEncodeRandom)
@@ -7,7 +7,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "simple-cipher" $ do
+specs = do
 
     it "no-op encode" $ do
       caesarEncode         "a"  ['a'..'z'] `shouldBe` ['a'..'z']
