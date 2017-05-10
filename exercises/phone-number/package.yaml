@@ -1,5 +1,5 @@
 name: phone-number
-version: 1.2.0.3
+version: 1.2.0.4
 
 dependencies:
   - base
