@@ -11,8 +11,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "hamming" $
-          describe "distance" $ for_ cases test
+specs = describe "distance" $ for_ cases test
   where
 
     test Case{..} = it description assertion
