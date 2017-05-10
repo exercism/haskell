@@ -7,8 +7,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "pig-latin" $
-          describe "translate" $ do
+specs = describe "translate" $ do
 
     describe "ay is added to words that start with vowels" $ do
         it "word beginning with a" $ translate "apple"  `shouldBe` "appleay"
