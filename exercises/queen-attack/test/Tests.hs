@@ -10,7 +10,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "queen-attack" $ do
+specs = do
 
     -- Track-specific test cases.
 
