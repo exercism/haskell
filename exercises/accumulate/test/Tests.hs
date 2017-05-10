@@ -1,5 +1,5 @@
 import Data.Char         (toUpper)
-import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec        (Spec, it, shouldBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
 import Accumulate (accumulate)
@@ -8,7 +8,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "accumulate" $ do
+specs = do
 
     let square x = x * x :: Int
 
