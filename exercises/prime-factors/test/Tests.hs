@@ -10,8 +10,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "prime-factors" $
-          describe "primeFactors" $ for_ cases test
+specs = describe "primeFactors" $ for_ cases test
   where
 
     test (description, n, expected) = it description assertion
