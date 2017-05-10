@@ -1,4 +1,4 @@
-import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec        (Spec, it, shouldBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
 import BST
@@ -16,7 +16,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "binary-seach-tree" $ do
+specs = do
 
     let int4   = 4  ::  Int
     let noInts = [] :: [Int]
