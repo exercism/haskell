@@ -14,8 +14,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "dominoes" $
-          describe "chain" $ for_ cases test
+specs = describe "chain" $ for_ cases test
   where
 
     test Case{..} = it description assertion
