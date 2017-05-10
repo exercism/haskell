@@ -10,8 +10,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "pangram" $
-          describe "isPangram" $ for_ cases test
+specs = describe "isPangram" $ for_ cases test
   where
     test Case{..} = it description $ isPangram input `shouldBe` expected
 
