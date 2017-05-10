@@ -1,4 +1,4 @@
-import Test.Hspec        (Spec, describe, it)
+import Test.Hspec        (Spec, it)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 import Test.QuickCheck   (Positive(Positive), property)
 
@@ -10,7 +10,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "octal" $ do
+specs = do
 
     it "can show Int octal" $
       property $ \(Positive n) -> Num.showOct n "" == showOct (n :: Int)
