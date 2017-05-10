@@ -1,4 +1,4 @@
-import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec        (Spec, it, shouldBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
 import SecretHandshake (handshake)
@@ -7,7 +7,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "secret-handshake" $ do
+specs = do
 
     it "wink for 1" $
       handshake (1 :: Int) `shouldBe` ["wink"]
