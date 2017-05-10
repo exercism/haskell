@@ -8,8 +8,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "minesweeper" $
-          describe "annotate" $ for_ cases test
+specs = describe "annotate" $ for_ cases test
   where
 
     test (description, board) = it description assertion
