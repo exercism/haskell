@@ -1,4 +1,4 @@
-import Test.Hspec        (Spec, describe, it, shouldReturn)
+import Test.Hspec        (Spec, it, shouldReturn)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
 import Deque (mkDeque, pop, push, shift, unshift)
@@ -8,7 +8,7 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 
 {-# ANN module "HLint: ignore Reduce duplication" #-}
 specs :: Spec
-specs = describe "linked-list" $ do
+specs = do
 
     it "push pop" $ do
       deque <- mkDeque
