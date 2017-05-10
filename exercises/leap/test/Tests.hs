@@ -11,8 +11,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "leap" $
-          describe "isLeapYear" $ for_ cases test
+specs = describe "isLeapYear" $ for_ cases test
   where
 
     test Case{..} = it explanation assertion
