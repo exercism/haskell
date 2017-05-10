@@ -2,7 +2,7 @@ import Data.Bifunctor    (first)
 import Data.MultiSet     (fromOccurList, toOccurList)
 import Data.Set          (toAscList)
 import Data.Tuple        (swap)
-import Test.Hspec        (Spec, describe, it, shouldBe, shouldMatchList)
+import Test.Hspec        (Spec, it, shouldBe, shouldMatchList)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
 import Counting (Color(Black,White), territories, territoryFor)
@@ -11,7 +11,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "go-counting" $ do
+specs = do
 
     let board5x5 = [ "  B  "
                    , " B B "
