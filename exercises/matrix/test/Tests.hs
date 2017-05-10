@@ -1,5 +1,5 @@
 import Control.Arrow     ((&&&))
-import Test.Hspec        (Spec, describe, it, shouldBe, shouldNotBe)
+import Test.Hspec        (Spec, it, shouldBe, shouldNotBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
 import qualified Data.Vector as Vector (fromList)
@@ -22,7 +22,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "matrix" $ do
+specs = do
 
     let intMatrix = fromString :: String -> Matrix Int
     let vector = Vector.fromList
