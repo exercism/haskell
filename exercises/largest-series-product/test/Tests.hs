@@ -9,9 +9,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "largest-series-product" $
-
-    describe "largestProduct" $ do
+specs = describe "largestProduct" $ do
 
       it "finds the largest product if span equals length" $
         largestProduct 2 "29"

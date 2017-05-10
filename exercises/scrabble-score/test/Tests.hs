@@ -11,7 +11,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "scrabble-score" $ do
+specs = do
           describe "scoreLetter" $ do
             it "'a'" $ scoreLetter 'a' `shouldBe`  1
             it "'Z'" $ scoreLetter 'Z' `shouldBe` 10

@@ -12,8 +12,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "space-age" $
-          describe "ageOn" $ for_ cases test
+specs = describe "ageOn" $ for_ cases test
   where
     -- Here we used `fromIntegral`, `fromRational` and `toRational` to
     -- generalize the test suite, allowing any function that takes a

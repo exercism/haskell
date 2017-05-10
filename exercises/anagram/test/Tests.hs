@@ -11,8 +11,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "anagram" $
-          describe "anagramsFor" $ for_ cases test
+specs = describe "anagramsFor" $ for_ cases test
   where
 
     test Case{..} = it description $ expression `shouldMatchList` expected

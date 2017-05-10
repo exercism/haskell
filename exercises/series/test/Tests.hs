@@ -3,7 +3,7 @@
 {-# LANGUAGE OverloadedStrings          #-}
 
 import GHC.Exts          (toList)
-import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec        (Spec, it, shouldBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
 import Series (slices)
@@ -12,7 +12,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "series" $ do
+specs = do
 
     let x `shouldHaveSlices` yss = (map toList . toList) x `shouldBe` yss
 

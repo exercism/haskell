@@ -10,7 +10,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "pythagorean-triplet" $ do
+specs = do
           describe "isPythagorean"       $ for_ isPythagoreanCases       isPythagoreanTest
           describe "pythagoreanTriplets" $ for_ pythagoreanTripletsCases pythagoreanTripletsTest
   where

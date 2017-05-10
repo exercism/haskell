@@ -21,7 +21,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "allergies" $ do
+specs = do
 
           describe "isAllergicTo" $ do
 

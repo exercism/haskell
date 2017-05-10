@@ -10,7 +10,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "forth" $ do
+specs = do
 
     let runTexts = fmap toList . foldM (flip evalText) empty
 

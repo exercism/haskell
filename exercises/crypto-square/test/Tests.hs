@@ -12,8 +12,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "crypto-square" $
-          describe "encode" $ for_ cases test
+specs = describe "encode" $ for_ cases test
   where
 
     test Case{..} = describe description $ do

@@ -10,7 +10,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "grains" $ do
+specs = do
           describe "square" $ for_ squareCases squareTest
           describe "total"  $ totalTest totalCase
   where

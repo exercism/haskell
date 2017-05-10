@@ -14,8 +14,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "word-count" $
-          describe "wordCount" $ for_ cases test
+specs = describe "wordCount" $ for_ cases test
   where
     -- Here we used `fromIntegral`, `fromList` and `toList` to generalize
     -- the tests, accepting any function that receives a string-like argumment

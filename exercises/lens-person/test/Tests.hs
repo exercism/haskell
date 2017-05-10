@@ -1,6 +1,6 @@
 import Data.Char          (toUpper)
 import Data.Time.Calendar (fromGregorian)
-import Test.Hspec         (Spec, describe, it, shouldBe)
+import Test.Hspec         (Spec, it, shouldBe)
 import Test.Hspec.Runner  (configFastFail, defaultConfig, hspecWith)
 
 import Person
@@ -18,7 +18,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "lens-person" $ do
+specs = do
 
     it "bornStreet" $
       (bornStreet . _born) testPerson

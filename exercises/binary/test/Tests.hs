@@ -11,8 +11,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "binary" $
-          describe "toDecimal" $ for_ cases test
+specs = describe "toDecimal" $ for_ cases test
   where
 
     test Case{..} = it description assertion

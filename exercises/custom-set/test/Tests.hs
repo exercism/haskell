@@ -25,7 +25,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "custom-set" $ do
+specs = do
 
     describe "standard tests" $ do
 

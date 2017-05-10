@@ -12,8 +12,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "sgf-parsing" $
-          describe "parseSgf" $ for_ cases test
+specs = describe "parseSgf" $ for_ cases test
   where
 
     test (input, expected) = it description assertion

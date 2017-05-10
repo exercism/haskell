@@ -1,7 +1,7 @@
 import Control.Concurrent (forkIO, newEmptyMVar, putMVar, takeMVar)
 import Control.Monad      (replicateM)
 import Data.Foldable      (for_)
-import Test.Hspec         (Spec, describe, it, shouldReturn)
+import Test.Hspec         (Spec, it, shouldReturn)
 import Test.Hspec.Runner  (configFastFail, defaultConfig, hspecWith)
 
 import BankAccount
@@ -15,7 +15,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "bank-account" $ do
+specs = do
 
     it "initial balance is 0" $ do
         account  <-  openAccount

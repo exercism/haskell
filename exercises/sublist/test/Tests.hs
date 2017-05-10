@@ -10,7 +10,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "sublist" $ do
+specs = do
           describe "standard tests" $ for_ cases test
           describe "track specific tests" $ do
 

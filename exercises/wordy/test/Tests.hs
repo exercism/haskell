@@ -11,8 +11,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "wordy" $
-          describe "answer" $ for_ cases test
+specs = describe "answer" $ for_ cases test
   where
 
     test Case{..} = it description assertion

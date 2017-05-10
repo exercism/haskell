@@ -11,7 +11,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "nucleotide-count" $ do
+specs = do
 
           let x `matchesMap` y = x `shouldBe` (Right . fromList) y
 

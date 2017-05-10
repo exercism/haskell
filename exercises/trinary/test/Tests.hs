@@ -1,5 +1,5 @@
 import Data.Char         (intToDigit)
-import Test.Hspec        (Spec, describe, it)
+import Test.Hspec        (Spec, it)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 import Test.QuickCheck   (Positive(Positive), (==>), property)
 
@@ -11,7 +11,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "trinary" $ do
+specs = do
 
     let refShowTri n = Num.showIntAtBase 3 intToDigit n ""
 

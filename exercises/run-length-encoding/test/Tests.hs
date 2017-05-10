@@ -10,7 +10,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "run-length-encoding" $ do
+specs = do
           describe "decode" $ for_ decodeCases $ test decode
           describe "encode" $ for_ encodeCases $ test encode
           describe "both"   $ for_ bothCases   $ test (decode . encode)

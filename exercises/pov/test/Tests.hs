@@ -13,7 +13,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "pov" $ do
+specs = do
 
     describe "fromPOV" $ do
 
