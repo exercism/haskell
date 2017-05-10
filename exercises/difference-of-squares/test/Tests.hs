@@ -9,7 +9,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "differenceOfSquares" $ do
+specs = do
 
     describe "squareOfSums" $ do
       it "square of sum 5"   $ squareOfSums   5 `shouldBe`      225
