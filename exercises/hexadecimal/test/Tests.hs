@@ -10,8 +10,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "hexadecimal" $
-          describe "hexToInt" $ for_ cases test
+specs = describe "hexToInt" $ for_ cases test
   where
 
     test (input, expected) = it description assertion
