@@ -21,7 +21,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "robot-simulator" $ do
+specs = do
 
     describe "mkRobot" $ do
 
