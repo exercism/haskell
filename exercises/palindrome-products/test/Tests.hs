@@ -11,7 +11,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "palindrome-products" $ for_ cases test
+specs = for_ cases test
   where
     test (desc, minFactor, maxFactor, sPal, sPalFactors, lPal, lPalFactors) =
       describe desc $ do
