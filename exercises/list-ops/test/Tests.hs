@@ -1,7 +1,7 @@
 {-# LANGUAGE DeriveAnyClass #-}
 
 import Control.Exception (Exception, throw, evaluate)
-import Test.Hspec        (Spec, describe, it, shouldBe, shouldThrow)
+import Test.Hspec        (Spec, it, shouldBe, shouldThrow)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
 import Prelude hiding
@@ -31,7 +31,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "list-ops" $ do
+specs = do
 
     let big = 100000 :: Int
 
