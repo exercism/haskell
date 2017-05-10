@@ -1,7 +1,7 @@
 {-# OPTIONS_GHC -fno-warn-type-defaults #-}
 
 import Data.Ix           (inRange)
-import Test.Hspec        (Spec, describe, it, shouldBe, shouldNotBe, shouldSatisfy)
+import Test.Hspec        (Spec, it, shouldBe, shouldNotBe, shouldSatisfy)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
 import Robot (mkRobot, resetName, robotName)
@@ -16,7 +16,7 @@ real "robot generator" would use a proper serial number system and
 would likely not be in the business of resetting the name.
 -}
 specs :: Spec
-specs = describe "robot-name" $ do
+specs = do
 
           let a = ('A', 'Z')
           let d = ('0', '9')
