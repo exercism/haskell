@@ -8,20 +8,18 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "food-chain" $
+specs = describe "song" $ do
 
-          describe "song" $ do
+          -- First we test the input, line by line, to give more
+          -- useful error messages.
 
-            -- First we test the input, line by line, to give more
-            -- useful error messages.
+          it "matches lines" $ sequence_ lineAssertions
 
-            it "matches lines" $ sequence_ lineAssertions
+          -- Finally, because testing lines we are unable
+          -- to detect a missing newline at the end of the
+          -- lyrics, we test the full song.
 
-            -- Finally, because testing lines we are unable
-            -- to detect a missing newline at the end of the
-            -- lyrics, we test the full song.
-
-            it "matches full song" $ song `shouldBe` lyrics
+          it "matches full song" $ song `shouldBe` lyrics
   where
 
     lineAssertions = zipWith checkLine [1 :: Int ..] $ zipMaybe (lines song) (lines lyrics)
