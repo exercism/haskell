@@ -12,7 +12,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "parallel-letter-frequency" $ do
+specs = do
 
     let odeAnDieFreude = concat             -- Poem by Friedrich Schiller.
           [ "Freude schöner Götterfunken"   -- The corresponding music is
