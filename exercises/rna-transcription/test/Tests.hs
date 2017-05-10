@@ -10,8 +10,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "rna-transcription" $
-          describe "toRNA" $ for_ cases test
+specs = describe "toRNA" $ for_ cases test
   where
     test Case{..} = it description $ toRNA dna `shouldBe` expected
 
