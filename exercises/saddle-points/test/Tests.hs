@@ -11,8 +11,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "saddle-points" $
-          describe "saddlePoints" $ for_ cases test
+specs = describe "saddlePoints" $ for_ cases test
   where
 
     test (description, xss, expected) = it description assertion
