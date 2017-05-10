@@ -1,7 +1,7 @@
 {-# LANGUAGE ScopedTypeVariables #-}
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 
-import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec        (Spec, it, shouldBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 import Test.QuickCheck   (property)
 import Test.QuickCheck.Arbitrary
@@ -29,7 +29,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "simple-linked-list" $ do
+specs = do
 
             let n1   = new (1 :: Int) nil
             let n21  = new 2 n1
