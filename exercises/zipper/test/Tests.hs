@@ -1,5 +1,5 @@
 import Data.Maybe        (fromJust)
-import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec        (Spec, it, shouldBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
 import Zipper
@@ -19,7 +19,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "zipper" $ do
+specs = do
 
     let leaf v     = node v Nothing Nothing
         node v l r = Just (BT v l r :: BinTree Int)
