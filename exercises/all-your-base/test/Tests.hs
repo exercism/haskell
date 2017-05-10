@@ -10,8 +10,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "all-your-base" $
-          describe "rebase" $ for_ cases test
+specs = describe "rebase" $ for_ cases test
   where
 
     test Case{..} = it description assertion
