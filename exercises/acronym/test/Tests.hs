@@ -10,8 +10,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "acronym" $
-          describe "abbreviate" $ for_ cases test
+specs = describe "abbreviate" $ for_ cases test
   where
     test Case {..} = it description $ abbreviate input `shouldBe` expected
 
