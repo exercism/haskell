@@ -10,8 +10,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "raindrops" $
-          describe "convert" $ for_ cases test
+specs = describe "convert" $ for_ cases test
   where
 
     test (number, expected) = it description assertion
