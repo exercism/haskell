@@ -10,7 +10,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "atbash-cipher" $ do
+specs = do
           describe "encode" $ for_ encodeCases $ test encode
           describe "decode" $ for_ decodeCases $ test decode
   where
