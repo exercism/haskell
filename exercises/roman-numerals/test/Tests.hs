@@ -11,8 +11,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "roman-numerals" $
-          describe "numerals" $ for_ cases test
+specs = describe "numerals" $ for_ cases test
   where
 
     test Case{..} = it explanation assertion
