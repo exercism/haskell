@@ -17,8 +17,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "triangle" $
-          describe "triangleType" $ for_ cases test
+specs = describe "triangleType" $ for_ cases test
   where
 
     test (description, (a, b, c), expected) = it description assertion
