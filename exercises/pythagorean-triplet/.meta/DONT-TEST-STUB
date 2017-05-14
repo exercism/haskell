@@ -1,2 +1,0 @@
-No function signatures, since we give students the freedom to define mkTriplet how they want
-But this means we can't make sure that the result of `mkTriplet` is `Eq`
