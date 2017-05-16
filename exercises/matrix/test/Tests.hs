@@ -69,16 +69,3 @@ specs = do
 
     it "flatten" $
       flatten (intMatrix "1 2\n3 4") `shouldBe` vector [1, 2, 3, 4]
-
-    it "matrix of chars" $
-      fromString "'f' 'o' 'o'\n'b' 'a' 'r'" `shouldBe` fromList ["foo", "bar"]
-
-    it "matrix of strings" $ 
-       fromString "\"this one\"\n\"may be tricky!\""
-       `shouldBe` fromList [ ["this one"      ]
-                           , ["may be tricky!"] ]
-
-    it "matrix of strings 2" $ 
-       fromString "\"this one\" \"one\" \n\"may be tricky!\" \"really tricky\""
-       `shouldBe` fromList [ ["this one"      , "one"          ]
-                           , ["may be tricky!", "really tricky"] ]
