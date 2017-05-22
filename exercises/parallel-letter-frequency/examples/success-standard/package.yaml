@@ -22,7 +22,7 @@ tests:
 
 benchmarks:
   bench:
-    main: Benchmarks.hs
+    main: Benchmark.hs
     source-dirs: bench
     dependencies:
       - parallel-letter-frequency
