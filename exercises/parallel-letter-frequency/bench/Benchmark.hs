@@ -33,6 +33,7 @@ benchGroup processors numWorkers numAnthems =
   bgroup (show numAnthems ++ " anthems on " ++ show processors ++ " cores") (makeBench anthems <$> numWorkers)
   where anthems = replicate numAnthems odeAnDieFreude
 
+main :: IO ()
 main = do processors <- getNumProcessors
           let numsOfWorkers = nub $ sort [1, processors]
               numsOfAnthems = [4, 500]
