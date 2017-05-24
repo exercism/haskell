@@ -38,10 +38,6 @@ main = do processors <- getNumProcessors
           let numsOfWorkers = nub $ sort [1, processors]
               numsOfAnthems = [4, 500]
 
-          -- run on 1 core
-          setNumCapabilities 1
-          defaultMain $ benchGroup 1 numsOfWorkers <$> numsOfAnthems
-
           -- run on all cores
           setNumCapabilities processors
           defaultMain $ benchGroup processors numsOfWorkers <$> numsOfAnthems
