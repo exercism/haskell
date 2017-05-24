@@ -1,6 +1,6 @@
 name: parallel-letter-frequency
 
-ghc-options: -threaded -rtsopts -O2
+ghc-options: -threaded -with-rtsopts=-N -O2
 
 dependencies:
   - base

@@ -1,7 +1,7 @@
 name: parallel-letter-frequency
 version: 0.1.0.3
 
-ghc-options: -threaded -rtsopts -O2
+ghc-options: -threaded -with-rtsopts=-N -O2
 
 dependencies:
   - base
