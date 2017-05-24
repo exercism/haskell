@@ -7,8 +7,7 @@ import Data.Text (Text, unlines)
 
 import Criterion.Main (bench, bgroup, defaultMain, nf)
 import Criterion.Types (Benchmark)
-import Control.Concurrent (setNumCapabilities)
-import GHC.Conc (getNumProcessors)
+import Control.Concurrent (getNumCapabilities)
 import Data.List (nub, sort, replicate)
 
 odeAnDieFreude :: Text
@@ -30,14 +29,12 @@ makeBench anthems workers = bench name $ nf (`frequency` anthems) workers
 
 benchGroup :: Int -> [Int] -> Int -> Benchmark
 benchGroup processors numWorkers numAnthems =
-  bgroup (show numAnthems ++ " anthems on " ++ show processors ++ " cores") (makeBench anthems <$> numWorkers)
+  bgroup (show numAnthems ++ " anthems on " ++ show processors ++ " threads") (makeBench anthems <$> numWorkers)
   where anthems = replicate numAnthems odeAnDieFreude
 
 main :: IO ()
-main = do processors <- getNumProcessors
-          let numsOfWorkers = nub $ sort [1, processors]
+main = do threads <- getNumCapabilities
+          let numsOfWorkers = nub $ sort [1, threads]
               numsOfAnthems = [4, 500]
 
-          -- run on all cores
-          setNumCapabilities processors
-          defaultMain $ benchGroup processors numsOfWorkers <$> numsOfAnthems
+          defaultMain $ benchGroup threads numsOfWorkers <$> numsOfAnthems

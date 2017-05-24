@@ -1,5 +1,7 @@
 name: parallel-letter-frequency
 
+ghc-options: -threaded -rtsopts -O2
+
 dependencies:
   - base
   - containers
