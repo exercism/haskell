@@ -20,7 +20,14 @@ cleanup() {
 }
 trap cleanup EXIT INT TERM
 
-cp -R -L ${exercisedir}/stack.yaml ${exercisedir}/package.yaml ${exercisedir}/src ${exercisedir}/test "${buildfolder}"
+cp -R -L                        \
+    ${exercisedir}/stack.yaml   \
+    ${exercisedir}/package.yaml \
+    ${exercisedir}/src          \
+    ${exercisedir}/test         \
+    ${exercisedir}/bench        \
+    "${buildfolder}"            \
+    2> /dev/null || true # Suppress the error, if missing 'bench'.
 
 cd $buildfolder
 
@@ -38,6 +45,8 @@ if [ -f "${exercisedir}/.meta/DONT-TEST-STUB" ]; then
     echo "only building stub"
     stack build ${SET_RESOLVER} --install-ghc --no-terminal
 else
-    echo "testing stub"
-    stack test ${SET_RESOLVER} --install-ghc --no-terminal --no-run-tests
+    echo "building stub with everything else"
+    stack build ${SET_RESOLVER} --install-ghc --no-terminal \
+                --test  --no-run-tests                      \
+                --bench --no-run-benchmarks
 fi
