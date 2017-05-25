@@ -22,7 +22,13 @@ cleanup() {
 }
 trap cleanup EXIT INT TERM
 
-cp -R -L ${exercisedir}/stack.yaml ${exercisedir}/test ${exampledir}/* "${buildfolder}"
+cp -R -L                      \
+    ${exercisedir}/stack.yaml \
+    ${exercisedir}/test       \
+    ${exercisedir}/bench      \
+    ${exampledir}/*           \
+    "${buildfolder}"          \
+    2> /dev/null || true # Suppress the error, if missing 'bench'.
 
 cd $buildfolder
 
@@ -39,10 +45,12 @@ exampletype=$(echo "$examplename" | cut -d- -f1)
 
 runstack () {
     # SET_RESOLVER passed by .travis.yml - sets --resolver if not current.
-    stack "$@" ${SET_RESOLVER} `# Select the correct resolver. `\
-               --install-ghc   `# Download GHC if not in cache.`\
-               --no-terminal   `# Terminal detection is broken.`\
-               --pedantic      `# Enable -Wall and -Werror.    `
+    stack "$@" ${SET_RESOLVER}     `# Select the correct resolver. `\
+               --install-ghc       `# Download GHC if not in cache.`\
+               --no-terminal       `# Terminal detection is broken.`\
+               --bench             `# Build benchmarks, but        `\
+               --no-run-benchmarks `# do not run them.             `\
+               --pedantic          `# Enable -Wall and -Werror.    `
 }
 
 if [ "$exampletype" = "success" ]; then
