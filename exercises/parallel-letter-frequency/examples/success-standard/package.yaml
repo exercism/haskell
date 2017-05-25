@@ -1,7 +1,5 @@
 name: parallel-letter-frequency
 
-ghc-options: -threaded -with-rtsopts=-N -O2
-
 dependencies:
   - base
   - containers
@@ -23,6 +21,8 @@ tests:
 
 benchmarks:
   bench:
+    ghc-options: -threaded -with-rtsopts=-N -O2
+
     main: Benchmark.hs
     source-dirs: bench
     dependencies:
