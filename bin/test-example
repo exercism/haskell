@@ -66,6 +66,8 @@ elif [ "$exampletype" = "error" ]; then
     if runstack "test" "--no-run-tests"; then
         echo "${exampledir} build succeeded unexpectedly"
         exit 1
+    else
+        rm -rf "${examplecache}"
     fi
 else
     echo "unknown example type: ${exampledir}"
