@@ -25,10 +25,12 @@ trap cleanup EXIT INT TERM
 cp -R -L                      \
     ${exercisedir}/stack.yaml \
     ${exercisedir}/test       \
-    ${exercisedir}/bench      \
     ${exampledir}/*           \
-    "${buildfolder}"          \
-    2> /dev/null || true # Suppress the error, if missing 'bench'.
+    "${buildfolder}"
+
+if [ -d ${exercisedir}/bench ]; then
+    cp -R -L ${exercisedir}/bench "${buildfolder}"
+fi
 
 cd $buildfolder
 

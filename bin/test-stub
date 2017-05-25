@@ -25,9 +25,11 @@ cp -R -L                        \
     ${exercisedir}/package.yaml \
     ${exercisedir}/src          \
     ${exercisedir}/test         \
-    ${exercisedir}/bench        \
-    "${buildfolder}"            \
-    2> /dev/null || true # Suppress the error, if missing 'bench'.
+    "${buildfolder}"
+
+if [ -d ${exercisedir}/bench ]; then
+    cp -R -L ${exercisedir}/bench "${buildfolder}"
+fi
 
 cd $buildfolder
 
