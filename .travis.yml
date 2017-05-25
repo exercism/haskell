@@ -6,6 +6,7 @@ addons:
       - libgmp-dev       # Stack's GHC depends on this.
 
 cache:
+  timeout: 600           # The cache is too big to upload in 180 seconds.
   directories:
     - $HOME/.stack       # Global stack's cache.
     - $HOME/.foldercache # Per exercise `.stack-work` cache.
