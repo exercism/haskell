@@ -1,5 +1,5 @@
 name: parallel-letter-frequency
-version: 0.1.0.2
+version: 0.1.0.3
 
 dependencies:
   - base
@@ -20,3 +20,13 @@ tests:
     dependencies:
       - parallel-letter-frequency
       - hspec
+
+benchmarks:
+  bench:
+    ghc-options: -threaded -with-rtsopts=-N -O2
+
+    main: Benchmark.hs
+    source-dirs: bench
+    dependencies:
+      - parallel-letter-frequency
+      - criterion
