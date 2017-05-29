@@ -165,11 +165,6 @@ If you are certain that a suggestion given by `hlint` would make the
 code worse, you can [suppress it](https://github.com/ndmitchell/hlint#customizing-the-hints)
 with annotations in the source file.
 
-## License
-
-The MIT License (MIT)
-
-Copyright (c) 2014 Katrina Owen, _@kytrinyx.com
 
 ### Haskell icon
 The Haskell icon was designed by Darrin Thompson and Jeff Wheeler. It was released under the [HaskellWiki license](https://wiki.haskell.org/HaskellWiki:Copyrights).
