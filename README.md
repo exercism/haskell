@@ -33,7 +33,7 @@ In any case, don't be afraid or shy! We promise to be friendly and as helpful as
 possible.
 
 ### How to contribute
-As a first step we recommend you read the [contributing guide](https://github.com/exercism/x-common/blob/master/CONTRIBUTING.md).
+As a first step we recommend you read the [contributing documentation](https://github.com/exercism/docs/tree/master/contributing-to-language-tracks).
 
 #### Reporting or fixing bugs
 Typical examples for a bug: A typo, a missing test case, an unclear or ambiguous
