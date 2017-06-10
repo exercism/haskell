@@ -529,10 +529,6 @@
     "octal",
     "trinary"
   ],
-  "ignored": [
-    "docs",
-    "img"
-  ],
   "foregone": [
 
   ]
