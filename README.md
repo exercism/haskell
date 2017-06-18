@@ -1,6 +1,6 @@
-# xHaskell
+# Exercism Haskell Track
 
-[![Build Status](https://travis-ci.org/exercism/xhaskell.png?branch=master)](https://travis-ci.org/exercism/xhaskell)
+[![Build Status](https://travis-ci.org/exercism/haskell.png?branch=master)](https://travis-ci.org/exercism/haskell)
 
 Exercism exercises in Haskell
 
@@ -43,7 +43,7 @@ problem description.
 - If you already have a fix for it you may [write a pull request](#writing-a-pull-request).
 
 #### Reviewing issues and pull requests
-If you have a dedicated opinion you are welcome to [write a comment](https://help.github.com/articles/commenting-on-a-pull-request/) for an [issue](https://github.com/exercism/xhaskell/issues) or a [pull request](https://github.com/exercism/xhaskell/pulls).
+If you have a dedicated opinion you are welcome to [write a comment](https://help.github.com/articles/commenting-on-a-pull-request/) for an [issue](https://github.com/exercism/haskell/issues) or a [pull request](https://github.com/exercism/haskell/pulls).
 Please be detailed and include reasons, links or arguments to support your opinion.
 
 #### Porting exercises
@@ -107,10 +107,10 @@ format that has all dependencies and build instructions for an exercise.
 - `test/Tests.hs` is the [test suite](#test-suite).
 
 ### Writing an issue
-To report a bug you should [create an issue](https://help.github.com/articles/creating-an-issue/) [here](https://github.com/exercism/xhaskell/issues).
+To report a bug you should [create an issue](https://help.github.com/articles/creating-an-issue/) [here](https://github.com/exercism/haskell/issues).
 
 ### Writing a pull request
-To fix a bug you should [create a pull request from a fork](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) [here](https://github.com/exercism/xhaskell/pulls). See also [here](https://github.com/exercism/x-common/blob/master/CONTRIBUTING.md#git-basics) for more information.
+To fix a bug you should [create a pull request from a fork](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) [here](https://github.com/exercism/haskell/pulls). See also [here](https://github.com/exercism/x-common/blob/master/CONTRIBUTING.md#git-basics) for more information.
 
 ### Development Dependencies
 You should have [Stack](http://docs.haskellstack.org/) installed in your system to make contributing to this repository easier.
