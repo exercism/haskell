@@ -47,16 +47,18 @@ If you have a dedicated opinion you are welcome to [write a comment](https://hel
 Please be detailed and include reasons, links or arguments to support your opinion.
 
 #### Porting exercises
-Here is the [list of missing exercises](http://exercism.io/languages/haskell/todo).
-See here for more information about [porting an exercise](https://github.com/exercism/docs/blob/master/contributing-to-language-tracks/porting-an-exercise.md).
+The site contains a [list of missing exercises](http://exercism.io/languages/haskell/todo).
+You may implement any of these exercises for the Haskell track.
+Feel free to refer to the [documentation on porting an exercise](https://github.com/exercism/docs/blob/master/contributing-to-language-tracks/porting-an-exercise.md).
 Of course you can also add a totally new exercise, but it might be a good idea to first discuss it in one of [our forums](#asking-for-help).
 
 #### Updating an exercise test suite
-Updating a test suite of an existing exercise is special because it usually affects all languages. Read more about it [here](https://github.com/exercism/x-common/blob/master/CONTRIBUTING.md#updating-an-exercise-test-suite).
+Updating a test suite of an existing exercise is special because it usually affects all languages.
+You can refer to the [documentation on updating a test suite](https://github.com/exercism/x-common/blob/master/CONTRIBUTING.md#updating-an-exercise-test-suite).
 Note that the whole test suite must run with the sample solution within a couple of seconds.
 
 ### Repository structure and conventions
-[Here](https://github.com/exercism/x-common/blob/master/CONTRIBUTING.md#track-anatomy) is a general description of all the files and directories that are not explicitly described below.
+The [track anatomy documentation](https://github.com/exercism/x-common/blob/master/CONTRIBUTING.md#track-anatomy) is a general description of all the files and directories that are not explicitly described below.
 
 #### Directory structure
 ```bash
@@ -108,11 +110,11 @@ format that has all dependencies and build instructions for an exercise.
 - `test/Tests.hs` is the [test suite](#test-suite).
 
 ### Writing an issue
-To report a bug you should [create an issue](https://help.github.com/articles/creating-an-issue/) [here](https://github.com/exercism/haskell/issues).
+To report a bug you should [create an issue](https://help.github.com/articles/creating-an-issue/) on the [exercism/haskell repo](https://github.com/exercism/haskell/issues).
 
 ### Writing a pull request
-To fix a bug you should [create a pull request from a fork](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) [here](https://github.com/exercism/haskell/pulls).
-See also [here](https://github.com/exercism/docs/blob/master/contributing-to-language-tracks/git-basics.md) for more information.
+To fix a bug you should [create a pull request from a fork](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) on the [exercism/haskell repo](https://github.com/exercism/haskell/pulls).
+If you need help with Git, we have some [documentation on Git basics](https://github.com/exercism/docs/blob/master/contributing-to-language-tracks/git-basics.md).
 
 ### Development Dependencies
 You should have [Stack](http://docs.haskellstack.org/) installed in your system to make contributing to this repository easier.
