@@ -2,7 +2,7 @@
 bin/configlet
 bin/configlet.exe
 
-# exercism/xhaskell specific patterns
+# exercism/haskell specific patterns
 *.cabal
 
 # sorted default .gitignore from github/gitignore/Haskell.gitignore
