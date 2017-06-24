@@ -53,7 +53,7 @@ cases = [ Case { description = "sentence empty"
                , expected    = True
                }
         , Case { description = "upper and lower case versions of the same character should not be counted separately"
-               , input       = "the quick brown fox jumped over the lazy FOX"
+               , input       = "the quick brown fox jumps over with lazy FX"
                , expected    = False
                }
         ]
