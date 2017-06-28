@@ -1,10 +1,10 @@
 {-# LANGUAGE ScopedTypeVariables #-}
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 
-import Test.Hspec        (Spec, it, shouldBe)
-import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
-import Test.QuickCheck   (property)
-import Test.QuickCheck.Arbitrary
+import Test.Hspec                (Spec, it, shouldBe)
+import Test.Hspec.Runner         (configFastFail, defaultConfig, hspecWith)
+import Test.QuickCheck           (property)
+import Test.QuickCheck.Arbitrary (Arbitrary, arbitrary)
 
 import LinkedList
   ( datum
