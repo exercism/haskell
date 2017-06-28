@@ -50,9 +50,13 @@ runstack () {
     stack "$@" ${SET_RESOLVER}     `# Select the correct resolver. `\
                --install-ghc       `# Download GHC if not in cache.`\
                --no-terminal       `# Terminal detection is broken.`\
-               --bench             `# Build benchmarks, but        `\
-               --no-run-benchmarks `# do not run them.             `\
-               --pedantic          `# Enable -Wall and -Werror.    `
+               --pedantic          `# Enable -Wall and -Werror.    `\
+             # --bench             `# Build benchmarks, but        `\
+             # --no-run-benchmarks `# do not run them.             `
+             #
+             # We are temporarily disabling the benchmarks
+             # to speed up Travis-CI and try to stay below
+             # the 50 minutes limit.
 }
 
 if [ "$exampletype" = "success" ]; then

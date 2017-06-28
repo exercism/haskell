@@ -50,5 +50,9 @@ else
     echo "building stub with everything else"
     stack build ${SET_RESOLVER} --install-ghc --no-terminal \
                 --test  --no-run-tests                      \
-                --bench --no-run-benchmarks
+              # --bench --no-run-benchmarks
+              #
+              # We are temporarily disabling the benchmarks
+              # to speed up Travis-CI and try to stay below
+              # the 50 minutes limit.
 fi
