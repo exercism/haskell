@@ -27,6 +27,10 @@ cp -R -L                        \
     ${exercisedir}/test         \
     "${buildfolder}"
 
+if [ -d ${exercisedir}/common ]; then
+    cp -R -L ${exercisedir}/common "${buildfolder}"
+fi
+
 if [ -d ${exercisedir}/bench ]; then
     cp -R -L ${exercisedir}/bench "${buildfolder}"
 fi
