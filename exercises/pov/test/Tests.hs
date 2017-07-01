@@ -1,19 +1,11 @@
 {-# LANGUAGE TupleSections #-}
 
-import Data.Foldable     (for_)
-import Data.Function     (on)
-import Data.Tree         (Tree(Node), rootLabel)
-import Data.List         (sort)
-import Test.Hspec        (Spec, describe, it, shouldBe)
-import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+import Data.Tree (Tree(Node), rootLabel)
 
 import POV (fromPOV, tracePathBetween)
 
 main :: IO ()
-main = hspecWith defaultConfig {configFastFail = True} specs
-
-specs :: Spec
-specs = do
+main = hspecFastFail $ do
 
     describe "fromPOV" $ do
 

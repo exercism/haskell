@@ -1,0 +1,9 @@
+name: test-prelude
+version: 0.0.1.0
+
+library:
+  exposed-modules: Prelude
+  dependencies:
+    - base-noprelude
+    - base-prelude
+    - hspec

@@ -1,12 +1,11 @@
 name: pov
 
-dependencies:
-  - base
-  - containers
-
 library:
   exposed-modules: POV
   source-dirs: src
+  dependencies:
+    - base
+    - containers
 
 tests:
   test:
@@ -14,4 +13,5 @@ tests:
     source-dirs: test
     dependencies:
       - pov
-      - hspec
+      - test-prelude
+      - containers

@@ -1,1 +1,6 @@
 resolver: lts-8.2
+
+packages:
+  - location: .
+  - location: ./common/test-prelude
+    extra-dep: true
