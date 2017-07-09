@@ -35,7 +35,7 @@ script:
  - |
     set -e
 
-    configlet .               # Check basic track configuration.
+    configlet lint .          # Check basic track configuration.
     hlint ${TRAVIS_BUILD_DIR} # Run `hlint` on the entire repository.
 
     # Explicit set exercises' resolver only if it's not the current one.
