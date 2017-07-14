@@ -8,36 +8,42 @@
       "slug": "hello-world",
       "difficulty": 1,
       "topics": [
+
       ]
     },
     {
       "slug": "leap",
       "difficulty": 1,
       "topics": [
+
       ]
     },
     {
       "slug": "space-age",
       "difficulty": 1,
       "topics": [
+
       ]
     },
     {
       "slug": "bob",
       "difficulty": 1,
       "topics": [
+
       ]
     },
     {
       "slug": "pangram",
       "difficulty": 1,
       "topics": [
+
       ]
     },
     {
       "slug": "run-length-encoding",
       "difficulty": 1,
       "topics": [
+
       ]
     },
     {
@@ -51,12 +57,14 @@
       "slug": "sum-of-multiples",
       "difficulty": 1,
       "topics": [
+
       ]
     },
     {
       "slug": "difference-of-squares",
       "difficulty": 1,
       "topics": [
+
       ]
     },
     {
@@ -70,6 +78,7 @@
       "slug": "acronym",
       "difficulty": 2,
       "topics": [
+
       ]
     },
     {
@@ -97,12 +106,14 @@
       "slug": "etl",
       "difficulty": 2,
       "topics": [
+
       ]
     },
     {
       "slug": "raindrops",
       "difficulty": 2,
       "topics": [
+
       ]
     },
     {
@@ -139,18 +150,21 @@
       "slug": "triangle",
       "difficulty": 3,
       "topics": [
+
       ]
     },
     {
       "slug": "scrabble-score",
       "difficulty": 3,
       "topics": [
+
       ]
     },
     {
       "slug": "kindergarten-garden",
       "difficulty": 3,
       "topics": [
+
       ]
     },
     {
@@ -164,12 +178,14 @@
       "slug": "secret-handshake",
       "difficulty": 3,
       "topics": [
+
       ]
     },
     {
       "slug": "anagram",
       "difficulty": 4,
       "topics": [
+
       ]
     },
     {
@@ -192,6 +208,7 @@
       "slug": "meetup",
       "difficulty": 4,
       "topics": [
+
       ]
     },
     {
@@ -205,12 +222,14 @@
       "slug": "prime-factors",
       "difficulty": 4,
       "topics": [
+
       ]
     },
     {
       "slug": "allergies",
       "difficulty": 4,
       "topics": [
+
       ]
     },
     {
@@ -253,36 +272,42 @@
       "slug": "pascals-triangle",
       "difficulty": 4,
       "topics": [
+
       ]
     },
     {
       "slug": "pythagorean-triplet",
       "difficulty": 4,
       "topics": [
+
       ]
     },
     {
       "slug": "saddle-points",
       "difficulty": 4,
       "topics": [
+
       ]
     },
     {
       "slug": "series",
       "difficulty": 4,
       "topics": [
+
       ]
     },
     {
       "slug": "sieve",
       "difficulty": 4,
       "topics": [
+
       ]
     },
     {
       "slug": "atbash-cipher",
       "difficulty": 5,
       "topics": [
+
       ]
     },
     {
@@ -296,6 +321,7 @@
       "slug": "crypto-square",
       "difficulty": 5,
       "topics": [
+
       ]
     },
     {
@@ -309,6 +335,7 @@
       "slug": "word-count",
       "difficulty": 5,
       "topics": [
+
       ]
     },
     {
@@ -323,6 +350,7 @@
       "slug": "luhn",
       "difficulty": 5,
       "topics": [
+
       ]
     },
     {
@@ -336,6 +364,7 @@
       "slug": "ocr-numbers",
       "difficulty": 5,
       "topics": [
+
       ]
     },
     {
@@ -349,6 +378,7 @@
       "slug": "spiral-matrix",
       "difficulty": 5,
       "topics": [
+
       ]
     },
     {
@@ -363,6 +393,7 @@
       "slug": "parallel-letter-frequency",
       "difficulty": 5,
       "topics": [
+
       ]
     },
     {
@@ -378,6 +409,7 @@
       "slug": "palindrome-products",
       "difficulty": 6,
       "topics": [
+
       ]
     },
     {
@@ -393,6 +425,7 @@
       "slug": "pig-latin",
       "difficulty": 6,
       "topics": [
+
       ]
     },
     {
@@ -416,6 +449,7 @@
       "slug": "sublist",
       "difficulty": 6,
       "topics": [
+
       ]
     },
     {
@@ -433,12 +467,14 @@
       "slug": "zebra-puzzle",
       "difficulty": 7,
       "topics": [
+
       ]
     },
     {
       "slug": "minesweeper",
       "difficulty": 7,
       "topics": [
+
       ]
     },
     {
@@ -501,6 +537,7 @@
       "slug": "lens-person",
       "difficulty": 9,
       "topics": [
+
       ]
     },
     {
