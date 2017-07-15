@@ -49,7 +49,7 @@ Please be detailed and include reasons, links or arguments to support your opini
 #### Porting exercises
 The site contains a [list of missing exercises](http://exercism.io/languages/haskell/todo).
 You may implement any of these exercises for the Haskell track.
-Feel free to refer to the [documentation on porting an exercise](https://github.com/exercism/docs/blob/master/contributing-to-language-tracks/porting-an-exercise.md).
+Feel free to refer to the [documentation on porting an exercise](https://github.com/exercism/docs/blob/master/you-can-help/implement-an-exercise-from-specification.md).
 Of course you can also add a totally new exercise, but it might be a good idea to first discuss it in one of [our forums](#asking-for-help).
 
 #### Updating an exercise test suite
@@ -114,7 +114,7 @@ To report a bug you should [create an issue](https://help.github.com/articles/cr
 
 ### Writing a pull request
 To fix a bug you should [create a pull request from a fork](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) on the [exercism/haskell repo](https://github.com/exercism/haskell/pulls).
-If you need help with Git, we have some [documentation on Git basics](https://github.com/exercism/docs/blob/master/contributing-to-language-tracks/git-basics.md).
+If you need help with Git, we have some [documentation on Git basics](https://github.com/exercism/docs/blob/master/contributing/git-basics.md).
 
 ### Development Dependencies
 You should have [Stack](http://docs.haskellstack.org/) installed in your system to make contributing to this repository easier.
