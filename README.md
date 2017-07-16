@@ -103,7 +103,7 @@ Each exercise has the following structure:
 resolver for all the exercises.
 - `package.yaml` is a file in the [hpack](https://github.com/sol/hpack#readme)
 format that has all dependencies and build instructions for an exercise.
-- `HINTS.md` is an optional file containing instructions and/or hints. It is used together with the respective `description.md` for the exercise from [x-common](https://github.com/exercism/x-common) to build the `README.md` file.
+- `HINTS.md` is an optional file containing instructions and/or hints. It is used together with the respective `description.md` for the exercise from [problem-specifications](https://github.com/exercism/problem-specifications) to build the `README.md` file.
 - `src/ModuleName.hs` is a [stub solution](#stub-solution).
 - `examples/success-<name>/package.yaml` contains library dependencies for the [example solution](#example-solution). `<name>` is a unique name for the example - usually "standard" (as in `success-standard`), but it can be some other name in case of multiple example solutions.
 - `examples/success-<name>/src/ModuleName.hs` is the source code of the sample solution.
@@ -140,7 +140,7 @@ There are three possible types of examples:
 * error: The example is expected to fail to build.
 
 ### Test suite
-The test suite should be derived from the respective `x-common/exercises/<exercise-name>/canonical-data.json` and comply to some formatting and coding standards (to get an idea you may look at some of the existing tests).
+The test suite should be derived from the respective `problem-specifications/exercises/<exercise-name>/canonical-data.json` and comply to some formatting and coding standards (to get an idea you may look at some of the existing tests).
 
 ### Running Tests
 In order to be accepted by Travis-CI, every exercise must be registered in

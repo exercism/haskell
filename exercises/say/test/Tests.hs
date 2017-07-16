@@ -37,7 +37,7 @@ specs = describe "inEnglish" $ for_ cases test
                                    \three hundred twenty-one thousand \
                                    \one hundred twenty-three"            )
             , (           -1, Nothing                                    )
-         -- Even though the x-common tests have this case,
+         -- Even though the problem-specifications tests have this case,
          -- we decide not to test it, to give freedom to go to trillions if desired.
          -- , (1000000000000, Nothing                                    )
             ]
