@@ -54,7 +54,7 @@ Of course you can also add a totally new exercise, but it might be a good idea t
 
 #### Updating an exercise test suite
 Updating a test suite of an existing exercise is special because it usually affects all languages.
-You can refer to the [documentation on updating a test suite](https://github.com/exercism/docs/blob/master/language-tracks/exercises/anatomy/test-suites.md).
+You can refer to the [documentation on updating a test suite](https://github.com/exercism/docs/blob/master/contributing-to-language-tracks/README.md#changing-exercise-test-suites) and the [test suite principles](https://github.com/exercism/docs/blob/master/language-tracks/exercises/anatomy/test-suites.md).
 Note that the whole test suite must run with the sample solution within a couple of seconds.
 
 ### Repository structure and conventions
