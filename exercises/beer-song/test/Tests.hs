@@ -34,7 +34,7 @@ specs = describe "song" $ do
     zipMaybe    []  (y:ys) = (Nothing, Just y ) : zipMaybe [] ys
     zipMaybe (x:xs) (y:ys) = (Just x , Just y ) : zipMaybe xs ys
 
--- Lyrics extracted from `exercism/x-common` on 2016-10-03.
+-- Lyrics extracted from `exercism/problem-specifications` on 2016-10-03.
 
 lyrics :: String
 lyrics = "99 bottles of beer on the wall, 99 bottles of beer.\n\
