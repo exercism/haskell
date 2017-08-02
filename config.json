@@ -85,6 +85,15 @@
       ]
     },
     {
+      "uuid": "13154065-a5dc-4824-92ed-b2fae41c4dd6",
+      "slug": "protein-translation",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+      ]
+    },
+    {
       "uuid": "197a543c-d9c7-41c3-814c-4b1ece3db568",
       "slug": "grains",
       "core": false,
@@ -780,7 +789,7 @@
       "uuid": "d5997b60-e54c-4caa-beae-8614f0da3fb3",
       "slug": "trinary",
       "deprecated": true
-    }
+    }    
   ],
   "foregone": [
 
