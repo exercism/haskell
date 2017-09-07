@@ -1,6 +1,8 @@
 {
   "language": "Haskell",
   "active": true,
+  "solution_pattern": "example.*[.]hs",
+  "ignore_pattern": "example",
   "exercises": [
     {
       "uuid": "c97d9dda-c7ee-4595-b447-693559d03ba5",
