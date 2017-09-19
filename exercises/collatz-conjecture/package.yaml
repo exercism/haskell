@@ -1,0 +1,21 @@
+
+name: collatz-conjecture
+version: 1.0.0.3
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: CollatzConjecture
+  source-dirs: src
+  dependencies:
+  # - foo       # List here the packages you
+  # - bar       # want to use in your solution.
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - collatz-conjecture
+      - hspec
