@@ -56,4 +56,5 @@ cases = [ Case { description = "collatz 1 don't require any steps."
         , Case { description = "collatz 666 require 113 steps."
                , binary      = 666
                , expected    = 113
+               }
         ]
