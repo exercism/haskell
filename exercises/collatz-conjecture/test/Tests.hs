@@ -26,35 +26,35 @@ data Case = Case { description :: String
 
 cases :: [Case]
 cases = [ Case { description = "collatz 1 don't require any steps."
-               , binary      = 1
+               , number      = 1
                , expected    = 0
                }
         , Case { description = "collatz 2 require 1 step."
-               , binary      = 2
+               , number     = 2
                , expected    = 1
                }
         , Case { description = "collatz 3 require 7 steps."
-               , binary      = 3
+               , number     = 3
                , expected    = 7
                }
         , Case { description = "collatz 4 require 2 steps."
-               , binary      = 4
+               , number      = 4
                , expected    = 2
                }
         , Case { description = "collatz 5 require 5 steps."
-               , binary      = 5
+               , number      = 5
                , expected    = 5
                }
         , Case { description = "collatz 6 require 8 steps."
-               , binary      = 6
+               , number      = 6
                , expected    = 8
                }
         , Case { description = "collatz 7 require 16 steps."
-               , binary      = 7
+               , number      = 7
                , expected    = 16
                }
         , Case { description = "collatz 666 require 113 steps."
-               , binary      = 666
+               , number      = 666
                , expected    = 113
                }
         ]
