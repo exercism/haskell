@@ -30,11 +30,11 @@ cases = [ Case { description = "collatz 1 don't require any steps."
                , expected    = 0
                }
         , Case { description = "collatz 2 require 1 step."
-               , number     = 2
+               , number      = 2
                , expected    = 1
                }
         , Case { description = "collatz 3 require 7 steps."
-               , number     = 3
+               , number      = 3
                , expected    = 7
                }
         , Case { description = "collatz 4 require 2 steps."
