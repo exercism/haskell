@@ -20,41 +20,40 @@ specs = describe "collatz" $ for_ cases test
 
 
 data Case = Case { description :: String
+                 , property    :: String
                  , number      :: Integer
                  , expected    :: Integer
                  }
 
 cases :: [Case]
-cases = [ Case { description = "collatz 1 don't require any steps."
+cases = [ Case { description = "zero steps for one"
+               , property    = "steps"
                , number      = 1
                , expected    = 0
                }
-        , Case { description = "collatz 2 require 1 step."
-               , number      = 2
-               , expected    = 1
+        , Case { description = "divide if even"
+               , property    = "steps"
+               , number      = 16
+               , expected    = 4
                }
-        , Case { description = "collatz 3 require 7 steps."
-               , number      = 3
-               , expected    = 7
+        , Case { description = "even and odd steps"
+               , property    = "steps"
+               , number      = 12
+               , expected    = 9
                }
-        , Case { description = "collatz 4 require 2 steps."
-               , number      = 4
-               , expected    = 2
+        , Case { description = "Large number of even and odd steps"
+               , property    = "steps"
+               , number      = 1000000
+               , expected    = 152
                }
-        , Case { description = "collatz 5 require 5 steps."
-               , number      = 5
-               , expected    = 5
+        , Case { description = "zero is an error"
+               , property    = "steps"
+               , number      = 0
+               , expected    = error "Only positive numbers are allowed"
                }
-        , Case { description = "collatz 6 require 8 steps."
-               , number      = 6
-               , expected    = 8
-               }
-        , Case { description = "collatz 7 require 16 steps."
-               , number      = 7
-               , expected    = 16
-               }
-        , Case { description = "collatz 666 require 113 steps."
-               , number      = 666
-               , expected    = 113
+        , Case { description = "negative value is an error"
+               , property    = "steps"
+               , number      = -15
+               , expected    = error "Only positive numbers are allowed"
                }
         ]

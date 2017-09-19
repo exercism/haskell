@@ -6,4 +6,5 @@ collatzHelper t x | x == 1    = t
                   | otherwise = collatzHelper (t+1) (x*3 + 1)
 
 collatz :: Integer -> Integer
-collatz = collatzHelper 0
+collatz x = if x <= 0 then error "Only positive numbers are allowed"
+                      else collatzHelper 0 x
