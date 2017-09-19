@@ -1,4 +1,4 @@
 module CollatzConjecture (collatz) where
 
-collatz :: Integer -> Integer
+collatz :: Integer -> Maybe Integer
 collatz = error "You need to implement this function."
