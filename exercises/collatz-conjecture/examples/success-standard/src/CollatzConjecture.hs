@@ -6,4 +6,4 @@ collatzHelper t x | x == 1    = Just t
                   | otherwise = collatzHelper (t+1) (x*3 + 1)
 
 collatz :: Integer -> Maybe Integer
-collatz x = if  x <= 0 then Nothing else collatzHelper 0 x
+collatz x = if x <= 0 then Nothing else collatzHelper 0 x
