@@ -79,7 +79,8 @@ one, head over there and create an issue.  We'll do our best to help you!
 
 ## Source
 
-All of Computer Science [http://www.wolframalpha.com/input/?i=binary&a=*C.binary-_*MathWorld-](http://www.wolframalpha.com/input/?i=binary&a=*C.binary-_*MathWorld-)
+An unsolved problem in mathematics named after mathematician Lothar Collatz
+see more at [collatz conjecture wikipedia]("https://en.wikipedia.org/wiki/3x_%2B_1_problem")
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.
