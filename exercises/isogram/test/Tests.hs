@@ -25,39 +25,39 @@ data Case = Case { description :: String
 
 cases :: [Case]
 cases = [ Case { description = "empty string"
-               , input      = ""
+               , input       = ""
                , expected    = True
                }
         , Case { description = "isogram with only lower case characters"
-               , input      = "isogram"
+               , input       = "isogram"
                , expected    = True
                }
         , Case { description = "word with one duplicated character"
-               , input      = "eleven"
+               , input       = "eleven"
                , expected    = False
                }
         , Case { description = "longest reported english isogram"
-               , input      = "subdermatoglyphic"
+               , input       = "subdermatoglyphic"
                , expected    = True
                }
         , Case { description = "word with duplicated character in mixed case"
-               , input      = "Alphabet"
+               , input       = "Alphabet"
                , expected    = False
                }
         , Case { description = "hypothetical isogrammic word with hyphen"
-               , input      = "thumbscrew-japingly"
+               , input       = "thumbscrew-japingly"
                , expected    = True
                }
         , Case { description = "isogram with duplicated non letter character"
-               , input      = "Hjelmqvist-Gryb-Zock-Pfund-Wax"
+               , input       = "Hjelmqvist-Gryb-Zock-Pfund-Wax"
                , expected    = True
                }
         , Case { description = "made-up name that is an isogram"
-               , input      = "Emily Jung Schwartzkopf"
+               , input       = "Emily Jung Schwartzkopf"
                , expected    = True
                }
         , Case { description = "duplicated character in the middle"
-               , input      = "accentor"
+               , input       = "accentor"
                , expected    = False
                }
         ]
