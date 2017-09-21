@@ -1,8 +1,7 @@
 module Isogram (isIsogram) where
 
-import Data.Char (isLetter, toLower)
+import Data.Char (toLower, isLetter)
+import Data.List (sort, group)
 
 isIsogram :: String -> Bool
-isIsogram = fn . map toLower
-  where fn []     = True
-        fn (x:xs) = not (isLetter x && x `elem` xs) && fn xs
+isIsogram = all ((1==) . length) . group . sort . filter isLetter . map toLower
