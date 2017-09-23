@@ -1,0 +1,16 @@
+name: isogram
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: Isogram
+  source-dirs: src
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - isogram
+      - hspec
