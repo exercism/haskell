@@ -6,10 +6,12 @@ An isogram (also known as a "nonpattern word") is a word or phrase without a rep
 
 Examples of isograms:
 
-lumberjacks
-background
-downstream
-The word isograms, however, is not an isogram, because the s repeats.
+- lumberjacks
+- background
+- downstream
+
+The word *isograms*, however, is not an isogram, because the s repeats.
+
 
 ## Getting Started
 
@@ -65,8 +67,7 @@ one, head over there and create an issue.  We'll do our best to help you!
 
 ## Source
 
-see more  at [wikipedia page of isograms]("https://en.wikipedia.org/wiki/Isogram")
-
+Wikipedia [https://en.wikipedia.org/wiki/Isogram](https://en.wikipedia.org/wiki/Isogram)
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.
