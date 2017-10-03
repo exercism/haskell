@@ -23,17 +23,17 @@ data Case = Case { description :: String
                  }
 
 cases :: [Case]
-cases = [ Case { description = "Diamonf of 'A'"
+cases = [ Case { description = "Degenerate case with a single 'A' row"
                , input       = 'A'
                , expected    = ["A"]
                }
-        , Case { description = "Diamond of 'B'"
+        , Case { description = "Degenerate case with no row containing 3 distinct groups of spaces"
                , input       = 'B'
                , expected    = [" A ",
                                 "B B",
                                 " A "]
                }
-        , Case { description = "Diamond of 'C'"
+        , Case { description = "Smallest non-degenerate case with odd diamond side length"
                , input       = 'C'
                , expected    = ["  A  ",
                                 " B B ",
@@ -41,7 +41,7 @@ cases = [ Case { description = "Diamonf of 'A'"
                                 " B B ",
                                 "  A  "]
                }
-        , Case { description = "Diamond of 'D'"
+        , Case { description = "Smallest non-degenerate case with even diamond side length"
                , input       = 'D'
                , expected    = ["   A   ",
                                 "  B B  ",
@@ -51,7 +51,7 @@ cases = [ Case { description = "Diamonf of 'A'"
                                 "  B B  ",
                                 "   A   "]
                }
-        , Case { description = "Diamond of 'Z'"
+        , Case { description = "Largest possible diamond"
                , input       = 'Z'
                , expected    = [
                         "                         A                         ",
