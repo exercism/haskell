@@ -11,7 +11,6 @@ come: 1
 free: 1
 ```
 
-
 ## Hints
 
 To complete this exercise you need to implement the function `wordCount`,

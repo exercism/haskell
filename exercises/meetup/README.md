@@ -21,7 +21,6 @@ in every month.
 Given examples of a meetup dates, each containing a month, day, year, and descriptor 
 (first, second, teenth, etc), calculate the date of the actual meetup.
 For example, if given "First Monday of January 2017", the correct meetup date is 2017/1/2
- 
 
 ## Hints
 

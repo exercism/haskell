@@ -55,7 +55,6 @@ If you'd like, handle exponentials.
 
 32
 
-
 ## Hints
 
 This is a perfect opportunity to learn some Attoparsec or Parsec!
