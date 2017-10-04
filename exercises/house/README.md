@@ -11,7 +11,6 @@ Output the nursery rhyme 'This is the House that Jack Built'.
 
 - [papyr.com](http://papyr.com/hypertextbooks/grammar/ph_noun.htm)
 
-
 The nursery rhyme reads as follows:
 
 ```text
