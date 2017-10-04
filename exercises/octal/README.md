@@ -8,11 +8,13 @@ Implement octal to decimal conversion.  Given an octal input
 string, your program should produce a decimal output.
 
 ## Note
+
 - Implement the conversion yourself.
   Do not use something else to perform the conversion for you.
 - Treat invalid input as octal 0.
 
 ## About Octal (Base-8)
+
 Decimal is a base-10 system.
 
 A number 233 in base 10 notation can be understood
