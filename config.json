@@ -115,6 +115,17 @@
       ]
     },
     {
+      "uuid": "40d4bb98-2e4a-4579-810e-g1230bc158e9",
+      "slug": "complex-numbers",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 2,
+      "topics": [
+        "Mathematics",
+        "Number-theory"
+      ]
+    },
+    {
       "uuid": "197a543c-d9c7-41c3-814c-4b1ece3db568",
       "slug": "grains",
       "core": false,
