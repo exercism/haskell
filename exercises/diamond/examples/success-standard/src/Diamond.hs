@@ -2,13 +2,12 @@ module Diamond (diamond) where
 
 import Data.Char (ord, chr)
 
--- replicate blank
-rb :: Int -> String
-rb x = replicate x ' '
+pad :: Int -> String
+pad x = replicate x ' '
 
 helper :: (Char, (Int, Int)) -> String
-helper (c, (0, y)) = rb y ++ [c] ++ rb y
-helper (c, (x, y)) = rb y ++ [c] ++ rb x ++ [c] ++ rb y
+helper (c, (0, y)) = pad y ++ [c] ++ pad y
+helper (c, (x, y)) = pad y ++ [c] ++ pad x ++ [c] ++ pad y
 
 diamond :: Char -> [String]
 diamond = (\x -> x ++ tail (reverse x)) . f . subtract 64 . ord
