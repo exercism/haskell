@@ -14,7 +14,7 @@ Output the nursery rhyme 'This is the House that Jack Built'.
 
 The nursery rhyme reads as follows:
 
-```plain
+```text
 This is the house that Jack built.
 
 This is the malt

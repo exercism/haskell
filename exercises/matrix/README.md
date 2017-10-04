@@ -11,7 +11,7 @@ So given a string with embedded newlines like:
 
 representing this matrix:
 
-```plain
+```text
     0  1  2
   |---------
 0 | 9  8  7
