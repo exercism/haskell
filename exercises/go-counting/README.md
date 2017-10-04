@@ -16,7 +16,7 @@ only horizontal and vertical neighbours count. In the following diagram
 the stones which matter are marked "O" and the stones that don't are
 marked "I" (ignored).  Empty spaces represent empty intersections.
 
-```
+```text
 +----+
 |IOOI|
 |O  O|

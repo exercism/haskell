@@ -13,7 +13,7 @@ To this end, they've put little styrofoam cups along the window sills,
 and planted one type of plant in each cup, choosing randomly from the
 available types of seeds.
 
-```plain
+```text
 [window][window][window]
 ........................ # each dot represents a styrofoam cup
 ........................
@@ -30,7 +30,7 @@ cups in alphabetical order.
 
 The following diagram represents Alice's plants:
 
-```plain
+```text
 [window][window][window]
 VR......................
 RG......................
@@ -45,7 +45,7 @@ which plants belong to which students.
 
 For example, if it's told that the garden looks like so:
 
-```plain
+```text
 [window][window][window]
 VRCGVVRVCGGCCGVRGCVCGCGV
 VRCCCGCRRGVCGCRVVCVGCGCV
