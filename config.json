@@ -106,6 +106,15 @@
       ]
     },
     {
+      "uuid": "40d4aa74-6e4a-4579-810e-b4430bc172e8",
+      "slug": "diamond",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 2,
+      "topics": [
+      ]
+    },
+    {
       "uuid": "197a543c-d9c7-41c3-814c-4b1ece3db568",
       "slug": "grains",
       "core": false,
