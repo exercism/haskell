@@ -2,6 +2,7 @@ module Diamond (diamond) where
 
 import Data.Char (ord, chr)
 
+-- replicate blank
 rb :: Int -> String
 rb x = replicate x ' '
 
