@@ -1,4 +1,4 @@
-module CmplexNumbers
+module ComplexNumbers
 (Complex,
  conjugate,
  abs,
