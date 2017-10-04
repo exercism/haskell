@@ -12,10 +12,7 @@ module CollatzConjecture
 import Prelude hiding (div, abs) -- you have to redifine this two functions
 
 -- Data definition -------------------------------------------------------------
-data Complex = Complex Float Float deriving Eq
-
-instance Show (Complex) where
-  show (Complex a b) = "("++(show a)++" + "++(show b)++"i)"
+data Complex = Complex Float Float deriving (Eq, Show)
 
 -- unary operators -------------------------------------------------------------
 conjugate :: Complex -> Complex
