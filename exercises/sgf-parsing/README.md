@@ -1,4 +1,4 @@
-# Sgf Parsing
+# SGF Parsing
 
 Parsing a Smart Game Format string.
 
