@@ -25,7 +25,7 @@ as a linear combination of powers of 10:
 - All these values are summed.
 
 So:
-```
+```text
    233 # decimal
  = 2*10^2 + 3*10^1 + 3*10^0
  = 2*100  + 3*10   + 3*1
@@ -34,7 +34,7 @@ So:
 Octal is similar, but uses powers of 8 rather than powers of 10.
 
 So:
-```
+```text
    233 # octal
  = 2*8^2 + 3*8^1 + 3*8^0
  = 2*64  + 3*8   + 3*1
