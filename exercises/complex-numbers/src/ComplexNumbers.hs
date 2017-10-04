@@ -1,4 +1,4 @@
-module CollatzConjecture
+module CmplexNumbers
 (Complex,
  conjugate,
  abs,
