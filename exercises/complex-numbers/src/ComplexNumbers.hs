@@ -1,5 +1,5 @@
 module ComplexNumbers
-(Complex,
+(Complex(..),
  conjugate,
  abs,
  real,
