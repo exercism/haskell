@@ -23,7 +23,7 @@ specs = do
  where
   testA f CaseA{..} = it descriptionA $ f number1A number2A `shouldBe` expectedA
   testB f CaseB{..} = it descriptionB $ f number1B `shouldBe` expectedB
-  testC f CaseC{..} = it descriptionC $ f number1C `shouldBe` (fromInteger expectedC)
+  testC f CaseC{..} = it descriptionC $ f number1C `shouldBe` fromInteger expectedC
 
 
 data CaseA = CaseA { descriptionA :: String
