@@ -23,7 +23,7 @@ specs = do
  where
   testA f CaseA{..} = it descriptionA $ f number1A number2A `shouldBe` expectedA
   testB f CaseB{..} = it descriptionB $ f number1B `shouldBe` expectedB
-  testC f CaseC{..} = it descriptionC $ f number1C `shouldBe` expectedC
+  testC f CaseC{..} = it descriptionC $ f number1C `shouldBe` (fromInteger expectedC)
 
 
 data CaseA = CaseA { descriptionA :: String
@@ -39,7 +39,7 @@ data CaseB = CaseB { descriptionB :: String
 
 data CaseC = CaseC { descriptionC :: String
                    , number1C     :: Complex
-                   , expectedC    :: Float
+                   , expectedC    :: Integer
                    }
 
 realCases :: [CaseC]
@@ -84,7 +84,7 @@ conjugateCases =
             , number1B     = Complex 0 5
             , expectedB    = Complex 0 (-5)
             }
-    , CaseB { descriptionB = "Conjugate a number with real and  imaginary part"
+    , CaseB { descriptionB = "Conjugate a number with real and imaginary part"
             , number1B     = Complex 1 1
             , expectedB    = Complex 1 (-1)
             }

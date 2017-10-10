@@ -9,10 +9,10 @@ module ComplexNumbers
  sub,
  div) where
 
-import Prelude hiding (div, abs) -- you have to redifine this two functions
+import Prelude hiding (div, abs)
 
 -- Data definition -------------------------------------------------------------
-data Complex = Complex Float Float deriving (Eq, Show)
+data Complex = Dummy
 
 -- unary operators -------------------------------------------------------------
 conjugate :: Complex -> Complex
