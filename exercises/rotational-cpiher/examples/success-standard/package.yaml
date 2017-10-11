@@ -1,0 +1,16 @@
+name: rotational-cipher
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: RotationalCipher
+  source-dirs: src
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - rotational-cipher
+      - hspec
