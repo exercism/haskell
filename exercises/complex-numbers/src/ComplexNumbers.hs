@@ -15,6 +15,9 @@ import Prelude hiding (div, abs)
 -- Data definition -------------------------------------------------------------
 data Complex a = Dummy deriving(Eq, Show)
 
+complex :: (a, a) -> Complex a
+complex = error "You need to implement this function"
+
 -- unary operators -------------------------------------------------------------
 conjugate :: Num a => Complex a -> Complex a
 conjugate = error "You need to implement this function"
@@ -29,9 +32,6 @@ imaginary :: Num a => Complex a -> a
 imaginary = error "You need to implement this function"
 
 -- binary operators ------------------------------------------------------------
-complex :: (a, a) -> Complex a
-complex = error "You need to implement this function"
-
 mul :: Num a => Complex a -> Complex a -> Complex a
 mul = error "You need to implement this function"
 
