@@ -7,35 +7,39 @@ module ComplexNumbers
  mul,
  add,
  sub,
- div) where
+ div,
+ complex) where
 
 import Prelude hiding (div, abs)
 
 -- Data definition -------------------------------------------------------------
-data Complex = Dummy
+data Complex a = Dummy deriving(Eq, Show)
 
 -- unary operators -------------------------------------------------------------
-conjugate :: Complex -> Complex
+conjugate :: Num a => Complex a -> Complex a
 conjugate = error "You need to implement this function"
 
-abs :: Complex -> Float
+abs :: Floating a => Complex a -> a
 abs = error "You need to implement this function"
 
-real :: Complex -> Float
+real :: Num a => Complex a -> a
 real = error "You need to implement this function"
 
-imaginary :: Complex -> Float
+imaginary :: Num a => Complex a -> a
 imaginary = error "You need to implement this function"
 
 -- binary operators ------------------------------------------------------------
-mul :: Complex -> Complex -> Complex
+complex :: (a, a) -> Complex a
+complex = error "You need to implement this function"
+
+mul :: Num a => Complex a -> Complex a -> Complex a
 mul = error "You need to implement this function"
 
-add :: Complex -> Complex -> Complex
+add :: Num a => Complex a -> Complex a -> Complex a
 add = error "You need to implement this function"
 
-sub :: Complex -> Complex -> Complex
+sub :: Num a => Complex a -> Complex a -> Complex a
 sub = error "You need to implement this function"
 
-div :: Complex -> Complex -> Complex
+div :: Fractional a => Complex a -> Complex a -> Complex a
 div = error "You need to implement this function"

@@ -5,34 +5,46 @@ module ComplexNumbers
  mul,
  add,
  sub,
- div) where
+ div,
+ real,
+ imaginary,
+ complex) where
 
 import Prelude hiding (div, abs)
 
 -- Data definition -------------------------------------------------------------
-data Complex = Complex {real :: Float, imaginary :: Float} deriving (Eq, Show)
+data Complex a = Complex a a deriving (Eq, Show)
 
 --------------------------------------------------------------------------------
-exp2 :: Float -> Float
-exp2 a = a ^ (2 :: Integer)
+exp2 :: Num a => a -> a
+exp2 x = x^(2 :: Integer)
 
 -- unary operators -------------------------------------------------------------
-conjugate :: Complex -> Complex
+real :: Num a => Complex a -> a
+real (Complex a _) = a
+
+imaginary :: Num a => Complex a -> a
+imaginary (Complex _ b) = b
+
+conjugate :: Num a => Complex a -> Complex a
 conjugate (Complex a b) = Complex a (-b)
 
-abs :: Complex -> Float
+abs :: Floating a => Complex a -> a
 abs (Complex a b) = sqrt (exp2 a + exp2 b)
 
 -- binary operators ------------------------------------------------------------
-mul :: Complex -> Complex -> Complex
+complex :: (a, a) -> Complex a
+complex (a, b) = Complex a b
+
+mul :: Num a => Complex a -> Complex a -> Complex a
 mul (Complex a b) (Complex c d) = Complex (a*c - b*d) (a*d + b*c)
 
-add :: Complex -> Complex -> Complex
+add :: Num a => Complex a -> Complex a -> Complex a
 add (Complex a b) (Complex c d) = Complex (a+c) (b+d)
 
-sub :: Complex -> Complex -> Complex
+sub :: Num a => Complex a -> Complex a -> Complex a
 sub (Complex a b) (Complex c d) = Complex (a-c) (b-d)
 
-div :: Complex -> Complex -> Complex
+div :: Fractional a => Complex a -> Complex a -> Complex a
 div (Complex a b) (Complex c d) = Complex ((a*c + b*d)/(exp2 c + exp2 d))
                                           ((b*c - a*d)/(exp2 c + exp2 d))
