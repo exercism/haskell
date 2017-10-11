@@ -16,6 +16,9 @@ import Prelude hiding (div, abs)
 data Complex a = Complex a a deriving (Eq, Show)
 
 --------------------------------------------------------------------------------
+complex :: (a, a) -> Complex a
+complex = uncurry Complex
+
 exp2 :: Num a => a -> a
 exp2 x = x^(2 :: Integer)
 
@@ -33,9 +36,6 @@ abs :: Floating a => Complex a -> a
 abs (Complex a b) = sqrt (exp2 a + exp2 b)
 
 -- binary operators ------------------------------------------------------------
-complex :: (a, a) -> Complex a
-complex (a, b) = Complex a b
-
 mul :: Num a => Complex a -> Complex a -> Complex a
 mul (Complex a b) (Complex c d) = Complex (a*c - b*d) (a*d + b*c)
 
