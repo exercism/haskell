@@ -21,9 +21,6 @@ specs = do
       it "numbers just get pushed onto the stack" $
         runTexts ["1 2 3 4 5"] `shouldBe` Right [1, 2, 3, 4, 5]
 
-      it "all non-word characters are separators" $
-        runTexts ["1\NUL2\SOH3\n4\r5 6\t7"] `shouldBe` Right [1, 2, 3, 4, 5, 6, 7]
-
     describe "addition" $ do
       it "can add two numbers" $
         runTexts ["1 2 +"] `shouldBe` Right [3]
@@ -120,6 +117,10 @@ specs = do
       it "can override built-in words" $
         runTexts [ ": swap dup ;"
                  , "1 swap"       ] `shouldBe` Right [1, 1]
+
+      it "can override built-in operators" $
+        runTexts [ ": + * ;"
+                 , "3 4 +"   ] `shouldBe` Right [12]
 
       it "cannot redefine numbers" $
         runTexts [": 1 2 ;"] `shouldBe` Left InvalidWord
