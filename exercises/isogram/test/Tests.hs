@@ -48,8 +48,8 @@ cases = [ Case { description = "empty string"
                , input       = "thumbscrew-japingly"
                , expected    = True
                }
-        , Case { description = "isogram with duplicated non letter character"
-               , input       = "Hjelmqvist-Gryb-Zock-Pfund-Wax"
+        , Case { description = "isogram with duplicated hyphen"
+               , input       = "six-year-old"
                , expected    = True
                }
         , Case { description = "made-up name that is an isogram"
