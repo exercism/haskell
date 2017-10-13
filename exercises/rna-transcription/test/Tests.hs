@@ -20,35 +20,35 @@ data Case = Case { description ::       String
                  }
 
 cases :: [Case]
-cases = [ Case { description = "rna complement of cytosine is guanine"
+cases = [ Case { description = "RNA complement of cytosine is guanine"
                , dna         =      "C"
                , expected    = Just "G"
                }
-        , Case { description = "rna complement of guanine is cytosine"
+        , Case { description = "RNA complement of guanine is cytosine"
                , dna         =      "G"
                , expected    = Just "C"
                }
-        , Case { description = "rna complement of thymine is adenine"
+        , Case { description = "RNA complement of thymine is adenine"
                , dna         =      "T"
                , expected    = Just "A"
                }
-        , Case { description = "rna complement of adenine is uracil"
+        , Case { description = "RNA complement of adenine is uracil"
                , dna         =      "A"
                , expected    = Just "U"
                }
-        , Case { description = "rna complement"
+        , Case { description = "RNA complement"
                , dna         =      "ACGTGGTCTTAA"
                , expected    = Just "UGCACCAGAAUU"
                }
-        , Case { description = "dna correctly handles invalid input"
+        , Case { description = "correctly handles invalid input (RNA instead of DNA)"
                , dna         = "U"
                , expected    = Nothing
                }
-        , Case { description = "dna correctly handles completely invalid input"
+        , Case { description = "correctly handles completely invalid DNA input"
                , dna         = "XXX"
                , expected    = Nothing
                }
-        , Case { description = "dna correctly handles partially invalid input"
+        , Case { description = "correctly handles partially invalid DNA input"
                , dna         = "ACGTXXXCTTAA"
                , expected    = Nothing
                }
