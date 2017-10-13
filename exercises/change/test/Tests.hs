@@ -56,6 +56,11 @@ cases = [ Case { description = "single coin change"
                , target = 21
                , expected = Just [2, 2, 2, 5, 10]
             }
+        , Case { description = "possible change without unit coins available, must stop early on larger coin"
+               , coins = [4, 5]
+               , target = 27
+               , expected = Just [4, 4, 4, 5, 5, 5]
+             }
         , Case { description = "no coins make 0 change"
                , coins = [1, 5, 10, 21, 25]
                , target = 0
