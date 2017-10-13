@@ -41,6 +41,3 @@ specs = do
 
     it "do nothing for zero" $
       handshake (0 :: Int) `shouldBe` []
-
-    it "do nothing if lower 5 bits not set" $
-      handshake (32 :: Int) `shouldBe` []
