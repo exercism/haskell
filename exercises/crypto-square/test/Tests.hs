@@ -31,20 +31,28 @@ data Case = Case { description :: String
                  }
 
 cases :: [Case]
-cases = [ Case { description = "perfect square, all lowercase with space"
-               , input       = "a dog"
-               , expected    = "ao dg"
+cases = [ Case { description = "Lowercase"
+               , input       = "A"
+               , expected    = "a"
                }
-        , Case { description = "perfect rectangle, mixed case"
-               , input       = "A camel"
-               , expected    = "am ce al"
+        , Case { description = "Remove spaces"
+               , input       = "  b "
+               , expected    = "b"
                }
-        , Case { description = "incomplete square with punctuation"
-               , input       = "Wait, fox!"
-               , expected    = "wtx af io"
+        , Case { description = "Remove punctuation"
+               , input       = "@1,%!"
+               , expected    = "1"
                }
-        , Case { description = "incomplete rectangle with symbols"
-               , input       = "cat | cut -d@ -f1 | sort | uniq"
-               , expected    = "ctoi adrq tft c1u usn"
+        , Case { description = "empty plaintext results in an empty ciphertext"
+               , input       = ""
+               , expected    = ""
+               }
+        , Case { description = "9 character plaintext results in 3 chunks of 3 characters"
+               , input       = "This is fun!"
+               , expected    = "tsf hiu isn"
+               }
+        , Case { description = "54 character plaintext results in 7 chunks, the last two padded with spaces"
+               , input       = "If man was meant to stay on the ground, god would have given us roots."
+               , expected    = "imtgdvs fearwer mayoogo anouuio ntnnlvt wttddes aohghn  sseoau "
                }
         ]

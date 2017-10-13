@@ -80,23 +80,23 @@ cases = [ Case { description = "should be able to score a game with all zeros"
                , rolls       = [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
                , expected    = Right 300
                }
-        , Case { description = "rolls can not score negative points"
+        , Case { description = "rolls cannot score negative points"
                , rolls       = [-1]
                , expected    = Left $ InvalidRoll 0 (-1)
                }
-        , Case { description = "a roll can not score more than 10 points"
+        , Case { description = "a roll cannot score more than 10 points"
                , rolls       = [11]
                , expected    = Left $ InvalidRoll 0 11
                }
-        , Case { description = "two rolls in a frame can not score more than 10 points"
+        , Case { description = "two rolls in a frame cannot score more than 10 points"
                , rolls       = [5, 6]
                , expected    = Left $ InvalidRoll 1 6
                }
-        , Case { description = "bonus roll after a strike in the last frame can not score more than 10 points"
+        , Case { description = "bonus roll after a strike in the last frame cannot score more than 10 points"
                , rolls       = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 11]
                , expected    = Left $ InvalidRoll 19 11
                }
-        , Case { description = "two bonus rolls after a strike in the last frame can not score more than 10 points"
+        , Case { description = "two bonus rolls after a strike in the last frame cannot score more than 10 points"
                , rolls       = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 5, 6]
                , expected    = Left $ InvalidRoll 20 6
                }
@@ -104,19 +104,19 @@ cases = [ Case { description = "should be able to score a game with all zeros"
                , rolls       = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 6]
                , expected    = Right 26
                }
-        , Case { description = "the second bonus rolls after a strike in the last frame can not be a strike if the first one is not a strike"
+        , Case { description = "the second bonus rolls after a strike in the last frame cannot be a strike if the first one is not a strike"
                , rolls       = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 6, 10]
                , expected    = Left $ InvalidRoll 20 10
                }
-        , Case { description = "second bonus roll after a strike in the last frame can not score than 10 points"
+        , Case { description = "second bonus roll after a strike in the last frame cannot score more than 10 points"
                , rolls       = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 11]
                , expected    = Left $ InvalidRoll 20 11
                }
-        , Case { description = "an unstarted game can not be scored"
+        , Case { description = "an unstarted game cannot be scored"
                , rolls       = []
                , expected    = Left IncompleteGame
                }
-        , Case { description = "an incomplete game can not be scored"
+        , Case { description = "an incomplete game cannot be scored"
                , rolls       = [0, 0]
                , expected    = Left IncompleteGame
                }
