@@ -78,6 +78,15 @@
       ]
     },
     {
+      "uuid": "cd5ce9ad-b627-46e3-b6d8-872baf476bf1",
+      "slug": "rotational-cipher",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+      ]
+    },
+    {
       "uuid": "85d77b8e-9b87-4d02-9fba-81f843bd66f1",
       "slug": "rna-transcription",
       "core": false,
