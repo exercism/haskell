@@ -34,6 +34,10 @@ cases = [ Case { factors  = [3, 5]
                , limit    = 4
                , expected = 3
                }
+        , Case { factors  = [3]
+               , limit    = 7
+               , expected = 9
+               }
         , Case { factors  = [3, 5]
                , limit    = 10
                , expected = 23

@@ -36,5 +36,13 @@ specs = describe "translate" $ do
         it "word beginning with yt" $ translate "yttria" `shouldBe` "yttriaay"
         it "word beginning with xr" $ translate "xray"   `shouldBe` "xrayay"
 
+    describe "position of y in a word determines if it is a consonant or a vowel" $ do
+        it "y is treated like a consonant at the beginning of a word" $
+          translate "yellow" `shouldBe` "ellowyay"
+        it "y is treated like a vowel at the end of a consonant cluster" $
+          translate "rhythm" `shouldBe` "ythmrhay"
+        it "y as second letter in two letter word" $
+          translate "my" `shouldBe` "ymay"
+
     describe "phrases are translated" $
         it "a whole phrase" $ translate "quick fast run" `shouldBe` "ickquay astfay unray"
