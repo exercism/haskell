@@ -26,7 +26,12 @@ data Case = Case { description :: String
                  }
 
 cases :: [Case]
-cases = [ Case { description = "identical strands"
+cases = [ Case { description = "empty strands"
+               , strand1     = ""
+               , strand2     = ""
+               , expected    = Just 0
+               }
+        , Case { description = "identical strands"
                , strand1     = "A"
                , strand2     = "A"
                , expected    = Just 0
@@ -85,11 +90,6 @@ cases = [ Case { description = "identical strands"
                , strand1     = "GGACGGATTCTG"
                , strand2     = "AGGACGGATTCT"
                , expected    = Just 9
-               }
-        , Case { description = "empty strands"
-               , strand1     = ""
-               , strand2     = ""
-               , expected    = Just 0
                }
         , Case { description = "disallow first strand longer"
                , strand1     = "AATG"

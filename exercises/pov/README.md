@@ -1,4 +1,4 @@
-# Pov
+# POV
 
 Reparent a graph on a selected node.
 

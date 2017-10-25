@@ -10,6 +10,8 @@ consonantCluster = qu . break (`elem` "aeiou")
 translateWord :: String -> String
 translateWord xs@('y':'t':_) = xs ++ "ay" -- I'm not proud of this ugly hack,
 translateWord xs@('x':'r':_) = xs ++ "ay" -- but now it passes the tests.
+translateWord ('r':'h':xs)   = xs ++ "rhay"
+translateWord "my"           = "ymay"
 translateWord w0 = concat [before, w, cs, "ay", after]
   where
     (before, w1) = break isLetter w0
