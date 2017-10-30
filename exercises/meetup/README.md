@@ -7,10 +7,10 @@ a description of a meetup date, and return the actual meetup date.
 
 Examples of general descriptions are:
 
-- the first Monday of January 2017
-- the third Tuesday of January 2017
-- the wednesteenth of January 2017
-- the last Thursday of January 2017
+- The first Monday of January 2017
+- The third Tuesday of January 2017
+- The wednesteenth of January 2017
+- The last Thursday of January 2017
 
 The descriptors you are expected to parse are:
 first, second, third, fourth, fifth, last, monteenth, tuesteenth, wednesteenth,
@@ -24,7 +24,7 @@ in every month.
 
 Given examples of a meetup dates, each containing a month, day, year, and descriptor
 calculate the date of the actual meetup.
-For example, if given "First Monday of January 2017", the correct meetup date is 2017/1/2
+For example, if given "The first Monday of January 2017", the correct meetup date is 2017/1/2
 
 ## Hints
 
