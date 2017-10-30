@@ -463,6 +463,16 @@
       ]
     },
     {
+      "uuid": "e714ed04-e633-4814-8885-323968f39046",
+      "slug": "binary-search",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 5,
+      "topics": [
+        "Maybe"
+      ]
+    },
+    {
       "uuid": "4b6d04f4-8cfc-4d8a-ac6e-77f3889f27c3",
       "slug": "atbash-cipher",
       "core": false,
