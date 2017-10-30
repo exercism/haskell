@@ -12,6 +12,10 @@ Examples of general descriptions are:
 - the Wednesteenth of January 2017
 - the last Thursday of January 2017
 
+The descriptors you are expected to parse are:
+first, second, third, fourth, fifth, last, Monteenth, Tuesteenth, Wednesteenth,
+Thursteenth, Friteenth, Saturteenth, Sunteenth
+
 Note that "Monteenth", "Tuesteenth", etc are all made up words. There
 was a meetup whose members realized that there are exactly 7 numbered days in a month that
 end in '-teenth'. Therefore, one is guaranteed that each day of the week
@@ -19,7 +23,7 @@ end in '-teenth'. Therefore, one is guaranteed that each day of the week
 in every month.
 
 Given examples of a meetup dates, each containing a month, day, year, and descriptor
-(first, second, teenth, etc), calculate the date of the actual meetup.
+calculate the date of the actual meetup.
 For example, if given "First Monday of January 2017", the correct meetup date is 2017/1/2
 
 ## Hints
