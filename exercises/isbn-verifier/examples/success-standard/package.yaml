@@ -1,0 +1,16 @@
+name: isbn-verifier
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: IsbnVerifier
+  source-dirs: src
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - isbn-verifier
+      - hspec

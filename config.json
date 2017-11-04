@@ -23,6 +23,15 @@
       ]
     },
     {
+      "uuid": "e5a0bed3-90ca-4caa-a73f-2124940f84c9",
+      "slug": "isbn-verifier",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+      ]
+    },
+    {
       "uuid": "6cbb7841-9d96-4528-88e3-6e98a450fd7c",
       "slug": "space-age",
       "core": false,
