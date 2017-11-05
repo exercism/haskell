@@ -28,6 +28,9 @@ cases = [ Case { description = "basic"
                , input       = "Ruby on Rails"
                , expected    = "ROR"
                }
+        -- Although this case was removed in specification 1.1.0,
+        -- the Haskell track has chosen to keep it,
+        -- since it makes the problem more interesting.
         , Case { description = "camelcase"
                , input       = "HyperText Markup Language"
                , expected    = "HTML"
