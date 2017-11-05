@@ -2,6 +2,7 @@
 module Alphametics (solve) where
 
 import Control.Monad (guard)
+import Data.Functor (($>))
 import Data.List (foldl', find, union)
 import Data.Maybe (fromJust, isJust, listToMaybe)
 import Prelude hiding (Word)
@@ -109,7 +110,7 @@ word :: Parser (Term Integer)
 word = Word <$> many1 upper
 
 plus :: Parser (Term Integer -> Term Integer -> Term Integer)
-plus = trimmed (char '+') *> pure Plus
+plus = trimmed (char '+') $> Plus
 
 trimmed :: Parser a -> Parser a
 trimmed p = spaces *> p <* spaces
