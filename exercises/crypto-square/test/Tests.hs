@@ -31,7 +31,11 @@ data Case = Case { description :: String
                  }
 
 cases :: [Case]
-cases = [ Case { description = "Lowercase"
+cases = [ Case { description = "empty plaintext results in an empty ciphertext"
+               , input       = ""
+               , expected    = ""
+               }
+        , Case { description = "Lowercase"
                , input       = "A"
                , expected    = "a"
                }
@@ -43,13 +47,13 @@ cases = [ Case { description = "Lowercase"
                , input       = "@1,%!"
                , expected    = "1"
                }
-        , Case { description = "empty plaintext results in an empty ciphertext"
-               , input       = ""
-               , expected    = ""
-               }
         , Case { description = "9 character plaintext results in 3 chunks of 3 characters"
                , input       = "This is fun!"
                , expected    = "tsf hiu isn"
+               }
+        , Case { description = "8 character plaintext results in 3 chunks, the last one with a trailing space"
+               , input       = "Chill out."
+               , expected    = "clu hlt io "
                }
         , Case { description = "54 character plaintext results in 7 chunks, the last two padded with spaces"
                , input       = "If man was meant to stay on the ground, god would have given us roots."
