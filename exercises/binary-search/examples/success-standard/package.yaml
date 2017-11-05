@@ -2,6 +2,7 @@ name: binary-search
 
 dependencies:
   - base
+  - array
 
 library:
   exposed-modules: BinarySearch

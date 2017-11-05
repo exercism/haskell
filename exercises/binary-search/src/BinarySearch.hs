@@ -1,4 +1,5 @@
 module BinarySearch (binarySearch) where
+import Data.Array (Array)
 
-binarySearch :: Eq a => [a] -> a -> Maybe Int
+binarySearch :: Array Int Int -> Int -> Maybe Int
 binarySearch = error "You need to implement this function!"
