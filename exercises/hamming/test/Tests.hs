@@ -67,13 +67,13 @@ cases = [ Case { description = "empty strands"
                , expected    = Just 2
                }
         , Case { description = "non-unique character in first strand"
-               , strand1     = "AGA"
-               , strand2     = "AGG"
+               , strand1     = "AAG"
+               , strand2     = "AAA"
                , expected    = Just 1
                }
         , Case { description = "non-unique character in second strand"
-               , strand1     = "AGG"
-               , strand2     = "AGA"
+               , strand1     = "AAA"
+               , strand2     = "AAG"
                , expected    = Just 1
                }
         , Case { description = "same nucleotides in different positions"

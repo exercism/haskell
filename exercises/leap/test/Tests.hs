@@ -30,7 +30,7 @@ cases = [ Case { description = "year not divisible by 4: common year"
                , expected    = False
                }
         , Case { description = "year divisible by 4, not divisible by 100: leap year"
-               , input       = 2020
+               , input       = 1996
                , expected    = True
                }
         , Case { description = "year divisible by 100, not divisible by 400: common year"

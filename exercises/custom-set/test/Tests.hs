@@ -102,6 +102,9 @@ specs = do
         it "sets with different elements are not equal" $
           (fromList [1, 2, 3] == fromList [1, 2, 4]) `shouldBe` False
 
+        it "set is not equal to larger set with same elements" $
+          (fromList [1, 2, 3] == fromList [1, 2, 3, 4]) `shouldBe` False
+
       describe "insert" $ do
 
         it "add to empty set" $

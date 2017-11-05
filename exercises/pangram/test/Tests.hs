@@ -24,6 +24,10 @@ cases = [ Case { description = "sentence empty"
                , input       = ""
                , expected    = False
                }
+        , Case { description = "recognizes a perfect lower case pangram"
+               , input       = "abcdefghijklmnopqrstuvwxyz"
+               , expected    = True
+               }
         , Case { description = "pangram with only lower case"
                , input       = "the quick brown fox jumps over the lazy dog"
                , expected    = True
@@ -32,8 +36,8 @@ cases = [ Case { description = "sentence empty"
                , input       = "a quick movement of the enemy will jeopardize five gunboats"
                , expected    = False
                }
-        , Case { description = "another missing character 'x'"
-               , input       = "the quick brown fish jumps over the lazy dog"
+        , Case { description = "another missing character, e.g. 'h'"
+               , input       = "five boxing wizards jump quickly at it"
                , expected    = False
                }
         , Case { description = "pangram with underscores"
