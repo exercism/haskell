@@ -14,5 +14,5 @@ binarySearch arr x
                     shalf = listArray (0, length sarr - 1) sarr
                     target = if x >= head sarr then shalf else fhalf
                     res = binarySearch target x in 
-                if isJust res && target == shalf 
-                then Just ((fromJust res) + middle) else res
+                if isJust res && target == shalf
+                then Just (fromJust res + middle) else res
