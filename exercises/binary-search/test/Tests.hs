@@ -66,7 +66,7 @@ cases = [ Case { description = "finds a value in an array with one element"
                , expected    = Nothing
                }
         , Case { description = "nothing is included in an empty array"
-               , input       = listArray (1, 0) [] -- There is no way to represent an empty array
+               , input       = listArray (1, 0) []
                , value       = 1
                , expected    = Nothing
                }
