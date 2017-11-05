@@ -24,6 +24,10 @@ cases = [ Case { description = "sentence empty"
                , input       = ""
                , expected    = False
                }
+        , Case { description = "recognizes a perfect lower case pangram"
+               , input       = "abcdefghijklmnopqrstuvwxyz"
+               , expected    = True
+               }
         , Case { description = "pangram with only lower case"
                , input       = "the quick brown fox jumps over the lazy dog"
                , expected    = True
