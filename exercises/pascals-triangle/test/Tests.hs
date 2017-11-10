@@ -22,4 +22,4 @@ specs = describe "rows" $ for_ rowsCases rowsTest
                 , ("two rows"     , 2, [[1], [1, 1]                         ])
                 , ("three rows"   , 3, [[1], [1, 1], [1, 2, 1]              ])
                 , ("four rows"    , 4, [[1], [1, 1], [1, 2, 1], [1, 3, 3, 1]])
-                , ("negative rows",-1, [                                    ]) ]
+                , ("negative rows",-1, []) ]
