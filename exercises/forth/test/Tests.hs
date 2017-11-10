@@ -14,10 +14,7 @@ specs = do
 
     let runTexts = fmap toList . foldM (flip evalText) empty
 
-    describe "parsing and numbers" $ do
-      it "empty input results in empty stack" $
-        toList empty `shouldBe` []
-
+    describe "parsing and numbers" $
       it "numbers just get pushed onto the stack" $
         runTexts ["1 2 3 4 5"] `shouldBe` Right [1, 2, 3, 4, 5]
 
