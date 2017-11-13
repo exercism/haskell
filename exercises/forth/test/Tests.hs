@@ -62,10 +62,10 @@ specs = do
         runTexts ["2 4 * 3 /"] `shouldBe` Right [2]
 
     describe "dup" $ do
+      it "copies a value on the stack" $
+        runTexts ["1 dup"  ] `shouldBe` Right [1, 1]
       it "copies the top value on the stack" $
-        runTexts ["1 DUP"  ] `shouldBe` Right [1, 1]
-      it "is case-insensitive" $
-        runTexts ["1 2 Dup"] `shouldBe` Right [1, 2, 2]
+        runTexts ["1 2 dup"] `shouldBe` Right [1, 2, 2]
       it "errors if there is nothing on the stack" $
         runTexts ["dup"    ] `shouldBe` Left StackUnderflow
 
@@ -124,3 +124,21 @@ specs = do
 
       it "errors if executing a non-existent word" $
         runTexts ["1 foo"] `shouldBe` Left (UnknownWord "foo")
+
+    describe "case-insensitivity" $ do
+      it "DUP is case-insensitive" $
+        runTexts ["1 DUP Dup dup"         ] `shouldBe` Right [1, 1, 1, 1]
+      it "DROP is case-insensitive" $
+        runTexts ["1 2 3 4 DROP Drop drop"] `shouldBe` Right [1]
+      it "SWAP is case-insensitive" $
+        runTexts ["1 2 SWAP 3 Swap 4 swap"] `shouldBe` Right [2, 3, 4, 1]
+      it "OVER is case-insensitive" $
+        runTexts ["1 2 OVER Over over"    ] `shouldBe` Right [1, 2, 1, 2, 1]
+
+      it "user-defined words are case-insensitive" $
+        runTexts [ ": foo dup ;"
+                 , "1 FOO Foo foo" ] `shouldBe` Right [1, 1, 1, 1]
+
+      it "definitions are case-insensitive" $
+        runTexts [ ": SWAP DUP Dup dup ;"
+                 , "1 swap"               ] `shouldBe` Right [1, 1, 1, 1]
