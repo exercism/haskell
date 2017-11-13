@@ -75,9 +75,8 @@ cases = [ Case { description  = "single bit one to decimal"
                , outputDigits = Just [6, 10, 45]
                }
 
-          -- The following cases are undefined in all-your-base.json.
+          -- The following three cases are [0] in all-your-base.json.
           -- Here we use [] to represent the lack of digits, i.e., zero.
-
         , Case { description  = "empty list"
                , inputBase    = 2
                , inputDigits  = []
@@ -96,6 +95,7 @@ cases = [ Case { description  = "single bit one to decimal"
                , outputBase   = 2
                , outputDigits = Just []
                }
+
         , Case { description  = "leading zeros"
                , inputBase    = 7
                , inputDigits  = [0, 6, 0]
