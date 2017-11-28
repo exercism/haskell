@@ -32,6 +32,15 @@
       ]
     },
     {
+      "uuid": "5bf7612c-427e-484d-bc67-8553fac4f64d",
+      "slug": "rail-fence-cipher",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+      ]
+    },
+    {
       "uuid": "6cbb7841-9d96-4528-88e3-6e98a450fd7c",
       "slug": "space-age",
       "core": false,

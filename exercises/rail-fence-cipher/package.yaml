@@ -1,0 +1,20 @@
+name: rail-fence-cipher
+version: 1.1.0.1
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: RailFenceCipher
+  source-dirs: src
+  dependencies:
+  # - foo       # List here the packages you
+  # - bar       # want to use in your solution.
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - rail-fence-cipher
+      - hspec
