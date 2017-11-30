@@ -1,7 +1,7 @@
 module RailFenceCipher (encode, decode) where
 
-encode :: Int -> [a] -> [a]
-encode = "You need to implement this function!"
+encode :: Int -> String -> String
+encode = error "You need to implement this function!"
 
-decode :: Int -> [a] -> [a]
-decode = "You need to implement this function!"
+decode :: Int -> String -> String
+decode = error "You need to implement this function!"
