@@ -846,6 +846,17 @@
       ]
     },
     {
+      "uuid": "0c7a2f06-1e53-4043-9e1a-386e90e945b4",
+      "slug": "twelve-days",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 4,
+      "topics": [
+        "algorithms",
+        "text_formatting"
+      ]
+    },
+    {
       "uuid": "48ca1682-ca1b-4a2c-be55-624620f336a7",
       "slug": "binary",
       "deprecated": true
