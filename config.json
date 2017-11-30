@@ -492,6 +492,15 @@
       ]
     },
     {
+      "uuid": "d1dc946d-a142-42ed-abec-e53605635c0d",
+      "slug": "twelve-days",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 4,
+      "topics": [
+      ]
+    },
+    {
       "uuid": "4b6d04f4-8cfc-4d8a-ac6e-77f3889f27c3",
       "slug": "atbash-cipher",
       "core": false,
@@ -843,17 +852,6 @@
       "difficulty": 10,
       "topics": [
         "Maybe"
-      ]
-    },
-    {
-      "uuid": "d1dc946d-a142-42ed-abec-e53605635c0d",
-      "slug": "twelve-days",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 4,
-      "topics": [
-        "algorithms",
-        "text_formatting"
       ]
     },
     {
