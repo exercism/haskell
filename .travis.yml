@@ -32,6 +32,7 @@ install:
  - stack --resolver ${RESOLVER} --install-ghc install hlint
 
 script:
+ - "sh ./bin/ensure-readmes-are-updated.sh"
  - |
     set -e
 
