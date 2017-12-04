@@ -105,10 +105,6 @@ GitHub is the home for all of the Haskell exercises.
 If you have feedback about an exercise, or want to help implementing a new
 one, head over there and create an issue.  We'll do our best to help you!
 
-## Hints
-- Try to capture the structure of the song in your code, where you build up the
-  song by composing its parts.
-
 ## Source
 
 Wikipedia
