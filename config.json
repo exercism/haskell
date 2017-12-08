@@ -14,6 +14,16 @@
       ]
     },
     {
+      "uuid": "f750e380-fe16-42c0-8b3d-8acd7e443a6e",
+      "slug": "protein-translation",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "Maybe"
+      ]
+    },
+    {
       "uuid": "0ad7d756-1cbd-44f4-a64f-0dc7e9eb40f4",
       "slug": "leap",
       "core": false,
