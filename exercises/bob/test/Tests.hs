@@ -54,7 +54,7 @@ cases = [ Case { description = "stating something"
                }
         , Case { description = "forceful question"
                , input       = "WHAT THE HELL WERE YOU THINKING?"
-               , expected    = "Whoa, chill out!"
+               , expected    = "Calm down, I know what I'm doing!"
                }
         , Case { description = "shouting numbers"
                , input       = "1, 2, 3 GO!"
