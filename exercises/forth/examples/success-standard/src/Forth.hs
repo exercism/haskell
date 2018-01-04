@@ -17,10 +17,10 @@ import Control.Arrow (first)
 
 type Value = Int
 type FWord = Text
-data Term 
+data Term
      = StartDefinition
      | EndDefinition
-     | V Value 
+     | V Value
      | W FWord
      deriving (Show, Ord, Eq)
 

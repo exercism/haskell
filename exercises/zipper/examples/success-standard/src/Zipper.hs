@@ -16,7 +16,7 @@ module Zipper (
 ) where
 
 -- | A binary tree.
-data BinTree a = BT { 
+data BinTree a = BT {
     btValue :: a,                 -- ^ Value
     btLeft  :: Maybe (BinTree a), -- ^ Left child
     btRight :: Maybe (BinTree a)  -- ^ Right child
@@ -53,7 +53,7 @@ toTree (Z v l r zt) = go (BT v l r) zt
 
 -- | Get the value of the focus node.
 value :: Zipper a -> a
-value = zValue 
+value = zValue
 
 -- | Get the left child of the focus node, if any.
 left :: Zipper a -> Maybe (Zipper a)
@@ -81,4 +81,4 @@ setLeft t z = z { zLeft = t }
 
 -- | Replace a right child tree.
 setRight :: Maybe (BinTree a) -> Zipper a -> Zipper a
-setRight t z = z { zRight = t } 
+setRight t z = z { zRight = t }
