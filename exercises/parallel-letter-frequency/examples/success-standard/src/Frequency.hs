@@ -11,7 +11,7 @@ import qualified Data.Text as T
 -- | Compute the frequency of letters in the text using the given number of
 --   parallel workers.
 frequency :: Int -> [Text] -> Map Char Int
-frequency workers texts = 
+frequency workers texts =
     let chunkSize = ceiling (length texts % workers)
         freqs = map countLetters texts `using` parListChunk chunkSize rdeepseq
     in Map.unionsWith (+) freqs

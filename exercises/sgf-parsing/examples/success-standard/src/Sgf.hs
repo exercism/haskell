@@ -38,7 +38,7 @@ prop :: Parser (Text, [Text])
 prop = (,) <$> (T.pack <$> many1 (satisfy isUpper)) <*> many1 val
 
 -- | Parse a value, complete with brackets.
--- 
+--
 -- This is a bit tricky as there are escape sequences to take into account.
 --
 -- We'll use a simple folder with one bit of state: whether the last

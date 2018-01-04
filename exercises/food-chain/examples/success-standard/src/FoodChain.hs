@@ -43,4 +43,4 @@ comment animal = case animal of
   Dog    -> "What a hog, to swallow a dog!"
   Goat   -> "Just opened her throat and swallowed a goat!"
   Cow    -> "I don't know how she swallowed a cow!"
-  Horse  -> "She's dead, of course!" 
+  Horse  -> "She's dead, of course!"
