@@ -1,7 +1,7 @@
 module TwelveDays (recite) where
 
 recite :: Int -> Int -> [String]
-recite start stop 
+recite start stop
   | start <= stop = lyrics start : recite (start + 1) stop
   | otherwise     = []
 
@@ -9,17 +9,16 @@ lyrics :: Int -> String
 lyrics days =
   beginning ++ end days
   where
-    beginning = 
-      let (day, _) = verse days 
+    beginning =
+      let (day, _) = verse days
       in "On the " ++ day ++ " day of Christmas my true love gave to me"
-    end days' 
-      | days < 13 && days' > 0 = let (_, gift) = verse days' 
+    end days'
+      | days < 13 && days' > 0 = let (_, gift) = verse days'
                                  in prefix days' ++ gift ++ end (days' - 1)
       | otherwise              = "."
-      where 
+      where
         prefix 1 = if days > 1 then ", and " else ", "
         prefix _ = ", "
-      
 
 verse :: Int -> (String, String)
 verse 12 = ("twelfth", "twelve Drummers Drumming")

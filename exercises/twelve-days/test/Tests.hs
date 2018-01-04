@@ -26,7 +26,7 @@ cases :: [Case]
 cases = [ Case { description = "first day a partridge in a pear tree"
                , start = 1
                , stop = 1
-               , expected = [ 
+               , expected = [
                   "On the first day of Christmas my true love gave to me, a Partridge in a Pear Tree."
                  ]
                }
