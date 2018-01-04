@@ -267,6 +267,15 @@
       ]
     },
     {
+      "uuid": "d1dc946d-a142-42ed-abec-e53605635c0d",
+      "slug": "twelve-days",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 3,
+      "topics": [
+      ]
+    },
+    {
       "uuid": "382e4fbd-99d6-400b-962c-ebb4a411bcea",
       "slug": "beer-song",
       "core": false,
