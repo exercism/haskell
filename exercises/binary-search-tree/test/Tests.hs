@@ -68,6 +68,9 @@ specs = do
     it "iterating over smaller element" $
       toList (fromList [int4, 2]) `shouldBe` [2, 4]
 
+    it "iterating over equal element" $
+      toList (fromList [int4, 4]) `shouldBe` [4, 4]
+
     it "iterating over larger element" $
       toList (fromList [int4, 5]) `shouldBe` [4, 5]
 
