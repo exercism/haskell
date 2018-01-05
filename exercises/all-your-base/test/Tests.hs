@@ -102,19 +102,19 @@ cases = [ Case { description  = "single bit one to decimal"
                , outputBase   = 10
                , outputDigits = Just [4, 2]
                }
-        , Case { description  = "first base is one"
+        , Case { description  = "input base is one"
                , inputBase    = 1
                , inputDigits  = []
                , outputBase   = 10
                , outputDigits = Nothing
                }
-        , Case { description  = "first base is zero"
+        , Case { description  = "input base is zero"
                , inputBase    = 0
                , inputDigits  = []
                , outputBase   = 10
                , outputDigits = Nothing
                }
-        , Case { description  = "first base is negative"
+        , Case { description  = "input base is negative"
                , inputBase    = -2
                , inputDigits  = [1]
                , outputBase   = 10
@@ -132,19 +132,19 @@ cases = [ Case { description  = "single bit one to decimal"
                , outputBase   = 10
                , outputDigits = Nothing
                }
-        , Case { description  = "second base is one"
+        , Case { description  = "output base is one"
                , inputBase    = 2
                , inputDigits  = [1, 0, 1, 0, 1, 0]
                , outputBase   = 1
                , outputDigits = Nothing
                }
-        , Case { description  = "second base is zero"
+        , Case { description  = "output base is zero"
                , inputBase    = 10
                , inputDigits  = [7]
                , outputBase   = 0
                , outputDigits = Nothing
                }
-        , Case { description  = "second base is negative"
+        , Case { description  = "output base is negative"
                , inputBase    = 2
                , inputDigits  = [1]
                , outputBase   = -7
