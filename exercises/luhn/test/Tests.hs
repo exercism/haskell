@@ -24,7 +24,7 @@ cases = [ Case { description = "single digit strings can not be valid"
                , input       = "1"
                , expected    = False
                }
-        , Case { description = "A single zero is invalid"
+        , Case { description = "a single zero is invalid"
                , input       = "0"
                , expected    = False
                }
