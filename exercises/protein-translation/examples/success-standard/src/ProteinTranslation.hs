@@ -1,8 +1,6 @@
 module ProteinTranslation(proteins) where
 
-separate :: [a] -> [[a]]
-separate [] = []
-separate xs = take 3 xs : separate (drop 3 xs)
+import Data.List.Split (chunksOf)
 
 validCodon :: String -> Bool
 validCodon x = x `elem` ["AUG","UUU","UUC","UUA","UUG","UCU","UCC","UCA","UCG",
@@ -20,7 +18,7 @@ proteins' x | x == "AUG"                         = "Methionine"
 
 proteins :: String -> Maybe [String]
 proteins xs = if length xs `mod` 3 == 0 && all validCodon codons
-                then  Just (takeWhile (/= "STOP") (map proteins' codons))
+                then Just (takeWhile (/= "STOP") (map proteins' codons))
                 else Nothing
   where
-    codons = separate xs
+    codons = chunksOf 3 xs
