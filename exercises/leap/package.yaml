@@ -1,5 +1,5 @@
 name: leap
-version: 1.2.0.5
+version: 1.3.0.6
 
 dependencies:
   - base
