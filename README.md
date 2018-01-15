@@ -78,7 +78,6 @@ The [track anatomy documentation](https://github.com/exercism/docs/blob/master/l
 │ └── TESTS.md
 └── exercises
   └── accumulate
-  │ ├── HINTS.md
   │ ├── package.yaml
   │ ├── stack.yaml
   │ ├── examples
@@ -88,8 +87,10 @@ The [track anatomy documentation](https://github.com/exercism/docs/blob/master/l
   │ │     └── Accumuĺate.hs
   │ ├── src
   │ │ └── Accumuĺate.hs
-  │ └── test
-  │   └── Tests.hs
+  │ ├── test
+  │ │ └── Tests.hs
+  │ └── .meta
+  │   └── hints.md
   └── allergies
   │ ├── ...
   └── ...
@@ -103,11 +104,11 @@ Each exercise has the following structure:
 resolver for all the exercises.
 - `package.yaml` is a file in the [hpack](https://github.com/sol/hpack#readme)
 format that has all dependencies and build instructions for an exercise.
-- `HINTS.md` is an optional file containing instructions and/or hints. It is used together with the respective `description.md` for the exercise from [problem-specifications](https://github.com/exercism/problem-specifications) to build the `README.md` file.
 - `src/ModuleName.hs` is a [stub solution](#stub-solution).
 - `examples/success-<name>/package.yaml` contains library dependencies for the [example solution](#example-solution). `<name>` is a unique name for the example - usually "standard" (as in `success-standard`), but it can be some other name in case of multiple example solutions.
 - `examples/success-<name>/src/ModuleName.hs` is the source code of the sample solution.
 - `test/Tests.hs` is the [test suite](#test-suite).
+- `.meta/hints.md` is an optional file containing instructions and/or hints. It is used together with the respective `description.md` for the exercise from [problem-specifications](https://github.com/exercism/problem-specifications) to build the `README.md` file.
 
 ### Writing an issue
 To report a bug you should [create an issue](https://help.github.com/articles/creating-an-issue/) on the [exercism/haskell repo](https://github.com/exercism/haskell/issues).
