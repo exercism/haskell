@@ -71,12 +71,12 @@ The [track anatomy documentation](https://github.com/exercism/docs/blob/master/l
 ├── config.json
 ├── docs
 │ ├── ABOUT.md
+  ├── EXERCISE_README_INSERT.md
 │ ├── INSTALLATION.md
 │ ├── LEARNING.md
 │ ├── RESOURCES.md
 │ └── TESTS.md
 └── exercises
-  ├── TRACK_HINTS.md
   └── accumulate
   │ ├── HINTS.md
   │ ├── package.yaml
