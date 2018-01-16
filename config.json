@@ -23,24 +23,6 @@
       ]
     },
     {
-      "uuid": "e5a0bed3-90ca-4caa-a73f-2124940f84c9",
-      "slug": "isbn-verifier",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "uuid": "5bf7612c-427e-484d-bc67-8553fac4f64d",
-      "slug": "rail-fence-cipher",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
       "uuid": "6cbb7841-9d96-4528-88e3-6e98a450fd7c",
       "slug": "space-age",
       "core": false,
@@ -68,15 +50,6 @@
       ]
     },
     {
-      "uuid": "6eba4eac-8395-4ad6-ac21-3651a11ab4b5",
-      "slug": "run-length-encoding",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
       "uuid": "6eba4eac-8395-4ad6-ac21-3651a11ab4b4",
       "slug": "collatz-conjecture",
       "core": false,
@@ -85,35 +58,6 @@
       "topics": [
         "Maybe",
         "Number Theory"
-      ]
-    },
-    {
-      "uuid": "928b22c5-f2bd-4496-8605-fcff2dad2c3a",
-      "slug": "perfect-numbers",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-        "Maybe",
-        "Number Theory"
-      ]
-    },
-    {
-      "uuid": "6eba4eac-6665-4ad6-ac21-3651a11ab4b4",
-      "slug": "isogram",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "uuid": "cd5ce9ad-b627-46e3-b6d8-872baf476bf1",
-      "slug": "rotational-cipher",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
       ]
     },
     {
@@ -147,26 +91,6 @@
       ]
     },
     {
-      "uuid": "40d4aa74-6e4a-4579-810e-b4430bc172e8",
-      "slug": "diamond",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 2,
-      "topics": [
-      ]
-    },
-    {
-      "uuid": "4e10e864-2fe4-4926-b908-f70645698999",
-      "slug": "complex-numbers",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 2,
-      "topics": [
-        "Define type",
-        "Number Theory"
-      ]
-    },
-    {
       "uuid": "197a543c-d9c7-41c3-814c-4b1ece3db568",
       "slug": "grains",
       "core": false,
@@ -184,6 +108,17 @@
       "unlocked_by": null,
       "difficulty": 2,
       "topics": [
+      ]
+    },
+    {
+      "uuid": "928b22c5-f2bd-4496-8605-fcff2dad2c3a",
+      "slug": "perfect-numbers",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 2,
+      "topics": [
+        "Maybe",
+        "Number Theory"
       ]
     },
     {
@@ -214,6 +149,24 @@
       "difficulty": 2,
       "topics": [
         "Define type"
+      ]
+    },
+    {
+      "uuid": "6eba4eac-6665-4ad6-ac21-3651a11ab4b4",
+      "slug": "isogram",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 2,
+      "topics": [
+      ]
+    },
+    {
+      "uuid": "40d4aa74-6e4a-4579-810e-b4430bc172e8",
+      "slug": "diamond",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 2,
+      "topics": [
       ]
     },
     {
@@ -276,6 +229,24 @@
       ]
     },
     {
+      "uuid": "e5a0bed3-90ca-4caa-a73f-2124940f84c9",
+      "slug": "isbn-verifier",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 3,
+      "topics": [
+      ]
+    },
+    {
+      "uuid": "6eba4eac-8395-4ad6-ac21-3651a11ab4b5",
+      "slug": "run-length-encoding",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 3,
+      "topics": [
+      ]
+    },
+    {
       "uuid": "382e4fbd-99d6-400b-962c-ebb4a411bcea",
       "slug": "beer-song",
       "core": false,
@@ -311,6 +282,17 @@
       "unlocked_by": null,
       "difficulty": 3,
       "topics": [
+      ]
+    },
+    {
+      "uuid": "4e10e864-2fe4-4926-b908-f70645698999",
+      "slug": "complex-numbers",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 3,
+      "topics": [
+        "Define type",
+        "Number Theory"
       ]
     },
     {
@@ -598,6 +580,15 @@
       ]
     },
     {
+      "uuid": "cd5ce9ad-b627-46e3-b6d8-872baf476bf1",
+      "slug": "rotational-cipher",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 5,
+      "topics": [
+      ]
+    },
+    {
       "uuid": "781325ec-c772-4b56-80b0-2c56c5953122",
       "slug": "spiral-matrix",
       "core": false,
@@ -694,6 +685,15 @@
     {
       "uuid": "f49d76f7-f826-4b6a-a514-47af7e84144a",
       "slug": "sublist",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 6,
+      "topics": [
+      ]
+    },
+    {
+      "uuid": "5bf7612c-427e-484d-bc67-8553fac4f64d",
+      "slug": "rail-fence-cipher",
       "core": false,
       "unlocked_by": null,
       "difficulty": 6,
