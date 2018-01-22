@@ -40,4 +40,8 @@ cases = [ Case { description = "RNA complement of cytosine is guanine"
                , dna         =      "ACGTGGTCTTAA"
                , expected    = Just "UGCACCAGAAUU"
                }
+        , Case { description = "Invalid input"
+               , dna         = "FOOBAR"
+               , expected    = Nothing
+               }
         ]
