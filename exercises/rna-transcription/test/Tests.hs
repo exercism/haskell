@@ -40,4 +40,16 @@ cases = [ Case { description = "RNA complement of cytosine is guanine"
                , dna         =      "ACGTGGTCTTAA"
                , expected    = Just "UGCACCAGAAUU"
                }
+        , Case { description = "correctly handles invalid input (RNA instead of DNA)"
+               , dna         = "U"
+               , expected    = Nothing
+               }
+        , Case { description = "correctly handles completely invalid DNA input"
+               , dna         = "XXX"
+               , expected    = Nothing
+               }
+        , Case { description = "correctly handles partially invalid DNA input"
+               , dna         = "ACGTXXXCTTAA"
+               , expected    = Nothing
+               }
         ]
