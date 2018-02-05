@@ -35,16 +35,6 @@ cases = [ Case { description = "no matches"
                , candidates  = [ "hello", "world", "zombies", "pants"]
                , expected    = []
                }
-        , Case { description = "detects simple anagram"
-               , subject     = "ant"
-               , candidates  = ["tan", "stand", "at"]
-               , expected    = ["tan"]
-               }
-        , Case { description = "does not detect false positives"
-               , subject     = "galea"
-               , candidates  = ["eagle"]
-               , expected    = []
-               }
         , Case { description = "detects two anagrams"
                , subject     = "master"
                , candidates  = ["stream", "pigeon", "maters"]
@@ -65,11 +55,6 @@ cases = [ Case { description = "no matches"
                , candidates  = ["gallery", "ballerina", "regally", "clergy", "largely", "leading"]
                , expected    = ["gallery", "regally", "largely"]
                }
-        , Case { description = "does not detect identical words"
-               , subject     = "corn"
-               , candidates  = ["corn", "dark", "Corn", "rank", "CORN", "cron", "park"]
-               , expected    = ["cron"]
-               }
         , Case { description = "does not detect non-anagrams with identical checksum"
                , subject     = "mass"
                , candidates  = ["last"]
@@ -89,11 +74,6 @@ cases = [ Case { description = "no matches"
                , subject     = "orchestra"
                , candidates  = ["cashregister", "Carthorse", "radishes"]
                , expected    = ["Carthorse"]
-               }
-        , Case { description = "does not detect a word as its own anagram"
-               , subject     = "banana"
-               , candidates  = ["Banana"]
-               , expected    = []
                }
         , Case { description = "does not detect a anagram if the original word is repeated"
                , subject     = "go"

@@ -61,6 +61,10 @@ cases = [ Case { description = "1 is a single I"
                , number      = 48
                , expected    = Just "XLVIII"
                }
+        , Case { description = "49 is not 40 + 5 + 4 but rather 50 - 10 + 10 - 1"
+               , number      = 49
+               , expected    = Just "XLIX"
+               }
         , Case { description = "50 is a single L"
                , number      = 59
                , expected    = Just "LIX"

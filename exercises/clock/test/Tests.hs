@@ -29,6 +29,7 @@ specs = do
 
       describe "create" $ for_ createCases createTest
       describe "add"    $ for_ addCases    addTest
+      describe "sub"    $ for_ subCases    subTest
       describe "equal"  $ for_ equalCases  equalTest
 
   where
@@ -40,6 +41,10 @@ specs = do
     addTest (l, h, m, m', e) = it l assertion
       where
         assertion = toString (fromHourMin h m + m') `shouldBe` e
+
+    subTest (l, h, m, m', e) = it l assertion
+      where
+        assertion = toString (fromHourMin h m - m') `shouldBe` e
 
     equalTest (l, (h1, m1), (h2, m2), e) = it l assertion
       where
@@ -74,15 +79,17 @@ specs = do
       , ("add more than two hours with carry"            ,  0, 45,   160, "03:25")
       , ("add across midnight"                           , 23, 59,     2, "00:01")
       , ("add more than one day (1500 min = 25 hrs)"     ,  5, 32,  1500, "06:32")
-      , ("add more than two days"                        ,  1,  1,  3500, "11:21")
-      , ("subtract minutes"                              , 10,  3,    -3, "10:00")
-      , ("subtract to previous hour"                     , 10,  3,   -30, "09:33")
-      , ("subtract more than an hour"                    , 10,  3,   -70, "08:53")
-      , ("subtract across midnight"                      ,  0,  3,    -4, "23:59")
-      , ("subtract more than two hours"                  ,  0,  0,  -160, "21:20")
-      , ("subtract more than two hours with borrow"      ,  6, 15,  -160, "03:35")
-      , ("subtract more than one day (1500 min = 25 hrs)",  5, 32, -1500, "04:32")
-      , ("subtract more than two days"                   ,  2, 20, -3000, "00:20") ]
+      , ("add more than two days"                        ,  1,  1,  3500, "11:21") ]
+
+    subCases =
+      [ ("subtract minutes"                              , 10,  3,     3, "10:00")
+      , ("subtract to previous hour"                     , 10,  3,    30, "09:33")
+      , ("subtract more than an hour"                    , 10,  3,    70, "08:53")
+      , ("subtract across midnight"                      ,  0,  3,     4, "23:59")
+      , ("subtract more than two hours"                  ,  0,  0,   160, "21:20")
+      , ("subtract more than two hours with borrow"      ,  6, 15,   160, "03:35")
+      , ("subtract more than one day (1500 min = 25 hrs)",  5, 32,  1500, "04:32")
+      , ("subtract more than two days"                   ,  2, 20,  3000, "00:20") ]
 
     equalCases =
       [ ("clocks with same time"                                , (15, 37), ( 15,     37), True )

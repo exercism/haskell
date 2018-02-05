@@ -39,15 +39,11 @@ cases = [ Case { description = "basic"
                , input       = "First In, First Out"
                , expected    = "FIFO"
                }
-        , Case { description = "all caps words"
-               , input       = "PHP: Hypertext Preprocessor"
-               , expected    = "PHP"
-               }
-        , Case { description = "non-acronym all caps word"
+        , Case { description = "all caps word"
                , input       = "GNU Image Manipulation Program"
                , expected    = "GIMP"
                }
-        , Case { description = "hyphenated"
+        , Case { description = "punctuation without whitespace"
                , input       = "Complementary metal-oxide semiconductor"
                , expected    = "CMOS"
                }
