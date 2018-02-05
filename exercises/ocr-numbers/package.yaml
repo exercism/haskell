@@ -1,5 +1,5 @@
 name: ocr-numbers
-version: 1.0.0.3
+version: 1.1.0.4
 
 dependencies:
   - base
