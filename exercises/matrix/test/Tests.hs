@@ -46,7 +46,7 @@ specs = do
       column 2 (intMatrix "1 2 3\n4 5 6\n7 8 9") `shouldBe` vector [3, 6, 9]
 
     it "can extract column from non-square matrix" $
-      column 2 (intMatrix "1 2 3\n4 5 6\n7 8 9\n 8 7 6") `shouldBe` vector [3, 6, 9, 6]
+      column 2 (intMatrix "1 2 3\n4 5 6\n7 8 9\n8 7 6") `shouldBe` vector [3, 6, 9, 6]
 
     it "extract column where numbers have different widths" $
       column 1 (intMatrix "89 1903 3\n18 3 1\n9 4 800") `shouldBe` vector [1903, 3, 4]
