@@ -14,7 +14,7 @@ specs = describe "diamond" $ for_ cases test
 
     test Case{..} = it description assertion
       where
-        assertion = diamond input `shouldBe` expected
+        assertion = diamond input `shouldBe` Just expected
 
 
 data Case = Case { description :: String
