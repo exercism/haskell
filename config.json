@@ -23,16 +23,6 @@
       ]
     },
     {
-      "uuid": "f750e380-fe16-42c0-8b3d-8acd7e443a6e",
-      "slug": "protein-translation",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-        "Maybe"
-      ]
-    },
-    {
       "uuid": "6cbb7841-9d96-4528-88e3-6e98a450fd7c",
       "slug": "space-age",
       "core": false,
@@ -322,6 +312,16 @@
       "unlocked_by": null,
       "difficulty": 3,
       "topics": [
+      ]
+    },
+    {
+      "uuid": "f750e380-fe16-42c0-8b3d-8acd7e443a6e",
+      "slug": "protein-translation",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 3,
+      "topics": [
+        "Maybe"
       ]
     },
     {
