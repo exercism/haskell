@@ -315,6 +315,16 @@
       ]
     },
     {
+      "uuid": "f750e380-fe16-42c0-8b3d-8acd7e443a6e",
+      "slug": "protein-translation",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 3,
+      "topics": [
+        "Maybe"
+      ]
+    },
+    {
       "uuid": "67c53230-82e8-4207-a811-abec27bef381",
       "slug": "anagram",
       "core": false,

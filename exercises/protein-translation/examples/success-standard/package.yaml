@@ -1,0 +1,17 @@
+name: protein-translation
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: ProteinTranslation
+  source-dirs: src
+  dependencies: split
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - protein-translation
+      - hspec
