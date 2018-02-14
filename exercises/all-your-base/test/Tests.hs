@@ -104,7 +104,7 @@ cases = [ Case { description  = "single bit one to decimal"
                }
         , Case { description  = "input base is one"
                , inputBase    = 1
-               , inputDigits  = []
+               , inputDigits  = [0]
                , outputBase   = 10
                , outputDigits = Nothing
                }
