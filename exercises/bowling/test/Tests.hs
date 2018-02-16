@@ -136,5 +136,13 @@ cases = [ Case { description = "should be able to score a game with all zeros"
                , rolls       = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 3]
                , expected    = Left IncompleteGame
                }
+        , Case { description = "cannot roll after bonus roll for spare"
+               , rolls       = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 3, 2, 2]
+               , expected    = Left $ InvalidRoll 21 2
+               }
+        , Case { description = "cannot roll after bonus rolls for strike"
+               , rolls       = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 3, 2, 2]
+               , expected    = Left $ InvalidRoll 21 2
+               }
         ]
 
