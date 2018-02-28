@@ -21,32 +21,32 @@ specs = describe "collatz" $ for_ cases test
 
 data Case = Case { description :: String
                  , number      :: Integer
-                 , expected    :: Maybe Integer
+                 , expected    :: Either String Integer
                  }
 
 cases :: [Case]
 cases = [ Case { description = "zero steps for one"
                , number      = 1
-               , expected    = Just 0
+               , expected    = Right 0
                }
         , Case { description = "divide if even"
                , number      = 16
-               , expected    = Just 4
+               , expected    = Right 4
                }
         , Case { description = "even and odd steps"
                , number      = 12
-               , expected    = Just 9
+               , expected    = Right 9
                }
         , Case { description = "Large number of even and odd steps"
                , number      = 1000000
-               , expected    = Just 152
+               , expected    = Right 152
                }
         , Case { description = "zero is an error"
                , number      = 0
-               , expected    = Nothing
+               , expected    = Left "only natural numbers are allowed"
                }
         , Case { description = "negative value is an error"
                , number      = -15
-               , expected    = Nothing
+               , expected    = Left "only natural numbers are allowed"
                }
         ]
