@@ -628,6 +628,15 @@
       ]
     },
     {
+      "uuid": "f58e07ae-08e9-4e64-b1d7-16033e46509b",
+      "slug": "transpose",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 5,
+      "topics": [
+      ]
+    },
+    {
       "uuid": "2429b6d1-2ce8-487e-b0f7-a4d11970e6bd",
       "slug": "simple-cipher",
       "core": false,
