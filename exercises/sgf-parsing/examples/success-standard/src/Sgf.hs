@@ -4,7 +4,6 @@ module Sgf (
 ) where
 
 import           Control.Applicative
-import           Data.Attoparsec.Combinator
 import           Data.Attoparsec.Text
 import           Data.Char (isUpper, isSpace)
 import           Data.Map (Map)
