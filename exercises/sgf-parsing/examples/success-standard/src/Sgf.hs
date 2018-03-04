@@ -3,8 +3,8 @@ module Sgf (
     parseSgf
 ) where
 
-import           Control.Applicative
-import           Data.Attoparsec.Text
+import           Control.Applicative (many)
+import           Data.Attoparsec.Text (Parser, anyChar, char, many1, parseOnly, satisfy)
 import           Data.Char (isUpper, isSpace)
 import           Data.Map (Map)
 import qualified Data.Map as Map
