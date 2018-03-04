@@ -2,17 +2,17 @@
 
 module Transpose (transpose) where
 
-import Data.Maybe (fromMaybe, isNothing)
+import Data.Maybe (isNothing)
 
 transpose :: [String] -> [String]
 transpose [] = []
-transpose lines =
+transpose rows =
   map toString $ foldr 
     (zipWith (:) . padRight . map Just) 
     (replicate longestLength []) 
-    lines
+    rows
   where 
-    longestLength = maximum $ map length lines
+    longestLength = maximum $ map length rows
     padRight line = line ++ replicate (longestLength - length line) Nothing
     toString line = concatMap (\case Nothing -> " "
                                      Just c -> c:"") $ dropRight line
