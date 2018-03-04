@@ -10,7 +10,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "responseFor" $ for_ cases test
+specs = describe "transpose" $ for_ cases test
   where
     test Case{..} = it description assertion
       where
@@ -39,10 +39,10 @@ cases = [ Case { description = "empty string"
                , expected = [ "A1" ]
                }
         , Case { description = "simple"
-               , rows = [ "ABC" 
-                        , "123" 
+               , rows = [ "ABC"
+                        , "123"
                         ]
-               , expected = [ "A1" 
+               , expected = [ "A1"
                             , "B2"
                             , "C3"
                             ]
