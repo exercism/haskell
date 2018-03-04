@@ -1,3 +1,5 @@
+{-# LANGUAGE LambdaCase #-}
+
 module Transpose (transpose) where
 
 import Data.Maybe (fromMaybe, isNothing)
@@ -12,8 +14,8 @@ transpose lines =
   where 
     longestLength = maximum $ map length lines
     padRight line = line ++ replicate (longestLength - length line) Nothing
-    toString line = concatMap (\x -> case x of Nothing -> " "
-                                               Just c -> c:"") $ dropRight line
+    toString line = concatMap (\case Nothing -> " "
+                                     Just c -> c:"") $ dropRight line
     dropRight line = snd $ foldr 
           (\x (ignore, xs) -> if ignore && isNothing x 
                                 then (ignore, xs) 
