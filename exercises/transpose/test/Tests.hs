@@ -14,41 +14,41 @@ specs = describe "responseFor" $ for_ cases test
   where
     test Case{..} = it description assertion
       where
-        assertion = transpose lines `shouldBe` expected
+        assertion = transpose rows `shouldBe` expected
 
 data Case = Case { description :: String
-                 , lines       :: [String]
+                 , rows        :: [String]
                  , expected    :: [String]
                  }
 
 cases :: [Case]
 cases = [ Case { description = "empty string"
-               , lines = []
+               , rows = []
                , expected = []
                }
         , Case { description = "two characters in a row"
-               , lines = [ "A1" ]
+               , rows = [ "A1" ]
                , expected = [ "A"
                             , "1"
                             ]
                }
         , Case { description = "two characters in a column"
-               , lines = [ "A"
-                         , "1"
-                         ]
+               , rows = [ "A"
+                        , "1"
+                        ]
                , expected = [ "A1" ]
                }
         , Case { description = "simple"
-               , lines = [ "ABC" 
-                         , "123" 
-                         ]
+               , rows = [ "ABC" 
+                        , "123" 
+                        ]
                , expected = [ "A1" 
                             , "B2"
                             , "C3"
                             ]
                }
         , Case { description = "single line"
-               , lines = [ "Single line." ]
+               , rows = [ "Single line." ]
                , expected = [ "S"
                             , "i"
                             , "n"
@@ -64,9 +64,9 @@ cases = [ Case { description = "empty string"
                             ]
                }
         , Case { description = "first line longer than second line"
-               , lines = [ "The fourth line."
-                         , "The fifth line."
-                         ]
+               , rows = [ "The fourth line."
+                        , "The fifth line."
+                        ]
                , expected = [ "TT"
                             , "hh"
                             , "ee"
@@ -86,9 +86,9 @@ cases = [ Case { description = "empty string"
                             ]
                }
         , Case { description = "second line longer than first line"
-               , lines = [ "The first line."
-                         , "The second line."
-                         ]
+               , rows = [ "The first line."
+                        , "The second line."
+                        ]
                , expected = [ "TT"
                             , "hh"
                             , "ee"
@@ -108,11 +108,11 @@ cases = [ Case { description = "empty string"
                             ]
                }
         , Case { description = "mixed line length"
-               , lines = [ "The longest line."
-                         , "A long line."
-                         , "A longer line."
-                         , "A line."
-                         ]
+               , rows = [ "The longest line."
+                        , "A long line."
+                        , "A longer line."
+                        , "A line."
+                        ]
                , expected = [ "TAAA"
                             , "h   "
                             , "elll"
@@ -133,12 +133,12 @@ cases = [ Case { description = "empty string"
                             ]
                }
         , Case { description = "square"
-               , lines = [ "HEART"
-                         , "EMBER"
-                         , "ABUSE"
-                         , "RESIN"
-                         , "TREND"
-                         ]
+               , rows = [ "HEART"
+                        , "EMBER"
+                        , "ABUSE"
+                        , "RESIN"
+                        , "TREND"
+                        ]
                , expected = [ "HEART"
                             , "EMBER"
                             , "ABUSE"
@@ -147,11 +147,11 @@ cases = [ Case { description = "empty string"
                             ]
                }
         , Case { description = "rectangle"
-               , lines = [ "FRACTURE"
-                         , "OUTLINED"
-                         , "BLOOMING"
-                         , "SEPTETTE"
-                         ]
+               , rows = [ "FRACTURE"
+                        , "OUTLINED"
+                        , "BLOOMING"
+                        , "SEPTETTE"
+                        ]
                , expected = [ "FOBS"
                             , "RULE"
                             , "ATOP"
@@ -163,13 +163,13 @@ cases = [ Case { description = "empty string"
                             ]
                }
         , Case { description = "triangle"
-               , lines = [ "T"
-                         , "EE"
-                         , "AAA"
-                         , "SSSS"
-                         , "EEEEE"
-                         , "RRRRRR"
-                         ]
+               , rows = [ "T"
+                        , "EE"
+                        , "AAA"
+                        , "SSSS"
+                        , "EEEEE"
+                        , "RRRRRR"
+                        ]
                , expected = [ "TEASER"
                             , " EASER"
                             , "  ASER"
