@@ -6,8 +6,8 @@ import Data.Functor (($>))
 import Data.List (foldl', find, union)
 import Data.Maybe (fromJust, isJust, listToMaybe)
 import Prelude hiding (Word)
-import Text.Parsec
-import Text.Parsec.String
+import Text.Parsec ((<|>), char, many1, parse, spaces, string, try, upper)
+import Text.Parsec.String (Parser)
 
 type Solution = [(Char, Int)]
 
