@@ -2,6 +2,7 @@
 
 module Transpose (transpose) where
 
+import Data.List (dropWhileEnd)
 import Data.Maybe (isNothing)
 
 transpose :: [String] -> [String]
@@ -15,8 +16,4 @@ transpose rows =
     longestLength = maximum $ map length rows
     padRight line = line ++ replicate (longestLength - length line) Nothing
     toString line = concatMap (\case Nothing -> " "
-                                     Just c -> c:"") $ dropRight line
-    dropRight line = snd $ foldr 
-          (\x (ignore, xs) -> if ignore && isNothing x 
-                                then (ignore, xs) 
-                                else (False, x:xs)) (True,[]) line
+                                     Just c -> c:"") $ dropWhileEnd isNothing line
