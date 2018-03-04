@@ -15,5 +15,5 @@ transpose rows =
   where
     longestLength = maximum $ map length rows
     padRight line = line ++ replicate (longestLength - length line) Nothing
-    toString line = concatMap (\case Nothing -> " "
-                                     Just c -> c:"") $ dropWhileEnd isNothing line
+    toString line = map (\case Nothing -> ' '
+                               Just c -> c) $ dropWhileEnd isNothing line
