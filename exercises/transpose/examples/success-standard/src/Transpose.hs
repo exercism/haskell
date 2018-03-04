@@ -1,9 +1,7 @@
-{-# LANGUAGE LambdaCase #-}
-
 module Transpose (transpose) where
 
 import Data.List (dropWhileEnd)
-import Data.Maybe (isNothing)
+import Data.Maybe (fromMaybe, isNothing)
 
 transpose :: [String] -> [String]
 transpose [] = []
@@ -15,5 +13,4 @@ transpose rows =
   where
     longestLength = maximum $ map length rows
     padRight line = line ++ replicate (longestLength - length line) Nothing
-    toString line = map (\case Nothing -> ' '
-                               Just c -> c) $ dropWhileEnd isNothing line
+    toString line = map (fromMaybe ' ') $ dropWhileEnd isNothing line
