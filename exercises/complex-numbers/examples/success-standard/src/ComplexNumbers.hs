@@ -36,7 +36,7 @@ abs :: Floating a => Complex a -> a
 abs (Complex a b) = sqrt (exp2 a + exp2 b)
 
 exp :: Num a => Complex a -> Complex a
-exp (Complex a b) = Complex ((cos b) * (exp a)) ((sin b) * (exp a))
+exp (Complex a b) = Complex (cos b * exp a) (sin b * exp a)
 
 -- binary operators ------------------------------------------------------------
 mul :: Num a => Complex a -> Complex a -> Complex a
