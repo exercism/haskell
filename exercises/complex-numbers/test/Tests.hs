@@ -192,3 +192,23 @@ subCases =
             , expectedA    = (-2, -2)
             }
     ]
+
+expCases :: [CaseB]
+expCases = 
+    [ CaseB { descriptionB = "Euler's identity/formula"
+            , number1B     = (0, pi)
+            , expectedB    = (-1, 0)
+            }
+    , CaseB { descriptionB = "Exponential of 0"
+            , number1B     = (0, 0)
+            , expectedB    = (1, 0)
+            }
+    , CaseB { descriptionB = "Exponential of a purely real number"
+            , number1B     = (1, 0)
+            , expectedB    = (exp 1, 0)
+            }
+    , CaseB { descriptionB = "Exponential of a purely real number"
+            , number1B     = (log 2, pi)
+            , expectedB    = (-2, 0)
+            }
+    ]
