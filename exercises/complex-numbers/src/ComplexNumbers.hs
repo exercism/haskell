@@ -2,7 +2,7 @@ module ComplexNumbers
 (Complex,
  conjugate,
  abs,
- expComplex
+ expComplex,
  real,
  imaginary,
  mul,
