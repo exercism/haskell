@@ -16,6 +16,7 @@ specs = do
           describe "imaginary" $ for_ imaginaryCases $ testC imaginary
           describe "conjugate" $ for_ conjugateCases $ testB conjugate
           describe "abs"       $ for_ absCases       $ testC abs
+          describe "exp"       $ for_ expCases       $ testB exp
           describe "mul"       $ for_ mulCases       $ testA mul
           describe "div"       $ for_ divCases       $ testA div
           describe "add"       $ for_ addCases       $ testA add
