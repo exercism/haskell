@@ -1,7 +1,7 @@
 module Poker (bestHands) where
 
-import Data.Maybe --(fromJust)
-import Data.List  --(isPrefixOf, nub, elemIndex, sortBy)
+import Data.Maybe (fromJust)
+import Data.List  (isPrefixOf, nub, elemIndex, sortBy)
 
 validHand :: String -> Bool
 validHand h = and [ length (words h) == 5

@@ -47,7 +47,7 @@ cases = [ Case { description = "single hand always wins"
                                , "2S 5D 6D 8C 7S"]
                , expected    = Just ["3S 5H 6S 8D 7H"]
                }          
-        , Case { description = "one pair beats high car"
+        , Case { description = "one pair beats high card"
                , input       = [ "4S 5H 6C 8D KH"
                                , "2S 4H 6S 4D JH"]
                , expected    = Just ["2S 4H 6S 4D JH"]
