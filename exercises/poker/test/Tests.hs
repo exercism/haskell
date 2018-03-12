@@ -167,4 +167,8 @@ cases = [ Case { description = "single hand always wins"
                                , "5S 7S 8S 9S 6S"]
                , expected    = Just ["5S 7S 8S 9S 6S"]
                }
+        , Case { description = "no winner if a hand is invalid"
+               , input       = [ "2H 2S 2D 2C 10XXXXXXH" ]
+               , expected    = Nothing
+               }
         ]
