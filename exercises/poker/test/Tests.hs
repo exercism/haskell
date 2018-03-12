@@ -16,7 +16,7 @@ specs = describe "bestHands" $ for_ cases test
 
     test Case{..} = it description assertion
       where
-        assertion = sort <$> (bestHands input) `shouldBe` sort <$> expected
+        assertion = (sort <$> bestHands input) `shouldBe` (sort <$> expected)
 
 data Case = Case { description :: String
                  , input       :: [String]
