@@ -18,16 +18,16 @@ parseHand = map f . words
         | otherwise           = x
 
 rankHand :: String -> (Int, [Int])
-rankHand hand | counts == [5]       = (9, ranks') 
-              | straight && flush   = (8, ranks') 
-              | counts == [4,1]     = (7, ranks') 
-              | counts == [3,2]     = (6, ranks') 
-              | flush               = (5, ranks') 
-              | straight            = (4, ranks') 
-              | counts == [3,1,1]   = (3, ranks') 
-              | counts == [2,2,1]   = (2, ranks') 
-              | counts == [2,1,1,1] = (1, ranks') 
-              | otherwise           = (0, ranks') 
+rankHand hand | counts == [5]       = (9, ranks')
+              | straight && flush   = (8, ranks')
+              | counts == [4,1]     = (7, ranks')
+              | counts == [3,2]     = (6, ranks')
+              | flush               = (5, ranks')
+              | straight            = (4, ranks')
+              | counts == [3,1,1]   = (3, ranks')
+              | counts == [2,2,1]   = (2, ranks')
+              | counts == [2,1,1,1] = (1, ranks')
+              | otherwise           = (0, ranks')
   where
     h        = parseHand hand
     r        = fromJust . flip elemIndex "..23456789TJQKA" . head <$> h

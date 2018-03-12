@@ -46,7 +46,7 @@ cases = [ Case { description = "single hand always wins"
                , input       = [ "3S 5H 6S 8D 7H"
                                , "2S 5D 6D 8C 7S"]
                , expected    = Just ["3S 5H 6S 8D 7H"]
-               }          
+               }
         , Case { description = "one pair beats high card"
                , input       = [ "4S 5H 6C 8D KH"
                                , "2S 4H 6S 4D JH"]
@@ -71,7 +71,7 @@ cases = [ Case { description = "single hand always wins"
                , input       = [ "2S QS 2C QD JH"
                                , "JD QH JS 8D QC"]
                , expected    = Just ["JD QH JS 8D QC"]
-               }          
+               }
         , Case { description = "both hands have two identically ranked pairs, tie goes to remaining card (kicker)"
                , input       = [ "JD QH JS 8D QC"
                                , "JS QS JC 2D QD"]
@@ -96,7 +96,7 @@ cases = [ Case { description = "single hand always wins"
                , input       = [ "4S 5H 4C 8D 4H"
                                , "3S 4D 2S 6D 5C"]
                , expected    = Just ["3S 4D 2S 6D 5C"]
-               }          
+               }
         , Case { description = "aces can end a straight (10 J Q K A)"
                , input       = [ "4S 5H 4C 8D 4H"
                                , "10D JH QS KD AC"]
