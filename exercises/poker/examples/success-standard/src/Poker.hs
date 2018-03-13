@@ -1,7 +1,7 @@
 module Poker (bestHands) where
 
 import Data.Maybe (fromJust)
-import Data.List  (isPrefixOf, nub, elemIndex, sortBy)
+import Data.List  (nub, elemIndex, sortBy)
 
 validHand :: String -> Bool
 validHand h = and [ length (words h) == 5
@@ -14,8 +14,8 @@ validHand h = and [ length (words h) == 5
 parseHand :: String -> [String]
 parseHand = map f . words
   where
-    f x | "10" `isPrefixOf` x = 'T' : [last x]
-        | otherwise           = x
+    f ('1':'0':xs) = 'T' : xs
+    f xs           = xs
 
 rankHand :: String -> (Int, [Int])
 rankHand hand | counts == [5]       = (9, ranks')
