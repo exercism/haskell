@@ -46,4 +46,4 @@ bestHands hands | not (all validHand hands') = Nothing
                      | rank == m          = f m (x : r) xs
                      | otherwise          = f m r xs
       where
-        rank   = rankHand y
+        rank = rankHand y
