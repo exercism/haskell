@@ -19,16 +19,6 @@ specs = do
                    , " W W "
                    , "  W  " ]
 
-        board9x9 = [ "  B   B  "
-                   , "B   B   B"
-                   , "WBBBWBBBW"
-                   , "W W W W W"
-                   , "         "
-                   , " W W W W "
-                   , "B B   B B"
-                   , " W BBB W "
-                   , "   B B   " ]
-
         shouldHaveTerritories = shouldMatchList
                               . map (first toAscList)
                               . territories
@@ -54,20 +44,24 @@ specs = do
                                          , ([ (4, 1)
                                             , (4, 2) ], Just White) ]
 
+    it "two territories of same player, rectangular board" $
+      [ " B " ] `shouldHaveTerritories` [ ([ (1, 1) ], Just Black)
+                                        , ([ (3, 1) ], Just Black) ]
+
     it "5x5 score" $
       board5x5 `shouldScore` [ (Nothing   , 9)
                              , (Just Black, 6)
                              , (Just White, 1) ]
 
-    it "5x5 territory for black" $
+    it "5x5 territory for black bordering edge" $
       territoryIn board5x5 (1, 2) `shouldBe` Just ([ (1, 1)
                                                    , (1, 2)
                                                    , (2, 1) ], Just Black)
 
-    it "5x5 territory for white" $
+    it "5x5 territory for white not bordering edge" $
       territoryIn board5x5 (3, 4) `shouldBe` Just ([ (3, 4) ], Just White)
 
-    it "5x5 open territory" $
+    it "5x5 open territory bordering edge" $
       territoryIn board5x5 (2, 5) `shouldBe` Just ([ (1, 4)
                                                    , (1, 5)
                                                    , (2, 5) ], Nothing)
@@ -75,12 +69,14 @@ specs = do
     it "5x5 non-territory (stone)" $
       territoryIn board5x5 (2, 2) `shouldBe` Nothing
 
-    it "5x5 non-territory (too low coordinate)" $
+    it "5x5 non-territory (X too low)" $
       territoryIn board5x5 (0, 2) `shouldBe` Nothing
 
-    it "5x5 non-territory (too high coordinate)" $
-      territoryIn board5x5 (2, 6) `shouldBe` Nothing
+    it "5x5 non-territory (X too high)" $
+      territoryIn board5x5 (6, 2) `shouldBe` Nothing
 
-    it "9x9 score" $
-      board9x9 `shouldScore` [ (Nothing   , 33)
-                             , (Just Black, 14) ]
+    it "5x5 non-territory (Y too low)" $
+      territoryIn board5x5 (2, 0) `shouldBe` Nothing
+
+    it "5x5 non-territory (Y too high)" $
+      territoryIn board5x5 (2, 6) `shouldBe` Nothing
