@@ -19,16 +19,6 @@ specs = do
                    , " W W "
                    , "  W  " ]
 
-        board9x9 = [ "  B   B  "
-                   , "B   B   B"
-                   , "WBBBWBBBW"
-                   , "W W W W W"
-                   , "         "
-                   , " W W W W "
-                   , "B B   B B"
-                   , " W BBB W "
-                   , "   B B   " ]
-
         shouldHaveTerritories = shouldMatchList
                               . map (first toAscList)
                               . territories
@@ -81,6 +71,3 @@ specs = do
     it "5x5 non-territory (too high coordinate)" $
       territoryIn board5x5 (2, 6) `shouldBe` Nothing
 
-    it "9x9 score" $
-      board9x9 `shouldScore` [ (Nothing   , 33)
-                             , (Just Black, 14) ]
