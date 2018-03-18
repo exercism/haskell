@@ -69,9 +69,14 @@ specs = do
     it "5x5 non-territory (stone)" $
       territoryIn board5x5 (2, 2) `shouldBe` Nothing
 
-    it "5x5 non-territory (too low coordinate)" $
+    it "5x5 non-territory (X too low)" $
       territoryIn board5x5 (0, 2) `shouldBe` Nothing
 
-    it "5x5 non-territory (too high coordinate)" $
-      territoryIn board5x5 (2, 6) `shouldBe` Nothing
+    it "5x5 non-territory (X too high)" $
+      territoryIn board5x5 (6, 2) `shouldBe` Nothing
 
+    it "5x5 non-territory (Y too low)" $
+      territoryIn board5x5 (2, 0) `shouldBe` Nothing
+
+    it "5x5 non-territory (Y too high)" $
+      territoryIn board5x5 (2, 6) `shouldBe` Nothing
