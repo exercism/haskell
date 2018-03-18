@@ -792,6 +792,16 @@
       ]
     },
     {
+      "uuid": "35bf659b-b139-4d09-bdae-326319160a27",
+      "slug": "poker",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 7,
+      "topics": [
+        "Maybe"
+      ]
+    },
+    {
       "uuid": "2c009c74-fbf2-49f7-b626-0d9da10c18ea",
       "slug": "connect",
       "core": false,
