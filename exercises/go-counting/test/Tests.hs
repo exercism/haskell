@@ -44,6 +44,10 @@ specs = do
                                          , ([ (4, 1)
                                             , (4, 2) ], Just White) ]
 
+    it "two territories of same player, rectangular board" $
+      [ " B " ] `shouldHaveTerritories` [ ([ (1, 1) ], Just Black)
+                                        , ([ (3, 1) ], Just Black) ]
+
     it "5x5 score" $
       board5x5 `shouldScore` [ (Nothing   , 9)
                              , (Just Black, 6)
