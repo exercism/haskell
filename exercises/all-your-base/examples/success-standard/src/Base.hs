@@ -1,20 +1,23 @@
-module Base (rebase) where
+module Base (Error(..), rebase) where
 
 import Control.Monad (foldM)
 import Data.List     (unfoldr)
 import Data.Tuple    (swap)
 
-rebase :: Integral a => a -> a -> [a] -> Maybe [a]
+data Error a = InvalidInputBase | InvalidOutputBase | InvalidDigit a
+    deriving (Show, Eq)
+
+rebase :: Integral a => a -> a -> [a] -> Either (Error a) [a]
 rebase ibase obase ds
-    | ibase < 2 = Nothing
-    | obase < 2 = Nothing
+    | ibase < 2 = Left InvalidInputBase
+    | obase < 2 = Left InvalidOutputBase
     | otherwise = toDigits obase <$> fromDigits ibase ds
   where
 
     fromDigits base = foldM f 0
       where
-        f acc x | x >= 0 && x < base = Just (acc * base + x)
-                | otherwise          = Nothing
+        f acc x | x >= 0 && x < base = Right (acc * base + x)
+                | otherwise          = Left (InvalidDigit x)
 
     toDigits base = reverse . unfoldr f
       where
