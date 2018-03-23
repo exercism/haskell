@@ -61,6 +61,6 @@ script:
     fi
 
     for exercise in ${TRAVIS_BUILD_DIR}/exercises/*/ ; do
-        bin/test-stub $exercise
-        bin/test-all-examples $exercise
+        time bin/test-stub $exercise
+        time bin/test-all-examples $exercise
     done
