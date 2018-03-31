@@ -40,7 +40,7 @@ cases = [ Case { description = "valid isbn number"
                , expected    = False
                }
         , Case { description = "invalid character in isbn"
-               , input       = "3-598-2K507-0"
+               , input       = "3-598-P1581-X"
                , expected    = False
                }
         , Case { description = "X is only valid as a check digit"
