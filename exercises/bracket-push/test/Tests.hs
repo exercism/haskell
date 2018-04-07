@@ -44,6 +44,10 @@ cases = [ Case { description = "paired square brackets"
                , input       = "{ }"
                , expected    = True
                }
+        , Case { description = "partially paired brackets"
+               , input       = "{[])"
+               , expected    = False
+               }
         , Case { description = "simple nested brackets"
                , input       = "{[]}"
                , expected    = True
