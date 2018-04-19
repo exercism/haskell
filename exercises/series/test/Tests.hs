@@ -26,7 +26,7 @@ specs = do
       slices 2 "01234" `shouldHaveSlices` [[0,1], [1,2], [2,3], [3,4]]
 
     it "slices of three" $ do
-      slices 3 "ab"   `shouldHaveSlices` []
+      slices 3 "01"   `shouldHaveSlices` []
       slices 3 "012"  `shouldHaveSlices` [[0,1,2]]
       slices 3 "0123" `shouldHaveSlices` [[0,1,2], [1,2,3]]
 
