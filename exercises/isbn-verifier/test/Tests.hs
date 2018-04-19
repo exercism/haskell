@@ -75,4 +75,8 @@ cases = [ Case { description = "valid isbn number"
                , input       = ""
                , expected    = False
                }
+        , Case { description = "input is 9 characters"
+               , input       = "134456729"
+               , expected    = False
+               }
         ]
