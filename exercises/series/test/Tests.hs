@@ -32,4 +32,4 @@ specs = do
 
     it "slices of zero" $ do
       slices 0 ""    `shouldHaveSlices` [[]]
-      slices 0 "012" `shouldHaveSlices` [[]]
+      slices 0 "012" `shouldHaveSlices` [[],[],[],[]]
