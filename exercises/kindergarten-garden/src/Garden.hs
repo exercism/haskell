@@ -1,6 +1,5 @@
 module Garden
     ( Plant (..)
-    , defaultGarden
     , garden
     , lookupPlants
     ) where
@@ -12,9 +11,6 @@ data Plant = Clover
            | Radishes
            | Violets
            deriving (Eq, Show)
-
-defaultGarden :: String -> Map String [Plant]
-defaultGarden plants = error "You need to implement this function."
 
 garden :: [String] -> String -> Map String [Plant]
 garden students plants = error "You need to implement this function."
