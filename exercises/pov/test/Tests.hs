@@ -74,6 +74,12 @@ specs = do
                         , "root"
                         , "c"    ]
 
+      it "Can find path not involving root" $
+        tracePathBetween "x" "sibling-1" rootNotNeeded
+        `shouldBe` Just [ "x"
+                        , "parent"
+                        , "sibling-1" ]
+
       it "Cannot trace if destination does not exist" $
         tracePathBetween "x" "NOT THERE" cousins
         `shouldBe` Nothing
@@ -196,3 +202,12 @@ cousins' = Node "x"
                            ]
                      ]
                ]
+
+rootNotNeeded :: Tree String
+rootNotNeeded = Node "grandparent"
+                    [ Node "parent"
+                          [ leaf "x"
+                          , leaf "sibling-0"
+                          , leaf "sibling-1"
+                          ]
+                    ]
