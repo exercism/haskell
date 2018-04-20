@@ -49,14 +49,3 @@ specs = do
       plants "Bob"     `shouldBe` [ Clover  , Grass   , Clover  , Clover   ]
       plants "Kincaid" `shouldBe` [ Grass   , Clover  , Clover  , Grass    ]
       plants "Larry"   `shouldBe` [ Grass   , Violets , Clover  , Violets  ]
-
-    it  "non-alphabetical student list" $ do
-
-      let plants s  = lookupPlants s $ garden students plantList
-          plantList = "VCRRGVRG\nRVGCCGCV"
-          students  = ["Samantha", "Patricia", "Xander", "Roger"]
-
-      plants "Patricia" `shouldBe` [ Violets , Clover  , Radishes, Violets ]
-      plants "Roger"    `shouldBe` [ Radishes, Radishes, Grass   , Clover  ]
-      plants "Samantha" `shouldBe` [ Grass   , Violets , Clover  , Grass   ]
-      plants "Xander"   `shouldBe` [ Radishes, Grass   , Clover  , Violets ]
