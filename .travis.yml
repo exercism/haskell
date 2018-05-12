@@ -34,6 +34,7 @@ install:
 
 script:
  - "sh ./bin/ensure-readmes-are-updated.sh"
+ - "sh ./bin/check-configlet-fmt.sh"
  - |
     differing_stack=""
     expected_stack=$(grep 'RESOLVER.*CURRENT' .travis.yml | head -1 | cut -d'"' -f2)
