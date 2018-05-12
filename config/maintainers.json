@@ -1,34 +1,34 @@
 {
   "maintainers": [
     {
-      "github_username": "etrepum",
-      "show_on_website": false,
-      "alumnus": true
-    },
-    {
-      "github_username": "petertseng",
-      "show_on_website": false,
-      "alumnus": false,
-      "name": null,
-      "bio": null,
-      "link_text": null,
-      "link_url": null,
-      "avatar_url": null
-    },
-    {
-      "github_username": "abo64",
-      "show_on_website": false,
-      "alumnus": true
-    },
-    {
-      "github_username": "rbasso",
-      "show_on_website": false,
       "alumnus": true,
-      "name": null,
-      "bio": "In a world plagued by mutability, where side-effects scorch the land, a hobbyist programmer joins a fellowship of coders to save The Source.",
+      "github_username": "etrepum",
+      "show_on_website": false
+    },
+    {
+      "alumnus": false,
+      "avatar_url": null,
+      "bio": null,
+      "github_username": "petertseng",
       "link_text": null,
       "link_url": null,
-      "avatar_url": null
+      "name": null,
+      "show_on_website": false
+    },
+    {
+      "alumnus": true,
+      "github_username": "abo64",
+      "show_on_website": false
+    },
+    {
+      "alumnus": true,
+      "avatar_url": null,
+      "bio": "In a world plagued by mutability, where side-effects scorch the land, a hobbyist programmer joins a fellowship of coders to save The Source.",
+      "github_username": "rbasso",
+      "link_text": null,
+      "link_url": null,
+      "name": null,
+      "show_on_website": false
     }
   ]
 }
