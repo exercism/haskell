@@ -1,9 +1,9 @@
 {
   "language": "Haskell",
   "active": true,
+  "blurb": "",
   "ignore_pattern": "example",
   "solution_pattern": "example.*[.]hs",
-  "foregone": [],
   "exercises": [
     {
       "slug": "hello-world",
@@ -852,26 +852,46 @@
     {
       "slug": "binary",
       "uuid": "48ca1682-ca1b-4a2c-be55-624620f336a7",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 0,
+      "topics": null,
       "deprecated": true
     },
     {
       "slug": "gigasecond",
       "uuid": "317ef3e7-67ce-4940-bc90-eed1c4a27c19",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 0,
+      "topics": null,
       "deprecated": true
     },
     {
       "slug": "hexadecimal",
       "uuid": "964c07aa-abca-49b8-8428-1b81ee39066d",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 0,
+      "topics": null,
       "deprecated": true
     },
     {
       "slug": "octal",
       "uuid": "2566f8ee-28cf-4429-9ced-42759c810d7c",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 0,
+      "topics": null,
       "deprecated": true
     },
     {
       "slug": "trinary",
       "uuid": "d5997b60-e54c-4caa-beae-8614f0da3fb3",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 0,
+      "topics": null,
       "deprecated": true
     }
   ]
