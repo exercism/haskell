@@ -2,7 +2,7 @@ module ComplexNumbers
 (Complex,
  conjugate,
  abs,
- expComplex,
+ exp,
  mul,
  add,
  sub,
@@ -11,7 +11,7 @@ module ComplexNumbers
  imaginary,
  complex) where
 
-import Prelude hiding (div, abs)
+import Prelude hiding (div, abs, exp)
 
 -- Data definition -------------------------------------------------------------
 data Complex a = Complex a a deriving (Eq, Show)
@@ -36,8 +36,8 @@ conjugate (Complex a b) = Complex a (-b)
 abs :: Floating a => Complex a -> a
 abs (Complex a b) = sqrt (exp2 a + exp2 b)
 
-expComplex :: Num a => Complex a -> Complex a
-expComplex (Complex a b) = Complex (cos b * exp a) (sin b * exp a)
+exp :: Num a => Complex a -> Complex a
+exp (Complex a b) = Complex (cos b * Prelude.exp a) (sin b * Prelude.exp a)
 
 -- binary operators ------------------------------------------------------------
 mul :: Num a => Complex a -> Complex a -> Complex a
