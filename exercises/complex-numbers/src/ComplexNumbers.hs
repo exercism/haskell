@@ -32,7 +32,7 @@ real = error "You need to implement this function"
 imaginary :: Num a => Complex a -> a
 imaginary = error "You need to implement this function"
 
-exp :: Num a => Complex a -> Complex a
+exp :: Floating a => Complex a -> Complex a
 exp = error "You need to implement this function"
 
 -- binary operators ------------------------------------------------------------
