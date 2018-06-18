@@ -1,6 +1,6 @@
 {-# LANGUAGE RecordWildCards #-}
 
-import Prelude hiding    (abs, div)
+import Prelude hiding    (abs, div, exp)
 import Data.Foldable     (for_)
 import Test.Hspec        (Spec, describe, it, shouldBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
@@ -16,7 +16,7 @@ specs = do
           describe "imaginary"  $ for_ imaginaryCases  $ testC imaginary
           describe "conjugate"  $ for_ conjugateCases  $ testB conjugate
           describe "abs"        $ for_ absCases        $ testC abs
-          describe "expComplex" $ for_ expComplexCases $ testB expComplex
+          describe "exp"        $ for_ expCases        $ testB exp
           describe "mul"        $ for_ mulCases        $ testA mul
           describe "div"        $ for_ divCases        $ testA div
           describe "add"        $ for_ addCases        $ testA add
@@ -194,8 +194,8 @@ subCases =
             }
     ]
 
-expComplexCases :: [CaseB]
-expComplexCases = 
+expCases :: [CaseB]
+expCases = 
     [ CaseB { descriptionB = "Euler's identity/formula"
             , number1B     = (0, pi)
             , expectedB    = (-1, 0)
