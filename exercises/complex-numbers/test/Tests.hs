@@ -206,7 +206,7 @@ expCases =
             }
     , CaseB { descriptionB = "Exponential of a purely real number"
             , number1B     = (1, 0)
-            , expectedB    = (exp 1, 0)
+            , expectedB    = (Prelude.exp 1, 0)
             }
     , CaseB { descriptionB = "Exponential of a purely real number"
             , number1B     = (log 2, pi)
