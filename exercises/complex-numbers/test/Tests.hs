@@ -1,6 +1,7 @@
 {-# LANGUAGE RecordWildCards #-}
 
 import Prelude hiding    (abs, div, exp)
+import qualified Prelude as P
 import Data.Foldable     (for_)
 import Test.Hspec        (Spec, describe, it, shouldBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
@@ -206,7 +207,7 @@ expCases =
             }
     , CaseB { descriptionB = "Exponential of a purely real number"
             , number1B     = (1, 0)
-            , expectedB    = (Prelude.exp 1, 0)
+            , expectedB    = (P.exp 1, 0)
             }
     , CaseB { descriptionB = "Exponential of a purely real number"
             , number1B     = (log 2, pi)

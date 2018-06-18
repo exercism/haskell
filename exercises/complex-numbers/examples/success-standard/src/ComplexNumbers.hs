@@ -12,6 +12,7 @@ module ComplexNumbers
  complex) where
 
 import Prelude hiding (div, abs, exp)
+import qualified Prelude as P
 
 -- Data definition -------------------------------------------------------------
 data Complex a = Complex a a deriving (Eq, Show)
@@ -37,7 +38,7 @@ abs :: Floating a => Complex a -> a
 abs (Complex a b) = sqrt (exp2 a + exp2 b)
 
 exp :: Num a => Complex a -> Complex a
-exp (Complex a b) = Complex (cos b * Prelude.exp a) (sin b * Prelude.exp a)
+exp (Complex a b) = Complex (cos b * P.exp a) (sin b * P.exp a)
 
 -- binary operators ------------------------------------------------------------
 mul :: Num a => Complex a -> Complex a -> Complex a
