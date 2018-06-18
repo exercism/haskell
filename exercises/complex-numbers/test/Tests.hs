@@ -12,15 +12,15 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
 specs = do
-          describe "real"       $ for_ realCases       $ testC real
-          describe "imaginary"  $ for_ imaginaryCases  $ testC imaginary
-          describe "conjugate"  $ for_ conjugateCases  $ testB conjugate
-          describe "abs"        $ for_ absCases        $ testC abs
-          describe "exp"        $ for_ expCases        $ testB exp
-          describe "mul"        $ for_ mulCases        $ testA mul
-          describe "div"        $ for_ divCases        $ testA div
-          describe "add"        $ for_ addCases        $ testA add
-          describe "sub"        $ for_ subCases        $ testA sub
+          describe "real"      $ for_ realCases      $ testC real
+          describe "imaginary" $ for_ imaginaryCases $ testC imaginary
+          describe "conjugate" $ for_ conjugateCases $ testB conjugate
+          describe "abs"       $ for_ absCases       $ testC abs
+          describe "exp"       $ for_ expCases       $ testB exp
+          describe "mul"       $ for_ mulCases       $ testA mul
+          describe "div"       $ for_ divCases       $ testA div
+          describe "add"       $ for_ addCases       $ testA add
+          describe "sub"       $ for_ subCases       $ testA sub
  where
   testA f CaseA{..} = it descriptionA $ f (complex number1A) (complex number2A)
                                         `shouldBe` complex expectedA
