@@ -2,7 +2,7 @@ module ComplexNumbers
 (Complex,
  conjugate,
  abs,
- expComplex,
+ exp,
  real,
  imaginary,
  mul,
@@ -11,7 +11,7 @@ module ComplexNumbers
  div,
  complex) where
 
-import Prelude hiding (div, abs)
+import Prelude hiding (div, abs, exp)
 
 -- Data definition -------------------------------------------------------------
 data Complex a = Dummy deriving(Eq, Show)
@@ -32,8 +32,8 @@ real = error "You need to implement this function"
 imaginary :: Num a => Complex a -> a
 imaginary = error "You need to implement this function"
 
-expComplex :: Num a => Complex a -> Complex a
-expComplex = error "You need to implement this function"
+exp :: Num a => Complex a -> Complex a
+exp = error "You need to implement this function"
 
 -- binary operators ------------------------------------------------------------
 mul :: Num a => Complex a -> Complex a -> Complex a
