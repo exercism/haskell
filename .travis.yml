@@ -12,7 +12,7 @@ cache:
     - $HOME/.foldercache # Per exercise `.stack-work` cache.
 
 env:
- - RESOLVER="lts-10.2" CURRENT="YES" # Equal to each stack.yaml.
+ - RESOLVER="lts-11.1" CURRENT="YES" # Equal to each stack.yaml.
  - RESOLVER="nightly"                # Latest nightly snapshot.
 
 matrix:
@@ -30,9 +30,11 @@ install:
  - travis_retry curl -L https://www.stackage.org/stack/linux-x86_64 -o pack.tgz
  - tar xzf pack.tgz --wildcards --strip-components=1 -C ${HOME}/bin '*/stack'
  - stack --resolver ${RESOLVER} --install-ghc install hlint
+ - stack --version
 
 script:
  - "sh ./bin/ensure-readmes-are-updated.sh"
+ - "sh ./bin/check-configlet-fmt.sh"
  - |
     differing_stack=""
     expected_stack=$(grep 'RESOLVER.*CURRENT' .travis.yml | head -1 | cut -d'"' -f2)
@@ -61,6 +63,6 @@ script:
     fi
 
     for exercise in ${TRAVIS_BUILD_DIR}/exercises/*/ ; do
-        bin/test-stub $exercise
-        bin/test-all-examples $exercise
+        time bin/test-stub $exercise
+        time bin/test-all-examples $exercise
     done

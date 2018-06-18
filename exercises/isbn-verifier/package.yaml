@@ -1,5 +1,5 @@
 name: isbn-verifier
-version: 2.2.0.3
+version: 2.4.0.5
 
 dependencies:
   - base
@@ -7,7 +7,7 @@ dependencies:
 library:
   exposed-modules: IsbnVerifier
   source-dirs: src
-  dependencies:
+  # dependencies:
   # - foo       # List here the packages you
   # - bar       # want to use in your solution.
 

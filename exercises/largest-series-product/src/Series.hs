@@ -1,4 +1,6 @@
-module Series (largestProduct) where
+module Series (Error(..), largestProduct) where
 
-largestProduct :: Int -> String -> Maybe Integer
+data Error = InvalidSpan | InvalidDigit Char deriving (Show, Eq)
+
+largestProduct :: Int -> String -> Either Error Integer
 largestProduct size digits = error "You need to implement this function."

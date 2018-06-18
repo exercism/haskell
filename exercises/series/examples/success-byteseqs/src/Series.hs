@@ -5,17 +5,15 @@ import Control.Monad         (guard)
 import Data.ByteString.Char8 (ByteString, foldr, length, tails, take)
 import Data.Function         (on)
 import Data.Maybe            (mapMaybe)
-import Data.Sequence         (Seq, empty, fromList, singleton, (<|))
+import Data.Sequence         (Seq, empty, fromList, (<|))
 import Prelude        hiding (foldr, length, take)
 
 slices :: Num a => Int -> ByteString -> Seq (Seq a)
-slices 0 _  = singleton empty
-slices n bs = fromList
-            . mapMaybe toDigits
-            . takeWhile ((== n) . length)
-            . map (take n)
-            . tails
-            $ bs
+slices n = fromList
+         . mapMaybe toDigits
+         . takeWhile ((== n) . length)
+         . map (take n)
+         . tails
 
 toDigits :: Num a => ByteString -> Maybe (Seq a)
 toDigits = foldr (liftA2 (<|) . toDigit) (Just empty)

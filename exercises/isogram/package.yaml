@@ -7,7 +7,7 @@ dependencies:
 library:
   exposed-modules: Isogram
   source-dirs: src
-  dependencies:
+  # dependencies:
   # - foo       # List here the packages you
   # - bar       # want to use in your solution.
 

@@ -1,5 +1,5 @@
 name: kindergarten-garden
-version: 1.1.0.4
+version: 1.1.1.7
 
 dependencies:
   - base
@@ -7,10 +7,9 @@ dependencies:
 library:
   exposed-modules: Garden
   source-dirs: src
-  dependencies:
+  # dependencies:
   # - foo       # List here the packages you
   # - bar       # want to use in your solution.
-    - containers
 
 tests:
   test:
