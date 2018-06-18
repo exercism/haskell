@@ -196,7 +196,7 @@ subCases =
     ]
 
 expCases :: [CaseB]
-expCases = 
+expCases =
     [ CaseB { descriptionB = "Euler's identity/formula"
             , number1B     = (0, pi)
             , expectedB    = (-1, 0)
