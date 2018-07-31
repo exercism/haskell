@@ -101,11 +101,19 @@ with1 f s = case forthStack s of
   (x:xs) -> f x s { forthStack = xs }
   _      -> Left StackUnderflow
 
+-- resolveUser was patched in to support the tests in 1.6.0,
+-- so may be written a bit less than ideally.
+resolveUser :: Map FWord Definition -> Term -> [Term]
+resolveUser defs (W w) = case M.lookup w defs of
+  Just (User u) -> u
+  _             -> [W w]
+resolveUser _ t = [t]
+
 step :: Term -> ForthState -> Either ForthError ForthState
 step t s = case t of
   StartDefinition -> case break (EndDefinition ==) (forthCode s) of
     (W w:xs, EndDefinition:ys) ->
-      runInterpreter s { forthWords = M.insert w (User xs) (forthWords s)
+      runInterpreter s { forthWords = M.insert w (User (concatMap (resolveUser (forthWords s)) xs)) (forthWords s)
                        , forthCode  = ys
                        }
     (_, EndDefinition:_) -> Left InvalidWord
