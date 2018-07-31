@@ -36,6 +36,10 @@ cases = [ Case { description = "empty string"
                , input       = "eleven"
                , expected    = False
                }
+        , Case { description = "word with one duplicated character from the end of the alphabet"
+               , input       = "zzyzx"
+               , expected    = False
+               }
         , Case { description = "longest reported english isogram"
                , input       = "subdermatoglyphic"
                , expected    = True
