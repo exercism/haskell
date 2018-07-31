@@ -33,12 +33,19 @@ specs = describe "saddlePoints" $ for_ cases test
                 , [3, 1, 2]
                 , [2, 3, 1] ], [] )
 
-            , ( "multiple saddle points",
+            , ( "multiple saddle points in a column",
                 [ [4, 5, 4]
                 , [3, 5, 5]
                 , [1, 5, 4] ], [ (0, 1)
                                , (1, 1)
                                , (2, 1) ] )
+
+            , ( "multiple saddle points in a row",
+                [ [6, 7, 8]
+                , [5, 5, 5]
+                , [7, 5, 6] ], [ (1, 0)
+                               , (1, 1)
+                               , (1, 2) ] )
 
             , ( "bottom-right corner",
                 [ [8, 7, 9]
