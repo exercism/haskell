@@ -79,4 +79,8 @@ cases = [ Case { description = "valid isbn number"
                , input       = "134456729"
                , expected    = False
                }
+        , Case { description = "invalid characters are not ignored"
+               , input       = "3132P34035"
+               , expected    = False
+               }
         ]
