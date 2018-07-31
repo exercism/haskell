@@ -31,6 +31,7 @@ specs = do
       decode k                   `shouldBe` "aaaaaaaaaa"
       decode (encode ['a'..'z']) `shouldBe` ['a'..'z']
       encode "zzzzzzzzzz"        `shouldBe` 'z':['a'..'i']
+      decode ('z':['a'..'i'])    `shouldBe` "zzzzzzzzzz"
 
     it "double shift" $ do
       let plaintext  = "iamapandabear"
