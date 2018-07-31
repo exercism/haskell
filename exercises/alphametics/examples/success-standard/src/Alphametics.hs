@@ -87,8 +87,7 @@ boolTerm :: Parser (Term Bool)
 boolTerm = do
   left  <- integerTerm
   _     <- trimmed (string "==")
-  right <- integerTerm
-  return $ Equals left right
+  Equals left <$> integerTerm
 
 integerTerm :: Parser (Term Integer)
 integerTerm = try integerOperation <|> simpleIntegerTerm
@@ -97,8 +96,7 @@ integerOperation :: Parser (Term Integer)
 integerOperation = do
   left  <- simpleIntegerTerm
   op    <- integerOperator
-  right <- integerTerm
-  return $ op left right
+  op left <$> integerTerm
 
 simpleIntegerTerm :: Parser (Term Integer)
 simpleIntegerTerm = word
