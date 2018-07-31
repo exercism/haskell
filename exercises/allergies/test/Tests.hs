@@ -41,6 +41,13 @@ specs = do
               isAllergicTo Shellfish    score `shouldBe` True
               isAllergicTo Strawberries score `shouldBe` False
 
+            it "allergic to strawberries but not peanuts" $ do
+              let score = 9
+              isAllergicTo Eggs         score `shouldBe` True
+              isAllergicTo Peanuts      score `shouldBe` False
+              isAllergicTo Shellfish    score `shouldBe` False
+              isAllergicTo Strawberries score `shouldBe` True
+
           describe "allergies" $ do
 
             let xs `shouldMatch` ys =  all (`elem` ys) xs
