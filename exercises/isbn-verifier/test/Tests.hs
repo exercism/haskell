@@ -67,10 +67,6 @@ cases = [ Case { description = "valid isbn number"
                , input       = "3-598-21507"
                , expected    = False
                }
-        , Case { description = "too long isbn"
-               , input       = "3-598-21507-XX"
-               , expected    = False
-               }
         , Case { description = "check digit of X should not be used for 0"
                , input       = "3-598-21515-X"
                , expected    = False
@@ -85,6 +81,10 @@ cases = [ Case { description = "valid isbn number"
                }
         , Case { description = "invalid characters are not ignored"
                , input       = "3132P34035"
+               , expected    = False
+               }
+        , Case { description = "input is too long but contains a valid isbn"
+               , input       = "98245726788"
                , expected    = False
                }
         ]
