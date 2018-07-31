@@ -25,6 +25,9 @@ specs = do
             sorted (fromList [(3, "Chelsea"), (7, "Logan")])
             `shouldBe` [(3, ["Chelsea"]), (7, ["Logan"])]
 
+          it "empty list if no students" $
+            sorted empty `shouldBe` []
+
           it "get students in a grade" $
             grade 5 (fromList [(5, "Franklin"), (5, "Bradley"), (1, "Jeff")])
             `shouldBe` ["Bradley", "Franklin"]
