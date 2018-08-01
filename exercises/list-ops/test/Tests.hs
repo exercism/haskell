@@ -112,6 +112,8 @@ specs = do
         concat ([] :: [[Int]]) `shouldBe` []
       it "of list of lists" $
         concat [[1, 2], [3], [], [4, 5, 6 :: Int]] `shouldBe` [1 .. 6]
+      it "of list of nested lists" $
+        concat [[[1], [2]], [[3]], [[]], [[4, 5, 6 :: Int]]] `shouldBe` [[1], [2], [3], [], [4, 5, 6 :: Int]]
       -- Track-specific test
       it "of large list of small lists" $
         concat (map (:[]) [1 .. big]) `shouldBe` [1 .. big]

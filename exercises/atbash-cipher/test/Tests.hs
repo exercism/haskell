@@ -75,4 +75,12 @@ decodeCases =
            , phrase      = "gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt"
            , expected    = "thequickbrownfoxjumpsoverthelazydog"
            }
+    , Case { description = "decode with too many spaces"
+           , phrase      = "vc vix    r hn"
+           , expected    = "exercism"
+           }
+    , Case { description = "decode with no spaces"
+           , phrase      = "zmlyhgzxovrhlugvmzhgvkkrmthglmv"
+           , expected    = "anobstacleisoftenasteppingstone"
+           }
     ]

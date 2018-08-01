@@ -20,7 +20,11 @@ data Case = Case { description ::       String
                  }
 
 cases :: [Case]
-cases = [ Case { description = "RNA complement of cytosine is guanine"
+cases = [ Case { description = "Empty RNA sequence"
+               , dna         =      ""
+               , expected    = Just ""
+               }
+        , Case { description = "RNA complement of cytosine is guanine"
                , dna         =      "C"
                , expected    = Just "G"
                }

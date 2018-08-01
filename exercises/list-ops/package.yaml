@@ -1,5 +1,5 @@
 name: list-ops
-version: 2.2.0.4
+version: 2.3.0.5
 
 dependencies:
   - base

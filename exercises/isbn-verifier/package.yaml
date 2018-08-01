@@ -1,5 +1,5 @@
 name: isbn-verifier
-version: 2.4.0.5
+version: 2.6.0.7
 
 dependencies:
   - base

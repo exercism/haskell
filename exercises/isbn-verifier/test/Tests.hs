@@ -59,6 +59,10 @@ cases = [ Case { description = "valid isbn number"
                , input       = "3598215078X"
                , expected    = False
                }
+        , Case { description = "too short isbn"
+               , input       = "00"
+               , expected    = False
+               }
         , Case { description = "isbn without check digit"
                , input       = "3-598-21507"
                , expected    = False
@@ -77,6 +81,10 @@ cases = [ Case { description = "valid isbn number"
                }
         , Case { description = "input is 9 characters"
                , input       = "134456729"
+               , expected    = False
+               }
+        , Case { description = "invalid characters are not ignored"
+               , input       = "3132P34035"
                , expected    = False
                }
         ]

@@ -74,4 +74,8 @@ cases = [ Case { description = "single digit strings can not be valid"
                , input       = "091"
                , expected    = True
                }
+--        , Case { description = "strings with non-digits is invalid"
+--               , input       = ":9"
+--               , expected    = False
+--               }
         ]
