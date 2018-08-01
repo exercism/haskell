@@ -7,7 +7,7 @@ library:
   exposed-modules: WordCount
   source-dirs: src
   dependencies:
-    - multiset
+    - containers
     - text
 
 tests:
