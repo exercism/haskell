@@ -23,18 +23,17 @@ instance Extrema Max where
 
 data Extremes a b c = Extremes !a !b !c deriving (Show)
 
-instance (Extrema a, Ord b, Monoid c) => Monoid (Extremes a b c) where
-  mempty = undefined
-  mappend a@(Extremes ea xa as) b@(Extremes _ xb bs) = case ecmp ea xa xb of
+instance (Extrema a, Ord b, Semigroup c) => Semigroup (Extremes a b c) where
+  a@(Extremes ea xa as) <> b@(Extremes _ xb bs) = case ecmp ea xa xb of
     LT -> a
-    EQ -> Extremes ea xa (as `mappend` bs)
+    EQ -> Extremes ea xa (as <> bs)
     GT -> b
 
 extrema :: (Ix a, Ix b, Ord c)
            => Array (a, b) c
            -> M.Map (Axis a b) ( Extremes Min c (S.Set (a, b))
                                , Extremes Max c (S.Set (a, b)))
-extrema = M.fromListWith mappend . expand . assocs
+extrema = M.fromListWith (<>) . expand . assocs
   where expand xs = do
           (ix@(row, col), x) <- xs
           let s = S.singleton ix
