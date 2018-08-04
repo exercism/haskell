@@ -53,6 +53,7 @@
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
+        "math",
         "maybe",
         "number_theory"
       ]
@@ -74,6 +75,7 @@
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
+        "math",
         "number_theory"
       ]
     },
@@ -84,6 +86,7 @@
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
+        "math",
         "number_theory"
       ]
     },
@@ -113,6 +116,7 @@
       "unlocked_by": null,
       "difficulty": 2,
       "topics": [
+        "math",
         "maybe",
         "number_theory"
       ]
@@ -281,6 +285,7 @@
       "difficulty": 3,
       "topics": [
         "define_type",
+        "math",
         "number_theory"
       ]
     },
@@ -367,6 +372,7 @@
       "unlocked_by": null,
       "difficulty": 4,
       "topics": [
+        "math",
         "number_theory"
       ]
     },
@@ -385,7 +391,8 @@
       "unlocked_by": null,
       "difficulty": 4,
       "topics": [
-        "either"
+        "either",
+        "math"
       ]
     },
     {
@@ -395,7 +402,8 @@
       "unlocked_by": null,
       "difficulty": 4,
       "topics": [
-        "either"
+        "either",
+        "math"
       ]
     },
     {
@@ -436,6 +444,7 @@
       "unlocked_by": null,
       "difficulty": 4,
       "topics": [
+        "math",
         "number_theory"
       ]
     },
@@ -446,6 +455,7 @@
       "unlocked_by": null,
       "difficulty": 4,
       "topics": [
+        "math",
         "number_theory"
       ]
     },
@@ -472,6 +482,7 @@
       "unlocked_by": null,
       "difficulty": 4,
       "topics": [
+        "math",
         "number_theory"
       ]
     },
@@ -508,6 +519,7 @@
       "unlocked_by": null,
       "difficulty": 5,
       "topics": [
+        "math",
         "maybe",
         "number_theory"
       ]
@@ -628,7 +640,9 @@
       "core": false,
       "unlocked_by": null,
       "difficulty": 6,
-      "topics": null
+      "topics": [
+        "math"
+      ]
     },
     {
       "slug": "robot-name",
