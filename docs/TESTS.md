@@ -1,7 +1,7 @@
 
 ## Running Tests
 
-Execute the following command to run the tests:
+Execute the following command in your exercise directory to run the tests:
 
 ```bash
 stack test
