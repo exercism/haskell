@@ -35,3 +35,11 @@ probably need to add a missing directory to your path:
 
 - `%APPDATA%\local\bin`, if you are running *Windows*
 - `$HOME/.local/bin`, for other operating systems.
+
+## Haskell IDEs and Plugins
+
+Using an <abbr title="Integrated Development Environment">IDE</abbr> can make it easier to factor your Haskell programs. There are several free and commercial IDEs available
+- [`atom-ide-haskell`](https://atom-haskell.github.io/) for Github's Atom editor
+- There are [a number of Haskell packages](https://medium.com/@dogwith1eye/setting-up-haskell-in-vs-code-on-macos-d2cc1ce9f60a) for Microsoft's Visual Studio Code editor.
+- [IntelliJ Haskell Plugin](https://github.com/rikvdkleij/intellij-haskell)
+- [And Others](https://wiki.haskell.org/IDEs)
