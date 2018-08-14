@@ -42,4 +42,4 @@ Using an <abbr title="Integrated Development Environment">IDE</abbr> can make it
 - [`atom-ide-haskell`](https://atom-haskell.github.io/) for Github's Atom editor
 - There are [a number of Haskell packages](https://medium.com/@dogwith1eye/setting-up-haskell-in-vs-code-on-macos-d2cc1ce9f60a) for Microsoft's Visual Studio Code editor.
 - [IntelliJ Haskell Plugin](https://github.com/rikvdkleij/intellij-haskell)
-- [Other Plugins](https://wiki.haskell.org/IDEs) references on the Haskell Wiki.
+- [Other Plugins](https://wiki.haskell.org/IDEs) referenced on the Haskell Wiki.
