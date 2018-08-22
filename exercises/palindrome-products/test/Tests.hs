@@ -17,7 +17,7 @@ specs = for_ cases test
       describe desc $ do
         let sortPair (a, b)  = if a < b then (a, b) else (b, a)
         let normalize        = sort . nub . map sortPair
-        describe "smallesPalindrome" $ do
+        describe "smallestPalindrome" $ do
           let (value, factors) = smallestPalindrome minFactor maxFactor
           it "value"   $ value             `shouldBe` sPal
           it "factors" $ normalize factors `shouldBe` sPalFactors
