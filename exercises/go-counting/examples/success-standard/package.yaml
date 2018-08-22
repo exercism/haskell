@@ -17,4 +17,3 @@ tests:
     dependencies:
       - go-counting
       - hspec
-      - multiset

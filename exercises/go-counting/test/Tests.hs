@@ -1,9 +1,11 @@
 import Data.Bifunctor    (first)
-import Data.MultiSet     (fromOccurList, toOccurList)
+import Data.List         (foldl')
 import Data.Set          (toAscList)
 import Data.Tuple        (swap)
 import Test.Hspec        (Spec, it, shouldBe, shouldMatchList)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+
+import qualified Data.Map as Map
 
 import Counting (Color(Black,White), territories, territoryFor)
 
@@ -23,9 +25,11 @@ specs = do
                               . map (first toAscList)
                               . territories
 
+        add m (owner, size) = Map.insertWith (+) owner size m
+
         shouldScore = shouldMatchList
-                    . toOccurList
-                    . fromOccurList
+                    . Map.toList
+                    . foldl' add Map.empty
                     . map (swap . first length)
                     . territories
 

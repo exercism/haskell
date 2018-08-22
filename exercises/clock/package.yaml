@@ -1,4 +1,4 @@
-name: clock
+name: exercism-clock
 version: 2.2.1.4
 
 dependencies:
@@ -16,5 +16,5 @@ tests:
     main: Tests.hs
     source-dirs: test
     dependencies:
-      - clock
+      - exercism-clock
       - hspec
