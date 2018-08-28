@@ -3,7 +3,7 @@
 import Test.Hspec        (Spec, describe, it, shouldBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
-import Squares (difference, squareOfSums, sumOfSquares)
+import Squares (difference, squareOfSum, sumOfSquares)
 
 main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
@@ -11,10 +11,10 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = do
 
-    describe "squareOfSums" $ do
-      it "square of sum 1"   $ squareOfSums   1 `shouldBe`        1
-      it "square of sum 5"   $ squareOfSums   5 `shouldBe`      225
-      it "square of sum 100" $ squareOfSums 100 `shouldBe` 25502500
+    describe "squareOfSum" $ do
+      it "square of sum 1"   $ squareOfSum   1 `shouldBe`        1
+      it "square of sum 5"   $ squareOfSum   5 `shouldBe`      225
+      it "square of sum 100" $ squareOfSum 100 `shouldBe` 25502500
 
     describe "sumOfSquares" $ do
       it "sum of squares 1"   $ sumOfSquares   1 `shouldBe`      1
@@ -30,14 +30,14 @@ specs = do
 
     describe "Integral tests" $ do
 
-      describe "squareOfSums" $ do
+      describe "squareOfSum" $ do
 
-        it "squareOfSums (6 :: Int)" $
-          squareOfSums (6 :: Int)
+        it "squareOfSum (6 :: Int)" $
+          squareOfSum (6 :: Int)
           `shouldBe` (441 :: Int)
 
-        it "squareOfSums (7 :: Integer)" $
-          squareOfSums (7 :: Integer)
+        it "squareOfSum (7 :: Integer)" $
+          squareOfSum (7 :: Integer)
           `shouldBe` (784 :: Integer)
 
       describe "sumOfSquares" $ do
