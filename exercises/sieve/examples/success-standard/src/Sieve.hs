@@ -4,6 +4,8 @@ import Control.Monad (when)
 import qualified Data.Vector as V
 import qualified Data.Vector.Mutable as MV
 
+import Prelude hiding (div, mod, divMod, rem, quotRem, quot, (/))
+
 primesUpTo :: Int -> [Int]
 primesUpTo upperBound = V.ifoldr f [] $ V.create $ do
   mv <- MV.replicate (1 + upperBound) (1 :: Int)
