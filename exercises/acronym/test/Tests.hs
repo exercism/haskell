@@ -47,4 +47,8 @@ cases = [ Case { description = "basic"
                , input       = "Complementary metal-oxide semiconductor"
                , expected    = "CMOS"
                }
+        , Case { description = "very long abbreviation"
+               , input       = "Rolling On The Floor Laughing So Hard That My Dogs Came Over And Licked Me"
+               , expected    = "ROTFLSHTMDCOALM"
+               }
         ]
