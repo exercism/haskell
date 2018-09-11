@@ -332,9 +332,7 @@
       "core": false,
       "unlocked_by": "leap",
       "difficulty": 3,
-      "topics": [
-        "define_type"
-      ]
+      "topics": []
     },
     {
       "slug": "protein-translation",
@@ -503,9 +501,7 @@
       "core": false,
       "unlocked_by": "space-age",
       "difficulty": 4,
-      "topics": [
-        "define_type"
-      ]
+      "topics": []
     },
     {
       "slug": "series",
@@ -757,9 +753,7 @@
       "core": false,
       "unlocked_by": "difference-of-squares",
       "difficulty": 6,
-      "topics": [
-        "define_type"
-      ]
+      "topics": []
     },
     {
       "slug": "rail-fence-cipher",
@@ -794,7 +788,6 @@
       "difficulty": 7,
       "topics": [
         "algorithms",
-        "define_type",
         "logic"
       ]
     },
@@ -903,7 +896,6 @@
       "unlocked_by": "collatz-conjecture",
       "difficulty": 9,
       "topics": [
-        "define_type",
         "lens"
       ]
     },
