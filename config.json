@@ -209,6 +209,7 @@
       "unlocked_by": "grains",
       "difficulty": 3,
       "topics": [
+        "filtering",
         "lazy_evaluation",
         "library_reimplementation"
       ]
@@ -377,6 +378,7 @@
       "difficulty": 4,
       "topics": [
         "accumulator_strictness",
+        "filtering",
         "library_reimplementation"
       ]
     },
