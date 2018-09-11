@@ -332,7 +332,9 @@
       "core": false,
       "unlocked_by": "leap",
       "difficulty": 3,
-      "topics": []
+      "topics": [
+        "bitwise_operations"
+      ]
     },
     {
       "slug": "protein-translation",
