@@ -22,9 +22,7 @@
       "core": true,
       "unlocked_by": null,
       "difficulty": 1,
-      "topics": [
-        "logic"
-      ]
+      "topics": []
     },
     {
       "slug": "space-age",
@@ -797,7 +795,8 @@
       "difficulty": 7,
       "topics": [
         "algorithms",
-        "define_type"
+        "define_type",
+        "logic"
       ]
     },
     {
