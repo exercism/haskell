@@ -386,9 +386,7 @@
       "core": false,
       "unlocked_by": "rna-transcription",
       "difficulty": 4,
-      "topics": [
-        "types"
-      ]
+      "topics": []
     },
     {
       "slug": "roman-numerals",
