@@ -30,9 +30,7 @@
       "core": true,
       "unlocked_by": null,
       "difficulty": 1,
-      "topics": [
-        "mathematics"
-      ]
+      "topics": []
     },
     {
       "slug": "bob",
@@ -252,8 +250,7 @@
       "unlocked_by": "bob",
       "difficulty": 3,
       "topics": [
-        "algorithms",
-        "mathematics"
+        "algorithms"
       ]
     },
     {
