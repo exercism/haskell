@@ -73,7 +73,7 @@ cases = [ Case { description = "stating something"
                , expected    = "Whoa, chill out!"
                }
         , Case { description = "shouting with no exclamation mark"
-               , input       = "I HATE YOU"
+               , input       = "I HATE THE DMV"
                , expected    = "Whoa, chill out!"
                }
         , Case { description = "statement containing question mark"
