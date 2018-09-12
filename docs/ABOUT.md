@@ -13,18 +13,5 @@ This lets you safely do weird stuff like operating on an infinite list--the lang
 **Type inference** means that the compiler will often figure out the type of an identifier by itself so you don't have to specify it.
 Scala and later versions of C# both do this.
 
-Haskell syntax is beautiful and minimal.  For example, here is an
-implemention of quicksort in 6 lines:
-
-```haskell
-quicksort :: (Ord a) => [a] -> [a]
-quicksort [] = []
-quicksort (x:xs) =
-    let smallerSorted = quicksort [a | a <- xs, a <= x]
-        biggerSorted  = quicksort [a | a <- xs, a > x]
-    in  smallerSorted ++ [x] ++ biggerSorted
-```
-[(source)](http://learnyouahaskell.com/recursion#quick-sort)
-
 In addition, Haskell is standardized and has multiple high-quality implementations, some of which produce standalone native binaries.
 There is also a collection of free third-party libraries available and a package manager ("cabal") to automatically fetch them for you.
