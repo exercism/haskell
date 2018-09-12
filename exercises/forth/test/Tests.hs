@@ -125,7 +125,7 @@ specs = do
                  , ": foo 6 ;"
                  , "bar foo"     ] `shouldBe` Right [5, 6]
 
-      it "can use different words with the same name" $
+      it "can define word that uses word with the same name" $
         runTexts [ ": foo 10 ;"
                  , ": foo foo 1 + ;"
                  , "foo"             ] `shouldBe` Right [11]
