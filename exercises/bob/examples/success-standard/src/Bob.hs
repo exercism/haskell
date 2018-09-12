@@ -1,5 +1,6 @@
 module Bob (responseFor) where
-import Data.Char (isSpace, isUpper, isAlpha)
+import Data.Char (isSpace, isUpper, isAlpha, isPunctuation)
+import Safe (lastMay)
 
 data Prompt = Silence | YellQuestion | Yell | Question | Other
 
@@ -10,7 +11,7 @@ classify s | all isSpace s = Silence
            | question = Question
            | otherwise = Other
            where yell = any isAlpha s && all isUpper (filter isAlpha s)
-                 question = '?' == last (filter (not . isSpace) s)
+                 question = Just '?' == lastMay (filter isPunctuation s)
 
 response :: Prompt -> String
 response Silence = "Fine. Be that way!"

@@ -2,6 +2,7 @@ name: bob
 
 dependencies:
   - base
+  - safe
 
 library:
   exposed-modules: Bob

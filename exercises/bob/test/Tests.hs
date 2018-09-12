@@ -101,7 +101,7 @@ cases = [ Case { description = "stating something"
                , expected    = "Fine. Be that way!"
                }
         , Case { description = "multiple line question"
-               , input       = "\nDoes this cryogenic chamber make me look fat?\nno"
+               , input       = "\nDoes this cryogenic chamber make me look fat?\nNo."
                , expected    = "Whatever."
                }
         , Case { description = "starting with whitespace"
