@@ -12,7 +12,7 @@ lyrics day = intro day ++ gifts ++ "."
     gift day' = (if day' == 1 && day > 1 then "and " else "") ++ snd (verse day')
 
 intro :: Int -> String
-intro day = "On the " ++ ordinal ++ " day of Christmas my true love gave to me, "
+intro day = "On the " ++ ordinal ++ " day of Christmas my true love gave to me: "
   where (ordinal, _) = verse day
 
 verse :: Int -> (String, String)
