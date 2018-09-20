@@ -11,14 +11,10 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
 specs = do
-
-
-    describe "standard tests" $ do
-
-      describe "create" $ for_ createCases createTest
-      describe "add"    $ for_ addCases    addTest
-      describe "sub"    $ for_ subCases    subTest
-      describe "equal"  $ for_ equalCases  equalTest
+  describe "create" $ for_ createCases createTest
+  describe "add"    $ for_ addCases    addTest
+  describe "sub"    $ for_ subCases    subTest
+  describe "equal"  $ for_ equalCases  equalTest
 
   where
 
