@@ -12,15 +12,6 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = do
 
-    -- Track-specific tests.
-
-    describe "track-specific tests" $ do
-
-      it "fromInteger should work in minutes" $
-        toString 3 `shouldBe` "00:03"
-
-      it "constructor and fromInteger should be compatible" $
-        60 `shouldBe` fromHourMin 1 0
 
     describe "standard tests" $ do
 

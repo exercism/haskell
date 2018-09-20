@@ -3,14 +3,6 @@ import Text.Printf (printf)
 
 newtype Clock = Clock { unClock :: Int } deriving (Show, Eq)
 
-instance Num Clock where
-  fromInteger n = Clock (fromInteger (n `mod` (24 * 60)))
-  (Clock _) + (Clock _) = error "unused"
-  (Clock _) - (Clock _) = error "unused"
-  (Clock a) * (Clock b) = fromIntegral (a * b)
-  abs = id
-  signum = Clock . signum . unClock
-
 addDelta :: Int -> Int -> Clock -> Clock
 addDelta h m (Clock a) = fromInt (a + h * 60 + m)
 
