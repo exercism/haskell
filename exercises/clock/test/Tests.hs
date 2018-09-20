@@ -4,7 +4,7 @@ import Data.Foldable     (for_)
 import Test.Hspec        (Spec, describe, it, shouldBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
-import Clock (fromHourMin, toString)
+import Clock (addDelta, fromHourMin, toString)
 
 main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
@@ -40,11 +40,11 @@ specs = do
 
     addTest (l, h, m, m', e) = it l assertion
       where
-        assertion = toString (fromHourMin h m + m') `shouldBe` e
+        assertion = toString (addDelta (m' `div` 60) (m' `mod` 60) $ fromHourMin h m) `shouldBe` e
 
     subTest (l, h, m, m', e) = it l assertion
       where
-        assertion = toString (fromHourMin h m - m') `shouldBe` e
+        assertion = toString (addDelta (-m' `div` 60) (-m' `mod` 60) $ fromHourMin h m) `shouldBe` e
 
     equalTest (l, (h1, m1), (h2, m2), e) = it l assertion
       where
