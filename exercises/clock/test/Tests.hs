@@ -22,9 +22,6 @@ specs = do
       it "constructor and fromInteger should be compatible" $
         60 `shouldBe` fromHourMin 1 0
 
-      it "negate works" $
-        negate (fromHourMin 23 55) `shouldBe` 5
-
     describe "standard tests" $ do
 
       describe "create" $ for_ createCases createTest
