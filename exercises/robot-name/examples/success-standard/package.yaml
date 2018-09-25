@@ -2,11 +2,13 @@ name: robot-name
 
 dependencies:
   - base
+  - mtl
 
 library:
   exposed-modules: Robot
   source-dirs: src
   dependencies:
+    - containers
     - random
 
 tests:
