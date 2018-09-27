@@ -22,7 +22,9 @@
       "core": true,
       "unlocked_by": null,
       "difficulty": 1,
-      "topics": []
+      "topics": [
+        "booleans"
+      ]
     },
     {
       "slug": "space-age",
@@ -30,7 +32,9 @@
       "core": true,
       "unlocked_by": null,
       "difficulty": 1,
-      "topics": []
+      "topics": [
+        "discriminated_unions"
+      ]
     },
     {
       "slug": "bob",
