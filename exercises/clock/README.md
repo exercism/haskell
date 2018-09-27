@@ -9,16 +9,16 @@ Two clocks that represent the same time should be equal to each other.
 ## Hints
 
 To complete this exercise you need to define the data type `Clock`,
-with `Eq`, `Show` and `Num` instances, and implement the functions:
+with `Eq` and `Show` instances, and implement the functions:
 
+- addDelta
 - clockHour
 - clockMin
 - fromHourMin
 - toString
 
-The function `fromInteger`, from `Num`, must convert minutes
-to 24 hour clock time. It is not necessary to have a sensible
-implementation of `abs` or `signum`.
+`addDelta` adds a duration, expressed in hours and minutes, to a given time,
+represented by an instance of `Clock`.
 
 You will find a dummy data declaration and type signatures already in place,
 but it is up to you to define the functions and create a meaningful data type,

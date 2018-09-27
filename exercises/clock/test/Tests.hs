@@ -4,33 +4,17 @@ import Data.Foldable     (for_)
 import Test.Hspec        (Spec, describe, it, shouldBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
-import Clock (fromHourMin, toString)
+import Clock (addDelta, fromHourMin, toString)
 
 main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
 specs = do
-
-    -- Track-specific tests.
-
-    describe "track-specific tests" $ do
-
-      it "fromInteger should work in minutes" $
-        toString 3 `shouldBe` "00:03"
-
-      it "constructor and fromInteger should be compatible" $
-        60 `shouldBe` fromHourMin 1 0
-
-      it "negate works" $
-        negate (fromHourMin 23 55) `shouldBe` 5
-
-    describe "standard tests" $ do
-
-      describe "create" $ for_ createCases createTest
-      describe "add"    $ for_ addCases    addTest
-      describe "sub"    $ for_ subCases    subTest
-      describe "equal"  $ for_ equalCases  equalTest
+  describe "create" $ for_ createCases createTest
+  describe "add"    $ for_ addCases    addTest
+  describe "sub"    $ for_ subCases    subTest
+  describe "equal"  $ for_ equalCases  equalTest
 
   where
 
@@ -40,11 +24,11 @@ specs = do
 
     addTest (l, h, m, m', e) = it l assertion
       where
-        assertion = toString (fromHourMin h m + m') `shouldBe` e
+        assertion = toString (addDelta (m' `div` 60) (m' `mod` 60) $ fromHourMin h m) `shouldBe` e
 
     subTest (l, h, m, m', e) = it l assertion
       where
-        assertion = toString (fromHourMin h m - m') `shouldBe` e
+        assertion = toString (addDelta (-m' `div` 60) (-m' `mod` 60) $ fromHourMin h m) `shouldBe` e
 
     equalTest (l, (h1, m1), (h2, m2), e) = it l assertion
       where
