@@ -6,6 +6,16 @@ import Test.Hspec        (Spec, describe, it, shouldBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
 import ComplexNumbers
+  ( conjugate
+  , abs
+  , real
+  , imaginary
+  , mul
+  , add
+  , sub
+  , div
+  , complex
+  )
 
 main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
