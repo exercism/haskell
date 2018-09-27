@@ -4,8 +4,6 @@ To complete this exercise you need to define the data type `Clock`,
 with `Eq` and `Show` instances, and implement the functions:
 
 - addDelta
-- clockHour
-- clockMin
 - fromHourMin
 - toString
 
