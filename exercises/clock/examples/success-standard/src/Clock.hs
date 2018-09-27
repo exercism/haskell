@@ -1,4 +1,4 @@
-module Clock (addDelta, clockHour, clockMin, fromHourMin, toString) where
+module Clock (addDelta, fromHourMin, toString) where
 import Text.Printf (printf)
 
 newtype Clock = Clock { unClock :: Int } deriving (Show, Eq)
