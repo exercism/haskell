@@ -1,10 +1,12 @@
 {-# OPTIONS_GHC -fno-warn-type-defaults #-}
 
+import Control.Monad       (replicateM, unless)
 import Control.Monad.State (evalStateT)
 import Control.Monad.Trans (lift)
 
 import Data.Ix           (inRange)
-import Test.Hspec        (Spec, it, shouldBe, shouldNotBe, shouldSatisfy)
+import Data.List         (group, intercalate, null, sort)
+import Test.Hspec        (Spec, expectationFailure, it, shouldBe, shouldNotBe, shouldSatisfy)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
 import Robot (initialState, mkRobot, resetName, robotName)
@@ -12,12 +14,6 @@ import Robot (initialState, mkRobot, resetName, robotName)
 main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
-{-
-These tests of course *can* fail since we are expected to use a random number
-generator. The chances of this kind of failure are very small. A
-real "robot generator" would use a proper serial number system and
-would likely not be in the business of resetting the name.
--}
 specs :: Spec
 specs = do
 
@@ -41,9 +37,11 @@ specs = do
 
           it "different robots have different names" $
             evalWithInitial $ do
-              n1 <- mkRobot >>= lift . robotName
-              n2 <- mkRobot >>= lift . robotName
-              lift $ n1 `shouldNotBe` n2
+              robots <- replicateM 5000 mkRobot
+              names <- traverse (lift . robotName) robots
+              let repeats = map head . filter ((>1) . length) . group . sort $ names
+              lift $ unless (null repeats) $
+                expectationFailure $ "Repeat name(s) found: " ++ intercalate ", " repeats
 
           it "new name should match expected pattern" $
             evalWithInitial $ do

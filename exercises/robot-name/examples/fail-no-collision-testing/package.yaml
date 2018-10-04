@@ -1,0 +1,19 @@
+name: robot-name
+
+dependencies:
+  - base
+  - mtl
+
+library:
+  exposed-modules: Robot
+  source-dirs: src
+  dependencies:
+    - random
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - robot-name
+      - hspec
