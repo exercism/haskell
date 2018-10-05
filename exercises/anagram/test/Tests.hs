@@ -85,9 +85,9 @@ cases = [ Case { description = "no matches"
                , candidates  = ["patter"]
                , expected    = []
                }
-        , Case { description = "capital word is not own anagram"
+        , Case { description = "words are not anagrams of themselves (case-insensitive)"
                , subject     = "BANANA"
-               , candidates  = ["Banana"]
+               , candidates  = ["BANANA", "Banana", "banana"]
                , expected    = []
                }
         ]
