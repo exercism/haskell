@@ -101,6 +101,16 @@
       ]
     },
     {
+      "slug": "armstrong-numbers",
+      "uuid": "8d643e12-54dd-40ff-9919-e89b301e2112",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "math"
+      ]
+    },
+    {
       "slug": "grains",
       "uuid": "197a543c-d9c7-41c3-814c-4b1ece3db568",
       "core": true,
