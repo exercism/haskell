@@ -8,7 +8,6 @@ library:
   exposed-modules: Robot
   source-dirs: src
   dependencies:
-    - containers
     - random
 
 tests:
