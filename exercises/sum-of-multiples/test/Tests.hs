@@ -78,4 +78,8 @@ cases = [ Case { factors  = [3, 5]
                , limit    = 10000
                , expected = 0
                }
+        , Case { factors  = [0]
+               , limit    = 1
+               , expected = 0
+               }
         ]
