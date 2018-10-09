@@ -41,4 +41,8 @@ cases = [ Case { description = "year not divisible by 4: common year"
                , input       = 2000
                , expected    = True
                }
+        , Case { description = "year divisible by 200, not divisible by 400: common year"
+               , input       = 1800
+               , expected    = False
+               }
         ]
