@@ -97,6 +97,11 @@ cases = [ Case { factors  = [3, 5]
                , expected = 0
                , description = "the only multiple of 0 is 0"
                }
+        , Case { factors  = [3, 0]
+               , limit    = 4
+               , expected = 3
+               , description = "the factor 0 does not affect the sum of multiples of other factors"
+               }
         , Case { factors  = [2, 3, 5, 7, 11]
                , limit    = 10000
                , expected = 39614537
