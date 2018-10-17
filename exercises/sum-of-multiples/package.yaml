@@ -1,5 +1,5 @@
 name: sum-of-multiples
-version: 1.4.0.7
+version: 1.4.1.8
 
 dependencies:
   - base
