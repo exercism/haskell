@@ -30,4 +30,6 @@ specs = for_ cases test
             , ("palindromes from double digit factors",    10,    99,       121, [(   11,    11)],       9009, [(   91,    99)])
             , ("palindromes from triple digit factors",   100,   999,     10201, [(  101,   101)],     906609, [(  913,   993)])
             , ("palindromes from four digit factors"  ,  1000,  9999,   1002001, [( 1001,  1001)],   99000099, [( 9901,  9999)])
-            , ("palindromes from five digit factors"  , 10000, 99999, 100020001, [(10001, 10001)], 9966006699, [(99681, 99979)]) ]
+            , ("no available smallest palindrome"     ,  1002,  1003,         0,               [],          0,               [])
+            , ("no available largest palindrome"      ,    15,    15,         0,               [],          0,               [])
+            , ("invalid range"                        , 10000,     1,         0,               [],          0,               []) ]
