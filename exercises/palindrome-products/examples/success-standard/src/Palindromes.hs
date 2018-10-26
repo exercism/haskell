@@ -25,9 +25,16 @@ union2 cmp merge = go
       EQ -> merge x y : go xs ys
       LT -> x : go xs (y:ys)
 
-largestPalindrome, smallestPalindrome :: Integral a => a -> a -> Product2 a
-largestPalindrome a b = head $ bigPalindromes a b
-smallestPalindrome a b = head $ smallPalindromes a b
+largestPalindrome, smallestPalindrome :: Integral a => a -> a -> Maybe (Product2 a)
+largestPalindrome a b | a > b = Nothing
+                      | null result = Nothing
+                      | otherwise = Just $ head result
+  where result = bigPalindromes a b
+smallestPalindrome a b | a > b = Nothing
+                       | null result = Nothing
+                       | otherwise = Just $ head result
+  where result = smallPalindromes a b
+
 
 bigPalindromes, smallPalindromes :: Integral a => a -> a -> [Product2 a]
 bigPalindromes a b = palindromes (flip compare) [b, b-1 .. a]
