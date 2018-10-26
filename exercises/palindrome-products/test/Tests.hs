@@ -22,14 +22,14 @@ specs = for_ cases test
             Just (value, factors) -> do
               it "value"   $ value             `shouldBe` sPal
               it "factors" $ normalize factors `shouldBe` sPalFactors
-            Nothing -> do
+            Nothing ->
               it "result"  $ Nothing           `shouldBe` Just (sPal, [sPalFactors])
         describe "largestPalindrome" $
           case largestPalindrome minFactor maxFactor of
             Just (value, factors) -> do
               it "value"   $ value             `shouldBe` lPal
               it "factors" $ normalize factors `shouldBe` lPalFactors
-            Nothing -> do
+            Nothing ->
               it "result" $ Nothing            `shouldBe` Just (lPal, [lPalFactors])
     test (desc, minFactor, maxFactor, Nothing) =
       describe desc $ do
