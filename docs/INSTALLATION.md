@@ -15,7 +15,7 @@ installed correctly.
 ## Installing GHC
 
 Stack will automatically download and install GHC (the Glasgow Haskell
-compiler) when it is required. You can start the installation test it
+compiler) when it is required. You can start the installation and test
 by running the following command in a terminal:
 
 ```bash
