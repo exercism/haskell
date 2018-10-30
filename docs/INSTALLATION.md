@@ -12,6 +12,24 @@ stack --version
 If it outputs a Stack version equal to or greater than 1.1.2, then you have it
 installed correctly.
 
+## Installing GHC
+
+Stack will automatically download and install GHC (the Glasgow Haskell
+compiler) when it is required. You can start the installation and test
+by running the following command in a terminal:
+
+```bash
+stack ghc
+```
+
+If this outputs something like `ghc: no input files`, GHC is installed
+correctly.
+
+Note that there are other ways to install GHC on a system (like the
+[Haskell platform](https://www.haskell.org/platform/)), but for
+running the Exercism tests, a regular stack installation is most
+likely to work correctly.
+
 ## Installing HLint (optional)
 
 HLint is a tool for suggesting possible improvements to Haskell code. These
