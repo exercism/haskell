@@ -27,7 +27,7 @@ union2 cmp merge = go
 
 maybeHead :: [a] -> Maybe a
 maybeHead [] = Nothing
-maybeHead (x:xs) = Just x
+maybeHead (x:_) = Just x
 
 largestPalindrome, smallestPalindrome :: Integral a => a -> a -> Maybe (Product2 a)
 largestPalindrome a b = maybeHead $ bigPalindromes a b
