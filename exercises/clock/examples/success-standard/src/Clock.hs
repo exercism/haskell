@@ -1,7 +1,7 @@
 module Clock (addDelta, fromHourMin, toString) where
 import Text.Printf (printf)
 
-newtype Clock = Clock { unClock :: Int } deriving (Show, Eq)
+newtype Clock = Clock { unClock :: Int } deriving (Eq)
 
 addDelta :: Int -> Int -> Clock -> Clock
 addDelta h m (Clock a) = fromInt (a + h * 60 + m)

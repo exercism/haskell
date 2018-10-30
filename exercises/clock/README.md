@@ -9,7 +9,7 @@ Two clocks that represent the same time should be equal to each other.
 ## Hints
 
 To complete this exercise you need to define the data type `Clock`,
-with `Eq` and `Show` instances, and implement the functions:
+add an `Eq` instance, and implement the functions:
 
 - addDelta
 - fromHourMin
