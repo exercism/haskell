@@ -48,6 +48,10 @@ cases = [ Case { description = "empty string"
                , input       = "Alphabet"
                , expected    = False
                }
+        , Case { description = "word with duplicated character in mixed case, lowercase first"
+               , input       = "isalpAbet"
+               , expected    = False
+               }
         , Case { description = "hypothetical isogrammic word with hyphen"
                , input       = "thumbscrew-japingly"
                , expected    = True
@@ -62,6 +66,10 @@ cases = [ Case { description = "empty string"
                }
         , Case { description = "duplicated character in the middle"
                , input       = "accentor"
+               , expected    = False
+               }
+        , Case { description = "same first and last characters"
+               , input       = "angola"
                , expected    = False
                }
         ]
