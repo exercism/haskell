@@ -17,8 +17,8 @@ specs = for_ cases test
       describe desc $ do
         let sortPair (a, b)  = if a < b then (a, b) else (b, a)
         let normalize        = sort . nub . map sortPair
-        let testPal desc result expPal expFac =
-              describe desc $ case result of
+        let testPal slDesc result expPal expFac =
+              describe slDesc $ case result of
                                 Just (value, factors) -> do
                                   it "value"   $ value             `shouldBe` expPal
                                   it "factors" $ normalize factors `shouldBe` expFac
