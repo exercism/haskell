@@ -17,28 +17,21 @@ specs = for_ cases test
       describe desc $ do
         let sortPair (a, b)  = if a < b then (a, b) else (b, a)
         let normalize        = sort . nub . map sortPair
-        describe "smallestPalindrome" $
-          case smallestPalindrome minFactor maxFactor of
-            Just (value, factors) -> do
-              it "value"   $ value             `shouldBe` sPal
-              it "factors" $ normalize factors `shouldBe` sPalFactors
-            Nothing ->
-              it "result"  $ Nothing           `shouldBe` Just (sPal, [sPalFactors])
-        describe "largestPalindrome" $
-          case largestPalindrome minFactor maxFactor of
-            Just (value, factors) -> do
-              it "value"   $ value             `shouldBe` lPal
-              it "factors" $ normalize factors `shouldBe` lPalFactors
-            Nothing ->
-              it "result" $ Nothing            `shouldBe` Just (lPal, [lPalFactors])
+        let testPal desc result expPal expFac =
+              describe desc $ case result of
+                                Just (value, factors) -> do
+                                  it "value"   $ value             `shouldBe` expPal
+                                  it "factors" $ normalize factors `shouldBe` expFac
+                                Nothing ->
+                                  it "result"  $ Nothing           `shouldBe` Just (expPal, [expFac])
+        testPal "smallestPalindrome" (smallestPalindrome minFactor maxFactor) sPal sPalFactors
+        testPal "largestPalindrome" (largestPalindrome minFactor maxFactor) lPal lPalFactors
     test (desc, minFactor, maxFactor, Nothing) =
       describe desc $ do
-        describe "smallestPalindrome" $ do
-          let result = smallestPalindrome minFactor maxFactor
-          it "result"   $ result             `shouldBe` Nothing
-        describe "largestPalindrome" $ do
-          let result = largestPalindrome minFactor maxFactor
-          it "result"   $ result             `shouldBe` Nothing
+        describe "smallestPalindrome" $
+          it "result" $ smallestPalindrome minFactor maxFactor `shouldBe` Nothing
+        describe "largestPalindrome" $
+          it "result" $ largestPalindrome minFactor maxFactor  `shouldBe` Nothing
 
     cases = [ ("palindromes from single digit factors",     1,     9,         Just (1, [(    1,     1)],          9, [(1, 9), (3, 3)]))
             , ("palindromes from double digit factors",    10,    99,       Just (121, [(   11,    11)],       9009, [(   91,    99)]))
