@@ -1,24 +1,19 @@
 module TwelveDays (recite) where
 
+import Data.List (intercalate)
+
 recite :: Int -> Int -> [String]
-recite start stop
-  | start <= stop = lyrics start : recite (start + 1) stop
-  | otherwise     = []
+recite start stop = map lyrics [start .. stop]
 
 lyrics :: Int -> String
-lyrics days =
-  beginning ++ end days
+lyrics day = intro day ++ gifts ++ "."
   where
-    beginning =
-      let (day, _) = verse days
-      in "On the " ++ day ++ " day of Christmas my true love gave to me"
-    end days'
-      | days < 13 && days' > 0 = let (_, gift) = verse days'
-                                 in prefix days' ++ gift ++ end (days' - 1)
-      | otherwise              = "."
-      where
-        prefix 1 = if days > 1 then ", and " else ", "
-        prefix _ = ", "
+    gifts = intercalate ", " (map gift [day, day - 1 .. 1])
+    gift day' = (if day' == 1 && day > 1 then "and " else "") ++ snd (verse day')
+
+intro :: Int -> String
+intro day = "On the " ++ ordinal ++ " day of Christmas my true love gave to me, "
+  where (ordinal, _) = verse day
 
 verse :: Int -> (String, String)
 verse 12 = ("twelfth", "twelve Drummers Drumming")
