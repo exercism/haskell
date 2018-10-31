@@ -12,7 +12,7 @@ import Robot
   , bearing
   , coordinates
   , mkRobot
-  , simulate
+  , move
   , turnLeft
   , turnRight
   )
@@ -57,12 +57,12 @@ specs = do
       it "turn from South" $ turnLeft South `shouldBe` East
       it "turn from East"  $ turnLeft East  `shouldBe` North
 
-    describe "simulate advance" $ do
+    describe "move advance" $ do
 
     -- The function described by the reference file as `advance`
     -- doesn't exist in this track, so we test `simulate` with "A".
 
-      let dir `from` pos = simulate (mkRobot dir pos) "A"
+      let dir `from` pos = move (mkRobot dir pos) "A"
 
       it "does not change the direction" $
         bearing (North `from` (0, 0)) `shouldBe` North
@@ -79,12 +79,9 @@ specs = do
       it "decreases the x coordinate by one when facing west" $
         coordinates (West `from` (0, 0)) `shouldBe `(-1, 0)
 
-    describe "simulate" $ do
+    describe "move" $ do
 
-    -- The function described by the reference file as
-    -- `instructions` is called `simulate` in this track.
-
-      let simulation pos dir = simulate (mkRobot dir pos)
+      let simulation pos dir = move (mkRobot dir pos)
 
       it "instructions to move west and north" $ do
         let robot = simulation (0, 0) North "LAAARALA"
