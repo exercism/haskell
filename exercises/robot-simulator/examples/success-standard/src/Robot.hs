@@ -3,8 +3,6 @@ module Robot (Bearing(..),
               coordinates,
               bearing,
               move,
-              turnRight,
-              turnLeft
               ) where
 import Data.List (foldl')
 import Control.Arrow (first, second)
