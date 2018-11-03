@@ -189,7 +189,3 @@ a [pull request](#writing-a-pull-request), so you can fix your code before submi
 If you are certain that a suggestion given by `hlint` would make the
 code worse, you can [suppress it](https://github.com/ndmitchell/hlint#customizing-the-hints)
 with annotations in the source file.
-
-
-### Haskell icon
-The Haskell icon was designed by Darrin Thompson and Jeff Wheeler. It was released under the [HaskellWiki license](https://wiki.haskell.org/HaskellWiki:Copyrights).
