@@ -3,9 +3,7 @@ module Robot
     , bearing
     , coordinates
     , mkRobot
-    , simulate
-    , turnLeft
-    , turnRight
+    , move
     ) where
 
 data Bearing = North
@@ -25,11 +23,5 @@ coordinates robot = error "You need to implement this function."
 mkRobot :: Bearing -> (Integer, Integer) -> Robot
 mkRobot direction coordinates = error "You need to implement this function."
 
-simulate :: Robot -> String -> Robot
-simulate robot instructions = error "You need to implement this function."
-
-turnLeft :: Bearing -> Bearing
-turnLeft direction = error "You need to implement this function."
-
-turnRight :: Bearing -> Bearing
-turnRight direction = error "You need to implement this function."
+move :: Robot -> String -> Robot
+move robot instructions = error "You need to implement this function."

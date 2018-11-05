@@ -51,4 +51,8 @@ cases = [ Case { description = "basic"
                , input       = "Rolling On The Floor Laughing So Hard That My Dogs Came Over And Licked Me"
                , expected    = "ROTFLSHTMDCOALM"
                }
+        , Case { description = "consecutive delimiters"
+               , input       = "Something - I made up from thin air"
+               , expected    = "SIMUFTA"
+               }
         ]

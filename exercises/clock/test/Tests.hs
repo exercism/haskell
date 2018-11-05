@@ -90,4 +90,6 @@ specs = do
       , ("clocks with negative minute that wraps"               , ( 4, 10), (  5,  -1490), True )
       , ("clocks with negative minute that wraps multiple times", ( 6, 15), (  6,  -4305), True )
       , ("clocks with negative hours and minutes"               , ( 7, 32), (-12,   -268), True )
-      , ("clocks with negative hours and minutes that wrap"     , (18,  7), (-54, -11513), True ) ]
+      , ("clocks with negative hours and minutes that wrap"     , (18,  7), (-54, -11513), True )
+      , ("full clock and zeroed clock"                          , (24,  0), (  0,      0), True )
+      ]
