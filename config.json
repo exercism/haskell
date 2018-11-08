@@ -107,8 +107,7 @@
       "unlocked_by": null,
       "difficulty": 2,
       "topics": [
-        "maybe",
-        "number_theory"
+        "maybe"
       ]
     },
     {
@@ -295,6 +294,7 @@
       "unlocked_by": "rna-transcription",
       "difficulty": 3,
       "topics": [
+        "math",
         "number_theory"
       ]
     },
