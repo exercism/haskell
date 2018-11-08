@@ -112,6 +112,16 @@
       ]
     },
     {
+      "slug": "armstrong-numbers",
+      "uuid": "8d643e12-54dd-40ff-9919-e89b301e2112",
+      "core": false,
+      "unlocked_by": "sum-of-multiples",
+      "difficulty": 1,
+      "topics": [
+        "math"
+      ]
+    },
+    {
       "slug": "acronym",
       "uuid": "4b5b2254-1c68-449a-8150-c1d33b8de9d1",
       "core": false,
