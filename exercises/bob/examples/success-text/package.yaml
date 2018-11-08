@@ -1,15 +1,12 @@
 name: bob
-version: 1.4.0.8
 
 dependencies:
   - base
+  - text
 
 library:
   exposed-modules: Bob
   source-dirs: src
-  # dependencies:
-  # - foo       # List here the packages you
-  # - bar       # want to use in your solution.
 
 tests:
   test:
