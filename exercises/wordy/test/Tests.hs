@@ -24,7 +24,11 @@ data Case = Case { description :: String
                  }
 
 cases :: [Case]
-cases = [ Case { description = "addition"
+cases = [ Case { description = "just a number"
+               , input       = "What is 5?"
+               , expected    = Just 5
+               }
+        , Case { description = "addition"
                , input       = "What is 1 plus 1?"
                , expected    = Just 2
                }
