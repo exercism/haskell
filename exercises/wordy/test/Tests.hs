@@ -88,4 +88,24 @@ cases = [ Case { description = "addition"
                , input       = "Who is the President of the United States?"
                , expected    = Nothing
                }
+        , Case { description = "reject incomplete problem"
+               , input       = "What is 1 plus?"
+               , expected    = Nothing
+               }
+        , Case { description = "reject two operations in a row"
+               , input       = "What is 1 plus plus 2?"
+               , expected    = Nothing
+               }
+        , Case { description = "reject two numbers in a row"
+               , input       = "What is 1 plus 2 1?"
+               , expected    = Nothing
+               }
+        , Case { description = "reject postfix notation"
+               , input       = "What is 1 2 plus?"
+               , expected    = Nothing
+               }
+        , Case { description = "reject prefix notation"
+               , input       = "What is plus 1 2?"
+               , expected    = Nothing
+               }
         ]
