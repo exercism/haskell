@@ -539,6 +539,17 @@
       ]
     },
     {
+      "slug": "proverb",
+      "uuid": "17ba80b8-1ca6-426b-880a-15de1d413032",
+      "core": false,
+      "unlocked_by": "pangram",
+      "difficulty": 4,
+      "topics": [
+        "lists",
+        "recursion"
+      ]
+    },
+    {
       "slug": "atbash-cipher",
       "uuid": "4b6d04f4-8cfc-4d8a-ac6e-77f3889f27c3",
       "core": false,
