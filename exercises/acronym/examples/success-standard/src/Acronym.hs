@@ -3,7 +3,7 @@ module Acronym (abbreviate) where
 import Data.Char (isAlpha, isUpper, toUpper)
 
 abbreviate :: String -> String
-abbreviate = concatMap initials . words . map replaceNonAlpha
+abbreviate = concatMap initials . words . map replaceNonWord
 
 initials :: String -> String
 initials [] = []
@@ -15,7 +15,8 @@ initials (x:xs) = toUpper x : rest
 isAcronym :: String -> Bool
 isAcronym = all isUpper
 
-replaceNonAlpha :: Char -> Char
-replaceNonAlpha x
+replaceNonWord :: Char -> Char
+replaceNonWord '\'' = '\''
+replaceNonWord x
   | isAlpha x = x
   | otherwise = ' '
