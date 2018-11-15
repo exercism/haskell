@@ -5,7 +5,7 @@ module Series
 where
 
 import           Data.Char
-import           Data.List                      ( tails )
+-- for window':  import           Data.List                      ( tails )
 
 data Error
   = InvalidSpan
