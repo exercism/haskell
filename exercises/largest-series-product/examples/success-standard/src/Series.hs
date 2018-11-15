@@ -17,7 +17,7 @@ largestProduct size digits = if size > length digits || size < 0
   then Left InvalidSpan
   else do
     digits' <- traverse parseDigits digits
-    return $ maximum $ product <$> window' size digits'
+    return $ maximum $ product <$> window size digits'
 
 -- Two alternative sliding window functions
 window :: Int -> [a] -> [[a]]
@@ -25,8 +25,8 @@ window size xs | size <= 0        = [[]]
                | length xs < size = []
                | otherwise        = take size xs : window size (tail xs)
 
-window' :: Int -> [a] -> [[a]]
-window' size xs = take (length xs - (size - 1)) $ map (take size) (tails xs)
+-- window' :: Int -> [a] -> [[a]]
+-- window' size xs = take (length xs - (size - 1)) $ map (take size) (tails xs)
 
 parseDigits :: Char -> Either Error Integer
 parseDigits c = if isDigit c
