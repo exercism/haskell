@@ -38,6 +38,10 @@ cases = [ Case { description = "puzzle with three letters"
                , puzzle      = "ACA + DD == BD"
                , expected    = Nothing
                }
+        , Case { description = "puzzle with two digits final carry"
+               , puzzle      = "A + A + A + A + A + A + A + A + A + A + A + B == BCC"
+               , expected    = Just [('A', 9), ('B', 1), ('C', 0)]
+               }
         , Case { description = "puzzle with four letters"
                , puzzle      = "AS + A == MOM"
                , expected    = Just [('A', 9), ('S', 2), ('M', 1), ('O', 0)]

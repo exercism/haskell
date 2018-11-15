@@ -52,4 +52,19 @@ specs = describe "saddlePoints" $ for_ cases test
                 , [6, 7, 6]
                 , [3, 2, 5] ], [(2, 2)] )
 
+            , ( "non-square matrix",
+                [ [3, 1, 3]
+                , [3, 2, 4] ], [ (0, 0)
+                               , (0, 2) ] )
+
+            , ( "Can identify that saddle points in a single column matrix are those with the minimum value",
+                [ [2]
+                , [1]
+                , [4]
+                , [1] ], [ (1, 0)
+                         , (3, 0) ] )
+
+            , ( "Can identify that saddle points in a single row matrix are those with the maximum value",
+                [ [2, 5, 3, 5] ], [ (0, 1)
+                                  , (0, 3) ] )
             ]

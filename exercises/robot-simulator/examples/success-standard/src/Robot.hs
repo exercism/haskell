@@ -2,9 +2,7 @@ module Robot (Bearing(..),
               mkRobot,
               coordinates,
               bearing,
-              simulate,
-              turnRight,
-              turnLeft
+              move,
               ) where
 import Data.List (foldl')
 import Control.Arrow (first, second)
@@ -55,5 +53,5 @@ step Advance   r = r { coordinates = advance (bearing r) (coordinates r) }
 step TurnLeft  r = r { bearing = turnLeft (bearing r) }
 step TurnRight r = r { bearing = turnRight (bearing r) }
 
-simulate :: Robot -> String -> Robot
-simulate r = foldl' (flip step) r . instructions
+move :: Robot -> String -> Robot
+move r = foldl' (flip step) r . instructions

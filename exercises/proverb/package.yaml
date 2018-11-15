@@ -1,0 +1,17 @@
+name: proverb
+version: 1.1.0.1
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: Proverb
+  source-dirs: src
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - proverb
+      - hspec

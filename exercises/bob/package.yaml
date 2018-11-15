@@ -1,5 +1,5 @@
 name: bob
-version: 1.4.0.7
+version: 1.4.0.8
 
 dependencies:
   - base

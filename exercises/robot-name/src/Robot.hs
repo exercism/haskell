@@ -1,11 +1,17 @@
-module Robot (Robot, mkRobot, resetName, robotName) where
+module Robot (Robot, initialState, mkRobot, resetName, robotName) where
 
-data Robot = Dummy
+import Control.Monad.State (StateT)
 
-mkRobot :: IO Robot
+data Robot = Dummy1
+data RunState = Dummy2
+
+initialState :: RunState
+initialState = error "You need to implement this function"
+
+mkRobot :: StateT RunState IO Robot
 mkRobot = error "You need to implement this function."
 
-resetName :: Robot -> IO ()
+resetName :: Robot -> StateT RunState IO ()
 resetName robot = error "You need to implement this function."
 
 robotName :: Robot -> IO String
