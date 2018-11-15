@@ -1,22 +1,34 @@
-module Series (Error(..), largestProduct) where
+module Series
+  ( Error(..)
+  , largestProduct
+  )
+where
 
-import Control.Monad    ((>=>))
-import Data.Char        (digitToInt, isDigit)
-import Data.List        (tails)
-import Data.Maybe       (mapMaybe)
-import Safe             (maximumMay)
-import Safe.Exact       (takeExactMay)
+import           Data.Char
+import           Data.List                      ( tails )
 
-data Error = InvalidSpan | InvalidDigit Char deriving (Show, Eq)
+data Error
+  = InvalidSpan
+  | InvalidDigit Char
+  deriving (Show, Eq)
 
-rightOr :: a -> Maybe b -> Either a b
-rightOr a Nothing = Left a
-rightOr _ (Just x) = Right x
+largestProduct :: Int -> String -> Either Error Integer
+largestProduct size digits = if size > length digits || size < 0
+  then Left InvalidSpan
+  else do
+    digits' <- traverse parseDigits digits
+    return $ maximum $ product <$> window' size digits'
 
-largestProduct :: (Integral a, Num b, Ord b) => a -> String -> Either Error b
-largestProduct n = traverse charToNum >=> rightOr InvalidSpan . maximumMay . products
-  where
-    products = mapMaybe (fmap product . takeExactMay (fromIntegral n)) . tails
-    charToNum x
-        | isDigit x = Right . fromIntegral . digitToInt $ x
-        | otherwise = Left (InvalidDigit x)
+-- Two alternative sliding window functions
+window :: Int -> [a] -> [[a]]
+window size xs | size <= 0        = [[]]
+               | length xs < size = []
+               | otherwise        = take size xs : window size (tail xs)
+
+window' :: Int -> [a] -> [[a]]
+window' size xs = take (length xs - (size - 1)) $ map (take size) (tails xs)
+
+parseDigits :: Char -> Either Error Integer
+parseDigits c = if isDigit c
+  then Right $ fromIntegral $ digitToInt c
+  else Left $ InvalidDigit c
