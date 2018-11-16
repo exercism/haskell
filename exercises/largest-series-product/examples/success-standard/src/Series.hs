@@ -1,34 +1,29 @@
 module Series
   ( Error(..)
   , largestProduct
-  )
-where
+  ) where
 
-import           Data.Char
--- for window':  import           Data.List                      ( tails )
+import Data.Char (digitToInt, isDigit)
 
-data Error
-  = InvalidSpan
+data Error                                      
+  = InvalidSpan                                 
   | InvalidDigit Char
   deriving (Show, Eq)
-
+  
 largestProduct :: Int -> String -> Either Error Integer
-largestProduct size digits = if size > length digits || size < 0
-  then Left InvalidSpan
-  else do
-    digits' <- traverse parseDigits digits
-    return $ maximum $ product <$> window size digits'
-
--- Two alternative sliding window functions
+largestProduct size digits
+  | size > length digits || size < 0 = Left InvalidSpan
+  | otherwise = do
+    digits' <- traverse toDigit digits
+    return . maximum $ product <$> window size digits'
+  
 window :: Int -> [a] -> [[a]]
-window size xs | size <= 0        = [[]]
-               | length xs < size = []
-               | otherwise        = take size xs : window size (tail xs)
-
--- window' :: Int -> [a] -> [[a]]
--- window' size xs = take (length xs - (size - 1)) $ map (take size) (tails xs)
-
-parseDigits :: Char -> Either Error Integer
-parseDigits c = if isDigit c
-  then Right $ fromIntegral $ digitToInt c
-  else Left $ InvalidDigit c
+window size xs
+  | size <= 0 = [[]]
+  | length xs < size = []
+  | otherwise = take size xs : window size (tail xs)
+               
+toDigit :: Char -> Either Error Integer
+toDigit c
+  | isDigit c = Right . fromIntegral $ digitToInt c
+  | otherwise = Left $ InvalidDigit c
