@@ -1,22 +1,24 @@
 module Series (Error(..), largestProduct) where
 
-import Control.Monad    ((>=>))
-import Data.Char        (digitToInt, isDigit)
-import Data.List        (tails)
-import Data.Maybe       (mapMaybe)
-import Safe             (maximumMay)
-import Safe.Exact       (takeExactMay)
+import Data.Char (isDigit, digitToInt)
 
 data Error = InvalidSpan | InvalidDigit Char deriving (Show, Eq)
 
-rightOr :: a -> Maybe b -> Either a b
-rightOr a Nothing = Left a
-rightOr _ (Just x) = Right x
+largestProduct :: Int -> String -> Either Error Integer
+largestProduct size s
+  | size > length s || size < 0 = Left InvalidSpan
+  | otherwise = maximum . map product . window size <$> digits s
 
-largestProduct :: (Integral a, Num b, Ord b) => a -> String -> Either Error b
-largestProduct n = traverse charToNum >=> rightOr InvalidSpan . maximumMay . products
-  where
-    products = mapMaybe (fmap product . takeExactMay (fromIntegral n)) . tails
-    charToNum x
-        | isDigit x = Right . fromIntegral . digitToInt $ x
-        | otherwise = Left (InvalidDigit x)
+window :: Int -> [a] -> [[a]]
+window size xs
+  | size <= 0 = [[]]
+  | length xs < size = []
+  | otherwise = take size xs : window size (tail xs)
+
+digits :: String -> Either Error [Integer]
+digits = traverse toDigit
+
+toDigit :: Char -> Either Error Integer
+toDigit c
+  | isDigit c = Right . fromIntegral . digitToInt $ c
+  | otherwise = Left (InvalidDigit c)
