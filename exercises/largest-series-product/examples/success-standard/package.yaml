@@ -7,7 +7,6 @@ library:
   exposed-modules: Series
   source-dirs: src
   dependencies:
-    - safe
 
 tests:
   test:
