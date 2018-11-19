@@ -1,12 +1,14 @@
 {-# LANGUAGE RecordWildCards #-}
 
 import Prelude hiding    (abs, div)
+import Data.Function     (on)
 import Data.Foldable     (for_)
 import Test.Hspec        (Spec, describe, it, shouldBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
 import ComplexNumbers
-  ( conjugate
+  ( Complex
+  , conjugate
   , abs
   , real
   , imaginary
@@ -32,12 +34,18 @@ specs = do
           describe "sub"       $ for_ subCases       $ testA sub
  where
   testA f CaseA{..} = it descriptionA $ f (complex number1A) (complex number2A)
-                                        `shouldBe` complex expectedA
+                                        `shouldBeAround` complex expectedA
   testB f CaseB{..} = it descriptionB $ f (complex number1B)
-                                        `shouldBe` complex expectedB
+                                        `shouldBeAround` complex expectedB
   testC f CaseC{..} = it descriptionC $ f (complex number1C)
                                         `shouldBe` expectedC
+  shouldBeAround = shouldBe `on` roundComplex 2
 
+  roundComplex :: Int -> Complex Float -> Complex Float
+  roundComplex n c = complex (roundTo n (real c), roundTo n (imaginary c))
+
+  roundTo :: Int -> Float -> Float
+  roundTo n = (/ 10 ^ n) . (fromIntegral :: Integer -> Float) . round . (* 10 ^ n)
 
 data CaseA = CaseA { descriptionA :: String
                    , number1A     :: (Float, Float)
