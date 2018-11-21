@@ -72,6 +72,14 @@ cases = [ Case { description = "paired square brackets"
                , input       = "[({]})"
                , expected    = False
                }
+        , Case { description = "paired and incomplete brackets"
+               , input       = "{}["
+               , expected    = False
+               }
+        , Case { description = "too many closing brackets"
+               , input       = "[]]"
+               , expected    = False
+               }
         , Case { description = "math expression"
                , input       = "(((185 + 223.85) * 15) - 543)/2"
                , expected    = True

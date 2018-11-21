@@ -59,12 +59,12 @@ cases = [ Case { description = "valid isbn number"
                , input       = "3598215078X"
                , expected    = False
                }
-        , Case { description = "isbn without check digit"
-               , input       = "3-598-21507"
+        , Case { description = "too short isbn"
+               , input       = "00"
                , expected    = False
                }
-        , Case { description = "too long isbn"
-               , input       = "3-598-21507-XX"
+        , Case { description = "isbn without check digit"
+               , input       = "3-598-21507"
                , expected    = False
                }
         , Case { description = "check digit of X should not be used for 0"
@@ -77,6 +77,14 @@ cases = [ Case { description = "valid isbn number"
                }
         , Case { description = "input is 9 characters"
                , input       = "134456729"
+               , expected    = False
+               }
+        , Case { description = "invalid characters are not ignored"
+               , input       = "3132P34035"
+               , expected    = False
+               }
+        , Case { description = "input is too long but contains a valid isbn"
+               , input       = "98245726788"
                , expected    = False
                }
         ]

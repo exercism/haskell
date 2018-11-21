@@ -1,8 +1,10 @@
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE OverloadedStrings #-}
 
 import Data.Foldable     (for_)
 import Test.Hspec        (Spec, describe, it, shouldBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+import Data.String       (fromString)
 
 import Bob (responseFor)
 
@@ -12,7 +14,7 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = describe "responseFor" $ for_ cases test
   where
-    test Case{..} = it description $ responseFor input `shouldBe` expected
+    test Case{..} = it description $ responseFor (fromString input) `shouldBe` fromString expected
 
 data Case = Case { description :: String
                  , input       :: String
@@ -73,7 +75,7 @@ cases = [ Case { description = "stating something"
                , expected    = "Whoa, chill out!"
                }
         , Case { description = "shouting with no exclamation mark"
-               , input       = "I HATE YOU"
+               , input       = "I HATE THE DMV"
                , expected    = "Whoa, chill out!"
                }
         , Case { description = "statement containing question mark"
@@ -101,7 +103,7 @@ cases = [ Case { description = "stating something"
                , expected    = "Fine. Be that way!"
                }
         , Case { description = "multiple line question"
-               , input       = "\nDoes this cryogenic chamber make me look fat?\nno"
+               , input       = "\nDoes this cryogenic chamber make me look fat?\nNo."
                , expected    = "Whatever."
                }
         , Case { description = "starting with whitespace"

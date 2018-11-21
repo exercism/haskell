@@ -1,5 +1,5 @@
 name: anagram
-version: 1.2.0.6
+version: 1.4.0.7
 
 dependencies:
   - base

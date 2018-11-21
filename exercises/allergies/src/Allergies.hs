@@ -8,7 +8,7 @@ data Allergen = Eggs
               | Chocolate
               | Pollen
               | Cats
-              deriving (Eq)
+              deriving (Eq, Show)
 
 allergies :: Int -> [Allergen]
 allergies score = error "You need to implement this function."

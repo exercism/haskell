@@ -119,6 +119,17 @@ specs = do
         runTexts [ ": + * ;"
                  , "3 4 +"   ] `shouldBe` Right [12]
 
+      it "can use different words with the same name" $
+        runTexts [ ": foo 5 ;"
+                 , ": bar foo ;"
+                 , ": foo 6 ;"
+                 , "bar foo"     ] `shouldBe` Right [5, 6]
+
+      it "can define word that uses word with the same name" $
+        runTexts [ ": foo 10 ;"
+                 , ": foo foo 1 + ;"
+                 , "foo"             ] `shouldBe` Right [11]
+
       it "cannot redefine numbers" $
         runTexts [": 1 2 ;"] `shouldBe` Left InvalidWord
 

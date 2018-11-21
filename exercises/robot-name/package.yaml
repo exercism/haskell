@@ -1,8 +1,9 @@
 name: robot-name
-version: 0.1.0.2
+version: 0.1.0.3
 
 dependencies:
   - base
+  - mtl
 
 library:
   exposed-modules: Robot

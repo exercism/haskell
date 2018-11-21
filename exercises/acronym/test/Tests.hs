@@ -47,4 +47,16 @@ cases = [ Case { description = "basic"
                , input       = "Complementary metal-oxide semiconductor"
                , expected    = "CMOS"
                }
+        , Case { description = "very long abbreviation"
+               , input       = "Rolling On The Floor Laughing So Hard That My Dogs Came Over And Licked Me"
+               , expected    = "ROTFLSHTMDCOALM"
+               }
+        , Case { description = "consecutive delimiters"
+               , input       = "Something - I made up from thin air"
+               , expected    = "SIMUFTA"
+               }
+        , Case { description = "apostrophes"
+               , input       = "Halley's Comet"
+               , expected    = "HC"
+               }
         ]

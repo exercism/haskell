@@ -48,6 +48,10 @@ cases = [ Case { description = "single digit strings can not be valid"
                , input       = "8273 1232 7352 0569"
                , expected    = False
                }
+        , Case { description = "valid number with an even number of digits"
+               , input       = "095 245 88"
+               , expected    = True
+               }
 -- This track is not testing these cases, since we would rather focus on the algorithm,
 -- and because it seems strange to be unable to distinguish between well-formed invalid input and malformed input.
 --        , Case { description = "valid strings with a non-digit included become invalid"
@@ -74,4 +78,8 @@ cases = [ Case { description = "single digit strings can not be valid"
                , input       = "091"
                , expected    = True
                }
+--        , Case { description = "strings with non-digits is invalid"
+--               , input       = ":9"
+--               , expected    = False
+--               }
         ]

@@ -8,7 +8,6 @@ library:
   source-dirs: src
   dependencies:
     - containers
-    - multiset
     - text
 
 tests:

@@ -1,57 +1,69 @@
 {
   "language": "Haskell",
   "active": true,
-  "blurb": "",
+  "blurb": "Haskell is a functional programming language which is pure and statically-typed. It's known for lazy evaluation, where evaluation is deferred until necessary, and its purity, where monads are used for working with side-effects.",
   "ignore_pattern": "example",
   "solution_pattern": "example.*[.]hs",
   "exercises": [
     {
       "slug": "hello-world",
       "uuid": "c97d9dda-c7ee-4595-b447-693559d03ba5",
-      "core": false,
+      "core": true,
+      "auto_approve": true,
       "unlocked_by": null,
       "difficulty": 1,
-      "topics": null
+      "topics": [
+        "strings"
+      ]
     },
     {
       "slug": "leap",
       "uuid": "0ad7d756-1cbd-44f4-a64f-0dc7e9eb40f4",
-      "core": false,
+      "core": true,
       "unlocked_by": null,
       "difficulty": 1,
-      "topics": null
+      "topics": [
+        "booleans"
+      ]
     },
     {
       "slug": "space-age",
       "uuid": "6cbb7841-9d96-4528-88e3-6e98a450fd7c",
-      "core": false,
+      "core": true,
       "unlocked_by": null,
       "difficulty": 1,
-      "topics": null
+      "topics": [
+        "discriminated_unions"
+      ]
     },
     {
       "slug": "bob",
       "uuid": "e570c730-12e5-4b9e-adb0-eae85360e1b5",
-      "core": false,
+      "core": true,
       "unlocked_by": null,
       "difficulty": 1,
-      "topics": null
+      "topics": [
+        "strings"
+      ]
     },
     {
       "slug": "pangram",
       "uuid": "42cb6880-0c4b-4455-815b-aac94c05db18",
-      "core": false,
+      "core": true,
       "unlocked_by": null,
       "difficulty": 1,
-      "topics": null
+      "topics": [
+        "strings"
+      ]
     },
     {
       "slug": "collatz-conjecture",
       "uuid": "6eba4eac-8395-4ad6-ac21-3651a11ab4b4",
-      "core": false,
+      "core": true,
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
+        "math",
         "maybe",
         "number_theory"
       ]
@@ -59,59 +71,73 @@
     {
       "slug": "rna-transcription",
       "uuid": "85d77b8e-9b87-4d02-9fba-81f843bd66f1",
-      "core": false,
+      "core": true,
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
-        "maybe"
+        "either"
       ]
     },
     {
       "slug": "sum-of-multiples",
       "uuid": "e125a32e-60ca-4e59-ae35-01f3b1907ccd",
-      "core": false,
+      "core": true,
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
+        "math",
         "number_theory"
       ]
     },
     {
       "slug": "difference-of-squares",
       "uuid": "c8953b81-97f2-4c26-b2b8-aa7ef95c5ff1",
-      "core": false,
+      "core": true,
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
+        "math",
         "number_theory"
       ]
     },
     {
       "slug": "grains",
       "uuid": "197a543c-d9c7-41c3-814c-4b1ece3db568",
-      "core": false,
+      "core": true,
       "unlocked_by": null,
       "difficulty": 2,
       "topics": [
-        "maybe",
-        "number_theory"
+        "maybe"
+      ]
+    },
+    {
+      "slug": "armstrong-numbers",
+      "uuid": "8d643e12-54dd-40ff-9919-e89b301e2112",
+      "core": false,
+      "unlocked_by": "sum-of-multiples",
+      "difficulty": 1,
+      "topics": [
+        "math"
       ]
     },
     {
       "slug": "acronym",
       "uuid": "4b5b2254-1c68-449a-8150-c1d33b8de9d1",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "hello-world",
       "difficulty": 2,
-      "topics": null
+      "topics": [
+        "strings"
+      ]
     },
     {
       "slug": "perfect-numbers",
       "uuid": "928b22c5-f2bd-4496-8605-fcff2dad2c3a",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "leap",
       "difficulty": 2,
       "topics": [
+        "math",
         "maybe",
         "number_theory"
       ]
@@ -120,7 +146,7 @@
       "slug": "hamming",
       "uuid": "30686585-eb09-4514-8b2e-c9a0d9983133",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "space-age",
       "difficulty": 2,
       "topics": [
         "maybe"
@@ -152,7 +178,9 @@
       "core": false,
       "unlocked_by": null,
       "difficulty": 2,
-      "topics": null
+      "topics": [
+        "strings"
+      ]
     },
     {
       "slug": "diamond",
@@ -160,31 +188,39 @@
       "core": false,
       "unlocked_by": null,
       "difficulty": 2,
-      "topics": null
+      "topics": [
+        "strings"
+      ]
     },
     {
       "slug": "etl",
       "uuid": "8082b1fb-7e3b-4a7f-b857-479bdb0d65e3",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "sum-of-multiples",
       "difficulty": 2,
-      "topics": null
+      "topics": [
+        "algorithms",
+        "strings"
+      ]
     },
     {
       "slug": "raindrops",
       "uuid": "39d5aa74-6e4a-4579-810e-b4430bc172e8",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "difference-of-squares",
       "difficulty": 2,
-      "topics": null
+      "topics": [
+        "strings"
+      ]
     },
     {
       "slug": "accumulate",
       "uuid": "5c5a9256-a55e-4bda-baf3-96d052732e11",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "grains",
       "difficulty": 3,
       "topics": [
+        "filtering",
         "lazy_evaluation",
         "library_reimplementation"
       ]
@@ -193,7 +229,7 @@
       "slug": "strain",
       "uuid": "b66851aa-c05e-4a52-aaab-387f193c1dc7",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "hello-world",
       "difficulty": 3,
       "topics": [
         "lazy_evaluation",
@@ -204,7 +240,7 @@
       "slug": "phone-number",
       "uuid": "fd372449-0f01-4b2c-b42d-b56ede6f58fe",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "leap",
       "difficulty": 3,
       "topics": [
         "maybe"
@@ -214,31 +250,38 @@
       "slug": "twelve-days",
       "uuid": "d1dc946d-a142-42ed-abec-e53605635c0d",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "space-age",
       "difficulty": 3,
-      "topics": null
+      "topics": [
+        "strings"
+      ]
     },
     {
       "slug": "isbn-verifier",
       "uuid": "e5a0bed3-90ca-4caa-a73f-2124940f84c9",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "bob",
       "difficulty": 3,
-      "topics": null
+      "topics": [
+        "algorithms"
+      ]
     },
     {
       "slug": "run-length-encoding",
       "uuid": "6eba4eac-8395-4ad6-ac21-3651a11ab4b5",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "pangram",
       "difficulty": 3,
-      "topics": null
+      "topics": [
+        "algorithms",
+        "strings"
+      ]
     },
     {
       "slug": "beer-song",
       "uuid": "382e4fbd-99d6-400b-962c-ebb4a411bcea",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "collatz-conjecture",
       "difficulty": 3,
       "topics": [
         "refactoring"
@@ -248,9 +291,10 @@
       "slug": "triangle",
       "uuid": "28bf351c-0417-4113-83c9-e1e00992cd37",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "rna-transcription",
       "difficulty": 3,
       "topics": [
+        "math",
         "number_theory"
       ]
     },
@@ -258,15 +302,15 @@
       "slug": "scrabble-score",
       "uuid": "7157a846-5846-47a4-97c2-daad7f763512",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "sum-of-multiples",
       "difficulty": 3,
-      "topics": null
+      "topics": []
     },
     {
       "slug": "kindergarten-garden",
       "uuid": "f3e12dd1-d3c7-4955-975f-bfc471d689c7",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "difference-of-squares",
       "difficulty": 3,
       "topics": [
         "define_type"
@@ -276,10 +320,11 @@
       "slug": "complex-numbers",
       "uuid": "4e10e864-2fe4-4926-b908-f70645698999",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "grains",
       "difficulty": 3,
       "topics": [
         "define_type",
+        "math",
         "number_theory"
       ]
     },
@@ -287,7 +332,7 @@
       "slug": "robot-simulator",
       "uuid": "c456adbd-fa8c-4ffe-aa8c-60a1fd1f429e",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "space-age",
       "difficulty": 3,
       "topics": [
         "define_type"
@@ -297,15 +342,17 @@
       "slug": "secret-handshake",
       "uuid": "36d2d7f0-8e9c-4493-979c-080f7067494f",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "leap",
       "difficulty": 3,
-      "topics": null
+      "topics": [
+        "bitwise_operations"
+      ]
     },
     {
       "slug": "protein-translation",
       "uuid": "f750e380-fe16-42c0-8b3d-8acd7e443a6e",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "bob",
       "difficulty": 3,
       "topics": [
         "maybe"
@@ -315,15 +362,19 @@
       "slug": "anagram",
       "uuid": "67c53230-82e8-4207-a811-abec27bef381",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "hello-world",
       "difficulty": 4,
-      "topics": null
+      "topics": [
+        "filtering",
+        "lists",
+        "strings"
+      ]
     },
     {
       "slug": "simple-linked-list",
       "uuid": "896dfe3d-f3c9-4c42-bc8d-8de49a8c7766",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "pangram",
       "difficulty": 4,
       "topics": [
         "define_type",
@@ -334,10 +385,11 @@
       "slug": "list-ops",
       "uuid": "fd106381-478d-43b0-bdd2-c39e7044e01a",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "collatz-conjecture",
       "difficulty": 4,
       "topics": [
         "accumulator_strictness",
+        "filtering",
         "library_reimplementation"
       ]
     },
@@ -345,15 +397,15 @@
       "slug": "meetup",
       "uuid": "01401d15-6667-4f94-bcd2-ec5a70df1cc6",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "rna-transcription",
       "difficulty": 4,
-      "topics": null
+      "topics": []
     },
     {
       "slug": "roman-numerals",
       "uuid": "1c575894-ea99-4443-90c2-8172eaff7fea",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "sum-of-multiples",
       "difficulty": 4,
       "topics": [
         "maybe"
@@ -363,9 +415,10 @@
       "slug": "prime-factors",
       "uuid": "8cc9254d-cda5-4a7d-ad50-921a99f1432d",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "grains",
       "difficulty": 4,
       "topics": [
+        "math",
         "number_theory"
       ]
     },
@@ -373,35 +426,40 @@
       "slug": "allergies",
       "uuid": "3630c60f-3e18-42c2-bce4-10dc62d11b25",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "difference-of-squares",
       "difficulty": 4,
-      "topics": null
+      "topics": [
+        "algorithms",
+        "bitwise_operations"
+      ]
     },
     {
       "slug": "all-your-base",
       "uuid": "69b6b2d8-7d28-4fa1-84af-3c41857c1d16",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "difference-of-squares",
       "difficulty": 4,
       "topics": [
-        "either"
+        "either",
+        "math"
       ]
     },
     {
       "slug": "largest-series-product",
       "uuid": "5f92b1d3-b2cb-463e-b6da-347473ef4c30",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "grains",
       "difficulty": 4,
       "topics": [
-        "either"
+        "either",
+        "math"
       ]
     },
     {
       "slug": "clock",
       "uuid": "fa84dc6c-a212-431a-b4c1-752be5c99af7",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "hello-world",
       "difficulty": 4,
       "topics": [
         "define_type",
@@ -412,7 +470,7 @@
       "slug": "matrix",
       "uuid": "46502471-d2f8-4f25-a220-55b0caff435c",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "collatz-conjecture",
       "difficulty": 4,
       "topics": [
         "define_type"
@@ -422,7 +480,7 @@
       "slug": "house",
       "uuid": "2ab43e18-085b-4493-b51d-71274481d960",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "pangram",
       "difficulty": 4,
       "topics": [
         "refactoring"
@@ -432,9 +490,10 @@
       "slug": "pascals-triangle",
       "uuid": "ff0a20ef-1828-42f1-8c10-4bf53b488993",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "leap",
       "difficulty": 4,
       "topics": [
+        "math",
         "number_theory"
       ]
     },
@@ -442,9 +501,10 @@
       "slug": "pythagorean-triplet",
       "uuid": "eb01573e-36bb-4093-bf16-4bccd8a36909",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "bob",
       "difficulty": 4,
       "topics": [
+        "math",
         "number_theory"
       ]
     },
@@ -452,41 +512,59 @@
       "slug": "saddle-points",
       "uuid": "00b6c83b-e652-4f71-a094-b3034f77fd7b",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "space-age",
       "difficulty": 4,
-      "topics": null
+      "topics": []
     },
     {
       "slug": "series",
       "uuid": "4c111498-9248-4f4a-9950-98fdac736d3b",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "difference-of-squares",
       "difficulty": 4,
-      "topics": null
+      "topics": [
+        "lists",
+        "strings"
+      ]
     },
     {
       "slug": "sieve",
       "uuid": "1ed4a7af-76eb-4b42-89b2-dcb97e509443",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "rna-transcription",
       "difficulty": 4,
       "topics": [
+        "math",
         "number_theory"
+      ]
+    },
+    {
+      "slug": "proverb",
+      "uuid": "17ba80b8-1ca6-426b-880a-15de1d413032",
+      "core": false,
+      "unlocked_by": "pangram",
+      "difficulty": 4,
+      "topics": [
+        "lists",
+        "recursion"
       ]
     },
     {
       "slug": "atbash-cipher",
       "uuid": "4b6d04f4-8cfc-4d8a-ac6e-77f3889f27c3",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "sum-of-multiples",
       "difficulty": 5,
-      "topics": null
+      "topics": [
+        "algorithms",
+        "strings"
+      ]
     },
     {
       "slug": "bracket-push",
       "uuid": "be179655-b1a2-4e57-a3f1-4834c467ef41",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "grains",
       "difficulty": 5,
       "topics": [
         "stack"
@@ -496,17 +574,18 @@
       "slug": "crypto-square",
       "uuid": "dde7cf64-7e3b-4e5c-8a65-5d639fa8a307",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "hello-world",
       "difficulty": 5,
-      "topics": null
+      "topics": []
     },
     {
       "slug": "nth-prime",
       "uuid": "ddfc0435-5378-4865-bbcb-a07754014db4",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "hello-world",
       "difficulty": 5,
       "topics": [
+        "math",
         "maybe",
         "number_theory"
       ]
@@ -515,15 +594,17 @@
       "slug": "word-count",
       "uuid": "5d36ba0a-3c57-471a-8956-e324e0384183",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "leap",
       "difficulty": 5,
-      "topics": null
+      "topics": [
+        "strings"
+      ]
     },
     {
       "slug": "binary-search-tree",
       "uuid": "91887e6e-e935-441a-9cd1-754a877dc2be",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "leap",
       "difficulty": 5,
       "topics": [
         "define_type",
@@ -534,15 +615,18 @@
       "slug": "luhn",
       "uuid": "a602f191-581d-48ea-9441-1d6e8a51e71c",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "hello-world",
       "difficulty": 5,
-      "topics": null
+      "topics": [
+        "algorithms",
+        "strings"
+      ]
     },
     {
       "slug": "queen-attack",
       "uuid": "7e1cd145-0bdb-4f52-89e3-b21f98068a1f",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "leap",
       "difficulty": 5,
       "topics": [
         "maybe"
@@ -552,15 +636,17 @@
       "slug": "ocr-numbers",
       "uuid": "90ac04fb-42d3-4666-b26a-2279057f6ef2",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "space-age",
       "difficulty": 5,
-      "topics": null
+      "topics": [
+        "strings"
+      ]
     },
     {
       "slug": "food-chain",
       "uuid": "0b6af91e-8e1f-4ca5-bf30-53b427638e2b",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "space-age",
       "difficulty": 5,
       "topics": [
         "refactoring"
@@ -570,23 +656,27 @@
       "slug": "rotational-cipher",
       "uuid": "cd5ce9ad-b627-46e3-b6d8-872baf476bf1",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "bob",
       "difficulty": 5,
-      "topics": null
+      "topics": [
+        "strings"
+      ]
     },
     {
       "slug": "spiral-matrix",
       "uuid": "781325ec-c772-4b56-80b0-2c56c5953122",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "bob",
       "difficulty": 5,
-      "topics": null
+      "topics": [
+        "lists"
+      ]
     },
     {
       "slug": "custom-set",
       "uuid": "c875009a-c8a0-47d0-bef6-d6f278565fe5",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "pangram",
       "difficulty": 5,
       "topics": [
         "define_type",
@@ -597,23 +687,27 @@
       "slug": "parallel-letter-frequency",
       "uuid": "a3442b20-e2a7-4fc6-8bff-0e61d25b2bf3",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "collatz-conjecture",
       "difficulty": 5,
-      "topics": null
+      "topics": [
+        "strings"
+      ]
     },
     {
       "slug": "transpose",
       "uuid": "f58e07ae-08e9-4e64-b1d7-16033e46509b",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "collatz-conjecture",
       "difficulty": 5,
-      "topics": null
+      "topics": [
+        "lists"
+      ]
     },
     {
       "slug": "simple-cipher",
       "uuid": "2429b6d1-2ce8-487e-b0f7-a4d11970e6bd",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "rna-transcription",
       "difficulty": 6,
       "topics": [
         "io_monad",
@@ -625,15 +719,19 @@
       "slug": "palindrome-products",
       "uuid": "3a0f1014-8829-4b7e-aab7-f23f2fad22a2",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "rna-transcription",
       "difficulty": 6,
-      "topics": null
+      "topics": [
+        "lists",
+        "math",
+        "maybe"
+      ]
     },
     {
       "slug": "robot-name",
       "uuid": "aec901e4-482f-4f00-8a26-a0c09fdb1365",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "sum-of-multiples",
       "difficulty": 6,
       "topics": [
         "define_type",
@@ -645,15 +743,17 @@
       "slug": "pig-latin",
       "uuid": "03bb14fb-d677-47fb-b283-b79c75c93855",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "sum-of-multiples",
       "difficulty": 6,
-      "topics": null
+      "topics": [
+        "strings"
+      ]
     },
     {
       "slug": "say",
       "uuid": "76384e4a-3d3e-4369-9a0d-55c47f91f17e",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "sum-of-multiples",
       "difficulty": 6,
       "topics": [
         "maybe"
@@ -663,7 +763,7 @@
       "slug": "bank-account",
       "uuid": "44f2cb4d-1965-4d11-9373-bc3b5a624a8c",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "difference-of-squares",
       "difficulty": 6,
       "topics": [
         "define_type",
@@ -676,23 +776,26 @@
       "slug": "sublist",
       "uuid": "f49d76f7-f826-4b6a-a514-47af7e84144a",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "difference-of-squares",
       "difficulty": 6,
-      "topics": null
+      "topics": []
     },
     {
       "slug": "rail-fence-cipher",
       "uuid": "5bf7612c-427e-484d-bc67-8553fac4f64d",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "difference-of-squares",
       "difficulty": 6,
-      "topics": null
+      "topics": [
+        "algorithms",
+        "strings"
+      ]
     },
     {
       "slug": "linked-list",
       "uuid": "34b8a4fe-6761-4675-a5a9-e8c92c93fd8f",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "grains",
       "difficulty": 6,
       "topics": [
         "define_type",
@@ -706,23 +809,26 @@
       "slug": "zebra-puzzle",
       "uuid": "893da7e3-1e7f-48d0-a8c2-8d84b9ec064f",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "grains",
       "difficulty": 7,
-      "topics": null
+      "topics": [
+        "algorithms",
+        "logic"
+      ]
     },
     {
       "slug": "minesweeper",
       "uuid": "821f2081-dfc2-40c6-8e12-2907daa04416",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "hello-world",
       "difficulty": 7,
-      "topics": null
+      "topics": []
     },
     {
       "slug": "wordy",
       "uuid": "0869734e-0629-4db9-8e62-af246e5f91ff",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "leap",
       "difficulty": 7,
       "topics": [
         "maybe"
@@ -732,7 +838,7 @@
       "slug": "change",
       "uuid": "5af27112-48f2-423c-9607-03911ccc8049",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "space-age",
       "difficulty": 7,
       "topics": [
         "maybe"
@@ -742,7 +848,7 @@
       "slug": "alphametics",
       "uuid": "154c2191-7746-497c-bf4e-37a5a5ffbb0b",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "bob",
       "difficulty": 7,
       "topics": [
         "maybe"
@@ -752,7 +858,7 @@
       "slug": "bowling",
       "uuid": "cf896e0f-7971-4a4e-a164-412dd9176573",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "pangram",
       "difficulty": 7,
       "topics": [
         "either"
@@ -762,7 +868,7 @@
       "slug": "poker",
       "uuid": "35bf659b-b139-4d09-bdae-326319160a27",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "collatz-conjecture",
       "difficulty": 7,
       "topics": [
         "maybe"
@@ -772,7 +878,7 @@
       "slug": "connect",
       "uuid": "2c009c74-fbf2-49f7-b626-0d9da10c18ea",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "rna-transcription",
       "difficulty": 8,
       "topics": [
         "maybe"
@@ -782,7 +888,7 @@
       "slug": "dominoes",
       "uuid": "14f8190f-c711-4399-b176-6efc5e3e71d1",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "sum-of-multiples",
       "difficulty": 8,
       "topics": [
         "maybe"
@@ -792,7 +898,7 @@
       "slug": "sgf-parsing",
       "uuid": "033adeae-d94a-4832-ae99-8dd98acd6044",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "difference-of-squares",
       "difficulty": 9,
       "topics": [
         "maybe"
@@ -802,7 +908,7 @@
       "slug": "go-counting",
       "uuid": "8f1854d7-b8cb-4dfa-9e6a-8811b0891798",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "space-age",
       "difficulty": 9,
       "topics": [
         "maybe"
@@ -812,15 +918,17 @@
       "slug": "lens-person",
       "uuid": "056d6e6c-4d07-4bc0-b0d0-fb76a9ec8672",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "collatz-conjecture",
       "difficulty": 9,
-      "topics": null
+      "topics": [
+        "lens"
+      ]
     },
     {
       "slug": "zipper",
       "uuid": "e585c482-2088-40bf-bc97-bc6fac6a7a72",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "difference-of-squares",
       "difficulty": 10,
       "topics": [
         "define_type",
@@ -831,7 +939,7 @@
       "slug": "forth",
       "uuid": "04c86a05-4d34-4a20-9489-db744c205bb6",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "grains",
       "difficulty": 10,
       "topics": [
         "define_type",
@@ -843,7 +951,7 @@
       "slug": "pov",
       "uuid": "010582a2-4c44-44fb-ac6b-bf1546d303a3",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "rna-transcription",
       "difficulty": 10,
       "topics": [
         "maybe"

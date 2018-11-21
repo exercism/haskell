@@ -1,5 +1,5 @@
 name: hamming
-version: 2.1.0.6
+version: 2.1.1.7
 
 dependencies:
   - base

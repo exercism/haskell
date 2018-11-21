@@ -15,6 +15,7 @@ Exercism exercises in Haskell
 - [Repository structure and conventions](#repository-structure-and-conventions)
   * [Directory structure](#directory-structure)
   * [Exercise structure](#exercise-structure)
+  * [Exercise versioning](#exercise-versioning)
 - [Writing an issue](#writing-an-issue)
 - [Writing a pull request](#writing-a-pull-request)
 - [Development Dependencies](#development-dependencies)
@@ -104,11 +105,30 @@ Each exercise has the following structure:
 resolver for all the exercises.
 - `package.yaml` is a file in the [hpack](https://github.com/sol/hpack#readme)
 format that has all dependencies and build instructions for an exercise.
+  One of the properties tracked in `package.yaml` is the [version](#exercise-versioning) of the exercise.
 - `src/ModuleName.hs` is a [stub solution](#stub-solution).
 - `examples/success-<name>/package.yaml` contains library dependencies for the [example solution](#example-solution). `<name>` is a unique name for the example - usually "standard" (as in `success-standard`), but it can be some other name in case of multiple example solutions.
 - `examples/success-<name>/src/ModuleName.hs` is the source code of the sample solution.
 - `test/Tests.hs` is the [test suite](#test-suite).
 - `.meta/hints.md` is an optional file containing instructions and/or hints. It is used together with the respective `description.md` for the exercise from [problem-specifications](https://github.com/exercism/problem-specifications) to build the `README.md` file.
+
+### Exercise versioning
+
+Each exercise contains a four-part version in its `package.yaml` file, MAJOR.MINOR.PATCH.SERIAL.
+
+There are two possibilities for the meaning of the MAJOR.MINOR.PATCH components:
+
+* Exercises based on a `canonical-data.json` in [problem-specifications](https://github.com/exercism/problem-specifications) should use its version plus a serial number.
+* Exercises that are not based on `canonical-data.json` should use version 0.1.0 plus a serial number.
+
+The serial number starts at 1 and always increases when the tests are changed, regardless of the changes in other version numbers.
+
+When changing a test suite, the version number should be updated appropriately so that:
+
+* It is possible for maintainers of this track to tell whether test suites are up to date with https://github.com/exercism/problem-specifications.
+* It is easier for students to determine at-a-glance whether they have the same tests, by comparing version numbers.
+
+This versioning policy was proposed and accepted in https://github.com/exercism/haskell/issues/522.
 
 ### Writing an issue
 To report a bug you should [create an issue](https://help.github.com/articles/creating-an-issue/) on the [exercism/haskell repo](https://github.com/exercism/haskell/issues).
@@ -169,7 +189,3 @@ a [pull request](#writing-a-pull-request), so you can fix your code before submi
 If you are certain that a suggestion given by `hlint` would make the
 code worse, you can [suppress it](https://github.com/ndmitchell/hlint#customizing-the-hints)
 with annotations in the source file.
-
-
-### Haskell icon
-The Haskell icon was designed by Darrin Thompson and Jeff Wheeler. It was released under the [HaskellWiki license](https://wiki.haskell.org/HaskellWiki:Copyrights).

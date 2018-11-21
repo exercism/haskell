@@ -4,16 +4,18 @@ module WordCount (wordCount) where
 
 import Prelude hiding (head, init, null, tail)
 import Data.Char      (isAlphaNum)
+import Data.List      (foldl')
 import Data.Text      (Text, head, init, null, split, tail, toLower)
-import Data.MultiSet  (MultiSet, Occur, fromList, fromOccurList, toOccurList)
 
-import qualified GHC.Exts (IsList(..))
+import qualified Data.Map as Map
 
-wordCount :: Text -> Bag Text
-wordCount = Bag
-          . fromList
+wordCount :: Text -> Map.Map Text Int
+wordCount = foldl' addOne Map.empty
           . map (stripQuote . toLower)
           . wordsBy (\c -> not (isAlphaNum c) && c /= '\'')
+
+addOne :: Map.Map Text Int -> Text -> Map.Map Text Int
+addOne m word = Map.insertWith (+) word 1 m
 
 -- The `text` package misses this function that
 -- exists in package `split`, but works on lists.
@@ -22,13 +24,3 @@ wordsBy p = filter (not . null) . split p
 
 stripQuote :: Text -> Text
 stripQuote t = if head t == '\'' then init (tail t) else t
-
--- MultiSet is not an instance of `IsList`, so we create
--- a newtype to wrap it, avoiding an orphan instance.
-newtype Bag a = Bag { toMultiSet :: MultiSet a }
-
-instance (Ord a) => GHC.Exts.IsList (Bag a)
-  where
-    type Item (Bag a) = (a, Occur)
-    fromList = Bag . fromOccurList
-    toList   = toOccurList . toMultiSet
