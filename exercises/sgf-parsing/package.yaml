@@ -1,5 +1,5 @@
 name: sgf-parsing
-version: 1.0.0.3
+version: 1.0.0.4
 
 dependencies:
   - base
@@ -9,6 +9,7 @@ dependencies:
 library:
   exposed-modules: Sgf
   source-dirs: src
+  ghc-options: -Wall
   # dependencies:
   # - foo       # List here the packages you
   # - bar       # want to use in your solution.

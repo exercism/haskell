@@ -1,5 +1,5 @@
 name: bracket-push
-version: 1.5.0.6
+version: 1.5.0.7
 
 dependencies:
   - base
@@ -7,6 +7,7 @@ dependencies:
 library:
   exposed-modules: Brackets
   source-dirs: src
+  ghc-options: -Wall
   # dependencies:
   # - foo       # List here the packages you
   # - bar       # want to use in your solution.

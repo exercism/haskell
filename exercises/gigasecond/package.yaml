@@ -1,5 +1,5 @@
 name: gigasecond
-version: 0.1.0.2
+version: 0.1.0.3
 
 dependencies:
   - base
@@ -8,6 +8,7 @@ dependencies:
 library:
   exposed-modules: Gigasecond
   source-dirs: src
+  ghc-options: -Wall
   # dependencies:
   # - foo       # List here the packages you
   # - bar       # want to use in your solution.
