@@ -14,3 +14,4 @@ tests:
     dependencies:
       - hamming
       - hspec
+      - QuickCheck
