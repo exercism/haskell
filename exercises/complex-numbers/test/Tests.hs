@@ -11,6 +11,7 @@ import ComplexNumbers
   ( Complex
   , conjugate
   , abs
+  , exp
   , real
   , imaginary
   , mul
