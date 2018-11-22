@@ -1,5 +1,5 @@
 name: parallel-letter-frequency
-version: 0.1.0.3
+version: 0.1.0.4
 
 dependencies:
   - base
@@ -9,6 +9,7 @@ dependencies:
 library:
   exposed-modules: Frequency
   source-dirs: src
+  ghc-options: -Wall
   # dependencies:
   # - foo       # List here the packages you
   # - bar       # want to use in your solution.

@@ -1,5 +1,5 @@
 name: forth
-version: 1.7.0.10
+version: 1.7.0.11
 
 dependencies:
   - base
@@ -8,6 +8,7 @@ dependencies:
 library:
   exposed-modules: Forth
   source-dirs: src
+  ghc-options: -Wall
   # dependencies:
   # - foo       # List here the packages you
   # - bar       # want to use in your solution.
