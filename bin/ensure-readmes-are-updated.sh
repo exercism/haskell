@@ -1,4 +1,9 @@
-if [ ! -x bin/configlet ]; then
+#!/bin/sh
+configlet=$(which configlet)
+if [ ! -x $configlet ]; then
+    configlet=bin/configlet
+fi
+if [ ! -x $configlet ]; then
    echo "Improper configuration; configlet should exist in bin/ when this script is run"
    echo "Ping a Haskell track maintainer to fix this"
    exit 1
@@ -20,7 +25,7 @@ for exercise in $(git diff --name-only master..$(git rev-parse --abbrev-ref HEAD
    else
       existing_readme_checksum=$(md5sum $readme_path | cut -d' ' -f1)
       # generate the new README
-      bin/configlet generate . --only "$exercise" --spec-path "problem-specifications"
+      $configlet generate . --only "$exercise" --spec-path "problem-specifications"
       generated_readme_checksum=$(md5sum $readme_path | cut -d' ' -f1)
 
       if [ $existing_readme_checksum != $generated_readme_checksum ]; then
