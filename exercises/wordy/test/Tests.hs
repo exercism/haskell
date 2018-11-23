@@ -92,8 +92,12 @@ cases = [ Case { description = "just a number"
                , input       = "Who is the President of the United States?"
                , expected    = Nothing
                }
-        , Case { description = "reject incomplete problem"
+        , Case { description = "reject problem missing an operand"
                , input       = "What is 1 plus?"
+               , expected    = Nothing
+               }
+        , Case { description = "reject problem with no operands or operators"
+               , input       = "What is?"
                , expected    = Nothing
                }
         , Case { description = "reject two operations in a row"
