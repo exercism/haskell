@@ -1,6 +1,7 @@
 {-# LANGUAGE RecordWildCards #-}
 
-import Prelude hiding    (abs, div)
+import Prelude hiding    (abs, div, exp)
+import qualified Prelude as P
 import Data.Function     (on)
 import Data.Foldable     (for_)
 import Test.Hspec        (Spec, describe, it, shouldBe)
@@ -10,6 +11,7 @@ import ComplexNumbers
   ( Complex
   , conjugate
   , abs
+  , exp
   , real
   , imaginary
   , mul
@@ -28,6 +30,7 @@ specs = do
           describe "imaginary" $ for_ imaginaryCases $ testC imaginary
           describe "conjugate" $ for_ conjugateCases $ testB conjugate
           describe "abs"       $ for_ absCases       $ testC abs
+          describe "exp"       $ for_ expCases       $ testB exp
           describe "mul"       $ for_ mulCases       $ testA mul
           describe "div"       $ for_ divCases       $ testA div
           describe "add"       $ for_ addCases       $ testA add
@@ -208,5 +211,25 @@ subCases =
             , number1A     = (1, 2)
             , number2A     = (3, 4)
             , expectedA    = (-2, -2)
+            }
+    ]
+
+expCases :: [CaseB]
+expCases =
+    [ CaseB { descriptionB = "Euler's identity/formula"
+            , number1B     = (0, pi)
+            , expectedB    = (-1, 0)
+            }
+    , CaseB { descriptionB = "Exponential of 0"
+            , number1B     = (0, 0)
+            , expectedB    = (1, 0)
+            }
+    , CaseB { descriptionB = "Exponential of a purely real number"
+            , number1B     = (1, 0)
+            , expectedB    = (P.exp 1, 0)
+            }
+    , CaseB { descriptionB = "Exponential of a purely real number"
+            , number1B     = (log 2, pi)
+            , expectedB    = (-2, 0)
             }
     ]
