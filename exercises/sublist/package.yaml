@@ -1,5 +1,5 @@
 name: sublist
-version: 1.1.0.4
+version: 1.1.0.5
 
 dependencies:
   - base
@@ -7,6 +7,7 @@ dependencies:
 library:
   exposed-modules: Sublist
   source-dirs: src
+  ghc-options: -Wall
   # dependencies:
   # - foo       # List here the packages you
   # - bar       # want to use in your solution.
