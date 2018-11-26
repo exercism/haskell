@@ -156,9 +156,17 @@ Examples are named `<type>-<name>`.
 There are three possible types of examples:
 
 * success: The example is expected to pass the tests.
-  There should be at least one of these per exercise.
+  * There _must_ be at least `success` example per exercise, in order to confirm that it is possible to solve the tests.
+  * There _may_ be more than one `success` example for a given exercise, but these are intended for use when we want to confirm that multiple type signatures for a given solution will compile and pass the tests.
+  * We do not intend to use multiple `success` examples just to showcase a wide variety of possible solutions, since that is not in the goals of this repository.
 * fail: The example is expected to build, but fail the tests.
+  * These are intended for use when we want to make sure that the track tests have coverage: Whether the tests find certain classes of incorrect or inefficient solutions.
+  * It's suggested that these only be used for tests that are specific to the track. This is under the assumption that tests sourced from problem-specifications have already been judged to have appropriate coverage by the reviewers of the problem-specifications repository.
 * error: The example is expected to fail to build.
+  * There is only one intended use of this so far, and that is a single check that a solution without a type signature will fail to build (because CI builds with `--pedantic`).
+  * We do not intend for any additional uses of this type of example.
+
+These example types were proposed and accepted in https://github.com/exercism/haskell/issues/397.
 
 ### Test suite
 The test suite should be derived from the respective `problem-specifications/exercises/<exercise-name>/canonical-data.json` and comply to some formatting and coding standards (to get an idea you may look at some of the existing tests).
