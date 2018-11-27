@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -xe
 
 if [ $# -eq 0 ]; then
     echo "usage: $0 /path/to/exercise"
