@@ -18,7 +18,7 @@ fi
 
 if [ "$current_branch" != "master" ]; then
     # Exit early if exercise has not been changed
-    changed_exercises="$(git diff --name-only "$TRAVIS_COMMIT_RANGE" | grep "exercises/" | cut -d '/' -f -2 | sort | uniq)"
+    changed_exercises="$(git diff --name-only "${TRAVIS_COMMIT_RANGE/.../..}" | grep "exercises/" | cut -d '/' -f -2 | sort | uniq)"
     # Format: exercises/clock
     for changed_exercise in changed_exercises; do
 	# If changed_exercise is suffix of exercisedir
