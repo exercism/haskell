@@ -1,16 +1,13 @@
 name: pangram
-version: 1.4.1.9
 
 dependencies:
   - base
+  - text
+  - containers
 
 library:
   exposed-modules: Pangram
   source-dirs: src
-  ghc-options: -Wall
-  # dependencies:
-  # - foo       # List here the packages you
-  # - bar       # want to use in your solution.
 
 tests:
   test:

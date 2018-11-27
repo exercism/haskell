@@ -1,6 +1,8 @@
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE OverloadedStrings #-}
 
 import Data.Foldable     (for_)
+import Data.String       (fromString)
 import Test.Hspec        (Spec, describe, it, shouldBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
@@ -12,7 +14,7 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = describe "isPangram" $ for_ cases test
   where
-    test Case{..} = it description $ isPangram input `shouldBe` expected
+    test Case{..} = it description $ isPangram (fromString input) `shouldBe` expected
 
 data Case = Case { description :: String
                  , input       :: String
