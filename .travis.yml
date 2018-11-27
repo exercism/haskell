@@ -1,4 +1,5 @@
 sudo: false              # Use the container-based infrastructure.
+language: bash
 
 addons:
   apt:
