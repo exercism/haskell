@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ $# -eq 0 ]; then
     echo "usage: $0 /path/to/exercise"
@@ -26,7 +26,7 @@ if [ "$current_branch" != "master" ]; then
 	    exercise_changed=1
 	esac
     done
-    if [ -z "exercise_changed" ]; then
+    if [[ -z "$exercise_changed" ]]; then
 	echo "exercise not modified."
 	exit 0
     fi
