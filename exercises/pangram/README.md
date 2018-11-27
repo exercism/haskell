@@ -8,6 +8,12 @@ The best known English pangram is:
 The alphabet used consists of ASCII letters `a` to `z`, inclusive, and is case
 insensitive. Input will not contain non-ASCII symbols.
 
+## Hints
+
+Haskell has many string types with `String` being the default. This exercise,
+however, asks that you explore the type `Text` instead. You can read more about
+[string types](https://haskell-lang.org/tutorial/string-types) and explore the
+[`Data.Text` library](https://hackage.haskell.org/package/text-1.2.3.1/docs/Data-Text.html).
 
 ## Getting Started
 
