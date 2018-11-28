@@ -33,6 +33,10 @@ install:
  - stack --resolver ${RESOLVER} --install-ghc install hlint
  - stack --version
 
+before_script:
+  - git config remote.origin.fetch +refs/heads/*:refs/remotes/origin/*
+  - git fetch
+
 script:
  - "sh ./bin/ensure-readmes-are-updated.sh"
  - "sh ./bin/check-configlet-fmt.sh"
