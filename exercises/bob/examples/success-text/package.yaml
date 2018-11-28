@@ -1,0 +1,17 @@
+name: bob
+
+dependencies:
+  - base
+  - text
+
+library:
+  exposed-modules: Bob
+  source-dirs: src
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - bob
+      - hspec

@@ -1,0 +1,16 @@
+name: proverb
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: Proverb
+  source-dirs: src
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - proverb
+      - hspec

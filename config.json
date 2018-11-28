@@ -75,7 +75,7 @@
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
-        "maybe"
+        "either"
       ]
     },
     {
@@ -107,8 +107,17 @@
       "unlocked_by": null,
       "difficulty": 2,
       "topics": [
-        "maybe",
-        "number_theory"
+        "maybe"
+      ]
+    },
+    {
+      "slug": "armstrong-numbers",
+      "uuid": "8d643e12-54dd-40ff-9919-e89b301e2112",
+      "core": false,
+      "unlocked_by": "sum-of-multiples",
+      "difficulty": 1,
+      "topics": [
+        "math"
       ]
     },
     {
@@ -285,6 +294,7 @@
       "unlocked_by": "rna-transcription",
       "difficulty": 3,
       "topics": [
+        "math",
         "number_theory"
       ]
     },
@@ -526,6 +536,17 @@
       "topics": [
         "math",
         "number_theory"
+      ]
+    },
+    {
+      "slug": "proverb",
+      "uuid": "17ba80b8-1ca6-426b-880a-15de1d413032",
+      "core": false,
+      "unlocked_by": "pangram",
+      "difficulty": 4,
+      "topics": [
+        "lists",
+        "recursion"
       ]
     },
     {

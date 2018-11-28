@@ -56,6 +56,10 @@ cases = [ Case { description = "empty string"
                , input       = "thumbscrew-japingly"
                , expected    = True
                }
+        , Case { description = "hypothetical word with duplicated character following hyphen"
+               , input       = "thumbscrew-jappingly"
+               , expected    = False
+               }
         , Case { description = "isogram with duplicated hyphen"
                , input       = "six-year-old"
                , expected    = True

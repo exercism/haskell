@@ -55,4 +55,8 @@ cases = [ Case { description = "basic"
                , input       = "Something - I made up from thin air"
                , expected    = "SIMUFTA"
                }
+        , Case { description = "apostrophes"
+               , input       = "Halley's Comet"
+               , expected    = "HC"
+               }
         ]
