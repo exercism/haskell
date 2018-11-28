@@ -19,11 +19,11 @@ if [ "$current_branch" != "master" ]; then
     # Exit early if exercise has not been changed
     changed_exercises="$(git diff --name-only "${TRAVIS_COMMIT_RANGE/.../..}" | grep "exercises/" | cut -d '/' -f -2 | sort | uniq)"
     # Format: exercises/clock
-    for changed_exercise in changed_exercises; do
+    for changed_exercise in $changed_exercises; do
 	# If changed_exercise is suffix of exercisedir
-	case $changed_exercise in "$exercisedir"*)
+	if [[ "$exercisedir" == *${changed_exercise} ]]; then
 	    exercise_changed=1
-	esac
+	fi
     done
     if [[ -z "$exercise_changed" ]]; then
 	echo "exercise not modified."
