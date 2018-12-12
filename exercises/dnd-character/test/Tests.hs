@@ -5,6 +5,7 @@ import Data.Foldable     (for_)
 import Test.Hspec        (Spec, describe, it, shouldBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 import Test.QuickCheck
+import Text.Printf       (printf)
 
 import DND (Character(..), ability, modifier, character)
 
@@ -29,14 +30,8 @@ specs = do
   where
     test Case{..} = it description assertion
       where
-        description = "computes the modifier for " ++ showInput input ++ " to be " ++ showMod expected
+        description = printf "computes the modifier for %2d to be %2d" input expected
         assertion = modifier input `shouldBe` expected
-        showInput n
-          | n < 10 = " " ++ show n
-          | otherwise = show n
-        showMod n
-          | n >= 0 = "+" ++ show n
-          | otherwise = show n
 
     cases :: [Case]
     cases = map (uncurry Case)
