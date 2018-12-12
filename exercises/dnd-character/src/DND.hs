@@ -1,6 +1,6 @@
 module DND (Character(..), ability, modifier, character) where
 
-import Test.QuickCheck.Gen (Gen)
+import Test.QuickCheck (Gen)
 
 data Character = Character
   { name         :: String
