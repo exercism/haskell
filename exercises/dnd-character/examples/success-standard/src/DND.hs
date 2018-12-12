@@ -1,3 +1,4 @@
+{-# LANGUAGE RecordWildCards #-}
 module DND (Character(..), ability, modifier, character) where
 
 import Control.Monad (replicateM)
@@ -16,7 +17,7 @@ data Character = Character
   deriving (Show, Eq)
 
 modifier :: Int -> Int
-modifier ability' = (ability' - 10) `div` 2
+modifier a = (a - 10) `div` 2
 
 ability :: Gen Int
 ability = do
@@ -25,11 +26,12 @@ ability = do
 
 character :: Gen Character
 character = do
-  str <- ability
-  dex <- ability
-  con <- ability
-  int <- ability
-  wis <- ability
-  cha <- ability
-  let hp = 10 + modifier con
-  return $ Character "Bob" str dex con int wis cha hp
+  let name = "Bob"
+  strength <- ability
+  dexterity <- ability
+  constitution <- ability
+  intelligence <- ability
+  wisdom <- ability
+  charisma <- ability
+  let hitpoints = 10 + modifier constitution
+  return Character{..}
