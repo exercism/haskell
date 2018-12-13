@@ -1,4 +1,8 @@
-module DND (Character(..), ability, modifier, character) where
+module DND ( Character(..)
+           , ability
+           , modifier
+           , character
+           ) where
 
 import Test.QuickCheck (Gen)
 
