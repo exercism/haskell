@@ -28,15 +28,13 @@ phenomenon, go watch [this youtube video][video].
 
 ## Hints
 
-To complete this exercise you need to implement the function `isLeapYear`,
-that takes a year and determines whether it is a leap year.
+To complete this exercise you need to implement the function `isLeapYear`
+that takes a year and determines whether it is a leap year. To solve this
+exercise you may read up on:
 
-You can use the provided signature if you are unsure about the types, but
-don't let it restrict your creativity:
+- [Guards][guards]
 
-```haskell
-isLeapYear :: Integer -> Bool
-```
+[guards]: https://www.futurelearn.com/courses/functional-programming-haskell/0/steps/27226
 
 
 
