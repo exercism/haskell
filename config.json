@@ -359,6 +359,16 @@
       ]
     },
     {
+      "slug": "dnd-character",
+      "uuid": "138db4fc-ee70-11e8-8eb2-f2801f1b9fd1",
+      "core": false,
+      "unlocked_by": "pangram",
+      "difficulty": 3,
+      "topics": [
+        "random"
+      ]
+    },
+    {
       "slug": "anagram",
       "uuid": "67c53230-82e8-4207-a811-abec27bef381",
       "core": false,
