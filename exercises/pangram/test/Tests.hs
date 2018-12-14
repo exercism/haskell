@@ -62,4 +62,8 @@ cases = [ Case { description = "sentence empty"
                , input       = "the quick brown fox jumps over with lazy FX"
                , expected    = False
                }
+        , Case { description = "determine pangram by terminating as soon as all letters have occurred"
+               , input       = "abcdefghijklmnopqrstuvwxyz" ++ undefined
+               , expected    = True
+               }
         ]
