@@ -63,7 +63,7 @@ cases = [ Case { description = "sentence empty"
                , expected    = False
                }
         {-
-        -- The following test can be enabled:
+        -- The following test can be enabled for String-based solutions:
         , Case { description = "determine pangram by terminating as soon as all letters have occurred"
                , input       = "abcdefghijklmnopqrstuvwxyz" ++ [undefined]
                , expected    = True
