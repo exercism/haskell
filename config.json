@@ -90,14 +90,13 @@
       ]
     },
     {
-      "slug": "difference-of-squares",
-      "uuid": "c8953b81-97f2-4c26-b2b8-aa7ef95c5ff1",
+      "slug": "nucleotide-count",
+      "uuid": "00feb0e9-ae1e-43fc-a0ea-8f2d0d0b9f49",
       "core": true,
       "unlocked_by": null,
-      "difficulty": 1,
+      "difficulty": 2,
       "topics": [
-        "math",
-        "number_theory"
+        "either"
       ]
     },
     {
@@ -118,6 +117,17 @@
       "difficulty": 1,
       "topics": [
         "math"
+      ]
+    },
+    {
+      "slug": "difference-of-squares",
+      "uuid": "c8953b81-97f2-4c26-b2b8-aa7ef95c5ff1",
+      "core": false,
+      "unlocked_by": "nucleotide-count",
+      "difficulty": 1,
+      "topics": [
+        "math",
+        "number_theory"
       ]
     },
     {
@@ -150,16 +160,6 @@
       "difficulty": 2,
       "topics": [
         "maybe"
-      ]
-    },
-    {
-      "slug": "nucleotide-count",
-      "uuid": "00feb0e9-ae1e-43fc-a0ea-8f2d0d0b9f49",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 2,
-      "topics": [
-        "either"
       ]
     },
     {
@@ -207,7 +207,7 @@
       "slug": "raindrops",
       "uuid": "39d5aa74-6e4a-4579-810e-b4430bc172e8",
       "core": false,
-      "unlocked_by": "difference-of-squares",
+      "unlocked_by": "nucleotide-count",
       "difficulty": 2,
       "topics": [
         "strings"
@@ -310,7 +310,7 @@
       "slug": "kindergarten-garden",
       "uuid": "f3e12dd1-d3c7-4955-975f-bfc471d689c7",
       "core": false,
-      "unlocked_by": "difference-of-squares",
+      "unlocked_by": "nucleotide-count",
       "difficulty": 3,
       "topics": [
         "define_type"
@@ -356,6 +356,16 @@
       "difficulty": 3,
       "topics": [
         "maybe"
+      ]
+    },
+    {
+      "slug": "dnd-character",
+      "uuid": "138db4fc-ee70-11e8-8eb2-f2801f1b9fd1",
+      "core": false,
+      "unlocked_by": "pangram",
+      "difficulty": 3,
+      "topics": [
+        "random"
       ]
     },
     {
@@ -426,7 +436,7 @@
       "slug": "allergies",
       "uuid": "3630c60f-3e18-42c2-bce4-10dc62d11b25",
       "core": false,
-      "unlocked_by": "difference-of-squares",
+      "unlocked_by": "nucleotide-count",
       "difficulty": 4,
       "topics": [
         "algorithms",
@@ -437,7 +447,7 @@
       "slug": "all-your-base",
       "uuid": "69b6b2d8-7d28-4fa1-84af-3c41857c1d16",
       "core": false,
-      "unlocked_by": "difference-of-squares",
+      "unlocked_by": "nucleotide-count",
       "difficulty": 4,
       "topics": [
         "either",
@@ -520,7 +530,7 @@
       "slug": "series",
       "uuid": "4c111498-9248-4f4a-9950-98fdac736d3b",
       "core": false,
-      "unlocked_by": "difference-of-squares",
+      "unlocked_by": "nucleotide-count",
       "difficulty": 4,
       "topics": [
         "lists",
@@ -763,7 +773,7 @@
       "slug": "bank-account",
       "uuid": "44f2cb4d-1965-4d11-9373-bc3b5a624a8c",
       "core": false,
-      "unlocked_by": "difference-of-squares",
+      "unlocked_by": "nucleotide-count",
       "difficulty": 6,
       "topics": [
         "define_type",
@@ -776,7 +786,7 @@
       "slug": "sublist",
       "uuid": "f49d76f7-f826-4b6a-a514-47af7e84144a",
       "core": false,
-      "unlocked_by": "difference-of-squares",
+      "unlocked_by": "nucleotide-count",
       "difficulty": 6,
       "topics": []
     },
@@ -784,7 +794,7 @@
       "slug": "rail-fence-cipher",
       "uuid": "5bf7612c-427e-484d-bc67-8553fac4f64d",
       "core": false,
-      "unlocked_by": "difference-of-squares",
+      "unlocked_by": "nucleotide-count",
       "difficulty": 6,
       "topics": [
         "algorithms",
@@ -898,7 +908,7 @@
       "slug": "sgf-parsing",
       "uuid": "033adeae-d94a-4832-ae99-8dd98acd6044",
       "core": false,
-      "unlocked_by": "difference-of-squares",
+      "unlocked_by": "nucleotide-count",
       "difficulty": 9,
       "topics": [
         "maybe"
@@ -928,7 +938,7 @@
       "slug": "zipper",
       "uuid": "e585c482-2088-40bf-bc97-bc6fac6a7a72",
       "core": false,
-      "unlocked_by": "difference-of-squares",
+      "unlocked_by": "nucleotide-count",
       "difficulty": 10,
       "topics": [
         "define_type",

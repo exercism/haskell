@@ -1,11 +1,12 @@
-name: bob
-version: 1.4.0.10
+name: dnd-character
+version: 1.1.0.0
 
 dependencies:
   - base
+  - QuickCheck
 
 library:
-  exposed-modules: Bob
+  exposed-modules: DND
   source-dirs: src
   ghc-options: -Wall
   # dependencies:
@@ -17,5 +18,5 @@ tests:
     main: Tests.hs
     source-dirs: test
     dependencies:
-      - bob
+      - dnd-character
       - hspec
