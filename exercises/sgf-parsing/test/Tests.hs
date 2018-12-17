@@ -25,6 +25,7 @@ specs = describe "parseSgf" $ for_ cases test
             , (";"                                  , Nothing                                                )
             , ("(;)"                                , Just  $ Node [] []                                     )
             , ("(;A[B])"                            , Just  $ Node [("A", ["B"])] []                         )
+            , ("(;A[b]C[d])"                        , Just  $ Node [("A", ["b"]), ("C", ["d"])] []           )
             , ("(;A)"                               , Nothing                                                )
             , ("(;a[b])"                            , Nothing                                                )
             , ("(;Aa[b])"                           , Nothing                                                )
