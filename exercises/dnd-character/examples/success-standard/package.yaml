@@ -1,0 +1,17 @@
+name: dnd-character
+
+dependencies:
+  - base
+  - QuickCheck
+
+library:
+  exposed-modules: DND
+  source-dirs: src
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - dnd-character
+      - hspec
