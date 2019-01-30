@@ -61,4 +61,9 @@ cases = [ Case { description = "empty strands"
                , strand2     = "AGTG"
                , expected    = Nothing
                }
+        , Case { description = "disallow only one empty strand"
+               , strand1     = ""
+               , strand2     = "G"
+               , expected    = Nothing
+               }
         ]
