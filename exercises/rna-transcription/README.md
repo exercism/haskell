@@ -18,6 +18,9 @@ each nucleotide with its complement:
 * `T` -> `A`
 * `A` -> `U`
 
+Given invalid output, your program should return the first invalid character.
+
+
 
 ## Getting Started
 
