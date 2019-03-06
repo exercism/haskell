@@ -62,7 +62,6 @@ script:
         export SET_RESOLVER="--resolver ${RESOLVER}"
     fi
 
-    for exercise in ${TRAVIS_BUILD_DIR}/exercises/*/ ; do
+    exercise=${TRAVIS_BUILD_DIR}/exercises/leap
         time bin/test-stub $exercise
         time bin/test-all-examples $exercise
-    done
