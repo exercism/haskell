@@ -43,7 +43,4 @@ consonantCluster = y . T.span (not . isVowel)
 
 -- The letter 'y' is only a vowel conditionally.
 isVowel :: Char -> Bool
-isVowel = (`elem` vowels)
-  where
-    vowels :: String
-    vowels = "aeiou"
+isVowel c = T.any (== c) "aeiou"
