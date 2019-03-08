@@ -1,3 +1,4 @@
+{-# LANGUAGE OverloadedStrings #-}
 import Test.Hspec        (Spec, describe, it, shouldBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 

@@ -37,8 +37,8 @@
       ]
     },
     {
-      "slug": "bob",
-      "uuid": "e570c730-12e5-4b9e-adb0-eae85360e1b5",
+      "slug": "pangram",
+      "uuid": "42cb6880-0c4b-4455-815b-aac94c05db18",
       "core": true,
       "unlocked_by": null,
       "difficulty": 1,
@@ -47,8 +47,8 @@
       ]
     },
     {
-      "slug": "pangram",
-      "uuid": "42cb6880-0c4b-4455-815b-aac94c05db18",
+      "slug": "bob",
+      "uuid": "e570c730-12e5-4b9e-adb0-eae85360e1b5",
       "core": true,
       "unlocked_by": null,
       "difficulty": 1,
@@ -79,6 +79,16 @@
       ]
     },
     {
+      "slug": "nucleotide-count",
+      "uuid": "00feb0e9-ae1e-43fc-a0ea-8f2d0d0b9f49",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 2,
+      "topics": [
+        "either"
+      ]
+    },
+    {
       "slug": "sum-of-multiples",
       "uuid": "e125a32e-60ca-4e59-ae35-01f3b1907ccd",
       "core": true,
@@ -87,16 +97,6 @@
       "topics": [
         "math",
         "number_theory"
-      ]
-    },
-    {
-      "slug": "nucleotide-count",
-      "uuid": "00feb0e9-ae1e-43fc-a0ea-8f2d0d0b9f49",
-      "core": true,
-      "unlocked_by": null,
-      "difficulty": 2,
-      "topics": [
-        "either"
       ]
     },
     {
