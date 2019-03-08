@@ -560,8 +560,8 @@
       ]
     },
     {
-      "uuid": "e714ed04-e633-4814-8885-323968f39046",
       "slug": "binary-search",
+      "uuid": "e714ed04-e633-4814-8885-323968f39046",
       "core": false,
       "unlocked_by": "collatz-conjecture",
       "difficulty": 5,
