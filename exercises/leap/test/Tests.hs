@@ -25,23 +25,27 @@ data Case = Case { description :: String
                  }
 
 cases :: [Case]
-cases = [ Case { description = "year not divisible by 4: common year"
+cases = [ Case { description = "year not divisible by 4 in common year"
                , input       = 2015
                , expected    = False
                }
-        , Case { description = "year divisible by 4, not divisible by 100: leap year"
+        , Case { description = "year divisible by 2, not divisible by 4 in common year"
+               , input       = 1970
+               , expected    = False
+               }
+        , Case { description = "year divisible by 4, not divisible by 100 in leap year"
                , input       = 1996
                , expected    = True
                }
-        , Case { description = "year divisible by 100, not divisible by 400: common year"
+        , Case { description = "year divisible by 100, not divisible by 400 in common year"
                , input       = 2100
                , expected    = False
                }
-        , Case { description = "year divisible by 400: leap year"
+        , Case { description = "year divisible by 400 in leap year"
                , input       = 2000
                , expected    = True
                }
-        , Case { description = "year divisible by 200, not divisible by 400: common year"
+        , Case { description = "year divisible by 200, not divisible by 400 in common year"
                , input       = 1800
                , expected    = False
                }
