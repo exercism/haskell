@@ -214,6 +214,16 @@
       ]
     },
     {
+      "slug": "resistor-colors",
+      "uuid": "61be7bcd-42fb-44b7-a51d-1d081173f876",
+      "core": false,
+      "unlocked_by": "pangram",
+      "difficulty": 2,
+      "topics": [
+        "strings"
+      ]
+    },
+    {
       "slug": "accumulate",
       "uuid": "5c5a9256-a55e-4bda-baf3-96d052732e11",
       "core": false,
