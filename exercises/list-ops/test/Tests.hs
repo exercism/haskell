@@ -49,6 +49,8 @@ specs = do
         reverse ([] :: [Int]) `shouldBe` []
       it "of non-empty list" $
         reverse [1 .. 100 :: Int] `shouldBe` [100 , 99 .. 1]
+      it "of nested lists" $
+        reverse [[1, 2], [3], [], [4, 5, 6] :: [Int]] `shouldBe` [[4, 5, 6], [], [3], [1, 2]]
 
     describe "map" $ do
       it "of empty list" $
