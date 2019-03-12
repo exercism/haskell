@@ -20,4 +20,3 @@ tests:
     dependencies:
       - binary-search
       - hspec
-
