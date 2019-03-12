@@ -1,0 +1,22 @@
+name: binary-search
+version: 1.3.0.0
+
+dependencies:
+  - base
+  - array
+
+library:
+  exposed-modules: BinarySearch
+  source-dirs: src
+  ghc-options: -Wall
+  # dependencies:
+  # - foo       # List here the packages you
+  # - bar       # want to use in your solution.
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - binary-search
+      - hspec
