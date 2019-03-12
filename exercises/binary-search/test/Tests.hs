@@ -11,17 +11,13 @@ main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "find" $ -- do
-  for_ cases $ test 0
-  -- Data.Array supports arbitrary indexing. Does your implementation?
-  -- for_ cases $ test (-9)
+specs = describe "find" $ for_ bases $ for_ cases . test
   where
-    test base Case{..} = it description' $
-      find array' value `shouldBe` expected'
-      where
-        description' = description ++ " (base " ++ show base ++ ")"
-        array' = fromListWithBase base array
-        expected' = (+ base) <$> expected
+    -- Data.Array supports arbitrary indexing. Does your implementation?
+    bases = [ 0 {- , 1, -9 -} ]
+
+    test base Case{..} = it (description ++ " (base " ++ show base ++ ")") $
+      find (fromListWithBase base array) value `shouldBe` (+ base) <$> expected
 
 fromListWithBase :: Int -> [a] -> Array Int a
 fromListWithBase base xs = listArray (base, length xs - 1 + base) xs
