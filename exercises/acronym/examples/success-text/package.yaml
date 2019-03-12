@@ -1,16 +1,12 @@
 name: acronym
-version: 1.6.0.10
 
 dependencies:
   - base
+  - text
 
 library:
   exposed-modules: Acronym
   source-dirs: src
-  ghc-options: -Wall
-  # dependencies:
-  # - foo       # List here the packages you
-  # - bar       # want to use in your solution.
 
 tests:
   test:
