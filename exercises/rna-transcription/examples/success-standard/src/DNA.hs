@@ -1,7 +1,7 @@
 module DNA (toRNA) where
 
 toRNA :: String -> Either Char String
-toRNA = mapM fromDNA
+toRNA = traverse fromDNA
   where
     fromDNA :: Char -> Either Char Char
     fromDNA 'C' = return 'G'
