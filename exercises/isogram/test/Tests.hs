@@ -1,6 +1,8 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
 
 import Data.Foldable     (for_)
+import Data.String       (fromString)
 import Test.Hspec        (Spec, describe, it, shouldBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
@@ -15,8 +17,7 @@ specs = describe "isIsogram" $ for_ cases test
 
     test Case{..} = it description assertion
       where
-        assertion = isIsogram input `shouldBe` expected
-
+        assertion = isIsogram (fromString input) `shouldBe` expected
 
 data Case = Case { description :: String
                  , input       :: String
