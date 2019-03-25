@@ -101,4 +101,17 @@ cases = [ Case { description = "count one word"
                                , ("large"  , 2)
                                , ("and"    , 1) ]
                }
+        , Case { description = "multiple spaces not detected as a word"
+               , input       = " multiple   whitespaces"
+               , expected    = [ ("multiple"   , 1)
+                               , ("whitespaces", 1)
+                               ]
+               }
+        , Case { description = "alternating word separators not detected as a word"
+               , input       = ",\n,one,\n ,two \n 'three'"
+               , expected    = [ ("one",   1)
+                               , ("two",   1)
+                               , ("three", 1)
+                               ]
+               }
         ]
