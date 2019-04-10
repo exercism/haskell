@@ -1,4 +1,4 @@
-name: resistor-colors
+name: resistor-color-duo
 
 dependencies:
   - base
@@ -12,5 +12,5 @@ tests:
     main: Tests.hs
     source-dirs: test
     dependencies:
-      - resistor-colors
+      - resistor-color-duo
       - hspec
