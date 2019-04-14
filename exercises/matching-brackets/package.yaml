@@ -1,5 +1,5 @@
-name: bracket-push
-version: 1.5.0.7
+name: matching-brackets
+version: 2.0.0.8
 
 dependencies:
   - base
@@ -17,5 +17,5 @@ tests:
     main: Tests.hs
     source-dirs: test
     dependencies:
-      - bracket-push
+      - matching-brackets
       - hspec

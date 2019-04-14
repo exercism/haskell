@@ -1,4 +1,4 @@
-name: bracket-push
+name: matching-brackets
 
 dependencies:
   - base
@@ -12,5 +12,5 @@ tests:
     main: Tests.hs
     source-dirs: test
     dependencies:
-      - bracket-push
+      - matching-brackets
       - hspec
