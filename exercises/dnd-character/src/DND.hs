@@ -7,8 +7,7 @@ module DND ( Character(..)
 import Test.QuickCheck (Gen)
 
 data Character = Character
-  { name         :: String
-  , strength     :: Int
+  { strength     :: Int
   , dexterity    :: Int
   , constitution :: Int
   , intelligence :: Int

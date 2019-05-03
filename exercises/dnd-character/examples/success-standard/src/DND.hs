@@ -5,8 +5,7 @@ import Control.Monad (replicateM)
 import Test.QuickCheck.Gen (Gen, choose)
 
 data Character = Character
-  { name         :: String
-  , strength     :: Int
+  { strength     :: Int
   , dexterity    :: Int
   , constitution :: Int
   , intelligence :: Int
@@ -26,7 +25,6 @@ ability = do
 
 character :: Gen Character
 character = do
-  let name = "Bob"
   strength <- ability
   dexterity <- ability
   constitution <- ability
