@@ -1,17 +1,13 @@
 name: etl
-version: 1.0.0.5
 
 dependencies:
   - base
   - containers
+  - text
 
 library:
   exposed-modules: ETL
   source-dirs: src
-  ghc-options: -Wall
-  # dependencies:
-  # - foo       # List here the packages you
-  # - bar       # want to use in your solution.
 
 tests:
   test:

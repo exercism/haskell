@@ -1,4 +1,5 @@
 {-# OPTIONS_GHC -fno-warn-type-defaults #-}
+{-# LANGUAGE OverloadedStrings #-}
 
 import Data.Map          (fromList)
 import Test.Hspec        (Spec, describe, it, shouldBe)
