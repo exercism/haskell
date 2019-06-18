@@ -6,5 +6,5 @@ data TriangleType = Equilateral
                   | Illegal
                   deriving (Eq, Show)
 
-triangleType :: Num a => a -> a -> a -> TriangleType
+triangleType :: (Num a, Ord a) => a -> a -> a -> TriangleType
 triangleType a b c = error "You need to implement this function."
