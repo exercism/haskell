@@ -5,6 +5,7 @@ learning Haskell can feel different than simply picking up another language.
 Fortunately there are numerous resources which presume some programming knowledge to begin with, such
 as
 
+  - An opinionated beginner's guide to Haskell ([2019](https://github.com/theindigamer/not-a-blog/blob/master/opinionated-haskell-guide-2019.md), [2018](https://lexi-lambda.github.io/blog/2018/02/10/an-opinionated-guide-to-haskell-in-2018/))
   - the popular and free online book [Learn You a Haskell For Great Good!](http://learnyouahaskell.com/)
   - University of Glasgow's [Functional Programming in Haskell](https://www.futurelearn.com/courses/functional-programming-haskell) course
   - FP Complete's [School of Haskell](https://www.schoolofhaskell.com/)
