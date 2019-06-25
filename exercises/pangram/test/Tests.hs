@@ -62,6 +62,15 @@ cases = [ Case { description = "sentence empty"
                , input       = "the quick brown fox jumps over with lazy FX"
                , expected    = False
                }
+        , Case { description = "missing character with additional non-ascii letters"
+               , input       = "abcdefghijklmnopqrstuvwxyÃ"
+               , expected    = False
+               }
+        , Case { description = "pangram with additional non-ascii letters"
+               , input       = "abcdefghijklmnopqrstuvwxyzÃ"
+               , expected    = True
+               }
+
         {-
         -- The following test can be enabled for String-based solutions:
         , Case { description = "determine pangram by terminating as soon as all letters have occurred"
