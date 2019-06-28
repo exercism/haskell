@@ -50,6 +50,7 @@ else
     echo "building stub with everything else"
     stack build ${SET_RESOLVER} --install-ghc --no-terminal \
                 --test  --no-run-tests                      \
+                --ghc-options="-Wall -Werror -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints"
               # --bench --no-run-benchmarks
               #
               # We are temporarily disabling the benchmarks
