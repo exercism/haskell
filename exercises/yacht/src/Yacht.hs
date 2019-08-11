@@ -6,8 +6,9 @@ data Category = Ones
               | Fours
               | Fives
               | Sixes
+              | FullHouse
               | FourOfAKind
-              | LitleStraight
+              | LittleStraight
               | BigStraight
               | Choice
               | Yacht

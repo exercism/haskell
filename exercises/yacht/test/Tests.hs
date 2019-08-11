@@ -1,8 +1,8 @@
-{-# LANGUAGE RecordWildCards#-}}
+{-# LANGUAGE RecordWildCards #-}
 
 import Data.Foldable     (for_)
 import Test.Hspec        (Spec, describe, it, shouldBe)
-import Test.Hspec.Funner (configFastFail, defaultConfig, hspecWith)
+import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
 import Yacht (yacht, Category(..))
 
@@ -15,7 +15,7 @@ specs = describe "yacht" $ for_ cases test
 
     test Case{..} = it description assertion
       where
-        assertion = yacht category input `shouldBe` expected
+        assertion = yacht category dice `shouldBe` expected
 
 data Case = Case { description :: String
                  , dice        :: [Int]
@@ -35,7 +35,6 @@ cases = [ Case { description = "Yacht"
                , expected = 0
                }
         , Case { description = "Ones"
-               , property = score
                , dice = [1, 1, 1, 3, 5]
                , category = Ones
                , expected = 3
