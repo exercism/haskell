@@ -379,6 +379,17 @@
       ]
     },
     {
+      "slug": "yacht",
+      "uuid": "8e129e54-6b5c-4696-84bc-588bc1c7f0f7",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 3,
+      "topics": [
+        "discriminated_unions",
+        "lists"
+      ]
+    },
+    {
       "slug": "anagram",
       "uuid": "67c53230-82e8-4207-a811-abec27bef381",
       "core": false,
