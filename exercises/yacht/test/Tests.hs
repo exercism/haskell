@@ -4,7 +4,7 @@ import Data.Foldable     (for_)
 import Test.Hspec        (Spec, describe, it, shouldBe)
 import Test.Hspec.Funner (configFastFail, defaultConfig, hspecWith)
 
-import Yacht (yacht)
+import Yacht (yacht, Category(..))
 
 main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
