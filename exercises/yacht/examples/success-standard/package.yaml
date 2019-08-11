@@ -1,0 +1,16 @@
+name: armstrong-numbers
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: Yacht
+  source-dirs: src
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - Yacht
+      - hspec
