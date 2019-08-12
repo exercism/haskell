@@ -1,4 +1,5 @@
-name: armstrong-numbers
+name:                yacht
+version:             1.2.0.0
 
 dependencies:
   - base
@@ -6,11 +7,15 @@ dependencies:
 library:
   exposed-modules: Yacht
   source-dirs: src
+  ghc-options: -Wall
+  # dependencies:
+  # - foo       # List here the packages you
+  # - bar       # want to use in your solution.
 
 tests:
   test:
-    main: Tests.hs
+    main:        Tests.hs
     source-dirs: test
     dependencies:
-      - Yacht
-      - hspec
+    - yacht
+    - hspec
