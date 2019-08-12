@@ -25,21 +25,23 @@ yacht Fives  dice = simpleScore 5 dice
 yacht Sixes  dice = simpleScore 6 dice
 
 yacht FullHouse dice
-  | s == 2 && length g == 2 && (length . head') gs == 3 = sum dice
+  | setSize == 2 && length two == 2 && three' == 3 = sum dice
   | otherwise = 0
   where
-    s = (length . gsortBySize) dice
-    (g:gs) = gsortBySize dice
+    sortedDice  = sortDiceByGroupSize dice
+    setSize     = length sortedDice
+    (two:three) = sortedDice
+    three'      = (length. head') three
 
 yacht FourOfAKind dice
   | length lg == 4 = sum lg
-  | length lg == 5 = 4 *  (head dice)
-  | otherwise = 0
+  | length lg == 5 = 4 * head dice
+  | otherwise      = 0
   where
     lg = largestGroup dice
 
 yacht LittleStraight dice
-  |  isSucc dice && maximum dice == 5 = 30
+  | isSucc dice && maximum dice == 5 = 30
   | otherwise = 0
 
 yacht BigStraight dice
@@ -48,22 +50,23 @@ yacht BigStraight dice
 
 yacht Choice dice = sum dice
 
-yacht Yacht (d:ice)
-  | all (== d) ice = 50
-  | otherwise      = 0
+yacht Yacht (die:dice)
+  | all (== die) dice = 50
+  | otherwise         = 0
 
 simpleScore :: Int -> [Int] -> Int
-simpleScore x dice = (sum . filter (== x)) dice
+simpleScore die = sum . filter (== die)
 
-gsortBySize :: ((Ord a), Eq a) => [a] -> [[a]]
-gsortBySize = sortOn (length) . group . sort
+sortDiceByGroupSize :: ((Ord a), Eq a) => [a] -> [[a]]
+sortDiceByGroupSize = sortOn length . group . sort
 
 largestGroup :: ((Ord a), Eq a) => [a] -> [a]
-largestGroup = head . reverse . gsortBySize
+largestGroup = last . sortDiceByGroupSize
 
 isSucc :: [Int] -> Bool
 isSucc = all (\(x,y) -> succ x == y) . pairwise . sort
   where pairwise = zip <*> tail
 
+head' :: [[a]] -> [a]
 head' [] = []
 head' xs = head xs
