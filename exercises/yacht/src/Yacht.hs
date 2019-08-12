@@ -14,4 +14,4 @@ data Category = Ones
               | Yacht
 
 yacht :: Category -> [Int] -> Int
-yacht _ _ = error "unimplemented"
+yacht _ _ = error "You need to implement this function."
