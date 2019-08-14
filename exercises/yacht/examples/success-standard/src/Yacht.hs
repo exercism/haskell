@@ -1,6 +1,7 @@
 module Yacht (yacht, Category(..)) where
 
-import Data.List
+import Control.Monad (join)
+import Data.List (sortOn, sort, group)
 
 data Category = Ones
               | Twos
@@ -16,57 +17,43 @@ data Category = Ones
               | Yacht
 
 yacht :: Category -> [Int] -> Int
-yacht _ []   = error "You lose!"
-yacht Ones   dice = simpleScore 1 dice
-yacht Twos   dice = simpleScore 2 dice
-yacht Threes dice = simpleScore 3 dice
-yacht Fours  dice = simpleScore 4 dice
-yacht Fives  dice = simpleScore 5 dice
-yacht Sixes  dice = simpleScore 6 dice
+yacht Ones   = valueScore 1
+yacht Twos   = valueScore 2
+yacht Threes = valueScore 3
+yacht Fours  = valueScore 4
+yacht Fives  = valueScore 5
+yacht Sixes  = valueScore 6
 
-yacht FullHouse dice
-  | setSize == 2 && length two == 2 && three' == 3 = sum dice
-  | otherwise = 0
-  where
-    sortedDice  = sortDiceByGroupSize dice
-    setSize     = length sortedDice
-    (two:three) = sortedDice
-    three'      = (length. head') three
+yacht FullHouse = sum
+                . join
+                . (\xs -> if length xs == 2 then xs else [])
+                . filter ((<= 3) . length)
+                . diceGroups
 
-yacht FourOfAKind dice
-  | length lg == 4 = sum lg
-  | length lg == 5 = 4 * head dice
-  | otherwise      = 0
-  where
-    lg = largestGroup dice
+yacht FourOfAKind = sum
+                  . take 4
+                  . join
+                  . filter ((>= 4) . length)
+                  . diceGroups
 
-yacht LittleStraight dice
-  | isSucc dice && maximum dice == 5 = 30
-  | otherwise = 0
+yacht LittleStraight = verify . sort
+  where verify [1, 2, 3, 4, 5] = 30
+        verify _ = 0
 
-yacht BigStraight dice
-  | isSucc dice && maximum dice == 6 = 30
-  | otherwise = 0
+yacht BigStraight = verify . sort
+  where verify [2, 3, 4, 5, 6] = 30
+        verify _ = 0
 
-yacht Choice dice = sum dice
+yacht Choice = sum
 
-yacht Yacht (die:dice)
-  | all (== die) dice = 50
-  | otherwise         = 0
+yacht Yacht = (* 10)
+            . length
+            . join
+            . filter((== 5) . length)
+            . diceGroups
 
-simpleScore :: Int -> [Int] -> Int
-simpleScore die = sum . filter (== die)
+valueScore :: Int -> [Int] -> Int
+valueScore = (sum .) . filter . (==)
 
-sortDiceByGroupSize :: ((Ord a), Eq a) => [a] -> [[a]]
-sortDiceByGroupSize = sortOn length . group . sort
-
-largestGroup :: ((Ord a), Eq a) => [a] -> [a]
-largestGroup = last . sortDiceByGroupSize
-
-isSucc :: [Int] -> Bool
-isSucc = all (\(x,y) -> succ x == y) . pairwise . sort
-  where pairwise = zip <*> tail
-
-head' :: [[a]] -> [a]
-head' [] = []
-head' xs = head xs
+diceGroups :: ((Ord a), Eq a) => [a] -> [[a]]
+diceGroups = sortOn length . group . sort
