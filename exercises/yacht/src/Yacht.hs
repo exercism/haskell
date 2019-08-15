@@ -14,4 +14,4 @@ data Category = Ones
               | Yacht
 
 yacht :: Category -> [Int] -> Int
-yacht = error "You need to implement this function."
+yacht category dice = error "You need to implement this function."
