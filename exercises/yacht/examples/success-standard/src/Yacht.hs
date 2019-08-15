@@ -26,15 +26,12 @@ yacht Sixes  = valueScore 6
 
 yacht FullHouse = sum
                 . join
-                . (\xs -> if length xs == 2 then xs else [])
+                . filJoin ((== 2) . length)
+                . return
                 . filter ((<= 3) . length)
                 . diceGroups
 
-yacht FourOfAKind = sum
-                  . take 4
-                  . join
-                  . filter ((>= 4) . length)
-                  . diceGroups
+yacht FourOfAKind = sum . take 4 . filJoin ((>= 4) . length) . diceGroups
 
 yacht LittleStraight = verify . sort
   where verify [1, 2, 3, 4, 5] = 30
@@ -46,14 +43,13 @@ yacht BigStraight = verify . sort
 
 yacht Choice = sum
 
-yacht Yacht = (* 10)
-            . length
-            . join
-            . filter((== 5) . length)
-            . diceGroups
+yacht Yacht = (* 10) . length . filJoin ((== 5) . length) . diceGroups
 
 valueScore :: Int -> [Int] -> Int
 valueScore = (sum .) . filter . (==)
 
 diceGroups :: ((Ord a), Eq a) => [a] -> [[a]]
 diceGroups = sortOn length . group . sort
+
+filJoin :: ([a] -> Bool) -> [[a]] -> [a]
+filJoin p = join . filter p
