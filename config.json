@@ -277,6 +277,17 @@
       ]
     },
     {
+      "slug": "yacht",
+      "uuid": "8e129e54-6b5c-4696-84bc-588bc1c7f0f7",
+      "core": false,
+      "unlocked_by": "bob",
+      "difficulty": 3,
+      "topics": [
+        "discriminated_unions",
+        "lists"
+      ]
+    },
+    {
       "slug": "run-length-encoding",
       "uuid": "6eba4eac-8395-4ad6-ac21-3651a11ab4b5",
       "core": false,
