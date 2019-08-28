@@ -591,6 +591,18 @@
       ]
     },
     {
+      "slug": "tree-building",
+      "uuid": "508868ec-bd5f-4826-a4c0-ab2a545e7038",
+      "core": false,
+      "unlocked_by": "collatz-conjecture",
+      "difficulty": 5,
+      "topics": [
+        "maybe",
+        "recursion",
+        "trees"
+      ]
+    },
+    {
       "slug": "atbash-cipher",
       "uuid": "4b6d04f4-8cfc-4d8a-ac6e-77f3889f27c3",
       "core": false,
