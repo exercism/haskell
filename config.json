@@ -7,7 +7,7 @@
   "exercises": [
     {
       "slug": "hello-world",
-      "uuid": "c97d9dda-c7ee-4595-b447-693559d03ba5",
+      "uuid": "c97d9dda-c7ee-4595-b447-693559d03ba",
       "core": true,
       "auto_approve": true,
       "unlocked_by": null,
@@ -18,7 +18,7 @@
     },
     {
       "slug": "leap",
-      "uuid": "0ad7d756-1cbd-44f4-a64f-0dc7e9eb40f4",
+      "uuid": "0ad7d756-1cbd-44f4-a64f-0dc7e9eb40f40",
       "core": true,
       "unlocked_by": null,
       "difficulty": 1,
@@ -28,7 +28,7 @@
     },
     {
       "slug": "space-age",
-      "uuid": "6cbb7841-9d96-4528-88e3-6e98a450fd7c",
+      "uuid": "6cbb7841-9d96-4528-88e3-6e98a450fd7g",
       "core": true,
       "unlocked_by": null,
       "difficulty": 1,
