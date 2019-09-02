@@ -21,12 +21,12 @@ parseLines [] = error "Empty lines"
 parseLines ([]:_) = error "Empty first line"
 parseLines lines@(firstLine:_) =
   let height = length lines
-      width = length firstLine
+      width = length (filter (/= ' ') firstLine)
   in A.array ((0,0),(width - 1,height - 1)) fieldAssocs
   where fieldAssocs :: [((Int,Int),Maybe Mark)]
         fieldAssocs =
           do (l,y) <- zip lines [0 ..]
-             (c,x) <- zip l [0 ..]
+             (c,x) <- zip (filter (/= ' ') l) [0 ..]
              let f = case c of
                      'O' -> Just Nought
                      'X' -> Just Cross
