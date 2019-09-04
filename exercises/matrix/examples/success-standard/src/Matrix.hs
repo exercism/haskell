@@ -30,12 +30,12 @@ shape = matrixRows &&& matrixCols
 row :: Int -> Matrix a -> V.Vector a
 row n m = V.slice i numCols $ matrixCells m
   where numCols = matrixCols m
-        i = n * numCols
+        i = pred n * numCols
 
 column :: Int -> Matrix a -> V.Vector a
 column n m = V.backpermute (matrixCells m) indexes
   where numCols = matrixCols m
-        indexes = V.generate (matrixRows m) ((n +) . (numCols *))
+        indexes = V.generate (matrixRows m) ((pred n +) . (numCols *))
 
 transpose :: Matrix a -> Matrix a
 transpose m = mkMatrix (numCols, numRows) permuted
