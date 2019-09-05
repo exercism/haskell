@@ -14,46 +14,50 @@ specs = describe "diamond" $ for_ cases test
 
     test Case{..} = it description assertion
       where
-        assertion = diamond input `shouldBe` Just expected
+        assertion = diamond input `shouldBe` expected
 
 
 data Case = Case { description :: String
                  , input       :: Char
-                 , expected    :: [String]
+                 , expected    :: Maybe [String]
                  }
 
 cases :: [Case]
-cases = [ Case { description = "Degenerate case with a single 'A' row"
+cases = [ Case { description = "Non-alpha character should result in Nothing"
+               , input       = '1'
+               , expected    = Nothing
+               }
+        , Case { description = "Degenerate case with a single 'A' row"
                , input       = 'A'
-               , expected    = ["A"]
+               , expected    = Just ["A"]
                }
         , Case { description = "Degenerate case with no row containing 3 distinct groups of spaces"
                , input       = 'B'
-               , expected    = [" A ",
-                                "B B",
-                                " A "]
+               , expected    = Just [" A ",
+                                     "B B",
+                                     " A "]
                }
         , Case { description = "Smallest non-degenerate case with odd diamond side length"
                , input       = 'C'
-               , expected    = ["  A  ",
-                                " B B ",
-                                "C   C",
-                                " B B ",
-                                "  A  "]
+               , expected    = Just ["  A  ",
+                                     " B B ",
+                                     "C   C",
+                                     " B B ",
+                                     "  A  "]
                }
         , Case { description = "Smallest non-degenerate case with even diamond side length"
                , input       = 'D'
-               , expected    = ["   A   ",
-                                "  B B  ",
-                                " C   C ",
-                                "D     D",
-                                " C   C ",
-                                "  B B  ",
-                                "   A   "]
+               , expected    = Just ["   A   ",
+                                     "  B B  ",
+                                     " C   C ",
+                                     "D     D",
+                                     " C   C ",
+                                     "  B B  ",
+                                     "   A   "]
                }
         , Case { description = "Largest possible diamond"
                , input       = 'Z'
-               , expected    = [
+               , expected    = Just [
                         "                         A                         ",
                         "                        B B                        ",
                         "                       C   C                       ",
