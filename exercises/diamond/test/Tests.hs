@@ -115,5 +115,5 @@ cases = [ Case { description = "Degenerate case with a single 'A' row"
         ]
 
 genNonAlphaChars :: Gen Char
-genNonAlphaChars = oneof $ pure <$> nonAlphaChars
+genNonAlphaChar = elements nonAlphaChars
   where nonAlphaChars = ['\0' .. '\127'] \\ (['A' .. 'Z'] ++ ['a' .. 'z'])
