@@ -27,6 +27,9 @@ specs = describe "diamond" $ do
   it "Check the middle of the diamond is correct" $
     forAll genAlphaChar $ \c -> checkMiddle c . fromMaybe [""] $ diamond c
 
+  it "Check the dimensionality of the diamond is correct" $
+    forAll genAlphaChar $ \c -> checkCorrectDimensions c . fromMaybe [""] $ diamond c
+
   for_ cases test
   where
     test Case{..} = it description assertion
@@ -135,6 +138,9 @@ genAlphaChar = choose ('A', 'Z')
 topLength :: [String] -> Int
 topLength = (`div` 2) . length
 
+position :: Char -> Int
+position c = ord c - ord 'A'
+
 topEqualToBottom :: [String] -> Bool
 topEqualToBottom xs = take len xs == take len (reverse xs)
   where
@@ -143,8 +149,12 @@ topEqualToBottom xs = take len xs == take len (reverse xs)
 checkMiddle :: Char -> [String] -> Bool
 checkMiddle c xs = getMiddle xs == middle
   where
-    position = ord c - ord 'A'
     getMiddle ys = ys !! topLength ys
-    leftSide = c : replicate position ' '
+    leftSide = c : replicate (position c) ' '
     rightSide = tail . reverse $ leftSide
     middle = leftSide ++ rightSide
+
+checkCorrectDimensions :: Char -> [String] -> Bool
+checkCorrectDimensions c xs = length xs == dim && all ((== dim) . length) xs
+  where
+    dim = 2 * position c + 1
