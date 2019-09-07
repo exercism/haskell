@@ -3,7 +3,7 @@
 import Data.Foldable     (for_)
 import Test.Hspec        (Spec, describe, it, shouldBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
-import Test.QuickCheck   (Gen, oneof, forAll)
+import Test.QuickCheck   (Gen, elements, forAll)
 import Data.List         ((\\))
 import Data.Maybe        (isNothing)
 import Diamond (diamond)
@@ -115,6 +115,6 @@ cases = [ Case { description = "Degenerate case with a single 'A' row"
                }
         ]
 
-genNonAlphaChars :: Gen Char
+genNonAlphaChar :: Gen Char
 genNonAlphaChar = elements nonAlphaChars
   where nonAlphaChars = ['\0' .. '\127'] \\ (['A' .. 'Z'] ++ ['a' .. 'z'])
