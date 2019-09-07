@@ -6,6 +6,7 @@ import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 import Test.QuickCheck   (Gen, elements, forAll, choose)
 import Data.List         ((\\))
 import Data.Maybe        (isNothing, fromMaybe)
+import Data.Char         (ord)
 import Diamond (diamond)
 
 main :: IO ()
@@ -22,6 +23,9 @@ specs = describe "diamond" $ do
 
   it "Top and bottom of a diamond should be equal" $
     forAll genAlphaChar $ topEqualToBottom . fromMaybe [""] . diamond
+
+  it "Check the middle of the diamond is correct" $
+    forAll genAlphaChar $ \c -> checkMiddle c . fromMaybe [""] $ diamond c
 
   for_ cases test
   where
@@ -128,7 +132,19 @@ genNonAlphaChar = elements nonAlphaChars
 genAlphaChar :: Gen Char
 genAlphaChar = choose ('A', 'Z')
 
+topLength :: [String] -> Int
+topLength = (`div` 2) . length
+
 topEqualToBottom :: [String] -> Bool
-topEqualToBottom xs = take l xs == take l (reverse xs)
+topEqualToBottom xs = take len xs == take len (reverse xs)
   where
-    l = length xs `div` 2
+    len = topLength xs
+
+checkMiddle :: Char -> [String] -> Bool
+checkMiddle c xs = getMiddle xs == middle
+  where
+    position = ord c - ord 'A'
+    getMiddle ys = ys !! topLength ys
+    leftSide = c : replicate position ' '
+    rightSide = tail . reverse $ leftSide
+    middle = leftSide ++ rightSide
