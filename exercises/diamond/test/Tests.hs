@@ -20,6 +20,9 @@ specs = describe "diamond" $ do
   it "Length of a diamond should be odd" $
     forAll genAlphaChar $ odd . length . fromMaybe [""] . diamond
 
+  it "Top and bottom of a diamond should be equal" $
+    forAll genAlphaChar $ topEqualToBottom . fromMaybe [""] . diamond
+
   for_ cases test
   where
     test Case{..} = it description assertion
@@ -124,3 +127,8 @@ genNonAlphaChar = elements nonAlphaChars
 
 genAlphaChar :: Gen Char
 genAlphaChar = choose ('A', 'Z')
+
+topEqualToBottom :: [String] -> Bool
+topEqualToBottom xs = take l xs == take l (reverse xs)
+  where
+    l = length xs `div` 2
