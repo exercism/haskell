@@ -3,9 +3,9 @@
 import Data.Foldable     (for_)
 import Test.Hspec        (Spec, describe, it, shouldBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
-import Test.QuickCheck   (Gen, elements, forAll)
+import Test.QuickCheck   (Gen, elements, forAll, choose)
 import Data.List         ((\\))
-import Data.Maybe        (isNothing)
+import Data.Maybe        (isNothing, fromMaybe)
 import Diamond (diamond)
 
 main :: IO ()
@@ -16,6 +16,9 @@ specs = describe "diamond" $ do
   it "non-Alpha characters should produce `Nothing`" $
     forAll genNonAlphaChar $
       isNothing . diamond
+
+  it "Length of a diamond should be odd" $
+    forAll genAlphaChar $ odd . length . fromMaybe [""] . diamond
 
   for_ cases test
   where
@@ -118,3 +121,6 @@ cases = [ Case { description = "Degenerate case with a single 'A' row"
 genNonAlphaChar :: Gen Char
 genNonAlphaChar = elements nonAlphaChars
   where nonAlphaChars = ['\0' .. '\127'] \\ (['A' .. 'Z'] ++ ['a' .. 'z'])
+
+genAlphaChar :: Gen Char
+genAlphaChar = choose ('A', 'Z')
