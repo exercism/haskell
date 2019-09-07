@@ -3,15 +3,21 @@
 import Data.Foldable     (for_)
 import Test.Hspec        (Spec, describe, it, shouldBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+import Test.QuickCheck   (Gen, oneof, forAll)
+import Data.List         ((\\))
+import Data.Maybe        (isNothing)
 import Diamond (diamond)
 
 main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "diamond" $ for_ cases test
+specs = describe "diamond" $ do
+  it "non-Alpha characters should produce `Nothing`" $
+    forAll genNonAlphaChars $
+      isNothing . diamond
+  for_ cases test
   where
-
     test Case{..} = it description assertion
       where
         assertion = diamond input `shouldBe` Just expected
@@ -107,3 +113,7 @@ cases = [ Case { description = "Degenerate case with a single 'A' row"
                         "                         A                         "]
                }
         ]
+
+genNonAlphaChars :: Gen Char
+genNonAlphaChars = oneof $ pure <$> nonAlphaChars
+  where nonAlphaChars = ['\0' .. '\127'] \\ (['A' .. 'Z'] ++ ['a' .. 'z'])
