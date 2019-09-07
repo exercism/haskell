@@ -14,7 +14,7 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = describe "diamond" $ do
   it "non-Alpha characters should produce `Nothing`" $
-    forAll genNonAlphaChars $
+    forAll genNonAlphaChar $
       isNothing . diamond
 
   for_ cases test
