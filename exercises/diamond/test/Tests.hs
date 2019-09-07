@@ -16,6 +16,7 @@ specs = describe "diamond" $ do
   it "non-Alpha characters should produce `Nothing`" $
     forAll genNonAlphaChars $
       isNothing . diamond
+
   for_ cases test
   where
     test Case{..} = it description assertion
