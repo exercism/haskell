@@ -23,7 +23,8 @@
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
-        "booleans"
+        "booleans",
+        "guards"
       ]
     },
     {
@@ -33,7 +34,7 @@
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
-        "discriminated_unions"
+        "sum_types"
       ]
     },
     {
@@ -43,6 +44,7 @@
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
+        "higher_order_functions",
         "strings"
       ]
     },
@@ -53,6 +55,7 @@
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
+        "guards",
         "strings"
       ]
     },
@@ -63,9 +66,10 @@
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
-        "math",
+        "guards",
         "maybe",
-        "number_theory"
+        "number_theory",
+        "recursion"
       ]
     },
     {
@@ -75,7 +79,8 @@
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
-        "either"
+        "either",
+        "traversable"
       ]
     },
     {
@@ -85,7 +90,9 @@
       "unlocked_by": null,
       "difficulty": 2,
       "topics": [
-        "either"
+        "data_structures",
+        "either",
+        "higher_order_functions"
       ]
     },
     {
@@ -283,8 +290,8 @@
       "unlocked_by": "bob",
       "difficulty": 3,
       "topics": [
-        "discriminated_unions",
-        "lists"
+        "lists",
+        "sum_types"
       ]
     },
     {
