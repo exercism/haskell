@@ -1,12 +1,12 @@
 {-# LANGUAGE RecordWildCards #-}
 
 import Data.Foldable     (for_)
-import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec        (Spec, describe, it, shouldBe, pending)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
-import Test.QuickCheck   (Gen, elements, forAll, choose)
-import Data.List         ((\\))
-import Data.Maybe        (isNothing, fromMaybe)
-import Data.Char         (ord)
+import Test.QuickCheck   (Gen, elements, forAll, forAllShrink, arbitraryASCIIChar, suchThat)
+import Data.List         (partition)
+import Data.Maybe        (isNothing, isJust, fromMaybe)
+import Data.Char         (ord, isLetter, isUpper, isPrint)
 import Diamond (diamond)
 
 main :: IO ()
@@ -14,21 +14,28 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
 specs = describe "diamond" $ do
-  it "non-Alpha characters should produce `Nothing`" $
-    forAll genNonAlphaChar $
+  it "should not have a result for a non-alpha character" $
+    forAllShrink genNonAlphaChar shrinkNonAlphaChar $
       isNothing . diamond
 
-  it "Length of a diamond should be odd" $
+  it "should produce a value for an alpha character" $
+    forAll genAlphaChar $
+      isJust . diamond
+
+  it "should have an odd number of rows" $
     forAll genAlphaChar $ odd . length . fromMaybe [""] . diamond
 
-  it "Top and bottom of a diamond should be equal" $
+  it "should have equal top and bottom" $
     forAll genAlphaChar $ topEqualToBottom . fromMaybe [""] . diamond
 
-  it "Check the middle of the diamond is correct" $
+  it "should have the correct middle row" $
     forAll genAlphaChar $ \c -> checkMiddle c . fromMaybe [""] $ diamond c
 
-  it "Check the dimensionality of the diamond is correct" $
+  it "should have the same width and height" $
     forAll genAlphaChar $ \c -> checkCorrectDimensions c . fromMaybe [""] $ diamond c
+
+  it "rows should start and end with the same character" $
+    pending
 
   for_ cases test
   where
@@ -129,11 +136,10 @@ cases = [ Case { description = "Degenerate case with a single 'A' row"
         ]
 
 genNonAlphaChar :: Gen Char
-genNonAlphaChar = elements nonAlphaChars
-  where nonAlphaChars = ['\0' .. '\127'] \\ (['A' .. 'Z'] ++ ['a' .. 'z'])
+genNonAlphaChar = arbitraryASCIIChar `suchThat` (not . isLetter)
 
 genAlphaChar :: Gen Char
-genAlphaChar = choose ('A', 'Z')
+genAlphaChar = arbitraryASCIIChar `suchThat` isUpper
 
 topLength :: [String] -> Int
 topLength = (`div` 2) . length
@@ -158,3 +164,10 @@ checkCorrectDimensions :: Char -> [String] -> Bool
 checkCorrectDimensions c xs = length xs == dim && all ((== dim) . length) xs
   where
     dim = 2 * position c + 1
+
+shrinkNonAlphaChar :: Char -> String
+shrinkNonAlphaChar c = if isPrint c
+                        then takeWhile (/= c) printableChars
+                        else printableChars
+  where
+    (printableChars, _) = partition isPrint ['\0' .. '\127']
