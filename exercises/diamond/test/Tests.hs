@@ -147,7 +147,7 @@ genNonAlphaChar :: Gen Char
 genNonAlphaChar = arbitraryASCIIChar `suchThat` (not . isLetter)
 
 genAlphaChar :: Gen Char
-genAlphaChar = arbitraryASCIIChar `suchThat` isUpper
+genAlphaChar = elements ['A'..'Z']
 
 genDiamond :: Gen (Char, Maybe [String])
 genDiamond = do
