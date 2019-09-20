@@ -1,12 +1,21 @@
 {-# LANGUAGE RecordWildCards #-}
 
-import Data.Foldable     (for_)
-import Test.Hspec        (Spec, describe, it, shouldBe, pending)
-import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
-import Test.QuickCheck   (Gen, elements, forAll, forAllShrink, arbitraryASCIIChar, suchThat)
-import Data.List         (partition)
-import Data.Maybe        (isNothing, isJust, fromMaybe)
-import Data.Char         (ord, isLetter, isUpper, isPrint)
+import Data.Foldable       (for_)
+import Test.Hspec          (Spec, describe, it, shouldBe, pending)
+import Test.Hspec.Runner   (configFastFail, defaultConfig, hspecWith)
+import Test.QuickCheck     ( Gen
+                           , elements
+                           , forAll
+                           , forAllShrink
+                           , arbitraryASCIIChar
+                           , suchThat
+                           , Testable
+                           , Property
+                           )
+import Data.List           (partition)
+import Data.Maybe          (isNothing, isJust, fromMaybe)
+import Data.Char           (ord, isLetter, isUpper, isPrint)
+import Control.Applicative (liftA2)
 import Diamond (diamond)
 
 main :: IO ()
@@ -19,23 +28,22 @@ specs = describe "diamond" $ do
       isNothing . diamond
 
   it "should produce a value for an alpha character" $
-    forAll genAlphaChar $
-      isJust . diamond
+    forAll genAlphaChar $ isJust . diamond
 
   it "should have an odd number of rows" $
-    forAll genAlphaChar $ odd . length . fromMaybe [""] . diamond
+    forAllDiamond $ odd . length
 
   it "should have equal top and bottom" $
-    forAll genAlphaChar $ topEqualToBottom . fromMaybe [""] . diamond
+    forAllDiamond topEqualToBottom
 
   it "should have the correct middle row" $
-    forAll genAlphaChar $ \c -> checkMiddle c . fromMaybe [""] $ diamond c
+    forAllCharDiamond checkMiddle
 
   it "should have the same width and height" $
-    forAll genAlphaChar $ \c -> checkCorrectDimensions c . fromMaybe [""] $ diamond c
+    forAllCharDiamond checkCorrectDimensions
 
   it "rows should start and end with the same character" $
-    pending
+    forAllDiamond $ all checkFirstAndLastCharEq
 
   for_ cases test
   where
@@ -141,6 +149,17 @@ genNonAlphaChar = arbitraryASCIIChar `suchThat` (not . isLetter)
 genAlphaChar :: Gen Char
 genAlphaChar = arbitraryASCIIChar `suchThat` isUpper
 
+genDiamond :: Gen (Char, Maybe [String])
+genDiamond = do
+  c <- genAlphaChar
+  return (c, diamond c)
+
+forAllDiamond :: Testable prop => ([String] -> prop) -> Property
+forAllDiamond = forAllCharDiamond . const
+
+forAllCharDiamond :: Testable prop => (Char -> [String] -> prop) -> Property
+forAllCharDiamond p = forAll genDiamond $ uncurry p . fmap (fromMaybe [""])
+
 topLength :: [String] -> Int
 topLength = (`div` 2) . length
 
@@ -171,3 +190,9 @@ shrinkNonAlphaChar c = if isPrint c
                         else printableChars
   where
     (printableChars, _) = partition isPrint ['\0' .. '\127']
+
+checkFirstAndLastCharEq :: String -> Bool
+-- checkFirstAndLastCharEq xs = head letters == tail letters
+checkFirstAndLastCharEq xs = liftA2 (==) head last letters
+  where
+    letters = filter isLetter xs
