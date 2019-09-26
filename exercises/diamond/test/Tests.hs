@@ -12,7 +12,6 @@ import Test.QuickCheck     ( Gen
                            , Testable
                            , Property
                            )
-import Data.List           (partition)
 import Data.Maybe          (isNothing, isJust, fromMaybe)
 import Data.Char           (ord, isLetter, isUpper, isPrint)
 import Control.Applicative (liftA2)
@@ -189,7 +188,7 @@ shrinkNonAlphaChar c = if isPrint c
                         then takeWhile (/= c) printableChars
                         else printableChars
   where
-    (printableChars, _) = partition isPrint ['\0' .. '\127']
+    printableChars = filter isPrint ['\0' .. '\127']
 
 checkFirstAndLastCharEq :: String -> Bool
 -- checkFirstAndLastCharEq xs = head letters == tail letters
