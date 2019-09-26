@@ -1,4 +1,17 @@
 #!/bin/sh
+
+override_message="I have confirmed that no README check is needed"
+
+# If *any* commit message contains the override message:
+# (Note that TRAVIS_COMMIT_MESSAGE for PRs is usually "merge commit abc123 into def456"
+# which is not useful. Just search all commit messages between master and HEAD)
+
+if git log master..HEAD | grep -q "$override_message"; then
+  echo "WARNING: You've overridden the README check, which applies to ALL commits in this PR."
+  echo "No README in this PR will be checked for changes."
+  exit 0
+fi
+
 configlet=$(which configlet)
 if [ ! -x $configlet ]; then
     configlet=bin/configlet
