@@ -188,8 +188,9 @@ checkCorrectDimensions c xs = length xs == dim && all ((== dim) . length) xs
     dim = 2 * position c + 1
 
 shrinkNonAlphaChar :: Char -> String
-shrinkNonAlphaChar c = if isPrint c
-                        then takeWhile (/= c) printableChars
-                        else printableChars
+shrinkNonAlphaChar c =
+  if isPrint c
+   then takeWhile (/= c) printableChars
+   else printableChars
   where
     printableChars = filter isPrint ['\0' .. '\127']
