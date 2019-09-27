@@ -42,7 +42,7 @@ specs = describe "diamond" $ do
   it "should have the same width and height" $
     forAllCharDiamond checkCorrectDimensions
 
-  it "rows should start and end with the same character" $
+  it "rows should start and end with the same letter" $
     forAllDiamond $
       let headEqualsLast ys = not (null ys) && take 1 ys `isSuffixOf` ys
       in \case [] -> False
