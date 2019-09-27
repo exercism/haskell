@@ -1,4 +1,5 @@
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE LambdaCase #-}
 
 import Data.Foldable       (for_)
 import Test.Hspec          (Spec, describe, it, shouldBe, pending)
@@ -13,8 +14,8 @@ import Test.QuickCheck     ( Gen
                            , Property
                            )
 import Data.Maybe          (isNothing, isJust, fromMaybe)
-import Data.Char           (ord, isLetter, isUpper, isPrint)
-import Control.Applicative (liftA2)
+import Data.Char           (ord, isLetter, isPrint)
+import Data.List           (isSuffixOf)
 import Diamond (diamond)
 
 main :: IO ()
@@ -42,7 +43,10 @@ specs = describe "diamond" $ do
     forAllCharDiamond checkCorrectDimensions
 
   it "rows should start and end with the same character" $
-    forAllDiamond $ all checkFirstAndLastCharEq
+    forAllDiamond $
+      let headEqualsLast ys = not (null ys) && take 1 ys `isSuffixOf` ys
+      in \case [] -> False
+               xs -> all headEqualsLast $ filter isLetter <$> xs
 
   for_ cases test
   where
@@ -189,9 +193,3 @@ shrinkNonAlphaChar c = if isPrint c
                         else printableChars
   where
     printableChars = filter isPrint ['\0' .. '\127']
-
-checkFirstAndLastCharEq :: String -> Bool
--- checkFirstAndLastCharEq xs = head letters == tail letters
-checkFirstAndLastCharEq xs = liftA2 (==) head last letters
-  where
-    letters = filter isLetter xs
