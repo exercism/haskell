@@ -12,6 +12,7 @@ import Test.QuickCheck     ( Gen
                            , suchThat
                            , Testable
                            , Property
+                           , (===)
                            )
 import Data.Maybe          (isNothing, isJust, fromMaybe)
 import Data.Char           (ord, isLetter, isPrint, isSpace)
@@ -34,10 +35,9 @@ specs = describe "diamond" $ do
     forAllDiamond $ odd . length
 
   it "should have equal top and bottom" $
-    forAllDiamond topEqualToBottom
-
-  it "should have the correct middle row" $
-    forAllCharDiamond checkMiddle
+    forAllDiamond $ \diamond ->
+      let halfRoundDown = length diamond `div` 2
+       in take halfRoundDown diamond === take halfRoundDown (reverse diamond)
 
   it "should have the same width and height" $
     forAllCharDiamond checkCorrectDimensions
@@ -163,24 +163,8 @@ forAllDiamond = forAllCharDiamond . const
 forAllCharDiamond :: Testable prop => (Char -> [String] -> prop) -> Property
 forAllCharDiamond p = forAll genDiamond $ uncurry p . fmap (fromMaybe [""])
 
-topLength :: [String] -> Int
-topLength = (`div` 2) . length
-
 position :: Char -> Int
 position c = ord c - ord 'A'
-
-topEqualToBottom :: [String] -> Bool
-topEqualToBottom xs = take len xs == take len (reverse xs)
-  where
-    len = topLength xs
-
-checkMiddle :: Char -> [String] -> Bool
-checkMiddle c xs = getMiddle xs == middle
-  where
-    getMiddle ys = ys !! topLength ys
-    leftSide = c : replicate (position c) ' '
-    rightSide = tail . reverse $ leftSide
-    middle = leftSide ++ rightSide
 
 checkCorrectDimensions :: Char -> [String] -> Bool
 checkCorrectDimensions c xs = length xs == dim && all ((== dim) . length) xs
