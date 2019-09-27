@@ -13,6 +13,8 @@ import Test.QuickCheck     ( Gen
                            , Testable
                            , Property
                            , (===)
+                           , counterexample
+                           , conjoin
                            )
 import Data.Maybe          (isNothing, isJust, fromMaybe)
 import Data.Char           (ord, isLetter, isPrint, isSpace)
@@ -40,7 +42,13 @@ specs = describe "diamond" $ do
        in take halfRoundDown diamond === take halfRoundDown (reverse diamond)
 
   it "should have the same width and height" $
-    forAllCharDiamond checkCorrectDimensions
+    forAllDiamond $ \diamond ->
+      let sameHeightWidth idx row = counterexample
+            (concat [ "The length of row with index "
+                    , show idx
+                    , " is not equal to the height" ])
+            (length row === length diamond)
+      in conjoin $ zipWith sameHeightWidth [0..] diamond
 
   it "rows should start and end with the same letter" $
     forAllDiamond $
@@ -165,11 +173,6 @@ forAllCharDiamond p = forAll genDiamond $ uncurry p . fmap (fromMaybe [""])
 
 position :: Char -> Int
 position c = ord c - ord 'A'
-
-checkCorrectDimensions :: Char -> [String] -> Bool
-checkCorrectDimensions c xs = length xs == dim && all ((== dim) . length) xs
-  where
-    dim = 2 * position c + 1
 
 shrinkNonAlphaChar :: Char -> String
 shrinkNonAlphaChar c =
