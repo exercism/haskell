@@ -14,7 +14,7 @@ import Test.QuickCheck     ( Gen
                            , Property
                            )
 import Data.Maybe          (isNothing, isJust, fromMaybe)
-import Data.Char           (ord, isLetter, isPrint)
+import Data.Char           (ord, isLetter, isPrint, isSpace)
 import Data.List           (isSuffixOf)
 import Diamond (diamond)
 
@@ -46,7 +46,7 @@ specs = describe "diamond" $ do
     forAllDiamond $
       let headEqualsLast ys = not (null ys) && take 1 ys `isSuffixOf` ys
       in \case [] -> False
-               xs -> all headEqualsLast $ filter isLetter <$> xs
+               xs -> all headEqualsLast $ filter (not . isSpace) <$> xs
 
   for_ cases test
   where
