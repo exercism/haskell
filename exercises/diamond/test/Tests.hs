@@ -17,7 +17,7 @@ import Test.QuickCheck     ( Gen
                            , discard
                            )
 import Data.Maybe          (isNothing, isJust)
-import Data.Char           (ord, isLetter, isPrint, isSpace)
+import Data.Char           (isLetter, isPrint, isSpace)
 import Data.List           (isSuffixOf)
 import Diamond (diamond)
 
