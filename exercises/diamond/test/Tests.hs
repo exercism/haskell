@@ -1,8 +1,7 @@
 {-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE LambdaCase #-}
 
 import Data.Foldable       (for_)
-import Test.Hspec          (Spec, describe, it, shouldBe, pending)
+import Test.Hspec          (Spec, describe, it, shouldBe)
 import Test.Hspec.Runner   (configFastFail, defaultConfig, hspecWith)
 import Test.QuickCheck     ( Gen
                            , elements
@@ -15,8 +14,9 @@ import Test.QuickCheck     ( Gen
                            , (===)
                            , counterexample
                            , conjoin
+                           , discard
                            )
-import Data.Maybe          (isNothing, isJust, fromMaybe)
+import Data.Maybe          (isNothing, isJust)
 import Data.Char           (ord, isLetter, isPrint, isSpace)
 import Data.List           (isSuffixOf)
 import Diamond (diamond)
@@ -37,24 +37,23 @@ specs = describe "diamond" $ do
     forAllDiamond $ odd . length
 
   it "should have equal top and bottom" $
-    forAllDiamond $ \diamond ->
-      let halfRoundDown = length diamond `div` 2
-       in take halfRoundDown diamond === take halfRoundDown (reverse diamond)
+    forAllDiamond $ \rows ->
+      let halfRoundDown = length rows `div` 2
+       in take halfRoundDown rows === take halfRoundDown (reverse rows)
 
   it "should have the same width and height" $
-    forAllDiamond $ \diamond ->
+    forAllDiamond $ \rows ->
       let sameHeightWidth idx row = counterexample
             (concat [ "The length of row with index "
                     , show idx
                     , " is not equal to the height" ])
-            (length row === length diamond)
-      in conjoin $ zipWith sameHeightWidth [0..] diamond
+            (length row === length rows)
+      in conjoin $ zipWith sameHeightWidth [0 :: Int ..] rows
 
   it "rows should start and end with the same letter" $
     forAllDiamond $
-      let headEqualsLast ys = not (null ys) && take 1 ys `isSuffixOf` ys
-      in \case [] -> False
-               xs -> all headEqualsLast $ filter (not . isSpace) <$> xs
+      let headEqualsLast row = not (null row) && take 1 row `isSuffixOf` row
+       in (&&) <$> not . null <*> all (headEqualsLast . filter (not . isSpace))
 
   for_ cases test
   where
@@ -160,19 +159,11 @@ genNonAlphaChar = arbitraryASCIIChar `suchThat` (not . isLetter)
 genAlphaChar :: Gen Char
 genAlphaChar = elements ['A'..'Z']
 
-genDiamond :: Gen (Char, Maybe [String])
-genDiamond = do
-  c <- genAlphaChar
-  return (c, diamond c)
+genDiamond :: Gen (Maybe [String])
+genDiamond = diamond <$> genAlphaChar
 
 forAllDiamond :: Testable prop => ([String] -> prop) -> Property
-forAllDiamond = forAllCharDiamond . const
-
-forAllCharDiamond :: Testable prop => (Char -> [String] -> prop) -> Property
-forAllCharDiamond p = forAll genDiamond $ uncurry p . fmap (fromMaybe [""])
-
-position :: Char -> Int
-position c = ord c - ord 'A'
+forAllDiamond p = forAll genDiamond $ maybe discard p
 
 shrinkNonAlphaChar :: Char -> String
 shrinkNonAlphaChar c =
