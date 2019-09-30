@@ -48,8 +48,8 @@ that makes sense, so you are encouraged to find the one you think is the best.
 
 ## Getting Started
 
-For installation and learning resources, refer to the
-[exercism help page](http://exercism.io/languages/haskell).
+Please refer to the [installation](https://exercism.io/tracks/haskell/installation)
+and [learning](https://exercism.io/tracks/haskell/learning) help pages.
 
 ## Running the tests
 

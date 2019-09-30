@@ -33,8 +33,8 @@ So: `101 => 1*2^2 + 0*2^1 + 1*2^0 => 1*4 + 0*2 + 1*1 => 4 + 1 => 5 base 10`.
 
 ## Getting Started
 
-For installation and learning resources, refer to the
-[exercism help page](http://exercism.io/languages/haskell).
+Please refer to the [installation](https://exercism.io/tracks/haskell/installation)
+and [learning](https://exercism.io/tracks/haskell/learning) help pages.
 
 ## Running the tests
 
