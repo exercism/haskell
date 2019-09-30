@@ -1,24 +1,24 @@
 {-# LANGUAGE RecordWildCards #-}
 
-import Data.Foldable       (for_)
-import Test.Hspec          (Spec, describe, it, shouldBe)
-import Test.Hspec.Runner   (configFastFail, defaultConfig, hspecWith)
-import Test.QuickCheck     ( Gen
-                           , elements
-                           , forAll
-                           , forAllShrink
-                           , arbitraryASCIIChar
-                           , suchThat
-                           , Testable
-                           , Property
-                           , (===)
-                           , counterexample
-                           , conjoin
-                           , discard
-                           )
-import Data.Maybe          (isNothing, isJust)
-import Data.Char           (isLetter, isPrint, isSpace)
-import Data.List           (isSuffixOf)
+import Data.Foldable     (for_)
+import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+import Test.QuickCheck   ( Gen
+                         , elements
+                         , forAll
+                         , forAllShrink
+                         , arbitraryASCIIChar
+                         , suchThat
+                         , Testable
+                         , Property
+                         , (===)
+                         , counterexample
+                         , conjoin
+                         , discard
+                         )
+import Data.Maybe        (isNothing, isJust)
+import Data.Char         (isLetter, isPrint, isSpace)
+import Data.List         (isSuffixOf)
 import Diamond (diamond)
 
 main :: IO ()
