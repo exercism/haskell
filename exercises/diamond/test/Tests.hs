@@ -6,10 +6,9 @@ import Data.List         (isSuffixOf)
 import Data.Maybe        (isNothing, isJust)
 import Test.Hspec        (Spec, describe, it, shouldBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
-import Test.QuickCheck   ( arbitraryASCIIChar, counterexample, conjoin
-                         , discard, elements, forAll, forAllShrink, Gen
-                         , Property, suchThat, Testable, (===)
-                         )
+import Test.QuickCheck   (arbitraryASCIIChar, counterexample, conjoin,
+                          discard, elements, forAll, forAllShrink, Gen,
+                          Property, suchThat, Testable, (===))
 
 import Diamond (diamond)
 
