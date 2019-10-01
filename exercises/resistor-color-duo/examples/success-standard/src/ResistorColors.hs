@@ -26,4 +26,4 @@ convert Grey = 8
 convert White = 9
 
 value :: [Color] -> Int
-value = read . concatMap (show . convert)
+value = read . concatMap (show . convert) . take 2

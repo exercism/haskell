@@ -41,4 +41,8 @@ cases = [ Case { description = "Brown and black"
                , input       = [Orange, Orange]
                , expected    = 33
                }
+        , Case { description = "Ignore additional colors"
+               , input       = [Green, Brown, Orange]
+               , expected    = 51
+               }
         ]
