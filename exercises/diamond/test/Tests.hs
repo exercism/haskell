@@ -159,7 +159,7 @@ forAllDiamond p = forAll genDiamond $ maybe discard p
 shrinkNonAlphaChar :: Char -> String
 shrinkNonAlphaChar c =
   if isPrint c
-   then takeWhile (/= c) printableChars
-   else printableChars
+  then takeWhile (/= c) printableChars
+  else printableChars
   where
     printableChars = filter isPrint ['\0' .. '\127']
