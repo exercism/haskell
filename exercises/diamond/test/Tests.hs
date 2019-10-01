@@ -30,7 +30,7 @@ specs = describe "diamond" $ do
   it "should have equal top and bottom" $
     forAllDiamond $ \rows ->
       let halfRoundDown = length rows `div` 2
-       in take halfRoundDown rows === take halfRoundDown (reverse rows)
+      in take halfRoundDown rows === take halfRoundDown (reverse rows)
 
   it "should have the same width and height" $
     forAllDiamond $ \rows ->
@@ -44,7 +44,7 @@ specs = describe "diamond" $ do
   it "rows should start and end with the same letter" $
     forAllDiamond $
       let headEqualsLast row = not (null row) && take 1 row `isSuffixOf` row
-       in (&&) <$> not . null <*> all (headEqualsLast . filter (not . isSpace))
+      in (&&) <$> not . null <*> all (headEqualsLast . filter (not . isSpace))
 
   for_ cases test
   where
