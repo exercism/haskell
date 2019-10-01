@@ -14,3 +14,8 @@ The initial balance of the bank account should be 0.
 You will find a dummy data declaration and type signatures already in place,
 but it is up to you to define the functions and create a meaningful data type,
 newtype or type synonym.
+
+If you need help, here are some additional resources:
+
+- Read about [concurrency](https://en.wikipedia.org/wiki/Concurrent_Haskell) in Haskell.
+- Look into the [Software Transactional Memory](https://hackage.haskell.org/package/stm) package and its Transactional Variables.
