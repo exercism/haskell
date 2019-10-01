@@ -3,10 +3,10 @@
 import Data.Char         (isLetter, isPrint, isSpace)
 import Data.Foldable     (for_)
 import Data.List         (isSuffixOf)
-import Data.Maybe        (isNothing, isJust)
+import Data.Maybe        (isJust, isNothing)
 import Test.Hspec        (Spec, describe, it, shouldBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
-import Test.QuickCheck   (arbitraryASCIIChar, counterexample, conjoin,
+import Test.QuickCheck   (arbitraryASCIIChar, conjoin, counterexample,
                           discard, elements, forAll, forAllShrink, Gen,
                           Property, suchThat, Testable, (===))
 
