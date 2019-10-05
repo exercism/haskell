@@ -37,12 +37,24 @@ cases = [ Case { description = "year not divisible by 4 in common year"
                , input       = 1996
                , expected    = True
                }
+        , Case { description = "year divisible by 4 and 5 is still a leap year"
+               , input       = 1960
+               , expected    = True
+               }
         , Case { description = "year divisible by 100, not divisible by 400 in common year"
                , input       = 2100
                , expected    = False
                }
+        , Case { description = "year divisible by 100 but not by 3 is still not a leap year"
+               , input       = 1900
+               , expected    = False
+               }
         , Case { description = "year divisible by 400 in leap year"
                , input       = 2000
+               , expected    = True
+               }
+        , Case { description = "year divisible by 400 but not by 125 is still a leap year"
+               , input       = 2400
                , expected    = True
                }
         , Case { description = "year divisible by 200, not divisible by 400 in common year"
