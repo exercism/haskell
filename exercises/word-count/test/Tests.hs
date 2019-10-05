@@ -101,6 +101,17 @@ cases = [ Case { description = "count one word"
                                , ("large"  , 2)
                                , ("and"    , 1) ]
                }
+        , Case { description = "substrings from the beginning"
+               , input       = "Joe can't tell between app, apple and a"
+               , expected    = [ ("joe"    , 1)
+                               , ("can't"  , 1)
+                               , ("tell"   , 1)
+                               , ("between", 1)
+                               , ("app"    , 1)
+                               , ("apple"  , 1)
+                               , ("and"    , 1)
+                               , ("a"      , 1) ]
+              }
         , Case { description = "multiple spaces not detected as a word"
                , input       = " multiple   whitespaces"
                , expected    = [ ("multiple"   , 1)
