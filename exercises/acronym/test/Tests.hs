@@ -62,4 +62,8 @@ cases = [ Case { description = "basic"
                , input       = "Halley's Comet"
                , expected    = "HC"
                }
+        , Case { description = "underscore emphasis"
+               , input       = "The Road _Not_ Taken"
+               , expected    = "TRNT"
+               }
         ]
