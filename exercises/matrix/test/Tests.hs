@@ -36,8 +36,8 @@ specs = do
     it "extract row where numbers have different widths" $
       row 2 (intMatrix "1 2\n10 20") `shouldBe` vector [10, 20]
 
-    it "can extract row from non-square matrix" $
-      row 3 (intMatrix "1 2 3\n4 5 6\n7 8 9\n8 7 6") `shouldBe` vector [7, 8, 9]
+    it "can extract row from non-square matrix with no corresponding column" $
+      row 4 (intMatrix "1 2 3\n4 5 6\n7 8 9\n8 7 6") `shouldBe` vector [8, 7, 6]
 
     it "extract column from one number matrix" $
       column 1 (intMatrix "1") `shouldBe` vector [1]
@@ -45,8 +45,8 @@ specs = do
     it "can extract column" $
       column 3 (intMatrix "1 2 3\n4 5 6\n7 8 9") `shouldBe` vector [3, 6, 9]
 
-    it "can extract column from non-square matrix" $
-      column 3 (intMatrix "1 2 3\n4 5 6\n7 8 9\n8 7 6") `shouldBe` vector [3, 6, 9, 6]
+    it "can extract column from non-square matrix with no corresponding row" $
+      column 4 (intMatrix "1 2 3 4\n5 6 7 8\n9 8 7 6") `shouldBe` vector [4, 8, 6]
 
     it "extract column where numbers have different widths" $
       column 2 (intMatrix "89 1903 3\n18 3 1\n9 4 800") `shouldBe` vector [1903, 3, 4]
