@@ -10,6 +10,6 @@ abbreviate s = T.filter (/= ' ') $ T.zipWith sanitize (" " <> s) (s <> " ")
 
 sanitize :: Char -> Char -> Char
 sanitize a b
-  | (a == ' ' || a == '-') && isLetter b = toUpper b
+  | not (isLetter a) && a /= '\'' && isLetter b = toUpper b
   | isLower a && isUpper b = b
   | otherwise = ' '
