@@ -51,8 +51,8 @@ cases = [ Case { description = "Earth"
                }
         , Case { description = "Mars"
                , planet      = Mars
-               , seconds     = 2329871239
-               , expected    = 39.25
+               , seconds     = 2129871239
+               , expected    = 35.88
                }
         , Case { description = "Jupiter"
                , planet      = Jupiter
@@ -61,17 +61,17 @@ cases = [ Case { description = "Earth"
                }
         , Case { description = "Saturn"
                , planet      = Saturn
-               , seconds     = 3000000000
-               , expected    = 3.23
+               , seconds     = 2000000000
+               , expected    = 2.15
                }
         , Case { description = "Uranus"
                , planet      = Uranus
-               , seconds     = 3210123456
-               , expected    = 1.21
+               , seconds     = 1210123456
+               , expected    = 0.46
                }
         , Case { description = "Neptune"
                , planet      = Neptune
-               , seconds     = 8210123456
-               , expected    = 1.58
+               , seconds     = 1821023456
+               , expected    = 0.35
                }
         ]
