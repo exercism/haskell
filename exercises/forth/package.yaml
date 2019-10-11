@@ -1,5 +1,5 @@
 name: forth
-version: 1.7.0.11
+version: 1.7.1.12
 
 dependencies:
   - base
