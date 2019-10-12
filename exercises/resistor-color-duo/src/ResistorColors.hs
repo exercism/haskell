@@ -11,7 +11,7 @@ data Color =
   | Violet
   | Grey
   | White
-  deriving (Eq, Show, Read)
+  deriving (Eq, Show)
 
-value :: [Color] -> Int
-value cs = error "You need to implement this function."
+value :: (Color, Color) -> Int
+value (a, b) = error "You need to implement this function."
