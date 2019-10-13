@@ -41,4 +41,7 @@ cases = [ Case { description = "Brown and black"
                , input       = (Orange, Orange)
                , expected    = 33
                }
+        -- Note: This test suite omits testing three-color bands,
+        -- since they are not representable as (Color, Color). They
+        -- are addressed in the exercise resistor-color-trio.
         ]
