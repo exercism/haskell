@@ -15,10 +15,10 @@ data Color =
   | Violet
   | Grey
   | White
-  deriving (Eq, Show, Enum, Bounded)
+  deriving (Show, Enum, Bounded)
 
 newtype Resistor = Resistor { bands :: (Color, Color, Color) }
-  deriving (Eq, Show)
+  deriving Show
 
 label :: Resistor -> Text
 label resistor
