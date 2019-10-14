@@ -52,6 +52,7 @@ specs = do
       , ("negative minutes"                                     ,    1,   -40, "00:20")
       , ("negative minutes roll over"                           ,    1,  -160, "22:20")
       , ("negative minutes roll over continuously"              ,    1, -4820, "16:40")
+      , ("negative sixty minutes is previous hour"              ,    2,   -60, "01:00")
       , ("negative hour and minutes both roll over"             ,  -25,  -160, "20:20")
       , ("negative hour and minutes both roll over continuously", -121, -5810, "22:10") ]
 
