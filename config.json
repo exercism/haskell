@@ -237,8 +237,8 @@
       "unlocked_by": "pangram",
       "difficulty": 3,
       "topics": [
-        "strings",
-        "data_types"
+        "data_types",
+        "strings"
       ]
     },
     {
