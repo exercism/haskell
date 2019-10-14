@@ -39,6 +39,7 @@ cases = [ Case { input         = Resistor (Black, Black, Black)
                , expectedLabel = "0 ohms"
                , expectedOhms  = 0
                }
+
         , Case { input         = Resistor (Black, Yellow, Black)
                , expectedLabel = "4 ohms"
                , expectedOhms  = 4
@@ -63,6 +64,7 @@ cases = [ Case { input         = Resistor (Black, Black, Black)
                , expectedLabel = "970 kiloohms"
                , expectedOhms  = 970e3
                }
+
         , Case { input         = Resistor (White, Black, Green)
                , expectedLabel = "9 megaohms"
                , expectedOhms  = 9e6
