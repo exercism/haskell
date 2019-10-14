@@ -15,7 +15,7 @@ specs =
 
   describe "transform" $ do
 
-    it "a single letter" $
+    it "single letter" $
       transform (fromList [(1, "A")])
       `shouldBe` fromList [('a', 1)]
 
