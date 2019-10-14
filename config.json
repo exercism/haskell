@@ -231,6 +231,17 @@
       ]
     },
     {
+      "slug": "resistor-color-trio",
+      "uuid": "946a2c88-fd0c-4dbc-a5cf-75ad9147e80c",
+      "core": false,
+      "unlocked_by": "pangram",
+      "difficulty": 3,
+      "topics": [
+        "strings",
+        "data_types"
+      ]
+    },
+    {
       "slug": "accumulate",
       "uuid": "5c5a9256-a55e-4bda-baf3-96d052732e11",
       "core": false,
