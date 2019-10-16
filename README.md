@@ -23,7 +23,6 @@ Exercism exercises in Haskell
 - [Running HLint](#running-hlint)
 
 ## How to contribute
-As a first step we recommend you read the [contributing documentation](https://github.com/exercism/docs/tree/master/contributing-to-language-tracks).
 
 ### Reporting or fixing bugs
 Typical examples for a bug: A typo, a missing test case, an unclear or ambiguous
