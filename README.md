@@ -6,7 +6,6 @@ Exercism exercises in Haskell
 
 ## Contributing Guide
 
-- [Asking for help](#asking-for-help)
 - [How to contribute](#how-to-contribute)
   * [Reporting or fixing bugs](#reporting-or-fixing-bugs)
   * [Reviewing issues and pull requests](#reviewing-issues-and-pull)
@@ -25,21 +24,13 @@ Exercism exercises in Haskell
 - [Running tests](#running-tests)
 - [Running HLint](#running-hlint)
 
-### Asking for help
-When in doubt just ask!
-- [gitter support](https://gitter.im/exercism/support): more specific/technical questions.
-- [gitter dev](https://gitter.im/exercism/dev): technical questions.
-
-In any case, don't be afraid or shy! We promise to be friendly and as helpful as
-possible.
-
 ### How to contribute
 As a first step we recommend you read the [contributing documentation](https://github.com/exercism/docs/tree/master/contributing-to-language-tracks).
 
 #### Reporting or fixing bugs
 Typical examples for a bug: A typo, a missing test case, an unclear or ambiguous
 problem description.
-- If you are unsure whether you have really found a bug [just ask](#asking-for-help).
+- If you are unsure whether you have really found a bug [just ask](https://github.com/exercism/haskell/issues/new).
 - To report a bug you can [write an issue](#writing-an-issue).
 - If you already have a fix for it you may [write a pull request](#writing-a-pull-request).
 
@@ -51,7 +42,7 @@ Please be detailed and include reasons, links or arguments to support your opini
 The site contains a [list of missing exercises](http://exercism.io/languages/haskell/todo).
 You may implement any of these exercises for the Haskell track.
 Feel free to refer to the [documentation on porting an exercise](https://github.com/exercism/docs/blob/master/you-can-help/implement-an-exercise-from-specification.md).
-Of course you can also add a totally new exercise, but it might be a good idea to first discuss it in one of [our forums](#asking-for-help).
+Of course you can also add a totally new exercise, but it might be a good idea to [first discuss the idea](https://github.com/exercism/haskell/issues/new).
 
 #### Updating an exercise test suite
 Updating a test suite of an existing exercise is special because it usually affects all languages.
