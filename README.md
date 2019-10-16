@@ -4,8 +4,6 @@
 
 Exercism exercises in Haskell
 
-## Contributing Guide
-
 - [How to contribute](#how-to-contribute)
   * [Reporting or fixing bugs](#reporting-or-fixing-bugs)
   * [Reviewing issues and pull requests](#reviewing-issues-and-pull)
@@ -24,35 +22,35 @@ Exercism exercises in Haskell
 - [Running tests](#running-tests)
 - [Running HLint](#running-hlint)
 
-### How to contribute
+## How to contribute
 As a first step we recommend you read the [contributing documentation](https://github.com/exercism/docs/tree/master/contributing-to-language-tracks).
 
-#### Reporting or fixing bugs
+### Reporting or fixing bugs
 Typical examples for a bug: A typo, a missing test case, an unclear or ambiguous
 problem description.
 - If you are unsure whether you have really found a bug [just ask](https://github.com/exercism/haskell/issues/new).
 - To report a bug you can [write an issue](#writing-an-issue).
 - If you already have a fix for it you may [write a pull request](#writing-a-pull-request).
 
-#### Reviewing issues and pull requests
+### Reviewing issues and pull requests
 If you have a dedicated opinion you are welcome to [write a comment](https://help.github.com/articles/commenting-on-a-pull-request/) for an [issue](https://github.com/exercism/haskell/issues) or a [pull request](https://github.com/exercism/haskell/pulls).
 Please be detailed and include reasons, links or arguments to support your opinion.
 
-#### Porting exercises
+### Porting exercises
 The site contains a [list of missing exercises](http://exercism.io/languages/haskell/todo).
 You may implement any of these exercises for the Haskell track.
 Feel free to refer to the [documentation on porting an exercise](https://github.com/exercism/docs/blob/master/you-can-help/implement-an-exercise-from-specification.md).
 Of course you can also add a totally new exercise, but it might be a good idea to [first discuss the idea](https://github.com/exercism/haskell/issues/new).
 
-#### Updating an exercise test suite
+### Updating an exercise test suite
 Updating a test suite of an existing exercise is special because it usually affects all languages.
 You can refer to the [documentation on updating a test suite](https://github.com/exercism/docs/blob/master/contributing-to-language-tracks/README.md#changing-exercise-test-suites) and the [test suite principles](https://github.com/exercism/docs/blob/master/language-tracks/exercises/anatomy/test-suites.md).
 Note that the whole test suite must run with the sample solution within a couple of seconds.
 
-### Repository structure and conventions
+## Repository structure and conventions
 The [track anatomy documentation](https://github.com/exercism/docs/blob/master/language-tracks/README.md) is a general description of all the files and directories that are not explicitly described below.
 
-#### Directory structure
+### Directory structure
 ```bash
 ├── .gitignore
 ├── .travis.yml
@@ -89,7 +87,7 @@ The [track anatomy documentation](https://github.com/exercism/docs/blob/master/l
 ```
 - `config.json`: Every exercise has to be registered here. It has a unique name and a difficulty. The sequence order is also the default order in which the exercises are fetched.
 
-### Exercise structure
+## Exercise structure
 Each exercise has the following structure:
 - `stack.yaml` has just one line specifying the current
 [Stack snapshot](https://www.stackage.org/snapshots). We use the same
@@ -103,7 +101,7 @@ format that has all dependencies and build instructions for an exercise.
 - `test/Tests.hs` is the [test suite](#test-suite).
 - `.meta/hints.md` is an optional file containing instructions and/or hints. It is used together with the respective `description.md` for the exercise from [problem-specifications](https://github.com/exercism/problem-specifications) to build the `README.md` file.
 
-### Exercise versioning
+## Exercise versioning
 
 Each exercise contains a four-part version in its `package.yaml` file, MAJOR.MINOR.PATCH.SERIAL.
 
@@ -121,17 +119,17 @@ When changing a test suite, the version number should be updated appropriately s
 
 This versioning policy was proposed and accepted in https://github.com/exercism/haskell/issues/522.
 
-### Writing an issue
+## Writing an issue
 To report a bug you should [create an issue](https://help.github.com/articles/creating-an-issue/) on the [exercism/haskell repo](https://github.com/exercism/haskell/issues).
 
-### Writing a pull request
+## Writing a pull request
 To fix a bug you should [create a pull request from a fork](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) on the [exercism/haskell repo](https://github.com/exercism/haskell/pulls).
 If you need help with Git, we have some [documentation on Git basics](https://github.com/exercism/docs/blob/master/contributing/git-basics.md).
 
-### Development Dependencies
+## Development Dependencies
 You should have [Stack](http://docs.haskellstack.org/) installed in your system to make contributing to this repository easier.
 
-### Stub solution
+## Stub solution
 The stub solution should be as general as possible in order to not exclude any possible solutions. It should take Haskell specifics into account (for example use `Maybe` instead of a dummy return value). It should not contain any comments (people might forget to remove them), you can use the hints file instead.
 
 The stub solution must compile by itself (with `stack build`).
@@ -140,7 +138,7 @@ These two conditions are enforced by Travis.
 If the second condition cannot be met for a good reason, place the explanation in `.meta/DONT-TEST-STUB` to circumvent the check.
 The first condition is always enforced and cannot be circumvented.
 
-### Example solution
+## Example solution
 The example solution could be inspiration for other language implementors. It doesn't need to be perfect or very elegant. But it should be efficient enough for the test suite to finish in only a few seconds.
 
 Examples are named `<type>-<name>`.
@@ -159,10 +157,10 @@ There are three possible types of examples:
 
 These example types were proposed and accepted in https://github.com/exercism/haskell/issues/397.
 
-### Test suite
+## Test suite
 The test suite should be derived from the respective `problem-specifications/exercises/<exercise-name>/canonical-data.json` and comply to some formatting and coding standards (to get an idea you may look at some of the existing tests).
 
-### Running Tests
+## Running Tests
 In order to be accepted by Travis-CI, every exercise must be registered in
 `config.json`, it must compile without warnings and the example solution must
 pass the tests without failures. Additionally the tests should not run longer than
@@ -177,7 +175,7 @@ These are the same scripts as those used by Travis CI.
 * `test-all-examples path/to/exercise/dir` runs the tests on all examples for an exercise.
 * `test-stub path/to/exercise/dir` checks that the stub for the given exercise compiles.
 
-### Running HLint
+## Running HLint
 All code in this repository should be as idiomatic as possible, so we
 enforce in Travis-CI that it returns `No hints` when processed by
 HLint.
