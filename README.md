@@ -5,7 +5,8 @@
 Exercism exercises in Haskell
 
 - [How to contribute](#how-to-contribute)
-  * [Reporting or fixing bugs](#reporting-or-fixing-bugs)
+  * [Git and GitHub](#git-and-github)
+  * [Report or fix a bug](#report-or-fix-a-bug)
   * [Reviewing issues and pull requests](#reviewing-issues-and-pull)
   * [Porting exercises](#porting-exercises)
   * [Updating an exercise test suite](#updating-an-exercise-test-suite)
@@ -13,8 +14,6 @@ Exercism exercises in Haskell
   * [Directory structure](#directory-structure)
   * [Exercise structure](#exercise-structure)
   * [Exercise versioning](#exercise-versioning)
-- [Writing an issue](#writing-an-issue)
-- [Writing a pull request](#writing-a-pull-request)
 - [Development Dependencies](#development-dependencies)
 - [Stub solution](#stub-solution)
 - [Example solution](#example-solution)
@@ -24,12 +23,19 @@ Exercism exercises in Haskell
 
 ## How to contribute
 
-### Reporting or fixing bugs
-Typical examples for a bug: A typo, a missing test case, an unclear or ambiguous
-problem description.
-- If you are unsure whether you have really found a bug [just ask](https://github.com/exercism/haskell/issues/new).
-- To report a bug you can [write an issue](#writing-an-issue).
-- If you already have a fix for it you may [write a pull request](#writing-a-pull-request).
+### Git and GitHub
+If you would like to contribute but lack experience with git and/or GitHub, try these resources:
+
+- [GitHub Guides: Understanding the GitHub flow](https://guides.github.com/introduction/flow/)
+- [GitHub Help: Creating a pull request from a fork](https://help.github.com/articles/creating-a-pull-request-from-a-fork/)
+- [Exercism's Git Basics](https://github.com/exercism/docs/blob/master/contributing/git-basics.md)
+
+### Report or fix a bug
+Typical examples for a bug: A typo, a missing test case, an unclear or ambiguous problem description.
+
+- If you are unsure whether you have really found a bug, [just ask](https://github.com/exercism/haskell/issues/new).
+- To report a bug you can [create an issue](https://github.com/exercism/haskell/issues/new).
+- If you already have a fix for it, you may submit a pull request.
 
 ### Reviewing issues and pull requests
 If you have a dedicated opinion you are welcome to [write a comment](https://help.github.com/articles/commenting-on-a-pull-request/) for an [issue](https://github.com/exercism/haskell/issues) or a [pull request](https://github.com/exercism/haskell/pulls).
@@ -118,13 +124,6 @@ When changing a test suite, the version number should be updated appropriately s
 
 This versioning policy was proposed and accepted in https://github.com/exercism/haskell/issues/522.
 
-## Writing an issue
-To report a bug you should [create an issue](https://help.github.com/articles/creating-an-issue/) on the [exercism/haskell repo](https://github.com/exercism/haskell/issues).
-
-## Writing a pull request
-To fix a bug you should [create a pull request from a fork](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) on the [exercism/haskell repo](https://github.com/exercism/haskell/pulls).
-If you need help with Git, we have some [documentation on Git basics](https://github.com/exercism/docs/blob/master/contributing/git-basics.md).
-
 ## Development Dependencies
 You should have [Stack](http://docs.haskellstack.org/) installed in your system to make contributing to this repository easier.
 
@@ -179,8 +178,8 @@ All code in this repository should be as idiomatic as possible, so we
 enforce in Travis-CI that it returns `No hints` when processed by
 HLint.
 
-It is highly recommended to run `hlint` on your sources before opening
-a [pull request](#writing-a-pull-request), so you can fix your code before submitting it for review.
+It is highly recommended to run `hlint` on your sources before opening a
+pull request, so you can fix your code before submitting it for review.
 
 If you are certain that a suggestion given by `hlint` would make the
 code worse, you can [suppress it](https://github.com/ndmitchell/hlint#customizing-the-hints)
