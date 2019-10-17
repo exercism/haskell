@@ -41,7 +41,7 @@ As an optional extension to this exercise, you can
     ```
 
 - You can now write e.g. `responseFor :: Text -> Text` and refer to `Data.Text` combinators as e.g. `T.isSuffixOf`.
-- Look up the documentation for [`Data.Text`](https://hackage.haskell.org/package/text-1.2.3.1/docs/Data-Text.html),
+- Look up the documentation for [`Data.Text`](https://hackage.haskell.org/package/text/docs/Data-Text.html),
 - You can then replace all occurrences of `String` with `Text` in Bob.hs:
 
     ```haskell
