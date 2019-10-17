@@ -9,7 +9,7 @@ Exercism exercises in Haskell
   * [Report or fix a bug](#report-or-fix-a-bug)
   * [Review issues and pull requests](#review-issues-and-pull)
   * [Port or create an exercise](#port-or-create-an-exercise)
-  * [Updating an exercise test suite](#updating-an-exercise-test-suite)
+  * [Update an exercise test suite](#update-an-exercise-test-suite)
 - [Repository structure and conventions](#repository-structure-and-conventions)
   * [Directory structure](#directory-structure)
   * [Exercise structure](#exercise-structure)
@@ -50,9 +50,13 @@ Exercism contains exercises that are not ported to Haskell:
 You may implement any of these exercises for the Haskell track. Feel free to refer to the [documentation on porting an exercise](https://github.com/exercism/docs/blob/master/you-can-help/implement-an-exercise-from-specification.md).
 Of course you can also add a totally new exercise, but it might be a good idea to [first discuss the idea](https://github.com/exercism/haskell/issues/new).
 
-### Updating an exercise test suite
-Updating a test suite of an existing exercise is special because it usually affects all languages.
-You can refer to the [documentation on updating a test suite](https://github.com/exercism/docs/blob/master/contributing-to-language-tracks/README.md#changing-exercise-test-suites) and the [test suite principles](https://github.com/exercism/docs/blob/master/language-tracks/exercises/anatomy/test-suites.md).
+### Update an exercise test suite
+Most unit tests are shared between language tracks. You may update a test suite with new unit tests.
+
+- Read about [pushing new unit tests to Exercism](https://github.com/exercism/docs/blob/master/contributing-to-language-tracks/README.md#test-suites).
+- See a list of [exercises from which new unit tests can be pulled to this track](https://tracks.exercism.io/haskell/master/versions).
+- Read about [test suite principles](https://github.com/exercism/docs/blob/master/language-tracks/exercises/anatomy/test-suites.md).
+
 Note that the whole test suite must run with the sample solution within a couple of seconds.
 
 ## Repository structure and conventions
