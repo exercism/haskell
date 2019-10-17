@@ -7,8 +7,8 @@ Exercism exercises in Haskell
 - [How to contribute](#how-to-contribute)
   * [Git and GitHub](#git-and-github)
   * [Report or fix a bug](#report-or-fix-a-bug)
-  * [Reviewing issues and pull requests](#reviewing-issues-and-pull)
-  * [Porting exercises](#porting-exercises)
+  * [Review issues and pull requests](#review-issues-and-pull)
+  * [Port or create an exercise](#port-or-create-an-exercise)
   * [Updating an exercise test suite](#updating-an-exercise-test-suite)
 - [Repository structure and conventions](#repository-structure-and-conventions)
   * [Directory structure](#directory-structure)
@@ -37,14 +37,17 @@ Typical examples for a bug: A typo, a missing test case, an unclear or ambiguous
 - To report a bug you can [create an issue](https://github.com/exercism/haskell/issues/new).
 - If you already have a fix for it, you may submit a pull request.
 
-### Reviewing issues and pull requests
+### Review issues and pull requests
 If you have a dedicated opinion you are welcome to [write a comment](https://help.github.com/articles/commenting-on-a-pull-request/) for an [issue](https://github.com/exercism/haskell/issues) or a [pull request](https://github.com/exercism/haskell/pulls).
+
 Please be detailed and include reasons, links or arguments to support your opinion.
 
-### Porting exercises
-The site contains a [list of missing exercises](http://exercism.io/languages/haskell/todo).
-You may implement any of these exercises for the Haskell track.
-Feel free to refer to the [documentation on porting an exercise](https://github.com/exercism/docs/blob/master/you-can-help/implement-an-exercise-from-specification.md).
+### Port or create an exercise
+Exercism contains exercises that are not ported to Haskell:
+
+- [Unimplemented exercises](https://tracks.exercism.io/haskell/master/unimplemented)
+
+You may implement any of these exercises for the Haskell track. Feel free to refer to the [documentation on porting an exercise](https://github.com/exercism/docs/blob/master/you-can-help/implement-an-exercise-from-specification.md).
 Of course you can also add a totally new exercise, but it might be a good idea to [first discuss the idea](https://github.com/exercism/haskell/issues/new).
 
 ### Updating an exercise test suite
