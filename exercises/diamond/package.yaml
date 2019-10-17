@@ -21,3 +21,4 @@ tests:
       - hspec
       - QuickCheck
       - text
+      - string-conversions
