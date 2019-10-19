@@ -6,12 +6,12 @@ import Data.Char               (isLetter, isPrint, isSpace)
 import Data.Foldable           (for_)
 import Data.List               (isSuffixOf)
 import Data.Maybe              (isJust, isNothing)
+import Data.String.Conversions (convertString)
 import Test.Hspec              (Spec, describe, it, shouldBe)
 import Test.Hspec.Runner       (configFastFail, defaultConfig, hspecWith)
 import Test.QuickCheck         (arbitraryASCIIChar, conjoin, counterexample,
                                 discard, elements, forAll, forAllShrink, Gen,
                                 Property, suchThat, Testable, (===))
-import Data.String.Conversions (convertString)
 
 import Diamond (diamond)
 
