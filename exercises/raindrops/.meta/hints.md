@@ -24,7 +24,7 @@ import           Data.Text (Text)
 ```
 
 - You can now write e.g. `convert :: Int -> Text` and refer to `Data.Text` combinators as e.g. `T.pack`.
-- Look up the documentation for [`Data.Text`](https://hackage.haskell.org/package/text-1.2.3.1/docs/Data-Text.html),
+- Look up the documentation for [`Data.Text`](https://hackage.haskell.org/package/text/docs/Data-Text.html),
 - You can then replace all occurrences of `String` with `Text` in Raindrops.hs:
 
 ```haskell
