@@ -15,3 +15,5 @@ tests:
       - diamond
       - hspec
       - QuickCheck
+      - text
+      - string-conversions

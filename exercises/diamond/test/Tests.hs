@@ -1,14 +1,17 @@
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE FlexibleInstances #-}
 
-import Data.Char         (isLetter, isPrint, isSpace)
-import Data.Foldable     (for_)
-import Data.List         (isSuffixOf)
-import Data.Maybe        (isJust, isNothing)
-import Test.Hspec        (Spec, describe, it, shouldBe)
-import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
-import Test.QuickCheck   (arbitraryASCIIChar, conjoin, counterexample,
-                          discard, elements, forAll, forAllShrink, Gen,
-                          Property, suchThat, Testable, (===))
+import Data.Char               (isLetter, isPrint, isSpace)
+import Data.Foldable           (for_)
+import Data.List               (isSuffixOf)
+import Data.Maybe              (isJust, isNothing)
+import Data.String.Conversions (convertString)
+import Test.Hspec              (Spec, describe, it, shouldBe)
+import Test.Hspec.Runner       (configFastFail, defaultConfig, hspecWith)
+import Test.QuickCheck         (arbitraryASCIIChar, conjoin, counterexample,
+                                discard, elements, forAll, forAllShrink, Gen,
+                                Property, suchThat, Testable, (===))
 
 import Diamond (diamond)
 
@@ -50,7 +53,7 @@ specs = describe "diamond" $ do
   where
     test Case{..} = it description assertion
       where
-        assertion = diamond input `shouldBe` Just expected
+        assertion = (fmap . fmap) convertString (diamond input) `shouldBe` Just expected
 
 
 data Case = Case { description :: String
@@ -151,7 +154,7 @@ genAlphaChar :: Gen Char
 genAlphaChar = elements ['A'..'Z']
 
 genDiamond :: Gen (Maybe [String])
-genDiamond = diamond <$> genAlphaChar
+genDiamond = (fmap . fmap . fmap) convertString $ diamond <$> genAlphaChar
 
 forAllDiamond :: Testable prop => ([String] -> prop) -> Property
 forAllDiamond p = forAll genDiamond $ maybe discard p
