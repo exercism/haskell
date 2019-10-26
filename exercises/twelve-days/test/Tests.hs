@@ -3,6 +3,7 @@
 import Data.Foldable     (for_)
 import Test.Hspec        (Spec, describe, it, shouldBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+import Data.String       (fromString)
 
 import TwelveDays (recite)
 
@@ -14,7 +15,7 @@ specs = describe "responseFor" $ for_ cases test
   where
       test Case{..} = it description assertion
         where
-          assertion = recite start stop `shouldBe` expected
+          assertion = recite start stop `shouldBe` fromString <$> expected
 
 data Case = Case { description :: String
                  , start       :: Int
