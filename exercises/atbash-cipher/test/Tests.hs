@@ -15,7 +15,7 @@ specs = do
           describe "encode" $ for_ encodeCases $ test encode
           describe "decode" $ for_ decodeCases $ test decode
   where
-    test f Case{..} = it description $ f (fromString phrase) `shouldBe` (fromString expected)
+    test f Case{..} = it description $ f (fromString phrase) `shouldBe` fromString expected
 
 data Case = Case { description :: String
                  , phrase      :: String
