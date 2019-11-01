@@ -16,7 +16,7 @@ specs = describe "rotate" $ for_ cases test
 
     test Case{..} = it description assertion
       where
-        assertion = rotate number (fromString phrase) `shouldBe` (fromString expected)
+        assertion = rotate number (fromString phrase) `shouldBe` fromString expected
 
 data Case = Case { description :: String
                  , number      :: Int
