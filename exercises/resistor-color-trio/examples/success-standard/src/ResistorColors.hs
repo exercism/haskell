@@ -1,6 +1,8 @@
 {-# LANGUAGE NumDecimals #-}
 module ResistorColors (Color(..), Resistor(..), label, ohms) where
 
+import Data.Ratio (Ratio, numerator, denominator)
+
 data Color =
     Black
   | Brown
@@ -19,18 +21,24 @@ newtype Resistor = Resistor { bands :: (Color, Color, Color) }
 
 label :: Resistor -> String
 label resistor
-  | ohms' < kilo = show ohms'               ++ " ohms"
-  | ohms' < mega = show (ohms' `quot` kilo) ++ " kiloohms"
-  | ohms' < giga = show (ohms' `quot` mega) ++ " megaohms"
-  | otherwise    = show (ohms' `quot` giga) ++ " gigaohms"
+  | ohms' < kilo = showOhms ohms'          ++ " ohms"
+  | ohms' < mega = showOhms (ohms' / kilo) ++ " kiloohms"
+  | ohms' < giga = showOhms (ohms' / mega) ++ " megaohms"
+  | otherwise    = showOhms (ohms' / giga) ++ " gigaohms"
   where
-    ohms' = ohms resistor
+    ohms' = realToFrac (ohms resistor)
+
+showOhms :: Ratio Int -> String
+showOhms ohms' =
+  if denominator ohms' == 1
+  then show (numerator ohms')
+  else show (realToFrac ohms' :: Double)
 
 ohms :: Resistor -> Int
 ohms (Resistor (a, b, e)) =
   (10 * fromEnum a + fromEnum b) * 10 ^ fromEnum e
 
-kilo, mega, giga :: Int
+kilo, mega, giga :: Num n => n
 kilo = 1e3
 mega = 1e6
 giga = 1e9
