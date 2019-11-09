@@ -11,7 +11,7 @@ data Color =
   | Violet
   | Grey
   | White
-  deriving (Eq, Show, Read)
+  deriving (Eq, Show)
 
 convert :: Color -> Int
 convert Black = 0
@@ -25,5 +25,5 @@ convert Violet = 7
 convert Grey = 8
 convert White = 9
 
-value :: [Color] -> Int
-value = read . concatMap (show . convert) . take 2
+value :: (Color, Color) -> Int
+value (a, b) = 10 * convert a + convert b

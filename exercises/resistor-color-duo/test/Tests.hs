@@ -20,29 +20,28 @@ specs = describe "value" $ for_ cases test
         assertion   = value input `shouldBe` expected
 
 data Case = Case { description :: String
-                 , input       :: [Color]
+                 , input       :: (Color, Color)
                  , expected    :: Int
                  }
 
 cases :: [Case]
 cases = [ Case { description = "Brown and black"
-               , input       = [Brown, Black]
+               , input       = (Brown, Black)
                , expected    = 10
                }
         , Case { description = "Blue and grey"
-               , input       = [Blue, Grey]
+               , input       = (Blue, Grey)
                , expected    = 68
                }
         , Case { description = "Yellow and violet"
-               , input       = [Yellow, Violet]
+               , input       = (Yellow, Violet)
                , expected    = 47
                }
         , Case { description = "Orange and orange"
-               , input       = [Orange, Orange]
+               , input       = (Orange, Orange)
                , expected    = 33
                }
-        , Case { description = "Ignore additional colors"
-               , input       = [Green, Brown, Orange]
-               , expected    = 51
-               }
+        -- Note: This test suite omits testing three-color bands,
+        -- since they are not representable as (Color, Color). They
+        -- are addressed in the exercise resistor-color-trio.
         ]

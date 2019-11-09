@@ -27,6 +27,18 @@ brown-green should return 15
 brown-green-violet should return 15 too, ignoring the third color.
 
 
+## Hints
+
+You need to implement the function
+
+```haskell
+value :: (Color, Color) -> Int
+```
+
+that only accepts two colors and produces the resistor's numeric value
+component of its resistance.
+
+
 
 ## Getting Started
 
