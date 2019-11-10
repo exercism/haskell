@@ -1,6 +1,7 @@
 import Control.Arrow     ((&&&))
 import Test.Hspec        (Spec, it, shouldBe, shouldNotBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+import Test.QuickCheck
 
 import qualified Data.Vector as Vector (fromList)
 
@@ -79,5 +80,28 @@ specs = do
     it "reshape" $
       reshape (2, 2) (intMatrix "1 2 3 4") `shouldBe` intMatrix "1 2\n3 4"
 
+    it "shape of a reshaped matrix should match specified shape"
+      shapeMatchesReshape
+
     it "flatten" $
       flatten (intMatrix "1 2\n3 4") `shouldBe` vector [1, 2, 3, 4]
+  where
+    shapeMatchesReshape = forAllShow (nonEmptyMatrix >>= matrixAndNewShape) failMsg shapeMatches
+      where
+        shapeMatches (m, d) = (==) d . shape . reshape d $ m
+
+        failMsg (m, d) =
+          "Reshaping " ++ show m ++ "; Expected shape: "
+            ++ show d
+            ++ "; got shape: "
+            ++ (show . shape . reshape d $ m)
+
+        matrixAndNewShape m = (\c -> (m, (size `quot` c, c))) <$> elements factors
+          where
+            size = rows m * cols m
+            factors = [n | n <- [1 .. size], size `rem` n == 0]
+
+        nonEmptyMatrix :: Gen (Matrix Int)
+        nonEmptyMatrix =
+          choose (1, 10)
+            >>= (fmap fromList . listOf1 . Test.QuickCheck.vector)
