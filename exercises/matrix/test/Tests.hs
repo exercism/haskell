@@ -1,7 +1,7 @@
 import Control.Arrow     ((&&&))
 import Test.Hspec        (Spec, it, shouldBe, shouldNotBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
-import Test.QuickCheck
+import Test.QuickCheck   (Gen, choose, elements, forAllShow, listOf1, vector)
 
 import qualified Data.Vector as Vector (fromList)
 
@@ -80,28 +80,24 @@ specs = do
     it "reshape" $
       reshape (2, 2) (intMatrix "1 2 3 4") `shouldBe` intMatrix "1 2\n3 4"
 
-    it "shape of a reshaped matrix should match specified shape"
-      shapeMatchesReshape
+    it "shape of a reshaped matrix should match specified shape" $
+      let failMsg (m, newShape) = unlines
+            [ "reshape " <> show newShape <> " (" <> show m <> ")",
+              "Expected shape: " <> show newShape,
+              "Got shape: " <> show (shape (reshape newShape m))
+            ]
+          shapeMatches (m, newShape) =
+            shape (reshape newShape m) == newShape
+      in forAllShow (genNonEmptyMatrix >>= genNewShape) failMsg shapeMatches
 
     it "flatten" $
       flatten (intMatrix "1 2\n3 4") `shouldBe` vector [1, 2, 3, 4]
+
+genNewShape :: Matrix Int -> Gen (Matrix Int, (Int, Int))
+genNewShape m = (\c -> (m, (size `quot` c, c))) <$> elements factors
   where
-    shapeMatchesReshape = forAllShow (nonEmptyMatrix >>= matrixAndNewShape) failMsg shapeMatches
-      where
-        shapeMatches (m, d) = (==) d . shape . reshape d $ m
+    size = rows m * cols m
+    factors = [n | n <- [1 .. size], size `rem` n == 0]
 
-        failMsg (m, d) =
-          "Reshaping " ++ show m ++ "; Expected shape: "
-            ++ show d
-            ++ "; got shape: "
-            ++ (show . shape . reshape d $ m)
-
-        matrixAndNewShape m = (\c -> (m, (size `quot` c, c))) <$> elements factors
-          where
-            size = rows m * cols m
-            factors = [n | n <- [1 .. size], size `rem` n == 0]
-
-        nonEmptyMatrix :: Gen (Matrix Int)
-        nonEmptyMatrix =
-          choose (1, 10)
-            >>= (fmap fromList . listOf1 . Test.QuickCheck.vector)
+genNonEmptyMatrix :: Gen (Matrix Int)
+genNonEmptyMatrix = choose (1, 10) >>= (fmap fromList . listOf1 . vector)
