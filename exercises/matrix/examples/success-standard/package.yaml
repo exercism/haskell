@@ -15,3 +15,4 @@ tests:
     dependencies:
       - matrix
       - hspec
+      - QuickCheck
