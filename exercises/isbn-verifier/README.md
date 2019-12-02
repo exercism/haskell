@@ -41,6 +41,7 @@ Now, it's even trickier since the check digit of an ISBN-10 may be 'X' (represen
 
 * Generate valid ISBN, maybe even from a given starting ISBN.
 
+
 ## Getting Started
 
 Please refer to the [installation](https://exercism.io/tracks/haskell/installation)
