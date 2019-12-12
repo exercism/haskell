@@ -4,6 +4,10 @@
   "blurb": "Haskell is a functional programming language which is pure and statically-typed. It's known for lazy evaluation, where evaluation is deferred until necessary, and its purity, where monads are used for working with side-effects.",
   "ignore_pattern": "example",
   "solution_pattern": "example.*[.]hs",
+  "online_editor": {
+    "indent_style": "space",
+    "indent_size": 2
+  },
   "exercises": [
     {
       "slug": "hello-world",
