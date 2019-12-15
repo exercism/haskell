@@ -2,11 +2,17 @@ module RotationalCipher (rotate) where
 
 import qualified Data.Text as T
 import           Data.Text (Text)
-import           Data.List (elemIndex)
+import           Data.Char (isAsciiUpper, isAsciiLower, chr, ord)
 
 rotate :: Int -> Text -> Text
-rotate n = T.map (rotate' n ['a'..'z'] . rotate' n ['A'..'Z'])
-  where rotate' amountToRotate letters char =
-          case elemIndex char letters of
-            Nothing -> char
-            Just x  -> letters !! mod (x + amountToRotate) 26
+rotate = T.map . rotateLetter
+
+rotateLetter :: Int -> Char -> Char
+rotateLetter amountToRotate char
+  | isAsciiLower char = rotatedLetterStartingWith 'a'
+  | isAsciiUpper char = rotatedLetterStartingWith 'A'
+  | otherwise = char
+  where
+    rotatedLetterStartingWith :: Char -> Char
+    rotatedLetterStartingWith baseCharacter =
+      chr $ (ord char - ord baseCharacter + amountToRotate) `mod` 26 + ord baseCharacter
