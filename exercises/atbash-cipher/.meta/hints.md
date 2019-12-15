@@ -28,10 +28,10 @@ import           Data.Text (Text)
 
 ```haskell
 decode :: Text -> Text
-
--- ...
+decode cipherText = ...
 
 encode :: Text -> Text
+encode plainText = ...
 ```
 
 This part is entirely optional.
