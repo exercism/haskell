@@ -3,6 +3,7 @@
 import Data.Foldable     (for_)
 import Test.Hspec        (Spec, describe, it, shouldBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+import Data.String       (fromString)
 
 import Atbash (encode, decode)
 
@@ -14,7 +15,7 @@ specs = do
           describe "encode" $ for_ encodeCases $ test encode
           describe "decode" $ for_ decodeCases $ test decode
   where
-    test f Case{..} = it description $ f phrase `shouldBe` expected
+    test f Case{..} = it description $ f (fromString phrase) `shouldBe` fromString expected
 
 data Case = Case { description :: String
                  , phrase      :: String
