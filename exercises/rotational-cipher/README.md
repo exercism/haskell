@@ -30,6 +30,42 @@ Ciphertext is written out in the same formatting as the input including spaces a
 - ROT13 `The quick brown fox jumps over the lazy dog.` gives `Gur dhvpx oebja sbk whzcf bire gur ynml qbt.`
 - ROT13 `Gur dhvpx oebja sbk whzcf bire gur ynml qbt.` gives `The quick brown fox jumps over the lazy dog.`
 
+## Hints
+
+You need to implement the `rotate` function, which takes an `Int` and a `String`, and then encodes it using an rotational cipher.
+You can use the provided signature if you are unsure about the types, but don't let it restrict your creativity.
+
+This exercise works with textual data. For historical reasons, Haskell's
+`String` type is synonymous with `[Char]`, a list of characters. For more
+efficient handling of textual data, the `Text` type can be used.
+
+As an optional extension to this exercise, you can
+
+- read about [string types](https://haskell-lang.org/tutorial/string-types) in
+  Haskell.
+- add `- text` to your list of dependencies in package.yaml.
+- import `Data.Text` in [the following
+  way](https://hackernoon.com/4-steps-to-a-better-imports-list-in-haskell-43a3d868273c):
+
+```haskell
+import qualified Data.Text as T
+import           Data.Text (Text)
+```
+
+- use the `Text` type e.g. `rotate :: Int -> Text -> Text` and refer to
+  `Data.Text` combinators as e.g. `T.pack`.
+- look up the documentation for
+  [`Data.Text`](https://hackage.haskell.org/package/text/docs/Data-Text.html).
+- replace all occurrences of `String` with `Text` in RotationalCipher.hs, i.e.:
+
+```haskell
+rotate :: Int -> Text -> Text
+```
+
+This part is entirely optional.
+
+
+
 
 ## Getting Started
 
