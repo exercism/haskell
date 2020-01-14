@@ -4,7 +4,7 @@ module Forth
   , ForthState
   , evalText
   , toList
-  , empty
+  , emptyState
   ) where
 
 import Data.Map (Map)
@@ -62,8 +62,8 @@ defaultWords = M.fromList . map (first T.toCaseFold) $
   , ("over", Over)
   ]
 
-empty :: ForthState
-empty = ForthState
+emptyState :: ForthState
+emptyState = ForthState
       { forthStack = []
       , forthCode  = []
       , forthWords = defaultWords

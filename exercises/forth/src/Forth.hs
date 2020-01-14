@@ -5,7 +5,7 @@ module Forth
   , ForthState
   , evalText
   , toList
-  , empty
+  , emptyState
   ) where
 
 import Data.Text (Text)
@@ -19,8 +19,8 @@ data ForthError
 
 data ForthState = Dummy
 
-empty :: ForthState
-empty = error "You need to implement this function."
+emptyState :: ForthState
+emptyState = error "You need to implement this function."
 
 evalText :: Text -> ForthState -> Either ForthError ForthState
 evalText text stack = error "You need to implement this function."
