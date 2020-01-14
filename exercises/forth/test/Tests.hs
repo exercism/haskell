@@ -4,7 +4,7 @@ import Control.Monad     (foldM)
 import Test.Hspec        (Spec, describe, it, shouldBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
-import Forth (ForthError(..), empty, evalText, toList)
+import Forth (ForthError(..), emptyState, evalText, toList)
 
 main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
@@ -12,7 +12,7 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = do
 
-    let runTexts = fmap toList . foldM (flip evalText) empty
+    let runTexts = fmap toList . foldM (flip evalText) emptyState
 
     describe "parsing and numbers" $
       it "numbers just get pushed onto the stack" $
