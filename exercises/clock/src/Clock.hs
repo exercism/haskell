@@ -1,6 +1,7 @@
 module Clock (addDelta, fromHourMin, toString) where
 
 data Clock = Dummy
+  deriving Eq
 
 fromHourMin :: Int -> Int -> Clock
 fromHourMin hour min = error "You need to implement this function."
