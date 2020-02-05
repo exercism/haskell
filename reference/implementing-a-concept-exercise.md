@@ -2,8 +2,8 @@
 
 This document describes the steps required to implement a concept exercise for the Haskell track. As this document is generic, the following placeholders are used:
 
-- `<SLUG>`: the name of the exercise in kebab-case (e.g. `anonymous-methods`).
-- `<NAME>`: the name of the exercise in PascalCase (e.g. `AnonymousMethods`).
+- `<SLUG>`: the name of the exercise in kebab-case (e.g. `monad-transformers`).
+- `<NAME>`: the name of the exercise in PascalCase (e.g. `MonadTransformers`).
 
 Before implementing the exercise, please make sure you have a good understanding of what the exercise should be teaching (and what not). This information can be found in the exercise's GitHub issue. Concept exercises should be modelled after the CIS 194 Haskell course at Penn University, either the [Spring 2013][spring-2013] or [Fall 2016][fall-2016] version.
 
