@@ -21,36 +21,43 @@ languages
     └── exercises
         └── concept
             └── <SLUG>
-                ├── .docs
-                |   ├── instructions.md
-                |   ├── introduction.md
-                |   ├── hints.md
-                |   └── after.md (optional)
-                ├── .meta
-                |   |── config.json
-                |   |── design.md
-                |   └── <SLUG>.hs (example solution)
-                ├── src
-                |   └── <NAME>.hs
-                ├── test
-                |   └── Tests.hs
                 ├── package.yaml
-                └── stack.yaml
+                ├── stack.yaml
+                ├── src
+                │   └── <NAME>.hs
+                ├── test
+                │   └── Tests.hs
+                ├── examples
+                │   ├── success-... (default: standard)
+                │   │   ├── package.yaml
+                │   │   └── src
+                │   │       └── <NAME>.hs
+                │   └── ...
+                ├── .docs
+                │   ├── instructions.md
+                │   ├── introduction.md
+                │   ├── hints.md
+                │   └── after.md (optional)
+                └── .meta
+                    ├── config.json
+                    └── design.md
 ```
 
 ## Step 1: add track-specific files
 
 These are files specific to the Haskell track:
 
-- `src/<NAME>.hs`: the stub implementation file, which is the starting point for students to work on the exercise.
-- `test/Tests.hs`: the test suite.
-- `.meta/Example.hs`: an example implementation that passes all the tests.
-- `stack.yaml`: the stack project file.
-- `package.yaml`: the cabal package file.
+- `package.yaml`: The Stack project file.
+- `stack.yaml`: The Stack configuration file.
+- `src/<NAME>.hs`: The stub file being handed to the student.
+- `test/Tests.hs`: The test suite being handed to the student.
+- `examples/success-...`: A directory containing an example solution.
+  - `package.yaml`: That example solution's Stack project file.
+  - `src/<NAME>.hs>`: That example solution's source code.
 
 ## Step 2: add common files
 
-How to create the files common to all tracks is described in the [how to implement a concept exercise document][how-to-implement-a-concept-exercise].
+For the Markdown files in `.docs/` and `.meta/`, see the general advice on [how to implement a concept exercise][how-to-implement-a-concept-exercise].
 
 ## Inspiration
 
