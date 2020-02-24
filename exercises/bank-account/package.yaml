@@ -16,6 +16,7 @@ tests:
   test:
     main: Tests.hs
     source-dirs: test
+    ghc-options: -threaded -rtsopts -with-rtsopts=-N
     dependencies:
       - bank-account
       - hspec
