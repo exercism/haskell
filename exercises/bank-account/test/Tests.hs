@@ -1,6 +1,8 @@
 import Control.Concurrent (forkIO, newEmptyMVar, putMVar, takeMVar)
-import Control.Monad      (replicateM)
+import Control.Monad      (replicateM, void)
 import Data.Foldable      (for_)
+import Data.Traversable   (for)
+import Data.Maybe         (isNothing, catMaybes)
 import Test.Hspec         (Spec, it, shouldReturn)
 import Test.Hspec.Runner  (configFastFail, defaultConfig, hspecWith)
 
@@ -17,12 +19,12 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = do
 
-    it "initial balance is 0" $ do
+    it "checks that a new account is initialized to 0" $ do
         account  <-  openAccount
         getBalance   account `shouldReturn` Just 0
         closeAccount account
 
-    it "incrementing and checking balance" $ do
+    it "sequentially increments an account then checks the balance" $ do
         account    <-    openAccount
         getBalance       account    `shouldReturn` Just  0
         incrementBalance account 10 `shouldReturn` Just 10
@@ -30,17 +32,36 @@ specs = do
         getBalance       account    `shouldReturn` Just 30
         closeAccount     account
 
-    it "incrementing balance from other processes then checking it from test process" $ do
-        account  <- openAccount
-        vs <- replicateM 20 $ do
-                  v <- newEmptyMVar
-                  _ <- forkIO $ incrementBalance account 1 >> putMVar v ()
-                  return v
-        for_ vs takeMVar
-        getBalance   account `shouldReturn` Just 20
+    it "concurrently increments an account then checks the balance" $ do
+        let nThreads = 50
+        account <- openAccount
+        vs      <- replicateM nThreads $ do
+          v <- newEmptyMVar
+          void $ forkIO $ do
+            void $ incrementBalance account 1
+            putMVar v ()
+          return v
+        for_ (reverse vs) takeMVar
+        getBalance   account `shouldReturn` Just (toInteger nThreads)
         closeAccount account
 
-    it "closed banks hold no balance" $ do
+    it "concurrently increments an account AND checks the balance" $ do
+        let nThreads = 50
+        account <- openAccount
+        vs      <- replicateM nThreads $ do
+          v <- newEmptyMVar
+          void $ forkIO $ do
+            i <- incrementBalance account 1
+            b <- getBalance account
+            putMVar v [ if isNothing i then Just "Failed to increment!"   else Nothing
+                      , if isNothing b then Just "Failed to get balance!" else Nothing
+                      ]
+          return v
+        fmap (catMaybes . concat) (for vs takeMVar) `shouldReturn` []
+        getBalance   account `shouldReturn` Just (toInteger nThreads)
+        closeAccount account
+
+    it "checks that a closed account holds nothing" $ do
         account    <-    openAccount
         getBalance       account    `shouldReturn` Just  0
         incrementBalance account 15 `shouldReturn` Just 15
