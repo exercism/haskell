@@ -1,5 +1,5 @@
 name: bank-account
-version: 0.1.0.3
+version: 0.1.0.4
 
 dependencies:
   - base
