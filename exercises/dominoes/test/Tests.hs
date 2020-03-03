@@ -74,6 +74,10 @@ cases = [ Case { description = "empty input = empty output"
                , input       = [(1, 2), (1, 3), (2, 3)]
                , expected    = True
                }
+        , Case { description = "cannot use the same domino in both directions"
+               , input       = [(1, 2), (2, 3), (2, 1)]
+               , expected    = False
+               }
         , Case { description = "can't be chained"
                , input       = [(1, 2), (4, 1), (2, 3)]
                , expected    = False
