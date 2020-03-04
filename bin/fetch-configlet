@@ -26,7 +26,9 @@ case $(uname -m) in
         echo 64bit;;
 esac)
 
-VERSION="$(curl --head --silent $LATEST | awk -v FS=/ '/location:/{print $NF}' | tr -d '\r')"
-URL=https://github.com/exercism/configlet/releases/download/$VERSION/configlet-$OS-${ARCH}.tgz
+VERSION="$(curl --head --silent $LATEST | perl -nE 's/\R//g; /^location:/i && print [split/\//]->[-1]')"
+URL="https://github.com/exercism/configlet/releases/download/$VERSION/configlet-$OS-${ARCH}.tgz"
+echo "VERSION = $VERSION"
+echo "URL = $URL"
 
 curl -s --location $URL | tar xz -C bin/
