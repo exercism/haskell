@@ -25,6 +25,12 @@ about the types, but don't let it restrict your creativity:
 responseFor :: String -> String
 ```
 
+To solve this exercise you may read up on:
+
+- [Guards][guards]
+
+[guards]: https://www.futurelearn.com/courses/functional-programming-haskell/0/steps/27226
+
 This exercise works with textual data. For historical reasons, Haskell's
 `String` type is synonymous with `[Char]`, a list of characters. For more
 efficient handling of textual data, the `Text` type can be used.
