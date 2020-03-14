@@ -48,14 +48,22 @@ cases = [ Case { description = "single digit strings can not be valid"
                , input       = "8273 1232 7352 0569"
                , expected    = False
                }
+        , Case { description = "invalid long number with an even remainder"
+               , input       = "1 2345 6789 1234 5678 9012"
+               , expected    = False
+               }
         , Case { description = "valid number with an even number of digits"
                , input       = "095 245 88"
                , expected    = True
                }
+        , Case { description = "valid number with an odd number of spaces"
+               , input       = "234 567 891 234"
+               , expected    = True
+               }
 -- This track is not testing these cases, since we would rather focus on the algorithm,
 -- and because it seems strange to be unable to distinguish between well-formed invalid input and malformed input.
---        , Case { description = "valid strings with a non-digit included become invalid"
---               , input       = "055a 444 285"
+--        , Case { description = "valid strings with a non-digit added at the end become invalid"
+--               , input       = "059a"
 --               , expected    = False
 --               }
 --        , Case { description = "valid strings with punctuation included become invalid"
@@ -78,7 +86,11 @@ cases = [ Case { description = "single digit strings can not be valid"
                , input       = "091"
                , expected    = True
                }
---        , Case { description = "strings with non-digits is invalid"
+--        , Case { description = "using ascii value for non-doubled non-digit isn't allowed"
+--               , input       = "055b 444 285"
+--               , expected    = False
+--               }
+--        , Case { description = "using ascii value for doubled non-digit isn't allowed"
 --               , input       = ":9"
 --               , expected    = False
 --               }
