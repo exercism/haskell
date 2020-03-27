@@ -77,7 +77,7 @@ specs = do
 
             it "rejects multiple mismatching allergens" $
               forAllShrink complementsWithScore shrinkComplementsWithScore $
-                \(allergens, score) -> all (not . (`isAllergicTo` score)) allergens
+                \(allergens, score) -> not (any (`isAllergicTo` score) allergens)
 
           describe "allergies" $ do
 
