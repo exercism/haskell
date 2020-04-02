@@ -37,7 +37,7 @@ languages
                 │   ├── instructions.md
                 │   ├── introduction.md
                 │   ├── hints.md
-                │   └── after.md (optional)
+                │   └── after.md
                 └── .meta
                     ├── config.json
                     └── design.md
