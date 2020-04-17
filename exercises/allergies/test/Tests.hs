@@ -3,7 +3,7 @@
 import Test.QuickCheck   (Gen, forAll, forAllShrink, elements, sublistOf, suchThat)
 import Test.Hspec        (Spec, describe, it, shouldBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
-import Data.List         (delete, lookup)
+import Data.List         (delete)
 import Data.Maybe        (mapMaybe)
 
 import Allergies
@@ -77,7 +77,7 @@ specs = do
 
             it "rejects multiple mismatching allergens" $
               forAllShrink complementsWithScore shrinkComplementsWithScore $
-                \(allergens, score) -> all (not . (`isAllergicTo` score)) allergens
+                \(allergens, score) -> not (any (`isAllergicTo` score) allergens)
 
           describe "allergies" $ do
 

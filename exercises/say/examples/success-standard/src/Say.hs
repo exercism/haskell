@@ -1,6 +1,5 @@
 module Say (inEnglish) where
 
-import Data.Monoid ((<>))
 import Data.Array (Array, listArray, (!))
 
 smallNumbers :: Array Int String
