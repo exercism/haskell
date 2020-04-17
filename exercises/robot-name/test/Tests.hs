@@ -4,7 +4,7 @@ import Control.Monad       (replicateM, unless)
 import Control.Monad.State (evalStateT)
 import Control.Monad.Trans (lift)
 import Data.Ix             (inRange)
-import Data.List           (group, intercalate, null, sort)
+import Data.List           (group, intercalate, sort)
 import Test.Hspec          (Spec, expectationFailure, it, shouldBe, shouldNotBe, shouldSatisfy)
 import Test.Hspec.Runner   (configFastFail, defaultConfig, hspecWith)
 
