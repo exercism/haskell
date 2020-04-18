@@ -1,8 +1,9 @@
 {-# OPTIONS_GHC -fno-warn-type-defaults #-}
+{-# language LambdaCase #-}
 
 import Data.Either       (isLeft)
-import Data.Map          (fromList)
-import Test.Hspec        (Spec, describe, it, shouldBe, shouldSatisfy)
+import Data.Map          (findWithDefault)
+import Test.Hspec        (Spec, describe, it, shouldSatisfy)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
 import DNA (nucleotideCounts, Nucleotide(..))
@@ -13,7 +14,9 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = do
 
-          let x `matchesMap` y = x `shouldBe` (Right . fromList) y
+          let x `matchesMap` y = shouldSatisfy x $ \case
+                Right count -> and [ findWithDefault 0 n count == c | (n,c) <- y ]
+                Left _ -> False
 
           describe "nucleotideCounts" $ do
 
