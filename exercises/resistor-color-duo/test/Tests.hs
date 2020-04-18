@@ -1,19 +1,32 @@
 {-# OPTIONS_GHC -fno-warn-type-defaults #-}
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# LANGUAGE RecordWildCards #-}
 
-import Data.Foldable     (for_)
-import Test.Hspec        (Spec, describe, it, shouldBe)
-import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+import Data.Foldable              (for_)
+import Test.Hspec                 (Spec, describe, context, it, shouldBe)
+import Test.Hspec.Runner          (configFastFail, defaultConfig, hspecWith)
+import Test.QuickCheck            (property)
+import Test.QuickCheck.Gen        (oneof)
+import Test.QuickCheck.Arbitrary
 
 import ResistorColors (Color(..), value)
+
+instance Arbitrary Color where
+  arbitrary = oneof $ map return [Black, Brown, Red, Orange, Yellow, Green, Blue, Violet, Grey, White]
 
 main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
-specs = describe "value" $ for_ cases test
-  where
+specs = describe "value" $ do
+  context "equality tests" $ for_ cases test
 
+  context "property tests" $
+    it "all values starting with Black are single digit" $ property $
+      \color -> value (Black, color) < 10
+    -- Add more property tests here
+
+  where
     test Case{..} = it explanation assertion
       where
         explanation = unwords [show input, "-", description]
