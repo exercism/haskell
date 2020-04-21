@@ -1,9 +1,3 @@
-Implement a 24 hour clock that handles times.
-
-You should be able to add and subtract hours and minutes to it.
-
-Two clocks that represent the same time should be equal to each other.
-
 ## Hints
 
 To complete this exercise you need to define the data type `Clock`,
@@ -30,5 +24,3 @@ If you need help getting started with Types, take a look at:
 - [Data Types in 5 Steps][types]
 
 [types]: https://mmhaskell.com/blog/2017/12/24/haskell-data-types-in-5-steps
-
-
