@@ -6,9 +6,9 @@ You should be able to add and subtract minutes to it.
 
 Two clocks that represent the same time should be equal to each other.
 
-It's a 24 hour clock going from "00:00" to "23:59".
-
 ## Hints
+
+It's a 24 hour clock going from "00:00" to "23:59".
 
 To complete this exercise you need to define the data type `Clock`,
 add an `Eq` instance, and implement the functions:
@@ -30,7 +30,7 @@ You will find a dummy data declaration and type signatures already in place,
 but it is up to you to define the functions and create a meaningful data type,
 newtype or type synonym.
 
-If you need help getting started with Types, take a look at:
+If you need help getting started with types, take a look at:
 - [Data Types in 5 Steps][types]
 
 [types]: https://mmhaskell.com/blog/2017/12/24/haskell-data-types-in-5-steps
