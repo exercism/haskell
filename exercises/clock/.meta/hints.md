@@ -1,6 +1,6 @@
-It's a 24 hour clock going from "00:00" to "23:59".
-
 ## Hints
+
+It's a 24 hour clock going from "00:00" to "23:59".
 
 To complete this exercise you need to define the data type `Clock`,
 add an `Eq` instance, and implement the functions:
