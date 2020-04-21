@@ -1,3 +1,5 @@
+It's a 24 hour clock going from "00:00" to "23:59".
+
 ## Hints
 
 To complete this exercise you need to define the data type `Clock`,
@@ -14,7 +16,7 @@ represented by an instance of `Clock`.
 those hours and minutes.
 
 `toString` takes an instance of `Clock` and returns a string representation 
-of the clock, in 0 padded format like "08:03" or "22:35"
+of the clock, in 0-padded format like "08:03" or "22:35"
 
 You will find a dummy data declaration and type signatures already in place,
 but it is up to you to define the functions and create a meaningful data type,
