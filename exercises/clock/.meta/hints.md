@@ -22,7 +22,7 @@ You will find a dummy data declaration and type signatures already in place,
 but it is up to you to define the functions and create a meaningful data type,
 newtype or type synonym.
 
-If you need help getting started with Types, take a look at:
+If you need help getting started with types, take a look at:
 - [Data Types in 5 Steps][types]
 
 [types]: https://mmhaskell.com/blog/2017/12/24/haskell-data-types-in-5-steps
