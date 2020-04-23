@@ -55,7 +55,7 @@ languages
                     └── design.md
 ```
 
-## Step 1: add track-specific files
+## Step 1: Add code files
 
 These are files specific to the Haskell track:
 
@@ -67,7 +67,7 @@ These are files specific to the Haskell track:
   - `package.yaml`: That example solution's Stack project file.
   - `src/<NAME>.hs>`: That example solution's source code.
 
-## Step 2: add common files
+## Step 2: Add documentation files
 
 For the Markdown files in `.docs/` and `.meta/`, see the general advice on [how to implement a concept exercise][how-to-implement-a-concept-exercise].
 
