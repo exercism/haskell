@@ -29,7 +29,7 @@ The directory structure of a single concept exercise looks like this:
 
 ```
 languages
-└── Haskell
+└── haskell
     └── exercises
         └── concept
             └── <SLUG>
