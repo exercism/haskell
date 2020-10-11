@@ -15,8 +15,9 @@
 # detects three anagrams
 "99c91beb-838f-4ccd-b123-935139917283" = true
 
+# TODO: Add to this track.
 # detects multiple anagrams with different case
-"78487770-e258-4e1f-a646-8ece10950d90" = true
+# "78487770-e258-4e1f-a646-8ece10950d90" = true
 
 # does not detect non-anagrams with identical checksum
 "1d0ab8aa-362f-49b7-9902-3d0c668d557b" = true
@@ -39,5 +40,6 @@
 # words are not anagrams of themselves (case-insensitive)
 "85757361-4535-45fd-ac0e-3810d40debc1" = true
 
+# TODO: Add to this track.
 # words other than themselves can be anagrams
-"a0705568-628c-4b55-9798-82e4acde51ca" = true
+# "a0705568-628c-4b55-9798-82e4acde51ca" = true
