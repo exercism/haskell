@@ -1,5 +1,10 @@
 [canonical-tests]
 
+# Haskell's testing strategy is to use property tests
+# instead of explicitly listing all the cases in problem-specifications.
+# For this reason, the tests below are marked as true.
+# They're covered by the property tests.
+
 # not allergic to anything
 "17fc7296-2440-4ac4-ad7b-d07c321bc5a0" = true
 
