@@ -18,14 +18,17 @@
 # asking gibberish
 "2a02716d-685b-4e2e-a804-2adaf281c01e" = true
 
+# TODO: Update Haskell's values to match problem-specifications
 # talking forcefully
-"c02f9179-ab16-4aa7-a8dc-940145c385f7" = true
+# "c02f9179-ab16-4aa7-a8dc-940145c385f7" = true
 
+# TODO: Update Haskell's values to match problem-specifications
 # using acronyms in regular speech
-"153c0e25-9bb5-4ec5-966e-598463658bcd" = true
+# "153c0e25-9bb5-4ec5-966e-598463658bcd" = true
 
+# TODO: Update Haskell's values to match problem-specifications
 # forceful question
-"a5193c61-4a92-4f68-93e2-f554eb385ec6" = true
+# "a5193c61-4a92-4f68-93e2-f554eb385ec6" = true
 
 # shouting numbers
 "a20e0c54-2224-4dde-8b10-bd2cdd4f61bc" = true
@@ -39,8 +42,9 @@
 # shouting with special characters
 "496143c8-1c31-4c01-8a08-88427af85c66" = true
 
+# TODO: Update Haskell's values to match problem-specifications
 # shouting with no exclamation mark
-"e6793c1c-43bd-4b8d-bc11-499aea73925f" = true
+# "e6793c1c-43bd-4b8d-bc11-499aea73925f" = true
 
 # statement containing question mark
 "aa8097cc-c548-4951-8856-14a404dd236a" = true
