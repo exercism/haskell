@@ -1,43 +1,47 @@
 [canonical-tests]
 
+# All tests other than "full rhyme" are marked false here,
+# since the Haskell track made a deliberate choice to test the full song only.
+# https://github.com/exercism/haskell/pull/348
+
 # verse one - the house that jack built
-"28a540ff-f765-4348-9d57-ae33f25f41f2" = true
+"28a540ff-f765-4348-9d57-ae33f25f41f2" = false
 
 # verse two - the malt that lay
-"ebc825ac-6e2b-4a5e-9afd-95732191c8da" = true
+"ebc825ac-6e2b-4a5e-9afd-95732191c8da" = false
 
 # verse three - the rat that ate
-"1ed8bb0f-edb8-4bd1-b6d4-b64754fe4a60" = true
+"1ed8bb0f-edb8-4bd1-b6d4-b64754fe4a60" = false
 
 # verse four - the cat that killed
-"64b0954e-8b7d-4d14-aad0-d3f6ce297a30" = true
+"64b0954e-8b7d-4d14-aad0-d3f6ce297a30" = false
 
 # verse five - the dog that worried
-"1e8d56bc-fe31-424d-9084-61e6111d2c82" = true
+"1e8d56bc-fe31-424d-9084-61e6111d2c82" = false
 
 # verse six - the cow with the crumpled horn
-"6312dc6f-ab0a-40c9-8a55-8d4e582beac4" = true
+"6312dc6f-ab0a-40c9-8a55-8d4e582beac4" = false
 
 # verse seven - the maiden all forlorn
-"68f76d18-6e19-4692-819c-5ff6a7f92feb" = true
+"68f76d18-6e19-4692-819c-5ff6a7f92feb" = false
 
 # verse eight - the man all tattered and torn
-"73872564-2004-4071-b51d-2e4326096747" = true
+"73872564-2004-4071-b51d-2e4326096747" = false
 
 # verse nine - the priest all shaven and shorn
-"0d53d743-66cb-4351-a173-82702f3338c9" = true
+"0d53d743-66cb-4351-a173-82702f3338c9" = false
 
 # verse 10 - the rooster that crowed in the morn
-"452f24dc-8fd7-4a82-be1a-3b4839cfeb41" = true
+"452f24dc-8fd7-4a82-be1a-3b4839cfeb41" = false
 
 # verse 11 - the farmer sowing his corn
-"97176f20-2dd3-4646-ac72-cffced91ea26" = true
+"97176f20-2dd3-4646-ac72-cffced91ea26" = false
 
 # verse 12 - the horse and the hound and the horn
-"09824c29-6aad-4dcd-ac98-f61374a6a8b7" = true
+"09824c29-6aad-4dcd-ac98-f61374a6a8b7" = false
 
 # multiple verses
-"d2b980d3-7851-49e1-97ab-1524515ec200" = true
+"d2b980d3-7851-49e1-97ab-1524515ec200" = false
 
 # full rhyme
 "0311d1d0-e085-4f23-8ae7-92406fb3e803" = true
