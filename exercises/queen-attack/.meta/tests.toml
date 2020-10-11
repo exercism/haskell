@@ -34,4 +34,7 @@
 "0a71e605-6e28-4cc2-aa47-d20a2e71037a" = true
 
 # can attack on fourth diagonal
+# Haskell intentionally uses the old values for this test
+# upstream change:
+# https://github.com/exercism/problem-specifications/pull/1504
 "0790b588-ae73-4f1f-a968-dd0b34f45f86" = true
