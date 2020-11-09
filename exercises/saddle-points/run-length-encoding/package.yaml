@@ -1,0 +1,21 @@
+name: run-length-encoding
+version: 1.1.0.5
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: RunLength
+  source-dirs: src
+  ghc-options: -Wall
+  # dependencies:
+  # - foo       # List here the packages you
+  # - bar       # want to use in your solution.
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - run-length-encoding
+      - hspec
