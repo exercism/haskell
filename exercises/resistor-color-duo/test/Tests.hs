@@ -1,36 +1,33 @@
 {-# OPTIONS_GHC -fno-warn-type-defaults #-}
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# LANGUAGE RecordWildCards #-}
 
 import Data.Foldable              (for_)
-import Test.Hspec                 (Spec, describe, context, it, shouldBe)
+import Test.Hspec                 (Spec, describe, it, shouldBe)
 import Test.Hspec.Runner          (configFastFail, defaultConfig, hspecWith)
-import Test.QuickCheck            (property)
-import Test.QuickCheck.Gen        (oneof)
-import Test.QuickCheck.Arbitrary
+import Test.QuickCheck            (Gen, elements, forAll)
 
-import ResistorColors (Color(..), value)
-
-instance Arbitrary Color where
-  arbitrary = oneof $ map return [Black, Brown, Red, Orange, Yellow, Green, Blue, Violet, Grey, White]
+import ResistorColors (Color (..), value)
 
 main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
 specs = describe "value" $ do
-  context "equality tests" $ for_ cases test
+  describe "equality tests" $ for_ cases test
 
-  context "property tests" $
-    it "all values starting with Black are single digit" $ property $
-      \color -> value (Black, color) < 10
+  describe "property tests" $
+    it "all values starting with Black are single digit" $
+      forAll colorGen (\color -> value (Black, color) < 10)
+
     -- Add more property tests here
-
   where
     test Case{..} = it explanation assertion
       where
         explanation = unwords [show input, "-", description]
         assertion   = value input `shouldBe` expected
+
+colorGen :: Gen Color
+colorGen = elements [minBound ..]
 
 data Case = Case { description :: String
                  , input       :: (Color, Color)

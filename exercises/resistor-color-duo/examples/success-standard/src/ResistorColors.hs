@@ -11,7 +11,7 @@ data Color =
   | Violet
   | Grey
   | White
-  deriving (Eq, Show)
+  deriving (Eq, Show, Enum, Bounded)
 
 convert :: Color -> Int
 convert Black = 0
