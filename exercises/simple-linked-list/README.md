@@ -95,7 +95,7 @@ one, head over there and create an issue.  We'll do our best to help you!
 
 ## Source
 
-Inspired by 'Data Structures and Algorithms with Object-Oriented Design Patterns in Ruby', singly linked-lists. [http://www.brpreiss.com/books/opus8/html/page96.html#SECTION004300000000000000000](http://www.brpreiss.com/books/opus8/html/page96.html#SECTION004300000000000000000)
+Inspired by 'Data Structures and Algorithms with Object-Oriented Design Patterns in Ruby', singly linked-lists. [https://web.archive.org/web/20160731005714/http://brpreiss.com/books/opus8/html/page96.html](https://web.archive.org/web/20160731005714/http://brpreiss.com/books/opus8/html/page96.html)
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.
