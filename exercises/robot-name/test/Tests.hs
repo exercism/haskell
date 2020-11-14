@@ -73,3 +73,5 @@ specs = do
               n2' <- lift $ robotName r2
               lift $ n1' `shouldNotBe` n2'
               lift $ n2  `shouldBe`    n2'
+
+-- 9ac11efd2c9fbdd190ecd7cd1a53904052ee0e65

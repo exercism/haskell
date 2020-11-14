@@ -54,3 +54,5 @@ specs = do
       plants "Bob"     `shouldBe` [ Clover  , Grass   , Clover  , Clover   ]
       plants "Kincaid" `shouldBe` [ Grass   , Clover  , Clover  , Grass    ]
       plants "Larry"   `shouldBe` [ Grass   , Violets , Clover  , Violets  ]
+
+-- 16f4d940c6ea8cf5be8f474a50a4015a11aa83a8

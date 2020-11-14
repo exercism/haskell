@@ -88,3 +88,5 @@ cases = [ Case { description = "valid isbn number"
                , expected    = False
                }
         ]
+
+-- d05de927935115df33546326dbb8b2c4d3a61d98

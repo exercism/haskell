@@ -60,3 +60,5 @@ cases = [ Case { description = "Zero is an Armstrong numbers"
                , expected    = False
                }
         ]
+
+-- 234df17e8e4a0b126bb3c5cdd81f8e6965d8182e

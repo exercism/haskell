@@ -108,3 +108,5 @@ cases = [ Case { factors  = [3, 5]
                , description = "solutions using include-exclude must extend to cardinality greater than 3"
                }
         ]
+
+-- c9463afdd07f90f24174b928f87618531a44571f

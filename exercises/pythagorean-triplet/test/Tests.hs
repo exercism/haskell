@@ -58,3 +58,5 @@ specs = describe "pythagoreanTriplets" $ for_ cases test
                 ]
               )
             ]
+
+-- 436e9f3a1fbda7cd79190c78bcb1916f51f7c968

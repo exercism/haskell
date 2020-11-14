@@ -172,3 +172,5 @@ cases = [ Case { description = "single hand always wins"
                , expected    = Nothing
                }
         ]
+
+-- 9f507e56ea3d2b12367796410c2bb37cfc3beac6

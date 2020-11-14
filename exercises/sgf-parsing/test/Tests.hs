@@ -34,3 +34,5 @@ specs = describe "parseSgf" $ for_ cases test
                                                                                   , Node [("C", ["D"])] [] ] )
             , ("(;A[b][c][d])"                      , Just  $ Node [("A", ["b", "c", "d" ])] []              )
             , ("(;A[\\]b\nc\\\nd\t\te\\\\ \\\n\\]])", Just  $ Node [("A", ["]b cd  e\\ ]"])] []              ) ]
+
+-- b74debc3be24b5c81650189935c9bbfa019b367e

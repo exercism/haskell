@@ -166,3 +166,5 @@ shrinkNonAlphaChar c =
   else printableChars
   where
     printableChars = filter isPrint ['\0' .. '\127']
+
+-- 7c70bd3c2ee9e206bf541a947d93cd663a7a9124

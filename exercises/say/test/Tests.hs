@@ -41,3 +41,5 @@ specs = describe "inEnglish" $ for_ cases test
          -- we decide not to test it, to give freedom to go to trillions if desired.
          -- , (1000000000000, Nothing                                    )
             ]
+
+-- 899023ec6526c664420a690eec2afcf3e62cb35b

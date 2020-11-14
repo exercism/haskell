@@ -99,3 +99,5 @@ cases = [ Case { description = "an empty board has no winner"
                , expected    = Just Cross
                }
         ]
+
+-- 0dca144b3fec2cd562de152ee482d3f4b24a29ec

@@ -80,3 +80,5 @@ cases = [ Case { description = "zero pieces"
                            ]
                }
         ]
+
+-- 7571de6f6e531aa674a254616a17074b7f755bcd

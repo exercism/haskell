@@ -101,3 +101,5 @@ genNewShape m = (\c -> (m, (size `quot` c, c))) <$> elements factors
 
 genNonEmptyMatrix :: Gen (Matrix Int)
 genNonEmptyMatrix = choose (1, 10) >>= (fmap fromList . listOf1 . vector)
+
+-- 8b77c3f28b3e961d6d1f074110c33927f8316cda

@@ -95,3 +95,5 @@ cases = [ Case { description = "single digit strings can not be valid"
 --               , expected    = False
 --               }
         ]
+
+-- cf5feb96aac859d532651f767dce9d8b029d094a

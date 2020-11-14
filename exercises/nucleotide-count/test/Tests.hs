@@ -47,3 +47,5 @@ specs = do
 
             it "validates strand" $
               nucleotideCounts "AGXXACT" `shouldSatisfy` isLeft
+
+-- 5ed260927d42136af0dd94e4b0916d9c19ad71ff

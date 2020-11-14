@@ -91,3 +91,5 @@ cases = [ Case { description = "no matches"
                , expected    = []
                }
         ]
+
+-- 6227f55f7cd0567e01fef54561e0511ff8331f41

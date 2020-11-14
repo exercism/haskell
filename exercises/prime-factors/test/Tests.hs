@@ -24,3 +24,5 @@ specs = describe "primeFactors" $ for_ cases test
             , ("product of primes and non-primes",       12,          [2, 2, 3] )
             , ("product of primes",                  901255,   [5, 17, 23, 461] )
             , ("factors include a large prime", 93819012551, [11, 9539, 894119] ) ]
+
+-- 7dde0463e679bfe74cb2e4ad6a0d416c5c0be315

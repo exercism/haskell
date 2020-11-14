@@ -95,3 +95,5 @@ specs = do
         let robot = simulation (8, 4) South "LAAARRRALLLL"
         coordinates robot `shouldBe` (11, 5)
         bearing     robot `shouldBe` North
+
+-- 7b07324f0a901c9234e9ffbb0beb889e9421e187

@@ -74,3 +74,5 @@ cases = [ Case { description = "lowercase letter"
                , expected    = 87
                }
         ]
+
+-- a0aa908486542f98a0e421ed775f18945317506e
