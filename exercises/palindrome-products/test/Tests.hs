@@ -39,3 +39,5 @@ specs = for_ cases test
             , ("palindromes from four digit factors"  ,  1000,  9999,   Just (1002001, [( 1001,  1001)],   99000099, [( 9901,  9999)]))
             , ("no available palindrome"              ,  1002,  1003,                                                          Nothing)
             , ("invalid range"                        , 10000,     1,                                                          Nothing) ]
+
+-- a51ae20be99f0c9f170c286a851df8924cadff60

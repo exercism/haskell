@@ -81,3 +81,5 @@ specs = describe "triangleType" $ for_ cases test
               , Illegal
               )
             ]
+
+-- e18ec92425d0e697c631973affde695bca4b83e7

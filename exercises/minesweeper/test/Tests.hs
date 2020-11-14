@@ -67,3 +67,5 @@ specs = describe "annotate" $ for_ cases test
                               , "1*22*2"
                               , "111111" ] )
             ]
+
+-- eae024a99a448b6bccaea07429a118767db16f64

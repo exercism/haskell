@@ -44,3 +44,5 @@ specs = describe "rows" $ for_ rowsCases rowsTest
                                         [1, 8, 28, 56, 70, 56, 28, 8, 1],
                                         [1, 9, 36, 84, 126, 126, 84, 36, 9, 1]])
                 ]
+
+-- 5ecc11ffe95f5552c5645ead2971e6b64738248b

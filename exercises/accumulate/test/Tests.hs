@@ -35,3 +35,5 @@ specs = do
     it "accumulate non-strict" $
       take 1 (accumulate id ("nice work!" : error "accumulate should be even lazier, don't use reverse!"))
       `shouldBe` ["nice work!"]
+
+-- d72616bca2a0a7d8ddf81469e688dc5f7e8103f6

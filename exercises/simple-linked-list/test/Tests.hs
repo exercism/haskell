@@ -108,3 +108,5 @@ specs = do
                       sameNthDatum n = nthDatum ll n == xs !! n
                       indices = [0..pred $ length xs] in
                     all sameNthDatum indices
+
+-- 149c994aa20e7d18486b10fea35ba096c2eb91e2

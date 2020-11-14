@@ -67,3 +67,5 @@ cases = [ Case { description = "basic"
                , expected    = "TRNT"
                }
         ]
+
+-- ad42f2da40183e017f9c52fd00efe33c6bfe7037

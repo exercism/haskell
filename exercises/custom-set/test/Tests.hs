@@ -197,3 +197,5 @@ specs = do
 
         it "a set doesn't keep repeated elements" $
           (sort . toList . fromList) [3, 1, 2, 1] `shouldBe `[1, 2, 3]
+
+-- 54d64bc5e2ff20c76b6c16138ed8ce97cf6f9981

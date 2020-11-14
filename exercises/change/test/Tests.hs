@@ -82,3 +82,5 @@ cases = [ Case { description = "single coin change"
                , expected = Nothing
              }
         ]
+
+-- b7e44872796c8dde45126e8c1d3ad6a53653b355

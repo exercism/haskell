@@ -70,3 +70,5 @@ specs = describe "largestProduct" $ do
       it "rejects negative span" $
         largestProduct (-1) "12345"
         `shouldBe` Left InvalidSpan
+
+-- 84111a1551fc201f898656894233a344a79ffcc5

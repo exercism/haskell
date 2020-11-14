@@ -146,3 +146,5 @@ cases = [ Case { description = "should be able to score a game with all zeros"
                }
         ]
 
+
+-- dc82091047d356d19bebe8fd8b2f7c3f89118010
