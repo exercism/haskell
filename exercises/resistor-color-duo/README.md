@@ -1,18 +1,18 @@
 # Resistor Color Duo
 
-If you want to build something using a Raspberry Pi, you'll probably use _resistors_. 
+If you want to build something using a Raspberry Pi, you'll probably use _resistors_.
 For this exercise, you need to know two things about them:
 
 * Each resistor has a resistance value.
 * Resistors are small - so small in fact that if you printed the resistance value on them, it would be hard to read.
 
-To get around this problem, manufacturers print color-coded bands onto the resistors to denote their resistance values. 
+To get around this problem, manufacturers print color-coded bands onto the resistors to denote their resistance values.
 Each band has a position and a numeric value.
 
-The first 2 bands of a resistor have a simple encoding scheme: each color maps to a single number. 
+The first 2 bands of a resistor have a simple encoding scheme: each color maps to a single number.
 For example, if they printed a brown band (value 1) followed by a green band (value 5), it would translate to the number 15.
 
-In this exercise you are going to create a helpful program so that you don't have to remember the values of the bands. 
+In this exercise you are going to create a helpful program so that you don't have to remember the values of the bands.
 The program will take color names as input and output a two digit number, even if the input is more than two colors!
 
 The band colors are encoded as follows:
@@ -51,27 +51,15 @@ This exercise is a good opportunity to write some [property tests](https://en.wi
 1. [School of Haskell](https://www.schoolofhaskell.com/user/pbv/an-introduction-to-quickcheck-testing).
 2. [Real world Haskell](http://book.realworldhaskell.org/read/testing-and-quality-assurance.html)
 
-We have provided one sample property test in the [test file](test/Tests.hs). We use the [QuickCheck](https://hackage.haskell.org/package/QuickCheck) library, but there are [others](http://hackage.haskell.org/package/hedgehog) as well, feel free to play around.
+We have provided one sample QuickCheck property test in the test file.
 
-Few properties that can be tested:
+Examples of properties that can be tested:
 
-* `value (x, y) >= 10` for all x except Black and all y
+- `value (x, y) >= 10` for all `(x, y)` where `x` isn't `Black`
 
-* `show (value (x, y)) == reverse (show (value (y, x)))` for all x, y except Black.
+- Calling `show` on `value (x, y)` produces the `reverse` String of calling `show` on `value (y, x)`.
 
-* (Color, Color) is isomorphic to [0..99] (or: all colors have a unique value).
-
-* Associativity: Kind of tricky because you can't get the value of a single Color:
-
-```haskell
-value (k, x) <= value (k, y) && value (k, y) <= value (k, z)
-  ⇒ value (k, x) <= value (k, z)
-
-value (x, k) <= value (y, k) && value (y, k) <= value (z, k)
-  ⇒ value (k, x) <= value (k, z)
-```
-
-Can you think of any other properties?
+- All colors have unique names. (For any two colors, if the colors are different, so are their names.)
 
 
 
