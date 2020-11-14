@@ -6,9 +6,8 @@ differing_stack=""
 expected_stack=$(grep 'RESOLVER.*CURRENT' .travis.yml | head -1 | cut -d'"' -f2)
 echo "All exercises should have resolver $expected_stack"
 for exercise in ${TRAVIS_BUILD_DIR}/exercises/*/ ; do
-    # This might allow lts-xyz for expected_stack=x.z, but hopefully `stack` fails in that case!
-    # Not a mistake we expect people to make
-    if grep -v "^resolver: ${expected_stack}\$" $exercise/stack.yaml; then
+    exercise_stack=$(yq read "$exercise/stack.yaml" resolver)
+    if ! [ "$exercise_stack" = "$expected_stack" ]; then
       differing_stack="$differing_stack $(basename "$exercise")"
     fi
 done
