@@ -25,5 +25,5 @@ findFewestCoins target coins = minChange target sortedCoins [] Nothing
     addCoin _ _ _ = id
 
     dropCoin target' (_:restCoins) = minChange target' restCoins
-    dropCoin _ _ = flip const
+    dropCoin _ _ = const id
 
