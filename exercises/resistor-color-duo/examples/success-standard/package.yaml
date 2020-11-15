@@ -14,3 +14,4 @@ tests:
     dependencies:
       - resistor-color-duo
       - hspec
+      - QuickCheck

@@ -11,7 +11,7 @@ data Color =
   | Violet
   | Grey
   | White
-  deriving (Eq, Show)
+  deriving (Eq, Show, Enum, Bounded)
 
 value :: (Color, Color) -> Int
 value (a, b) = error "You need to implement this function."

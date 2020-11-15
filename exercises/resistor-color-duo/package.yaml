@@ -1,5 +1,5 @@
 name: resistor-color-duo
-version: 2.1.0.3
+version: 2.1.0.4
 
 dependencies:
   - base
@@ -19,3 +19,4 @@ tests:
     dependencies:
       - resistor-color-duo
       - hspec
+      - QuickCheck
