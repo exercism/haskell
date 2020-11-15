@@ -39,7 +39,7 @@ install:
 script:
  - "sh ./bin/ensure-readmes-are-updated.sh"
  - "sh ./bin/check-configlet-fmt.sh"
- - "sh ./bin/sync-stack-resolvers.sh"
+ - "sh ./bin/ensure-stack-resolvers-synced.sh"
  - |
    # Check for invalid UUIDs.
    # can be removed once `configlet lint` gains this ability.
