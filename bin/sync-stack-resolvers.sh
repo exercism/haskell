@@ -16,4 +16,3 @@ if [ -n "$differing_stack" ]; then
     echo "They should instead be $expected_stack"
     exit 1
 fi
-
