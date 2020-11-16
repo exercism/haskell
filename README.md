@@ -1,6 +1,6 @@
 # Exercism Haskell Track
 
-[![Build Status](https://travis-ci.org/exercism/haskell.png?branch=master)](https://travis-ci.org/exercism/haskell)
+[![Tests](https://github.com/exercism/haskell/workflows/Tests/badge.svg?branch=master)](https://github.com/exercism/haskell/actions?query=workflow%3ATests+branch%3Amaster)
 
 Exercism exercises in Haskell
 
