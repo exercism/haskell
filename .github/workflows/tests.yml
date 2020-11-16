@@ -1,0 +1,29 @@
+name: Tests
+on:
+  pull_request:
+  push:
+    branches:
+    - gha
+    - master
+  schedule:
+    # Weekly.
+    - cron: "0 0 * * 0"
+
+jobs:
+  track-config:
+    name: Check track configuration
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Check for invalid UUIDs
+        # can be removed once `configlet lint` gains this ability.
+        # Check issue https://github.com/exercism/configlet/issues/99
+        run: |
+          uuids=$(jq --raw-output '.exercises | map(.uuid) | .[]' config.json)
+          bad_uuid=$(echo "$uuids" | grep -vE '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$' || true)
+          if [ -n "$bad_uuid" ]; then
+            echo "invalid UUIDs found! please correct these to be valid UUIDs:"
+            echo "$bad_uuid"
+            exit 1
+          fi
