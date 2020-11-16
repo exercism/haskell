@@ -16,6 +16,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Fetch
+        run: bin/fetch-configlet
+
+      - name: Lint
+        run: bin/configlet lint .
+
       - name: Check for invalid UUIDs
         # can be removed once `configlet lint` gains this ability.
         # Check issue https://github.com/exercism/configlet/issues/99
