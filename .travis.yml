@@ -24,21 +24,13 @@ matrix:
 before_install:
  - mkdir -p ${HOME}/bin                        # Create folder for stack.
  - export PATH="${HOME}/bin:$PATH"             # For stack
- - export PATH="${TRAVIS_BUILD_DIR}/bin:$PATH" # For {,fetch-}configlet.
- - sudo add-apt-repository -y ppa:rmescandon/yq
- - sudo apt-get -q update
- - sudo apt-get -y install yq
 
 install:
- - travis_retry fetch-configlet
  - travis_retry curl -L https://www.stackage.org/stack/linux-x86_64 -o pack.tgz
  - tar xzf pack.tgz --wildcards --strip-components=1 -C ${HOME}/bin '*/stack'
  - stack --version
 
 script:
- - "sh ./bin/ensure-readmes-are-updated.sh"
- - "sh ./bin/check-configlet-fmt.sh"
- - "sh ./bin/ensure-stack-resolvers-synced.sh"
  - |
     set -e
 
