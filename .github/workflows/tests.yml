@@ -108,6 +108,7 @@ jobs:
         with:
           path: |
             ~/.stack
+            ~/.foldercache
             ~/.local/bin/hlint
           key: ${{ steps.resolve-resolver.outputs.resolver }}-${{ steps.week-no.outputs.week-no }}-${{ hashFiles('exercises/**/package.yaml') }}
           restore-keys: ${{ steps.resolve-resolver.outputs.resolver }}-${{ steps.week-no.outputs.week-no }}-
@@ -128,3 +129,15 @@ jobs:
 
       - name: HLint
         run: ${HOME}/.local/bin/hlint ${{ github.workspace }}
+
+      - name: Check exercises
+        run: |
+          # Explicit set exercises' resolver only if it's not the current one.
+          if [ "${{ matrix.resolver }}" != "lts-from-exercises" ]; then
+            export SET_RESOLVER="--resolver ${{ matrix.resolver }}"
+          fi
+
+          for exercise in ${{ github.workspace }}/exercises/*/; do
+            time bin/test-stub $exercise
+            time bin/test-all-examples $exercise
+          done

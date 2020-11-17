@@ -34,7 +34,7 @@ fi
 
 cd $buildfolder
 
-if [ -n "$TRAVIS" ]; then
+if [ -n "$GITHUB_ACTIONS" ]; then
     cachedir="$HOME"
 else
     cachedir="$xhaskell"
@@ -46,7 +46,7 @@ ln -f -s "$examplecache"
 exampletype=$(echo "$examplename" | cut -d- -f1)
 
 runstack () {
-    # SET_RESOLVER passed by .travis.yml - sets --resolver if not current.
+    # SET_RESOLVER passed by GitHub Actions - sets --resolver if not current.
     stack "$@" ${SET_RESOLVER}     `# Select the correct resolver. `\
                --install-ghc       `# Download GHC if not in cache.`\
                --no-terminal       `# Terminal detection is broken.`\
@@ -55,7 +55,7 @@ runstack () {
              # --no-run-benchmarks `# do not run them.             `
              #
              # We are temporarily disabling the benchmarks
-             # to speed up Travis-CI and try to stay below
+             # to speed up CI and try to stay below
              # the 50 minutes limit.
 }
 

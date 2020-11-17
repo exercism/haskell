@@ -1,45 +1,6 @@
 sudo: false              # Use the container-based infrastructure.
 language: bash
-
-addons:
-  apt:
-    packages:
-      - libgmp-dev       # Stack's GHC depends on this.
-
-cache:
-  timeout: 600           # The cache is too big to upload in 180 seconds.
-  directories:
-    - $HOME/.stack       # Global stack's cache.
-    - $HOME/.foldercache # Per exercise `.stack-work` cache.
-
-env:
- - RESOLVER="lts-16.21" CURRENT="YES"  # Equal to each stack.yaml.
- - RESOLVER="nightly"                  # Latest nightly snapshot.
-
-matrix:
-  allow_failures:             # The snapshot `nightly` is just an alias to
-    - env: RESOLVER="nightly" # the newest version released. We don't want
-  fast_finish: true           # Travis to fail on new incompatible releases.
-
-before_install:
- - mkdir -p ${HOME}/bin                        # Create folder for stack.
- - export PATH="${HOME}/bin:$PATH"             # For stack
-
 install:
- - travis_retry curl -L https://www.stackage.org/stack/linux-x86_64 -o pack.tgz
- - tar xzf pack.tgz --wildcards --strip-components=1 -C ${HOME}/bin '*/stack'
- - stack --version
-
+ - /bin/true
 script:
- - |
-    set -e
-
-    # Explicit set exercises' resolver only if it's not the current one.
-    if [ "${CURRENT}" != "YES" ]; then
-        export SET_RESOLVER="--resolver ${RESOLVER}"
-    fi
-
-    for exercise in ${TRAVIS_BUILD_DIR}/exercises/*/ ; do
-        time bin/test-stub $exercise
-        time bin/test-all-examples $exercise
-    done
+ - /bin/true

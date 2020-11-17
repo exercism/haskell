@@ -33,7 +33,7 @@ fi
 
 cd $buildfolder
 
-if [ -n "$TRAVIS" ]; then
+if [ -n "$GITHUB_ACTIONS" ]; then
     cachedir="$HOME"
 else
     cachedir="$xhaskell"
@@ -42,7 +42,7 @@ examplecache="${cachedir}/.foldercache/${exercisename}/${examplename}/.stack-wor
 mkdir -p "$examplecache"
 ln -f -s "$examplecache"
 
-# SET_RESOLVER passed by .travis.yml - sets --resolver if not current.
+# SET_RESOLVER passed by GitHub Actions - sets --resolver if not current.
 if [ -f "${exercisedir}/.meta/DONT-TEST-STUB" ]; then
     echo "only building stub"
     stack build ${SET_RESOLVER} --install-ghc --no-terminal
@@ -53,6 +53,6 @@ else
               # --bench --no-run-benchmarks
               #
               # We are temporarily disabling the benchmarks
-              # to speed up Travis-CI and try to stay below
+              # to speed up CI and try to stay below
               # the 50 minutes limit.
 fi
