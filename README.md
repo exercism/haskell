@@ -65,7 +65,9 @@ The [track anatomy documentation](https://github.com/exercism/docs/blob/master/l
 ### Directory structure
 ```bash
 ├── .gitignore
-├── .travis.yml
+├── .github
+│ └── workflows
+│     └── tests.yml
 ├── LICENSE
 ├── README.md
 ├── bin
@@ -139,7 +141,7 @@ The stub solution should be as general as possible in order to not exclude any p
 
 The stub solution must compile by itself (with `stack build`).
 Ideally, it would also compile together with the test suite (with `stack test --no-run-tests`).
-These two conditions are enforced by Travis.
+These two conditions are enforced by GitHub Actions CI.
 If the second condition cannot be met for a good reason, place the explanation in `.meta/DONT-TEST-STUB` to circumvent the check.
 The first condition is always enforced and cannot be circumvented.
 
@@ -166,7 +168,7 @@ These example types were proposed and accepted in https://github.com/exercism/ha
 The test suite should be derived from the respective `problem-specifications/exercises/<exercise-name>/canonical-data.json` and comply to some formatting and coding standards (to get an idea you may look at some of the existing tests).
 
 ## Running Tests
-In order to be accepted by Travis-CI, every exercise must be registered in
+In order to be accepted by GitHub Actions, every exercise must be registered in
 `config.json`, it must compile without warnings and the example solution must
 pass the tests without failures. Additionally the tests should not run longer than
 a few seconds.
@@ -174,7 +176,7 @@ a few seconds.
 First you need to provide an [example solution](#example-solution).
 
 We provide three scripts in the `bin` directory of this repository to run the tests.
-These are the same scripts as those used by Travis CI.
+These are the same scripts as those used by GitHub Actions.
 
 * `test-example path/to/example/dir` runs the tests on a single example.
 * `test-all-examples path/to/exercise/dir` runs the tests on all examples for an exercise.
@@ -182,7 +184,7 @@ These are the same scripts as those used by Travis CI.
 
 ## Running HLint
 All code in this repository should be as idiomatic as possible, so we
-enforce in Travis-CI that it returns `No hints` when processed by
+enforce in GitHub Actions that it returns `No hints` when processed by
 HLint.
 
 It is highly recommended to run `hlint` on your sources before opening a
