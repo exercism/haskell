@@ -33,3 +33,77 @@ jobs:
             echo "$bad_uuid"
             exit 1
           fi
+
+  exercises:
+    name: Check exercises
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        resolver:
+          - lts-from-exercises
+          - nightly
+    # Discussion seems to indicate that continue-on-error is not exactly equivalent to Travis's allow_failures, but it's the best we can do for now.
+    # If failures on nightly cause too much confusion in CI status,
+    # consider just not running against the nightly resolver.
+    # https://github.com/actions/toolkit/issues/399
+    continue-on-error: ${{ matrix.resolver == 'nightly' }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install yq (for stack resolvers)
+        run: |
+         sudo add-apt-repository -y ppa:rmescandon/yq
+         sudo apt-get -q update
+         sudo apt-get -y install yq
+
+      - name: Resolve resolver
+        id: resolve-resolver
+        run: |
+          # We need this in two places:
+          # 1. cache key
+          # 2. --resolver arg to installing hlint
+          # It's unsafe to just use lts-from-exercises as the cache key,
+          # because that would cause caches from differing LTSes to collide
+          # (if we have updated the LTS version of all exercises between job runs).
+          if [ "${{ matrix.resolver }}" = "lts-from-exercises" ]; then
+            resolver=$(yq read "$(ls -1 exercises/*/stack.yaml | head -1)" resolver)
+          else
+            resolver=${{ matrix.resolver }}
+          fi
+          echo "::set-output name=resolver::$resolver"
+
+      - name: Week number
+        id: week-no
+        run: |
+          # We use this to form part of the cache key.
+          # This will get us to periodically rebuild from scratch,
+          # just to make sure that everything still works from scratch.
+          # Because we also have a weekly build at the start of every week,
+          # most of the time caches should hit.
+          echo "::set-output name=week-no::$(date -u +%Y-%U)"
+
+      - uses: actions/cache@v2
+        id: cache
+        with:
+          path: |
+            ~/.stack
+            ~/.local/bin/hlint
+          key: ${{ steps.resolve-resolver.outputs.resolver }}-${{ steps.week-no.outputs.week-no }}-${{ hashFiles('exercises/**/package.yaml') }}
+          restore-keys: ${{ steps.resolve-resolver.outputs.resolver }}-${{ steps.week-no.outputs.week-no }}-
+
+      - uses: actions/setup-haskell@v1
+        with:
+          enable-stack: true
+          stack-version: 'latest'
+
+      - name: Install hlint
+        run: |
+          if [ -x ${HOME}/.local/bin/hlint ]; then
+            echo already installed
+          else
+            stack --resolver ${{ steps.resolve-resolver.outputs.resolver }} install hlint
+          fi
+          ${HOME}/.local/bin/hlint --version
+
+      - name: HLint
+        run: ${HOME}/.local/bin/hlint ${{ github.workspace }}

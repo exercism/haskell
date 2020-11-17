@@ -33,7 +33,6 @@ install:
  - travis_retry fetch-configlet
  - travis_retry curl -L https://www.stackage.org/stack/linux-x86_64 -o pack.tgz
  - tar xzf pack.tgz --wildcards --strip-components=1 -C ${HOME}/bin '*/stack'
- - stack --resolver ${RESOLVER} --install-ghc install hlint
  - stack --version
 
 script:
@@ -42,8 +41,6 @@ script:
  - "sh ./bin/ensure-stack-resolvers-synced.sh"
  - |
     set -e
-
-    hlint ${TRAVIS_BUILD_DIR} # Run `hlint` on the entire repository.
 
     # Explicit set exercises' resolver only if it's not the current one.
     if [ "${CURRENT}" != "YES" ]; then
