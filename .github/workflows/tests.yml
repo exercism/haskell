@@ -1,0 +1,154 @@
+name: Tests
+on:
+  pull_request:
+  push:
+    branches:
+    - master
+  schedule:
+    # Weekly.
+    - cron: "0 0 * * 0"
+
+jobs:
+  track-config:
+    name: Check track configuration
+    runs-on: ubuntu-latest
+    steps:
+      # master is needed in addition to HEAD,
+      # because the README check only checks exercises changed since master.
+      - uses: actions/checkout@v2
+        with:
+          ref: master
+
+      - uses: actions/checkout@v2
+
+      - name: Fetch
+        run: bin/fetch-configlet
+
+      - name: Lint
+        run: bin/configlet lint .
+
+      - name: Ensure READMEs are updated
+        run: sh ./bin/ensure-readmes-are-updated.sh
+
+      - name: Check configlet fmt
+        run: sh ./bin/check-configlet-fmt.sh
+
+      - name: Install yq (for stack resolvers)
+        run: |
+         sudo add-apt-repository -y ppa:rmescandon/yq
+         sudo apt-get -q update
+         sudo apt-get -y install yq
+
+      - name: Ensure stack resolvers synced
+        run: sh ./bin/ensure-stack-resolvers-synced.sh
+
+      - name: Check for invalid UUIDs
+        # can be removed once `configlet lint` gains this ability.
+        # Check issue https://github.com/exercism/configlet/issues/99
+        run: |
+          uuids=$(jq --raw-output '.exercises | map(.uuid) | .[]' config.json)
+          bad_uuid=$(echo "$uuids" | grep -vE '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$' || true)
+          if [ -n "$bad_uuid" ]; then
+            echo "invalid UUIDs found! please correct these to be valid UUIDs:"
+            echo "$bad_uuid"
+            exit 1
+          fi
+
+  exercises:
+    name: Check exercises
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        resolver:
+          # We say lts-from-exercises here instead of a specific version. Reason:
+          # Required CI checks are designated by their name + matrix values.
+          #
+          # If we wrote lts-A.B here,
+          # then we'd ask an admin to make "Check exercises (lts-A.B)" required.
+          # But what happens when we update to lts-C.D?
+          # Then, an admin would need to make "Check exercises (lts-A.B)" not required,
+          # and "Check exercises (lts-C.D)" required.
+          #
+          # We don't want to ask for that much admin intervention.
+          # So we write lts-from-exercises,
+          # and an admin only needs to make "Check exercises (lts-from-exercises)" required.
+          - lts-from-exercises
+          - nightly
+    # Discussion seems to indicate that continue-on-error is not exactly equivalent to Travis's allow_failures, but it's the best we can do for now.
+    # If failures on nightly cause too much confusion in CI status,
+    # consider just not running against the nightly resolver.
+    # https://github.com/actions/toolkit/issues/399
+    continue-on-error: ${{ matrix.resolver == 'nightly' }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install yq (for stack resolvers)
+        run: |
+         sudo add-apt-repository -y ppa:rmescandon/yq
+         sudo apt-get -q update
+         sudo apt-get -y install yq
+
+      - name: Resolve resolver
+        id: resolve-resolver
+        run: |
+          # We need this in two places:
+          # 1. cache key
+          # 2. --resolver arg to installing hlint
+          # It's unsafe to just use lts-from-exercises as the cache key,
+          # because that would cause caches from differing LTSes to collide
+          # (if we have updated the LTS version of all exercises between job runs).
+          if [ "${{ matrix.resolver }}" = "lts-from-exercises" ]; then
+            resolver=$(yq read "$(ls -1 exercises/*/stack.yaml | head -1)" resolver)
+          else
+            resolver=${{ matrix.resolver }}
+          fi
+          echo "::set-output name=resolver::$resolver"
+
+      - name: Week number
+        id: week-no
+        run: |
+          # We use this to form part of the cache key.
+          # This will get us to periodically rebuild from scratch,
+          # just to make sure that everything still works from scratch.
+          # Because we also have a weekly build at the start of every week,
+          # most of the time caches should hit.
+          echo "::set-output name=week-no::$(date -u +%Y-%U)"
+
+      - uses: actions/cache@v2
+        id: cache
+        with:
+          path: |
+            ~/.stack
+            ~/.foldercache
+            ~/.local/bin/hlint
+          key: ${{ steps.resolve-resolver.outputs.resolver }}-${{ steps.week-no.outputs.week-no }}-${{ hashFiles('exercises/**/package.yaml') }}
+          restore-keys: ${{ steps.resolve-resolver.outputs.resolver }}-${{ steps.week-no.outputs.week-no }}-
+
+      - uses: actions/setup-haskell@v1
+        with:
+          enable-stack: true
+          stack-version: 'latest'
+
+      - name: Install hlint
+        run: |
+          if [ -x ${HOME}/.local/bin/hlint ]; then
+            echo already installed
+          else
+            stack --resolver ${{ steps.resolve-resolver.outputs.resolver }} install hlint
+          fi
+          ${HOME}/.local/bin/hlint --version
+
+      - name: HLint
+        run: ${HOME}/.local/bin/hlint ${{ github.workspace }}
+
+      - name: Check exercises
+        run: |
+          # Explicit set exercises' resolver only if it's not the current one.
+          if [ "${{ matrix.resolver }}" != "lts-from-exercises" ]; then
+            export SET_RESOLVER="--resolver ${{ matrix.resolver }}"
+          fi
+
+          for exercise in ${{ github.workspace }}/exercises/*/; do
+            time bin/test-stub $exercise
+            time bin/test-all-examples $exercise
+          done
