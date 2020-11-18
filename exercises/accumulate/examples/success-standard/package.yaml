@@ -1,5 +1,3 @@
-# Changing an example's package.yaml should cause a cache miss on the main key,
-# but there should be a hit on a restore key.
 name: accumulate
 
 dependencies:
