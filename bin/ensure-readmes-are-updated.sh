@@ -10,10 +10,10 @@ if git log origin/master..HEAD | grep -q "$override_message"; then
 fi
 
 configlet=$(which configlet)
-if [ ! -x $configlet ]; then
+if [ ! -x "$configlet" ]; then
     configlet=bin/configlet
 fi
-if [ ! -x $configlet ]; then
+if [ ! -x "$configlet" ]; then
    echo "Improper configuration; configlet should exist in bin/ when this script is run"
    echo "Ping a Haskell track maintainer to fix this"
    exit 1
