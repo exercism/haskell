@@ -61,6 +61,18 @@ jobs:
     strategy:
       matrix:
         resolver:
+          # We say lts-from-exercises here instead of a specific version. Reason:
+          # Required CI checks are designated by their name + matrix values.
+          #
+          # If we wrote lts-A.B here,
+          # then we'd ask an admin to make "Check exercises (lts-A.B)" required.
+          # But what happens when we update to lts-C.D?
+          # Then, an admin would need to make "Check exercises (lts-A.B)" not required,
+          # and "Check exercises (lts-C.D)" required.
+          #
+          # We don't want to ask for that much admin intervention.
+          # So we write lts-from-exercises,
+          # and an admin only needs to make "Check exercises (lts-from-exercises)" required.
           - lts-from-exercises
           - nightly
     # Discussion seems to indicate that continue-on-error is not exactly equivalent to Travis's allow_failures, but it's the best we can do for now.
