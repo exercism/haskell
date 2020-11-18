@@ -9,7 +9,7 @@
   ],
   "exercises": [
     {
-      "slug": "hello-world",
+             "slug": "hello-world",
       "uuid": "c97d9dda-c7ee-4595-b447-693559d03ba5",
       "core": true,
       "auto_approve": true,
