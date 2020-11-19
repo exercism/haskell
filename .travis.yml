@@ -1,6 +1,0 @@
-sudo: false              # Use the container-based infrastructure.
-language: bash
-install:
- - /bin/true
-script:
- - /bin/true
