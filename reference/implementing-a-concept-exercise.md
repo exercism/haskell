@@ -79,11 +79,11 @@ For the Markdown files in `.docs/` and `.meta/`, see the general advice on [how 
 
 When implementing an exercise, it can be very useful to look at already implemented Haskell exercises. You can also check the exercise's [general concepts documents][reference] to see if other languages have already implemented an exercise for that concept.
 
-[reference]: ../../../reference
-[how-to-implement-a-concept-exercise]: ../../../docs/maintainers/generic-how-to-implement-a-concept-exercise.md
-[docs-concept-exercises]: ../../../docs/concept-exercises.md
-[docs-rationale-for-v3]: ../../../docs/rationale-for-v3.md
-[docs-features-of-v3]: ../../../docs/features-of-v3.md
+[reference]: https://github.com/exercism/v3/blob/main/reference
+[how-to-implement-a-concept-exercise]: https://github.com/exercism/v3/blob/main/docs/maintainers/generic-how-to-implement-a-concept-exercise.md
+[docs-concept-exercises]: https://github.com/exercism/v3/blob/main/docs/concept-exercises.md
+[docs-rationale-for-v3]: https://github.com/exercism/v3/blob/main/docs/rationale-for-v3.md
+[docs-features-of-v3]: https://github.com/exercism/v3/blob/main/docs/features-of-v3.md
 [anatomy-of-a-concept-exercise]: https://www.youtube.com/watch?v=gkbBqd7hPrA
 [spring-2013]: https://www.seas.upenn.edu/~cis194/spring13/
 [fall-2016]: https://www.seas.upenn.edu/~cis194/fall16/
