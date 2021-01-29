@@ -1,5 +1,6 @@
 {
   "language": "Haskell",
+  "slug": "haskell",
   "active": true,
   "status": {
     "concept_exercises": false,
