@@ -17,6 +17,7 @@
   "ignore_pattern": "example",
   "solution_pattern": "example.*[.]hs",
   "exercises": {
+    "concept": [],
     "practice": [
       {
         "slug": "hello-world",
