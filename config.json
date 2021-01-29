@@ -16,9 +16,6 @@
   },
   "ignore_pattern": "example",
   "solution_pattern": "example.*[.]hs",
-  "foregone": [
-    "resistor-color"
-  ],
   "exercises": {
     "practice": [
       {
@@ -1076,6 +1073,9 @@
           "strings"
         ]
       }
+    ],
+    "foregone": [
+      "resistor-color"
     ]
   }
 }
