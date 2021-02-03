@@ -43,12 +43,12 @@ If you have a dedicated opinion you are welcome to [write a comment](https://hel
 Please be detailed and include reasons, links or arguments to support your opinion.
 
 ### Port or create an exercise
-Exercism contains exercises that are not ported to Haskell:
 
-- [Unimplemented exercises](https://tracks.exercism.io/haskell/master/unimplemented)
+Exercism contains two types of exercises: concept exercises, and practice exercises.
 
-You may implement any of these exercises for the Haskell track. Feel free to refer to the [documentation on porting an exercise](https://github.com/exercism/docs/blob/master/you-can-help/implement-an-exercise-from-specification.md).
-Of course you can also add a totally new exercise, but it might be a good idea to [first discuss the idea](https://github.com/exercism/haskell/issues/new).
+Haskell does not currently have any concept exercises. You can read about [concept exercises][reference/implementing-a-concept-exercise.md] and take part in creating Haskell's first ones.
+
+You can get a full list of [common Exercism practice exercises](https://github.com/exercism/problem-specifications/tree/main/exercises) and cross-reference it with [Haskell practice exercises](https://github.com/exercism/haskell/tree/main/exercises/practice) and implement any of the missing ones for the Haskell track.
 
 ### Update an exercise test suite
 Most unit tests are shared between language tracks. You may update a test suite with new unit tests.
