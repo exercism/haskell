@@ -1080,6 +1080,37 @@
     ]
   },
   "concepts": [],
-  "key_features": [],
+  "key_features": [
+    {
+      "title": "Purely functional",
+      "content": "Referential transparency make functions more predictable and composable",
+      "icon": "..."
+    },
+    {
+      "title": "Non-strict",
+      "content": "Non-strict evaluation allows for infinite data structures",
+      "icon": "..."
+    },
+    {
+      "title": "Strong, static typing",
+      "content": "More program errors are caught before the program is run",
+      "icon": "..."
+    },
+    {
+      "title": "Type inference",
+      "content": "Type strictness without annotations makes code lighter to read",
+      "icon": "..."
+    },
+    {
+      "title": "Type classes",
+      "content": "Type-safe operator overloading",
+      "icon": "..."
+    },
+    {
+      "title": "Algebraic data types",
+      "content": "In combination with pattern matching, algebraic data types provide a high degree of convenience and safety.",
+      "icon": "..."
+    }
+  ],
   "tags": []
 }
