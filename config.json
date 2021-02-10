@@ -1108,7 +1108,7 @@
     },
     {
       "title": "Algebraic data types",
-      "content": "In combination with pattern matching, algebraic data types provide a high degree of convenience and safety.",
+      "content": "Using pattern matching, algebraic data types provide a high degree of convenience and safety.",
       "icon": "features-algebraic-data-types"
     }
   ],
