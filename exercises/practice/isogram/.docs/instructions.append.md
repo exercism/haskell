@@ -1,4 +1,4 @@
-## Hints
+# Hints
 
 This exercise works with textual data. For historical reasons, Haskell's
 `String` type is synonymous with `[Char]`, a list of characters. For more

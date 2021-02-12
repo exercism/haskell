@@ -1,4 +1,4 @@
-## Hints
+# Hints
 
 You need to implement the `responseFor` function that returns Bob's response
 for a given input. You can use the provided signature if you are unsure

@@ -1,4 +1,4 @@
-## Hints
+# Hints
 
 In this exercise, we provided the definition of the
 [algebric data type](http://learnyouahaskell.com/making-our-own-types-and-typeclasses)

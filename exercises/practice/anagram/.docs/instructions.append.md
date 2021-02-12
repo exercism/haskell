@@ -1,4 +1,4 @@
-## Hints
+# Hints
 
 To complete this exercise you need to implement the function `anagramsFor`,
 that takes a *word* and a group of *words*, returning the ones that are

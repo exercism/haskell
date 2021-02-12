@@ -1,4 +1,4 @@
-## Hints
+# Hints
 
 To complete this exercise you need to implement the function `wordCount`,
 that takes a *text* and returns how many times each *word* appears.

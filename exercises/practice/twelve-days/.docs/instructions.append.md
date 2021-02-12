@@ -1,4 +1,4 @@
-## Hints
+# Hints
 
 You need to implement the `recite` function which outputs the lyrics to
 'The Twelve Days of Christmas'. You can use the provided signature

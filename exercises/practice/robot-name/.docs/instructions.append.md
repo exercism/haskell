@@ -1,4 +1,4 @@
-## Hints
+# Hints
 
 To complete this exercise, you need to create the data type `Robot`,
 as a mutable variable, and the data type `RunState`. You also need to

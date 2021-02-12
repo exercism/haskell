@@ -1,4 +1,4 @@
-## Hints
+# Hints
 
 The unit tests provide examples of words. Try and cluster consonants
 independent of the specific combinations of consonants in the unit tests.

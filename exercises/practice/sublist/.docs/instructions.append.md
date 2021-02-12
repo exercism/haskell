@@ -1,4 +1,4 @@
-## Hints
+# Hints
 
 The type
 [`Ordering`](http://hackage.haskell.org/package/base/docs/Data-Ord.html#t:Ordering)

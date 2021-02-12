@@ -1,4 +1,4 @@
-## Hints
+# Hints
 
 To complete this exercise you need to implement the function `score`,
 that takes a sequence of bowling *rolls* and returns the final score or

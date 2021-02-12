@@ -1,4 +1,4 @@
-## Hints
+# Hints
 
 Haskell has support for many types of arrays. This exercise uses immutable,
 boxed, non-strict arrays from `Data.Array`. You can read more about the use of

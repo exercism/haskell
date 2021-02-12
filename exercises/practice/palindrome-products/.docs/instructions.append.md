@@ -1,4 +1,4 @@
-## Hints
+# Hints
 
 To solve this exercise you need to implement these two functions:
 

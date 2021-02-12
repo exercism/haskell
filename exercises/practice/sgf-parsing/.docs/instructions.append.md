@@ -1,4 +1,4 @@
-## Hints
+# Hints
 
 The Sgf module should export a parseSgf module with the following signature:
 

@@ -1,4 +1,4 @@
-## Hints
+# Hints
 
 This exercise uses QuickCheck generators. Here are some resources to get started:
 

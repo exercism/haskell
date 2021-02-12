@@ -1,3 +1,5 @@
+# Installation
+
 ## Installing Stack
 
 If you don't have a recent Stack version installed in your system, follow the

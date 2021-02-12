@@ -1,4 +1,4 @@
-## Hints
+# Hints
 
 It's a 24 hour clock going from "00:00" to "23:59".
 
