@@ -16,6 +16,20 @@
   },
   "ignore_pattern": "example",
   "solution_pattern": "example.*[.]hs",
+  "files": {
+    "solution": [
+      "src/%{pascal_slug}.hs"
+    ],
+    "test": [
+      "test/Tests.hs"
+    ],
+    "example": [
+      "examples/success-standard/src/%{pascal_slug}.hs"
+    ],
+    "exemplar": [
+      ".meta/exemplar/src/%{pascal_slug}.hs"
+    ]
+  },
   "exercises": {
     "concept": [],
     "practice": [
