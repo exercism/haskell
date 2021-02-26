@@ -1,6 +1,6 @@
 # Exercism Haskell Track
 
-[![Tests](https://github.com/exercism/haskell/workflows/Tests/badge.svg?branch=master)](https://github.com/exercism/haskell/actions?query=workflow%3ATests+branch%3Amaster)
+[![Tests](https://github.com/exercism/haskell/workflows/Tests/badge.svg?branch=main)](https://github.com/exercism/haskell/actions?query=workflow%3ATests+branch%3Amain)
 
 Exercism exercises in Haskell
 

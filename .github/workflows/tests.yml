@@ -3,7 +3,7 @@ on:
   pull_request:
   push:
     branches:
-    - master
+    - main
   schedule:
     # Weekly.
     - cron: "0 0 * * 0"
@@ -13,11 +13,11 @@ jobs:
     name: Check track configuration
     runs-on: ubuntu-latest
     steps:
-      # master is needed in addition to HEAD,
-      # because the README check only checks exercises changed since master.
+      # main is needed in addition to HEAD,
+      # because the README check only checks exercises changed since main.
       - uses: actions/checkout@v2
         with:
-          ref: master
+          ref: main
 
       - uses: actions/checkout@v2
 
