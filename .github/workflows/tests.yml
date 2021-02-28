@@ -19,9 +19,6 @@ jobs:
         with:
           ref: main
 
-      - name: Fetch configlet
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # v2.3.4
-
       - name: Configlet Linter
         run: configlet lint
         continue-on-error: true # Issue #952: Remove this when CI has been unbroken.
@@ -79,7 +76,7 @@ jobs:
     # https://github.com/actions/toolkit/issues/399
     continue-on-error: ${{ matrix.resolver == 'nightly' }}
     steps:
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # v2.3.4
+      - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # v2.3.4
 
       - name: Install yq (for stack resolvers)
         run: |
