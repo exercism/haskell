@@ -24,8 +24,8 @@ jobs:
         run: configlet lint
         continue-on-error: true # Issue #952: Remove this when CI has been unbroken.
 
-      - name: Ensure READMEs are updated
-        run: sh ./bin/ensure-readmes-are-updated.sh
+      - name: Ensure practice exercise descriptions are synced
+        run: sh ./bin/ensure-practice-exercise-descriptions-are-synced.sh
 
       - name: Check configlet fmt
         run: sh ./bin/check-configlet-fmt.sh
