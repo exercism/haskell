@@ -25,8 +25,8 @@ jobs:
       - name: Configlet Linter
         run: configlet lint
 
-      - name: Ensure READMEs are updated
-        run: sh ./bin/ensure-readmes-are-updated.sh
+      - name: Ensure practice exercise descriptions are synced
+        run: bin/ensure-practice-exercise-descriptions-are-synced.sh
 
       - name: Check configlet fmt
         run: sh ./bin/check-configlet-fmt.sh
