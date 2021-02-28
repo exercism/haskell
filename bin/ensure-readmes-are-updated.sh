@@ -3,7 +3,7 @@
 override_message="I have confirmed that no README check is needed"
 
 # If *any* commit message contains the override message:
-if git log origin/master..HEAD | grep -q "$override_message"; then
+if git log origin/main..HEAD | grep -q "$override_message"; then
   echo "WARNING: You've overridden the README check, which applies to ALL commits in this PR."
   echo "No README in this PR will be checked for changes."
   exit 0
@@ -27,7 +27,7 @@ newline=$'\n  '
 
 missing_readmes=""
 wrong_readmes=""
-for exercise in $(git diff --name-only origin/master..$(git rev-parse --abbrev-ref HEAD) | grep exercises/ | cut -d'/' -f2 -s | sort -fu); do
+for exercise in $(git diff --name-only origin/main..$(git rev-parse --abbrev-ref HEAD) | grep exercises/ | cut -d'/' -f2 -s | sort -fu); do
    echo "Checking readme for $exercise"
    readme_path="exercises/${exercise}/README.md"
    if [ ! -f $readme_path ]; then
