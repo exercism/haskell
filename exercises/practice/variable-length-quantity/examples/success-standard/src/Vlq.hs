@@ -58,10 +58,9 @@ mayDecodeNext =
               decodeOne (highs <> [low])
 
 decodes :: [Word8] -> Either DecodeError [Word32]
-decodes =
-  evalState
-    (runExceptT $
-       fix $ \next ->
-         mayDecodeNext >>= \case
-           Nothing -> pure []
-           Just x -> (x :) <$> next)
+decodes = evalState (runExceptT decodeAll)
+  where
+    decodeAll =
+      mayDecodeNext >>= \case
+        Nothing -> pure []
+        Just x -> (x :) <$> decodeAll
