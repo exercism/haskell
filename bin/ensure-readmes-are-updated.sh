@@ -9,16 +9,6 @@ if git log origin/main..HEAD | grep -q "$override_message"; then
   exit 0
 fi
 
-configlet=$(which configlet)
-if [ ! -x "$configlet" ]; then
-    configlet=bin/configlet
-fi
-if [ ! -x "$configlet" ]; then
-   echo "Improper configuration; configlet should exist in bin/ when this script is run"
-   echo "Ping a Haskell track maintainer to fix this"
-   exit 1
-fi
-
 if [ ! -d "problem-specifications" ]; then
    git clone https://github.com/exercism/problem-specifications.git problem-specifications
 fi
@@ -35,7 +25,7 @@ for exercise in $(git diff --name-only origin/main..$(git rev-parse --abbrev-ref
    else
       existing_readme_checksum=$(md5sum $readme_path | cut -d' ' -f1)
       # generate the new README
-      $configlet generate . --only "$exercise" --spec-path "problem-specifications"
+      configlet generate . --only "$exercise" --spec-path "problem-specifications"
       generated_readme_checksum=$(md5sum $readme_path | cut -d' ' -f1)
 
       if [ $existing_readme_checksum != $generated_readme_checksum ]; then
