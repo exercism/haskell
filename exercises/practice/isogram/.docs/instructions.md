@@ -12,3 +12,5 @@ Examples of isograms:
 - six-year-old
 
 The word *isograms*, however, is not an isogram, because the s repeats.
+
+Oh my god.
