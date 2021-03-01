@@ -27,9 +27,6 @@ jobs:
       - name: Ensure practice exercise descriptions are synced
         run: sh ./bin/ensure-practice-exercise-descriptions-are-synced.sh
 
-      - name: Check configlet fmt
-        run: sh ./bin/check-configlet-fmt.sh
-
       - name: Install yq (for stack resolvers)
         run: |
          sudo add-apt-repository -y ppa:rmescandon/yq
@@ -37,7 +34,11 @@ jobs:
          sudo apt-get -y install yq
 
       - name: Ensure stack resolvers synced
-        run: sh ./bin/ensure-stack-resolvers-synced.sh
+        run: ls # XXX: Just testing.
+        # run: ./bin/ensure-stack-resolvers-synced.sh
+
+      - name: Whatevs
+        run: pwd
 
       - name: Check for invalid UUIDs
         # can be removed once `configlet lint` gains this ability.
