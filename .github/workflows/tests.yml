@@ -40,8 +40,9 @@ jobs:
       - name: Check for invalid UUIDs
         # can be removed once `configlet lint` gains this ability.
         # Check issue https://github.com/exercism/configlet/issues/99
+        # XXX: Consider adding this check for concept exercises.
         run: |
-          uuids=$(jq --raw-output '.exercises | map(.uuid) | .[]' config.json)
+          uuids=$(jq --raw-output '.exercises.practice | map(.uuid) | .[]' config.json)
           bad_uuid=$(echo "$uuids" | grep -vE '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$' || true)
           if [ -n "$bad_uuid" ]; then
             echo "invalid UUIDs found! please correct these to be valid UUIDs:"
