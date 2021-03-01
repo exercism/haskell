@@ -25,10 +25,6 @@ jobs:
         continue-on-error: true # Issue #952: Remove this when CI has been unbroken.
 
       - name: Ensure practice exercise descriptions are synced
-        # run: sh ./bin/ensure-practice-exercise-descriptions-are-synced.sh
-        run: ls -l bin
-
-      - name: eh
         run: bin/ensure-practice-exercise-descriptions-are-synced.sh
 
       - name: Install yq (for stack resolvers)
@@ -37,9 +33,8 @@ jobs:
          sudo apt-get -q update
          sudo apt-get -y install yq
 
-      - name: Ensure stack resolvers synced
-        run: ls # XXX: Just testing.
-        # run: ./bin/ensure-stack-resolvers-synced.sh
+      - name: Ensure stack resolvers are synced
+        run: bin/ensure-stack-resolvers-are-synced.sh
 
       - name: Whatevs
         run: pwd
