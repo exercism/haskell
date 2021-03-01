@@ -26,7 +26,7 @@ jobs:
 
       - name: Ensure practice exercise descriptions are synced
         # run: sh ./bin/ensure-practice-exercise-descriptions-are-synced.sh
-        run: ls -l bin/ensure-practice-exercise-descriptions-are-synced.sh
+        run: ls -l bin
 
       - name: eh
         run: bin/ensure-practice-exercise-descriptions-are-synced.sh
