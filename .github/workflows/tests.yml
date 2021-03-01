@@ -34,8 +34,8 @@ jobs:
          sudo apt-get -q update
          sudo apt-get -y install yq
 
-      - name: Ensure stack resolvers synced
-        run: sh ./bin/ensure-stack-resolvers-synced.sh
+      - name: Ensure stack resolvers are synced
+        run: bin/ensure-stack-resolvers-are-synced.sh
 
       - name: Check for invalid UUIDs
         # can be removed once `configlet lint` gains this ability.
