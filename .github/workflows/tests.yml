@@ -24,14 +24,12 @@ jobs:
         run: configlet lint
         continue-on-error: true # Issue #952: Remove this when CI has been unbroken.
 
-      - name: Hm
-        run: pwd
-
-      - name: Hmm
-        run: ls
-
       - name: Ensure practice exercise descriptions are synced
-        run: sh ./bin/ensure-practice-exercise-descriptions-are-synced.sh
+        # run: sh ./bin/ensure-practice-exercise-descriptions-are-synced.sh
+        run: ls -l bin/ensure-practice-exercise-descriptions-are-synced.sh
+
+      - name: eh
+        run: bin/ensure-practice-exercise-descriptions-are-synced.sh
 
       - name: Install yq (for stack resolvers)
         run: |
