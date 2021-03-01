@@ -28,9 +28,6 @@ jobs:
       - name: Ensure practice exercise descriptions are synced
         run: bin/ensure-practice-exercise-descriptions-are-synced.sh
 
-      - name: Check configlet fmt
-        run: sh ./bin/check-configlet-fmt.sh
-
       - name: Install yq (for stack resolvers)
         run: |
          sudo add-apt-repository -y ppa:rmescandon/yq
