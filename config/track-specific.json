@@ -1,0 +1,4 @@
+{
+  "#comment": "This file contains track-specific settings for the Haskell track.",
+  "resolver": "lts-16.21"
+}

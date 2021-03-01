@@ -4,7 +4,7 @@ on:
   push:
     branches:
     - main
-    - unbreak-ci-after-v3-merge # remove this after testing
+    - unbreak-ci-after-v3-merge # XXX: remove this after testing
   schedule:
     # Weekly.
     - cron: "0 0 * * 0"
@@ -17,6 +17,7 @@ jobs:
       # main is needed in addition to HEAD,
       # because the README check only checks exercises changed since main.
       - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # v2.3.4
+        # XXX: Temporarily disabled:
         #with:
         #  ref: main
 
@@ -27,17 +28,8 @@ jobs:
       - name: Ensure practice exercise descriptions are synced
         run: bin/ensure-practice-exercise-descriptions-are-synced.sh
 
-      - name: Install yq (for stack resolvers)
-        run: |
-         sudo add-apt-repository -y ppa:rmescandon/yq
-         sudo apt-get -q update
-         sudo apt-get -y install yq
-
       - name: Ensure stack resolvers are synced
         run: bin/ensure-stack-resolvers-are-synced.sh
-
-      - name: Whatevs
-        run: pwd
 
       - name: Check for invalid UUIDs
         # can be removed once `configlet lint` gains this ability.
@@ -79,12 +71,6 @@ jobs:
     steps:
       - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # v2.3.4
 
-      - name: Install yq (for stack resolvers)
-        run: |
-         sudo add-apt-repository -y ppa:rmescandon/yq
-         sudo apt-get -q update
-         sudo apt-get -y install yq
-
       - name: Resolve resolver
         id: resolve-resolver
         run: |
@@ -95,7 +81,7 @@ jobs:
           # because that would cause caches from differing LTSes to collide
           # (if we have updated the LTS version of all exercises between job runs).
           if [ "${{ matrix.resolver }}" = "lts-from-exercises" ]; then
-            resolver=$(yq read "$(ls -1 exercises/*/stack.yaml | head -1)" resolver)
+            resolver=$(jq --raw-output .resolver config/track-specific.json)
           else
             resolver=${{ matrix.resolver }}
           fi
