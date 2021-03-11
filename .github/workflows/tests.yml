@@ -94,7 +94,7 @@ jobs:
           # because that would cause caches from differing LTSes to collide
           # (if we have updated the LTS version of all exercises between job runs).
           if [ "${{ matrix.resolver }}" = "lts-from-exercises" ]; then
-            resolver=$(yq read "$(ls -1 exercises/*/stack.yaml | head -1)" resolver)
+            resolver=$(yq read "$(ls -1 exercises/practice/*/stack.yaml | head -1)" resolver)
           else
             resolver=${{ matrix.resolver }}
           fi
@@ -144,7 +144,7 @@ jobs:
             export SET_RESOLVER="--resolver ${{ matrix.resolver }}"
           fi
 
-          for exercise in ${{ github.workspace }}/exercises/*/; do
+          for exercise in ${{ github.workspace }}/exercises/practice/*; do
             time bin/test-stub $exercise
             time bin/test-all-examples $exercise
           done
