@@ -13,16 +13,12 @@ jobs:
     name: Check track configuration
     runs-on: ubuntu-latest
     steps:
-      # main is needed in addition to HEAD, because the README check only
-      # checks exercises changed since main. Using 'ref: main' retrieves the
-      # least amount of history necessary to validate, but also places the
-      # cursor at main.
       - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # v2.3.4
         with:
-          ref: main
-
-      - name: Move git checkout back to HEAD
-        run: git checkout HEAD
+          # main is needed in addition to HEAD, because the README check only
+          # checks exercises changed since main. This fetches the entire repo's
+          # history.
+          fetch-depth: 0
 
       - name: Fetch configlet
         uses: exercism/github-actions/configlet-ci@main
