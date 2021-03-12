@@ -1200,5 +1200,7 @@
   },
   "concepts": [],
   "key_features": [],
-  "tags": []
+  "tags": [
+    "paradigm/functional"
+  ]
 }
