@@ -132,7 +132,7 @@ jobs:
             export SET_RESOLVER="--resolver ${{ matrix.resolver }}"
           fi
 
-          for exercise in ${{ github.workspace }}/exercises/practice/; do
+          for exercise in ${{ github.workspace }}/exercises/practice/*; do
             time bin/test-stub $exercise
             time bin/test-all-examples $exercise
           done
