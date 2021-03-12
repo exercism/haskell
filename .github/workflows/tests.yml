@@ -19,9 +19,11 @@ jobs:
         with:
           ref: main
 
+      - name: Fetch configlet
+        uses: exercism/github-actions/configlet-ci@main
+
       - name: Configlet Linter
         run: configlet lint
-        continue-on-error: true # Issue #952: Remove this when CI has been unbroken.
 
       - name: Ensure practice exercise descriptions are synced
         run: bin/ensure-practice-exercise-descriptions-are-synced.sh
