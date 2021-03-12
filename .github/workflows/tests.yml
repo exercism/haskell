@@ -4,7 +4,6 @@ on:
   push:
     branches:
     - main
-    - unbreak-ci-after-v3-merge # XXX: remove this after testing
   schedule:
     # Weekly.
     - cron: "0 0 * * 0"
