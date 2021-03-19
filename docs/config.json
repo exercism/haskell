@@ -1,0 +1,32 @@
+{
+  "docs": [
+    {
+      "uuid": "a44dd1aa-f3a9-4350-8d44-060429b4c009",
+      "slug": "installation",
+      "path": "docs/INSTALLATION.md",
+      "title": "Installing Haskell locally",
+      "blurb": "Learn how to install Haskell locally to solve Exercism's exercises on your own machine"
+    },
+    {
+      "uuid": "84a58d7d-5cec-40c7-9f20-7505a66a0ec4",
+      "slug": "learning",
+      "path": "docs/LEARNING.md",
+      "title": "How to learn Haskell",
+      "blurb": "An overview of how to get started from scratch with Haskell"
+    },
+    {
+      "uuid": "ac018395-118e-4ac1-94f7-ff72df60dd00",
+      "slug": "tests",
+      "path": "docs/TESTS.md",
+      "title": "Testing on the Haskell track",
+      "blurb": "Learn how to test your Haskell exercises on Exercism"
+    },
+    {
+      "uuid": "b8298278-68ce-4ecb-8111-0ce9df2a7921",
+      "slug": "resources",
+      "path": "docs/RESOURCES.md",
+      "title": "Useful Haskell resources",
+      "blurb": "A collection of useful resources to help you master Haskell"
+    }
+  ]
+}
