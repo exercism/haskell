@@ -1,6 +1,15 @@
 {
   "blurb": "Calculate the number of steps to reach 1 using the Collatz conjecture",
   "authors": [],
+  "contributors": [
+    "guygastineau",
+    "iHiD",
+    "navossoc",
+    "petertseng",
+    "ppartarr",
+    "sshine",
+    "tejasbubane"
+  ],
   "files": {
     "solution": [
       "src/CollatzConjecture.hs"

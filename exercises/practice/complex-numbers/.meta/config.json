@@ -1,6 +1,16 @@
 {
   "blurb": "Implement complex numbers.",
-  "authors": [],
+  "authors": [
+    "Average-user"
+  ],
+  "contributors": [
+    "cmccandless",
+    "iHiD",
+    "petertseng",
+    "ppartarr",
+    "sshine",
+    "tejasbubane"
+  ],
   "files": {
     "solution": [
       "src/ComplexNumbers.hs"

@@ -1,6 +1,23 @@
 {
   "blurb": "Implement the classic method for composing secret messages called a square code.",
-  "authors": [],
+  "authors": [
+    "etrepum"
+  ],
+  "contributors": [
+    "AndrewKvalheim",
+    "dantho",
+    "iHiD",
+    "kytrinyx",
+    "lpalma",
+    "navossoc",
+    "petertseng",
+    "ppartarr",
+    "rbasso",
+    "rpottsoh",
+    "soniakeys",
+    "sshine",
+    "tejasbubane"
+  ],
   "files": {
     "solution": [
       "src/CryptoSquare.hs"

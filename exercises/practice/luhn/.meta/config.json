@@ -1,6 +1,23 @@
 {
   "blurb": "Given a number determine whether or not it is valid per the Luhn formula.",
-  "authors": [],
+  "authors": [
+    "etrepum"
+  ],
+  "contributors": [
+    "alexkalderimis",
+    "bitfield",
+    "iHiD",
+    "kytrinyx",
+    "lpalma",
+    "navossoc",
+    "ozan",
+    "petertseng",
+    "ppartarr",
+    "rbasso",
+    "sshine",
+    "tejasbubane",
+    "workingjubilee"
+  ],
   "files": {
     "solution": [
       "src/Luhn.hs"

@@ -1,6 +1,14 @@
 {
   "blurb": "Randomly generate Dungeons & Dragons characters",
-  "authors": [],
+  "authors": [
+    "sshine"
+  ],
+  "contributors": [
+    "iHiD",
+    "petertseng",
+    "ppartarr",
+    "tejasbubane"
+  ],
   "files": {
     "solution": [
       "src/DND.hs"

@@ -1,6 +1,19 @@
 {
   "blurb": "Make sure the brackets and braces all match.",
-  "authors": [],
+  "authors": [
+    "lpalma"
+  ],
+  "contributors": [
+    "abeger",
+    "iHiD",
+    "omer-g",
+    "petertseng",
+    "ppartarr",
+    "rbasso",
+    "rpottsoh",
+    "sshine",
+    "tejasbubane"
+  ],
   "files": {
     "solution": [
       "src/Brackets.hs"

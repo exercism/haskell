@@ -1,6 +1,23 @@
 {
   "blurb": "Detect palindrome products in a given range.",
-  "authors": [],
+  "authors": [
+    "etrepum"
+  ],
+  "contributors": [
+    "dkinzer",
+    "DmitrySamoylov",
+    "iHiD",
+    "insideoutclub",
+    "jeeger",
+    "kytrinyx",
+    "petertseng",
+    "ppartarr",
+    "rbasso",
+    "soapie",
+    "sshine",
+    "stevejb71",
+    "tejasbubane"
+  ],
   "files": {
     "solution": [
       "src/Palindromes.hs"

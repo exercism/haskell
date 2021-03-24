@@ -1,6 +1,14 @@
 {
   "blurb": "Solve the zebra puzzle.",
   "authors": [],
+  "contributors": [
+    "iHiD",
+    "petertseng",
+    "ppartarr",
+    "rbasso",
+    "sshine",
+    "tejasbubane"
+  ],
   "files": {
     "solution": [
       "src/ZebraPuzzle.hs"

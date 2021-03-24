@@ -1,6 +1,12 @@
 {
   "blurb": "Convert color codes, as used on resistors, to a human-readable label.",
-  "authors": [],
+  "authors": [
+    "sshine"
+  ],
+  "contributors": [
+    "iHiD",
+    "tejasbubane"
+  ],
   "files": {
     "solution": [
       "src/ResistorColors.hs"

@@ -1,6 +1,16 @@
 {
   "blurb": "Check if a given string is a valid ISBN-10 number.",
-  "authors": [],
+  "authors": [
+    "Average-user"
+  ],
+  "contributors": [
+    "iHiD",
+    "petertseng",
+    "ppartarr",
+    "sjwarner-bp",
+    "sshine",
+    "tejasbubane"
+  ],
   "files": {
     "solution": [
       "src/IsbnVerifier.hs"

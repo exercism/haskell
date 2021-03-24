@@ -1,6 +1,21 @@
 {
   "blurb": "Given a year, report if it is a leap year.",
-  "authors": [],
+  "authors": [
+    "etrepum"
+  ],
+  "contributors": [
+    "iHiD",
+    "karen-pal",
+    "kytrinyx",
+    "navossoc",
+    "paulrex",
+    "petertseng",
+    "ppartarr",
+    "rbasso",
+    "sshine",
+    "tejasbubane",
+    "tofische"
+  ],
   "files": {
     "solution": [
       "src/LeapYear.hs"

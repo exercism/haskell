@@ -1,6 +1,22 @@
 {
   "blurb": "Implement basic list operations",
-  "authors": [],
+  "authors": [
+    "etrepum"
+  ],
+  "contributors": [
+    "ffflorian",
+    "iHiD",
+    "kytrinyx",
+    "lpalma",
+    "petertseng",
+    "ppartarr",
+    "rbasso",
+    "rsslldnphy",
+    "sshine",
+    "stesie",
+    "tejasbubane",
+    "yawpitch"
+  ],
   "files": {
     "solution": [
       "src/ListOps.hs"

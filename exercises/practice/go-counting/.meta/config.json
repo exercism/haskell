@@ -1,6 +1,17 @@
 {
   "blurb": "Count the scored points on a Go board.",
   "authors": [],
+  "contributors": [
+    "iHiD",
+    "kytrinyx",
+    "lpalma",
+    "navossoc",
+    "petertseng",
+    "ppartarr",
+    "rbasso",
+    "sshine",
+    "tejasbubane"
+  ],
   "files": {
     "solution": [
       "src/Counting.hs"

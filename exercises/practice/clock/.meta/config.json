@@ -1,6 +1,22 @@
 {
   "blurb": "Implement a clock that handles times without dates.",
-  "authors": [],
+  "authors": [
+    "etrepum"
+  ],
+  "contributors": [
+    "felix91gr",
+    "iHiD",
+    "jeeger",
+    "kevin-meyers",
+    "kytrinyx",
+    "lpalma",
+    "petertseng",
+    "ppartarr",
+    "rbasso",
+    "sshine",
+    "tejasbubane",
+    "tiniuclx"
+  ],
   "files": {
     "solution": [
       "src/Clock.hs"
