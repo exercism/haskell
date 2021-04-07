@@ -2,9 +2,15 @@
   "blurb": "Given a moment, determine the moment that would be after a gigasecond has passed.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "src/Gigasecond.hs"
+    ],
+    "test": [
+      "test/Tests.hs"
+    ],
+    "example": [
+      "examples/success-standard/src/Gigasecond.hs"
+    ]
   },
   "source": "Chapter 9 in Chris Pine's online Learn to Program tutorial.",
   "source_url": "http://pine.fm/LearnToProgram/?Chapter=09"

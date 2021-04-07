@@ -2,9 +2,15 @@
   "blurb": "Convert color codes, as used on resistors, to a human-readable label.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "src/ResistorColorTrio.hs"
+    ],
+    "test": [
+      "test/Tests.hs"
+    ],
+    "example": [
+      "examples/success-standard/src/ResistorColorTrio.hs"
+    ]
   },
   "source": "Maud de Vries, Erik Schierboom",
   "source_url": "https://github.com/exercism/problem-specifications/issues/1549"

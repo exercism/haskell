@@ -2,8 +2,14 @@
   "blurb": "Parsing a Smart Game Format string.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "src/SgfParsing.hs"
+    ],
+    "test": [
+      "test/Tests.hs"
+    ],
+    "example": [
+      "examples/success-standard/src/SgfParsing.hs"
+    ]
   }
 }

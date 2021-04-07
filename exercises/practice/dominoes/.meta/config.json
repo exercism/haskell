@@ -2,8 +2,14 @@
   "blurb": "Make a chain of dominoes.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "src/Dominoes.hs"
+    ],
+    "test": [
+      "test/Tests.hs"
+    ],
+    "example": [
+      "examples/success-standard/src/Dominoes.hs"
+    ]
   }
 }

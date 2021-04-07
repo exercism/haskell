@@ -2,8 +2,14 @@
   "blurb": "Write a function to solve alphametics puzzles.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "src/Alphametics.hs"
+    ],
+    "test": [
+      "test/Tests.hs"
+    ],
+    "example": [
+      "examples/success-standard/src/Alphametics.hs"
+    ]
   }
 }

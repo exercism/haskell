@@ -2,8 +2,14 @@
   "blurb": "Compute the result for a game of Hex / Polygon",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "src/Connect.hs"
+    ],
+    "test": [
+      "test/Tests.hs"
+    ],
+    "example": [
+      "examples/success-standard/src/Connect.hs"
+    ]
   }
 }

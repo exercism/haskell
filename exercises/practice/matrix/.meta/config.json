@@ -2,9 +2,15 @@
   "blurb": "Given a string representing a matrix of numbers, return the rows and columns of that matrix.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "src/Matrix.hs"
+    ],
+    "test": [
+      "test/Tests.hs"
+    ],
+    "example": [
+      "examples/success-standard/src/Matrix.hs"
+    ]
   },
   "source": "Warmup to the `saddle-points` warmup.",
   "source_url": "http://jumpstartlab.com"

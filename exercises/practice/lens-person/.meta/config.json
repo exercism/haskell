@@ -2,8 +2,14 @@
   "blurb": "Use lenses to update nested records (specific to languages with immutable data).",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "src/LensPerson.hs"
+    ],
+    "test": [
+      "test/Tests.hs"
+    ],
+    "example": [
+      "examples/success-standard/src/LensPerson.hs"
+    ]
   }
 }

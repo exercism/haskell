@@ -2,9 +2,15 @@
   "blurb": "Convert a long phrase to its acronym",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "src/Acronym.hs"
+    ],
+    "test": [
+      "test/Tests.hs"
+    ],
+    "example": [
+      "examples/success-standard/src/Acronym.hs"
+    ]
   },
   "source": "Julien Vanier",
   "source_url": "https://github.com/monkbroc"

@@ -2,8 +2,14 @@
   "blurb": "Creating a zipper for a binary tree.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "src/Zipper.hs"
+    ],
+    "test": [
+      "test/Tests.hs"
+    ],
+    "example": [
+      "examples/success-standard/src/Zipper.hs"
+    ]
   }
 }

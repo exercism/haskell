@@ -2,8 +2,14 @@
   "blurb": "Implement an evaluator for a very simple subset of Forth",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "src/Forth.hs"
+    ],
+    "test": [
+      "test/Tests.hs"
+    ],
+    "example": [
+      "examples/success-standard/src/Forth.hs"
+    ]
   }
 }

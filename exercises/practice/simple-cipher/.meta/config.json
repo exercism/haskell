@@ -2,9 +2,15 @@
   "blurb": "Implement a simple shift cipher like Caesar and a more secure substitution cipher",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "src/SimpleCipher.hs"
+    ],
+    "test": [
+      "test/Tests.hs"
+    ],
+    "example": [
+      "examples/success-standard/src/SimpleCipher.hs"
+    ]
   },
   "source": "Substitution Cipher at Wikipedia",
   "source_url": "http://en.wikipedia.org/wiki/Substitution_cipher"

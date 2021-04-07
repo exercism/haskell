@@ -2,9 +2,15 @@
   "blurb": "Produce the lyrics to that beloved classic, that field-trip favorite: 99 Bottles of Beer on the Wall.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "src/BeerSong.hs"
+    ],
+    "test": [
+      "test/Tests.hs"
+    ],
+    "example": [
+      "examples/success-standard/src/BeerSong.hs"
+    ]
   },
   "source": "Learn to Program by Chris Pine",
   "source_url": "http://pine.fm/LearnToProgram/?Chapter=06"
