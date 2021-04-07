@@ -2,9 +2,15 @@
   "blurb": "Implement the `accumulate` operation, which, given a collection and an operation to perform on each element of the collection, returns a new collection containing the result of applying that operation to each element of the input collection.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "src/Accumulate.hs"
+    ],
+    "test": [
+      "test/Tests.hs"
+    ],
+    "example": [
+      "examples/success-standard/src/Accumulate.hs"
+    ]
   },
   "source": "Conversation with James Edward Gray II",
   "source_url": "https://twitter.com/jeg2"

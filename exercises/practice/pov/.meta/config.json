@@ -2,9 +2,15 @@
   "blurb": "Reparent a graph on a selected node",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "src/Pov.hs"
+    ],
+    "test": [
+      "test/Tests.hs"
+    ],
+    "example": [
+      "examples/success-standard/src/Pov.hs"
+    ]
   },
   "source": "Adaptation of exercise from 4clojure",
   "source_url": "https://www.4clojure.com/"
