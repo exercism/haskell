@@ -1,3 +1,5 @@
+# About
+
 Haskell is a general-purpose programming language known for being purely functional, non-strict with strong static typing and for having type inference.
 
 **Purely functional** means that you don't update variables or modify state.

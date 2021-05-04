@@ -1,4 +1,4 @@
-## Hints
+# Hints
 
 This exercise is about [code refactoring](https://en.wikipedia.org/wiki/Refactoring),
 so we are providing you with a solution that already passes the tests.

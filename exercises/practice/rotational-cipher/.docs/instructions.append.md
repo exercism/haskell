@@ -1,4 +1,4 @@
-## Hints
+# Hints
 
 You need to implement the `rotate` function, which takes an `Int` and a `String`, and then encodes it using an rotational cipher.
 You can use the provided signature if you are unsure about the types, but don't let it restrict your creativity.

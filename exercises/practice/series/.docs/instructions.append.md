@@ -1,4 +1,4 @@
-## Hints
+# Hints
 
 To complete this exercise you need to implement the function `slices`,
 that takes a *text* and returns the subsequences of digits with a

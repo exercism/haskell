@@ -1,4 +1,4 @@
-## Hints
+# Hints
 
 You need to implement the `decode` and `encode` functions, which decode and encode a `String` using an Atbash cipher.
 You can use the provided signature if you are unsure about the types, but don't let it restrict your creativity.

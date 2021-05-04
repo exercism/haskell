@@ -1,4 +1,4 @@
-## Hints
+# Hints
 
 To complete this exercise, you need to create the data type `Matrix`,
 with `Eq` and `Show` instances, and implement the following functions:

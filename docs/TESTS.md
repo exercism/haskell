@@ -1,3 +1,5 @@
+# Tests
+
 
 ## Running Tests
 
@@ -13,7 +15,7 @@ To run the tests on every file save, run this command instead:
 stack test --file-watch
 ```
 
-#### If you get an error message like this...
+### If you get an error message like this...
 
 ```
 No .cabal file found in directory
@@ -22,7 +24,7 @@ No .cabal file found in directory
 You are probably running an old stack version and need
 to upgrade it.
 
-#### Otherwise, if you get an error message like this...
+### Otherwise, if you get an error message like this...
 
 ```
 No compiler found, expected minor version match with...
@@ -68,7 +70,7 @@ which you can use as a starting point for your solution.
 Just keep in mind that this *stub* is there just for you to get started.
 Feel free to change it completely if you think it is the right thing to do.
 
-#### Using packages
+### Using packages
 
 If you want to use some packages to write a more elegant solution, just
 add the packages to your solution's dependencies in `package.yaml`:
@@ -82,7 +84,7 @@ library:
     - bar
 ```
 
-#### Running *GHCi*
+### Running *GHCi*
 
 If you want to play with your solution in GHCi, just run the command:
 
