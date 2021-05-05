@@ -3,7 +3,7 @@
   "authors": [],
   "files": {
     "solution": [
-      "src/Etl.hs"
+      "src/ETL.hs"
     ],
     "test": [
       "test/Tests.hs"

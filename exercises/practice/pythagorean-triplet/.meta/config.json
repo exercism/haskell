@@ -3,7 +3,7 @@
   "authors": [],
   "files": {
     "solution": [
-      "src/PythagoreanTriplet.hs"
+      "src/Triplet.hs"
     ],
     "test": [
       "test/Tests.hs"

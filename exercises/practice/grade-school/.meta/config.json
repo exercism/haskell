@@ -3,7 +3,7 @@
   "authors": [],
   "files": {
     "solution": [
-      "src/GradeSchool.hs"
+      "src/School.hs"
     ],
     "test": [
       "test/Tests.hs"

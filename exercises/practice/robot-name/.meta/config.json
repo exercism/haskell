@@ -3,7 +3,7 @@
   "authors": [],
   "files": {
     "solution": [
-      "src/RobotName.hs"
+      "src/Robot.hs"
     ],
     "test": [
       "test/Tests.hs"

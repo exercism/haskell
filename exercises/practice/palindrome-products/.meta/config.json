@@ -3,7 +3,7 @@
   "authors": [],
   "files": {
     "solution": [
-      "src/PalindromeProducts.hs"
+      "src/Palindromes.hs"
     ],
     "test": [
       "test/Tests.hs"

@@ -3,7 +3,7 @@
   "authors": [],
   "files": {
     "solution": [
-      "src/RnaTranscription.hs"
+      "src/DNA.hs"
     ],
     "test": [
       "test/Tests.hs"

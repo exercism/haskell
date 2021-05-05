@@ -3,7 +3,7 @@
   "authors": [],
   "files": {
     "solution": [
-      "src/SimpleLinkedList.hs"
+      "src/LinkedList.hs"
     ],
     "test": [
       "test/Tests.hs"

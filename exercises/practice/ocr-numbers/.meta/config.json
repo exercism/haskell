@@ -3,7 +3,7 @@
   "authors": [],
   "files": {
     "solution": [
-      "src/OcrNumbers.hs"
+      "src/OCR.hs"
     ],
     "test": [
       "test/Tests.hs"

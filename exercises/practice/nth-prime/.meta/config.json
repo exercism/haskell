@@ -3,7 +3,7 @@
   "authors": [],
   "files": {
     "solution": [
-      "src/NthPrime.hs"
+      "src/Prime.hs"
     ],
     "test": [
       "test/Tests.hs"

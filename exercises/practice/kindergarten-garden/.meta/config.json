@@ -3,7 +3,7 @@
   "authors": [],
   "files": {
     "solution": [
-      "src/KindergartenGarden.hs"
+      "src/Garden.hs"
     ],
     "test": [
       "test/Tests.hs"

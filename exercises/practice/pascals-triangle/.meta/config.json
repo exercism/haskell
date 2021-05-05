@@ -3,7 +3,7 @@
   "authors": [],
   "files": {
     "solution": [
-      "src/PascalsTriangle.hs"
+      "src/Triangle.hs"
     ],
     "test": [
       "test/Tests.hs"

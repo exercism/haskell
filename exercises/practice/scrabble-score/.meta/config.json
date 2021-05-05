@@ -3,7 +3,7 @@
   "authors": [],
   "files": {
     "solution": [
-      "src/ScrabbleScore.hs"
+      "src/Scrabble.hs"
     ],
     "test": [
       "test/Tests.hs"

@@ -3,7 +3,7 @@
   "authors": [],
   "files": {
     "solution": [
-      "src/SpiralMatrix.hs"
+      "src/Spiral.hs"
     ],
     "test": [
       "test/Tests.hs"

@@ -3,7 +3,7 @@
   "authors": [],
   "files": {
     "solution": [
-      "src/Pov.hs"
+      "src/POV.hs"
     ],
     "test": [
       "test/Tests.hs"

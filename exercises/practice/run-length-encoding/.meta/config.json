@@ -3,7 +3,7 @@
   "authors": [],
   "files": {
     "solution": [
-      "src/RunLengthEncoding.hs"
+      "src/RunLength.hs"
     ],
     "test": [
       "test/Tests.hs"

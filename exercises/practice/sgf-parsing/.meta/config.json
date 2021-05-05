@@ -3,7 +3,7 @@
   "authors": [],
   "files": {
     "solution": [
-      "src/SgfParsing.hs"
+      "src/Sgf.hs"
     ],
     "test": [
       "test/Tests.hs"

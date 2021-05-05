@@ -3,7 +3,7 @@
   "authors": [],
   "files": {
     "solution": [
-      "src/BinarySearchTree.hs"
+      "src/BST.hs"
     ],
     "test": [
       "test/Tests.hs"

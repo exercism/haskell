@@ -3,7 +3,7 @@
   "authors": [],
   "files": {
     "solution": [
-      "src/RomanNumerals.hs"
+      "src/Roman.hs"
     ],
     "test": [
       "test/Tests.hs"

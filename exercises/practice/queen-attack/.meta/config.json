@@ -3,7 +3,7 @@
   "authors": [],
   "files": {
     "solution": [
-      "src/QueenAttack.hs"
+      "src/Queens.hs"
     ],
     "test": [
       "test/Tests.hs"
