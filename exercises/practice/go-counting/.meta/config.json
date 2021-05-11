@@ -3,7 +3,7 @@
   "authors": [],
   "files": {
     "solution": [
-      "src/GoCounting.hs"
+      "src/Counting.hs"
     ],
     "test": [
       "test/Tests.hs"

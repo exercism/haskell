@@ -3,7 +3,7 @@
   "authors": [],
   "files": {
     "solution": [
-      "src/AtbashCipher.hs"
+      "src/Atbash.hs"
     ],
     "test": [
       "test/Tests.hs"

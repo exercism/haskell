@@ -3,7 +3,7 @@
   "authors": [],
   "files": {
     "solution": [
-      "src/MatchingBrackets.hs"
+      "src/Brackets.hs"
     ],
     "test": [
       "test/Tests.hs"

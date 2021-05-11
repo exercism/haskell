@@ -3,7 +3,7 @@
   "authors": [],
   "files": {
     "solution": [
-      "src/SimpleCipher.hs"
+      "src/Cipher.hs"
     ],
     "test": [
       "test/Tests.hs"

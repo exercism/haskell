@@ -3,7 +3,7 @@
   "authors": [],
   "files": {
     "solution": [
-      "src/ResistorColorTrio.hs"
+      "src/ResistorColors.hs"
     ],
     "test": [
       "test/Tests.hs"

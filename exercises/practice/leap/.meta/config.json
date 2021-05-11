@@ -3,7 +3,7 @@
   "authors": [],
   "files": {
     "solution": [
-      "src/Leap.hs"
+      "src/LeapYear.hs"
     ],
     "test": [
       "test/Tests.hs"

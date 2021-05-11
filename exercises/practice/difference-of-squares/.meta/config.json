@@ -3,7 +3,7 @@
   "authors": [],
   "files": {
     "solution": [
-      "src/DifferenceOfSquares.hs"
+      "src/Squares.hs"
     ],
     "test": [
       "test/Tests.hs"

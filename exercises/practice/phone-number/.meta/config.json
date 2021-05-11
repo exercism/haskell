@@ -3,7 +3,7 @@
   "authors": [],
   "files": {
     "solution": [
-      "src/PhoneNumber.hs"
+      "src/Phone.hs"
     ],
     "test": [
       "test/Tests.hs"

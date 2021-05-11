@@ -3,7 +3,7 @@
   "authors": [],
   "files": {
     "solution": [
-      "src/NucleotideCount.hs"
+      "src/DNA.hs"
     ],
     "test": [
       "test/Tests.hs"

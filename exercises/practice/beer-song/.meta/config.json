@@ -3,7 +3,7 @@
   "authors": [],
   "files": {
     "solution": [
-      "src/BeerSong.hs"
+      "src/Beer.hs"
     ],
     "test": [
       "test/Tests.hs"

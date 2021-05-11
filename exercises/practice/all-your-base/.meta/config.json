@@ -3,7 +3,7 @@
   "authors": [],
   "files": {
     "solution": [
-      "src/AllYourBase.hs"
+      "src/Base.hs"
     ],
     "test": [
       "test/Tests.hs"
