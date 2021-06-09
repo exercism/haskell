@@ -9,7 +9,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/AtbashCipher.hs"
+      "examples/success-standard/src/Atbash.hs"
     ]
   },
   "source": "Wikipedia",

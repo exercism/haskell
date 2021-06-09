@@ -9,7 +9,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Wordy.hs"
+      "examples/success-standard/src/WordProblem.hs"
     ]
   },
   "source": "Inspired by one of the generated questions in the Extreme Startup game.",

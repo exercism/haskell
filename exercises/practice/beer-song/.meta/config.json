@@ -9,7 +9,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/BeerSong.hs"
+      "examples/success-standard/src/Beer.hs"
     ]
   },
   "source": "Learn to Program by Chris Pine",

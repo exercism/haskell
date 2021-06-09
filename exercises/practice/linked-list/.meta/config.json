@@ -9,7 +9,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/LinkedList.hs"
+      "examples/success-standard/src/Deque.hs"
     ]
   },
   "source": "Classic computer science topic"

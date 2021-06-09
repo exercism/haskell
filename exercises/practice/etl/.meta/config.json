@@ -9,7 +9,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Etl.hs"
+      "examples/success-standard/src/ETL.hs"
     ]
   },
   "source": "The Jumpstart Lab team",
