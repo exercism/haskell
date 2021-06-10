@@ -9,7 +9,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/SimpleCipher.hs"
+      "examples/success-standard/src/Cipher.hs"
     ]
   },
   "source": "Substitution Cipher at Wikipedia",

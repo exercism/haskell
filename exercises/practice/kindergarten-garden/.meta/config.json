@@ -9,7 +9,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/KindergartenGarden.hs"
+      "examples/success-standard/src/Garden.hs"
     ]
   },
   "source": "Random musings during airplane trip.",

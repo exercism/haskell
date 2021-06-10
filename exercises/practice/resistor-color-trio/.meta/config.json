@@ -9,7 +9,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/ResistorColorTrio.hs"
+      "examples/success-standard/src/ResistorColors.hs"
     ]
   },
   "source": "Maud de Vries, Erik Schierboom",

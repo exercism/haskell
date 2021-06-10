@@ -9,7 +9,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/PascalsTriangle.hs"
+      "examples/success-standard/src/Triangle.hs"
     ]
   },
   "source": "Pascal's Triangle at Wolfram Math World",

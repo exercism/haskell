@@ -9,7 +9,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/QueenAttack.hs"
+      "examples/success-standard/src/Queens.hs"
     ]
   },
   "source": "J Dalbey's Programming Practice problems",

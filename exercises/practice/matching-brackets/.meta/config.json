@@ -9,7 +9,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/MatchingBrackets.hs"
+      "examples/success-standard/src/Brackets.hs"
     ]
   },
   "source": "Ginna Baker"

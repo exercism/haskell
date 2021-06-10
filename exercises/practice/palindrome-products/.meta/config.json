@@ -9,7 +9,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/PalindromeProducts.hs"
+      "examples/success-standard/src/Palindromes.hs"
     ]
   },
   "source": "Problem 4 at Project Euler",
