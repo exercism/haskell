@@ -22,7 +22,13 @@ RedownloadInvalidResponse Request {
 ```
 
 You are probably running an old stack version and need
-to upgrade it.
+to upgrade it. Try running:
+
+```bash
+stack upgrade
+```
+
+Or see other options for upgrading at [Stack documentation](https://docs.haskellstack.org/en/stable/install_and_upgrade/#upgrade).
 
 #### Otherwise, if you get an error message like this...
 
