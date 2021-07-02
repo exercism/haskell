@@ -1,6 +1,23 @@
 {
   "blurb": "Given a string representing a matrix of numbers, return the rows and columns of that matrix.",
-  "authors": [],
+  "authors": [
+    "etrepum"
+  ],
+  "contributors": [
+    "iHiD",
+    "jwg4",
+    "kytrinyx",
+    "lpalma",
+    "navossoc",
+    "petertseng",
+    "ppartarr",
+    "qnikst",
+    "rbasso",
+    "sharno",
+    "SiriusStarr",
+    "sshine",
+    "tejasbubane"
+  ],
   "files": {
     "solution": [
       "src/Matrix.hs"

@@ -1,6 +1,17 @@
 {
   "blurb": "Creating a zipper for a binary tree.",
   "authors": [],
+  "contributors": [
+    "iHiD",
+    "jgr",
+    "kytrinyx",
+    "lpalma",
+    "petertseng",
+    "ppartarr",
+    "rbasso",
+    "sshine",
+    "tejasbubane"
+  ],
   "files": {
     "solution": [
       "src/Zipper.hs"

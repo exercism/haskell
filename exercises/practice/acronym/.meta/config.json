@@ -1,6 +1,20 @@
 {
   "blurb": "Convert a long phrase to its acronym",
-  "authors": [],
+  "authors": [
+    "lpalma"
+  ],
+  "contributors": [
+    "alanvardy",
+    "iHiD",
+    "marionebl",
+    "navossoc",
+    "petertseng",
+    "ppartarr",
+    "rbasso",
+    "sharno",
+    "sshine",
+    "tejasbubane"
+  ],
   "files": {
     "solution": [
       "src/Acronym.hs"

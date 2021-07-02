@@ -1,6 +1,19 @@
 {
   "blurb": "Given a string of digits, calculate the largest product for a contiguous substring of digits of length n.",
-  "authors": [],
+  "authors": [
+    "etrepum"
+  ],
+  "contributors": [
+    "iHiD",
+    "jrp2014",
+    "kytrinyx",
+    "lpalma",
+    "petertseng",
+    "ppartarr",
+    "rbasso",
+    "sshine",
+    "tejasbubane"
+  ],
   "files": {
     "solution": [
       "src/Series.hs"

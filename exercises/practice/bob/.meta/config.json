@@ -1,6 +1,25 @@
 {
   "blurb": "Bob is a lackadaisical teenager. In conversation, his responses are very limited.",
-  "authors": [],
+  "authors": [
+    "etrepum"
+  ],
+  "contributors": [
+    "austinlyons",
+    "cmccandless",
+    "danbst",
+    "eijynagai",
+    "hritchie",
+    "iHiD",
+    "jrib",
+    "Kobata",
+    "kytrinyx",
+    "petertseng",
+    "ppartarr",
+    "rbasso",
+    "sshine",
+    "tejasbubane",
+    "tofische"
+  ],
   "files": {
     "solution": [
       "src/Bob.hs"

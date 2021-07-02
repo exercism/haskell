@@ -1,6 +1,18 @@
 {
   "blurb": "Correctly determine change to be given using the least number of coins",
-  "authors": [],
+  "authors": [
+    "abo64"
+  ],
+  "contributors": [
+    "iHiD",
+    "petertseng",
+    "ppartarr",
+    "rbasso",
+    "robphoenix",
+    "sdublish",
+    "sshine",
+    "tejasbubane"
+  ],
   "files": {
     "solution": [
       "src/Change.hs"

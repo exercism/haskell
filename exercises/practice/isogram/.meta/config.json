@@ -1,6 +1,15 @@
 {
   "blurb": "Determine if a word or phrase is an isogram.",
   "authors": [],
+  "contributors": [
+    "bitfield",
+    "iHiD",
+    "petertseng",
+    "ppartarr",
+    "sjwarner-bp",
+    "sshine",
+    "tejasbubane"
+  ],
   "files": {
     "solution": [
       "src/Isogram.hs"

@@ -1,6 +1,18 @@
 {
   "blurb": "Score a bowling game",
-  "authors": [],
+  "authors": [
+    "abo64"
+  ],
+  "contributors": [
+    "iHiD",
+    "kytrinyx",
+    "lpalma",
+    "petertseng",
+    "ppartarr",
+    "rbasso",
+    "sshine",
+    "tejasbubane"
+  ],
   "files": {
     "solution": [
       "src/Bowling.hs"

@@ -1,6 +1,16 @@
 {
   "blurb": "Determine if a number is perfect, abundant, or deficient based on Nicomachus' (60 - 120 CE) classification scheme for positive integers.",
-  "authors": [],
+  "authors": [
+    "Average-user"
+  ],
+  "contributors": [
+    "ee7",
+    "iHiD",
+    "petertseng",
+    "ppartarr",
+    "sshine",
+    "tejasbubane"
+  ],
   "files": {
     "solution": [
       "src/PerfectNumbers.hs"

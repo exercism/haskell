@@ -1,6 +1,14 @@
 {
   "blurb": "Implement a binary search algorithm.",
-  "authors": [],
+  "authors": [
+    "sshine"
+  ],
+  "contributors": [
+    "iHiD",
+    "petertseng",
+    "ppartarr",
+    "tejasbubane"
+  ],
   "files": {
     "solution": [
       "src/BinarySearch.hs"

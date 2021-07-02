@@ -1,6 +1,23 @@
 {
   "blurb": "Implement a simple shift cipher like Caesar and a more secure substitution cipher",
-  "authors": [],
+  "authors": [
+    "etrepum"
+  ],
+  "contributors": [
+    "AndrewKvalheim",
+    "chivalry",
+    "hamstap85",
+    "iHiD",
+    "kytrinyx",
+    "lpalma",
+    "N-Parsons",
+    "petertseng",
+    "ppartarr",
+    "rbasso",
+    "rpottsoh",
+    "sshine",
+    "tejasbubane"
+  ],
   "files": {
     "solution": [
       "src/Cipher.hs"

@@ -1,6 +1,21 @@
 {
   "blurb": "Manage robot factory settings.",
-  "authors": [],
+  "authors": [
+    "etrepum"
+  ],
+  "contributors": [
+    "cmcaine",
+    "iHiD",
+    "khalilfazal",
+    "kytrinyx",
+    "lpalma",
+    "petertseng",
+    "ppartarr",
+    "rbasso",
+    "slava-sh",
+    "sshine",
+    "tejasbubane"
+  ],
   "files": {
     "solution": [
       "src/Robot.hs"

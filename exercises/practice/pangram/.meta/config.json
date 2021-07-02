@@ -1,6 +1,20 @@
 {
   "blurb": "Determine if a sentence is a pangram.",
-  "authors": [],
+  "authors": [
+    "lpalma"
+  ],
+  "contributors": [
+    "chiroptical",
+    "iHiD",
+    "navossoc",
+    "petertseng",
+    "ppartarr",
+    "rbasso",
+    "rsslldnphy",
+    "Sir4ur0n",
+    "sshine",
+    "tejasbubane"
+  ],
   "files": {
     "solution": [
       "src/Pangram.hs"
