@@ -4,10 +4,10 @@
 
 differing_stack=""
 first_stack_yaml=$(ls -1 exercises/practice/*/stack.yaml | head -1)
-expected_stack=$(yq read "$first_stack_yaml" resolver)
+expected_stack=$(yq eval .resolver "$first_stack_yaml")
 echo "All exercises should have resolver $expected_stack"
 for exercise in $(git rev-parse --show-toplevel)/exercises/practice/*/ ; do
-    exercise_stack=$(yq read "$exercise/stack.yaml" resolver)
+    exercise_stack=$(yq eval .resolver "$exercise/stack.yaml")
     if ! [ "$exercise_stack" = "$expected_stack" ]; then
       differing_stack="$differing_stack $(basename "$exercise")"
     fi
