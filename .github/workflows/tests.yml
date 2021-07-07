@@ -95,7 +95,7 @@ jobs:
           # because that would cause caches from differing LTSes to collide
           # (if we have updated the LTS version of all exercises between job runs).
           if [ "${{ matrix.resolver }}" = "lts-from-exercises" ]; then
-            resolver=$(yq read "$(ls -1 exercises/practice/*/stack.yaml | head -1)" resolver)
+            resolver=$(yq eval .resolver "$(ls -1 exercises/practice/*/stack.yaml | head -1)")
           else
             resolver=${{ matrix.resolver }}
           fi
@@ -121,7 +121,7 @@ jobs:
           key: ${{ steps.resolve-resolver.outputs.resolver }}-${{ steps.week-no.outputs.week-no }}-${{ hashFiles('exercises/**/package.yaml') }}
           restore-keys: ${{ steps.resolve-resolver.outputs.resolver }}-${{ steps.week-no.outputs.week-no }}-
 
-      - uses: actions/setup-haskell@v1
+      - uses: haskell/actions/setup@v1
         with:
           enable-stack: true
           stack-version: 'latest'
@@ -145,7 +145,16 @@ jobs:
             export SET_RESOLVER="--resolver ${{ matrix.resolver }}"
           fi
 
-          for exercise in ${{ github.workspace }}/exercises/practice/*; do
-            time bin/test-stub $exercise
-            time bin/test-all-examples $exercise
-          done
+          if [ "${{ matrix.resolver }}" = "nightly" ]; then
+            # allow nightly to fail - note that continue-on-error is inadequate.
+            # https://github.com/actions/toolkit/issues/399
+            for exercise in ${{ github.workspace }}/exercises/practice/*; do
+              bin/warn-on-failure time bin/test-stub $exercise
+              bin/warn-on-failure time bin/test-all-examples $exercise
+            done
+          else
+            for exercise in ${{ github.workspace }}/exercises/practice/*; do
+              time bin/test-stub $exercise
+              time bin/test-all-examples $exercise
+            done
+          fi
