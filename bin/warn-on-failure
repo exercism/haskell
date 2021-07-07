@@ -1,0 +1,6 @@
+#!/bin/sh
+
+if ! $@; then
+  # https://docs.github.com/en/actions/reference/workflow-commands-for-github-actions#setting-a-warning-message
+  echo "::warning::$@ failed"
+fi
