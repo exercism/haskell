@@ -1,16 +1,4 @@
-# {{ .Spec.Name }}
-
-{{ .Spec.Description -}}
-{{- with .Hints }}
-{{ . }}
-{{ end }}
-
-## Getting Started
-
-Please refer to the [installation](https://exercism.io/tracks/haskell/installation)
-and [learning](https://exercism.io/tracks/haskell/learning) help pages.
-
-## Running the tests
+# Running the tests
 
 To run the test suite, execute the following command:
 
@@ -56,25 +44,10 @@ the correct compiler version:
 stack setup
 ```
 
-## Running *GHCi*
+# Running *GHCi*
 
 If you want to play with your solution in GHCi, just run the command:
 
 ```bash
 stack ghci
 ```
-
-## Feedback, Issues, Pull Requests
-
-The [exercism/haskell](https://github.com/exercism/haskell) repository on
-GitHub is the home for all of the Haskell exercises.
-
-If you have feedback about an exercise, or want to help implementing a new
-one, head over there and create an issue.  We'll do our best to help you!
-{{ with .Spec.Credits }}
-## Source
-
-{{ . }}
-{{ end }}
-## Submitting Incomplete Solutions
-It's possible to submit an incomplete solution so you can see how others have completed the exercise.
