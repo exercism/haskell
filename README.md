@@ -46,7 +46,7 @@ Please be detailed and include reasons, links or arguments to support your opini
 
 Exercism contains two types of exercises: concept exercises, and practice exercises.
 
-Haskell does not currently have any concept exercises. You can read about [concept exercises][reference/implementing-a-concept-exercise.md] and take part in creating Haskell's first ones.
+Haskell does not currently have any concept exercises. You can read about [concept exercises](reference/implementing-a-concept-exercise.md) and take part in creating Haskell's first ones.
 
 You can get a full list of [common Exercism practice exercises](https://github.com/exercism/problem-specifications/tree/main/exercises) and cross-reference it with [Haskell practice exercises](https://github.com/exercism/haskell/tree/main/exercises/practice) and implement any of the missing ones for the Haskell track.
 
