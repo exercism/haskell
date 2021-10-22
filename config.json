@@ -1114,7 +1114,7 @@
         "uuid": "48ca1682-ca1b-4a2c-be55-624620f336a7",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 0,
+        "difficulty": 1,
         "topics": null,
         "status": "deprecated"
       },
@@ -1124,7 +1124,7 @@
         "uuid": "317ef3e7-67ce-4940-bc90-eed1c4a27c19",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 0,
+        "difficulty": 1,
         "topics": null,
         "status": "deprecated"
       },
@@ -1134,7 +1134,7 @@
         "uuid": "964c07aa-abca-49b8-8428-1b81ee39066d",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 0,
+        "difficulty": 1,
         "topics": null,
         "status": "deprecated"
       },
@@ -1144,7 +1144,7 @@
         "uuid": "2566f8ee-28cf-4429-9ced-42759c810d7c",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 0,
+        "difficulty": 1,
         "topics": null,
         "status": "deprecated"
       },
@@ -1154,7 +1154,7 @@
         "uuid": "d5997b60-e54c-4caa-beae-8614f0da3fb3",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 0,
+        "difficulty": 1,
         "topics": null,
         "status": "deprecated"
       },
