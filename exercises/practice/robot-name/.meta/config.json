@@ -24,7 +24,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Robot.hs"
+      ".meta/examples/success-standard/src/Robot.hs"
     ]
   },
   "source": "A debugging session with Paul Blackwell at gSchool."

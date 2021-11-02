@@ -24,7 +24,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-simple/src/WordCount.hs"
+      ".meta/examples/success-simple/src/WordCount.hs"
     ]
   },
   "source": "This is a classic toy problem, but we were reminded of it by seeing it in the Go Tour."

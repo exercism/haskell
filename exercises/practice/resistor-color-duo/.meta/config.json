@@ -19,7 +19,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/ResistorColors.hs"
+      ".meta/examples/success-standard/src/ResistorColors.hs"
     ]
   },
   "source": "Maud de Vries, Erik Schierboom",

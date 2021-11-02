@@ -21,7 +21,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Bowling.hs"
+      ".meta/examples/success-standard/src/Bowling.hs"
     ]
   },
   "source": "The Bowling Game Kata at but UncleBob",

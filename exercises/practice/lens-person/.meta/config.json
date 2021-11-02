@@ -23,7 +23,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Person.hs"
+      ".meta/examples/success-standard/src/Person.hs"
     ]
   }
 }

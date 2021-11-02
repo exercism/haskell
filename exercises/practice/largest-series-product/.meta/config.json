@@ -22,7 +22,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Series.hs"
+      ".meta/examples/success-standard/src/Series.hs"
     ]
   },
   "source": "A variation on Problem 8 at Project Euler",

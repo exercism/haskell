@@ -21,7 +21,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Prime.hs"
+      ".meta/examples/success-standard/src/Prime.hs"
     ]
   },
   "source": "A variation on Problem 7 at Project Euler",

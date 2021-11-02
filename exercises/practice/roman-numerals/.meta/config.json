@@ -22,7 +22,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Roman.hs"
+      ".meta/examples/success-standard/src/Roman.hs"
     ]
   },
   "source": "The Roman Numeral Kata",

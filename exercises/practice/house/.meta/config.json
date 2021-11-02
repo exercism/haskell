@@ -22,7 +22,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/House.hs"
+      ".meta/examples/success-standard/src/House.hs"
     ]
   },
   "source": "British nursery rhyme",

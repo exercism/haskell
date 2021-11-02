@@ -27,7 +27,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Phone.hs"
+      ".meta/examples/success-standard/src/Phone.hs"
     ]
   },
   "source": "Event Manager by JumpstartLab",

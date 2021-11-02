@@ -24,7 +24,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Gigasecond.hs"
+      ".meta/examples/success-standard/src/Gigasecond.hs"
     ]
   },
   "source": "Chapter 9 in Chris Pine's online Learn to Program tutorial.",

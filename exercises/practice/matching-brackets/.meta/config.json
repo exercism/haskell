@@ -22,7 +22,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Brackets.hs"
+      ".meta/examples/success-standard/src/Brackets.hs"
     ]
   },
   "source": "Ginna Baker"

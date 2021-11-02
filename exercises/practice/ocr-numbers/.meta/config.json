@@ -22,7 +22,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/OCR.hs"
+      ".meta/examples/success-standard/src/OCR.hs"
     ]
   },
   "source": "Inspired by the Bank OCR kata",

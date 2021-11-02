@@ -25,7 +25,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/DNA.hs"
+      ".meta/examples/success-standard/src/DNA.hs"
     ]
   },
   "source": "Hyperphysics",

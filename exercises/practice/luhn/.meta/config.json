@@ -26,7 +26,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Luhn.hs"
+      ".meta/examples/success-standard/src/Luhn.hs"
     ]
   },
   "source": "The Luhn Algorithm on Wikipedia",

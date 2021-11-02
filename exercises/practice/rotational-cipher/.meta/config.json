@@ -19,7 +19,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/RotationalCipher.hs"
+      ".meta/examples/success-standard/src/RotationalCipher.hs"
     ]
   },
   "source": "Wikipedia",

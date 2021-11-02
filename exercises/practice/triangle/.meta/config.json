@@ -24,7 +24,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Triangle.hs"
+      ".meta/examples/success-standard/src/Triangle.hs"
     ]
   },
   "source": "The Ruby Koans triangle project, parts 1 & 2",

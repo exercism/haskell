@@ -23,7 +23,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Squares.hs"
+      ".meta/examples/success-standard/src/Squares.hs"
     ]
   },
   "source": "Problem 6 at Project Euler",

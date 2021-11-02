@@ -19,7 +19,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Spiral.hs"
+      ".meta/examples/success-standard/src/Spiral.hs"
     ]
   },
   "source": "Reddit r/dailyprogrammer challenge #320 [Easy] Spiral Ascension.",

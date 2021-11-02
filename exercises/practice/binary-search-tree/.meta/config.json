@@ -21,7 +21,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/BST.hs"
+      ".meta/examples/success-standard/src/BST.hs"
     ]
   },
   "source": "Josh Cheek",

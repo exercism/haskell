@@ -22,7 +22,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Sieve.hs"
+      ".meta/examples/success-standard/src/Sieve.hs"
     ]
   },
   "source": "Sieve of Eratosthenes at Wikipedia",

@@ -20,7 +20,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/HelloWorld.hs"
+      ".meta/examples/success-standard/src/HelloWorld.hs"
     ]
   },
   "source": "This is an exercise to introduce users to using Exercism",

@@ -18,7 +18,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Yacht.hs"
+      ".meta/examples/success-standard/src/Yacht.hs"
     ]
   },
   "source": "James Kilfiger, using wikipedia",

@@ -18,7 +18,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Transpose.hs"
+      ".meta/examples/success-standard/src/Transpose.hs"
     ]
   },
   "source": "Reddit r/dailyprogrammer challenge #270 [Easy].",

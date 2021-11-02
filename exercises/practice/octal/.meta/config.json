@@ -21,7 +21,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Octal.hs"
+      ".meta/examples/success-standard/src/Octal.hs"
     ]
   },
   "source": "All of Computer Science",

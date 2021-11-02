@@ -17,7 +17,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/ZebraPuzzle.hs"
+      ".meta/examples/success-standard/src/ZebraPuzzle.hs"
     ]
   },
   "source": "Wikipedia",

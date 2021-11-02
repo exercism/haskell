@@ -25,7 +25,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Matrix.hs"
+      ".meta/examples/success-standard/src/Matrix.hs"
     ]
   },
   "source": "J Dalbey's Programming Practice problems",
