@@ -23,7 +23,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Acronym.hs"
+      ".meta/examples/success-standard/src/Acronym.hs"
     ]
   },
   "source": "Julien Vanier",

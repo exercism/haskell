@@ -17,7 +17,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/DND.hs"
+      ".meta/examples/success-standard/src/DND.hs"
     ]
   },
   "source": "Simon Shine, Erik Schierboom",

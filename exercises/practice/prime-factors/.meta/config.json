@@ -21,7 +21,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/PrimeFactors.hs"
+      ".meta/examples/success-standard/src/PrimeFactors.hs"
     ]
   },
   "source": "The Prime Factors Kata by Uncle Bob",

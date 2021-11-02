@@ -20,7 +20,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Hexadecimal.hs"
+      ".meta/examples/success-standard/src/Hexadecimal.hs"
     ]
   },
   "source": "All of Computer Science",

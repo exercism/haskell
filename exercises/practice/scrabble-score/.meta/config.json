@@ -23,7 +23,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Scrabble.hs"
+      ".meta/examples/success-standard/src/Scrabble.hs"
     ]
   },
   "source": "Inspired by the Extreme Startup game",

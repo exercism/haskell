@@ -22,7 +22,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/PigLatin.hs"
+      ".meta/examples/success-standard/src/PigLatin.hs"
     ]
   },
   "source": "The Pig Latin exercise at Test First Teaching by Ultrasaurus",

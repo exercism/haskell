@@ -23,7 +23,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/School.hs"
+      ".meta/examples/success-standard/src/School.hs"
     ]
   },
   "source": "A pairing session with Phil Battos at gSchool",

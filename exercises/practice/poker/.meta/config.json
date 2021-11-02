@@ -18,7 +18,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Poker.hs"
+      ".meta/examples/success-standard/src/Poker.hs"
     ]
   },
   "source": "Inspired by the training course from Udacity.",

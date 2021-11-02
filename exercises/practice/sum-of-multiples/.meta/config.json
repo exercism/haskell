@@ -24,7 +24,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/SumOfMultiples.hs"
+      ".meta/examples/success-standard/src/SumOfMultiples.hs"
     ]
   },
   "source": "A variation on Problem 1 at Project Euler",

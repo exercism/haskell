@@ -21,7 +21,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/RunLength.hs"
+      ".meta/examples/success-standard/src/RunLength.hs"
     ]
   },
   "source": "Wikipedia",

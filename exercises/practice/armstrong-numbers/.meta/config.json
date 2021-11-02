@@ -16,7 +16,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/ArmstrongNumbers.hs"
+      ".meta/examples/success-standard/src/ArmstrongNumbers.hs"
     ]
   },
   "source": "Wikipedia",

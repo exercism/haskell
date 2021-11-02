@@ -23,7 +23,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Grains.hs"
+      ".meta/examples/success-standard/src/Grains.hs"
     ]
   },
   "source": "JavaRanch Cattle Drive, exercise 6",

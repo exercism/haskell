@@ -9,12 +9,12 @@ fi
 
 exercisedir=$1
 
-if ! stat -t ${exercisedir}/examples/*/ > /dev/null 2>&1; then
+if ! stat -t ${exercisedir}/.meta/examples/*/ > /dev/null 2>&1; then
     echo "No examples for ${exercisedir}!"
     exit 1
 else
     mydir=$(dirname $0)
-    for example in ${exercisedir}/examples/*/ ; do
+    for example in ${exercisedir}/.meta/examples/*/ ; do
         $mydir/test-example $example
     done
 fi

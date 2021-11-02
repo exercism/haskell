@@ -23,7 +23,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/SecretHandshake.hs"
+      ".meta/examples/success-standard/src/SecretHandshake.hs"
     ]
   },
   "source": "Bert, in Mary Poppins",

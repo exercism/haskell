@@ -21,7 +21,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Series.hs"
+      ".meta/examples/success-standard/src/Series.hs"
     ]
   },
   "source": "A subset of the Problem 8 at Project Euler",

@@ -21,7 +21,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Beer.hs"
+      ".meta/examples/success-standard/src/Beer.hs"
     ]
   },
   "source": "Learn to Program by Chris Pine",

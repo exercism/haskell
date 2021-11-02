@@ -20,7 +20,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Counting.hs"
+      ".meta/examples/success-standard/src/Counting.hs"
     ]
   }
 }

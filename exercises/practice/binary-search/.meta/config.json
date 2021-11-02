@@ -17,7 +17,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/BinarySearch.hs"
+      ".meta/examples/success-standard/src/BinarySearch.hs"
     ]
   },
   "source": "Wikipedia",

@@ -19,7 +19,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/PerfectNumbers.hs"
+      ".meta/examples/success-standard/src/PerfectNumbers.hs"
     ]
   },
   "source": "Taken from Chapter 2 of Functional Thinking by Neal Ford.",

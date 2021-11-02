@@ -23,7 +23,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-double/src/SpaceAge.hs"
+      ".meta/examples/success-double/src/SpaceAge.hs"
     ]
   },
   "source": "Partially inspired by Chapter 1 in Chris Pine's online Learn to Program tutorial.",

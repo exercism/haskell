@@ -21,7 +21,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Change.hs"
+      ".meta/examples/success-standard/src/Change.hs"
     ]
   },
   "source": "Software Craftsmanship - Coin Change Kata",

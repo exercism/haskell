@@ -22,7 +22,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-settext/src/Anagram.hs"
+      ".meta/examples/success-settext/src/Anagram.hs"
     ]
   },
   "source": "Inspired by the Extreme Startup game",

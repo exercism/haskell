@@ -23,7 +23,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Triplet.hs"
+      ".meta/examples/success-standard/src/Triplet.hs"
     ]
   },
   "source": "Problem 9 at Project Euler",

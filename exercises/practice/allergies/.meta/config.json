@@ -22,7 +22,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Allergies.hs"
+      ".meta/examples/success-standard/src/Allergies.hs"
     ]
   },
   "source": "Jumpstart Lab Warm-up",

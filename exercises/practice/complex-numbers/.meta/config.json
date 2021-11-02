@@ -19,7 +19,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/ComplexNumbers.hs"
+      ".meta/examples/success-standard/src/ComplexNumbers.hs"
     ]
   },
   "source": "Wikipedia",

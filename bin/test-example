@@ -8,7 +8,7 @@ fi
 exampledir=$(cd "$1" && pwd)
 
 examplename=$(basename "$exampledir")
-exercisedir=$(cd "$exampledir/../.." && pwd)
+exercisedir=$(cd "$exampledir/../../.." && pwd)
 exercisename=$(basename "$exercisedir")
 xhaskell=$(cd "$(dirname "$0")/.." && pwd)
 

@@ -28,7 +28,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Bob.hs"
+      ".meta/examples/success-standard/src/Bob.hs"
     ]
   },
   "source": "Inspired by the 'Deaf Grandma' exercise in Chris Pine's Learn to Program tutorial.",

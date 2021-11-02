@@ -25,7 +25,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/POV.hs"
+      ".meta/examples/success-standard/src/POV.hs"
     ]
   },
   "source": "Adaptation of exercise from 4clojure",

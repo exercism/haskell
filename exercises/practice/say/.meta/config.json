@@ -22,7 +22,7 @@
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Say.hs"
+      ".meta/examples/success-standard/src/Say.hs"
     ]
   },
   "source": "A variation on JavaRanch CattleDrive, exercise 4a",
