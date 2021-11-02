@@ -84,16 +84,16 @@ The [track anatomy documentation](https://github.com/exercism/docs/blob/master/l
   └── accumulate
   │ ├── package.yaml
   │ ├── stack.yaml
-  │ ├── examples
-  │ │ └── success-standard
-  │ │   ├── package.yaml
-  │ │   └── src
-  │ │     └── Accumuĺate.hs
   │ ├── src
   │ │ └── Accumuĺate.hs
   │ ├── test
   │ │ └── Tests.hs
   │ └── .meta
+  │   ├── examples
+  │   │ └── success-standard
+  │   │   ├── package.yaml
+  │   │   └── src
+  │   │     └── Accumulate.hs
   │   └── hints.md
   └── allergies
   │ ├── ...
@@ -110,8 +110,8 @@ resolver for all the exercises.
 format that has all dependencies and build instructions for an exercise.
   One of the properties tracked in `package.yaml` is the [version](#exercise-versioning) of the exercise.
 - `src/ModuleName.hs` is a [stub solution](#stub-solution).
-- `examples/success-<name>/package.yaml` contains library dependencies for the [example solution](#example-solution). `<name>` is a unique name for the example - usually "standard" (as in `success-standard`), but it can be some other name in case of multiple example solutions.
-- `examples/success-<name>/src/ModuleName.hs` is the source code of the sample solution.
+- `.meta/examples/success-<name>/package.yaml` contains library dependencies for the [example solution](#example-solution). `<name>` is a unique name for the example - usually "standard" (as in `success-standard`), but it can be some other name in case of multiple example solutions.
+- `.meta/examples/success-<name>/src/ModuleName.hs` is the source code of the sample solution.
 - `test/Tests.hs` is the [test suite](#test-suite).
 - `.meta/hints.md` is an optional file containing instructions and/or hints. It is used together with the respective `description.md` for the exercise from [problem-specifications](https://github.com/exercism/problem-specifications) to build the `README.md` file.
 
