@@ -44,7 +44,27 @@ specs = describe "parseSgf" $ for_ cases test
                                                                                   , Node [("C", ["D"])] [] ] )
             -- multiple property values
             , ("(;A[b][c][d])"                      , Just  $ Node [("A", ["b", "c", "d" ])] []              )
-            -- escaped property value
-            , ("(;A[\\]b\nc\\\nd\t\te\\\\ \\\n\\]])", Just  $ Node [("A", ["]b cd  e\\ ]"])] []              ) ]
+            -- within property values, whitespace characters such as tab are converted to spaces
+            , ("(;A[hello\t\tworld])"               , Just  $ Node [("A", ["hello  world"])] []              )
+            -- within property values, newlines remain as newlines
+            , ("(;A[hello\n\nworld])"               , Just  $ Node [("A", ["hello\n\nworld"])] []            )
+            -- escaped closing bracket within property value becomes just a closing bracket
+            , ("(;A[\\]])"                          , Just  $ Node [("A", ["]"])] []                         )
+            -- escaped backslash in property value becomes just a backslash
+            , ("(;A[\\\\])"                         , Just  $ Node [("A", ["\\"])] []                        )
+            -- opening bracket within property value doesn't need to be escaped
+            , ("(;A[x[y\\]z][foo]B[bar];C[baz])"    , Just  $ Node [("A", ["x[y]z", "foo"]), ("B", ["bar"])] [ Node [("C", ["baz"])] [] ] )
+            -- semicolon in property value doesn't need to be escaped
+            , ("(;A[a;b][foo]B[bar];C[baz])"        , Just  $ Node [("A", ["a;b", "foo"]), ("B", ["bar"])] [ Node [("C", ["baz"])] [] ] )
+            -- parentheses in property value don't need to be escaped
+            , ("(;A[x(y)z][foo]B[bar];C[baz])"      , Just  $ Node [("A", ["x(y)z", "foo"]), ("B", ["bar"])] [ Node [("C", ["baz"])] [] ] )
+            -- escaped tab in property value is converted to space
+            , ("(;A[hello\\\tworld])"               , Just  $ Node [("A", ["hello world"])] []               )
+            -- escaped newline in property value is converted to nothing at all
+            , ("(;A[hello\\\nworld])"               , Just  $ Node [("A", ["helloworld"])] []                )
+            -- escaped t and n in property value are just letters, not whitespace
+            , ("(;A[\\t = t and \\n = n])"          , Just  $ Node [("A", ["t = t and n = n"])] []           )
+            -- mixing various kinds of whitespace and escaped characters in property value
+            , ("(;A[\\]b\nc\\\nd\t\te\\\\ \\\n\\]])", Just  $ Node [("A", ["]b\ncd  e\\ ]"])] []             ) ]
 
 -- b74debc3be24b5c81650189935c9bbfa019b367e
