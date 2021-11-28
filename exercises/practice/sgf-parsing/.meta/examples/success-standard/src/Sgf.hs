@@ -5,7 +5,7 @@ module Sgf (
 
 import           Control.Applicative (many)
 import           Data.Attoparsec.Text (Parser, anyChar, char, many1, parseOnly, satisfy)
-import           Data.Char (isUpper, isSpace)
+import           Data.Char (isUpper)
 import           Data.Map (Map)
 import qualified Data.Map as Map
 import           Data.Tree (Tree(..))
@@ -51,7 +51,7 @@ val = char '[' *> worker [] False
             ']'  | not bs    -> return . T.pack . reverse $ acc
             '\\' | not bs    -> worker acc True
             '\n' | bs        -> worker acc False -- remove soft newline
-            _    | isSpace c -> worker (' ' : acc) False
+            '\t'             -> worker (' ' : acc) False
             _                -> worker (c : acc) False
 
 -- | Create an 'SgfTree' from a list of nodes and subtrees.
