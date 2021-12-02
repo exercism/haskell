@@ -33,7 +33,18 @@
     ]
   },
   "exercises": {
-    "concept": [],
+    "concept": [
+      {
+        "slug": "lucians-luscious-lasagna",
+        "name": "Lucian's Luscious Lasagna",
+        "uuid": "3aa220cb-606f-45c5-9b7a-4bce0e4eb20d",
+        "prerequisites": [],
+        "status": "beta",
+        "concepts": [
+          "basics"
+        ]
+      }
+    ],
     "practice": [
       {
         "slug": "hello-world",
@@ -1196,7 +1207,13 @@
       "resistor-color"
     ]
   },
-  "concepts": [],
+  "concepts": [
+    {
+      "uuid": "8f59f60b-96d6-468d-abf6-d4eb28a9204f",
+      "slug": "basics",
+      "name": "Basics"
+    }
+  ],
   "key_features": [
     {
       "title": "Purely functional",
