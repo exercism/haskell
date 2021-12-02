@@ -1,0 +1,21 @@
+{
+  "blurb": "Learn the basics of Haskell by cooking Lucian's Luscious Lasagna",
+  "icon": "lasagna",
+  "authors": [
+    "pwadsworth"
+  ],
+  "forked_from": [
+    "fsharp/lucians-luscious-lasagna"
+  ],
+  "files": {
+    "solution": [
+      "src/LuciansLusciousLasagna.hs"
+    ],
+    "test": [
+      "test/Tests.hs"
+    ],
+    "exemplar": [
+      ".meta/exemplar/src/LuciansLusciousLasagna.hs"
+    ]
+  }
+}
