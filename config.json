@@ -1197,7 +1197,38 @@
     ]
   },
   "concepts": [],
-  "key_features": [],
+  "key_features": [
+    {
+      "title": "Purely functional",
+      "content": "Pure functions always produce the same output for the same input, so are more predictable.",
+      "icon": "functional"
+    },
+    {
+      "title": "Non-strict",
+      "content": "Lazy evaluation only provides results as needed, allowing for infinite data structures.",
+      "icon": "evolving"
+    },
+    {
+      "title": "Strong, static typing",
+      "content": "Strong, static types mean more errors are caught before the program is run.",
+      "icon": "statically-typed"
+    },
+    {
+      "title": "Type inference",
+      "content": "Automatic inference of types makes the code lighter and the developer more productive.",
+      "icon": "fun"
+    },
+    {
+      "title": "Type classes",
+      "content": "Categorising types into classes provides type-safe overloading.",
+      "icon": "extensible"
+    },
+    {
+      "title": "Algebraic data types",
+      "content": "Powerful data types provide a high degree of convenience and safety.",
+      "icon": "powerful"
+    }
+  ],
   "tags": [
     "paradigm/functional"
   ]
