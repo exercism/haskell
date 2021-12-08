@@ -148,12 +148,12 @@ jobs:
           if [ "${{ matrix.resolver }}" = "nightly" ]; then
             # allow nightly to fail - note that continue-on-error is inadequate.
             # https://github.com/actions/toolkit/issues/399
-            for exercise in ${{ github.workspace }}/exercises/practice/*; do
+            for exercise in ${{ github.workspace }}/exercises/{concept,practice}/*; do
               bin/warn-on-failure time bin/test-stub $exercise
               bin/warn-on-failure time bin/test-all-examples $exercise
             done
           else
-            for exercise in ${{ github.workspace }}/exercises/practice/*; do
+            for exercise in ${{ github.workspace }}/exercises/{concept,practice}/*; do
               time bin/test-stub $exercise
               time bin/test-all-examples $exercise
             done

@@ -9,12 +9,24 @@ fi
 
 exercisedir=$1
 
-if ! stat -t ${exercisedir}/.meta/examples/*/ > /dev/null 2>&1; then
+extype=$(echo "$exercisedir" | rev | cut -d/ -f2 | rev)
+
+if [ "$extype" = "practice" ]; then
+  if ! stat -t ${exercisedir}/.meta/examples/*/ > /dev/null 2>&1; then
     echo "No examples for ${exercisedir}!"
     exit 1
+  fi
+  mydir=$(dirname $0)
+  for example in ${exercisedir}/.meta/examples/*/ ; do
+    $mydir/test-example $example
+  done
+elif [ "$extype" = "concept" ]; then
+  if [ ! -d "${exercisedir}/.meta/exemplar" ]; then
+    echo "No exemplar for ${exercisedir}!"
+    exit 1
+  fi
+  mydir=$(dirname $0)
+  $mydir/test-example ${exercisedir}/.meta/exemplar
 else
-    mydir=$(dirname $0)
-    for example in ${exercisedir}/.meta/examples/*/ ; do
-        $mydir/test-example $example
-    done
+  echo "unknown exercise type $extype (from $exercisedir): should be practice or concept"
 fi
