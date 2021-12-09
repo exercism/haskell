@@ -43,7 +43,13 @@ mkdir -p "$examplecache"
 ln -f -s "$examplecache"
 
 # SET_RESOLVER passed by GitHub Actions - sets --resolver if not current.
-if [ -f "${exercisedir}/.meta/DONT-TEST-STUB" ]; then
+if [ -f "${exercisedir}/.meta/STUB-ALLOWED-TO-NOT-COMPILE" ]; then
+    echo "${exercise} stub is allowed not to compile"
+    if stack build ${SET_RESOLVER} --install-ghc --no-terminal; then
+      echo "... but it unexpectedly compiled!"
+      exit 1
+    fi
+elif [ -f "${exercisedir}/.meta/DONT-TEST-STUB" ]; then
     echo "only building stub"
     stack build ${SET_RESOLVER} --install-ghc --no-terminal
 else
