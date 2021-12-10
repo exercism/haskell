@@ -46,7 +46,7 @@ Please be detailed and include reasons, links or arguments to support your opini
 
 Exercism contains two types of exercises: concept exercises, and practice exercises.
 
-Haskell does not currently have any concept exercises. You can read about [concept exercises](reference/implementing-a-concept-exercise.md) and take part in creating Haskell's first ones.
+The Haskell track is developing its concept exercises. You can read about [concept exercises](reference/implementing-a-concept-exercise.md) and take part in creating Haskell's.
 
 You can get a full list of [common Exercism practice exercises](https://github.com/exercism/problem-specifications/tree/main/exercises) and cross-reference it with [Haskell practice exercises](https://github.com/exercism/haskell/tree/main/exercises/practice) and implement any of the missing ones for the Haskell track.
 
@@ -64,40 +64,58 @@ The [track anatomy documentation](https://github.com/exercism/docs/blob/master/l
 
 ### Directory structure
 ```bash
-├── .gitignore
+├── .appends
+│ └── labels.yml
 ├── .github
 │ └── workflows
 │     └── tests.yml
+├── CODE_OF_CONDUCT.md
 ├── LICENSE
 ├── README.md
 ├── bin
 │ └── fetch‐configlet
+├── concepts
+│ └── basics
+│ │ └── .meta
+│ │   └── config.json
+│ ├── about.md
+│ ├── introduction.md
+│ └── links.json
 ├── config.json
 ├── docs
 │ ├── ABOUT.md
-  ├── EXERCISE_README_INSERT.md
+│ ├── EXERCISE_README_INSERT.md
 │ ├── INSTALLATION.md
 │ ├── LEARNING.md
 │ ├── RESOURCES.md
 │ └── TESTS.md
 └── exercises
-  └── accumulate
-  │ ├── package.yaml
-  │ ├── stack.yaml
-  │ ├── src
-  │ │ └── Accumuĺate.hs
-  │ ├── test
-  │ │ └── Tests.hs
-  │ └── .meta
-  │   ├── examples
-  │   │ └── success-standard
-  │   │   ├── package.yaml
-  │   │   └── src
-  │   │     └── Accumulate.hs
-  │   └── hints.md
-  └── allergies
-  │ ├── ...
-  └── ...
+│ ├── concepts
+│ ├── practice
+│ │ └── accumulate
+│ │ │ ├── package.yaml
+│ │ │ ├── stack.yaml
+│ │ │ ├── src
+│ │ │ │ └── Accumuĺate.hs
+│ │ │ ├── test
+│ │ │ │ └── Tests.hs
+│ │ │ └── .meta
+│ │ │   ├── examples
+│ │ │   │ └── success-standard
+│ │ │   │   ├── package.yaml
+│ │ │   │   └── src
+│ │ │   │     └── Accumulate.hs
+│ │ │   └── hints.md
+│ │ └── allergies
+│ │ │ ├── ...
+│ │ └── ...
+│ └── shared
+│   └── cli.md
+│   ├── debug.md
+│   ├── help.md
+│   └── test.md    
+└── references
+  └── implementing-a-concept-exercise.md
 ```
 - `config.json`: Every exercise has to be registered here. It has a unique name and a difficulty. The sequence order is also the default order in which the exercises are fetched.
 
