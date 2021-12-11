@@ -32,6 +32,18 @@
       ".meta/exemplar/src/%{pascal_slug}.hs"
     ]
   },
+  "concepts": [
+    {
+      "uuid": "8f59f60b-96d6-468d-abf6-d4eb28a9204f",
+      "slug": "basics",
+      "name": "Basics"
+    },
+    {
+      "uuid": "837981ee-3bac-41cf-9516-bd9663f364aa",
+      "slug": "basics2",
+      "name": "Basics2"
+    }
+  ],
   "exercises": {
     "concept": [
       {
@@ -42,6 +54,16 @@
         "status": "beta",
         "concepts": [
           "basics"
+        ]
+      },
+      {
+        "slug": "bettys-bike-shop",
+        "name": "Bettys Bike Shop",
+        "uuid": "07e2e7ee-6ac6-460f-84c9-2f9d5b13e267",
+        "prerequisites": ["basics"],
+        "status": "beta",
+        "concepts": [
+          "basics2"
         ]
       }
     ],
@@ -1207,13 +1229,6 @@
       "resistor-color"
     ]
   },
-  "concepts": [
-    {
-      "uuid": "8f59f60b-96d6-468d-abf6-d4eb28a9204f",
-      "slug": "basics",
-      "name": "Basics"
-    }
-  ],
   "key_features": [
     {
       "title": "Purely functional",
