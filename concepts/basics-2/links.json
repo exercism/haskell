@@ -1,0 +1,18 @@
+[
+    {
+        "url": "https://en.wikibooks.org/wiki/Haskell/Indentation",
+        "description": "Haskell indentation"
+    },
+    {
+        "url": "http://learnyouahaskell.com/chapters",
+        "description": "Haskell tutorial"
+    },
+    {
+        "url": "https://kowainik.github.io/posts/2019-02-06-style-guide",
+        "description": "Haskell style guide"
+    },
+    {
+        "url": "https://github.com/haskell/stylish-haskell",
+        "description": "Haskell formatter"
+    }
+]

@@ -1,0 +1,17 @@
+{
+  "blurb": "Continue learning the basics of Haskell by helping Betty to display her bikes prices",
+  "authors": [
+    "pwad"
+  ],
+  "files": {
+    "solution": [
+      "src/BettysBikeShop.hs"
+    ],
+    "test": [
+      "tests/Tests.hs"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.hs"
+    ]
+  }
+}
