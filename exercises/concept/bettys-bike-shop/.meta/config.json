@@ -12,6 +12,9 @@
     ],
     "exemplar": [
       ".meta/Exemplar.hs"
+    ],
+    "editor": [
+      "src/ToString.hs"
     ]
   }
 }
