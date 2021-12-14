@@ -8,10 +8,10 @@
       "src/BettysBikeShop.hs"
     ],
     "test": [
-      "tests/Tests.hs"
+      "test/Tests.hs"
     ],
     "exemplar": [
-      ".meta/Exemplar.hs"
+      ".meta/exemplar/src/BettysBikeShop.hs"
     ],
     "editor": [
       "src/ToString.hs"
