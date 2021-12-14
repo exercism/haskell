@@ -3,12 +3,12 @@ version: 1.0.0.0
 
 dependencies:
   - base
-  - ToString
+
 
 library:
   exposed-modules: 
     - BettysBikeShop
-    - ToString
+
   source-dirs: src
   ghc-options: -Wall
 
@@ -18,5 +18,4 @@ tests:
     source-dirs: test
     dependencies:
       - bettys-bike-shop
-      - ToString
       - hspec

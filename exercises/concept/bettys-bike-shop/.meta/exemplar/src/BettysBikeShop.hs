@@ -6,7 +6,7 @@ import qualified ToString (float)
 
 penceToPounds :: Int -> Float
 penceToPounds pence =
-    toFloat pence / 100.0
+    (fromIntegral pence::Float) / 100.0
 
 
 poundsToString :: Float -> String
