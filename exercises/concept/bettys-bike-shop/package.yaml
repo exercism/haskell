@@ -7,7 +7,6 @@ dependencies:
 library:
   exposed-modules: 
     - BettysBikeShop
-    - ToString
   source-dirs: src
   ghc-options: -Wall
 
@@ -17,5 +16,4 @@ tests:
     source-dirs: test
     dependencies:
       - bettys-bike-shop
-      - ToString
       - hspec
