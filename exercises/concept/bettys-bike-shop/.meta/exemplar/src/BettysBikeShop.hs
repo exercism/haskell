@@ -1,3 +1,4 @@
+{-# OPTIONS_GHC -Wno-deferred-out-of-scope-variables #-}
 module BettysBikeShop (penceToPounds, poundsToString) where
 
 import qualified ToString (float)
