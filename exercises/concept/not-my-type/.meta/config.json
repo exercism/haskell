@@ -1,0 +1,18 @@
+{
+  "blurb": "Learn the basics of Haskell's type system",
+  "icon": "bracket-push",
+  "authors": [
+    "pwad"
+  ],
+  "files": {
+    "solution": [
+      "src/NotMyType.hs"
+    ],
+    "test": [
+      "test/Tests.hs"
+    ],
+    "exemplar": [
+      ".meta/exemplar/src/NotMyType.hs"
+    ]
+  }
+}

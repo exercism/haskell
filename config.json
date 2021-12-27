@@ -55,6 +55,18 @@
         "concepts": [
           "basics"
         ]
+      },
+      {
+        "slug": "not-my-type",
+        "name": "Not My Type",
+        "uuid": "4921cd91-4704-4e1a-9bfa-5cd8b68dfa1c",
+        "prerequisites": [
+          "basics"
+        ],
+        "status": "beta",
+        "concepts": [
+          "types"
+        ]
       }
     ],
     "practice": [
