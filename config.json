@@ -32,6 +32,18 @@
       ".meta/exemplar/src/%{pascal_slug}.hs"
     ]
   },
+  "concepts": [
+    {
+      "uuid": "8f59f60b-96d6-468d-abf6-d4eb28a9204f",
+      "slug": "basics",
+      "name": "Basics"
+    },
+    {
+      "uuid": "8379ad12-22da-cc21-9123-da3414d235da",
+      "slug": "types",
+      "name": "Types"
+    }
+  ],
   "exercises": {
     "concept": [
       {
@@ -1207,13 +1219,6 @@
       "resistor-color"
     ]
   },
-  "concepts": [
-    {
-      "uuid": "8f59f60b-96d6-468d-abf6-d4eb28a9204f",
-      "slug": "basics",
-      "name": "Basics"
-    }
-  ],
   "key_features": [
     {
       "title": "Purely functional",
