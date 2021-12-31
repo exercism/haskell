@@ -1,0 +1,18 @@
+{
+  "blurb": "Use number type conversion",
+  "icon": "the-weather-in-deather",
+  "authors": [
+    "pwad"
+  ],
+  "files": {
+    "solution": [
+      "src/temperature.hs"
+    ],
+    "test": [
+      "test/tests.hs"
+    ],
+    "exemplar": [
+      ".meta/exemplar/src/temperature.hs"
+    ]
+  }
+}
