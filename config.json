@@ -42,6 +42,11 @@
       "uuid": "7736c277-d0e2-4f8b-8ec3-8b1662c27c29",
       "slug": "types",
       "name": "Types"
+    },
+    {
+      "uuid": "6d0806a3-e881-48fc-960a-d7663de0667a",
+      "slug": "numbers",
+      "name": "Numbers"
     }
   ],
   "exercises": {
@@ -66,6 +71,19 @@
         "status": "beta",
         "concepts": [
           "types"
+        ]
+      },
+      {
+        "slug": "temperature",
+        "name": "Temperature",
+        "uuid": "6ed15adb-f022-4bbd-bbb3-22845deabc91",
+        "prerequisites": [
+          "basics",
+          "types"
+        ],
+        "status": "beta",
+        "concepts": [
+          "numbers"
         ]
       }
     ],
