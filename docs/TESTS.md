@@ -72,7 +72,7 @@ Feel free to change it completely if you think it is the right thing to do.
 
 ### Using packages
 
-If you want to use some packages to write a more elegant solution, just
+If you want to use some packages to write a more elegant solution, first
 add the packages to your solution's dependencies in `package.yaml`:
 
 ```yaml
@@ -82,6 +82,14 @@ library:
   dependencies:
     - foo
     - bar
+```
+
+Then, when submitting your solution, remember to submit `package.yaml` as
+well (otherwise the solution will fail). From the project's top-level
+directory run:
+
+```bash
+exercism submit package.yaml src/ModuleName.hs
 ```
 
 ### Running *GHCi*
