@@ -1,3 +1,3 @@
 # Introduction
 
-Write a function `tempTo` to convert a temperature to either Celsius or Fahrenheit given a character to indicate the units desired, and a number in the other unit.
+You are part of an firefighter organization made of international volunteers. Over the last few calls your team has wasted valuable time translating from the new American team member charged with estimating the temperature inside the burning building. To save time, and people, you decide to create a program to automatically convert from and from Fahrenheit and Celsius for your new teammate.
