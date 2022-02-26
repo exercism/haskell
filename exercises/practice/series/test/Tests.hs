@@ -46,7 +46,7 @@ specs = do
         ]
 
     it "slices of zero" $ do
-      slices 0 ""    `shouldHaveSlices` [[]]
-      slices 0 "012" `shouldHaveSlices` [[],[],[],[]]
+      slices 0 ""    `shouldHaveSlices` []
+      slices 0 "012" `shouldHaveSlices` [[],[],[]]
 
 -- 88ebba640962f31187dc1ac2cd672044afba4b35
