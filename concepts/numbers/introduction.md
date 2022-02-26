@@ -9,17 +9,17 @@ Haskell's standard library, known as ***Prelude***, defines  most basic numeric 
 `Float` corresponds to the set of real numbers, limited by the precision of the computer.
 Operations defined on numbers usually work on one type or the other, but not mixing them.
 
-There are functions to convert between the two, such as `toFloat` which converts `Int` to `Float` and `round`, `floor`, `ceiling` or `truncate` which convert a `Float` to an `Int` with different semantics.
+There are functions to convert between `Float` and `Integer`, such as `toFloat` which converts `Int\Integer` to `Float` and `round`, `floor`, `ceiling` or `truncate` which convert a `Float` to an `Int` with different semantics.
 
 ## Arithmetic operators
 
 Haskell has three "raise to the power" operators which work differently and take different argument types.
 
-- `**` Takes two floating point numbers and uses logarithms to compute the power.
+- `**` Takes two **floating point numbers** and uses logarithms to compute the power.
 
-- `^^` Takes a floating point and raises it to a positive or negative integer power.
+- `^^` Takes a **floating point** and raises it to a positive or negative **integer** power.
 
-- `^` Takes any numerical type and raises it to a positive integer power.
+- `^` Takes **any numerical type** and raises it to a **positive integer** power.
 
 Conversion from an integer type (Int or Integer) to anything else is done using "fromIntegral". The target type is inferred automatically. For example:
 
@@ -35,7 +35,7 @@ y :: Double
 y = fromIntegral m      --> y = 7.0
 ```
 
-Division of integers is a little complicated. If you use the ordinary "/" operator on integers then you will get an error message (although the expression "4/3" does work because Haskell helpfully promotes literal integers to floats where necessary). Instead, integer division is done using a collection of named operators.
+Division of integers is a little complicated. If you use the ordinary "/" operator on integers, then you will get an error message (although the expression "4/3" does work because Haskell helpfully promotes literal integers to floats where necessary). Instead, integer division is done using a collection of named operators.
 
 Haskell has a neat trick with operators: you can take any function that takes two arguments and use it like an operator by enclosing the name in back-ticks. So the following two lines mean exactly the same:
 
@@ -63,4 +63,4 @@ Just as you can convert a function with two arguments into an operator, you can 
 
 ---
 ### Credits: 
-The above text is modified from __The Haskell 98 Report__ by Simon Peyton Jones, used with permission to copy, distribute and modify for any purpose. 
+The above text is modified from __The Haskell 98 Report__ by Simon Peyton Jones, used with permission to copy, distribute and modify for any purpose with this note included. 
