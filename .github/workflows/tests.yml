@@ -20,12 +20,6 @@ jobs:
           # history.
           fetch-depth: 0
 
-      - name: Fetch configlet
-        uses: exercism/github-actions/configlet-ci@main
-
-      - name: Configlet Linter
-        run: configlet lint
-
       - name: Ensure practice exercise descriptions are synced
         run: bin/ensure-practice-exercise-descriptions-are-synced.sh
 
