@@ -43,6 +43,18 @@
         "concepts": [
           "basics"
         ]
+      },
+      {
+        "slug": "temperature",
+        "name": "Temperature",
+        "uuid": "6ed15adb-f022-4bbd-bbb3-22845deabc91",
+        "prerequisites": [
+          "basics"
+        ],
+        "status": "beta",
+        "concepts": [
+          "numbers"
+        ]
       }
     ],
     "practice": [
@@ -1212,6 +1224,11 @@
       "uuid": "8f59f60b-96d6-468d-abf6-d4eb28a9204f",
       "slug": "basics",
       "name": "Basics"
+    },
+    {
+      "uuid": "6d0806a3-e881-48fc-960a-d7663de0667a",
+      "slug": "numbers",
+      "name": "Numbers"
     }
   ],
   "key_features": [
