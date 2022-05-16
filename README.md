@@ -20,6 +20,7 @@ Exercism exercises in Haskell
 - [Test suite](#test-suite)
 - [Running tests](#running-tests)
 - [Running HLint](#running-hlint)
+- [Automated Test Runner](#automated-test-runner)
 
 ## How to contribute
 
@@ -193,3 +194,6 @@ pull request, so you can fix your code before submitting it for review.
 If you are certain that a suggestion given by `hlint` would make the
 code worse, you can [suppress it](https://github.com/ndmitchell/hlint#customizing-the-hints)
 with annotations in the source file.
+
+## Automated Test Runner
+We have a [test runner](https://github.com/exercism/haskell-test-runner) to automatically run tests on Haskell solutions submitted to [exercism](exercism.org).
