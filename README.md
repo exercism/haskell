@@ -196,4 +196,4 @@ code worse, you can [suppress it](https://github.com/ndmitchell/hlint#customizin
 with annotations in the source file.
 
 ## Automated Test Runner
-We have [test runner](https://github.com/exercism/haskell-test-runner) to automatically run tests on Haskell solutions submitted to [exercism](exercism.org).
+We have a [test runner](https://github.com/exercism/haskell-test-runner) to automatically run tests on Haskell solutions submitted to [exercism](exercism.org).
