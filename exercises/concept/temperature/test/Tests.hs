@@ -25,7 +25,7 @@ toFCases = [ Case { description = "negative Celsius to negative Fahrenheit"
                   }
            , Case { description = "positive Celsius to positive Fahrenheit"
                   , celsius     = 50.10
-                  , fahrenheit  = 123
+                  , fahrenheit  = 122
                   }
            ]
 
