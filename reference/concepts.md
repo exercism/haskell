@@ -19,7 +19,7 @@ The Haskell concept exercises are based on concepts. The list below contains the
   - Function composition
   - Higher-order functions
   - ~~Implicit returns~~ (no returns at all)
-  - Nested functions
+  - Nested functions 🤔
   - Partial application
   - Pure functions
   - Recursion
@@ -31,7 +31,7 @@ The Haskell concept exercises are based on concepts. The list below contains the
   - Guard clauses
 - ~~Pipelines~~ (just composition)
 - Type inference
-  - Automatic generalisation
+  - Automatic generalisation 🤔
 
 ### General
 
@@ -50,7 +50,7 @@ The Haskell concept exercises are based on concepts. The list below contains the
 - Comparison
   - Equality (`Eq`)
   - Ordering  (`Ord`, `Ordering`)
-- Concurrency
+- Concurrency 🤔 (no expertise here)
   - Concurrent collections
   - Locks
   - Messaging and agents
@@ -61,7 +61,7 @@ The Haskell concept exercises are based on concepts. The list below contains the
   - Explicit
   - Implicit
 - Enumeration
-- Exceptions
+- Exceptions 🤔
 - Numbers
   - Arithmetic overflow
   - Bitwise manipulation
@@ -75,7 +75,7 @@ The Haskell concept exercises are based on concepts. The list below contains the
   - Shadowing
   - Visibility (export or not)
 - Whitespace significant
-- String formatting
+- String formatting 🤔
 - Values
   - Definitions
 - Concurrency
@@ -85,7 +85,7 @@ The Haskell concept exercises are based on concepts. The list below contains the
 - Booleans
 - Characters
 - Collections
-  - Arrays
+  - Arrays 🤔
   - Lists
   - Maps
   - Queues
