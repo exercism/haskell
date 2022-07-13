@@ -1,35 +1,35 @@
-# F&#35; reference
+# Haskell reference
 
 ## Concepts
 
-The F# concept exercises are based on concepts. The list below contains the concepts that have been identified for the F# language.
+The Haskell concept exercises are based on concepts. The list below contains the concepts that have been identified for the Haskell language.
 
 ### Language-unique
 
-- Active patterns
-- Computation expressions
+- ~~Active patterns~~ Pattern synonyms? That seems a stretch.
+- ~~Computation expressions~~ do-notation
 - Dependency order
 
 ### Functional
 
-- Expression-oriented (not statement oriented)
+- Expression-oriented (no statements at all)
 - Functions
   - Anonymous functions
   - Currying
   - Function composition
   - Higher-order functions
-  - Implicit returns
+  - ~~Implicit returns~~ (no returns at all)
   - Nested functions
   - Partial application
   - Pure functions
   - Recursion
     - Tail recursion
-  - Type annotations
+  - Type declarations & annotations
 - Immutability
 - Pattern matching
-  - Discards
+  - ~~Discards~~ wildcards
   - Guard clauses
-- Pipelines
+- ~~Pipelines~~ (just composition)
 - Type inference
   - Automatic generalisation
 
@@ -37,19 +37,19 @@ The F# concept exercises are based on concepts. The list below contains the conc
 
 - Asynchronous programming
 - Collections
-  - Collections: combining
-  - Collections: filtering
-  - Collections: mapping
-  - Collections: ordering
-  - Collections: reducing
-  - Generics
-  - Iterators (yield)
-  - Ranges
-    - Slicing
-  - Sequence/for expressions
+  - Collections: combining 🤔 `<>` ?
+  - Collections: filtering (`filter`)
+  - Collections: mapping (`Functor`)
+  - Collections: ordering (`sort`)
+  - Collections: reducing (`Foldable` ?)
+  - ~~Generics~~ Polymorphism
+  - ~~Iterators (yield)~~ Lists
+  - Ranges (`Enum` + range syntax)
+    - ~~Slicing~~ 🤔
+  - ~~Sequence/for expressions~~ list comprehensions
 - Comparison
-  - Equality (`Equals`, `GetHashCode`)
-  - Ordering
+  - Equality (`Eq`)
+  - Ordering  (`Ord`, `Ordering`)
 - Concurrency
   - Concurrent collections
   - Locks
@@ -69,15 +69,15 @@ The F# concept exercises are based on concepts. The list below contains the conc
 - Resources
   - Resource allocation
 - Scoping
-  - Imports (`open`)
+  - Imports
   - Modules
   - Namespaces
   - Shadowing
-  - Visibility (`public`, `private`, etc.)
-  - Whitespace significant
+  - Visibility (export or not)
+- Whitespace significant
 - String formatting
 - Values
-  - Assignment
+  - Definitions
 - Concurrency
 
 ### Types
@@ -89,18 +89,17 @@ The F# concept exercises are based on concepts. The list below contains the conc
   - Lists
   - Maps
   - Queues
-  - Ranges
+  - Ranges 🤔 (just lists)
   - Sets
-  - Stacks
-- Discriminated unions
-- Enums
-- Numbers
+  - Stacks 🤔 (just lists)
+- ~~Discriminated unions~~ Algebraic data types
+- Numbers (`Num` & Co.)
   - Floating point numbers
-  - Signed integers
-  - Unsigned integers
-- Options
+  - Signed integers (`Int`, `Integer`)
+  - Unsigned integers (`Natural`)
+- ~~Options~~ `Maybe`
 - Records
-- Results
+- ~~Results~~ `Either`
 - Strings
 - Tuples
-- Unit
+- Unit (`()`)
