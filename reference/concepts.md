@@ -6,9 +6,7 @@ The Haskell concept exercises are based on concepts. The list below contains the
 
 ### Language-unique
 
-- ~~Active patterns~~ Pattern synonyms? That seems a stretch.
 - ~~Computation expressions~~ do-notation
-- Dependency order
 
 ### Functional
 
@@ -18,7 +16,6 @@ The Haskell concept exercises are based on concepts. The list below contains the
   - Currying
   - Function composition
   - Higher-order functions
-  - ~~Implicit returns~~ (no returns at all)
   - Nested functions 🤔
   - Partial application
   - Pure functions
@@ -27,9 +24,8 @@ The Haskell concept exercises are based on concepts. The list below contains the
   - Type declarations & annotations
 - Immutability
 - Pattern matching
-  - ~~Discards~~ wildcards
+  - Wildcards
   - Guard clauses
-- ~~Pipelines~~ (just composition)
 - Type inference
   - Automatic generalisation 🤔
 
@@ -37,23 +33,19 @@ The Haskell concept exercises are based on concepts. The list below contains the
 
 - Asynchronous programming
 - Collections
-  - Collections: combining 🤔 `<>` ?
+  - Collections: combining
   - Collections: filtering (`filter`)
   - Collections: mapping (`Functor`)
   - Collections: ordering (`sort`)
-  - Collections: reducing (`Foldable` ?)
+  - Collections: reducing (`Foldable`. `Traversable`)
   - ~~Generics~~ Polymorphism
   - ~~Iterators (yield)~~ Lists
   - Ranges (`Enum` + range syntax)
-    - ~~Slicing~~ 🤔
   - ~~Sequence/for expressions~~ list comprehensions
 - Comparison
   - Equality (`Eq`)
   - Ordering  (`Ord`, `Ordering`)
-- Concurrency 🤔 (no expertise here)
-  - Concurrent collections
-  - Locks
-  - Messaging and agents
+- Concurrency
 - Conditionals
   - Boolean logic
   - Conditionals: if
@@ -61,7 +53,7 @@ The Haskell concept exercises are based on concepts. The list below contains the
   - Explicit
   - Implicit
 - Enumeration
-- Exceptions 🤔
+- Exceptions
 - Numbers
   - Arithmetic overflow
   - Bitwise manipulation
@@ -75,23 +67,21 @@ The Haskell concept exercises are based on concepts. The list below contains the
   - Shadowing
   - Visibility (export or not)
 - Whitespace significant
-- String formatting 🤔
+- String formatting
 - Values
   - Definitions
-- Concurrency
 
 ### Types
 
 - Booleans
 - Characters
 - Collections
-  - Arrays 🤔
+  - Arrays
   - Lists
   - Maps
   - Queues
-  - Ranges 🤔 (just lists)
   - Sets
-  - Stacks 🤔 (just lists)
+  - Stacks
 - ~~Discriminated unions~~ Algebraic data types
 - Numbers (`Num` & Co.)
   - Floating point numbers
