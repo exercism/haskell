@@ -6,7 +6,7 @@ The Haskell concept exercises are based on concepts. The list below contains the
 
 ### Language-unique
 
-- Strictness vs. nonstrictenss ('laziness')
+- Strictness vs. nonstrictness ('laziness')
 - Type classes
   - `Functor`, `Applicative`, `Monad`
   - `Semigroup`, `Monoid`
