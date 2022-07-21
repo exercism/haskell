@@ -6,17 +6,16 @@ The Haskell concept exercises are based on concepts. The list below contains the
 
 ### Language-unique
 
-- ~~Computation expressions~~ do-notation
 
 ### Functional
 
 - Expression-oriented (no statements at all)
 - Functions
+  - Functions are ordinary values
   - Anonymous functions
   - Currying
   - Function composition
   - Higher-order functions
-  - Nested functions 🤔
   - Partial application
   - Pure functions
   - Recursion
@@ -27,7 +26,7 @@ The Haskell concept exercises are based on concepts. The list below contains the
   - Wildcards
   - Guard clauses
 - Type inference
-  - Automatic generalisation 🤔
+  - Polymorphism by default
 
 ### General
 
@@ -38,10 +37,10 @@ The Haskell concept exercises are based on concepts. The list below contains the
   - Collections: mapping (`Functor`)
   - Collections: ordering (`sort`)
   - Collections: reducing (`Foldable`. `Traversable`)
-  - ~~Generics~~ Polymorphism
-  - ~~Iterators (yield)~~ Lists
+  - Polymorphism
+  - Lists
   - Ranges (`Enum` + range syntax)
-  - ~~Sequence/for expressions~~ list comprehensions
+  - List comprehensions
 - Comparison
   - Equality (`Eq`)
   - Ordering  (`Ord`, `Ordering`)
@@ -82,14 +81,14 @@ The Haskell concept exercises are based on concepts. The list below contains the
   - Queues
   - Sets
   - Stacks
-- ~~Discriminated unions~~ Algebraic data types
+- Algebraic data types
 - Numbers (`Num` & Co.)
   - Floating point numbers
   - Signed integers (`Int`, `Integer`)
   - Unsigned integers (`Natural`)
-- ~~Options~~ `Maybe`
+- `Maybe`
 - Records
-- ~~Results~~ `Either`
+- `Either`
 - Strings
 - Tuples
 - Unit (`()`)
