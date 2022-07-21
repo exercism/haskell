@@ -6,6 +6,11 @@ The Haskell concept exercises are based on concepts. The list below contains the
 
 ### Language-unique
 
+- Strictness vs. nonstrictenss ('laziness')
+- Type classes
+  - `Functor`, `Applicative`, `Monad`
+  - `Semigroup`, `Monoid`
+  - `Foldable`, `Traversable`
 
 ### Functional
 
@@ -45,6 +50,7 @@ The Haskell concept exercises are based on concepts. The list below contains the
   - Equality (`Eq`)
   - Ordering  (`Ord`, `Ordering`)
 - Concurrency
+- Parallelism
 - Conditionals
   - Boolean logic
   - Conditionals: if
