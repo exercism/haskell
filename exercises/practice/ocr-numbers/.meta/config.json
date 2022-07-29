@@ -16,7 +16,8 @@
   ],
   "files": {
     "solution": [
-      "src/OCR.hs"
+      "src/OCR.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"

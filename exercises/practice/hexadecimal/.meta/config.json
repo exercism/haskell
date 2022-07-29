@@ -14,7 +14,8 @@
   ],
   "files": {
     "solution": [
-      "src/Hexadecimal.hs"
+      "src/Hexadecimal.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"

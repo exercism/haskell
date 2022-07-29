@@ -19,7 +19,8 @@
   ],
   "files": {
     "solution": [
-      "src/Clock.hs"
+      "src/Clock.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"

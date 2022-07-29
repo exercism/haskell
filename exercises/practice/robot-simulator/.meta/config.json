@@ -16,7 +16,8 @@
   ],
   "files": {
     "solution": [
-      "src/Robot.hs"
+      "src/Robot.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"

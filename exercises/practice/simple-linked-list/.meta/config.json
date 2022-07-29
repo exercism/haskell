@@ -16,7 +16,8 @@
   ],
   "files": {
     "solution": [
-      "src/LinkedList.hs"
+      "src/LinkedList.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"

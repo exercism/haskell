@@ -17,7 +17,8 @@
   ],
   "files": {
     "solution": [
-      "src/School.hs"
+      "src/School.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"

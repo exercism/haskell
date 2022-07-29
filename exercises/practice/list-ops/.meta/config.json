@@ -19,7 +19,8 @@
   ],
   "files": {
     "solution": [
-      "src/ListOps.hs"
+      "src/ListOps.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"

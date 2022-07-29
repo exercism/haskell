@@ -13,7 +13,8 @@
   ],
   "files": {
     "solution": [
-      "src/Spiral.hs"
+      "src/Spiral.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"

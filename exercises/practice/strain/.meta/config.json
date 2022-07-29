@@ -15,7 +15,8 @@
   ],
   "files": {
     "solution": [
-      "src/Strain.hs"
+      "src/Strain.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"

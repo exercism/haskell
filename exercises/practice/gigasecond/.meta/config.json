@@ -18,7 +18,8 @@
   ],
   "files": {
     "solution": [
-      "src/Gigasecond.hs"
+      "src/Gigasecond.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"

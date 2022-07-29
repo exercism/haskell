@@ -12,7 +12,8 @@
   ],
   "files": {
     "solution": [
-      "src/Transpose.hs"
+      "src/Transpose.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"

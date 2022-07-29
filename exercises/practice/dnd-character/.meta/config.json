@@ -11,7 +11,8 @@
   ],
   "files": {
     "solution": [
-      "src/DND.hs"
+      "src/DND.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"

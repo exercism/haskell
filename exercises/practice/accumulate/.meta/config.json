@@ -15,7 +15,8 @@
   ],
   "files": {
     "solution": [
-      "src/Accumulate.hs"
+      "src/Accumulate.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"

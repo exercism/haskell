@@ -16,7 +16,8 @@
   ],
   "files": {
     "solution": [
-      "src/PigLatin.hs"
+      "src/PigLatin.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"

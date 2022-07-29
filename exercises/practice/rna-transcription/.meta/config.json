@@ -19,7 +19,8 @@
   ],
   "files": {
     "solution": [
-      "src/DNA.hs"
+      "src/DNA.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"

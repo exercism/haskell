@@ -15,7 +15,8 @@
   ],
   "files": {
     "solution": [
-      "src/BST.hs"
+      "src/BST.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
