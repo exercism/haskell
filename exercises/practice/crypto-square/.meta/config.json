@@ -20,7 +20,8 @@
   ],
   "files": {
     "solution": [
-      "src/CryptoSquare.hs"
+      "src/CryptoSquare.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"

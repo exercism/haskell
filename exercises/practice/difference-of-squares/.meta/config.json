@@ -17,7 +17,8 @@
   ],
   "files": {
     "solution": [
-      "src/Squares.hs"
+      "src/Squares.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"

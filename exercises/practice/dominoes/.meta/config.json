@@ -14,7 +14,8 @@
   ],
   "files": {
     "solution": [
-      "src/Dominoes.hs"
+      "src/Dominoes.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"

@@ -14,7 +14,8 @@
   ],
   "files": {
     "solution": [
-      "src/Counting.hs"
+      "src/Counting.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"

@@ -16,7 +16,8 @@
   ],
   "files": {
     "solution": [
-      "src/Sgf.hs"
+      "src/Sgf.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"

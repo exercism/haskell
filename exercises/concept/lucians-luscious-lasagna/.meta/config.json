@@ -9,7 +9,8 @@
   ],
   "files": {
     "solution": [
-      "src/LuciansLusciousLasagna.hs"
+      "src/LuciansLusciousLasagna.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"

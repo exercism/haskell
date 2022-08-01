@@ -12,7 +12,8 @@
   ],
   "files": {
     "solution": [
-      "src/Isogram.hs"
+      "src/Isogram.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"

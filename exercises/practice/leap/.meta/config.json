@@ -18,7 +18,8 @@
   ],
   "files": {
     "solution": [
-      "src/LeapYear.hs"
+      "src/LeapYear.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"

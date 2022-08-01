@@ -11,7 +11,8 @@
   ],
   "files": {
     "solution": [
-      "src/ZebraPuzzle.hs"
+      "src/ZebraPuzzle.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"

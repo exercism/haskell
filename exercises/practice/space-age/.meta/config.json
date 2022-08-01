@@ -17,7 +17,8 @@
   ],
   "files": {
     "solution": [
-      "src/SpaceAge.hs"
+      "src/SpaceAge.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"

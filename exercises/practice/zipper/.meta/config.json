@@ -14,7 +14,8 @@
   ],
   "files": {
     "solution": [
-      "src/Zipper.hs"
+      "src/Zipper.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"

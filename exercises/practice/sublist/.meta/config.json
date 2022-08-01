@@ -15,7 +15,8 @@
   ],
   "files": {
     "solution": [
-      "src/Sublist.hs"
+      "src/Sublist.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"

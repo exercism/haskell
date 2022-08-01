@@ -9,7 +9,8 @@
   ],
   "files": {
     "solution": [
-      "src/ResistorColors.hs"
+      "src/ResistorColors.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"

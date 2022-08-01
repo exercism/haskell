@@ -17,7 +17,8 @@
   ],
   "files": {
     "solution": [
-      "src/Garden.hs"
+      "src/Garden.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"

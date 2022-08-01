@@ -12,7 +12,8 @@
   ],
   "files": {
     "solution": [
-      "src/CollatzConjecture.hs"
+      "src/CollatzConjecture.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
