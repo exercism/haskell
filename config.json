@@ -1227,6 +1227,11 @@
       "name": "Basics"
     },
     {
+      "uuid": "8afaf3b9-5910-4d6f-a35d-aaf9439381f6",
+      "slug": "booleans",
+      "name": "Booleans"
+    },
+    {
       "uuid": "6d0806a3-e881-48fc-960a-d7663de0667a",
       "slug": "numbers",
       "name": "Numbers"
