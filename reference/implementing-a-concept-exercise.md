@@ -26,7 +26,7 @@ languages
     |       ├── introduction.md
     |       └── links.json
     └── exercises
-        └── concepts
+        └── concept
             └── <EXERCISE-SLUG>
                 ├── package.yaml
                 ├── stack.yaml
