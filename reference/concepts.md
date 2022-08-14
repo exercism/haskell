@@ -62,7 +62,7 @@ The Haskell concept exercises are based on concepts. The list below contains the
 - [ ] Numbers
   - [ ] Arithmetic overflow
   - [ ] Bitwise manipulation
-  - [ ] Math operators
+  - [x] Math operators
 - [ ] Resources
   - [ ] Resource allocation
 - [ ] Scoping
@@ -89,8 +89,8 @@ The Haskell concept exercises are based on concepts. The list below contains the
   - [ ] Stacks
 - [ ] Algebraic data types
 - [ ] Numbers (`Num` & Co.)
-  - [ ] Floating point numbers
-  - [ ] Signed integers (`Int`, `Integer`)
+  - [x] Floating point numbers
+  - [x] Signed integers (`Int`, `Integer`)
   - [ ] Unsigned integers (`Natural`)
 - [ ] `Maybe`
 - [ ] Records
