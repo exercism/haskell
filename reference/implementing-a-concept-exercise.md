@@ -11,7 +11,7 @@ As this document is generic, the following placeholders are used:
 - `<NAME>`: the name of the exercise in PascalCase (e.g. `CalculatorConundrum`).
 - `<CONCEPT-SLUG>`: the slug of one of the exercise's concepts in kebab-case (e.g. `monad-transformers`).
 
-Haskell covers a vast amount of concepts. Choosing a particular subset of concepts and an ideal ordering of these concepts is a contentious task.
+Haskell covers a vast number of concepts. Choosing a particular subset of concepts and an ideal ordering of these concepts is a contentious task.
 
 Contributors (you) may freely choose a concept related to Haskell and implement an exercise that covers this. Before implementing such an exercise, make sure you have a good understanding of what the exercise should be teaching (and what not). Check if this concept is already partially or fully covered by another exercise, and arrange the concept in a hierarchical fashion.
 
