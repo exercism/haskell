@@ -23,6 +23,7 @@ languages
     ├── concepts
     |   └── <CONCEPT-SLUG>
     |       ├── about.md
+    |       ├── introduction.md
     |       └── links.json
     └── exercises
         └── concept
