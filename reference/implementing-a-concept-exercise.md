@@ -34,19 +34,17 @@ languages
                 │   └── <NAME>.hs
                 ├── test
                 │   └── Tests.hs
-                ├── exemplars
-                │   ├── success-... (default: standard)
-                │   │   ├── package.yaml
-                │   │   └── src
-                │   │       └── <NAME>.hs
-                │   └── ...
                 ├── .docs
                 │   ├── instructions.md
                 │   ├── introduction.md
                 │   └── hints.md
                 └── .meta
                     ├── config.json
-                    └── design.md
+                    ├── design.md
+                    └── exemplar
+                        ├── package.yaml
+                        └── src
+                            └── <NAME>.hs
 ```
 
 ## Step 1: Add code files
