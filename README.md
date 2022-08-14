@@ -85,6 +85,12 @@ The [track anatomy documentation](https://github.com/exercism/docs/blob/master/l
 ├── README.md
 ├── bin
 │   └── fetch‐configlet
+├── concepts
+│   ├── basics
+│   │   ├── about.md
+│   │   ├── introduction.md
+│   │   └── links.json
+│   └── ...
 ├── config.json
 ├── docs
 │   ├── ABOUT.md
@@ -94,6 +100,26 @@ The [track anatomy documentation](https://github.com/exercism/docs/blob/master/l
 │   ├── RESOURCES.md
 │   └── TESTS.md
 └── exercises
+    ├── concept
+    │   ├── AnnalynsInfiltration
+    │   │   ├── package.yaml
+    │   │   ├── stack.yaml
+    │   │   ├── src
+    │   │   │   └── AnnalynsInfiltration.hs
+    │   │   ├── test
+    │   │   │   └── Tests.hs
+    │   │   ├── .docs
+    │   │   │   ├── instructions.md
+    │   │   │   ├── introduction.md
+    │   │   │   └── hints.md
+    │   │   └── .meta
+    │   │       ├── config.json
+    │   │       ├── design.md
+    │   │       └── exemplar
+    │   │           ├── package.yaml
+    │   │           └── src
+    │   │               └── AnnalynsInfiltration.hs
+    │   └── ...
     └── practice
         ├── accumulate
         │   ├── package.yaml
