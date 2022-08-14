@@ -9,6 +9,8 @@ Exercism exercises in Haskell
   * [Report or fix a bug](#report-or-fix-a-bug)
   * [Review issues and pull requests](#review-issues-and-pull)
   * [Port or create an exercise](#port-or-create-an-exercise)
+  * [Port or create a concept](#port-or-create-a-concept)
+  * [Port or create a concept exercise](#port-or-create-a-concept-exercise)
   * [Update an exercise test suite](#update-an-exercise-test-suite)
 - [Repository structure and conventions](#repository-structure-and-conventions)
   * [Directory structure](#directory-structure)
@@ -47,9 +49,19 @@ Please be detailed and include reasons, links or arguments to support your opini
 
 Exercism contains two types of exercises: concept exercises, and practice exercises.
 
-Haskell does not currently have any concept exercises. You can read about [concept exercises](reference/implementing-a-concept-exercise.md) and take part in creating Haskell's first ones.
+Haskell has some concept exercises.
+You can read about [concept exercises](reference/implementing-a-concept-exercise.md) and take part in creating Haskell's learning track.
 
 You can get a full list of [common Exercism practice exercises](https://github.com/exercism/problem-specifications/tree/main/exercises) and cross-reference it with [Haskell practice exercises](https://github.com/exercism/haskell/tree/main/exercises/practice) and implement any of the missing ones for the Haskell track.
+
+### Port or create a concept
+Concepts are short tutorials explaining a single feature of the language.
+The Haskell track has a few concepts currently developed and a list of additional concepts yet to be created.
+You can contribute by porting (from the F# or Elm tracks for example) or developing any of the topics listed in [reference/concepts.md](reference/concepts.md)
+
+### Port or create a concept exercise
+Each concept is accompanied by a concept exercise to test the student understood the basic use of the concept and unlock the next concept(s).
+To develop concept exercises see [reference/implementing-a-concept-exercise.md](reference/implementing-a-concept-exercise.md)
 
 ### Update an exercise test suite
 Most unit tests are shared between language tracks. You may update a test suite with new unit tests.
