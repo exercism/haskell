@@ -7,7 +7,7 @@ This document describes the steps to implement a concept exercise for the Haskel
 
 As this document is generic, the following placeholders are used:
 
-- `<SLUG>`: the slug of the exercise in kebab-case (e.g. `calculator-conundrum`).
+- `<EXERCISE-SLUG>`: the slug of the exercise in kebab-case (e.g. `calculator-conundrum`).
 - `<NAME>`: the name of the exercise in PascalCase (e.g. `CalculatorConundrum`).
 - `<CONCEPT-SLUG>`: the slug of one of the exercise's concepts in kebab-case (e.g. `monad-transformers`).
 
@@ -26,7 +26,7 @@ languages
     |       └── links.json
     └── exercises
         └── concept
-            └── <SLUG>
+            └── <EXERCISE-SLUG>
                 ├── package.yaml
                 ├── stack.yaml
                 ├── src
