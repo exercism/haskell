@@ -79,38 +79,38 @@ The [track anatomy documentation](https://github.com/exercism/docs/blob/master/l
 ```bash
 ├── .gitignore
 ├── .github
-│ └── workflows
-│     └── tests.yml
+│   └── workflows
+│       └── tests.yml
 ├── LICENSE
 ├── README.md
 ├── bin
-│ └── fetch‐configlet
+│   └── fetch‐configlet
 ├── config.json
 ├── docs
-│ ├── ABOUT.md
-  ├── EXERCISE_README_INSERT.md
-│ ├── INSTALLATION.md
-│ ├── LEARNING.md
-│ ├── RESOURCES.md
-│ └── TESTS.md
+│   ├── ABOUT.md
+│   ├── EXERCISE_README_INSERT.md
+│   ├── INSTALLATION.md
+│   ├── LEARNING.md
+│   ├── RESOURCES.md
+│   └── TESTS.md
 └── exercises
-  └── accumulate
-  │ ├── package.yaml
-  │ ├── stack.yaml
-  │ ├── src
-  │ │ └── Accumuĺate.hs
-  │ ├── test
-  │ │ └── Tests.hs
-  │ └── .meta
-  │   ├── examples
-  │   │ └── success-standard
-  │   │   ├── package.yaml
-  │   │   └── src
-  │   │     └── Accumulate.hs
-  │   └── hints.md
-  └── allergies
-  │ ├── ...
-  └── ...
+    ├── accumulate
+    │   ├── package.yaml
+    │   ├── stack.yaml
+    │   ├── src
+    │   │   └── Accumuĺate.hs
+    │   ├── test
+    │   │   └── Tests.hs
+    │   └── .meta
+    │       ├── examples
+    │       │   └── success-standard
+    │       │       ├── package.yaml
+    │       │       └── src
+    │       │           └── Accumulate.hs
+    │       └── hints.md
+    ├── allergies
+    │   └── ...
+    └── ...
 ```
 - `config.json`: Every exercise has to be registered here. It has a unique name and a difficulty. The sequence order is also the default order in which the exercises are fetched.
 
