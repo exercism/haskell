@@ -9,7 +9,7 @@ As this document is generic, the following placeholders are used:
 
 - `<SLUG>`: the slug of the exercise in kebab-case (e.g. `calculator-conundrum`).
 - `<NAME>`: the name of the exercise in PascalCase (e.g. `CalculatorConundrum`).
-- `<CONCEPT_SLUG>`: the slug of one of the exercise's concepts in kebab-case (e.g. `monad-transformers`).
+- `<CONCEPT-SLUG>`: the slug of one of the exercise's concepts in kebab-case (e.g. `monad-transformers`).
 
 Haskell covers a vast amount of concepts. Choosing a particular subset of concepts and an ideal ordering of these concepts is a contentious task.
 
@@ -21,7 +21,7 @@ The directory structure of a single concept exercise looks like this:
 languages
 └── haskell
     ├── concepts
-    |   └── <CONCEPT_SLUG>
+    |   └── <CONCEPT-SLUG>
     |       ├── about.md
     |       └── links.json
     └── exercises
