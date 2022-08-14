@@ -98,7 +98,7 @@ The [track anatomy documentation](https://github.com/exercism/docs/blob/master/l
     │   ├── package.yaml
     │   ├── stack.yaml
     │   ├── src
-    │   │   └── Accumuĺate.hs
+    │   │   └── Accumulate.hs
     │   ├── test
     │   │   └── Tests.hs
     │   └── .meta
