@@ -3,7 +3,7 @@
   "slug": "haskell",
   "active": true,
   "status": {
-    "concept_exercises": false,
+    "concept_exercises": true,
     "test_runner": true,
     "representer": false,
     "analyzer": false
@@ -55,6 +55,18 @@
         "status": "beta",
         "concepts": [
           "numbers"
+        ]
+      },
+      {
+        "slug": "annalins-infiltration",
+        "name": "Annalyn's Infiltration",
+        "uuid": "9050f8c3-9976-4c4d-93e7-c9c549b1c524",
+        "prerequisites": [
+          "basics"
+        ],
+        "status": "beta",
+        "concepts": [
+          "booleans"
         ]
       }
     ],
