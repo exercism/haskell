@@ -1,0 +1,20 @@
+{
+  "authors": [
+    "pwadsworth"
+  ],
+  "files": {
+    "solution": [
+      "src/AnnalynsInfiltration.hs"
+    ],
+    "test": [
+      "test/Tests.hs"
+    ],
+    "exemplar": [
+      ".meta/src/Exemplar.hs"
+    ]
+  },
+  "forked_from": [
+    "fsharp/annalyns-infiltration"
+  ],
+  "blurb": "Learn about booleans while helping Annalyn rescue her friend."
+}
