@@ -10,7 +10,7 @@
       "test/Tests.hs"
     ],
     "exemplar": [
-      ".meta/src/Exemplar.hs"
+      ".meta/exemplar/src/AnnalynsInfiltration.hs"
     ]
   },
   "forked_from": [
