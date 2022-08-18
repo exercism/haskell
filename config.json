@@ -58,8 +58,8 @@
         ]
       },
       {
-        "slug": "annalyns-infiltration",
-        "name": "Annalyn's Infiltration",
+        "slug": "pacman-rules",
+        "name": "Pacman Rules",
         "uuid": "9050f8c3-9976-4c4d-93e7-c9c549b1c524",
         "prerequisites": [
           "basics"
@@ -1242,11 +1242,6 @@
       "uuid": "6d0806a3-e881-48fc-960a-d7663de0667a",
       "slug": "numbers",
       "name": "Numbers"
-    },
-    {
-      "uuid": "8afaf3b9-5910-4d6f-a35d-aaf9439381f6",
-      "slug": "booleans",
-      "name": "Booleans"
     }
   ],
   "key_features": [
