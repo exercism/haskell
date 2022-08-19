@@ -1,20 +1,18 @@
 {
-  "authors": [
-    "pwadsworth"
-  ],
+  "authors": [ ],
   "files": {
     "solution": [
-      "src/AnnalynsInfiltration.hs"
+      "src/PacmanRules.hs"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "exemplar": [
-      ".meta/exemplar/src/AnnalynsInfiltration.hs"
+      ".meta/exemplar/src/PacmanRules.hs"
     ]
   },
   "forked_from": [
-    "fsharp/annalyns-infiltration"
+    "elixir/pacman-rules"
   ],
-  "blurb": "Learn about booleans while helping Annalyn rescue her friend."
+  "blurb": "Learn about Haskell while translating rules from the classic game Pac-Man."
 }
