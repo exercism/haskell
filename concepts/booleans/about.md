@@ -7,7 +7,7 @@ True || False           -- True
 True && False           -- False
 ```
 
-The three boolean operators each have a different operator precedence. They are evaluated in this order: `not` first, `&&` second, and finally `||`. If you want to on override these rules, you can enclose a boolean expression in parentheses (`()`), as the parentheses have an even higher operator precedence.
+The three boolean operators each have a different operator precedence. They are evaluated in this order: `not` first, `&&` second, and finally `||`. If you want to override these rules, you can enclose a boolean expression in parentheses (`()`), as the parentheses have an even higher operator precedence.
 
 ```haskell
 not True && False       -- False
