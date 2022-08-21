@@ -8,3 +8,5 @@
 ## 1. Check if a fast attack can be made
 
 - The boolean operators can be applied to boolean parameters.
+
+- Unlike many other languages, boolean negation is _not_ done with the `!` operator.
