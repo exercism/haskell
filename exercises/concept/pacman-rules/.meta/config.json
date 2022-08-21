@@ -1,0 +1,21 @@
+{
+    "authors": [
+        "pwadsworth",
+        "MatthijsBlom"
+    ],
+    "files": {
+        "solution": [
+            "src/PacmanRules.hs"
+        ],
+        "test": [
+            "test/Tests.hs"
+        ],
+        "exemplar": [
+            ".meta/exemplar/src/PacmanRules.hs"
+        ]
+    },
+    "forked_from": [
+        "elixir/pacman-rules"
+    ],
+    "blurb": "Learn about Haskell while translating rules from the classic game Pac-Man."
+}
