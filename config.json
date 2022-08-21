@@ -56,6 +56,18 @@
         "concepts": [
           "numbers"
         ]
+      },
+      {
+        "slug": "pacman-rules",
+        "name": "Pacman Rules",
+        "uuid": "9050f8c3-9976-4c4d-93e7-c9c549b1c524",
+        "prerequisites": [
+          "basics"
+        ],
+        "status": "wip",
+        "concepts": [
+          "booleans"
+        ]
       }
     ],
     "practice": [
