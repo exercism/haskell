@@ -5,7 +5,22 @@
 - There are three boolean operators to work with boolean values: `not`, `&&`, and `||`.
 - Multiple operators can be combined in a single expression.
 
-## 1. Check the rules are combined in the right order
+## 1. Define if pac-man can eat a ghost
 
-- The boolean operators can be applied to boolean parameters.
-- Unlike many other languages, boolean negation is _not_ done with the `!` operator.
+- The function must return a `Boolean` value.
+- You can use the boolean operator `&&` to combine the arguments for a result.
+
+## 2. Define if pac-man scores
+
+- The function must return a `Boolean` value.
+- You can use the boolean operator `||` to combine the arguments for a result.
+
+## 3. Define if pac-man loses
+
+- The function must return a `Boolean` value.
+- You can use the boolean operators `&&` and `not` to combine the arguments for a result.
+
+## 4. Define if pac-man wins
+
+- The function must return a `Boolean` value.
+- You can use the boolean operators `&&` and `not` to combine the arguments and results of one of the previously implemented functions.
