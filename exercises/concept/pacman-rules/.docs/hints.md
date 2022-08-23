@@ -23,4 +23,4 @@
 ## 4. Define if pac-man wins
 
 - The function must return a `Boolean` value.
-- You can use the boolean operators `&&` and `not` to combine the arguments and results of one of the previously implemented functions.
+- You can use the boolean operators `&&` and `not` to combine the arguments and the result of one of the previously implemented functions.
