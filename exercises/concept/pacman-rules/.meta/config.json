@@ -1,21 +1,21 @@
 {
     "authors": [
-        "pwadsworth",
-        "MatthijsBlom"
+        "pwadsworth"
     ],
     "files": {
-        "solution": [
-            "src/PacmanRules.hs"
-        ],
-        "test": [
-            "test/Tests.hs"
-        ],
-        "exemplar": [
-            ".meta/exemplar/src/PacmanRules.hs"
-        ]
-    },
-    "forked_from": [
-        "elixir/pacman-rules"
+    "solution": [
+      "src/PacmanRules.hs",
+      "package.yaml"
     ],
-    "blurb": "Learn about Haskell while translating rules from the classic game Pac-Man."
+    "test": [
+      "test/Tests.hs"
+    ],
+    "exemplar": [
+      ".meta/exemplar/src/PacmanRules.hs"
+    ]
+  },
+  "forked_from": [
+    "elixir/pacman-rules"
+  ],
+  "blurb": "Learn about booleans by implementing the rules of the Pac-Man game."
 }
