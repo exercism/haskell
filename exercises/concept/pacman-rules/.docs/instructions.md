@@ -8,7 +8,7 @@ You have four rules to translate, all related to the game states.
 
 ## 1. Define if Pac-Man eats a ghost
 
-Define the `eatsGhost` function that takes two arguments (_if Pac-Man has a power pellet active_ and _if Pac-Man is touching a ghost_) and returns a `Boolean` value if Pac-Man is able to eat the ghost. The function should return `True` only if Pac-Man has a power pellet active and is touching a ghost.
+Define the `eatsGhost` function that takes two arguments (_whether Pac-Man has a power pellet active_ and _Pac-Man is touching a ghost_) and returns a `Boolean` value when Pac-Man is able to eat the ghost. The function should return `True` only when Pac-Man has a power pellet active and is touching a ghost.
 
 ```Haskell
 eatsGhost False True   
