@@ -1,0 +1,21 @@
+{
+  "authors": [
+    "pwadsworth"
+  ],
+  "files": {
+    "solution": [
+      "src/PacmanRules.hs",
+      "package.yaml"
+    ],
+    "test": [
+      "test/Tests.hs"
+    ],
+    "exemplar": [
+      ".meta/exemplar/src/PacmanRules.hs"
+    ]
+  },
+  "forked_from": [
+    "elixir/pacman-rules"
+  ],
+  "blurb": "Learn about booleans by implementing the rules of the Pac-Man game."
+}
