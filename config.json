@@ -1235,6 +1235,11 @@
       "uuid": "8afaf3b9-5910-4d6f-a35d-aaf9439381f6",
       "slug": "booleans",
       "name": "Booleans"
+    },
+    {
+      "uuid": "ca21a553-6fc1-49be-8f47-730f97330862",
+      "slug": "pattern-matching",
+      "name": "Pattern Matching"
     }
   ],
   "key_features": [
