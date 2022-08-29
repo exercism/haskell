@@ -60,6 +60,7 @@ then GHC is installed correctly.
 ## Set up your editor to work with Haskell
 
 Haskell support is provided by the Haskell Language Server (HLS).
+Language support is not required, but strongly recommended.
 
 
 ### Visual Studio Code
