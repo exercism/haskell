@@ -65,7 +65,7 @@ Language support is not required, but strongly recommended.
 
 ### Visual Studio Code
 
-Just get [this extension][vscode-haskell].
+Just get the [Haskell extension for Visual Studio Code][vscode-haskell].
 It will use GHCup to install HLS automatically, after which you'll be all set.
 
 **Note:** with freshly downloaded exercises, HLS may have trouble starting up.
