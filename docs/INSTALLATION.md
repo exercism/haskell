@@ -75,6 +75,8 @@ If this happens, just run `stack test` and restart the language server.
 ### Other editors
 
 See the [HLS documentation on editor configuration][hls-editor-config].
+You might need to install HSL manually.
+To do so, simply run `ghcup install hls`.
 
 
 [ghcup]:
