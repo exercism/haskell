@@ -12,16 +12,17 @@ With GHCup you can manage your installed compilers, project/package managers, an
 
 For doing Exercism exercises you only need Stack.
 
-To install Stack, simply run the GHCup installation command or script and follow the defaults but specify that you would like to have Stack installed as well.
+To install Stack, run the GHCup installation command or script.
+Follow the defaults but specify that you would like to have Stack installed as well.
 
-Did you miss the opportunity?
+Did you by accident skip installation of Stack?
 No worries: just run `ghcup install stack` afterwards.
 
 GHCup will install
 
 - **A compiler** (GHC: the Glasgow Haskell Compiler)
 
-  Strictly speaking you do not need this for Exercism, but it comes in handy when you want to play with GHCi outside of exercise directories.
+  Strictly speaking you do not need this for Exercism, but it comes in handy when you want to play with [GHCi][ghc-guide-ghci] outside of exercise directories.
 
 - **Cabal**
 
@@ -30,7 +31,7 @@ GHCup will install
 
 - **Stack**
 
-  A project/package manager that you do need for Exercism.
+  The project/package manager that you will use for Exercism.
   It will make sure you have the right compiler and libraries for each individual project (exercise).
 
 To check that installation was successful, run the command `ghcup list` and/or `stack --version`.
@@ -39,12 +40,11 @@ To check that installation was successful, run the command `ghcup list` and/or `
 ## Get the right GHC version
 
 Stack will automatically download and install GHC when it is required.
-You can start the installation and test by running the following command in a terminal:
+You can start the installation and verify by running the following commands in a terminal:
 
 ```bash
 # move into exercise directory
 cd /exercism/haskell/hello-world
-# start interactive environment
 stack ghc -- --version
 ```
 
@@ -79,6 +79,9 @@ You might need to install HLS manually.
 To do so, simply run `ghcup install hls`.
 
 
+[ghc-guide-ghci]:
+    https://downloads.haskell.org/ghc/latest/docs/users_guide/ghci.html
+    "GHC User’s Guide: Using GHCi"
 [ghcup]:
     https://www.haskell.org/ghcup/
     "Get GHCup"
