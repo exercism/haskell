@@ -34,7 +34,10 @@ GHCup will install
   The project/package manager that you will use for Exercism.
   It will make sure you have the right compiler and libraries for each individual project (exercise).
 
-To check that installation was successful, run the command `ghcup list` and/or `stack --version`.
+To check that installation was successful, run either of the commands
+
+- `ghcup list`: success looks like a long list of tool versions, with Stack marked as installed
+- `stack --version`: success looks like `Version 2.7.5, Git revision ...`
 
 
 ## Get the right GHC version
