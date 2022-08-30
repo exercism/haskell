@@ -46,8 +46,11 @@ Stack will automatically download and install GHC when it is required.
 You can start the installation and verify by running the following commands in a terminal:
 
 ```bash
-# move into exercise directory
-cd /exercism/haskell/hello-world
+# Note: it only makes sense to run Stack
+# inside projects, so navigate into an
+# exercise directory first!
+exercism download --exercise=hello-world --track=haskell
+cd ~/Exercism/haskell/hello-world
 stack ghc -- --version
 ```
 
