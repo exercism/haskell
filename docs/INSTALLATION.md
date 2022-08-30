@@ -63,7 +63,7 @@ Haskell support is provided by the Haskell Language Server (HLS).
 Language support is not required, but strongly recommended.
 
 
-### Visual Studio Code
+### Visual Studio Code (recommended)
 
 Just get the [Haskell extension for Visual Studio Code][vscode-haskell].
 It will use GHCup to install HLS automatically, after which you'll be all set.
