@@ -75,7 +75,7 @@ Just get the [Haskell extension for Visual Studio Code][vscode-haskell].
 It will use GHCup to install HLS automatically, after which you'll be all set.
 
 **Note:** with freshly downloaded exercises, HLS may have trouble starting up.
-If this happens, just run `stack test` and restart the language server.
+If this happens, run `stack test` and restart the language server.
 
 
 ### Other editors
