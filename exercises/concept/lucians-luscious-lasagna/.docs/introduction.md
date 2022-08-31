@@ -65,7 +65,11 @@ So we'll start with this.
 module Calculator ( add ) where
 ```
 
+<<<<<<< HEAD
 https://learnyouahaskell.github.io/modules#making-our-own-modules
+=======
+http://learnyouahaskell.github.io/modules#making-our-own-modules
+>>>>>>> 4cdd37d4 (Link to updated fork of Learn You A Haskell (#1104))
 
 ## Comments
 
@@ -85,5 +89,10 @@ Multiline comments are also possible with the `{-` and `-}` pair of opening and 
 
 ### Credits
 
+<<<<<<< HEAD
 This exercise introduction borrows liberally from [Learn You a Haskell for Great Good!](https://learnyouahaskell.github.io/chapters),
 under [Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License](https://creativecommons.org/licenses/by-nc-sa/3.0/)
+=======
+This exercise introduction borrows liberally from [Learn You a Haskell for Great Good!](http://learnyouahaskell.github.io/chapters),
+under [Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License](http://creativecommons.org/licenses/by-nc-sa/3.0/)
+>>>>>>> 4cdd37d4 (Link to updated fork of Learn You A Haskell (#1104))

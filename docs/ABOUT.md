@@ -13,5 +13,9 @@ The compiler can also tell you if a value has conflicting types in different par
 There are more than 10,000 free third-party packages available at [Hackage](https://hackage.haskell.org/), the Haskell community's central package archive,
 and you can download them using the [Stack](https://haskellstack.org/) tool that Exercism also uses.
 
+<<<<<<< HEAD
 You can also read the free book [Learn You a Haskell for Great Good](https://learnyouahaskell.github.io/)
+=======
+You can also read the free book [Learn You a Haskell for Great Good](http://learnyouahaskell.github.io/)
+>>>>>>> 4cdd37d4 (Link to updated fork of Learn You A Haskell (#1104))
 or follow the interactive tutorial at [tryhaskell.org](https://www.tryhaskell.org/).

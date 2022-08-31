@@ -8,7 +8,11 @@ Fortunately there are numerous resources which presume some programming knowledg
 as
 
   - An opinionated beginner's guide to Haskell ([2019](https://github.com/theindigamer/not-a-blog/blob/master/opinionated-haskell-guide-2019.md), [2018](https://lexi-lambda.github.io/blog/2018/02/10/an-opinionated-guide-to-haskell-in-2018/))
+<<<<<<< HEAD
   - the popular and free online book [Learn You a Haskell For Great Good!](https://learnyouahaskell.github.io/)
+=======
+  - the popular and free online book [Learn You a Haskell For Great Good!](http://learnyouahaskell.github.io/)
+>>>>>>> 4cdd37d4 (Link to updated fork of Learn You A Haskell (#1104))
   - University of Glasgow's [Functional Programming in Haskell](https://www.futurelearn.com/courses/functional-programming-haskell) course
   - FP Complete's [School of Haskell](https://www.schoolofhaskell.com/)
   - the [Happy Learn Haskell Tutorial](http://www.happylearnhaskelltutorial.com/)
