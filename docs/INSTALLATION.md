@@ -82,7 +82,7 @@ If this happens, just run `stack test` and restart the language server.
 
 See the [HLS documentation on editor configuration][hls-editor-config].
 You might need to install HLS manually.
-To do so, simply run `ghcup install hls`.
+To do so, run `ghcup install hls`.
 
 
 [ghc-guide-ghci]:
