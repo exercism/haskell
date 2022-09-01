@@ -4,11 +4,7 @@
     "description": "Haskell indentation"
   },
   {
-<<<<<<< HEAD
     "url": "https://learnyouahaskell.github.io/chapters",
-=======
-    "url": "http://learnyouahaskell.github.io/chapters",
->>>>>>> 4cdd37d4 (Link to updated fork of Learn You A Haskell (#1104))
     "description": "Haskell tutorial"
   },
   {
@@ -20,7 +16,7 @@
     "description": "Haskell formatter"
   },
   {
-    "url": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+    "url": "httpss://creativecommons.org/licenses/by-nc-sa/3.0/",
     "description": "License"
   }
 ]

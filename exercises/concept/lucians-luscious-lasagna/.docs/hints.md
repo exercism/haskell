@@ -4,9 +4,5 @@
 
 # Modules and Indentation
 
-<<<<<<< HEAD
 - [Declaring modules](https://learnyouahaskell.github.io/modules#making-our-own-modules)
-=======
-- [Declaring modules](http://learnyouahaskell.github.io/modules#making-our-own-modules)
->>>>>>> 4cdd37d4 (Link to updated fork of Learn You A Haskell (#1104))
 - [Indentation rules](https://en.wikibooks.org/wiki/Haskell/Indentation)
