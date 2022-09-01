@@ -1,7 +1,7 @@
 # Hints
 
 In this exercise, we provided the definition of the
-[algebraic data type](http://learnyouahaskell.github.io/making-our-own-types-and-typeclasses)
+[algebraic data type](https://learnyouahaskell.github.io/making-our-own-types-and-typeclasses)
 named `Planet`.
 You need to implement the `ageOn` function, that calculates how many
 years old someone would be on a `Planet`, given an age in seconds.

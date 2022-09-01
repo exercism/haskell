@@ -4,5 +4,5 @@
 
 # Modules and Indentation
 
-- [Declaring modules](http://learnyouahaskell.github.io/modules#making-our-own-modules)
+- [Declaring modules](https://learnyouahaskell.github.io/modules#making-our-own-modules)
 - [Indentation rules](https://en.wikibooks.org/wiki/Haskell/Indentation)
