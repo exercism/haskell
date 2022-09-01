@@ -174,7 +174,7 @@ When changing a test suite, the version number should be updated appropriately s
 This versioning policy was proposed and accepted in https://github.com/exercism/haskell/issues/522.
 
 ## Development Dependencies
-You should have [Stack](http://docs.haskellstack.org/) installed in your system to make contributing to this repository easier.
+You should have [Stack](https://docs.haskellstack.org/) installed in your system to make contributing to this repository easier.
 
 ## Stub solution
 The stub solution should be as general as possible in order to not exclude any possible solutions. It should take Haskell specifics into account (for example use `Maybe` instead of a dummy return value). It should not contain any comments (people might forget to remove them), you can use the hints file instead.
