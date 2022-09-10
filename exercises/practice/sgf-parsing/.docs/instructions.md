@@ -63,4 +63,4 @@ between properties, nodes, etc will be in the tests.
 The exercise will have you parse an SGF string and return a tree
 structure of properties. You do not need to encode knowledge about the
 data types of properties, just use the rules for the
-[text](http://www.red-bean.com/sgf/sgf4.html#text) type everywhere.
+[text](https://www.red-bean.com/sgf/sgf4.html#text) type everywhere.

@@ -4,7 +4,7 @@
     "description": "Haskell indentation"
   },
   {
-    "url": "http://learnyouahaskell.com/chapters",
+    "url": "https://learnyouahaskell.github.io/chapters",
     "description": "Haskell tutorial"
   },
   {
@@ -16,7 +16,7 @@
     "description": "Haskell formatter"
   },
   {
-    "url": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
+    "url": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
     "description": "License"
   }
 ]

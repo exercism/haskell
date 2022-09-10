@@ -65,7 +65,7 @@ So we'll start with this.
 module Calculator ( add ) where
 ```
 
-http://learnyouahaskell.com/modules#making-our-own-modules
+https://learnyouahaskell.github.io/modules#making-our-own-modules
 
 ## Comments
 
@@ -89,5 +89,5 @@ There is a [style guide](https://kowainik.github.io/posts/2019-02-06-style-guide
 
 ### Credits
 
-This concept guide borrows liberally from [Learn You a Haskell for Great Good!](http://learnyouahaskell.com/chapters),
-under [Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License](http://creativecommons.org/licenses/by-nc-sa/3.0/)
+This concept guide borrows liberally from [Learn You a Haskell for Great Good!](https://learnyouahaskell.github.io/chapters),
+under [Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License](https://creativecommons.org/licenses/by-nc-sa/3.0/)

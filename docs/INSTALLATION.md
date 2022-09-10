@@ -1,65 +1,99 @@
 # Installation
 
-## Installing Stack
 
-If you don't have a recent Stack version installed in your system, follow the
-[installation instructions](http://docs.haskellstack.org/en/stable/install_and_upgrade/)
-for your operating system. After completing the installation, test that you
-have installed it correctly by running this command in a terminal:
+## Get GHCup
+
+The recommended way of installing Haskell tools is through [GHCup][ghcup].
+
+With GHCup you can manage your installed compilers, project/package managers, and language server.
+
+
+## Install Stack
+
+For doing Exercism exercises you only need Stack.
+
+To install Stack, run the GHCup installation command or script.
+Follow the defaults but specify that you would like to have Stack installed as well.
+
+Did you by accident skip installation of Stack?
+No worries: just run `ghcup install stack` afterwards.
+
+GHCup will install
+
+- **A compiler** (GHC: the Glasgow Haskell Compiler)
+
+  Strictly speaking you do not need this for Exercism, but it comes in handy when you want to play with [GHCi][ghc-guide-ghci] outside of exercise directories.
+
+- **Cabal**
+
+  A project/package manager.
+  You do not need this for Exercism.
+
+- **Stack**
+
+  The project/package manager that you will use for Exercism.
+  It will make sure you have the right compiler and libraries for each individual project (exercise).
+
+To check that installation was successful, run either of the commands
+
+- `ghcup list`: success looks like a long list of tool versions, with Stack marked as installed
+- `stack --version`: success looks like `Version 2.7.5, Git revision ...`
+
+
+## Get the right GHC version
+
+Stack will automatically download and install GHC when it is required.
+You can start the installation and verify by running the following commands in a terminal:
 
 ```bash
-stack --version
+# Note: it only makes sense to run Stack
+# inside projects, so navigate into an
+# exercise directory first!
+exercism download --exercise=hello-world --track=haskell
+cd ~/Exercism/haskell/hello-world
+stack ghc -- --version
 ```
 
-If it outputs a Stack version equal to or greater than 1.1.2, then you have it
-installed correctly.
+If this outputs something like
 
-## Installing GHC
-
-Stack will automatically download and install GHC (the Glasgow Haskell
-compiler) when it is required. You can start the installation and test
-by running the following command in a terminal:
-
-```bash
-stack ghc
+```
+The Glorious Glasgow Haskell Compilation System, version 8.8.4
 ```
 
-If this outputs something like `ghc: no input files`, GHC is installed
-correctly.
+then GHC is installed correctly.
 
-Note that there are other ways to install GHC on a system (like the
-[Haskell platform](https://www.haskell.org/platform/)), but for
-running the Exercism tests, a regular stack installation is most
-likely to work correctly.
 
-## Installing HLint (optional)
+## Set up your editor to work with Haskell
 
-HLint is a tool for suggesting possible improvements to Haskell code. These
-suggestions include ideas such as using alternative functions, simplifying
-code and spotting redundancies.
+Haskell support is provided by the Haskell Language Server (HLS).
+Language support is not required, but strongly recommended.
 
-You can use Stack to install HLint:
 
-```bash
-stack install hlint
-```
+### Visual Studio Code (recommended)
 
-Check that it was installed correctly with:
+Just get the [Haskell extension for Visual Studio Code][vscode-haskell].
+It will use GHCup to install HLS automatically, after which you'll be all set.
 
-```bash
-hlint --version
-```
+**Note:** with freshly downloaded exercises, HLS may have trouble starting up.
+If this happens, run `stack test` and restart the language server.
 
-If you get the version in your terminal, you're done, otherwise, you
-probably need to add a missing directory to your path:
 
-- `%APPDATA%\local\bin`, if you are running *Windows*
-- `$HOME/.local/bin`, for other operating systems.
+### Other editors
 
-## Haskell IDEs and Plugins
+See the [HLS documentation on editor configuration][hls-editor-config].
+You might need to install HLS manually.
+To do so, run `ghcup install hls`.
 
-Using an <abbr title="Integrated Development Environment">IDE</abbr> can make it easier to factor your Haskell programs. There are several free and commercial IDEs available
-- [`atom-ide-haskell`](https://atom-haskell.github.io/) for Github's Atom editor
-- There are [a number of Haskell packages](https://medium.com/@dogwith1eye/setting-up-haskell-in-vs-code-on-macos-d2cc1ce9f60a) for Microsoft's Visual Studio Code editor.
-- [IntelliJ Haskell Plugin](https://github.com/rikvdkleij/intellij-haskell)
-- [Other Plugins](https://wiki.haskell.org/IDEs) referenced on the Haskell Wiki.
+
+[ghc-guide-ghci]:
+    https://downloads.haskell.org/ghc/latest/docs/users_guide/ghci.html
+    "GHC User’s Guide: Using GHCi"
+[ghcup]:
+    https://www.haskell.org/ghcup/
+    "Get GHCup"
+[hls-editor-config]:
+    https://haskell-language-server.readthedocs.io/en/latest/configuration.html#configuring-your-editor
+    "Editor configuration for Haskell Language Server"
+[vscode-haskell]:
+    https://marketplace.visualstudio.com/items?itemName=haskell.haskell
+    "Haskell extension for VS Code"
