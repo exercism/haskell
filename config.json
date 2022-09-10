@@ -56,6 +56,30 @@
         "concepts": [
           "numbers"
         ]
+      },
+      {
+        "slug": "guessing-game",
+        "name": "Guessing Game",
+        "uuid": "fb9868eb-ce4f-4e6b-aa0d-b47d3451070f",
+        "prerequisites": [
+          "numbers"
+        ],
+        "status": "beta",
+        "concepts": [
+          "pattern-matching-literals"
+        ]
+      },
+      {
+        "slug": "pacman-rules",
+        "name": "Pac-Man Rules",
+        "uuid": "9050f8c3-9976-4c4d-93e7-c9c549b1c524",
+        "prerequisites": [
+          "basics"
+        ],
+        "status": "wip",
+        "concepts": [
+          "booleans"
+        ]
       }
     ],
     "practice": [
@@ -1235,6 +1259,11 @@
       "uuid": "8afaf3b9-5910-4d6f-a35d-aaf9439381f6",
       "slug": "booleans",
       "name": "Booleans"
+    },
+    {
+      "uuid": "ca21a553-6fc1-49be-8f47-730f97330862",
+      "slug": "pattern-matching-literals",
+      "name": "Pattern Matching Literals"
     }
   ],
   "key_features": [
