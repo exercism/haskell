@@ -1250,8 +1250,8 @@
     },
     {
       "uuid": "ca21a553-6fc1-49be-8f47-730f97330862",
-      "slug": "pattern-matching",
-      "name": "Pattern Matching"
+      "slug": "pattern-matching-literals",
+      "name": "Pattern Matching Literals"
     }
   ],
   "key_features": [
