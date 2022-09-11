@@ -1,0 +1,19 @@
+{
+  "blurb": "Learn about pattern matching by implementing a simple secret number guessing game",
+  "icon": "guessing-game",
+  "authors": [
+    "pwadsworth"
+  ],
+  "files": {
+    "solution": [
+      "src/GuessingGame.hs",
+      "package.yaml"
+    ],
+    "test": [
+      "test/Tests.hs"
+    ],
+    "exemplar": [
+      ".meta/exemplar/src/GuessingGame.hs"
+    ]
+  }
+}

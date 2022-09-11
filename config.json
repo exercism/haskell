@@ -68,6 +68,18 @@
         "concepts": [
           "booleans"
         ]
+      },
+      {
+        "slug": "guessing-game",
+        "name": "Guessing Game",
+        "uuid": "fb9868eb-ce4f-4e6b-aa0d-b47d3451070f",
+        "prerequisites": [
+          "numbers"
+        ],
+        "status": "beta",
+        "concepts": [
+          "pattern-matching-literals"
+        ]
       }
     ],
     "practice": [
