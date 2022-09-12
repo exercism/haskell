@@ -1,6 +1,6 @@
 # Introduction
 
-While `if/else` expressions can be used to execute conditional logic, Haskell also has a more powerful way to execute conditional logic: pattern matching.
+While `if/else` expressions can be used to execute conditional logic, Haskell also has a more powerful way to execute conditional logic: [pattern matching][pattern-matching].
 With pattern matching, a value can be tested against one or more _patterns_.
 An example of such a pattern is the _constant pattern_, which matches a value against a constant (e.g. `1` or `"hello"`).
 
@@ -51,3 +51,5 @@ closerToZero n
 
 Pattern matching will test a value against each pattern from top to bottom, until it finds a matching pattern and executes the logic associated with that pattern.
 **The order of patterns matters!**
+
+[pattern-matching]: https://learnyouahaskell.github.io/syntax-in-functions#pattern-matching
