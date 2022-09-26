@@ -14,7 +14,7 @@ Exercism exercises in Haskell
   * [Update an exercise test suite](#update-an-exercise-test-suite)
 - [Repository structure and conventions](#repository-structure-and-conventions)
   * [Directory structure](#directory-structure)
-  * [Exercise structure](#exercise-structure)
+  * [Practice exercise structure](#practice-exercise-structure)
   * [Exercise versioning](#exercise-versioning)
 - [Development Dependencies](#development-dependencies)
 - [Stub solution](#stub-solution)
@@ -128,12 +128,15 @@ The [track anatomy documentation](https://github.com/exercism/docs/blob/master/l
         │   │   └── Accumulate.hs
         │   ├── test
         │   │   └── Tests.hs
+        │   ├── .docs
+        │   │   └── instructions.md
         │   └── .meta
         │       ├── examples
         │       │   └── success-standard
         │       │       ├── package.yaml
         │       │       └── src
         │       │           └── Accumulate.hs
+        │       ├── config.json
         │       └── hints.md
         ├── allergies
         │   └── ...
@@ -141,8 +144,8 @@ The [track anatomy documentation](https://github.com/exercism/docs/blob/master/l
 ```
 - `config.json`: Every exercise has to be registered here. It has a unique name and a difficulty. The sequence order is also the default order in which the exercises are fetched.
 
-## Exercise structure
-Each exercise has the following structure:
+## Practice exercise structure
+Each practice exercise has the following structure:
 - `stack.yaml` has just one line specifying the current
 [Stack snapshot](https://www.stackage.org/snapshots). We use the same
 resolver for all the exercises.
@@ -150,10 +153,15 @@ resolver for all the exercises.
 format that has all dependencies and build instructions for an exercise.
   One of the properties tracked in `package.yaml` is the [version](#exercise-versioning) of the exercise.
 - `src/ModuleName.hs` is a [stub solution](#stub-solution).
+- `.docs/instructions.md` contains the instructions and requirements to complete the exercise.
+  For an exercise from [problem-specifications](https://github.com/exercism/problem-specifications/), this file should exactly match the description.md from problem-specifications.
+  The [Exercism-wide documentation for instructions.md](https://github.com/exercism/docs/blob/main/building/tracks/practice-exercises.md#file-docsinstructionsmd) contains more information.
 - `.meta/examples/success-<name>/package.yaml` contains library dependencies for the [example solution](#example-solution). `<name>` is a unique name for the example - usually "standard" (as in `success-standard`), but it can be some other name in case of multiple example solutions.
 - `.meta/examples/success-<name>/src/ModuleName.hs` is the source code of the sample solution.
 - `test/Tests.hs` is the [test suite](#test-suite).
 - `.meta/hints.md` is an optional file containing instructions and/or hints. It is used together with the respective `description.md` for the exercise from [problem-specifications](https://github.com/exercism/problem-specifications) to build the `README.md` file.
+- `.meta/config.json` is the exercise configuration file.
+  The [Exercism-wide documentation for .meta/config.json](https://github.com/exercism/docs/blob/main/building/tracks/practice-exercises.md#file-metaconfigjson) contains more information.
 
 ## Exercise versioning
 
