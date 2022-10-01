@@ -27,9 +27,9 @@ The Haskell concept exercises are based on concepts. The list below contains the
     - [ ] Tail recursion
   - [ ] Type declarations & annotations
 - [ ] Immutability
-- [ ] Pattern matching
-  - [ ] Wildcards
-  - [ ] Guard clauses
+- [x] Pattern matching
+  - [x] Wildcards
+  - [x] Guard clauses
 - [ ] Type inference
   - [ ] Polymorphism by default
 
@@ -67,18 +67,18 @@ The Haskell concept exercises are based on concepts. The list below contains the
   - [ ] Resource allocation
 - [ ] Scoping
   - [ ] Imports
-  - [ ] Modules
+  - [x] Modules
   - [ ] Namespaces
   - [ ] Shadowing
-  - [ ] Visibility (export or not)
-- [ ] Whitespace significant
+  - [x] Visibility (export or not)
+- [x] Whitespace significant
 - [ ] String formatting
-- [ ] Values
-  - [ ] Definitions
+- [x] Values
+  - [x] Definitions
 
 ### Types
 
-- [ ] Booleans
+- [x] Booleans
 - [ ] Characters
 - [ ] Collections
   - [ ] Arrays
