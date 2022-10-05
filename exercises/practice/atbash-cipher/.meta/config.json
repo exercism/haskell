@@ -26,6 +26,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/Atbash.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Wikipedia",

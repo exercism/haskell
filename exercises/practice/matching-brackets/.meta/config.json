@@ -24,6 +24,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/Brackets.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Ginna Baker"

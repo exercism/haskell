@@ -24,6 +24,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/Say.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "A variation on JavaRanch CattleDrive, exercise 4a",

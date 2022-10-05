@@ -26,6 +26,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/Triangle.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "The Ruby Koans triangle project, parts 1 & 2",

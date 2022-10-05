@@ -12,6 +12,9 @@
     ],
     "exemplar": [
       ".meta/exemplar/src/PacmanRules.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "forked_from": [

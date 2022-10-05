@@ -22,6 +22,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/Dominoes.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   }
 }

@@ -22,6 +22,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/HelloWorld.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "This is an exercise to introduce users to using Exercism",

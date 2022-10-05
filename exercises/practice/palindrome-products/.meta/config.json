@@ -28,6 +28,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/Palindromes.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Problem 4 at Project Euler",

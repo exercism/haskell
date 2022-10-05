@@ -21,6 +21,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/Frequency.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   }
 }

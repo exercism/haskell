@@ -27,6 +27,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/POV.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Adaptation of exercise from 4clojure",

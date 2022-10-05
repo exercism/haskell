@@ -23,6 +23,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/Sublist.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   }
 }

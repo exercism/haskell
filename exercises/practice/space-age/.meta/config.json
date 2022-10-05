@@ -25,6 +25,9 @@
     ],
     "example": [
       ".meta/examples/success-double/src/SpaceAge.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Partially inspired by Chapter 1 in Chris Pine's online Learn to Program tutorial.",

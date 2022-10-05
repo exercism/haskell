@@ -23,6 +23,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/Strain.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Conversation with James Edward Gray II",

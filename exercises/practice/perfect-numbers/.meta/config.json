@@ -21,6 +21,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/PerfectNumbers.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Taken from Chapter 2 of Functional Thinking by Neal Ford.",

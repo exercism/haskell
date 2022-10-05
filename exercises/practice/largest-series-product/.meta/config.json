@@ -24,6 +24,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/Series.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "A variation on Problem 8 at Project Euler",

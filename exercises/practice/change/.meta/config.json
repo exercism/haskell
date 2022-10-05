@@ -23,6 +23,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/Change.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Software Craftsmanship - Coin Change Kata",

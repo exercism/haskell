@@ -24,6 +24,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/Binary.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "All of Computer Science",

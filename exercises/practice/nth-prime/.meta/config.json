@@ -23,6 +23,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/Prime.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "A variation on Problem 7 at Project Euler",

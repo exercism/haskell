@@ -20,6 +20,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/Isogram.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Wikipedia",

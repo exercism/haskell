@@ -24,6 +24,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/PigLatin.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "The Pig Latin exercise at Test First Teaching by Ultrasaurus",

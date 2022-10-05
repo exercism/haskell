@@ -24,6 +24,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/Allergies.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Jumpstart Lab Warm-up",

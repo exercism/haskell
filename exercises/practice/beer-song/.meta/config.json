@@ -23,6 +23,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/Beer.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Learn to Program by Chris Pine",

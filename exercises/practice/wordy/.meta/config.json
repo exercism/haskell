@@ -24,6 +24,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/WordProblem.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Inspired by one of the generated questions in the Extreme Startup game.",

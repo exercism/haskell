@@ -24,6 +24,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/Deque.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Classic computer science topic"

@@ -25,6 +25,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/Grains.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "JavaRanch Cattle Drive, exercise 6",
