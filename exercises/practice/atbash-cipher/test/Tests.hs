@@ -85,5 +85,3 @@ decodeCases =
            , expected    = "anobstacleisoftenasteppingstone"
            }
     ]
-
--- bc279491ae537352e1d3d0c7550b469365520460

@@ -50,5 +50,3 @@ specs = do
       shift deque `shouldReturn` Just 'd'
       pop deque `shouldReturn` Just 'e'
       pop deque `shouldReturn` Just 'c'
-
--- 5170717695db4aad125049f79fc994ce964eeda4

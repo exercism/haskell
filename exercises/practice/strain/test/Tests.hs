@@ -64,5 +64,3 @@ specs = do
         ("yes" : error "discard should be lazier - don't look at list elements you don't need!")
         `shouldBe`
         ["yes"]
-
--- b803e2af95881f2b702a8a1869fa5281b69d3dd7

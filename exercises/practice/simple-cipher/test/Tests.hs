@@ -54,5 +54,3 @@ specs = do
       uncurry caesarDecode p2 `shouldBe` plaintext
       -- There's a small chance this could fail, since it's random.
       (p1 == p2) `shouldBe` False
-
--- 5b4600f9c252fb3473a022e3a900e9b85e6a039a

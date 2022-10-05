@@ -336,5 +336,3 @@ lyrics = "99 bottles of beer on the wall, 99 bottles of beer.\n\
          \\n\
          \No more bottles of beer on the wall, no more bottles of beer.\n\
          \Go to the store and buy some more, 99 bottles of beer on the wall.\n"
-
--- 7dc0acd7169a1db2b60c32d4b0611e14305f935f

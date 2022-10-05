@@ -62,5 +62,3 @@ cases = [ Case { description = "year not divisible by 4 in common year"
                , expected    = False
                }
         ]
-
--- bd7f470e9ffe40993fc49558a02676ac22827441

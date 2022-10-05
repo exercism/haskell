@@ -76,5 +76,3 @@ cases = [ Case { description = "rotate a by 0, same output as input"
                , expected    = "Gur dhvpx oebja sbk whzcf bire gur ynml qbt."
                }
         ]
-
--- ba8ee0c507d7af6fd21397a805e7353f6227a48e

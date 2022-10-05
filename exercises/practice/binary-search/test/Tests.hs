@@ -86,5 +86,3 @@ cases =
          , expected    = Nothing
          }
   ]
-
--- 99ecae4e7c2020763f94165386e7c02c3ad6d603

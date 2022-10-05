@@ -82,5 +82,3 @@ specs = do
     it "different paths to same zipper" $
       (right . fromJust . up . fromJust . left . fromTree) t1
       `shouldBe` (right . fromTree) t1
-
--- 59c9e4719c6f47c505bf531de711bb3e8a429141

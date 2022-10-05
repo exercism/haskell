@@ -117,5 +117,3 @@ cases = [ Case { description = "Methionine RNA sequence"
                , expected    = Just ["Tryptophan","Cysteine","Tyrosine"]
                }
         ]
-
--- baf663fecc756872af85e8ae6ed24f3f7cbb9388
