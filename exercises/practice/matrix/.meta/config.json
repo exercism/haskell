@@ -28,6 +28,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/Matrix.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Warmup to the `saddle-points` warmup.",

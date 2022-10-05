@@ -23,6 +23,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/CustomSet.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   }
 }

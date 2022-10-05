@@ -24,6 +24,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/OCR.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Inspired by the Bank OCR kata",

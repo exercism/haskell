@@ -20,6 +20,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/Transpose.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Reddit r/dailyprogrammer challenge #270 [Easy].",

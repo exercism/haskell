@@ -28,6 +28,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/Luhn.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "The Luhn Algorithm on Wikipedia",

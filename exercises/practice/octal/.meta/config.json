@@ -23,6 +23,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/Octal.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "All of Computer Science",

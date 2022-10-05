@@ -23,6 +23,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/PrimeFactors.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "The Prime Factors Kata by Uncle Bob",

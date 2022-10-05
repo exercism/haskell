@@ -24,6 +24,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/Sgf.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   }
 }

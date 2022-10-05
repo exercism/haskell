@@ -21,6 +21,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/IsbnVerifier.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Converting a string into a number and some basic processing utilizing a relatable real world example.",

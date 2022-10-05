@@ -26,6 +26,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/Gigasecond.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Chapter 9 in Chris Pine's online Learn to Program tutorial.",

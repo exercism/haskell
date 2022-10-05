@@ -28,6 +28,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/Cipher.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Substitution Cipher at Wikipedia",

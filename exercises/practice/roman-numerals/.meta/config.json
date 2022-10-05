@@ -24,6 +24,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/Roman.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "The Roman Numeral Kata",

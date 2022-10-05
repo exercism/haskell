@@ -24,6 +24,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/Hamming.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "The Calculating Point Mutations problem at Rosalind",

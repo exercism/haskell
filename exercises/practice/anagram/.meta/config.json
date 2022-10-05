@@ -24,6 +24,9 @@
     ],
     "example": [
       ".meta/examples/success-settext/src/Anagram.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Inspired by the Extreme Startup game",

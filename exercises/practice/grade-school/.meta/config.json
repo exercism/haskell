@@ -25,6 +25,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/School.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "A pairing session with Phil Battos at gSchool"

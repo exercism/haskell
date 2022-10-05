@@ -17,6 +17,9 @@
     ],
     "exemplar": [
       ".meta/exemplar/src/LuciansLusciousLasagna.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   }
 }

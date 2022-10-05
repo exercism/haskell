@@ -20,6 +20,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/Diamond.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Seb Rose",

@@ -25,6 +25,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/Squares.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Problem 6 at Project Euler",

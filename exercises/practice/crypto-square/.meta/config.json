@@ -28,6 +28,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/CryptoSquare.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "J Dalbey's Programming Practice problems",

@@ -30,6 +30,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/Bob.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Inspired by the 'Deaf Grandma' exercise in Chris Pine's Learn to Program tutorial.",

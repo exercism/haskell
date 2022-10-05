@@ -22,6 +22,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/Hexadecimal.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "All of Computer Science",

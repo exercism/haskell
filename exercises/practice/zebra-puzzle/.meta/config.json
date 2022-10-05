@@ -19,6 +19,9 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/ZebraPuzzle.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Wikipedia",
