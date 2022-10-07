@@ -1,0 +1,10 @@
+[
+  {
+    "url": "https://learnyouahaskell.github.io/making-our-own-types-and-typeclasses.html#algebraic-data-types",
+    "description": "Algebraic Data Types"
+  },
+  {
+    "url": "https://learnyouahaskell.github.io/making-our-own-types-and-typeclasses.html#type-parameters",
+    "description": "Type variables"
+  }
+]

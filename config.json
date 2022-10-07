@@ -83,6 +83,19 @@
         "concepts": [
           "pattern-matching-literals"
         ]
+      },
+      {
+        "slug": "valentines-day",
+        "name": "Valentines Day",
+        "uuid": "537d8df3-0b12-4dbe-aa86-65ae79c4de0e",
+        "prerequisites": [
+          "pattern-matching-literals",
+          "numbers"
+        ],
+        "status": "beta",
+        "concepts": [
+          "algebraic-data-types"
+        ]
       }
     ],
     "practice": [
@@ -1267,6 +1280,11 @@
       "uuid": "ca21a553-6fc1-49be-8f47-730f97330862",
       "slug": "pattern-matching-literals",
       "name": "Pattern Matching Literals"
+    },
+    {
+      "uuid": "cb756cfd-9b5c-408d-bf3f-b2adc8322da3",
+      "slug": "algebraic-data-types",
+      "name": "Algebraic Data Types"
     }
   ],
   "key_features": [

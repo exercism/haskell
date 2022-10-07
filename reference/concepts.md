@@ -87,7 +87,7 @@ The Haskell concept exercises are based on concepts. The list below contains the
   - [ ] Queues
   - [ ] Sets
   - [ ] Stacks
-- [ ] Algebraic data types
+- [x] Algebraic data types
 - [ ] Numbers (`Num` & Co.)
   - [x] Floating point numbers
   - [x] Signed integers (`Int`, `Integer`)

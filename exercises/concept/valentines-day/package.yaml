@@ -1,0 +1,19 @@
+name: valentines-day
+version: 1.0.0.0
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: ValentinesDay
+  source-dirs: src
+  ghc-options: -Wall
+
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - valentines-day
+      - hspec
