@@ -126,5 +126,3 @@ cases = [ Case { description = "count one word"
                                ]
                }
         ]
-
--- 4cc99fc6ce251af1d1109d494a14f28bb761b63b

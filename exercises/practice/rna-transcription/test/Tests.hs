@@ -57,5 +57,3 @@ cases = [ Case { description = "Empty RNA sequence"
                , expected    = Left 'X'
                }
         ]
-
--- b02fedbb302892cb17dfa608df335b530ae2bc92

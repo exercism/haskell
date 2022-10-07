@@ -66,5 +66,3 @@ specs = describe "parseSgf" $ for_ cases test
             , ("(;A[\\t = t and \\n = n])"          , Just  $ Node [("A", ["t = t and n = n"])] []           )
             -- mixing various kinds of whitespace and escaped characters in property value
             , ("(;A[\\]b\nc\\\nd\t\te\\\\ \\\n\\]])", Just  $ Node [("A", ["]b\ncd  e\\ ]"])] []             ) ]
-
--- b74debc3be24b5c81650189935c9bbfa019b367e

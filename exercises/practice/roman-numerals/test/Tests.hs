@@ -102,5 +102,3 @@ cases = [ Case { description = "1 is a single I"
                , expected    = Just "MMM"
                }
         ]
-
--- e7d987c2ad94b311d1e09ff49f0e425561868108

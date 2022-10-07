@@ -38,5 +38,3 @@ specs = describe "convert" $ for_ cases test
             , (  52, "52"             )
             , ( 105, "PlingPlangPlong")
             , (3125, "Plang"          ) ]
-
--- 4d356f447fcddd28b5dbf1df881bed95f26bba85

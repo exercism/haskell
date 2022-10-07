@@ -123,5 +123,3 @@ cases = [ Case { description = "stating something"
                , expected    = "Whatever."
                }
         ]
-
--- a0b1123b94254a9db443a84a612b51cc3f3ed537

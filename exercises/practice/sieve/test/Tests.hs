@@ -65,5 +65,3 @@ cases = [ Case { description = "no primes under two"
                                , 997 ]
                }
         ]
-
--- c140fc0d9616b2c832e00d062bf25898ce3e111f

@@ -65,5 +65,3 @@ specs = do
     hitpointsAddUp Character{..} =
       counterexample msg (hitpoints === 10 + modifier constitution)
       where msg = "The 'hitpoints' are not 10 + constitution modifier"
-
--- 03af5a6297d5ab68e15332da12cc303938866d7f

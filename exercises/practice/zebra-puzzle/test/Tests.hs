@@ -9,6 +9,3 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = it "solve" $ solve `shouldBe` Solution { waterDrinker = Norwegian
                                                , zebraOwner   = Japanese  }
-
-
--- 15994bece3c447e589ae7e66239e9ce55cac0e83

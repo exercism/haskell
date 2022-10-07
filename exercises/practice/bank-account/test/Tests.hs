@@ -68,5 +68,3 @@ specs = do
         closeAccount     account
         getBalance       account    `shouldReturn` Nothing
         incrementBalance account 10 `shouldReturn` Nothing
-
--- f3e0fb4491302cb98fabed213108ca15cc33cd4f

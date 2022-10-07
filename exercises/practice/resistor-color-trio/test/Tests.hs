@@ -103,5 +103,3 @@ cases = [ Case { input         = Resistor (Black, Black, Black)
                }
         -}
         ]
-
--- a9ca831fade0507365a75ea2a3819dca8b38e53b

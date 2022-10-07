@@ -695,5 +695,3 @@ cases = [ Case { description = "monteenth of May 2013"
                , dayofmonth  = 7
                }
         ]
-
--- 237a9d5c94a650665794379d59b94a79e2afa1a7
