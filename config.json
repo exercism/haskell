@@ -173,7 +173,7 @@
       },
       {
         "slug": "rna-transcription",
-        "name": "Rna Transcription",
+        "name": "RNA Transcription",
         "uuid": "85d77b8e-9b87-4d02-9fba-81f843bd66f1",
         "practices": [],
         "prerequisites": [],
@@ -198,7 +198,7 @@
       },
       {
         "slug": "sum-of-multiples",
-        "name": "Sum Of Multiples",
+        "name": "Sum of Multiples",
         "uuid": "e125a32e-60ca-4e59-ae35-01f3b1907ccd",
         "practices": [],
         "prerequisites": [],
@@ -347,7 +347,7 @@
       },
       {
         "slug": "pascals-triangle",
-        "name": "Pascals Triangle",
+        "name": "Pascal's Triangle",
         "uuid": "ff0a20ef-1828-42f1-8c10-4bf53b488993",
         "practices": [],
         "prerequisites": [],
@@ -457,7 +457,7 @@
       },
       {
         "slug": "ocr-numbers",
-        "name": "Ocr Numbers",
+        "name": "OCR Numbers",
         "uuid": "90ac04fb-42d3-4666-b26a-2279057f6ef2",
         "practices": [],
         "prerequisites": [],
@@ -524,7 +524,7 @@
       },
       {
         "slug": "run-length-encoding",
-        "name": "Run Length Encoding",
+        "name": "Run-Length Encoding",
         "uuid": "6eba4eac-8395-4ad6-ac21-3651a11ab4b5",
         "practices": [],
         "prerequisites": [],
@@ -594,7 +594,7 @@
       },
       {
         "slug": "isbn-verifier",
-        "name": "Isbn Verifier",
+        "name": "ISBN Verifier",
         "uuid": "e5a0bed3-90ca-4caa-a73f-2124940f84c9",
         "practices": [],
         "prerequisites": [],
@@ -833,7 +833,7 @@
       },
       {
         "slug": "pov",
-        "name": "Pov",
+        "name": "POV",
         "uuid": "010582a2-4c44-44fb-ac6b-bf1546d303a3",
         "practices": [],
         "prerequisites": [],
@@ -844,7 +844,7 @@
       },
       {
         "slug": "difference-of-squares",
-        "name": "Difference Of Squares",
+        "name": "Difference of Squares",
         "uuid": "c8953b81-97f2-4c26-b2b8-aa7ef95c5ff1",
         "practices": [],
         "prerequisites": [],
@@ -949,7 +949,7 @@
       },
       {
         "slug": "sgf-parsing",
-        "name": "Sgf Parsing",
+        "name": "SGF Parsing",
         "uuid": "033adeae-d94a-4832-ae99-8dd98acd6044",
         "practices": [],
         "prerequisites": [],
@@ -983,7 +983,7 @@
       },
       {
         "slug": "etl",
-        "name": "Etl",
+        "name": "ETL",
         "uuid": "8082b1fb-7e3b-4a7f-b857-479bdb0d65e3",
         "practices": [],
         "prerequisites": [],
