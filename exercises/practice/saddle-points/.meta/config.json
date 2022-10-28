@@ -19,13 +19,17 @@
   ],
   "files": {
     "solution": [
-      "src/Matrix.hs"
+      "src/Matrix.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Matrix.hs"
+      ".meta/examples/success-standard/src/Matrix.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "J Dalbey's Programming Practice problems",

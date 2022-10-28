@@ -16,13 +16,17 @@
   ],
   "files": {
     "solution": [
-      "src/Allergies.hs"
+      "src/Allergies.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Allergies.hs"
+      ".meta/examples/success-standard/src/Allergies.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Jumpstart Lab Warm-up",

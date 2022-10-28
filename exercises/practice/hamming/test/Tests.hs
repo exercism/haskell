@@ -72,5 +72,3 @@ cases = [ Case { description = "empty strands"
                , expected    = Nothing
                }
         ]
-
--- d8b2f2dce3d40fb75587ff1eb4bd2846c0076c33

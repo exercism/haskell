@@ -16,13 +16,17 @@
   ],
   "files": {
     "solution": [
-      "src/BankAccount.hs"
+      "src/BankAccount.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/BankAccount.hs"
+      ".meta/examples/success-standard/src/BankAccount.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   }
 }

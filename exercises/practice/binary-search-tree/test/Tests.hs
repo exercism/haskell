@@ -76,5 +76,3 @@ specs = do
 
     it "iterating over complex tree" $
       toList (fromList [int4, 2, 1, 3, 6, 7, 5]) `shouldBe` [1..7]
-
--- a2630b9bd87e31fa939d9df48f67688bb41b0882

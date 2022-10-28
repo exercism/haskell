@@ -1,5 +1,5 @@
 {
-  "blurb": "Score a single throw of dice in the game Yacht",
+  "blurb": "Score a single throw of dice in the game Yacht.",
   "authors": [
     "guygastineau"
   ],
@@ -12,13 +12,17 @@
   ],
   "files": {
     "solution": [
-      "src/Yacht.hs"
+      "src/Yacht.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Yacht.hs"
+      ".meta/examples/success-standard/src/Yacht.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "James Kilfiger, using wikipedia",

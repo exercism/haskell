@@ -78,5 +78,3 @@ cases = [ Case { description = "empty string"
                , expected    = False
                }
         ]
-
--- a9959a2c54044c54f732db59fe91cf7bb44b2086

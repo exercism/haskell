@@ -119,5 +119,3 @@ specs = do
       -- Track-specific test
       it "of large list of small lists" $
         concat (map (:[]) [1 .. big]) `shouldBe` [1 .. big]
-
--- 51d6e908fdf1165cc9a7de7846d704b17dfd5e40

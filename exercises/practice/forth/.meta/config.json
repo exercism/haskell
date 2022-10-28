@@ -1,5 +1,5 @@
 {
-  "blurb": "Implement an evaluator for a very simple subset of Forth",
+  "blurb": "Implement an evaluator for a very simple subset of Forth.",
   "authors": [
     "etrepum"
   ],
@@ -16,13 +16,17 @@
   ],
   "files": {
     "solution": [
-      "src/Forth.hs"
+      "src/Forth.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Forth.hs"
+      ".meta/examples/success-standard/src/Forth.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   }
 }

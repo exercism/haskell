@@ -18,15 +18,19 @@
   ],
   "files": {
     "solution": [
-      "src/Atbash.hs"
+      "src/Atbash.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Atbash.hs"
+      ".meta/examples/success-standard/src/Atbash.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Wikipedia",
-  "source_url": "http://en.wikipedia.org/wiki/Atbash"
+  "source_url": "https://en.wikipedia.org/wiki/Atbash"
 }

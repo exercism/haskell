@@ -1,5 +1,5 @@
 {
-  "blurb": "Determine if a number is an Armstrong number",
+  "blurb": "Determine if a number is an Armstrong number.",
   "authors": [],
   "contributors": [
     "iHiD",
@@ -10,13 +10,17 @@
   ],
   "files": {
     "solution": [
-      "src/ArmstrongNumbers.hs"
+      "src/ArmstrongNumbers.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/ArmstrongNumbers.hs"
+      ".meta/examples/success-standard/src/ArmstrongNumbers.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Wikipedia",

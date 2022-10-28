@@ -17,15 +17,19 @@
   ],
   "files": {
     "solution": [
-      "src/Grains.hs"
+      "src/Grains.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Grains.hs"
+      ".meta/examples/success-standard/src/Grains.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "JavaRanch Cattle Drive, exercise 6",
-  "source_url": "http://www.javaranch.com/grains.jsp"
+  "source_url": "https://www.javaranch.com/grains.jsp"
 }

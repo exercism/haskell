@@ -14,13 +14,17 @@
   ],
   "files": {
     "solution": [
-      "src/Dominoes.hs"
+      "src/Dominoes.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Dominoes.hs"
+      ".meta/examples/success-standard/src/Dominoes.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   }
 }

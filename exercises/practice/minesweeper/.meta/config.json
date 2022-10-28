@@ -1,5 +1,5 @@
 {
-  "blurb": "Add the numbers to a minesweeper board",
+  "blurb": "Add the numbers to a minesweeper board.",
   "authors": [
     "etrepum"
   ],
@@ -16,13 +16,17 @@
   ],
   "files": {
     "solution": [
-      "src/Minesweeper.hs"
+      "src/Minesweeper.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Minesweeper.hs"
+      ".meta/examples/success-standard/src/Minesweeper.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   }
 }

@@ -233,5 +233,3 @@ expCases =
             , expectedB    = (-2, 0)
             }
     ]
-
--- 9093335094d3e2a1e8b94158fa1728a3ccac7004

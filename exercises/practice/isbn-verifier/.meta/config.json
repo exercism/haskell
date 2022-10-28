@@ -13,13 +13,17 @@
   ],
   "files": {
     "solution": [
-      "src/IsbnVerifier.hs"
+      "src/IsbnVerifier.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/IsbnVerifier.hs"
+      ".meta/examples/success-standard/src/IsbnVerifier.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Converting a string into a number and some basic processing utilizing a relatable real world example.",

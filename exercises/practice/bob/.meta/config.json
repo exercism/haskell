@@ -22,15 +22,19 @@
   ],
   "files": {
     "solution": [
-      "src/Bob.hs"
+      "src/Bob.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Bob.hs"
+      ".meta/examples/success-standard/src/Bob.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Inspired by the 'Deaf Grandma' exercise in Chris Pine's Learn to Program tutorial.",
-  "source_url": "http://pine.fm/LearnToProgram/?Chapter=06"
+  "source_url": "https://pine.fm/LearnToProgram/?Chapter=06"
 }

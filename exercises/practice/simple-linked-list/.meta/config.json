@@ -1,5 +1,5 @@
 {
-  "blurb": "Write a simple linked list implementation that uses Elements and a List",
+  "blurb": "Write a simple linked list implementation that uses Elements and a List.",
   "authors": [
     "etrepum"
   ],
@@ -16,13 +16,17 @@
   ],
   "files": {
     "solution": [
-      "src/LinkedList.hs"
+      "src/LinkedList.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/LinkedList.hs"
+      ".meta/examples/success-standard/src/LinkedList.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Inspired by 'Data Structures and Algorithms with Object-Oriented Design Patterns in Ruby', singly linked-lists.",

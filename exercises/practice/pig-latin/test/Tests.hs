@@ -47,5 +47,3 @@ specs = describe "translate" $ do
 
     describe "phrases are translated" $
         it "a whole phrase" $ translate "quick fast run" `shouldBe` "ickquay astfay unray"
-
--- b42d6a5b7ea1b221f613d35656e797bd5bdc2dcb

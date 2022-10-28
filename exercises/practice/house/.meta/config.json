@@ -16,15 +16,19 @@
   ],
   "files": {
     "solution": [
-      "src/House.hs"
+      "src/House.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/House.hs"
+      ".meta/examples/success-standard/src/House.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "British nursery rhyme",
-  "source_url": "http://en.wikipedia.org/wiki/This_Is_The_House_That_Jack_Built"
+  "source_url": "https://en.wikipedia.org/wiki/This_Is_The_House_That_Jack_Built"
 }

@@ -55,5 +55,3 @@ cases = [ Case { description = "Brown and black"
         -- since they are not representable as (Color, Color). They
         -- are addressed in the exercise resistor-color-trio.
         ]
-
--- c193c935fe902d4004778872de9e4e61108c271a

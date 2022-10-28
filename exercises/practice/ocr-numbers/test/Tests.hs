@@ -46,7 +46,7 @@ cases = [ Case { description = "Recognizes 0"
                }
 
         {- In this track, the tests to determine if the input
-           has the correct format where not implemented.
+           has the correct format were not implemented.
 
         , Case { description = "Input with a number of lines that is not a multiple of four raises an error"
                , expected    = -1
@@ -156,5 +156,3 @@ cases = [ Case { description = "Recognizes 0"
                                , "         " ]
                }
         ]
-
--- b8f9788184b77668682bfebb02a89c58cdd5ee80

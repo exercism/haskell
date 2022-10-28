@@ -58,5 +58,3 @@ decodeCases = [ Case { description = "decode with three rails"
                      , expected    = "112358132134558914423337761098715972584418167651094617711286"
                      }
               ]
-
--- edc42842b767d721fc307033b3d5b04c2c6ac8ce

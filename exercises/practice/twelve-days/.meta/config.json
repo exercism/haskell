@@ -1,5 +1,5 @@
 {
-  "blurb": "Output the lyrics to 'The Twelve Days of Christmas'",
+  "blurb": "Output the lyrics to 'The Twelve Days of Christmas'.",
   "authors": [
     "tuxagon"
   ],
@@ -14,15 +14,19 @@
   ],
   "files": {
     "solution": [
-      "src/TwelveDays.hs"
+      "src/TwelveDays.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/TwelveDays.hs"
+      ".meta/examples/success-standard/src/TwelveDays.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Wikipedia",
-  "source_url": "http://en.wikipedia.org/wiki/The_Twelve_Days_of_Christmas_(song)"
+  "source_url": "https://en.wikipedia.org/wiki/The_Twelve_Days_of_Christmas_(song)"
 }

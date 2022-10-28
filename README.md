@@ -9,10 +9,12 @@ Exercism exercises in Haskell
   * [Report or fix a bug](#report-or-fix-a-bug)
   * [Review issues and pull requests](#review-issues-and-pull)
   * [Port or create an exercise](#port-or-create-an-exercise)
+  * [Port or create a concept](#port-or-create-a-concept)
+  * [Port or create a concept exercise](#port-or-create-a-concept-exercise)
   * [Update an exercise test suite](#update-an-exercise-test-suite)
 - [Repository structure and conventions](#repository-structure-and-conventions)
   * [Directory structure](#directory-structure)
-  * [Exercise structure](#exercise-structure)
+  * [Practice exercise structure](#practice-exercise-structure)
   * [Exercise versioning](#exercise-versioning)
 - [Development Dependencies](#development-dependencies)
 - [Stub solution](#stub-solution)
@@ -20,6 +22,7 @@ Exercism exercises in Haskell
 - [Test suite](#test-suite)
 - [Running tests](#running-tests)
 - [Running HLint](#running-hlint)
+- [Automated Test Runner](#automated-test-runner)
 
 ## How to contribute
 
@@ -46,9 +49,19 @@ Please be detailed and include reasons, links or arguments to support your opini
 
 Exercism contains two types of exercises: concept exercises, and practice exercises.
 
-Haskell does not currently have any concept exercises. You can read about [concept exercises](reference/implementing-a-concept-exercise.md) and take part in creating Haskell's first ones.
+Haskell has some concept exercises.
+You can read about [concept exercises](reference/implementing-a-concept-exercise.md) and take part in creating Haskell's learning track.
 
 You can get a full list of [common Exercism practice exercises](https://github.com/exercism/problem-specifications/tree/main/exercises) and cross-reference it with [Haskell practice exercises](https://github.com/exercism/haskell/tree/main/exercises/practice) and implement any of the missing ones for the Haskell track.
+
+### Port or create a concept
+Concepts are short tutorials explaining a single feature of the language.
+The Haskell track has a few concepts currently developed and a list of additional concepts yet to be created.
+You can contribute by porting (from the F# or Elm tracks for example) or developing any of the topics listed in [reference/concepts.md](reference/concepts.md)
+
+### Port or create a concept exercise
+Each concept is accompanied by a concept exercise to test the student understood the basic use of the concept and unlock the next concept(s).
+To develop concept exercises see [reference/implementing-a-concept-exercise.md](reference/implementing-a-concept-exercise.md)
 
 ### Update an exercise test suite
 Most unit tests are shared between language tracks. You may update a test suite with new unit tests.
@@ -66,43 +79,73 @@ The [track anatomy documentation](https://github.com/exercism/docs/blob/master/l
 ```bash
 ├── .gitignore
 ├── .github
-│ └── workflows
-│     └── tests.yml
+│   └── workflows
+│       └── tests.yml
 ├── LICENSE
 ├── README.md
 ├── bin
-│ └── fetch‐configlet
+│   └── fetch‐configlet
+├── concepts
+│   ├── basics
+│   │   ├── about.md
+│   │   ├── introduction.md
+│   │   └── links.json
+│   └── ...
 ├── config.json
 ├── docs
-│ ├── ABOUT.md
-  ├── EXERCISE_README_INSERT.md
-│ ├── INSTALLATION.md
-│ ├── LEARNING.md
-│ ├── RESOURCES.md
-│ └── TESTS.md
+│   ├── ABOUT.md
+│   ├── EXERCISE_README_INSERT.md
+│   ├── INSTALLATION.md
+│   ├── LEARNING.md
+│   ├── RESOURCES.md
+│   └── TESTS.md
 └── exercises
-  └── accumulate
-  │ ├── package.yaml
-  │ ├── stack.yaml
-  │ ├── examples
-  │ │ └── success-standard
-  │ │   ├── package.yaml
-  │ │   └── src
-  │ │     └── Accumuĺate.hs
-  │ ├── src
-  │ │ └── Accumuĺate.hs
-  │ ├── test
-  │ │ └── Tests.hs
-  │ └── .meta
-  │   └── hints.md
-  └── allergies
-  │ ├── ...
-  └── ...
+    ├── concept
+    │   ├── AnnalynsInfiltration
+    │   │   ├── package.yaml
+    │   │   ├── stack.yaml
+    │   │   ├── src
+    │   │   │   └── AnnalynsInfiltration.hs
+    │   │   ├── test
+    │   │   │   └── Tests.hs
+    │   │   ├── .docs
+    │   │   │   ├── instructions.md
+    │   │   │   ├── introduction.md
+    │   │   │   └── hints.md
+    │   │   └── .meta
+    │   │       ├── config.json
+    │   │       ├── design.md
+    │   │       └── exemplar
+    │   │           ├── package.yaml
+    │   │           └── src
+    │   │               └── AnnalynsInfiltration.hs
+    │   └── ...
+    └── practice
+        ├── accumulate
+        │   ├── package.yaml
+        │   ├── stack.yaml
+        │   ├── src
+        │   │   └── Accumulate.hs
+        │   ├── test
+        │   │   └── Tests.hs
+        │   ├── .docs
+        │   │   └── instructions.md
+        │   └── .meta
+        │       ├── examples
+        │       │   └── success-standard
+        │       │       ├── package.yaml
+        │       │       └── src
+        │       │           └── Accumulate.hs
+        │       ├── config.json
+        │       └── hints.md
+        ├── allergies
+        │   └── ...
+        └── ...
 ```
 - `config.json`: Every exercise has to be registered here. It has a unique name and a difficulty. The sequence order is also the default order in which the exercises are fetched.
 
-## Exercise structure
-Each exercise has the following structure:
+## Practice exercise structure
+Each practice exercise has the following structure:
 - `stack.yaml` has just one line specifying the current
 [Stack snapshot](https://www.stackage.org/snapshots). We use the same
 resolver for all the exercises.
@@ -110,10 +153,15 @@ resolver for all the exercises.
 format that has all dependencies and build instructions for an exercise.
   One of the properties tracked in `package.yaml` is the [version](#exercise-versioning) of the exercise.
 - `src/ModuleName.hs` is a [stub solution](#stub-solution).
-- `examples/success-<name>/package.yaml` contains library dependencies for the [example solution](#example-solution). `<name>` is a unique name for the example - usually "standard" (as in `success-standard`), but it can be some other name in case of multiple example solutions.
-- `examples/success-<name>/src/ModuleName.hs` is the source code of the sample solution.
+- `.docs/instructions.md` contains the instructions and requirements to complete the exercise.
+  For an exercise from [problem-specifications](https://github.com/exercism/problem-specifications/), this file should exactly match the description.md from problem-specifications.
+  The [Exercism-wide documentation for instructions.md](https://github.com/exercism/docs/blob/main/building/tracks/practice-exercises.md#file-docsinstructionsmd) contains more information.
+- `.meta/examples/success-<name>/package.yaml` contains library dependencies for the [example solution](#example-solution). `<name>` is a unique name for the example - usually "standard" (as in `success-standard`), but it can be some other name in case of multiple example solutions.
+- `.meta/examples/success-<name>/src/ModuleName.hs` is the source code of the sample solution.
 - `test/Tests.hs` is the [test suite](#test-suite).
 - `.meta/hints.md` is an optional file containing instructions and/or hints. It is used together with the respective `description.md` for the exercise from [problem-specifications](https://github.com/exercism/problem-specifications) to build the `README.md` file.
+- `.meta/config.json` is the exercise configuration file.
+  The [Exercism-wide documentation for .meta/config.json](https://github.com/exercism/docs/blob/main/building/tracks/practice-exercises.md#file-metaconfigjson) contains more information.
 
 ## Exercise versioning
 
@@ -134,7 +182,7 @@ When changing a test suite, the version number should be updated appropriately s
 This versioning policy was proposed and accepted in https://github.com/exercism/haskell/issues/522.
 
 ## Development Dependencies
-You should have [Stack](http://docs.haskellstack.org/) installed in your system to make contributing to this repository easier.
+You should have [Stack](https://docs.haskellstack.org/) installed in your system to make contributing to this repository easier.
 
 ## Stub solution
 The stub solution should be as general as possible in order to not exclude any possible solutions. It should take Haskell specifics into account (for example use `Maybe` instead of a dummy return value). It should not contain any comments (people might forget to remove them), you can use the hints file instead.
@@ -193,3 +241,6 @@ pull request, so you can fix your code before submitting it for review.
 If you are certain that a suggestion given by `hlint` would make the
 code worse, you can [suppress it](https://github.com/ndmitchell/hlint#customizing-the-hints)
 with annotations in the source file.
+
+## Automated Test Runner
+We have a [test runner](https://github.com/exercism/haskell-test-runner) to automatically run tests on Haskell solutions submitted to [exercism](exercism.org).

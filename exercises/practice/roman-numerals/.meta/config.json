@@ -16,13 +16,17 @@
   ],
   "files": {
     "solution": [
-      "src/Roman.hs"
+      "src/Roman.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Roman.hs"
+      ".meta/examples/success-standard/src/Roman.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "The Roman Numeral Kata",

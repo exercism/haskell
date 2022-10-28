@@ -12,4 +12,4 @@ work for arrays with arbitrary bounds, e.g. arrays for which the first index is
 not necessarily 0.
 
 [1]: https://www.haskell.org/tutorial/arrays.html
-[2]: http://hackage.haskell.org/package/array/docs/Data-Array.html
+[2]: https://hackage.haskell.org/package/array/docs/Data-Array.html

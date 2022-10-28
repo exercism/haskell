@@ -9,13 +9,17 @@
   ],
   "files": {
     "solution": [
-      "src/ResistorColors.hs"
+      "src/ResistorColors.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/ResistorColors.hs"
+      ".meta/examples/success-standard/src/ResistorColors.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Maud de Vries, Erik Schierboom",

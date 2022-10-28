@@ -18,15 +18,19 @@
   ],
   "files": {
     "solution": [
-      "src/LeapYear.hs"
+      "src/LeapYear.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/LeapYear.hs"
+      ".meta/examples/success-standard/src/LeapYear.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "JavaRanch Cattle Drive, exercise 3",
-  "source_url": "http://www.javaranch.com/leap.jsp"
+  "source_url": "https://www.javaranch.com/leap.jsp"
 }

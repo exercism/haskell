@@ -1,5 +1,5 @@
 {
-  "blurb": "Convert a long phrase to its acronym",
+  "blurb": "Convert a long phrase to its acronym.",
   "authors": [
     "lpalma"
   ],
@@ -17,13 +17,17 @@
   ],
   "files": {
     "solution": [
-      "src/Acronym.hs"
+      "src/Acronym.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Acronym.hs"
+      ".meta/examples/success-standard/src/Acronym.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Julien Vanier",

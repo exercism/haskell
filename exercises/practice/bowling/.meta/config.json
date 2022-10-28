@@ -1,5 +1,5 @@
 {
-  "blurb": "Score a bowling game",
+  "blurb": "Score a bowling game.",
   "authors": [
     "abo64"
   ],
@@ -15,15 +15,19 @@
   ],
   "files": {
     "solution": [
-      "src/Bowling.hs"
+      "src/Bowling.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Bowling.hs"
+      ".meta/examples/success-standard/src/Bowling.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
-  "source": "The Bowling Game Kata at but UncleBob",
+  "source": "The Bowling Game Kata from UncleBob",
   "source_url": "http://butunclebob.com/ArticleS.UncleBob.TheBowlingGameKata"
 }

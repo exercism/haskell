@@ -7,11 +7,11 @@ This document describes the steps to implement a concept exercise for the Haskel
 
 As this document is generic, the following placeholders are used:
 
-- `<SLUG>`: the slug of the exercise in kebab-case (e.g. `calculator-conundrum`).
+- `<EXERCISE-SLUG>`: the slug of the exercise in kebab-case (e.g. `calculator-conundrum`).
 - `<NAME>`: the name of the exercise in PascalCase (e.g. `CalculatorConundrum`).
-- `<CONCEPT_SLUG>`: the slug of one of the exercise's concepts in kebab-case (e.g. `monad-transformers`).
+- `<CONCEPT-SLUG>`: the slug of one of the exercise's concepts in kebab-case (e.g. `monad-transformers`).
 
-Haskell covers a vast amount of concepts. Choosing a particular subset of concepts and an ideal ordering of these concepts is a contentious task.
+Haskell covers a vast number of concepts. Choosing a particular subset of concepts and an ideal ordering of these concepts is a contentious task.
 
 Contributors (you) may freely choose a concept related to Haskell and implement an exercise that covers this. Before implementing such an exercise, make sure you have a good understanding of what the exercise should be teaching (and what not). Check if this concept is already partially or fully covered by another exercise, and arrange the concept in a hierarchical fashion.
 
@@ -21,31 +21,30 @@ The directory structure of a single concept exercise looks like this:
 languages
 └── haskell
     ├── concepts
-    |   └── <CONCEPT_SLUG>
+    |   └── <CONCEPT-SLUG>
     |       ├── about.md
+    |       ├── introduction.md
     |       └── links.json
     └── exercises
         └── concept
-            └── <SLUG>
+            └── <EXERCISE-SLUG>
                 ├── package.yaml
                 ├── stack.yaml
                 ├── src
                 │   └── <NAME>.hs
                 ├── test
                 │   └── Tests.hs
-                ├── exemplars
-                │   ├── success-... (default: standard)
-                │   │   ├── package.yaml
-                │   │   └── src
-                │   │       └── <NAME>.hs
-                │   └── ...
                 ├── .docs
                 │   ├── instructions.md
                 │   ├── introduction.md
                 │   └── hints.md
                 └── .meta
                     ├── config.json
-                    └── design.md
+                    ├── design.md
+                    └── exemplar
+                        ├── package.yaml
+                        └── src
+                            └── <NAME>.hs
 ```
 
 ## Step 1: Add code files

@@ -16,15 +16,19 @@
   ],
   "files": {
     "solution": [
-      "src/Hamming.hs"
+      "src/Hamming.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Hamming.hs"
+      ".meta/examples/success-standard/src/Hamming.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "The Calculating Point Mutations problem at Rosalind",
-  "source_url": "http://rosalind.info/problems/hamm/"
+  "source_url": "https://rosalind.info/problems/hamm/"
 }

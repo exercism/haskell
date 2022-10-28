@@ -17,15 +17,19 @@
   ],
   "files": {
     "solution": [
-      "src/SecretHandshake.hs"
+      "src/SecretHandshake.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/SecretHandshake.hs"
+      ".meta/examples/success-standard/src/SecretHandshake.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Bert, in Mary Poppins",
-  "source_url": "http://www.imdb.com/title/tt0058331/quotes/qt0437047"
+  "source_url": "https://www.imdb.com/title/tt0058331/quotes/qt0437047"
 }

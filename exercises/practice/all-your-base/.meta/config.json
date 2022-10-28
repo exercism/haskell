@@ -14,13 +14,17 @@
   ],
   "files": {
     "solution": [
-      "src/Base.hs"
+      "src/Base.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Base.hs"
+      ".meta/examples/success-standard/src/Base.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   }
 }

@@ -153,5 +153,3 @@ specs = do
       it "definitions are case-insensitive" $
         runTexts [ ": SWAP DUP Dup dup ;"
                  , "1 swap"               ] `shouldBe` Right [1, 1, 1, 1]
-
--- ab8d473c39114365fb88f8406ea7a1783f0a40f4

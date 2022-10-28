@@ -17,13 +17,17 @@
   ],
   "files": {
     "solution": [
-      "src/Person.hs"
+      "src/Person.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Person.hs"
+      ".meta/examples/success-standard/src/Person.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   }
 }

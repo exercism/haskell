@@ -84,5 +84,3 @@ specs = do
 
     it "5x5 non-territory (Y too high)" $
       territoryIn board5x5 (2, 6) `shouldBe` Nothing
-
--- 6a20a1a3344ba0e31a2595da696c2a939fd04599

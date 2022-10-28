@@ -16,15 +16,19 @@
   ],
   "files": {
     "solution": [
-      "src/Trinary.hs"
+      "src/Trinary.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Trinary.hs"
+      ".meta/examples/success-standard/src/Trinary.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "All of Computer Science",
-  "source_url": "http://www.wolframalpha.com/input/?i=binary&a=*C.binary-_*MathWorld-"
+  "source_url": "https://www.wolframalpha.com/input/?i=binary&a=*C.binary-_*MathWorld-"
 }

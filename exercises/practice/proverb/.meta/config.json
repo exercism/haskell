@@ -11,15 +11,19 @@
   ],
   "files": {
     "solution": [
-      "src/Proverb.hs"
+      "src/Proverb.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Proverb.hs"
+      ".meta/examples/success-standard/src/Proverb.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Wikipedia",
-  "source_url": "http://en.wikipedia.org/wiki/For_Want_of_a_Nail"
+  "source_url": "https://en.wikipedia.org/wiki/For_Want_of_a_Nail"
 }

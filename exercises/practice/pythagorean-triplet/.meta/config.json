@@ -17,15 +17,19 @@
   ],
   "files": {
     "solution": [
-      "src/Triplet.hs"
+      "src/Triplet.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Triplet.hs"
+      ".meta/examples/success-standard/src/Triplet.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Problem 9 at Project Euler",
-  "source_url": "http://projecteuler.net/problem=9"
+  "source_url": "https://projecteuler.net/problem=9"
 }

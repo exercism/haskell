@@ -15,13 +15,17 @@
   ],
   "files": {
     "solution": [
-      "src/CustomSet.hs"
+      "src/CustomSet.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/CustomSet.hs"
+      ".meta/examples/success-standard/src/CustomSet.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   }
 }

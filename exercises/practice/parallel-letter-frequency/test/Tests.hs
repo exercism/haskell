@@ -80,5 +80,3 @@ specs = do
       it "all three anthems, together, 1 worker" $ testAllAnthems 1
 
       it "all three anthems, together, 4 workers" $ testAllAnthems 4
-
--- bf248231bf3560f0fd7e2901557463dad09a58aa

@@ -13,15 +13,19 @@
   ],
   "files": {
     "solution": [
-      "src/PerfectNumbers.hs"
+      "src/PerfectNumbers.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/PerfectNumbers.hs"
+      ".meta/examples/success-standard/src/PerfectNumbers.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Taken from Chapter 2 of Functional Thinking by Neal Ford.",
-  "source_url": "http://shop.oreilly.com/product/0636920029687.do"
+  "source_url": "https://shop.oreilly.com/product/0636920029687.do"
 }

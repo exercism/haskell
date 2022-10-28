@@ -158,5 +158,3 @@ cases = [ Case { description  = "single bit one to decimal"
                , outputDigits = Left InvalidInputBase
                }
         ]
-
--- a13cfc6a039b8e5effac4ecc3ceea56d3f8fa807

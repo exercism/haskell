@@ -59,5 +59,3 @@ cases = [ Case { description = "empty plaintext results in an empty ciphertext"
                , expected    = "imtgdvs fearwer mayoogo anouuio ntnnlvt wttddes aohghn  sseoau "
                }
         ]
-
--- de97c99c0d129ce1af95e8986917ac3964292f42

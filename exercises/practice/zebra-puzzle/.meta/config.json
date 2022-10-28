@@ -11,13 +11,17 @@
   ],
   "files": {
     "solution": [
-      "src/ZebraPuzzle.hs"
+      "src/ZebraPuzzle.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/ZebraPuzzle.hs"
+      ".meta/examples/success-standard/src/ZebraPuzzle.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Wikipedia",

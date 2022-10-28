@@ -21,13 +21,17 @@
   ],
   "files": {
     "solution": [
-      "src/Phone.hs"
+      "src/Phone.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Phone.hs"
+      ".meta/examples/success-standard/src/Phone.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Event Manager by JumpstartLab",

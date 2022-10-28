@@ -18,12 +18,11 @@ specs = for_ cases test
         let sortPair (a, b)  = if a < b then (a, b) else (b, a)
         let normalize        = sort . nub . map sortPair
         let testPal slDesc result expPal expFac =
-              describe slDesc $ case result of
-                                Just (value, factors) -> do
-                                  it "value"   $ value             `shouldBe` expPal
-                                  it "factors" $ normalize factors `shouldBe` expFac
-                                Nothing ->
-                                  it "result"  $ Nothing           `shouldBe` Just (expPal, [expFac])
+              describe slDesc $ do
+                let value   = fmap fst result
+                let factors = fmap (normalize . snd) result
+                it "value"   $ value   `shouldBe` Just expPal
+                it "factors" $ factors `shouldBe` Just expFac
         testPal "smallestPalindrome" (smallestPalindrome minFactor maxFactor) sPal sPalFactors
         testPal "largestPalindrome" (largestPalindrome minFactor maxFactor) lPal lPalFactors
     test (desc, minFactor, maxFactor, Nothing) =
@@ -39,5 +38,3 @@ specs = for_ cases test
             , ("palindromes from four digit factors"  ,  1000,  9999,   Just (1002001, [( 1001,  1001)],   99000099, [( 9901,  9999)]))
             , ("no available palindrome"              ,  1002,  1003,                                                          Nothing)
             , ("invalid range"                        , 10000,     1,                                                          Nothing) ]
-
--- a51ae20be99f0c9f170c286a851df8924cadff60

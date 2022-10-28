@@ -125,5 +125,3 @@ lyrics = "This is the house that Jack built.\n\
          \that killed the rat\n\
          \that ate the malt\n\
          \that lay in the house that Jack built.\n"
-
--- 473a8c3f65f5e8aba509bad8d3632a10ee4927fe

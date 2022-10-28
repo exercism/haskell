@@ -18,13 +18,17 @@
   ],
   "files": {
     "solution": [
-      "src/ETL.hs"
+      "src/ETL.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/ETL.hs"
+      ".meta/examples/success-standard/src/ETL.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "The Jumpstart Lab team",

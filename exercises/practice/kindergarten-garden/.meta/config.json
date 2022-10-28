@@ -17,13 +17,17 @@
   ],
   "files": {
     "solution": [
-      "src/Garden.hs"
+      "src/Garden.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Garden.hs"
+      ".meta/examples/success-standard/src/Garden.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Random musings during airplane trip.",

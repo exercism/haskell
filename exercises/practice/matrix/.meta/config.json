@@ -20,13 +20,17 @@
   ],
   "files": {
     "solution": [
-      "src/Matrix.hs"
+      "src/Matrix.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Matrix.hs"
+      ".meta/examples/success-standard/src/Matrix.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Warmup to the `saddle-points` warmup.",

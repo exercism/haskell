@@ -16,13 +16,17 @@
   ],
   "files": {
     "solution": [
-      "src/Sgf.hs"
+      "src/Sgf.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Sgf.hs"
+      ".meta/examples/success-standard/src/Sgf.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   }
 }

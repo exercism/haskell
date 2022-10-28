@@ -1,5 +1,5 @@
 {
-  "blurb": "The classical introductory exercise. Just say \"Hello, World!\"",
+  "blurb": "The classical introductory exercise. Just say \"Hello, World!\".",
   "authors": [
     "ErikSchierboom"
   ],
@@ -14,15 +14,19 @@
   ],
   "files": {
     "solution": [
-      "src/HelloWorld.hs"
+      "src/HelloWorld.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/HelloWorld.hs"
+      ".meta/examples/success-standard/src/HelloWorld.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "This is an exercise to introduce users to using Exercism",
-  "source_url": "http://en.wikipedia.org/wiki/%22Hello,_world!%22_program"
+  "source_url": "https://en.wikipedia.org/wiki/%22Hello,_world!%22_program"
 }

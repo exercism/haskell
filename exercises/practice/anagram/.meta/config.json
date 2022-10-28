@@ -16,13 +16,17 @@
   ],
   "files": {
     "solution": [
-      "src/Anagram.hs"
+      "src/Anagram.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-settext/src/Anagram.hs"
+      ".meta/examples/success-settext/src/Anagram.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Inspired by the Extreme Startup game",

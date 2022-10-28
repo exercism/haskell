@@ -164,5 +164,3 @@ cases = [ Case { description = "Yacht"
                , expected = 10
                }
         ]
-
--- e49e29f23b211af8433c17fccd71adfb852fda37

@@ -20,13 +20,17 @@
   ],
   "files": {
     "solution": [
-      "src/CryptoSquare.hs"
+      "src/CryptoSquare.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/CryptoSquare.hs"
+      ".meta/examples/success-standard/src/CryptoSquare.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "J Dalbey's Programming Practice problems",

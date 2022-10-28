@@ -16,13 +16,17 @@
   ],
   "files": {
     "solution": [
-      "src/Meetup.hs"
+      "src/Meetup.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Meetup.hs"
+      ".meta/examples/success-standard/src/Meetup.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Jeremy Hinegardner mentioned a Boulder meetup that happens on the Wednesteenth of every month",

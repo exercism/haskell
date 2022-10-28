@@ -16,13 +16,17 @@
   ],
   "files": {
     "solution": [
-      "src/OCR.hs"
+      "src/OCR.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/OCR.hs"
+      ".meta/examples/success-standard/src/OCR.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Inspired by the Bank OCR kata",

@@ -12,13 +12,17 @@
   ],
   "files": {
     "solution": [
-      "src/ProteinTranslation.hs"
+      "src/ProteinTranslation.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/ProteinTranslation.hs"
+      ".meta/examples/success-standard/src/ProteinTranslation.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Tyler Long"

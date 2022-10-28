@@ -1,5 +1,5 @@
 {
-  "blurb": "Implement a program that translates from English to Pig Latin",
+  "blurb": "Implement a program that translates from English to Pig Latin.",
   "authors": [
     "etrepum"
   ],
@@ -16,13 +16,17 @@
   ],
   "files": {
     "solution": [
-      "src/PigLatin.hs"
+      "src/PigLatin.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/PigLatin.hs"
+      ".meta/examples/success-standard/src/PigLatin.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "The Pig Latin exercise at Test First Teaching by Ultrasaurus",

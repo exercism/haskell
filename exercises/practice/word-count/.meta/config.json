@@ -18,13 +18,17 @@
   ],
   "files": {
     "solution": [
-      "src/WordCount.hs"
+      "src/WordCount.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-simple/src/WordCount.hs"
+      ".meta/examples/success-simple/src/WordCount.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "This is a classic toy problem, but we were reminded of it by seeing it in the Go Tour."

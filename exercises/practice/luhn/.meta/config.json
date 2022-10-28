@@ -20,15 +20,19 @@
   ],
   "files": {
     "solution": [
-      "src/Luhn.hs"
+      "src/Luhn.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Luhn.hs"
+      ".meta/examples/success-standard/src/Luhn.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "The Luhn Algorithm on Wikipedia",
-  "source_url": "http://en.wikipedia.org/wiki/Luhn_algorithm"
+  "source_url": "https://en.wikipedia.org/wiki/Luhn_algorithm"
 }

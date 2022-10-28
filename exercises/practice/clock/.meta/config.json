@@ -19,13 +19,17 @@
   ],
   "files": {
     "solution": [
-      "src/Clock.hs"
+      "src/Clock.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Clock.hs"
+      ".meta/examples/success-standard/src/Clock.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Pairing session with Erin Drummond",

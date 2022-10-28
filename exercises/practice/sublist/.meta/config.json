@@ -15,13 +15,17 @@
   ],
   "files": {
     "solution": [
-      "src/Sublist.hs"
+      "src/Sublist.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Sublist.hs"
+      ".meta/examples/success-standard/src/Sublist.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   }
 }

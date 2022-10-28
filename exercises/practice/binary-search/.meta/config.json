@@ -11,15 +11,19 @@
   ],
   "files": {
     "solution": [
-      "src/BinarySearch.hs"
+      "src/BinarySearch.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/BinarySearch.hs"
+      ".meta/examples/success-standard/src/BinarySearch.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Wikipedia",
-  "source_url": "http://en.wikipedia.org/wiki/Binary_search_algorithm"
+  "source_url": "https://en.wikipedia.org/wiki/Binary_search_algorithm"
 }

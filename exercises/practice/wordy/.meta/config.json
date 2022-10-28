@@ -16,13 +16,17 @@
   ],
   "files": {
     "solution": [
-      "src/WordProblem.hs"
+      "src/WordProblem.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/WordProblem.hs"
+      ".meta/examples/success-standard/src/WordProblem.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Inspired by one of the generated questions in the Extreme Startup game.",

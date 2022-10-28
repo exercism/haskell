@@ -14,15 +14,19 @@
   ],
   "files": {
     "solution": [
-      "src/Hexadecimal.hs"
+      "src/Hexadecimal.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Hexadecimal.hs"
+      ".meta/examples/success-standard/src/Hexadecimal.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "All of Computer Science",
-  "source_url": "http://www.wolframalpha.com/examples/NumberBases.html"
+  "source_url": "https://www.wolframalpha.com/examples/NumberBases.html"
 }

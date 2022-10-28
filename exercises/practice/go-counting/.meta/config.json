@@ -14,13 +14,17 @@
   ],
   "files": {
     "solution": [
-      "src/Counting.hs"
+      "src/Counting.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Counting.hs"
+      ".meta/examples/success-standard/src/Counting.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   }
 }

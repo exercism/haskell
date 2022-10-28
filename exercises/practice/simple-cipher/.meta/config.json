@@ -1,5 +1,5 @@
 {
-  "blurb": "Implement a simple shift cipher like Caesar and a more secure substitution cipher",
+  "blurb": "Implement a simple shift cipher like Caesar and a more secure substitution cipher.",
   "authors": [
     "etrepum"
   ],
@@ -20,15 +20,19 @@
   ],
   "files": {
     "solution": [
-      "src/Cipher.hs"
+      "src/Cipher.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Cipher.hs"
+      ".meta/examples/success-standard/src/Cipher.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Substitution Cipher at Wikipedia",
-  "source_url": "http://en.wikipedia.org/wiki/Substitution_cipher"
+  "source_url": "https://en.wikipedia.org/wiki/Substitution_cipher"
 }

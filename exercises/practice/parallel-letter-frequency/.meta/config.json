@@ -13,13 +13,17 @@
   ],
   "files": {
     "solution": [
-      "src/Frequency.hs"
+      "src/Frequency.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Frequency.hs"
+      ".meta/examples/success-standard/src/Frequency.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   }
 }

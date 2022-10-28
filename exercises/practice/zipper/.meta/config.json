@@ -14,13 +14,17 @@
   ],
   "files": {
     "solution": [
-      "src/Zipper.hs"
+      "src/Zipper.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Zipper.hs"
+      ".meta/examples/success-standard/src/Zipper.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   }
 }

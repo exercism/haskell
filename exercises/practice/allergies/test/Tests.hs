@@ -192,5 +192,3 @@ shrinkComplementsWithScore (allergens, score) = map without allergens
   where
     without :: Allergen -> ([Allergen], Int)
     without allergen = (delete allergen allergens, score)
-
--- c8390cb5fb3ae8d7aed2d0181c33b426cab9225d

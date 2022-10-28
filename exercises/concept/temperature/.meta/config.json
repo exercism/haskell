@@ -1,0 +1,22 @@
+{
+  "blurb": "Learn about numbers and type conversion by converting temperatures",
+  "icon": "the-weather-in-deather",
+  "authors": [
+    "pwadsworth"
+  ],
+  "files": {
+    "solution": [
+      "src/Temperature.hs",
+      "package.yaml"
+    ],
+    "test": [
+      "test/Tests.hs"
+    ],
+    "exemplar": [
+      ".meta/exemplar/src/Temperature.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
+    ]
+  }
+}

@@ -13,13 +13,17 @@
   ],
   "files": {
     "solution": [
-      "src/RotationalCipher.hs"
+      "src/RotationalCipher.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/RotationalCipher.hs"
+      ".meta/examples/success-standard/src/RotationalCipher.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Wikipedia",

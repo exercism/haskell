@@ -20,20 +20,84 @@
   },
   "files": {
     "solution": [
-      "src/%{pascal_slug}.hs"
+      "src/%{pascal_slug}.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/%{pascal_slug}.hs"
+      ".meta/examples/success-standard/src/%{pascal_slug}.hs"
     ],
     "exemplar": [
       ".meta/exemplar/src/%{pascal_slug}.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "exercises": {
-    "concept": [],
+    "concept": [
+      {
+        "slug": "lucians-luscious-lasagna",
+        "name": "Lucian's Luscious Lasagna",
+        "uuid": "3aa220cb-606f-45c5-9b7a-4bce0e4eb20d",
+        "prerequisites": [],
+        "status": "beta",
+        "concepts": [
+          "basics"
+        ]
+      },
+      {
+        "slug": "temperature",
+        "name": "Temperature",
+        "uuid": "6ed15adb-f022-4bbd-bbb3-22845deabc91",
+        "prerequisites": [
+          "basics"
+        ],
+        "status": "beta",
+        "concepts": [
+          "numbers"
+        ]
+      },
+      {
+        "slug": "pacman-rules",
+        "name": "Pac-Man Rules",
+        "uuid": "9050f8c3-9976-4c4d-93e7-c9c549b1c524",
+        "prerequisites": [
+          "basics"
+        ],
+        "status": "wip",
+        "concepts": [
+          "booleans"
+        ]
+      },
+      {
+        "slug": "guessing-game",
+        "name": "Guessing Game",
+        "uuid": "fb9868eb-ce4f-4e6b-aa0d-b47d3451070f",
+        "prerequisites": [
+          "numbers"
+        ],
+        "status": "beta",
+        "concepts": [
+          "pattern-matching-literals"
+        ]
+      },
+      {
+        "slug": "valentines-day",
+        "name": "Valentines Day",
+        "uuid": "537d8df3-0b12-4dbe-aa86-65ae79c4de0e",
+        "prerequisites": [
+          "pattern-matching-literals",
+          "numbers"
+        ],
+        "status": "beta",
+        "concepts": [
+          "algebraic-data-types"
+        ]
+      }
+    ],
     "practice": [
       {
         "slug": "hello-world",
@@ -109,7 +173,7 @@
       },
       {
         "slug": "rna-transcription",
-        "name": "Rna Transcription",
+        "name": "RNA Transcription",
         "uuid": "85d77b8e-9b87-4d02-9fba-81f843bd66f1",
         "practices": [],
         "prerequisites": [],
@@ -134,7 +198,7 @@
       },
       {
         "slug": "sum-of-multiples",
-        "name": "Sum Of Multiples",
+        "name": "Sum of Multiples",
         "uuid": "e125a32e-60ca-4e59-ae35-01f3b1907ccd",
         "practices": [],
         "prerequisites": [],
@@ -283,7 +347,7 @@
       },
       {
         "slug": "pascals-triangle",
-        "name": "Pascals Triangle",
+        "name": "Pascal's Triangle",
         "uuid": "ff0a20ef-1828-42f1-8c10-4bf53b488993",
         "practices": [],
         "prerequisites": [],
@@ -393,7 +457,7 @@
       },
       {
         "slug": "ocr-numbers",
-        "name": "Ocr Numbers",
+        "name": "OCR Numbers",
         "uuid": "90ac04fb-42d3-4666-b26a-2279057f6ef2",
         "practices": [],
         "prerequisites": [],
@@ -460,7 +524,7 @@
       },
       {
         "slug": "run-length-encoding",
-        "name": "Run Length Encoding",
+        "name": "Run-Length Encoding",
         "uuid": "6eba4eac-8395-4ad6-ac21-3651a11ab4b5",
         "practices": [],
         "prerequisites": [],
@@ -530,7 +594,7 @@
       },
       {
         "slug": "isbn-verifier",
-        "name": "Isbn Verifier",
+        "name": "ISBN Verifier",
         "uuid": "e5a0bed3-90ca-4caa-a73f-2124940f84c9",
         "practices": [],
         "prerequisites": [],
@@ -769,7 +833,7 @@
       },
       {
         "slug": "pov",
-        "name": "Pov",
+        "name": "POV",
         "uuid": "010582a2-4c44-44fb-ac6b-bf1546d303a3",
         "practices": [],
         "prerequisites": [],
@@ -780,7 +844,7 @@
       },
       {
         "slug": "difference-of-squares",
-        "name": "Difference Of Squares",
+        "name": "Difference of Squares",
         "uuid": "c8953b81-97f2-4c26-b2b8-aa7ef95c5ff1",
         "practices": [],
         "prerequisites": [],
@@ -885,7 +949,7 @@
       },
       {
         "slug": "sgf-parsing",
-        "name": "Sgf Parsing",
+        "name": "SGF Parsing",
         "uuid": "033adeae-d94a-4832-ae99-8dd98acd6044",
         "practices": [],
         "prerequisites": [],
@@ -919,7 +983,7 @@
       },
       {
         "slug": "etl",
-        "name": "Etl",
+        "name": "ETL",
         "uuid": "8082b1fb-7e3b-4a7f-b857-479bdb0d65e3",
         "practices": [],
         "prerequisites": [],
@@ -1114,7 +1178,7 @@
         "uuid": "48ca1682-ca1b-4a2c-be55-624620f336a7",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 0,
+        "difficulty": 1,
         "topics": null,
         "status": "deprecated"
       },
@@ -1124,7 +1188,7 @@
         "uuid": "317ef3e7-67ce-4940-bc90-eed1c4a27c19",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 0,
+        "difficulty": 1,
         "topics": null,
         "status": "deprecated"
       },
@@ -1134,7 +1198,7 @@
         "uuid": "964c07aa-abca-49b8-8428-1b81ee39066d",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 0,
+        "difficulty": 1,
         "topics": null,
         "status": "deprecated"
       },
@@ -1144,7 +1208,7 @@
         "uuid": "2566f8ee-28cf-4429-9ced-42759c810d7c",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 0,
+        "difficulty": 1,
         "topics": null,
         "status": "deprecated"
       },
@@ -1154,7 +1218,7 @@
         "uuid": "d5997b60-e54c-4caa-beae-8614f0da3fb3",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 0,
+        "difficulty": 1,
         "topics": null,
         "status": "deprecated"
       },
@@ -1196,8 +1260,65 @@
       "resistor-color"
     ]
   },
-  "concepts": [],
-  "key_features": [],
+  "concepts": [
+    {
+      "uuid": "8f59f60b-96d6-468d-abf6-d4eb28a9204f",
+      "slug": "basics",
+      "name": "Basics"
+    },
+    {
+      "uuid": "6d0806a3-e881-48fc-960a-d7663de0667a",
+      "slug": "numbers",
+      "name": "Numbers"
+    },
+    {
+      "uuid": "8afaf3b9-5910-4d6f-a35d-aaf9439381f6",
+      "slug": "booleans",
+      "name": "Booleans"
+    },
+    {
+      "uuid": "ca21a553-6fc1-49be-8f47-730f97330862",
+      "slug": "pattern-matching-literals",
+      "name": "Pattern Matching Literals"
+    },
+    {
+      "uuid": "cb756cfd-9b5c-408d-bf3f-b2adc8322da3",
+      "slug": "algebraic-data-types",
+      "name": "Algebraic Data Types"
+    }
+  ],
+  "key_features": [
+    {
+      "title": "Purely functional",
+      "content": "Pure functions always produce the same output for the same input, so are more predictable.",
+      "icon": "functional"
+    },
+    {
+      "title": "Non-strict",
+      "content": "Lazy evaluation only provides results as needed, allowing for infinite data structures.",
+      "icon": "evolving"
+    },
+    {
+      "title": "Strong, static typing",
+      "content": "Strong, static types mean more errors are caught before the program is run.",
+      "icon": "statically-typed"
+    },
+    {
+      "title": "Type inference",
+      "content": "Automatic inference of types makes the code lighter and the developer more productive.",
+      "icon": "fun"
+    },
+    {
+      "title": "Type classes",
+      "content": "Categorising types into classes provides type-safe overloading.",
+      "icon": "extensible"
+    },
+    {
+      "title": "Algebraic data types",
+      "content": "Powerful data types provide a high degree of convenience and safety.",
+      "icon": "powerful"
+    }
+  ],
   "tags": [
     "paradigm/functional"
   ]

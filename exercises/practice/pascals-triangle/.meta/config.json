@@ -17,15 +17,19 @@
   ],
   "files": {
     "solution": [
-      "src/Triangle.hs"
+      "src/Triangle.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Triangle.hs"
+      ".meta/examples/success-standard/src/Triangle.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Pascal's Triangle at Wolfram Math World",
-  "source_url": "http://mathworld.wolfram.com/PascalsTriangle.html"
+  "source_url": "https://mathworld.wolfram.com/PascalsTriangle.html"
 }

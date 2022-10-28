@@ -89,5 +89,3 @@ cases = [ Case { description = "paired square brackets"
                , expected    = True
                }
         ]
-
--- 2e4715e581e5764c80f6e8e1c53a5c3ffbbd2659

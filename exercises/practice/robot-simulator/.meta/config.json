@@ -16,13 +16,17 @@
   ],
   "files": {
     "solution": [
-      "src/Robot.hs"
+      "src/Robot.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Robot.hs"
+      ".meta/examples/success-standard/src/Robot.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Inspired by an interview question at a famous company."

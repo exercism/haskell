@@ -1,5 +1,5 @@
 {
-  "blurb": "Implement a doubly linked list",
+  "blurb": "Implement a doubly linked list.",
   "authors": [
     "etrepum"
   ],
@@ -16,13 +16,17 @@
   ],
   "files": {
     "solution": [
-      "src/Deque.hs"
+      "src/Deque.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Deque.hs"
+      ".meta/examples/success-standard/src/Deque.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Classic computer science topic"

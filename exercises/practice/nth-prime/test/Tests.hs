@@ -45,5 +45,3 @@ cases = [ Case { description = "first prime"
                , expected    = Nothing
                }
         ]
-
--- cca74be6d72414292edbcde8268ff507b1d65ae6

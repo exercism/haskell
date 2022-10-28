@@ -1,0 +1,18 @@
+name: guessing-game
+version: 1.0.0.0
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: GuessingGame
+  source-dirs: src
+  ghc-options: -Wall
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - guessing-game
+      - hspec

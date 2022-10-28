@@ -16,13 +16,17 @@
   ],
   "files": {
     "solution": [
-      "src/Brackets.hs"
+      "src/Brackets.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Brackets.hs"
+      ".meta/examples/success-standard/src/Brackets.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Ginna Baker"

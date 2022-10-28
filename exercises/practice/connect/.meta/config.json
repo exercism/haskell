@@ -1,5 +1,5 @@
 {
-  "blurb": "Compute the result for a game of Hex / Polygon",
+  "blurb": "Compute the result for a game of Hex / Polygon.",
   "authors": [
     "pminten"
   ],
@@ -17,13 +17,17 @@
   ],
   "files": {
     "solution": [
-      "src/Connect.hs"
+      "src/Connect.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Connect.hs"
+      ".meta/examples/success-standard/src/Connect.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   }
 }

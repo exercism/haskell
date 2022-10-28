@@ -81,6 +81,3 @@ cases = [ Case { description = "puzzle with three letters"
 --               , expected     = Just [('P', 9), ('I', 6), ('R', 7), ('A', 4), ('E', 0)]
 --               }
         ]
-
-
--- e81dfbc925571473b7f2ffd44790b834ae30a073

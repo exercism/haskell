@@ -16,15 +16,19 @@
   ],
   "files": {
     "solution": [
-      "src/Sieve.hs"
+      "src/Sieve.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Sieve.hs"
+      ".meta/examples/success-standard/src/Sieve.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Sieve of Eratosthenes at Wikipedia",
-  "source_url": "http://en.wikipedia.org/wiki/Sieve_of_Eratosthenes"
+  "source_url": "https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes"
 }

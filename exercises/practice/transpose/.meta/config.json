@@ -12,13 +12,17 @@
   ],
   "files": {
     "solution": [
-      "src/Transpose.hs"
+      "src/Transpose.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Transpose.hs"
+      ".meta/examples/success-standard/src/Transpose.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Reddit r/dailyprogrammer challenge #270 [Easy].",

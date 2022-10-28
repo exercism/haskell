@@ -77,5 +77,3 @@ cases = [ Case { description = "Smallest perfect number is classified correctly"
                , expected    = Nothing
                }
         ]
-
--- 902c030d3257e9db948990912598c9f9cec34ffd

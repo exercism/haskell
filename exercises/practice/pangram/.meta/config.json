@@ -17,13 +17,17 @@
   ],
   "files": {
     "solution": [
-      "src/Pangram.hs"
+      "src/Pangram.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/Pangram.hs"
+      ".meta/examples/success-standard/src/Pangram.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "Wikipedia",

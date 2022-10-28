@@ -1,5 +1,5 @@
 {
-  "blurb": "Calculate the number of steps to reach 1 using the Collatz conjecture",
+  "blurb": "Calculate the number of steps to reach 1 using the Collatz conjecture.",
   "authors": [],
   "contributors": [
     "guygastineau",
@@ -12,13 +12,17 @@
   ],
   "files": {
     "solution": [
-      "src/CollatzConjecture.hs"
+      "src/CollatzConjecture.hs",
+      "package.yaml"
     ],
     "test": [
       "test/Tests.hs"
     ],
     "example": [
-      "examples/success-standard/src/CollatzConjecture.hs"
+      ".meta/examples/success-standard/src/CollatzConjecture.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
     ]
   },
   "source": "An unsolved problem in mathematics named after mathematician Lothar Collatz",
