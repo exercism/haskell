@@ -1320,6 +1320,16 @@
     }
   ],
   "tags": [
-    "paradigm/functional"
+    "paradigm/declarative",
+    "paradigm/functional",
+    "typing/static",
+    "typing/strong",
+    "execution_mode/compiled",
+    "platform/windows",
+    "platform/mac",
+    "platform/linux",
+    "runtime/standalone_executable",
+    "used_for/backends",
+    "used_for/financial_systems"
   ]
 }
