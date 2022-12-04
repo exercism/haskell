@@ -1,5 +1,4 @@
 {
-  "blurb": "Implement basic list operations.",
   "authors": [
     "etrepum"
   ],
@@ -31,5 +30,6 @@
     "invalidator": [
       "stack.yaml"
     ]
-  }
+  },
+  "blurb": "Implement basic list operations."
 }

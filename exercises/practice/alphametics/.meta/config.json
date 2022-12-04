@@ -1,5 +1,4 @@
 {
-  "blurb": "Write a function to solve alphametics puzzles.",
   "authors": [],
   "contributors": [
     "iHiD",
@@ -26,5 +25,6 @@
     "invalidator": [
       "stack.yaml"
     ]
-  }
+  },
+  "blurb": "Write a function to solve alphametics puzzles."
 }

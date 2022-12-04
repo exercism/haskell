@@ -1,6 +1,4 @@
 {
-  "blurb": "Learn about pattern matching by implementing a simple secret number guessing game",
-  "icon": "guessing-game",
   "authors": [
     "pwadsworth"
   ],
@@ -18,5 +16,7 @@
     "invalidator": [
       "stack.yaml"
     ]
-  }
+  },
+  "icon": "guessing-game",
+  "blurb": "Learn about pattern matching by implementing a simple secret number guessing game"
 }

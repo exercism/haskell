@@ -1,5 +1,4 @@
 {
-  "blurb": "Compute Pascal's triangle up to a given number of rows.",
   "authors": [
     "etrepum"
   ],
@@ -30,6 +29,7 @@
       "stack.yaml"
     ]
   },
+  "blurb": "Compute Pascal's triangle up to a given number of rows.",
   "source": "Pascal's Triangle at Wolfram Math World",
   "source_url": "https://mathworld.wolfram.com/PascalsTriangle.html"
 }
