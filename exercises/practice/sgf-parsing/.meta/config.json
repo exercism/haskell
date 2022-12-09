@@ -1,5 +1,4 @@
 {
-  "blurb": "Parsing a Smart Game Format string.",
   "authors": [],
   "contributors": [
     "cmccandless",
@@ -28,5 +27,6 @@
     "invalidator": [
       "stack.yaml"
     ]
-  }
+  },
+  "blurb": "Parsing a Smart Game Format string."
 }

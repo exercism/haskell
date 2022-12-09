@@ -1,5 +1,4 @@
 {
-  "blurb": "Creating a zipper for a binary tree.",
   "authors": [],
   "contributors": [
     "iHiD",
@@ -26,5 +25,6 @@
     "invalidator": [
       "stack.yaml"
     ]
-  }
+  },
+  "blurb": "Creating a zipper for a binary tree."
 }

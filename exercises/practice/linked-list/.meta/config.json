@@ -1,5 +1,4 @@
 {
-  "blurb": "Implement a doubly linked list.",
   "authors": [
     "etrepum"
   ],
@@ -29,5 +28,6 @@
       "stack.yaml"
     ]
   },
+  "blurb": "Implement a doubly linked list.",
   "source": "Classic computer science topic"
 }

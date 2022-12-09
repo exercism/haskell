@@ -1,5 +1,4 @@
 {
-  "blurb": "Convert a number, represented as a sequence of digits in one base, to any other base.",
   "authors": [
     "rbasso"
   ],
@@ -26,5 +25,6 @@
     "invalidator": [
       "stack.yaml"
     ]
-  }
+  },
+  "blurb": "Convert a number, represented as a sequence of digits in one base, to any other base."
 }

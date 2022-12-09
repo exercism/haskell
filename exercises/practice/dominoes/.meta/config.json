@@ -1,5 +1,4 @@
 {
-  "blurb": "Make a chain of dominoes.",
   "authors": [
     "petertseng"
   ],
@@ -26,5 +25,6 @@
     "invalidator": [
       "stack.yaml"
     ]
-  }
+  },
+  "blurb": "Make a chain of dominoes."
 }

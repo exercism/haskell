@@ -1,5 +1,4 @@
 {
-  "blurb": "Manage robot factory settings.",
   "authors": [
     "etrepum"
   ],
@@ -31,5 +30,6 @@
       "stack.yaml"
     ]
   },
+  "blurb": "Manage robot factory settings.",
   "source": "A debugging session with Paul Blackwell at gSchool."
 }

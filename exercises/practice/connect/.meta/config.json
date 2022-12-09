@@ -1,5 +1,4 @@
 {
-  "blurb": "Compute the result for a game of Hex / Polygon.",
   "authors": [
     "pminten"
   ],
@@ -29,5 +28,6 @@
     "invalidator": [
       "stack.yaml"
     ]
-  }
+  },
+  "blurb": "Compute the result for a game of Hex / Polygon."
 }

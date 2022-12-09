@@ -1,5 +1,4 @@
 {
-  "blurb": "Implement complex numbers.",
   "authors": [
     "Average-user"
   ],
@@ -26,6 +25,7 @@
       "stack.yaml"
     ]
   },
+  "blurb": "Implement complex numbers.",
   "source": "Wikipedia",
   "source_url": "https://en.wikipedia.org/wiki/Complex_number"
 }

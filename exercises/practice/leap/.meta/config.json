@@ -1,5 +1,4 @@
 {
-  "blurb": "Given a year, report if it is a leap year.",
   "authors": [
     "etrepum"
   ],
@@ -31,6 +30,7 @@
       "stack.yaml"
     ]
   },
+  "blurb": "Given a year, report if it is a leap year.",
   "source": "JavaRanch Cattle Drive, exercise 3",
   "source_url": "https://www.javaranch.com/leap.jsp"
 }

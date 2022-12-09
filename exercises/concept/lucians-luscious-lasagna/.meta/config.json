@@ -1,11 +1,6 @@
 {
-  "blurb": "Learn the basics of Haskell by cooking Lucian's Luscious Lasagna",
-  "icon": "lasagna",
   "authors": [
     "pwadsworth"
-  ],
-  "forked_from": [
-    "fsharp/lucians-luscious-lasagna"
   ],
   "files": {
     "solution": [
@@ -21,5 +16,10 @@
     "invalidator": [
       "stack.yaml"
     ]
-  }
+  },
+  "forked_from": [
+    "fsharp/lucians-luscious-lasagna"
+  ],
+  "icon": "lasagna",
+  "blurb": "Learn the basics of Haskell by cooking Lucian's Luscious Lasagna"
 }

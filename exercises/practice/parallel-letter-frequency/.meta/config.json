@@ -1,5 +1,4 @@
 {
-  "blurb": "Count the frequency of letters in texts using parallel computation.",
   "authors": [],
   "contributors": [
     "iHiD",
@@ -25,5 +24,6 @@
     "invalidator": [
       "stack.yaml"
     ]
-  }
+  },
+  "blurb": "Count the frequency of letters in texts using parallel computation."
 }

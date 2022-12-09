@@ -1,5 +1,4 @@
 {
-  "blurb": "Determine if a number is an Armstrong number.",
   "authors": [],
   "contributors": [
     "iHiD",
@@ -23,6 +22,7 @@
       "stack.yaml"
     ]
   },
+  "blurb": "Determine if a number is an Armstrong number.",
   "source": "Wikipedia",
   "source_url": "https://en.wikipedia.org/wiki/Narcissistic_number"
 }

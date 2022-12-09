@@ -1,5 +1,4 @@
 {
-  "blurb": "Use lenses to update nested records (specific to languages with immutable data).",
   "authors": [
     "pminten"
   ],
@@ -29,5 +28,6 @@
     "invalidator": [
       "stack.yaml"
     ]
-  }
+  },
+  "blurb": "Use lenses to update nested records (specific to languages with immutable data)."
 }

@@ -1,5 +1,4 @@
 {
-  "blurb": "Create a custom set type.",
   "authors": [
     "etrepum"
   ],
@@ -27,5 +26,6 @@
     "invalidator": [
       "stack.yaml"
     ]
-  }
+  },
+  "blurb": "Create a custom set type."
 }

@@ -1,5 +1,4 @@
 {
-  "blurb": "Translate RNA sequences into proteins.",
   "authors": [
     "Average-user"
   ],
@@ -25,5 +24,6 @@
       "stack.yaml"
     ]
   },
+  "blurb": "Translate RNA sequences into proteins.",
   "source": "Tyler Long"
 }
