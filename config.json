@@ -1277,6 +1277,11 @@
       "name": "Booleans"
     },
     {
+      "uuid": "67c3fb6a-d519-49d9-a19c-dffdd96ad133",
+      "slug": "lists",
+      "name": "Lists"
+    },
+    {
       "uuid": "ca21a553-6fc1-49be-8f47-730f97330862",
       "slug": "pattern-matching-literals",
       "name": "Pattern Matching Literals"
