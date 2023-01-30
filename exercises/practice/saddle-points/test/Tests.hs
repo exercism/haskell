@@ -18,7 +18,7 @@ specs = describe "saddlePoints" $ for_ cases test
       where
         assertion = saddlePoints matrix `shouldBe` expected
         rows      = length xss
-        columns   = length $ head xss
+        columns   = if null xss then 0 else length $ head xss
         matrix    = listArray ((1, 1), (rows, columns)) (concat xss)
 
     cases = [ ( "Example from README",
