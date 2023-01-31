@@ -18,6 +18,9 @@
   "test_runner": {
     "average_run_time": 3.0
   },
+  "approaches": {
+    "snippet_extension": "hs"
+  },
   "files": {
     "solution": [
       "src/%{pascal_slug}.hs",

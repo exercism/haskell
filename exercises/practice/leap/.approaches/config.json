@@ -1,0 +1,37 @@
+{
+    "introduction": {
+        "authors": [
+            "MatthijsBlom"
+        ],
+        "contributors": []
+    },
+    "approaches": [
+        {
+            "uuid": "a89d3a43-affc-4dc7-97b7-d5ce9353a8d5",
+            "slug": "logical-expression",
+            "title": "Logical expression",
+            "blurb": "Use logical operators to combine several tests into one.",
+            "authors": [
+                "MatthijsBlom"
+            ]
+        },
+        {
+            "uuid": "a6fbc4d9-911b-42cc-aa88-e015dd1f03b0",
+            "slug": "guards",
+            "title": "Guards",
+            "blurb": "Use a sequence of guards.",
+            "authors": [
+                "MatthijsBlom"
+            ]
+        },
+        {
+            "uuid": "708be8e8-0a2e-437d-8b39-6df37326890f",
+            "slug": "conditional-expression",
+            "title": "Conditional expression",
+            "blurb": "Use a single conditional expression.",
+            "authors": [
+                "MatthijsBlom"
+            ]
+        }
+    ]
+}
