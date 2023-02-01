@@ -48,14 +48,14 @@ Sequences of guards are analogous to `if`&ndash;`else if` chains in other langua
 
 ## In this approach
 
-When there are not many cases to match against, it is common to use _function definition [syntactic sugar][wikipedia-syntactic-sugar]_ instead of `case` because sometimes is a bit nicer to read.
+When there are not many cases to match against, it is common to use _function definition [syntactic sugar][wikipedia-syntactic-sugar]_ instead of `case` because sometimes that is a bit nicer to read.
 
 ```haskell
 categorize (Just n)
   | n >= 24        = "Adult"
-  | otherwise      = "Nonadult" 
+  | otherwise      = "Nonadult"
 categorize Nothing = "Eternal"
--- equivalent to / an abbreviation of
+-- is equivalent to / an abbreviation of
 categorize age = case age of
   Just n | n >= 24   -> "Adult"
          | otherwise -> "Nonadult"

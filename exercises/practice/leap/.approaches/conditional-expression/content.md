@@ -22,6 +22,7 @@ Concretely, when `p` is some expression of type `Bool` and `t` and `f` are any t
 - evaluate to `t` if `p` evaluates to `True`, and
 - evaluate to `f` if `p` evaluates to `False`.
 
+~~~~exercism/note
 Conditional expressions are [syntactic sugar][wikipedia-syntactic-sugar] for certain `case` expressions:
 
 ```haskell
@@ -31,6 +32,7 @@ _ = case p of
   True  -> t
   False -> f
 ```
+~~~~
 
 
 ## In this approach
@@ -56,7 +58,9 @@ When you have something other than a `Boolean`, use `case` instead.
 
 When you do not strictly need an expression, an alternative is to [use guards][guards].
 
-When you need to choose between more than two options, guards might be the solution. However, guards are not expressions and so are not always applicable. In such cases you might want to break out a multi-way `if`, available through the [`MultiWayIf` language extension][multiwayif-extension]:
+When you need to choose between more than two options, guards might be the solution.
+However, guards are not expressions and so are not always applicable.
+In such cases you might want to break out a multi-way `if`, available through the [`MultiWayIf` language extension][multiwayif-extension]:
 
 ```haskell
 {- LANGUAGE MultiWayIf -}  -- at the top of the file
