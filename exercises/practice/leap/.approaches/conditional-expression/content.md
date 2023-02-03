@@ -17,7 +17,7 @@ A _conditional expression_ (`if … then … else …`) is a compound expression
 Many other languages feature a similar construct, often termed 'ternary operator'.
 They are also known as _`if` expressions_.
 
-Concretely, when `p` is some expression of type `Bool` and `t` and `f` are any two expressions of the same type, then `if p then t else f` will
+When `p` is some expression of type `Bool` and `t` and `f` are any two expressions of the same type, then `if p then t else f` will
 
 - evaluate to `t` if `p` evaluates to `True`, and
 - evaluate to `f` if `p` evaluates to `False`.
@@ -92,7 +92,7 @@ ghci> if even 42 then "Success!" else error "Crash!"
 
 Notice how evaluating the entire `if` expression does not result in a crash, even though one of its branches would if it were evaluated.
 
-Concretely, in our solution above we have
+In our solution above we have
 
 | year | `divisibleBy 100` | `divisibleBy 400` | `divisibleBy 4` | is leap year |
 | ---- | ----------------- | ----------------- | --------------- | ------------ |

@@ -31,7 +31,7 @@ Because patterns are checked in order, here
 
 Patterns may contain multiple guards in sequence.
 These will then be checked in order just like patterns.
-Concretely, the following variant on the above example produces exactly the same result.
+The following variant on the above example produces exactly the same result.
 
 ```haskell
 ageCategory = case age of
