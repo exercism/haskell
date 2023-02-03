@@ -17,9 +17,12 @@ This is a convention, chosen for its convenience.
 We say that the `*` operator has _higher [precedence][wikipedia-precedence]_ than `+`.
 
 In logic similar ambiguities exist, and these are similarly resolved.
-By contention &ndash; and so in Haskell &ndash; _and_ has higher precedence than _or_, and _not_ has higher precedence than both.
+By convention &ndash; and so in Haskell &ndash;
 
-Concretely, `p || q && r` is to be read as `p || (q && r)`.
+- _and_ has higher precedence than _or_, and 
+- _not_ has higher precedence than both _and_ and _or_.
+
+For example, `p || q && r` means the same as `p || (q && r)`.
 
 ~~~~exercism/note
 If you want to know the precedence of an operator, you can ask GHCi:
