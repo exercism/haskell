@@ -136,6 +136,13 @@ specs = do
       it "errors if executing a non-existent word" $
         runTexts ["1 foo"] `shouldBe` Left (UnknownWord "foo")
 
+      it "redefines an existing word with another existing word" $
+        runTexts [ ": foo 5 ;"
+                 , ": bar foo ;"
+                 , ": foo 6 ;"
+                 , ": bar foo ;"
+                 , "bar foo"           ] `shouldBe` Right [6, 6]
+
     describe "case-insensitivity" $ do
       it "DUP is case-insensitive" $
         runTexts ["1 DUP Dup dup"         ] `shouldBe` Right [1, 1, 1, 1]
@@ -153,3 +160,17 @@ specs = do
       it "definitions are case-insensitive" $
         runTexts [ ": SWAP DUP Dup dup ;"
                  , "1 swap"               ] `shouldBe` Right [1, 1, 1, 1]
+
+    describe "malformed word definitions" $ do  
+      it "empty definition and no end" $
+        runTexts [":"] `shouldBe` Left InvalidWord
+      it "no end" $
+        runTexts [": foo"] `shouldBe` Left InvalidWord
+      it "no definition" $
+        runTexts [": ;"] `shouldBe` Left InvalidWord
+
+    describe "multiple definitions" $ do  
+      it "on a line" $
+        runTexts [": one 1 ; : two 2 ; one two +"] `shouldBe` Right [3]
+      it "after ops" $
+        runTexts ["1 2 + : addone 1 + ; addone"] `shouldBe` Right [4]
