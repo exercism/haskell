@@ -1,0 +1,18 @@
+{
+    "introduction": {
+        "authors": [
+            "MatthijsBlom"
+        ]
+    },
+    "approaches": [
+        {
+            "uuid": "4790e437-5ed4-4d7e-969d-769b0dfaaa97",
+            "slug": "where-clause",
+            "title": "A where clause",
+            "blurb": "Use a where clause and a case expression to give meaningful names to important subexpressions",
+            "authors": [
+                "MatthijsBlom"
+            ]
+        }
+    ]
+}
