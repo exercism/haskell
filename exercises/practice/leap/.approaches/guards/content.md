@@ -171,7 +171,7 @@ For more on this question, see [Guards vs. if-then-else vs. cases in Haskell][so
 
 
 [conditional-expression]:
-    https://exercism.org/tracks/python/exercises/leap/approaches/conditional-expression
+    https://exercism.org/tracks/haskell/exercises/leap/approaches/conditional-expression
     "Approach: a conditional expression"
 
 

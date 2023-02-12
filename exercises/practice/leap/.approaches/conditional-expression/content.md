@@ -103,7 +103,7 @@ In our solution above we have
 
 
 [guards]:
-    https://exercism.org/tracks/python/exercises/leap/approaches/guards
+    https://exercism.org/tracks/haskell/exercises/leap/approaches/guards
     "Approach: a sequence of guards"
 
 

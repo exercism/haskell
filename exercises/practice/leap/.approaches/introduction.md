@@ -36,13 +36,13 @@ All approaches listed here are valid choices unless marked otherwise. Be sure to
 
 
 [conditional-expression]:
-    https://exercism.org/tracks/python/exercises/leap/approaches/conditional-expression
+    https://exercism.org/tracks/haskell/exercises/leap/approaches/conditional-expression
     "Approach: a conditional expression"
 [guards]:
-    https://exercism.org/tracks/python/exercises/leap/approaches/guards
+    https://exercism.org/tracks/haskell/exercises/leap/approaches/guards
     "Approach: a sequence of guards"
 [logical-expression]:
-    https://exercism.org/tracks/python/exercises/leap/approaches/logical-expression
+    https://exercism.org/tracks/haskell/exercises/leap/approaches/logical-expression
     "Approach: a logical expression"
 
 
