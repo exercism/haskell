@@ -1,0 +1,36 @@
+{
+    "introduction": {
+        "authors": [
+            "MatthijsBlom"
+        ]
+    },
+    "approaches": [
+        {
+            "uuid": "842d50b4-a990-4004-86a8-4b6d6b86d602",
+            "slug": "list-of-steps",
+            "title": "Generate a list of steps",
+            "blurb": "Generate a list of steps and use its length.",
+            "authors": [
+                "MatthijsBlom"
+            ]
+        },
+        {
+            "uuid": "7f4c2d25-f8ae-4836-ae3f-d864ac872ea9",
+            "slug": "recursion",
+            "title": "Recursion",
+            "blurb": "Recurse by hand and use fmap.",
+            "authors": [
+                "MatthijsBlom"
+            ]
+        },
+        {
+            "uuid": "e2923819-9e47-4fb6-9327-5212d8cb48bc",
+            "slug": "worker-wrapper",
+            "title": "Worker–wrapper",
+            "blurb": "Use a worker–wrapper construct.",
+            "authors": [
+                "MatthijsBlom"
+            ]
+        }
+    ]
+}
