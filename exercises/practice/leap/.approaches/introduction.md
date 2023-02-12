@@ -17,7 +17,13 @@ In contrast, 'regular' functions in Haskell are generally written _prefix_: in `
 Sometimes however it would be nicer to write a function between its two arguments.
 This is possible when you surround the function name with back ticks: ``7 `div` 3`` means exactly the same as `div 7 3`, but is much nicer to read.
 
-`where` clauses are your friend! Giving meaningful names to subexpressions can do wonders for code readability. `let` expressions allow the same. Being expressions &ndash; which `where` clauses aren't &ndash; `let` expressions are a bit more flexible in their use. However, `where` clauses list the local definitions _after_ the main expression. This allows you to paint the broad strokes of your strategy first, and to fill in the details later. This is so convenient that it amply compensates for `where` clauses not being expressions.
+`where` clauses are your friend!
+Giving meaningful names to subexpressions can do wonders for code readability.
+`let` expressions allow the same.
+Being expressions &ndash; which `where` clauses aren't &ndash; `let` expressions are a bit more flexible in their use.
+However, `where` clauses list the local definitions _after_ the main expression.
+This allows you to paint the broad strokes of your strategy first, and to fill in the details later.
+This is so convenient that it amply compensates for `where` clauses not being expressions.
 
 More on `where` and `let` elsewhere:
 
@@ -30,9 +36,11 @@ More on `where` and `let` elsewhere:
 
 ## Which approach to use?
 
-Code exists primarily for humans to read and reason about. Therefore, in general, go with the approach that _makes the most sense_.
+Code exists primarily for humans to read and reason about.
+Therefore, in general, go with the approach that _makes the most sense_.
 
-All approaches listed here are valid choices unless marked otherwise. Be sure to check out all of their individual pages though: they each have interesting things to say!
+All approaches listed here are valid choices unless marked otherwise.
+Be sure to check out all of their individual pages though: they each have interesting things to say!
 
 
 [conditional-expression]:

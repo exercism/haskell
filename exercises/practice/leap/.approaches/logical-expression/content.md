@@ -19,7 +19,7 @@ We say that the `*` operator has _higher [precedence][wikipedia-precedence]_ tha
 In logic similar ambiguities exist, and these are similarly resolved.
 By convention &ndash; and so in Haskell &ndash;
 
-- _and_ has higher precedence than _or_, and 
+- _and_ has higher precedence than _or_, and
 - _not_ has higher precedence than both _and_ and _or_.
 
 For example, `p || q && r` means the same as `p || (q && r)`.
@@ -49,7 +49,8 @@ The solution highlighted above uses parentheses to group two tests together that
 That is, this solution has the shape `P && (Q || R)`.
 However, if the parentheses were removed the solution would still be correct!
 
-Do you see why? Hint: fill out the [truth tables][wikipedia-truth-table] for both versions.
+Do you see why?
+Hint: fill out the [truth tables][wikipedia-truth-table] for both versions.
 
 This is not possible in general: sometimes `(P && Q) || R` and `P && (Q || R)` disagree.
 
@@ -119,8 +120,10 @@ In the Leap solution highlighted above, laziness results in the following checks
 
 Laziness of `&&` and `||` and clever grouping ensure that only minimal effort is spent:
 
-- 75% of all years are not multiples of 4. For these years only 1 test is done.
-- 24% of all years are multiples of 4 but not of 100. For these, only 2 tests are done.
+- 75% of all years are not multiples of 4.
+  For these years only 1 test is done.
+- 24% of all years are multiples of 4 but not of 100.
+  For these, only 2 tests are done.
 - For the remaining 1% of years, all 3 tests are done.
 
 If we leave out the parentheses, i.e. check for divisibility by 4 and 100 together, the end result is the same but it takes more work to get there:
