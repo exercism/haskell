@@ -1,0 +1,5 @@
+collatz :: Integer -> Maybe Integer
+collatz n = case compare n 1 of
+  LT -> Nothing
+  EQ -> Just 0
+  GT -> (1 +) <$> collatz (if even n then n `div` 2 else 3 * n + 1)
