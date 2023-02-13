@@ -69,11 +69,11 @@ This solution operates in constant space, but is considerably more complex than 
 
 
 [recursion]:
-    https://exercism.org/tracks/python/exercises/hamming/approaches/recursion
+    https://exercism.org/tracks/haskell/exercises/hamming/approaches/recursion
     "Approach: recurse by hand"
 [worker-wrapper]:
-    https://exercism.org/tracks/python/exercises/hamming/approaches/worker-wrapper
+    https://exercism.org/tracks/haskell/exercises/hamming/approaches/worker-wrapper
     "Approach: use a worker&ndash;wrapper construct"
 [zipwith]:
-    https://exercism.org/tracks/python/exercises/hamming/approaches/zipwith
+    https://exercism.org/tracks/haskell/exercises/hamming/approaches/zipwith
     "Approach: using zipWith"

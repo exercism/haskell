@@ -182,7 +182,7 @@ For an example of how to avoid this problem, see the [worker&ndash;wrapper][work
 
 
 [worker-wrapper]:
-    https://exercism.org/tracks/python/exercises/hamming/approaches/worker-wrapper
+    https://exercism.org/tracks/haskell/exercises/hamming/approaches/worker-wrapper
     "Approach: use a worker&ndash;wrapper construct"
 
 

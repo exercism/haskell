@@ -82,7 +82,7 @@ The `/=` operator compares two values and returns `True` precisely when they are
 We use `zipWith` to walk both input lists simultaneously, marking unequal pairs using `(/=)` as we go.
 
 ```haskell
-comparisons = 
+comparisons =
   zipWith (/=)
     [3, 2, 6]
     [5, 2, 4, 7]
@@ -141,8 +141,8 @@ The [explicit recursion][recursion] and [worker&ndash;wrapper][worker-wrapper] a
 
 
 [recursion]:
-    https://exercism.org/tracks/python/exercises/hamming/approaches/recursion
+    https://exercism.org/tracks/haskell/exercises/hamming/approaches/recursion
     "Approach: recurse by hand"
 [worker-wrapper]:
-    https://exercism.org/tracks/python/exercises/hamming/approaches/worker-wrapper
+    https://exercism.org/tracks/haskell/exercises/hamming/approaches/worker-wrapper
     "Approach: use a worker&ndash;wrapper construct"
