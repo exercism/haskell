@@ -1,11 +1,38 @@
 # Introduction
 
-One's 'age' on any particular planet depends on both
+Suppose you are on Mercury.
+The [orbital period][wikipedia-orbital-period] of Mercury is approximately one fourth of an Earth year.
+This means that in one Earth year, Mercury will complete about four whole orbits around the sun.
+As a consequence, your 'age' on Mercury is about four times your age on Earth.
 
-- how long ago one was born, and
-- how long it takes the planet to go around the sun, i.e. its [orbital period][wikipedia-orbital-period].
+More generally, your 'age' on a certain planet is the number of seconds since you birth, divided by the number of seconds it takes the planet to orbit the sun once.
 
-The time past since birth is given, and the relevant orbital period you can figure out by pattern matching.
+The various planets' orbital periods as compared to the Earth's are given.
+To convert them from _Earth years_ per orbit to _seconds_ per orbit you need to multiply this by the number of seconds in one Earth year.
+
+
+## Approach: give meaningful names to important values
+
+```haskell
+ageOn :: Planet -> Float -> Float
+ageOn planet seconds = seconds / (periodInEarthYears * secondsPerEarthYear)
+  where
+    secondsPerEarthYear = 60 * 60 * 24 * 365.25
+
+    periodInEarthYears = case planet of
+      Mercury -> 0.2408467
+      Venus -> 0.61519726
+      Earth -> 1
+      Mars -> 1.8808158
+      Jupiter -> 11.862615
+      Saturn -> 29.447498
+      Uranus -> 84.016846
+      Neptune -> 164.79132
+```
+
+This approach uses a `case` expression to choose the relevant orbital period.
+Also a `where` clause is used to give names to important values.
+This tends to greatly improve readability.
 
 
 ## General guidance
