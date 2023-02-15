@@ -1,10 +1,51 @@
 # Introduction
 
-There are various idiomatic approaches to solve Leap, such as
+There are various idiomatic approaches to solve Leap.
+All approaches listed below check for divisibility by 4, 100, and 400.
+However, they differ in the ways in which they combine these checks.
 
-- constructing [a logical expression][logical-expression],
-- using [guards][guards], and
-- using [a conditional expression][conditional-expression].
+
+## Approach: a logical expression
+
+```haskell
+isLeapYear :: Integer -> Bool
+isLeapYear year = divisibleBy 4 && (not (divisibleBy 100) || divisibleBy 400)
+  where
+    divisibleBy d = year `mod` d == 0
+```
+
+[Read more about this approach][logical-expression].
+
+
+## Approach: use guards
+
+```haskell
+isLeapYear :: Integer -> Bool
+isLeapYear year
+  | indivisibleBy 4   = False
+  | indivisibleBy 100 = True
+  | indivisibleBy 400 = False
+  | otherwise         = True
+  where
+    indivisibleBy d = year `mod` d /= 0
+```
+
+[Read more about this approach][guards].
+
+
+## Approach: a conditional expression
+
+```haskell
+isLeapYear :: Integer -> Bool
+isLeapYear year =
+  if divisibleBy 100
+    then divisibleBy 400
+    else divisibleBy 4
+  where
+    divisibleBy d = year `mod` d == 0
+```
+
+[Read more about this approach][conditional-expression].
 
 
 ## General guidance
