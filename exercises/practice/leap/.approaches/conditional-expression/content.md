@@ -32,6 +32,10 @@ _ = case p of
   True  -> t
   False -> f
 ```
+
+[wikipedia-syntactic-sugar]:
+    https://en.wikipedia.org/wiki/Syntactic_sugar
+    "Wikipedia: Syntactic sugar"
 ~~~~
 
 
@@ -113,6 +117,3 @@ In our solution above we have
 [so-guards-if-cases]:
     https://stackoverflow.com/questions/9345589/
     "StackOverflow: Guards vs. if-then-else vs. cases in Haskell"
-[wikipedia-syntactic-sugar]:
-    https://en.wikipedia.org/wiki/Syntactic_sugar
-    "Wikipedia: Syntactic sugar"

@@ -42,6 +42,10 @@ Here, `infixr 3 &&` indicates that `&&` has precedence 3 and [associates][wikipe
 Similarly, `infixl 6 +` means that `+` has precedence 6 and associates to the left.
 No precedence is shown for `not`, because none has been explicitly defined.
 However, `not` is just a regular function, and function application always has precedence 10.
+
+[wikipedia-associativity]:
+    https://en.wikipedia.org/wiki/Operator_associativity
+    "Wikipedia: Operator associativity"
 ~~~~
 
 ~~~~exercism/note
@@ -55,6 +59,10 @@ Hint: fill out the [truth tables][wikipedia-truth-table] for both versions.
 This is not possible in general: sometimes `(P && Q) || R` and `P && (Q || R)` disagree.
 
 The motivation for the parentheses in the highlighted solution is efficiency; see below.
+
+[wikipedia-truth-table]:
+    https://en.wikipedia.org/wiki/Truth_table
+    "Wikipedia: Truth table"
 ~~~~
 
 
@@ -141,15 +149,9 @@ As you can see, this version always does at least 2 tests.
 [operators-source-code]:
     https://hackage.haskell.org/package/ghc-prim-0.9.0/docs/src/GHC.Classes.html#line-509
     "source code of the logical operators"
-[wikipedia-associativity]:
-    https://en.wikipedia.org/wiki/Operator_associativity
-    "Wikipedia: Operator associativity"
 [wikipedia-non-strict-evaluation]:
     https://en.wikipedia.org/wiki/Evaluation_strategy#Non-strict_evaluation
     "Wikipedia: Non-strict evaluation"
 [wikipedia-precedence]:
     https://en.wikipedia.org/wiki/Order_of_operations
     "Wikipedia: Order of operations"
-[wikipedia-truth-table]:
-    https://en.wikipedia.org/wiki/Truth_table
-    "Wikipedia: Truth table"
