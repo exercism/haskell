@@ -5,7 +5,7 @@ The [orbital period][wikipedia-orbital-period] of Mercury is approximately one f
 This means that in one Earth year, Mercury will complete about four whole orbits around the sun.
 As a consequence, your 'age' on Mercury is about four times your age on Earth.
 
-More generally, your 'age' on a certain planet is the number of seconds since you birth, divided by the number of seconds it takes the planet to orbit the sun once.
+More generally, your 'age' on a certain planet is the number of seconds since your birth, divided by the number of seconds it takes the planet to orbit the sun once.
 
 The various planets' orbital periods as compared to the Earth's are given.
 To convert them from _Earth years_ per orbit to _seconds_ per orbit you need to multiply this by the number of seconds in one Earth year.
@@ -57,7 +57,7 @@ More on `where` and `let` elsewhere:
 
 ### `case` expressions are also your friend!
 
-Many a beginning Haskeller writes code like
+Many beginning Haskellers write code like
 
 ```haskell
 ageOn planet seconds
