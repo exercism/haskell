@@ -79,6 +79,7 @@ ageOn planet seconds =
 
 Pattern matching is a fundamental concept in Haskell, but this document is too short to be able to fully explain it.
 Please consult your other learning resources.
+The track docs include an article on [Haskell learning resources][learning-resources].
 
 Pattern matching with `case` has benefits over using guards:
 
@@ -89,6 +90,11 @@ Pattern matching with `case` has benefits over using guards:
   If you overlook some cases and use guards, the compiler will not help you.
   But if you are pattern matching it will!
 - When you use pattern matching, the compiler can use its understanding of your code to apply code transformations that improve performance.
+
+
+[learning-resources]:
+  https://exercism.org/docs/tracks/haskell/learning 
+  "How to learn Haskell"
 
 
 [haskellwiki-let-vs-where]:
