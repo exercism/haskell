@@ -29,9 +29,9 @@ isPangram text = all (`elem` map toLower text) ['a' .. 'z']
 This solution is simply the definition of _pangram_ put into ~~words~~ code.
 A sentence is a pangram when `all` letters of the alphabet are present.
 
-This solution iterates over the alphabet first and tolerates infinite input.
+This approach iterates over the alphabet first and tolerates infinite input.
 However, it is inefficient for some inputs.
-This can be remedied using `Set`, at the cost of losing tolerance for infinite input.
+This can be remedied using `Set`, at the cost of losing tolerance of infinite input.
 
 [Read more about this approach][all].
 
@@ -46,12 +46,12 @@ isPangram = (['a' .. 'z'] `isSubsequenceOf`) . sort . map toLower
 This approach uses `isSubsequenceOf` or `isSubsetOf` to check that the alphabet forms a subsequence/subset of the input.
 
 Due to `sort` or `Set.fromList`, this approach does not tolerate infinite input.
-It is efficient though: after sorting/accumulating, both the alphabet and the input are walked only once.
+It is efficient though: after sorting/gathering, both the alphabet and the input are walked only once.
 
 [Read more about this approach][substructure].
 
 
-## Approach: cross off all characters at once
+## Approach: cross off all characters in one go
 
 ```haskell
 isPangram :: String -> Bool
