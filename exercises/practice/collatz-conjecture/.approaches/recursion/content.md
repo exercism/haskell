@@ -8,7 +8,7 @@ collatz n = case compare n 1 of
   GT -> (1 +) <$> collatz (if even n then n `div` 2 else 3 * n + 1)
 ```
 
-The number of steps it takes to get to `1` is simply 1 plus however many more steps it will take after taking one step.
+The number of steps it takes to get to `1` is one plus however many more steps it will take after taking one step.
 This suggest a recursive solution.
 
 
@@ -23,8 +23,10 @@ ones :: [Integer]
 ones = 1 : ones
 --          👆
 --      recursion
+
 -- `ones` is infinite, so take care to
 -- ask for only finitely many elements
+
 -- >>> take 5 ones
 -- [1,1,1,1,1]
 ```
@@ -39,6 +41,7 @@ factorial n
   | otherwise = n * factorial (n - 1)
 --                      👆
 --                  recursion
+
 -- >>> factorial 5 == 5 * 4 * 3 * 2 * 1 * 1
 -- True
 ```
@@ -72,7 +75,7 @@ Instead, all 'loopiness' in Haskell is produced through recursion &ndash; if not
 
 First, we compare the input with `1`.
 If it is less than `1` the input is invalid and we return `Nothing`.
-If it is exactly `1`, then the number of steps it takes to reach `1` is 0 &ndash; because we're already there &ndash; so we return `Just 0`.
+If it is exactly `1`, then the number of steps it takes to reach `1` is zero &ndash; because we're already there &ndash; so we return `Just 0`.
 
 If the input is greater than `1`, it'll take at least one step to get to `1`.
 This step we calculate using the Collatz formula:
@@ -147,7 +150,8 @@ A tower of nested `<$>` applications forms!
 For every step a `<$>` layer is added.
 For numbers that take a long time to reach `1` this can take a lot of memory.
 
-(As it happens, Collatz stopping times [tend to be very short][wikipedia-collatz-conjecture-empirical-data]. But the general points still stands.)
+(As it happens, Collatz stopping times [tend to be very short][wikipedia-collatz-conjecture-empirical-data].
+But the general points still stands.)
 
 It is impossible to collapse the tower early.
 `<$>` needs to know whether its right operand is a `Nothing` or a `Just`, but this does not become clear until the last step has been taken.

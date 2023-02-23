@@ -32,7 +32,7 @@ This approach neatly disentangles all four concerns of
 - computing the next Collatz step,
 - computing the sequence of all Collatz steps,
 - truncating this sequence at the first `1`, and
-- counting the number of steps.
+- counting the number of steps,
 
 using only functions from the standard library for all of these except one.
 
