@@ -45,7 +45,7 @@ isPangram = (['a' .. 'z'] `isSubsequenceOf`) . sort . map toLower
 
 This approach uses `isSubsequenceOf` or `isSubsetOf` to check that the alphabet forms a subsequence/subset of the input.
 
-Due to `sort` or `Set.fromList`, this approach does not tolerate infinite input.
+Due to `sort` or `fromList`, this approach does not tolerate infinite input.
 It is efficient though: after sorting/gathering, both the alphabet and the input are walked only once.
 
 [Read more about this approach][substructure].

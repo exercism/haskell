@@ -131,7 +131,7 @@ However, it would allow us to use `isSubsetOf`, which is equivalent to the above
 import Data.Set (fromDistinctAscList, fromList, isSubsetOf)
 
 isPangram :: String -> Bool
-isPangram text = characters `isSubsetOf` alphabet
+isPangram text = alphabet `isSubsetOf` characters
   where
     alphabet = fromDistinctAscList ['a' .. 'z']
     characters = fromList (map toLower text)
