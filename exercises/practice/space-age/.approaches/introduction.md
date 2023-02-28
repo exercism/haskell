@@ -66,7 +66,7 @@ ageOn planet seconds
   | {- etc. -}        = _
 ```
 
-This is an [anti-pattern][wikipedia-anti-pattern].
+Using guards like this is an [anti-pattern][wikipedia-anti-pattern].
 Pattern-match instead, for example using a `case` expression:
 
 ```haskell
