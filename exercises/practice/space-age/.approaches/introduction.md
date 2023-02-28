@@ -93,8 +93,8 @@ Pattern matching with `case` has benefits over using guards:
 
 
 [learning-resources]:
-  https://exercism.org/docs/tracks/haskell/learning
-  "How to learn Haskell"
+    https://exercism.org/docs/tracks/haskell/learning
+    "How to learn Haskell"
 
 
 [haskellwiki-let-vs-where]:
