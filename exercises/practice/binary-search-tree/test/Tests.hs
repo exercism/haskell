@@ -39,6 +39,11 @@ specs = do
       bstValue t `shouldBe` Just 4
       (bstRight t >>= bstValue) `shouldBe` Just 5
 
+    it "retrieves branches even when they are empty" $ do
+      let t = singleton int4
+      bstLeft t `shouldNotBe` Nothing
+      bstRight t `shouldNotBe` Nothing
+
     it "empty list to tree" $
       fromList noInts `shouldBe` empty
 
