@@ -1,4 +1,4 @@
-import Test.Hspec        (Spec, it, shouldBe)
+import Test.Hspec        (Spec, it, shouldBe, shouldNotBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
 import BST
