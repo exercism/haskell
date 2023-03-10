@@ -1,0 +1,8 @@
+responseFor :: Text -> Text
+responseFor (strip -> query)
+  | isSilent = "Fine. Be that way!"
+  | isQuestion && isYelled = "Calm down, I know what I'm doing!"
+  | ...
+  where
+    isSilent = Text.null query
+    isQuestion = (snd <$> unsnoc query) == Just '?'
