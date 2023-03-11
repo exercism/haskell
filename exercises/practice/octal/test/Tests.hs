@@ -1,5 +1,5 @@
 import Test.Hspec        (Spec, it)
-import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+import Test.Hspec.Runner (configFailFast, defaultConfig, hspecWith)
 import Test.QuickCheck   (Positive(Positive), property)
 
 import qualified Numeric as Num (showOct)
@@ -7,7 +7,7 @@ import qualified Numeric as Num (showOct)
 import Octal (readOct, showOct)
 
 main :: IO ()
-main = hspecWith defaultConfig {configFastFail = True} specs
+main = hspecWith defaultConfig {configFailFast = True} specs
 
 specs :: Spec
 specs = do

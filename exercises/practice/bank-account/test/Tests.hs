@@ -4,7 +4,7 @@ import Data.Foldable      (for_)
 import Data.Traversable   (for)
 import Data.Maybe         (isNothing, catMaybes)
 import Test.Hspec         (Spec, it, shouldReturn)
-import Test.Hspec.Runner  (configFastFail, defaultConfig, hspecWith)
+import Test.Hspec.Runner  (configFailFast, defaultConfig, hspecWith)
 
 import BankAccount
   ( closeAccount
@@ -14,7 +14,7 @@ import BankAccount
   )
 
 main :: IO ()
-main = hspecWith defaultConfig {configFastFail = True} specs
+main = hspecWith defaultConfig {configFailFast = True} specs
 
 specs :: Spec
 specs = do

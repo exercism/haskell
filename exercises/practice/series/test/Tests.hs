@@ -4,12 +4,12 @@
 
 import GHC.Exts          (toList)
 import Test.Hspec        (Spec, it, shouldBe)
-import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+import Test.Hspec.Runner (configFailFast, defaultConfig, hspecWith)
 
 import Series (slices)
 
 main :: IO ()
-main = hspecWith defaultConfig {configFastFail = True} specs
+main = hspecWith defaultConfig {configFailFast = True} specs
 
 specs :: Spec
 specs = do

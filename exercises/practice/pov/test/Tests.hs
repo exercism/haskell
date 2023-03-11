@@ -5,12 +5,12 @@ import Data.Function     (on)
 import Data.Tree         (Tree(Node), rootLabel)
 import Data.List         (sort)
 import Test.Hspec        (Spec, describe, it, shouldBe)
-import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+import Test.Hspec.Runner (configFailFast, defaultConfig, hspecWith)
 
 import POV (fromPOV, tracePathBetween)
 
 main :: IO ()
-main = hspecWith defaultConfig {configFastFail = True} specs
+main = hspecWith defaultConfig {configFailFast = True} specs
 
 specs :: Spec
 specs = do

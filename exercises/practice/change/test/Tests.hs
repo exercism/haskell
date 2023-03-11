@@ -3,12 +3,12 @@
 import Data.Foldable     (for_)
 import Data.List         (sort)
 import Test.Hspec        (Spec, it, shouldBe)
-import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+import Test.Hspec.Runner (configFailFast, defaultConfig, hspecWith)
 
 import Change (findFewestCoins)
 
 main :: IO ()
-main = hspecWith defaultConfig {configFastFail = True} specs
+main = hspecWith defaultConfig {configFailFast = True} specs
 
 specs :: Spec
 specs = for_ cases test

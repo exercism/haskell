@@ -5,13 +5,13 @@ import Control.Monad     (forM_, unless)
 import Data.Foldable     (for_)
 import Data.Function     (on)
 import Test.Hspec        (Spec, describe, expectationFailure, it, shouldBe, shouldMatchList)
-import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+import Test.Hspec.Runner (configFailFast, defaultConfig, hspecWith)
 import Text.Printf       (printf)
 
 import Dominoes (chain)
 
 main :: IO ()
-main = hspecWith defaultConfig {configFastFail = True} specs
+main = hspecWith defaultConfig {configFailFast = True} specs
 
 specs :: Spec
 specs = describe "chain" $ for_ cases test

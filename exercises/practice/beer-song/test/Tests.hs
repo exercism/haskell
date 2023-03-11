@@ -1,11 +1,11 @@
 import Control.Monad     (unless)
 import Test.Hspec        (Spec, describe, expectationFailure, it, shouldBe)
-import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+import Test.Hspec.Runner (configFailFast, defaultConfig, hspecWith)
 
 import Beer (song)
 
 main :: IO ()
-main = hspecWith defaultConfig {configFastFail = True} specs
+main = hspecWith defaultConfig {configFailFast = True} specs
 
 specs :: Spec
 
