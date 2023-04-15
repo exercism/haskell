@@ -102,11 +102,11 @@ The definition of `length'` allows evaluation to proceed as follows as well.
 
 ```haskell
 _ =  length' 0 "abcde"
-  == length (1 + 0) "bcde"
-  == length (1 + (1 + 0)) "cde"
-  == length (1 + (1 + (1 + 0))) "de"
-  == length (1 + (1 + (1 + (1 + 0)))) "e"
-  == length (1 + (1 + (1 + (1 + (1 + 0))))) ""
+  == length' (1 + 0) "bcde"
+  == length' (1 + (1 + 0)) "cde"
+  == length' (1 + (1 + (1 + 0))) "de"
+  == length' (1 + (1 + (1 + (1 + 0)))) "e"
+  == length' (1 + (1 + (1 + (1 + (1 + 0))))) ""
   == 1 + (1 + (1 + (1 + (1 + 0))))
   == 1 + (1 + (1 + (1 + 1)))
   == 1 + (1 + (1 + 2))
