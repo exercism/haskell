@@ -89,7 +89,7 @@ This is the only logic that is provided by us instead of by the standard library
 The sequence of steps should be terminated at the first `1`.
 `unfoldr` does this by itself, but `iterate` needs some help from `takeWhile`.
 
-With a complete sequence of steps, the only thing that remains to be done is count them.
+With a complete sequence of steps, the only thing that remains to be done is to count them.
 We simply use `length` for this.
 
 Haskell's laziness helps this approach be efficient.
