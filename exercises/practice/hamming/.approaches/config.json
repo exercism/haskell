@@ -1,0 +1,36 @@
+{
+    "introduction": {
+        "authors": [
+            "MatthijsBlom"
+        ]
+    },
+    "approaches": [
+        {
+            "uuid": "a507e7c2-4f43-4b91-9b71-739a0e28f153",
+            "slug": "zipwith",
+            "title": "zipWith",
+            "blurb": "Use zipWith and length to count unequal pairs.",
+            "authors": [
+                "MatthijsBlom"
+            ]
+        },
+        {
+            "uuid": "998f40e9-359d-490f-a5e0-c1ad0ecaf819",
+            "slug": "recursion",
+            "title": "Recursion",
+            "blurb": "Recurse by hand and use fmap.",
+            "authors": [
+                "MatthijsBlom"
+            ]
+        },
+        {
+            "uuid": "941d3f38-6fa7-4c51-9c47-f273de1787be",
+            "slug": "worker-wrapper",
+            "title": "Worker–wrapper",
+            "blurb": "Use a worker–wrapper construct to attain optimal performance.",
+            "authors": [
+                "MatthijsBlom"
+            ]
+        }
+    ]
+}

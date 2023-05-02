@@ -1,0 +1,6 @@
+distance :: String -> String -> Maybe Int
+distance = go 0
+  where
+    go !n (x : xs) (y : ys) = go (if x == y then n else n + 1) xs ys
+    go !n [] [] = Just n
+    go _ _ _ = Nothing
