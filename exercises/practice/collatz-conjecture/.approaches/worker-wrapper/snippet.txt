@@ -1,0 +1,7 @@
+collatz :: Integer -> Maybe Integer
+collatz n
+  | n > 0 = Just (go 0 n)
+  | otherwise = Nothing
+  where
+    go !acc 1 = acc
+    go !acc k = go (acc + 1) (if even k then k `div` 2 else 3 * k + 1)
