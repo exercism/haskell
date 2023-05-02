@@ -1,0 +1,8 @@
+responseFor :: String -> String
+responseFor query
+  | isSilent = "Fine. Be that way!"
+  | isQuestion && isYelled = "Calm down, I know what I'm doing!"
+  | ...
+  where
+    isSilent = all isSpace query
+    isYelled = any isLetter query && not (any isLower query)

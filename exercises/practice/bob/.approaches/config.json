@@ -1,0 +1,27 @@
+{
+    "introduction": {
+        "authors": [
+            "MatthijsBlom"
+        ]
+    },
+    "approaches": [
+        {
+            "uuid": "74392bc6-55dd-4386-9104-4123507b1873",
+            "slug": "string",
+            "title": "Using String",
+            "blurb": "Represent text using the String data type and use standard library functions to process it.",
+            "authors": [
+                "MatthijsBlom"
+            ]
+        },
+        {
+            "uuid": "6a83ebb1-76a0-4be1-a9fe-c519a97b2707",
+            "slug": "text",
+            "title": "Using Text",
+            "blurb": "Represent text using the more specialized Text data type. Also, use a view pattern to eliminate an unnecessary name.",
+            "authors": [
+                "MatthijsBlom"
+            ]
+        }
+    ]
+}
