@@ -1,6 +1,6 @@
 import Control.Arrow     ((&&&))
 import Test.Hspec        (Spec, it, shouldBe, shouldNotBe)
-import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+import Test.Hspec.Runner (configFailFast, defaultConfig, hspecWith)
 import Test.QuickCheck   (Gen, choose, elements, forAllShow, listOf1, vector)
 
 import qualified Data.Vector as Vector (fromList)
@@ -20,7 +20,7 @@ import Matrix
   )
 
 main :: IO ()
-main = hspecWith defaultConfig {configFastFail = True} specs
+main = hspecWith defaultConfig {configFailFast = True} specs
 
 specs :: Spec
 specs = do

@@ -1,10 +1,10 @@
 import Test.Hspec        (Spec, it, shouldReturn)
-import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+import Test.Hspec.Runner (configFailFast, defaultConfig, hspecWith)
 
 import Deque (mkDeque, pop, push, shift, unshift)
 
 main :: IO ()
-main = hspecWith defaultConfig {configFastFail = True} specs
+main = hspecWith defaultConfig {configFailFast = True} specs
 
 {-# ANN module "HLint: ignore Reduce duplication" #-}
 specs :: Spec

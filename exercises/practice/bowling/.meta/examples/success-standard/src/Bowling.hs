@@ -30,16 +30,17 @@ scoreRoll scoreState rolls' = do
 
 scoreRoll' :: Frame -> Int -> Int -> [Roll] -> ScoreState
 scoreRoll' _ ri _ (r:_) | r < 0 || r > 10 = Left $ InvalidRoll ri r
-scoreRoll' f@(Frame 10 (fr:_)) ri totalScore (r:_)
-  | throws f < 2 = Right (addRoll f r, succ ri, totalScore + fr + r)
-  | throws f == 2 && (fr == 10 || spare f) = addFillBall
-  | otherwise = Left $ InvalidRoll ri r -- no more rolls possible
+scoreRoll' f@(Frame 10 (fr:_)) ri totalScore (r:_) = case rolls f of
+  [_] -> Right (addRoll f r, succ ri, totalScore + fr + r)
+  [firstRoll, secondRoll] | fr == 10 || spare f -> addFillBall firstRoll secondRoll
+                          | otherwise -> noMoreRollsPossible
+  _ -> noMoreRollsPossible
   where
-    addFillBall :: ScoreState
-    addFillBall
+    noMoreRollsPossible = Left $ InvalidRoll ri r
+    addFillBall :: Int -> Int -> ScoreState
+    addFillBall firstRoll secondRoll
       | firstRoll == 10 && secondRoll /= 10 && secondRoll + r > 10 = Left $ InvalidRoll ri r
       | otherwise = Right (addRoll f r, succ ri, totalScore + r)
-      where [firstRoll, secondRoll] = rolls f
 scoreRoll' f@(Frame n _) ri totalScore rs@(r:_)
   | complete f = Right (Frame (succ n) [r], succ ri, totalScore + fscore f rs)
   | pins f + r <= 10 = Right (addRoll f r, succ ri, totalScore)

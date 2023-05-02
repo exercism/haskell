@@ -45,7 +45,7 @@ in an *import statement* in the test suite, usually at the beginning:
 
 ```haskell
 import Test.Hspec        (Spec, describe, it, shouldBe)
-import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+import Test.Hspec.Runner (configFailFast, defaultConfig, hspecWith)
 
 import ModuleName (someFunc)
 

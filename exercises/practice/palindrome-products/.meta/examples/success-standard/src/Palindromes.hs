@@ -5,9 +5,9 @@ type Comparator a = a -> a -> Ordering
 type Product2 a = (a, [(a, a)])
 
 isPalindrome :: Integral a => a -> Bool
-isPalindrome x = x < base || lastDigit /= 0 && digits == reverse digits
+isPalindrome x = x < base || head digits /= 0 && digits == reverse digits
   where base = 10
-        digits@(lastDigit:_) = revDigitsBase base x
+        digits = revDigitsBase base x
 
 revDigitsBase :: Integral a => a -> a -> [a]
 revDigitsBase base = go

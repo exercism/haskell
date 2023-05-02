@@ -11,9 +11,7 @@ data Animal = Fly | Spider | Bird | Cat | Dog | Goat | Cow | Horse
 -- animals. E.g. animalNames ! Fly == "fly"
 animalNames :: Array Animal String
 animalNames = listArray (Fly, Horse) $ map showLower [Fly ..]
-  where showLower a = let (h:t) = show a
-                      in (toLower h : t)
-
+  where showLower = map toLower . show
 song :: String
 song = init . unlines $ map verse [Fly ..]
 

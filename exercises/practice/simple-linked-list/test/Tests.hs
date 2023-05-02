@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 
 import Test.Hspec                (Spec, it, shouldBe)
-import Test.Hspec.Runner         (configFastFail, defaultConfig, hspecWith)
+import Test.Hspec.Runner         (configFailFast, defaultConfig, hspecWith)
 import Test.QuickCheck           (property)
 import Test.QuickCheck.Arbitrary (Arbitrary, arbitrary)
 
@@ -26,7 +26,7 @@ nthDatum xs 0 = datum xs
 nthDatum xs n = nthDatum (next xs) (pred n)
 
 main :: IO ()
-main = hspecWith defaultConfig {configFastFail = True} specs
+main = hspecWith defaultConfig {configFailFast = True} specs
 
 specs :: Spec
 specs = do
