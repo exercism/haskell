@@ -4,16 +4,8 @@ import Test.Hspec.Runner (configFailFast, defaultConfig, hspecWith)
 
 import Gigasecond (fromDay)
 
-import Data.Time.Format
-  ( ParseTime
-  , TimeLocale
-  , defaultTimeLocale
-  , iso8601DateFormat
-  , parseTimeOrError
-  )
-
-readTime :: ParseTime t => TimeLocale -> String -> String -> t
-readTime = parseTimeOrError True
+import Data.Maybe (fromJust)
+import Data.Time.Format.ISO8601 (iso8601ParseM)
 
 main :: IO ()
 main = hspecWith defaultConfig {configFailFast = True} specs
@@ -21,8 +13,7 @@ main = hspecWith defaultConfig {configFailFast = True} specs
 specs :: Spec
 specs = describe "fromDay" $ do
 
-          let dt = readTime defaultTimeLocale
-                   (iso8601DateFormat (Just "%T%Z")) :: String -> UTCTime
+          let dt = fromJust . iso8601ParseM :: String -> UTCTime
 
           it "from apr 25 2011" $
             fromDay (dt "2011-04-25T00:00:00Z")
