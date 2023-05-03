@@ -79,6 +79,7 @@ Here is a possible definition of `any`:
 ```haskell
 or :: [Bool] -> Bool
 or = foldr (||) True
+
 any p = or . map p
 ```
 
