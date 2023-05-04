@@ -50,7 +50,7 @@ You can use `fmap`/`<$>` for this.
 [Read more about this approach][recursion]
 
 
-## Approach: a worker&wrapper construct
+## Approach: a worker&ndash;wrapper construct
 
 ```haskell
 distance :: String -> String -> Maybe Int

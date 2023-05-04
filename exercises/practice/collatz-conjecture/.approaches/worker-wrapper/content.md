@@ -22,9 +22,9 @@ However, variables do not exist in Haskell: all bindings are constants.
 
 In lieu of local variables we can add extra parameters to our functions.
 These will hold our state.
-'Changing' of the state is done by calling the same functions with different arguments.
+'Changing' the state is done by calling the same functions (recursively) with different arguments.
 
-Functions that uses such additional parameters to represent state are often called _workers_, and functions that use them are often called _wrappers_.
+Functions that uses such additional parameters to represent state are often called _workers_, and functions that use workers to solve a problem in a stateful way are often called _wrappers_.
 
 As an example, consider the following possible definition of `length`.
 
@@ -98,7 +98,7 @@ For a few more more examples, see the [relevant wiki article][wiki-worker-wrappe
 ## Bang patterns
 
 The above implementation of `length'` _might_ evaluate as efficiently as illustrated.
-However, it also might not!
+However, depending on which optimization opportunities are spotted by the compiler, it also might not!
 The definition of `length'` allows evaluation to proceed as follows as well.
 
 ```haskell
@@ -122,11 +122,12 @@ The situation is not quite as bad as before though.
 In the case of the naive implementation of `length`, the built up expression has the form
 
 ```haskell
-_ = 1 + (1 + (⋯(1 + length xs)⋯))
+_ = 1 + (1 + (⋯(1 + length …)⋯))
 ```
 
-This expression cannot be simplified before `length xs` has been evaluated.
-As a consequence, it must grow as big as the original list.
+This expression cannot be simplified before `length …` has been evaluated.
+That is, simplification cannot begin until the last recursive step has been evaluated.
+As a consequence, the computation must grow as big as the original list.
 
 The computation built up by `length'` on the other hand has the form
 
@@ -141,7 +142,7 @@ Haskell offers various ways to force intermediate evaluation.
 One convenient tool is the _bang pattern_, enabled by the `BangPatterns` language extension.
 
 ```haskell
-{-# LANGUAGE BangPatterns #-}  -- at the top of the file
+{-# LANGUAGE BangPatterns #-}  -- 👈 at the top of the file
 
 length'' :: Int -> [a] -> Int
 length'' !count []     = count

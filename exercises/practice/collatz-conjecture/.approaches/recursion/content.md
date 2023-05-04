@@ -74,7 +74,7 @@ Instead, all 'loopiness' in Haskell is produced through recursion &ndash; if not
 ## In this approach
 
 First, we compare the input with `1`.
-If it is less than `1` the input is invalid and we return `Nothing`.
+If it is less than `1` then the input is invalid and we return `Nothing`.
 If it is exactly `1`, then the number of steps it takes to reach `1` is zero &ndash; because we're already there &ndash; so we return `Just 0`.
 
 If the input is greater than `1`, it'll take at least one step to get to `1`.

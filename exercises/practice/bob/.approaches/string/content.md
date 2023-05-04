@@ -58,14 +58,20 @@ How do these work?
 
 ~~~~exercism/advanced
 To find they actual definitions of `any` and `all`, look up their documentation (for example through [Hoogle][hoogle]) and click on the «Source» link next to the type signature.
+
 The definitions of `any` and `all` look kinda complicated!
 They are this way so that they can also be used on types other than lists, such as `Set`, `Map`, and `Tree`.
 Specifically, they can be used on any type that is an instance of the `Foldable` type class.
+
 In the source code, you can click on names to jump to their definitions.
 This doesn't really work for `foldMap` here though: it sends you to its default (general) implementation, but here we need its implementation for lists specifically.
 To find that code, navigate to the documentation of `Foldable`, look up `[]` in the list of «Instances», and click «Source».
+
 It might be hard to see &ndash; even after lots of clicking through to definitions &ndash; but these definitions of `any` and `all` work essentially the same way as the one outlined here below.
-[hoogle]: https://hoogle.haskell.org/ "Hoogle"
+
+[hoogle]:
+    https://hoogle.haskell.org/
+    "Hoogle"
 ~~~~
 
 Here is a possible definition of `any`:
@@ -73,6 +79,7 @@ Here is a possible definition of `any`:
 ```haskell
 or :: [Bool] -> Bool
 or = foldr (||) True
+
 any p = or . map p
 ```
 

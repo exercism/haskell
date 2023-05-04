@@ -33,10 +33,10 @@ dependencies:
 Thereafter you can import functions as you would normally:
 
 ```haskell
--- these names can be used by themselves
+-- allow using the following names by themselves
 import Data.Text (Text, strip, unsnoc)
 
--- all other names from `Data.Text` need to be prefixed with `Text.`
+-- require all other names from `Data.Text` to be prefixed with `Text.`
 import qualified Data.Text as Text
 ```
 
@@ -131,8 +131,8 @@ minimum unsorted =
 
 This is a bit more verbose.
 But more importantly it introduces an extra name: `unsorted`.
-We intend to use only once (to `sort` it), but we might use it in more places by accident.
+We intend to use it only once (to `sort` it), but we might accidentally use it in more places.
 By eliminating the need for an extra name, the view pattern makes it impossible to make this mistake.
 
 The solution highlighted above uses a view pattern to remove initial and trailing spaces from the input.
-That way, `isSilent` and `isQuestion` need not do it themselves anymore, or the introduction of an otherwise unnecessary name is avoided.
+That way, `isSilent` and `isQuestion` need not do it themselves anymore, or the introduction of an otherwise unnecessary name (for the stripped query) is avoided.
