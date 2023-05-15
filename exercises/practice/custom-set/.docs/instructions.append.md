@@ -24,4 +24,4 @@ newtype or type synonym.
 If you're interested in writing an efficient implementation but don't quite
 know where to start, the best primer I know of is Chris Okasaki's
 "Purely Functional Data Structures", which you can read a version of here:
-https://www.cs.cmu.edu/~rwh/theses/okasaki.pdf
+[https://www.cs.cmu.edu/~rwh/theses/okasaki.pdf](https://doc.lagout.org/programmation/Functional%20Programming/Chris_Okasaki-Purely_Functional_Data_Structures-Cambridge_University_Press%281998%29.pdf)
