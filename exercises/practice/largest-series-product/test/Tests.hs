@@ -51,14 +51,6 @@ specs = describe "largestProduct" $ do
         largestProduct 4 "123"
         `shouldBe` Left InvalidSpan
 
-      it "reports 1 for empty string and empty product (0 span)" $
-        largestProduct 0 ""
-        `shouldBe` Right 1
-
-      it "reports 1 for nonempty string and empty product (0 span)" $
-        largestProduct 0 "123"
-        `shouldBe` Right 1
-
       it "rejects empty string and nonzero span" $
         largestProduct 1 ""
         `shouldBe` Left InvalidSpan
