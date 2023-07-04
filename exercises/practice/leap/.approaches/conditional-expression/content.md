@@ -56,9 +56,9 @@ Once we know if the year is a multiple of 100, we know which further test to per
 
 - need an expression that
 - chooses between exactly two options
-- depending on a single `Boolean`.
+- depending on a single `Bool`.
 
-When you have something other than a `Boolean`, use `case` instead.
+When you have something other than a `Bool`, use `case` instead.
 
 When you do not strictly need an expression, an alternative is to [use guards][guards].
 
