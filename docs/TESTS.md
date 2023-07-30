@@ -84,6 +84,26 @@ library:
     - bar
 ```
 
+While working locally, you can use any packages you like.
+The online test runner, however, has access to only a limited set of packages.
+The available packages are
+
+- the ones that come pre-installed with GHC (most notably `base`,  `containers`,  `array`,  `time`,  `mtl`, `deepseq`,  `exceptions`, `bytestring`), plus
+- those pre-built for the test runner, listed at [haskell-test-runner/pre-compiled/package.yaml](https://github.com/exercism/haskell-test-runner/blob/main/pre-compiled/package.yaml).
+
+If you submit a solution that uses a package that is not available, then the test runner will run into its lack of internet access and produce an error that looks like this:
+
+```text
+Cabal file info not found for unavailable-package-1.0@..., updating
+Selected mirror https://hackage.haskell.org/
+Downloading root
+HttpExceptionRequest Request {
+  host                 = "hackage.haskell.org"
+  ...
+}
+ (ConnectionFailure ...)
+```
+
 ### Running *GHCi*
 
 If you want to play with your solution in GHCi, just run the command:
