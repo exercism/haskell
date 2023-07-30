@@ -84,14 +84,6 @@ library:
     - bar
 ```
 
-Then, when submitting your solution, remember to submit `package.yaml` as
-well (otherwise the solution will fail). From the project's top-level
-directory run:
-
-```bash
-exercism submit package.yaml src/ModuleName.hs
-```
-
 ### Running *GHCi*
 
 If you want to play with your solution in GHCi, just run the command:
