@@ -6,9 +6,7 @@ and implement the following functions:
 - `bearing`
 - `coordinates`
 - `mkRobot`
-- `simulate`
-- `turnLeft`
-- `turnRight`
+- `move`
 
 You will find a dummy data declaration and type signatures already in place,
 but it is up to you to define the functions and create a meaningful data type,
