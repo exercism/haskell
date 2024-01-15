@@ -123,6 +123,18 @@
         ]
       },
       {
+        "slug": "reverse-string",
+        "name": "Reverse String",
+        "uuid": "8ed8f6d7-ee0a-4d61-99b5-c8b86f01c5de",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 1,
+        "topics": [
+          "strings",
+          "lists"
+        ]
+      },
+      {
         "slug": "space-age",
         "name": "Space Age",
         "uuid": "6cbb7841-9d96-4528-88e3-6e98a450fd7c",
