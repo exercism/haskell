@@ -673,6 +673,18 @@
         ]
       },
       {
+        "slug": "affine-cipher",
+        "name": "Affine Cipher",
+        "uuid": "31d1b9b8-558c-46ee-8d11-c2217ad5fd77",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 6,
+        "topics": [
+          "algorithms",
+          "strings"
+        ]
+      },
+      {
         "slug": "alphametics",
         "name": "Alphametics",
         "uuid": "154c2191-7746-497c-bf4e-37a5a5ffbb0b",
