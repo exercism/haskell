@@ -1,0 +1,16 @@
+name: knapsack
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: Knapsack
+  source-dirs: src
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - knapsack
+      - hspec

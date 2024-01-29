@@ -490,6 +490,17 @@
         ]
       },
       {
+        "slug": "knapsack",
+        "name": "Knapsack",
+        "uuid": "1be3e783-d240-4a4b-bb45-ff2ce4d36374",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 7,
+        "topics": [
+          "algorithms"
+        ]
+      },
+      {
         "slug": "go-counting",
         "name": "Go Counting",
         "uuid": "8f1854d7-b8cb-4dfa-9e6a-8811b0891798",
