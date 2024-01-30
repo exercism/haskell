@@ -1110,6 +1110,19 @@
         ]
       },
       {
+        "slug": "rational-numbers",
+        "name": "Rational Numbers",
+        "uuid": "b4426fe9-2e49-48c5-9dea-c86032009687",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3,
+        "topics": [
+          "define_type",
+          "math",
+          "number_theory"
+        ]
+      },
+      {
         "slug": "largest-series-product",
         "name": "Largest Series Product",
         "uuid": "5f92b1d3-b2cb-463e-b6da-347473ef4c30",
