@@ -1,5 +1,7 @@
 {
-  "authors": [],
+  "authors": [
+    "tofische"
+  ],
   "files": {
     "solution": [
       "src/Knapsack.hs",
