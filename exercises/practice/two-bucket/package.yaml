@@ -1,0 +1,22 @@
+name: two-bucket
+version: 1.0.0.0
+
+dependencies:
+  - base
+  - mtl
+
+library:
+  exposed-modules: TwoBucket
+  source-dirs: src
+  ghc-options: -Wall
+  # dependencies:
+  # - foo       # List here the packages you
+  # - bar       # want to use in your solution.
+
+tests:
+  test:
+    main:        Tests.hs
+    source-dirs: test
+    dependencies:
+    - two-bucket
+    - hspec
