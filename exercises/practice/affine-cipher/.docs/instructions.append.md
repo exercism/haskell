@@ -17,10 +17,8 @@ import qualified Data.Text as T
 import           Data.Text (Text)
 ```
 
-- use the `Text` type e.g. `decode :: Text -> Text` and refer to
-  `Data.Text` combinators as e.g. `T.pack`.
-- look up the documentation for
-  [`Data.Text`](https://hackage.haskell.org/package/text/docs/Data-Text.html).
+- use the `Text` type e.g. `decode :: Text -> Text` and refer to `Data.Text` combinators as e.g. `T.pack`.
+- look up the documentation for [`Data.Text`](https://hackage.haskell.org/package/text/docs/Data-Text.html).
 - replace all occurrences of `String` with `Text` in Affine.hs, i.e.:
 
 ```haskell
