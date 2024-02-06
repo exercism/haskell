@@ -1,5 +1,3 @@
-# Introduction
-
 Suppose you are on Mercury.
 The [orbital period][wikipedia-orbital-period] of Mercury is approximately one fourth of an Earth year.
 This means that in one Earth year, Mercury will complete about four whole orbits around the sun.
@@ -11,7 +9,7 @@ The various planets' orbital periods as compared to the Earth's are given.
 To convert them from _Earth years_ per orbit to _seconds_ per orbit you need to multiply this by the number of seconds in one Earth year.
 
 
-## Approach: give meaningful names to important values
+# Approach: give meaningful names to important values
 
 ```haskell
 ageOn :: Planet -> Float -> Float
@@ -35,9 +33,9 @@ Also a `where` clause is used to give names to important values.
 This tends to greatly improve readability.
 
 
-## General guidance
+# General guidance
 
-### `where` clauses are your friend!
+## `where` clauses are your friend!
 
 Giving meaningful names to subexpressions can do wonders for code readability.
 `let` expressions allow the same.
@@ -55,7 +53,7 @@ More on `where` and `let` elsewhere:
   - [`let` and `where` revisited][wikibook-let-vs-where]
 
 
-### `case` expressions are also your friend!
+## `case` expressions are also your friend!
 
 Many beginning Haskellers write code like
 

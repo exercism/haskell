@@ -1,5 +1,3 @@
-# `zipWith`
-
 ```haskell
 distance :: String -> String -> Maybe Int
 distance xs ys
@@ -13,7 +11,7 @@ The most straightforward way of solving this problem is to
 - iterate over both inputs together to count their differences.
 
 
-## Higher-order functions
+# Higher-order functions
 
 Higher-order functions are functions that take functions as arguments.
 Examples well-known even outside of Haskell are `map` and `filter`.
@@ -65,7 +63,7 @@ Still other examples include
   ```
 
 
-## In this approach
+# In this approach
 
 After making sure that the lengths are equal, we count the number of places in which the inputs differ.
 
@@ -125,7 +123,7 @@ distance xs ys
 ```
 
 
-## Considerations on this approach
+# Considerations on this approach
 
 This style of solution is very easy to understand.
 This is a very important quality for code to have!

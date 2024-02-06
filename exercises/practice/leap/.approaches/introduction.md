@@ -1,11 +1,9 @@
-# Introduction
-
 There are various idiomatic approaches to solve Leap.
 All approaches listed below check for divisibility by 4, 100, and 400.
 However, they differ in the ways in which they combine these checks.
 
 
-## Approach: a logical expression
+# Approach: a logical expression
 
 ```haskell
 isLeapYear :: Integer -> Bool
@@ -17,7 +15,7 @@ isLeapYear year = divisibleBy 4 && (not (divisibleBy 100) || divisibleBy 400)
 [Read more about this approach][logical-expression].
 
 
-## Approach: use guards
+# Approach: use guards
 
 ```haskell
 isLeapYear :: Integer -> Bool
@@ -33,7 +31,7 @@ isLeapYear year
 [Read more about this approach][guards].
 
 
-## Approach: a conditional expression
+# Approach: a conditional expression
 
 ```haskell
 isLeapYear :: Integer -> Bool
@@ -48,7 +46,7 @@ isLeapYear year =
 [Read more about this approach][conditional-expression].
 
 
-## General guidance
+# General guidance
 
 The key to determining whether a given year is a leap year is to know whether the year is evenly divisible by `4`, `100`, and `400`.
 For determining that, you can use the [`mod` function][mod-function], which yields the remainder after division.
@@ -75,7 +73,7 @@ More on `where` and `let` elsewhere:
   - [`let` and `where` revisited][wikibook-let-vs-where]
 
 
-## Which approach to use?
+# Which approach to use?
 
 Code exists primarily for humans to read and reason about.
 Therefore, in general, go with the approach that _makes the most sense_.

@@ -1,5 +1,3 @@
-# Conditional expression
-
 ```haskell
 isLeapYear :: Integer -> Bool
 isLeapYear year =
@@ -11,7 +9,7 @@ isLeapYear year =
 ```
 
 
-## Conditional expressions
+# Conditional expressions
 
 A _conditional expression_ (`if … then … else …`) is a compound expression that uses a test to determine which of two alternatives to evaluate to.
 Many other languages feature a similar construct, often termed 'ternary operator'.
@@ -39,7 +37,7 @@ _ = case p of
 ~~~~
 
 
-## In this approach
+# In this approach
 
 This approach uses exactly two tests to determine whether a year is a leap year.
 
@@ -50,7 +48,7 @@ Once we know if the year is a multiple of 100, we know which further test to per
 - If the year is _not_ evenly divisible by 100, then `divisibleBy 100` is `False` and so the `if` expression evaluates to `divisibleBy 4`.
 
 
-## When to use `if`?
+# When to use `if`?
 
 `if` expressions might be a good fit when you
 
@@ -82,7 +80,7 @@ _ = case () of
 For more on this question, see [Guards vs. if-then-else vs. cases in Haskell][so-guards-if-cases] on StackOverflow.
 
 
-## An example of lazy evaluation
+# An example of lazy evaluation
 
 Just like 'ternary operators' in other languages, conditional expressions evaluate lazily.
 Specifically, only the relevant branch is evaluated:

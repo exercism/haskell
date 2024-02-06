@@ -1,5 +1,3 @@
-# Logical expression
-
 ```haskell
 isLeapYear :: Integer -> Bool
 isLeapYear year = divisibleBy 4 && (not (divisibleBy 100) || divisibleBy 400)
@@ -10,7 +8,7 @@ isLeapYear year = divisibleBy 4 && (not (divisibleBy 100) || divisibleBy 400)
 We can combine smaller logical statements into larger ones using the logical operators `&&` (and), `||` (or), and `not` (negation).
 
 
-## Precedence
+# Precedence
 
 In school they teach you that `2 + 3 * 4` is to be read as meaning `2 + (3 * 4)`.
 This is a convention, chosen for its convenience.
@@ -66,7 +64,7 @@ The motivation for the parentheses in the highlighted solution is efficiency; se
 ~~~~
 
 
-## An example of laziness
+# An example of laziness
 
 
 Just like in many other languages, Haskell's logical operators display short-circuiting behavior:
