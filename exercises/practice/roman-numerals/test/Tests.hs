@@ -101,4 +101,16 @@ cases = [ Case { description = "1 is a single I"
                , number      = 3000
                , expected    = Just "MMM"
                }
+        , Case { description = "4000 cannot be represented"
+               , number      = 4000
+               , expected    = Nothing
+               }
+        , Case { description = "0 cannot be represented"
+               , number      = 0
+               , expected    = Nothing
+               }
+        , Case { description = "-1 cannot be represented"
+               , number      = -1
+               , expected    = Nothing
+               }
         ]

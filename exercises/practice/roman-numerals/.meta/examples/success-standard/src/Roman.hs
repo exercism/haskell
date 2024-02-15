@@ -1,7 +1,8 @@
 module Roman (numerals) where
 
 numerals :: Int -> Maybe String
-numerals = Just . go numeralMap
+numerals number | number < 1 || number > 3999 = Nothing
+numerals number = Just $ go numeralMap number
   where
     go pairs@((value, digits):pairs') n
       | n >= value = digits ++ go pairs (n - value)
