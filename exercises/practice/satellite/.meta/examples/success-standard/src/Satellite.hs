@@ -3,13 +3,13 @@ module Satellite (treeFromTraversals) where
 import Data.Tree ( Tree(Node) )
 import Data.Set (fromList, size)
 
-treeFromTraversals :: String -> String -> Maybe (Tree Char)
+treeFromTraversals :: Ord a => [a] -> [a] -> Maybe (Tree a)
 treeFromTraversals preorder inorder =
   if (not.null) preorder && length preorder == size (fromList preorder)
   then treeFromTraversals' preorder inorder
   else Nothing
 
-treeFromTraversals' :: String -> String -> Maybe (Tree Char)
+treeFromTraversals' :: Ord a => [a] -> [a] -> Maybe (Tree a)
 treeFromTraversals' preorder inorder = Node root <$> sequence (leftChild <> rightChild)
   where
     root = head preorder

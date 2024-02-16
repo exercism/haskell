@@ -2,5 +2,5 @@ module Satellite (treeFromTraversals) where
 
 import Data.Tree (Tree)
 
-treeFromTraversals :: String -> String -> Maybe (Tree Char)
+treeFromTraversals :: Ord a => [a] -> [a] -> Maybe (Tree a)
 treeFromTraversals preorder inorder = error "You need to implement this function."
