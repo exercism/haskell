@@ -13,6 +13,9 @@
     "example": [
       ".meta/examples/success-standard/src/Satellite.hs"
     ],
+    "editor": [
+      "src/BinaryTree.hs"
+    ],
     "invalidator": [
       "stack.yaml"
     ]

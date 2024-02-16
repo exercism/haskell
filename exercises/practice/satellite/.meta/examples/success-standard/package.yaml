@@ -5,7 +5,9 @@ dependencies:
   - containers
 
 library:
-  exposed-modules: Satellite
+  exposed-modules:
+  - Satellite
+  - BinaryTree
   source-dirs: src
   # dependencies:
 

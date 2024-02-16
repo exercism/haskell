@@ -3,9 +3,9 @@
 import Data.Foldable     (for_)
 import Test.Hspec        (Spec, describe, it, shouldBe)
 import Test.Hspec.Runner (configFailFast, defaultConfig, hspecWith)
-import Data.Tree         (Tree(Node))
 
 import Satellite (treeFromTraversals)
+import BinaryTree (BinaryTree(..))
 
 main :: IO ()
 main = hspecWith defaultConfig {configFailFast = True} specs
@@ -19,7 +19,7 @@ specs = do
 data Case = Case { description :: String
                  , preorder    :: String
                  , inorder     :: String
-                 , expected    :: Maybe (Tree Char)
+                 , expected    :: Maybe (BinaryTree Char)
                  }
 
 cases :: [Case]
@@ -32,12 +32,12 @@ cases =
     , Case { description = "Tree with one item"
            , preorder    = "a"
            , inorder     = "a"
-           , expected    = Just (Node 'a' [])
+           , expected    = Just (Branch Leaf 'a' Leaf)
            }
     , Case { description = "Tree with many items"
            , preorder    = "aixfr"
            , inorder     = "iafxr"
-           , expected    = Just (Node 'a' [Node 'i' [], Node 'x' [Node 'f' [], Node 'r' []]])
+           , expected    = Just (Branch (Branch Leaf 'i' Leaf) 'a' (Branch (Branch Leaf 'f' Leaf) 'x' (Branch Leaf 'r' Leaf)))
            }
     , Case { description = "Reject traversals of different length"
            , preorder    = "ab"

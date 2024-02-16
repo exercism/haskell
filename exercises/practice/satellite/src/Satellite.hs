@@ -1,6 +1,6 @@
 module Satellite (treeFromTraversals) where
 
-import Data.Tree (Tree)
+import BinaryTree (BinaryTree(..))
 
-treeFromTraversals :: Ord a => [a] -> [a] -> Maybe (Tree a)
+treeFromTraversals :: Ord a => [a] -> [a] -> Maybe (BinaryTree a)
 treeFromTraversals preorder inorder = error "You need to implement this function."
