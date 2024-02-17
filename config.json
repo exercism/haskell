@@ -135,6 +135,18 @@
         ]
       },
       {
+        "slug": "darts",
+        "name": "Darts",
+        "uuid": "6f372bfc-3abc-4a86-a164-267837bf9f14",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 1,
+        "topics": [
+          "math",
+          "number_theory"
+        ]
+      },
+      {
         "slug": "space-age",
         "name": "Space Age",
         "uuid": "6cbb7841-9d96-4528-88e3-6e98a450fd7c",
