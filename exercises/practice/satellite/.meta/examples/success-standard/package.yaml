@@ -1,0 +1,20 @@
+name: satellite
+
+dependencies:
+  - base
+  - containers
+
+library:
+  exposed-modules:
+  - Satellite
+  - BinaryTree
+  source-dirs: src
+  # dependencies:
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - satellite
+      - hspec

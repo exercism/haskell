@@ -501,6 +501,17 @@
         ]
       },
       {
+        "slug": "satellite",
+        "name": "Satellite",
+        "uuid": "22136812-8160-49f0-8a0d-f76a2086a34c",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 6,
+        "topics": [
+          "maybe"
+        ]
+      },
+      {
         "slug": "go-counting",
         "name": "Go Counting",
         "uuid": "8f1854d7-b8cb-4dfa-9e6a-8811b0891798",
