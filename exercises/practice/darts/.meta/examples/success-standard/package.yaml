@@ -1,0 +1,16 @@
+name: darts
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: Darts
+  source-dirs: src
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - darts
+      - hspec
