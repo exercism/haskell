@@ -11,11 +11,11 @@ type Moves = [Buckets]
 -- Solution candidates
 type Candidates = [Moves]
 
-measure :: Buckets -> Int -> (Int, Buckets)
+measure :: Buckets -> Int -> Maybe (Int, Buckets)
 measure capacity target =
     if null solution
-    then (0, (0, 0))
-    else let sol = head solution in (length sol - 1, head sol)
+    then Nothing
+    else let sol = head solution in Just (length sol - 1, head sol)
     where
         solution = evalState (solve capacity target) [[(0, 0)]]
 
