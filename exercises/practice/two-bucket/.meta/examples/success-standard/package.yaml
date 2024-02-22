@@ -14,7 +14,7 @@ library:
 
 tests:
   test:
-    main:        Tests.hs
+    main: Tests.hs
     source-dirs: test
     dependencies:
     - two-bucket
