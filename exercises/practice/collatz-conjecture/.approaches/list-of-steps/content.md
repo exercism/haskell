@@ -1,5 +1,3 @@
-# Generate a list of steps
-
 ```haskell
 -- Using `iterate`
 collatz :: Integer -> Maybe Integer
@@ -32,7 +30,7 @@ This approach neatly disentangles all four concerns of
 using only functions from the standard library for all of these except one.
 
 
-## `iterate` and `unfoldr`
+# `iterate` and `unfoldr`
 
 When you have a 'seed' element and a way of computing every next element from it, you can use `iterate` or `unfoldr` to produce the entire sequence.
 
@@ -79,7 +77,7 @@ iterate :: (a -> a) -> a -> [a]
 iterate f = unfoldr (\x -> Just (x, f x))
 ```
 
-## In this approach
+# In this approach
 
 Given any number, `nextStep` will compute the next Collatz number.
 This is the only logic that is provided by us instead of by the standard library.

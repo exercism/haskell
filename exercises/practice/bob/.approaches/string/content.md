@@ -1,5 +1,3 @@
-# Using `String`
-
 ```haskell
 responseFor :: String -> String
 responseFor query
@@ -18,7 +16,7 @@ This solution uses `any` and `all` to determine whether the query consists entir
 It also eschews `last`, which is [partial][wiki-partial-functions], in favor of the safe alternative `lastMay`.
 
 
-## Using dependencies
+# Using dependencies
 
 The function `lastMay` lives in the `Safe` module of the external `safe` package.
 To be able to use it, you need to add this package to the list of dependencies in `package.yaml`:
@@ -36,7 +34,7 @@ import Safe (lastMay)
 ```
 
 
-## `any` & `all`
+# `any` & `all`
 
 `any` and `all` are **higher-order functions** that take a predicate (a function that produces a `Boolean`) and a list as arguments.
 Both check whether elements of the list satisfy the predicate.
@@ -113,7 +111,7 @@ And thanks to laziness, `any` and `all` even work on infinite lists!
 Provided the answer can be determined after looking at finitely many elements, that is.
 
 
-## In this approach
+# In this approach
 
 A query is considered silent when it consists entirely of whitespace characters.
 Which is to say: it is silent when _all_ of its characters are whitespace.

@@ -1,5 +1,3 @@
-# Recursion
-
 ```haskell
 collatz :: Integer -> Maybe Integer
 collatz n = case compare n 1 of
@@ -12,7 +10,7 @@ The number of steps it takes to get to `1` is one plus however many more steps i
 This suggest a recursive solution.
 
 
-## Recursion
+# Recursion
 
 [Recursion][wikipedia-recursion] in Haskell is the phenomenon of functions or values being defined in terms of themselves.
 For example, here is a recursive definition of an (infinite) list:
@@ -71,7 +69,7 @@ Haskell does not provide any dedicated loop devices such as many other languages
 Instead, all 'loopiness' in Haskell is produced through recursion &ndash; if not by you then under the hood of some of the functions you use.
 
 
-## In this approach
+# In this approach
 
 First, we compare the input with `1`.
 If it is less than `1` then the input is invalid and we return `Nothing`.
@@ -126,7 +124,7 @@ theAnswer =
   (1 +) <$> collatz (if even n then n `div` 2 else 3 * n + 1)
 ```
 
-## Considerations on this approach
+# Considerations on this approach
 
 In a way, this solution is elegant.
 However, it suffers an inefficiency.

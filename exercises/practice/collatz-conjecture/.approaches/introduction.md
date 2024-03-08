@@ -1,9 +1,7 @@
-# Introduction
-
 This problem requires iteratively computing the next number in a sequence, until `1` is reached.
 
 
-## Approach: generate a list of steps
+# Approach: generate a list of steps
 
 ```haskell
 -- Using `iterate`
@@ -39,7 +37,7 @@ using only functions from the standard library for all of these except one.
 [Read more about this approach][list-of-steps].
 
 
-## Approach: recursion
+# Approach: recursion
 
 ```haskell
 collatz :: Integer -> Maybe Integer
@@ -54,7 +52,7 @@ While arguably elegant, this approach suffers space usage linear in the number o
 [Read more about this approach][recursion].
 
 
-## Approach: a worker&ndash;wrapper construct
+# Approach: a worker&ndash;wrapper construct
 
 ```haskell
 collatz :: Integer -> Maybe Integer

@@ -1,5 +1,3 @@
-# Recursion
-
 ```haskell
 distance :: String -> String -> Maybe Int
 distance [] [] = Just 0
@@ -8,7 +6,7 @@ distance (x : xs) (y : ys) =
 distance _ _ = Nothing
 ```
 
-## Recursion
+# Recursion
 
 [Recursion][wikipedia-recursion] in Haskell is the phenomenon of functions or values being defined in terms of themselves.
 For example, here is a recursive definition of an (infinite) list:
@@ -67,7 +65,7 @@ Haskell does not provide any dedicated loop devices such as many other languages
 Instead, all 'loopiness' in Haskell is produced through recursion &ndash; if not by you then under the hood of some of the functions you use.
 
 
-## In this approach
+# In this approach
 
 If both inputs are empty, then they are of equal length and they do not have any differing elements, so `Just 0` should be returned.
 
@@ -143,7 +141,7 @@ distance _ _ = Nothing
 ```
 
 
-## Considerations on this approach
+# Considerations on this approach
 
 In a way, this solution is elegant.
 However, it suffers an inefficiency.

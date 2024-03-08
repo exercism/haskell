@@ -1,5 +1,3 @@
-# Guards
-
 ```haskell
 isLeapYear :: Integer -> Bool
 isLeapYear year
@@ -11,7 +9,7 @@ isLeapYear year
     indivisibleBy d = year `mod` d /= 0
 ```
 
-## Guards
+# Guards
 
 Guards can optionally be added to patterns to constrain when they should match.
 For example, in
@@ -46,7 +44,7 @@ Here there is one fewer pattern, but the first one contains one more guard.
 Sequences of guards are analogous to `if`&ndash;`else if` chains in other languages.
 
 
-## In this approach
+# In this approach
 
 When there are not many cases to match against, it is common to use _function definition [syntactic sugar][wikipedia-syntactic-sugar]_ instead of `case` because sometimes that is a bit nicer to read.
 
@@ -121,7 +119,7 @@ This is very similar to the [conditional expression approach][conditional-expres
 
 
 
-## When to use guards?
+# When to use guards?
 
 Many beginning Haskellers write code like
 

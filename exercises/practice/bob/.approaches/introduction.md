@@ -1,12 +1,10 @@
-# Introduction
-
 This problem requires checking against a series of conditions, each associated with a desired output.
 This suggests using guards.
 
 
-## General guidance
+# General guidance
 
-### Beware partial functions
+## Beware partial functions
 
 This problem might tempt you into reaching for `last`.
 However, you should know that it is dangerous:
@@ -25,7 +23,7 @@ For this reason, strive to avoid partial functions.
 It is almost always fairly easy to do so.
 
 
-### Avoid duplicating code
+## Avoid duplicating code
 
 At multiple points in your solution you'll need to know whether the query is a question, or yelled.
 Do not copy&ndash;paste the code for determining this.
@@ -34,7 +32,7 @@ Instead, give meaningful names to these computations and then use these names to
 Likewise, if you strip the query, do so only once.
 
 
-### `where` clauses are your friend!
+## `where` clauses are your friend!
 
 Giving meaningful names to subexpressions can do wonders for code readability.
 `where` clauses allow you to list local definitions at the end of the declaration.
@@ -48,7 +46,7 @@ More on `where` elsewhere:
 - Haskell Wiki: [Let vs. Where][haskellwiki-let-vs-where]
 
 
-### When possible, consider turning functions into constants
+## When possible, consider turning functions into constants
 
 Many beginning Haskellers write code like
 
@@ -104,7 +102,7 @@ responseFor query
 ```
 
 
-## Approach: using `String`
+# Approach: using `String`
 
 ```haskell
 responseFor :: String -> String
@@ -126,7 +124,7 @@ It also eschews `last`, which is [partial][wiki-partial-functions], in favor of 
 [Read more about this approach][string].
 
 
-## Approach: using `Text`
+# Approach: using `Text`
 
 ```haskell
 responseFor :: Text -> Text

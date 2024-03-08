@@ -1,5 +1,3 @@
-# Introduction
-
 To solve this problem, you need to
 
 - check that the two inputs have the same length, and
@@ -8,7 +6,7 @@ To solve this problem, you need to
 The desired output is `Nothing` if the inputs are not equally long, and `Just numberOfDifferences` otherwise.
 
 
-## Approach: `zipWith`
+# Approach: `zipWith`
 
 ```haskell
 distance :: String -> String -> Maybe Int
@@ -30,7 +28,7 @@ While this style of solution might suffer some inefficiency, it should not be di
 [Read more about this approach][zipwith]
 
 
-## Approach: hand-written recursion
+# Approach: hand-written recursion
 
 ```haskell
 distance :: String -> String -> Maybe Int
@@ -50,7 +48,7 @@ You can use `fmap`/`<$>` for this.
 [Read more about this approach][recursion]
 
 
-## Approach: a worker&ndash;wrapper construct
+# Approach: a worker&ndash;wrapper construct
 
 ```haskell
 distance :: String -> String -> Maybe Int

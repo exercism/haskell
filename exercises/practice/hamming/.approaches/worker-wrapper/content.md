@@ -1,5 +1,3 @@
-# Worker&ndash;wrapper
-
 ```haskell
 distance :: String -> String -> Maybe Int
 distance = go 0
@@ -13,7 +11,7 @@ This approach uses an inner _worker_ function to simultaneously walk both lists 
 It also uses a _bang pattern_ to force intermediate evaluation, to guarantee decent space efficiency.
 
 
-## The worker&ndash;wrapper construct
+# The worker&ndash;wrapper construct
 
 Sometimes, when solving a problem, it is more convenient or efficient to keep track of some kind of _state_.
 Many other languages use local variables for this.
@@ -94,7 +92,7 @@ The worker&ndash;wrapper pattern is more general than demonstrated here.
 For a few more more examples, see the [relevant wiki article][wiki-worker-wrapper], and for yet more examples and an explanation of the general pattern see the paper «[The worker/wrapper transformation][paper-worker-wrapper]» (pdf).
 
 
-## Bang patterns
+# Bang patterns
 
 The above implementation of `length'` _might_ evaluate as efficiently as illustrated.
 However, depending on which optimization opportunities are spotted by the compiler, it also might not!

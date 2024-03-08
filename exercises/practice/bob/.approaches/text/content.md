@@ -1,5 +1,3 @@
-# Using `Text`
-
 ```haskell
 responseFor :: Text -> Text
 responseFor (strip -> query)
@@ -19,7 +17,7 @@ This solution works with `Text` instead, which is a data type designed specifica
 It also employs a _view pattern_.
 
 
-## Using dependencies
+# Using dependencies
 
 The `Text` type and associated functions live in the `Data.Text` module of the external `text` package.
 To be able to use it, you need to add this package to the list of dependencies in `package.yaml`:
@@ -41,7 +39,7 @@ import qualified Data.Text as Text
 ```
 
 
-## Language extensions
+# Language extensions
 
 For various reasons, some of GHC's features are locked behind switches known as _language extensions_.
 You can enable these by putting so-called _language pragmas_ at the top of your file:
@@ -59,7 +57,7 @@ module Bob (responseFor) where
 ```
 
 
-### `OverloadedStrings`
+## `OverloadedStrings`
 
 By default, `"abc"` is interpreted by the compiler as denoting a `String`.
 To get a `Text` value instead, you need to explicitly convert using `Text.pack`:
@@ -82,7 +80,7 @@ someText = "abc"
 ```
 
 
-### `ViewPatterns`
+## `ViewPatterns`
 
 Recall, patterns occur in the following positions:
 
