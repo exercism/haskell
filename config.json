@@ -1219,6 +1219,18 @@
         ]
       },
       {
+        "slug": "two-bucket",
+        "name": "Two Bucket",
+        "uuid": "7f741717-13dc-43dd-a20f-9f8b0ad02acc",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 7,
+        "topics": [
+          "algorithms",
+          "logic"
+        ]
+      },
+      {
         "slug": "zebra-puzzle",
         "name": "Zebra Puzzle",
         "uuid": "893da7e3-1e7f-48d0-a8c2-8d84b9ec064f",

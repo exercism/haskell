@@ -1,0 +1,23 @@
+{
+  "authors": [
+    "tofische"
+  ],
+  "files": {
+    "solution": [
+      "src/TwoBucket.hs",
+      "package.yaml"
+    ],
+    "test": [
+      "test/Tests.hs"
+    ],
+    "example": [
+      ".meta/examples/success-standard/src/TwoBucket.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
+    ]
+  },
+  "blurb": "Given two buckets of different size, demonstrate how to measure an exact number of liters.",
+  "source": "Water Pouring Problem",
+  "source_url": "https://demonstrations.wolfram.com/WaterPouringProblem/"
+}
