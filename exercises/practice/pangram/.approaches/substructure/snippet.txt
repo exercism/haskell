@@ -1,0 +1,5 @@
+isPangram :: String -> Bool
+isPangram =
+  (['a' .. 'z'] `isSubsequenceOf`)
+    . sort
+    . map toLower

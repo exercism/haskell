@@ -1,0 +1,45 @@
+{
+    "introduction": {
+        "authors": [
+            "MatthijsBlom"
+        ]
+    },
+    "approaches": [
+        {
+            "uuid": "98321284-dc12-4ba9-9ffa-e4b7c8b99271",
+            "slug": "all",
+            "title": "What it means to be a pangram",
+            "blurb": "Use all to check that all letters are present.",
+            "authors": [
+                "MatthijsBlom"
+            ]
+        },
+        {
+            "uuid": "902089fe-ab1f-4fb1-b7c1-02e50b5b06e2",
+            "slug": "substructure",
+            "title": "Is the alphabet contained in the input?",
+            "blurb": "Use isSubsequenceOf or isSubsetOf to check that the alphabet is part of the input.",
+            "authors": [
+                "MatthijsBlom"
+            ]
+        },
+        {
+            "uuid": "b130e9d5-4468-40c9-b78a-2c9b8f32ae9d",
+            "slug": "cross-off-all",
+            "title": "Cross off all letters at once",
+            "blurb": "Walking over the input, cross off letters of the alphabet as you go and finally check that none are left.",
+            "authors": [
+                "MatthijsBlom"
+            ]
+        },
+        {
+            "uuid": "07f33d97-d2f1-49e9-b23d-965e37749487",
+            "slug": "cross-off-one-by-one",
+            "title": "Cross off letters one by one",
+            "blurb": "Walking over the input, cross off letters of the alphabet one by one, continuously checking whether all have been removed already.",
+            "authors": [
+                "MatthijsBlom"
+            ]
+        }
+    ]
+}
