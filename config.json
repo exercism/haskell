@@ -416,6 +416,17 @@
         ]
       },
       {
+        "slug": "word-search",
+        "name": "Word Search",
+        "uuid": "6d406931-7173-4fc0-b897-798227d09b5e",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5,
+        "topics": [
+          "strings"
+        ]
+      },
+      {
         "slug": "wordy",
         "name": "Wordy",
         "uuid": "0869734e-0629-4db9-8e62-af246e5f91ff",
