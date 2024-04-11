@@ -1,0 +1,16 @@
+name: food-chain
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: GameOfLife
+  source-dirs: src
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - game-of-life
+      - hspec

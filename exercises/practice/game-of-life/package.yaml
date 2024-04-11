@@ -1,0 +1,21 @@
+name: game-of-life
+version: 1.0.0.0
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: GameOfLife
+  source-dirs: src
+  ghc-options: -Wall
+  # dependencies:
+  # - foo       # List here the packages you
+  # - bar       # want to use in your solution.
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - game-of-life
+      - hspec
