@@ -88,7 +88,6 @@ if [ "$exampletype" = "success" -o "$exampletype" = "exemplar" ]; then
     # so the script's exit value = stack's exit value.
     # If statements are reordered, please preserve this property.
     $run "test"
-    $run "purge"
 elif [ "$exampletype" = "fail" ]; then
     echo "testing ${exampledir} - should build, but fail tests"
     if ! $run "build"; then
@@ -99,7 +98,6 @@ elif [ "$exampletype" = "fail" ]; then
         echo "${exampledir} test succeeded unexpectedly"
         exit 1
     fi
-    $run "purge"
 elif [ "$exampletype" = "error" ]; then
     echo "testing ${exampledir} - should fail to build"
     if $run "test" "--no-run-tests"; then
@@ -108,7 +106,6 @@ elif [ "$exampletype" = "error" ]; then
     else
         rm -rf "${examplecache}"
     fi
-    $run "purge"
 else
     echo "unknown example type: ${exampledir}"
     exit 1
