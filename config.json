@@ -335,6 +335,15 @@
         "topics": []
       },
       {
+        "slug": "game-of-life",
+        "name": "Game of Life",
+        "uuid": "eb221634-15c6-463c-8268-54a3c3aa0c66",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 7,
+        "topics": []
+      },
+      {
         "slug": "perfect-numbers",
         "name": "Perfect Numbers",
         "uuid": "928b22c5-f2bd-4496-8605-fcff2dad2c3a",
