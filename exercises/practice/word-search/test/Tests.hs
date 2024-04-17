@@ -13,43 +13,43 @@ main = hspecWith defaultConfig {configFailFast = True} specs
 specs :: Spec
 specs =  describe "search" $ for_ cases test
   where
-    test Case{..} = it description $ search grid words `shouldBe` expected
+    test Case{..} = it description $ search grid wordList `shouldBe` expected
 
 data Case = Case { description :: String
                  , grid        :: [String]
-                 , words       :: [String]
+                 , wordList    :: [String]
                  , expected    :: [(String, Maybe WordPos)]
                  }
 
 cases :: [Case]
 cases = [ Case { description = "Should accept an initial game grid and a target search word"
                , grid        = [ "jefblpepre" ]
-               , words       = [ "clojure" ]
+               , wordList    = [ "clojure" ]
                , expected    = [ ("clojure", Nothing) ]
                }
         , Case { description = "Should locate one word written left to right"
                , grid        = [ "clojurermt" ]
-               , words       = [ "clojure" ]
+               , wordList    = [ "clojure" ]
                , expected    = [ ("clojure", Just WordPos{start=CharPos{col=1, row=1}, end=CharPos{col=7, row=1}}) ]
                }
         , Case { description = "Should locate the same word written left to right in a different position"
                , grid        = [ "mtclojurer" ]
-               , words       = [ "clojure" ]
+               , wordList    = [ "clojure" ]
                , expected    = [ ("clojure", Just WordPos{start=CharPos{col=3, row=1}, end=CharPos{col=9, row=1}}) ]
                }
         , Case { description = "Should locate a different left to right word"
                , grid        = [ "coffeelplx" ]
-               , words       = [ "coffee" ]
+               , wordList    = [ "coffee" ]
                , expected    = [ ("coffee", Just WordPos{start=CharPos{col=1, row=1}, end=CharPos{col=6, row=1}}) ]
                }
         , Case { description = "Should locate that different left to right word in a different position"
                , grid        = [ "xcoffeezlp" ]
-               , words       = [ "coffee" ]
+               , wordList    = [ "coffee" ]
                , expected    = [ ("coffee", Just WordPos{start=CharPos{col=2, row=1}, end=CharPos{col=7, row=1}}) ]
                }
         , Case { description = "Should locate a left to right word in three line grid"
                , grid        = [ "camdcimgtc", "jefblpepre","clojurermt" ]
-               , words       = [ "clojure" ]
+               , wordList    = [ "clojure" ]
                , expected    = [ ("clojure", Just WordPos{start=CharPos{col=1, row=3}, end=CharPos{col=7, row=3}}) ]
                }
         , Case { description = "Should locate a left to right word in ten line grid"
@@ -65,7 +65,7 @@ cases = [ Case { description = "Should accept an initial game grid and a target 
                                    "jalaycalmp",
                                    "clojurermt"
                                ]
-               , words       = [ "clojure" ]
+               , wordList    = [ "clojure" ]
                , expected    = [ ("clojure", Just WordPos{start=CharPos{col=1, row=10}, end=CharPos{col=7, row=10}}) ]
                }
         , Case { description = "Should locate that left to right word in a different position in a ten line grid"
@@ -81,7 +81,7 @@ cases = [ Case { description = "Should accept an initial game grid and a target 
                                    "clojurermt",
                                    "jalaycalmp"
                                ]
-               , words       = [ "clojure" ]
+               , wordList    = [ "clojure" ]
                , expected    = [ ("clojure", Just WordPos{start=CharPos{col=1, row=9}, end=CharPos{col=7, row=9}}) ]
                }
         , Case { description = "Should locate a different left to right word in a ten line grid"
@@ -97,7 +97,7 @@ cases = [ Case { description = "Should accept an initial game grid and a target 
                                    "clojurermt",
                                    "jalaycalmp"
                                ]
-               , words       = [ "fortran" ]
+               , wordList    = [ "fortran" ]
                , expected    = [ ("fortran", Just WordPos{start=CharPos{col=1, row=7}, end=CharPos{col=7, row=7}}) ]
                }
         , Case { description = "Should locate multiple words"
@@ -113,7 +113,7 @@ cases = [ Case { description = "Should accept an initial game grid and a target 
                                    "jalaycalmp",
                                    "clojurermt"
                                ]
-               , words       = [ "fortran", "clojure" ]
+               , wordList    = [ "fortran", "clojure" ]
                , expected    = [
                                    ("fortran", Just WordPos{start=CharPos{col=1, row=7}, end=CharPos{col=7, row=7}}),
                                    ("clojure", Just WordPos{start=CharPos{col=1, row=10}, end=CharPos{col=7, row=10}})
@@ -121,7 +121,7 @@ cases = [ Case { description = "Should accept an initial game grid and a target 
                }
         , Case { description = "Should locate a single word written right to left"
                , grid        = [ "rixilelhrs" ]
-               , words       = [ "elixir" ]
+               , wordList    = [ "elixir" ]
                , expected    = [ ("elixir", Just WordPos{start=CharPos{col=6, row=1}, end=CharPos{col=1, row=1}}) ]
                }
         , Case { description = "Should locate multiple words written in different horizontal directions"
@@ -137,7 +137,7 @@ cases = [ Case { description = "Should accept an initial game grid and a target 
                                    "jalaycalmp",
                                    "clojurermt"
                                ]
-               , words       = [ "elixir", "clojure" ]
+               , wordList    = [ "elixir", "clojure" ]
                , expected    = [
                                    ("elixir", Just WordPos{start=CharPos{col=6, row=5}, end=CharPos{col=1, row=5}}),
                                    ("clojure", Just WordPos{start=CharPos{col=1, row=10}, end=CharPos{col=7, row=10}})
@@ -156,7 +156,7 @@ cases = [ Case { description = "Should accept an initial game grid and a target 
                                    "jalaycalmp",
                                    "clojurermt"
                                ]
-               , words       = [ "clojure", "elixir", "ecmascript" ]
+               , wordList    = [ "clojure", "elixir", "ecmascript" ]
                , expected    = [
                                    ("clojure", Just WordPos{start=CharPos{col=1, row=10}, end=CharPos{col=7, row=10}}),
                                    ("elixir", Just WordPos{start=CharPos{col=6, row=5}, end=CharPos{col=1, row=5}}),
@@ -176,7 +176,7 @@ cases = [ Case { description = "Should accept an initial game grid and a target 
                                    "jalaycalmp",
                                    "clojurermt"
                                ]
-               , words       = [ "clojure", "elixir", "ecmascript", "rust" ]
+               , wordList    = [ "clojure", "elixir", "ecmascript", "rust" ]
                , expected    = [
                                    ("clojure", Just WordPos{start=CharPos{col=1, row=10}, end=CharPos{col=7, row=10}}),
                                    ("elixir", Just WordPos{start=CharPos{col=6, row=5}, end=CharPos{col=1, row=5}}),
@@ -197,7 +197,7 @@ cases = [ Case { description = "Should accept an initial game grid and a target 
                                    "jalaycalmp",
                                    "clojurermt"
                                ]
-               , words       = [ "clojure", "elixir", "ecmascript", "rust", "java" ]
+               , wordList    = [ "clojure", "elixir", "ecmascript", "rust", "java" ]
                , expected    = [
                                    ("clojure", Just WordPos{start=CharPos{col=1, row=10}, end=CharPos{col=7, row=10}}),
                                    ("elixir", Just WordPos{start=CharPos{col=6, row=5}, end=CharPos{col=1, row=5}}),
@@ -219,7 +219,7 @@ cases = [ Case { description = "Should accept an initial game grid and a target 
                                    "jalaycalmp",
                                    "clojurermt"
                                ]
-               , words       = [ "clojure", "elixir", "ecmascript", "rust", "java", "lua" ]
+               , wordList    = [ "clojure", "elixir", "ecmascript", "rust", "java", "lua" ]
                , expected    = [
                                    ("clojure", Just WordPos{start=CharPos{col=1, row=10}, end=CharPos{col=7, row=10}}),
                                    ("elixir", Just WordPos{start=CharPos{col=6, row=5}, end=CharPos{col=1, row=5}}),
@@ -241,7 +241,7 @@ cases = [ Case { description = "Should accept an initial game grid and a target 
                                    "alxhpburyi",
                                    "jalaycalmp",
                                    "clojurermt" ]
-               , words       = [ "clojure", "elixir", "ecmascript", "rust", "java", "lua", "lisp" ]
+               , wordList    = [ "clojure", "elixir", "ecmascript", "rust", "java", "lua", "lisp" ]
                , expected    = [
                                    ("clojure", Just WordPos{start=CharPos{col=1, row=10}, end=CharPos{col=7, row=10}}),
                                    ("elixir", Just WordPos{start=CharPos{col=6, row=5}, end=CharPos{col=1, row=5}}),
@@ -265,7 +265,7 @@ cases = [ Case { description = "Should accept an initial game grid and a target 
                                    "jalaycalmp",
                                    "clojurermt"
                                ]
-               , words       = [ "clojure", "elixir", "ecmascript", "rust", "java", "lua", "lisp", "ruby" ]
+               , wordList    = [ "clojure", "elixir", "ecmascript", "rust", "java", "lua", "lisp", "ruby" ]
                , expected    = [
                                    ("clojure", Just WordPos{start=CharPos{col=1, row=10}, end=CharPos{col=7, row=10}}),
                                    ("elixir", Just WordPos{start=CharPos{col=6, row=5}, end=CharPos{col=1, row=5}}),
@@ -290,7 +290,7 @@ cases = [ Case { description = "Should accept an initial game grid and a target 
                                    "jalaycalmp",
                                    "clojurermt"
                                ]
-               , words       = [ "clojure", "elixir", "ecmascript", "rust", "java", "lua", "lisp", "ruby", "haskell" ]
+               , wordList    = [ "clojure", "elixir", "ecmascript", "rust", "java", "lua", "lisp", "ruby", "haskell" ]
                , expected    = [
                                    ("clojure", Just WordPos{start=CharPos{col=1, row=10}, end=CharPos{col=7, row=10}}),
                                    ("elixir", Just WordPos{start=CharPos{col=6, row=5}, end=CharPos{col=1, row=5}}),
@@ -305,7 +305,7 @@ cases = [ Case { description = "Should accept an initial game grid and a target 
                }
         , Case { description = "Should fail to locate words that are not on horizontal, vertical, or diagonal lines"
                , grid        = [ "abc", "def" ]
-               , words       = [ "aef", "ced", "abf", "cbd" ]
+               , wordList    = [ "aef", "ced", "abf", "cbd" ]
                , expected    = [
                                    ("aef", Nothing),
                                    ("ced", Nothing),
@@ -315,17 +315,17 @@ cases = [ Case { description = "Should accept an initial game grid and a target 
                }
         , Case { description = "Should not concatenate different lines to find a horizontal word"
                , grid        = [ "abceli", "xirdfg" ]
-               , words       = [ "elixir" ]
+               , wordList    = [ "elixir" ]
                , expected    = [ ("elixir", Nothing) ]
                }
         , Case { description = "Should not wrap around horizontally to find a word"
                , grid        = [ "silabcdefp" ]
-               , words       = [ "lisp" ]
+               , wordList    = [ "lisp" ]
                , expected    = [ ("lisp", Nothing) ]
                }
         , Case { description = "Should not wrap around vertically to find a word"
                , grid        = [ "s", "u", "r", "a", "b", "c", "t" ]
-               , words       = [ "rust" ]
+               , wordList    = [ "rust" ]
                , expected    = [ ("rust", Nothing) ]
                }
         ]
