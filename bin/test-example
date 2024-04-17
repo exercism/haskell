@@ -64,43 +64,25 @@ runstack () {
              # the 50 minutes limit.
 }
 
-nostack() {
-  if [ "$1" = "test" ]; then
-    # TODO: Ignores --no-run-tests used for `error`
-    # TODO: runghc doesn't allow use of -O flag,
-    # thus some exercises' tests are a bit slow.
-    runghc -Wall -isrc test/Tests.hs
-  #elif [ "$1" = "build" ]; then
-    # TODO: used in `fail` type to make sure that build doesn't fail,
-    # despite tests failing
-  fi
-}
-
-if [ -n "$NOSTACK" ]; then
-  run=nostack
-else
-  run=runstack
-fi
-
 if [ "$exampletype" = "success" -o "$exampletype" = "exemplar" ]; then
     echo "testing ${exampledir} - should succeed"
     # Implicit exit value: this is last thing in this path,
     # so the script's exit value = stack's exit value.
     # If statements are reordered, please preserve this property.
-    $run "test"
+    runstack "test"
 elif [ "$exampletype" = "fail" ]; then
     echo "testing ${exampledir} - should build, but fail tests"
-    if ! $run "build"; then
+    if ! runstack "build"; then
         echo "${exampledir} build failed unexpectedly"
         exit 1
     fi
-    if $run "test"; then
+    if runstack "test"; then
         echo "${exampledir} test succeeded unexpectedly"
         exit 1
     fi
 elif [ "$exampletype" = "error" ]; then
     echo "testing ${exampledir} - should fail to build"
-    if $run "test" "--no-run-tests"; then
+    if runstack "test" "--no-run-tests"; then
         echo "${exampledir} build succeeded unexpectedly"
         exit 1
     else
