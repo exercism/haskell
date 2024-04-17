@@ -1,4 +1,4 @@
-name: food-chain
+name: game-of-life
 
 dependencies:
   - base
