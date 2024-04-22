@@ -105,7 +105,7 @@ jobs:
           key: ${{ steps.resolve-resolver.outputs.resolver }}-${{ steps.week-no.outputs.week-no }}-${{ hashFiles('exercises/**/package.yaml') }}
           restore-keys: ${{ steps.resolve-resolver.outputs.resolver }}-${{ steps.week-no.outputs.week-no }}-
 
-      - uses: haskell-actions/setup@2492c1286a5abeb29df728c4916e761ebf58a9cd
+      - uses: haskell-actions/setup@64aa5146ed5bd91f181552b8b5fbe50fbd2bd3fe
         with:
           enable-stack: true
           stack-version: "latest"
