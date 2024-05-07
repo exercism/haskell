@@ -910,6 +910,15 @@
         ]
       },
       {
+        "slug": "book-store",
+        "name": "Book Store",
+        "uuid": "78971281-153d-4bdc-8f90-4b7eded2b201",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 8,
+        "topics": []
+      },
+      {
         "slug": "pov",
         "name": "POV",
         "uuid": "010582a2-4c44-44fb-ac6b-bf1546d303a3",
