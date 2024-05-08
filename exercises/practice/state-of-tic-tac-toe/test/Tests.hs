@@ -1,7 +1,6 @@
 {-# LANGUAGE RecordWildCards #-}
 
 import Data.Foldable     (for_)
-import Data.Tuple        (swap)
 import Test.Hspec        (Spec, describe, it, shouldBe)
 import Test.Hspec.Runner (configFailFast, defaultConfig, hspecWith)
 
