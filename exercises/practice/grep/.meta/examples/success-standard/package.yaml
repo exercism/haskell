@@ -1,0 +1,16 @@
+name: grep
+
+dependencies:
+  - base
+  
+library:
+  exposed-modules: Grep
+  source-dirs: src
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - grep
+      - hspec
