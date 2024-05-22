@@ -1,17 +1,17 @@
-module StateOfTicTacToe (gameState, GameError(..), GameState(..)) where
+module StateOfTicTacToe (gameState, GameState(..)) where
 
 import Data.List (transpose)
 
-data GameError = WrongTurnO | WrongTurnX | KeptPlaying deriving (Eq, Show)
-data GameState = Win | Draw | List | Ongoing | Error GameError deriving (Eq, Show)
+data GameState = WinX | WinO | Draw | Ongoing | Impossible deriving (Eq, Show)
 
 gameState :: [String] -> GameState
 gameState board
-    | countO > countX          = Error WrongTurnO
-    | countX > countO + 1      = Error WrongTurnX
-    | winO && countX > countO  = Error KeptPlaying
-    | winX && countO >= countX = Error KeptPlaying
-    | winO || winX             = Win
+    | countO > countX          = Impossible
+    | countX > countO + 1      = Impossible
+    | winO && countX > countO  = Impossible
+    | winX && countO >= countX = Impossible
+    | winX                     = WinX
+    | winO                     = WinO
     | countO + countX == 9     = Draw
     | otherwise                = Ongoing
     where
