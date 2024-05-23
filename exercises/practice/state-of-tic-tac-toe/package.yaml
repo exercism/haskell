@@ -1,0 +1,21 @@
+name: state-of-tic-tac-toe
+version: 1.0.0.0
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: StateOfTicTacToe
+  source-dirs: src
+  ghc-options: -Wall
+  # dependencies:
+  # - foo       # List here the packages you
+  # - bar       # want to use in your solution.
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - state-of-tic-tac-toe
+      - hspec
