@@ -10,8 +10,7 @@ main :: IO ()
 main = hspecWith defaultConfig {configFailFast = True} specs
 
 specs :: Spec
-specs = do
-          describe "grep" $ for_ cases test
+specs = describe "grep" $ for_ cases test
   where
     test Case{..} = it description $ grep pattern flags files `shouldBe` expected
 
