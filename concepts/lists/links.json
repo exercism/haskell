@@ -1,0 +1,26 @@
+[
+  {
+    "url": "https://learnyouahaskell.github.io/starting-out.html#an-intro-to-lists",
+    "description": "Learn You A Haskell's introduction to lists"
+  },
+  {
+    "url": "https://learnyouahaskell.github.io/modules.html#data-list",
+    "description": "Learn You A Haskell's tour of `Data.List`"
+  },
+  {
+    "url": "https://en.wikibooks.org/wiki/Haskell/Lists_and_tuples",
+    "description": "Haskell Wikibook's introduction to lists"
+  },
+  {
+    "url": "https://hackage.haskell.org/package/base/docs/Prelude.html",
+    "description": "Prelude documentation"
+  },
+  {
+    "url": "https://hackage.haskell.org/package/base/docs/Data-List.html",
+    "description": "Data.List documentation"
+  },
+  {
+    "url": "https://hoogle.haskell.org/",
+    "description": "Hoogle"
+  }
+]
