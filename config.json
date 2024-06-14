@@ -1377,6 +1377,18 @@
         "topics": [
           "strings"
         ]
+      },
+      {
+        "slug": "variable-length-quantity",
+        "name": "Variable Length Quantity",
+        "uuid": "dd914e41-bff2-4954-a3cf-fabe603795c1",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2,
+        "topics": [
+          "bitwise",
+          "either"
+        ]
       }
     ],
     "foregone": [
