@@ -30,6 +30,8 @@ specs = do
         t5         = BT 6 (leaf 7                  ) $ leaf 8
         t6         = BT 1 (node 2 Nothing  $ leaf 3) $ node 6 (leaf 7) (leaf 8)
         t7         = BT 1 (node 2 Nothing  $ leaf 5) $ leaf 4
+        t8         = BT 1 (node 2 Nothing  $ leaf 3) $ node 6 (leaf 7) (node 8 (leaf 15) Nothing)
+        t9         = BT 1 (node 2 Nothing  $ leaf 3) $ node 6 (leaf 7) (node 8 Nothing (leaf 15))
 
     it "data is retained" $
       toTree (fromTree t1)
@@ -82,3 +84,11 @@ specs = do
     it "different paths to same zipper" $
       (right . fromJust . up . fromJust . left . fromTree) t1
       `shouldBe` (right . fromTree) t1
+
+    it "setLeft with subtree on deep focus" $
+      (toTree . setLeft (leaf 15) . fromJust . right . fromJust . right . fromTree) t6
+      `shouldBe` t8
+
+    it "setRight with subtree on deep focus" $
+      (toTree . setRight (leaf 15) . fromJust . right . fromJust . right . fromTree) t6
+      `shouldBe` t9
