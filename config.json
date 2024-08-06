@@ -1377,6 +1377,17 @@
         "topics": [
           "strings"
         ]
+      },
+      {
+        "slug": "grep",
+        "name": "Grep",
+        "uuid": "4592877f-5b1e-4c8f-89aa-9e206de696eb",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5,
+        "topics": [
+          "strings"
+        ]
       }
     ],
     "foregone": [
