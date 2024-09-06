@@ -14,14 +14,6 @@ library:
   # - foo       # List here the packages you
   # - bar       # want to use in your solution.
 
-tests:
-  test:
-    main: Tests.hs
-    source-dirs: test
-    dependencies:
-      - parallel-letter-frequency
-      - hspec
-
 benchmarks:
   bench:
     ghc-options: -threaded -with-rtsopts=-N -O2
@@ -31,3 +23,11 @@ benchmarks:
     dependencies:
       - parallel-letter-frequency
       - criterion
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - parallel-letter-frequency
+      - hspec
