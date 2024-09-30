@@ -1,1 +1,10 @@
-[]
+[
+    {
+        "url": "https://hackage.haskell.org/package/base/docs/Data-List.html",
+        "description": "Haskell Prelude: Data.List"
+    },
+    {
+        "url": "https://www.haskelltutorials.com/guides/haskell-lists-ultimate-guide.html",
+        "description": "Haskell Lists: The Ultimate Guide"
+    }
+]

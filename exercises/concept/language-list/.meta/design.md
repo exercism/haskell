@@ -25,7 +25,7 @@
   - know of the existence of the `list` type;
   - know of the idea of `list` design;
   - know some basic patterns / functions
-    - like `[]`, `[_:_]`, `head`, `tail`, `length/1`, `elem`
+    - like `[]`, `[_:_]`, `head`, `tail`, `length`, `elem`
 - `string-literals`
   - not a standalone concept, captured in `basics`
   - know how to write out a string with double quotes

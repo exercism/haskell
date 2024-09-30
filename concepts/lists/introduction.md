@@ -34,7 +34,7 @@ Head-tail notation can be used to append items to a list.
 list = [2, 1]
 
 [3, 2, 1] == 3 : list
--- true
+-- -> True
 ```
 
 Appending elements to a list during iteration is considered an anti-pattern. 
@@ -56,18 +56,20 @@ There are several common Prelude functions for lists:
 - [`head`][head] returns the _head_ of a list -- the _first_ item in a list.
 - [`tail`][tail] returns the _tail_ of the list -- the list _minus_ the _first_ item.
 - [`length`][length] returns the number items in the list.
-- [`elem`][in] returns a boolean value indicating whether the item is an element in the list.
+- [`elem`][elem] returns a boolean value indicating whether the item is an element in the list.
 
-There is also the [`List` module][list].
+There is also the [`Data.List` module][list].
 
-Lists can only contain one data type.
+## List types
+
+In Haskell, lists are **homogenous**.
+This means that all elements of a list have the same type.
+When you try to put elements of different types into the same list, you will get a type error.
 
 ```haskell
 list = [1, "string"]
 -- Error: No instance for (Num String) arising from the literal ‘1’
 ```
-
-## Type annotation
 
 The type annotation of a list is `[a]` where a is the type which the lists holds, for example `String` or `Int`.
 
@@ -76,12 +78,10 @@ a :: [Int]
 a = [1, 2, 3]
 ```
 
-[enum]: https://hexdocs.pm/elixir/Enum.html
-[enum-protocol]: https://hexdocs.pm/elixir/Enumerable.html
-[hd]: https://hexdocs.pm/elixir/Kernel.html#hd/1
-[in]: https://hexdocs.pm/elixir/Kernel.html#in/2
-[length]: https://hexdocs.pm/elixir/Kernel.html#length/1
-[list]: https://hexdocs.pm/elixir/List.html
-[stream]: https://hexdocs.pm/elixir/Stream.html
-[tl]: https://hexdocs.pm/elixir/Kernel.html#tl/1
+[prelude]: https://hackage.haskell.org/package/base/docs/Prelude.html
+[list]: https://hackage.haskell.org/package/base/docs/Data-List.html
+[head]: https://hackage.haskell.org/package/base/docs/Prelude.html#v:head
+[tail]: https://hackage.haskell.org/package/base/docs/Prelude.html#v:tail
+[elem]: https://hackage.haskell.org/package/base/docs/Prelude.html#v:elem
+[length]: https://hackage.haskell.org/package/base/docs/Prelude.html#v:length
 [linked-list-wiki]: https://en.wikipedia.org/wiki/Linked_list
