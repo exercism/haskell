@@ -11,7 +11,7 @@
       "test/Tests.hs"
     ],
     "exemplar": [
-      ".meta/exemplar/src/LanguageListLanguageList.hs"
+      ".meta/exemplar/src/LanguageList.hs"
     ],
     "invalidator": [
       "stack.yaml"
