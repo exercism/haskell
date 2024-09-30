@@ -49,6 +49,18 @@
         ]
       },
       {
+        "slug": "language-list",
+        "name": "Language List",
+        "uuid": "2770e2c0-883d-4336-be94-3b4ae7529ac3",
+        "prerequisites": [
+          "basics"
+        ],
+        "status": "beta",
+        "concepts": [
+          "lists"
+        ]
+      },
+      {
         "slug": "temperature",
         "name": "Temperature",
         "uuid": "6ed15adb-f022-4bbd-bbb3-22845deabc91",
@@ -1398,6 +1410,11 @@
       "uuid": "8afaf3b9-5910-4d6f-a35d-aaf9439381f6",
       "slug": "booleans",
       "name": "Booleans"
+    },
+    {
+      "uuid": "ef484ab5-d4d2-4d7c-b4b5-abb5920f916a",
+      "slug": "lists",
+      "name": "Lists"
     },
     {
       "uuid": "ca21a553-6fc1-49be-8f47-730f97330862",
