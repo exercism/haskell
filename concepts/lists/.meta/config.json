@@ -1,0 +1,6 @@
+{
+  "blurb": "Lists are a basic data type in Haskell for holding a collection of values. A list can hold values of different types. Lists are immutable, meaning they cannot be modified. Lists in Haskell are implemented as linked lists. Therefore, accessing an element in a list takes linear time depending on the length of the list.",
+  "authors": [
+    "meatball133"
+  ]
+}

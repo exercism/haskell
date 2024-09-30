@@ -1,0 +1,25 @@
+{
+  "authors": [
+    "meatball133"
+  ],
+  "files": {
+    "solution": [
+      "src/LanguageList.hs",
+      "package.yaml"
+    ],
+    "test": [
+      "test/Tests.hs"
+    ],
+    "exemplar": [
+      ".meta/exemplar/src/LanguageListLanguageList.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
+    ]
+  },
+  "forked_from": [
+    "elixir/language-list"
+  ],
+  "icon": "language-list",
+  "blurb": "Learn about lists by keeping track of the programming languages you're currently learning on Exercism."
+}
