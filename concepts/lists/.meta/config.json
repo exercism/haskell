@@ -1,0 +1,5 @@
+{
+    "authors": ["MatthijsBlom"],
+    "contributors": [],
+    "blurb": "Lists in Haskell are homogenous lazy linked lists. Depending on your needs, they can serve as data containers, generators, or streams. In this concept node you'll learn about list literal syntax, types of lists, and where to find documentation on functions that operate on lists."
+}
