@@ -1,10 +1,6 @@
 [
   {
-    "url": "https://learnyouahaskell.github.io/syntax-in-functions",
-    "description": "Pattern matching syntax in functions"
-  },
-  {
-    "url": "https://learnyouahaskell.github.io/syntax-in-functions#guards-guards",
-    "description": "Use of guards for pattern matching"
+    "url": "https://en.wikibooks.org/wiki/Haskell/Pattern_matching",
+    "description": "Wikibooks: matching"
   }
 ]

@@ -1,55 +1,89 @@
-# Introduction
+# About
 
-While `if/else` expressions can be used to execute conditional logic, Haskell also has a more powerful way to execute conditional logic: [pattern matching][pattern-matching].
-With pattern matching, a value can be tested against one or more _patterns_.
-An example of such a pattern is the _constant pattern_, which matches a value against a constant (e.g. `1` or `"hello"`).
+When writing Haskell functions, we can make use of [pattern matching][pattern-matching].
+Pattern matching is a very powerful feature of Haskell that allows you to match on data constructors and bind variables to the values inside.
+As the name suggests, what we do is match values against patterns, and if the value matches the pattern, we can bind variables to the values inside the pattern.
+Pattern matching is mainly built of these concepts: recognizing values, binding variables, and breaking down values.
 
-When defining functions, you can define separate function bodies for different patterns.
-This leads to clean code that is simple and readable.
-You can pattern match on any data type — numbers, characters, lists, tuples, etc.
+~~~~exercism/note
+Pattern matching in languages such as Elixir is a bit different from pattern matching in Haskell.
+Elixir for example allows multiple of same binding names in a pattern, while Haskell does not.
+~~~~
 
-For example, a trivial function that takes a whole number (`Int`) and makes it _1_ closer to _0_ could be expressed like this:
 
-```haskell
-closerToZero :: Int -> Int
-closerToZero 0 = 0
-closerToZero 1 = 0
-```
-
-Pattern matching starts to shine when used together with other patterns, for example the _variable pattern_:
+Take this function for example:
 
 ```haskell
-closerToZero :: Int -> Int
-closerToZero 0 = 0
-closerToZero n = n - 1
+lucky :: Int -> String
+lucky 7 = "Lucky number seven!"
+lucky x = "Sorry, you're out of luck, pal!"
 ```
 
-The above example treats all inputs other than _0_ the same, and would produce incorrect results for negative numbers.
-This can be solved using conditional patterns, known as _guards_, which are expressed with the `|` symbol:
+Here we have a function `lucky` that takes an `Int` and returns a `String`.
+We have defined two patterns for the function, one that matches the number `7` and one that matches any other number, the name can be anything (as long as it follows Haskell naming convention), but we use `x` here.
+If the number is `7`, the function will return `"Lucky number seven!"`, otherwise it will return `"Sorry, you're out of luck, pal!"`.
+What is important to note here is that the patterns are checked from top to bottom, so if we had swapped the order of the patterns, the function would always return `"Lucky number seven!"`.
+
+## List patterns
+
+A very common pattern is to match on lists, and that is taking the head and the tail of the list.
+This is due to lists nature of being a linked list.
+Here is an example of a function that returns the head and the tail of a list:
 
 ```haskell
-closerToZero :: Int -> Int
-closerToZero n
-    | n < 0 = n + 1
-    | n > 0 = n - 1
+headAndTail :: [Int] -> (Int, [Int])
+headAndTail [] = error "Can't call head on an empty list"
+headAndTail (x:xs) = (x, xs)
 ```
 
-In the above examples not all possible inputs have a matching pattern.
-The compiler will detect this and output a warning.
-This is a very useful feature of Haskell that helps ensure all possible paths are covered to avoid run-time errors.
-It is known as _exhaustive checking_.
-To solve the warning, you have to handle all cases.
-Within _guards_ you can use the expression `otherwise` as syntactic sugar for `True` to catch all remaining patterns.
+We have two patterns here, one that matches an empty list and one that matches a list with at least one element.
+This is due to if the list is empty, we need to have a case for that, otherwise we would get a runtime error.
+If the list is not empty, we can match the head of the list with `x` and the tail of the list with `xs`.
+This is done using the `:` (cons) operator, which is used to prepend an element to a list.
+But in pattern matching it allows us to break down a list into its head and tail, so in a way doing the opposite.
+
+The `xs` is a common name for the tail of a list, it highlights that it is a list, but if you would be working with a nested list, you could use `xss` to highlight that it is a list of lists.
+
+## Tuple patterns
+
+As with lists, we can also match on tuples.
+Here is an example of a function that takes a tuple and returns the first and second element:
 
 ```haskell
-closerToZero :: Int -> Int
-closerToZero n
-    | n < 0 = n + 1
-    | n > 0 = n - 1
-    | otherwise = 0
+sumTuple :: (Int, Int) -> Int
+sumTuple (x, y) = x + y
 ```
 
-Pattern matching will test a value against each pattern from top to bottom, until it finds a matching pattern and executes the logic associated with that pattern.
-**The order of patterns matters!**
+Here we have a pattern that matches a tuple with two elements, the first element is bound to `x` and the second element is bound to `y`.
 
-[pattern-matching]: https://learnyouahaskell.github.io/syntax-in-functions#pattern-matching
+## Wildcard patterns
+
+Sometimes we don't care about the value of a variable, we just want to match on the pattern.
+This is where the wildcard pattern comes in, it is denoted by an underscore `_`.
+
+Here is an example of a function that returns the first element of a list:
+
+```haskell
+head' :: [Int] -> Int
+head' [] = error "Can't call head on an empty list"
+head' (x:_) = x
+```
+
+Here we say we don't need the tail of the list, so we use the wildcard pattern to ignore it.
+
+## Type patterns
+
+We can also match on types, this is done by using the constructor of said type.
+We can also extract values from the type, like we did with tuples.
+
+```haskell
+data AccountType = Guest | User String 
+
+greet :: AccountType -> String
+greet Guest = "Welcome, guest!"
+greet (User name) = "Welcome, " ++ name ++ "!"
+```
+
+In the first pattern we match on the `Guest` constructor, and in the second pattern we match on the `User` constructor and bind the value inside to `name`.
+
+[pattern-matching]: https://en.wikibooks.org/wiki/Haskell/Pattern_matching
