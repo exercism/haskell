@@ -96,6 +96,19 @@
         "concepts": [
           "algebraic-data-types"
         ]
+      },
+      {
+        "slug": "kitchen-calculator",
+        "name": "Kitchen Calculator",
+        "uuid": "d5ca4a8a-9c7f-400c-95fb-764bd655480e",
+        "prerequisites": [
+          "numbers"
+        ],
+        "status": "beta",
+        "concepts": [
+          "tuples",
+          "pattern-matching"
+        ]
       }
     ],
     "practice": [
@@ -1408,6 +1421,16 @@
       "uuid": "cb756cfd-9b5c-408d-bf3f-b2adc8322da3",
       "slug": "algebraic-data-types",
       "name": "Algebraic Data Types"
+    },
+    {
+      "uuid": "4c2ef692-3fb8-46c5-b047-b037449e33ce",
+      "slug": "tuples",
+      "name": "Tuples" 
+    },
+    {
+      "uuid": "5bda814e-0dec-4952-ab62-44b1751bf6cc",
+      "slug": "pattern-matching",
+      "name": "Pattern Matching" 
     }
   ],
   "key_features": [
