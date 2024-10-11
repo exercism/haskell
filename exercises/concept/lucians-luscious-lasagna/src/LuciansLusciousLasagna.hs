@@ -1,4 +1,4 @@
-module LuciansLusciousLasagna (expectedMinutesInOven, remainingMinutesInOven, expectedMinutesInOven, preparationTimeInMinutes, alarm) where
+module LuciansLusciousLasagna (totalTimeInMinutes, remainingMinutesInOven, expectedMinutesInOven, preparationTimeInMinutes, alarm) where
 
 -- TODO: define the expectedMinutesInOven constant
 

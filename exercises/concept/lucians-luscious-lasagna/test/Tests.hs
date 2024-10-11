@@ -1,6 +1,6 @@
 import Test.Hspec        (Spec, it, shouldBe)
 import Test.Hspec.Runner (configFailFast, defaultConfig, hspecWith)
-import LuciansLusciousLasagna (expectedMinutesInOven, remainingMinutesInOven, expectedMinutesInOven, preparationTimeInMinutes, alarm)
+import LuciansLusciousLasagna (totalTimeInMinutes, remainingMinutesInOven, expectedMinutesInOven, preparationTimeInMinutes, alarm)
 
 main :: IO ()
 main = hspecWith defaultConfig {configFailFast = True} specs
