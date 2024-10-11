@@ -11,4 +11,4 @@ monthlyRate hourlyRate discount = ceiling (applyDiscount (dailyRate hourlyRate *
 
 daysInBudget :: Int -> Double -> Double -> Double
 daysInBudget budget hourlyRate discount = 
-    fromIntegral (floor (fromIntegral budget / applyDiscount (dailyRate hourlyRate) discount * 10)) / 10
+    fromIntegral (floor (fromIntegral budget / applyDiscount (dailyRate hourlyRate) discount * 10) :: Int) / 10
