@@ -13,21 +13,21 @@
 ## 2. Calculate the remaining oven time in minutes
 
 - You need to define a [function][functions] with a single argument.
-- You have to [implicitly return an integer][return] from a function.
+- You have to return from a function.
 - The function's argument is an [integer][integers].
 - You can use the [mathematical operator for subtraction][operators] to subtract values.
 
 ## 3. Calculate the preparation time in minutes
 
 - You need to define a [function][functions] with a single argument.
-- You have to [implicitly return an integer][return] from a function.
+- You have to return from a function.
 - The function's argument is an [integer][integers].
 - You can use the [mathematical operator for multiplication][operators] to multiply values.
 
 ## 4. Calculate the total working time in minutes
 
 - You need to define a [function][functions] with two arguments.
-- You have to [implicitly return an integer][return] from a function.
+- You have to return an integer from a function.
 - The function's argument is an [integer][integers].
 - You can invoke one of the other functions you've defined previously.
 - You can use the [mathematical operator for addition][operators] to add values.
@@ -39,8 +39,7 @@
 
 TODO CHANGE TO HASKELL LINKS:
 
-[functions]: https://hexdocs.pm/elixir/modules-and-functions.html#function-definition
-[return]: https://stackoverflow.com/questions/37445838/returning-values-in-elixir
-[operators]: https://hexdocs.pm/elixir/basic-types.html#basic-arithmetic
-[integers]: https://hexdocs.pm/elixir/basic-types.html
-[string]: https://hexdocs.pm/elixir/basic-types.html#strings
+[functions]: https://www.haskell.org/tutorial/functions.html
+[operators]:https://www.tutorialspoint.com/haskell/haskell_basic_operators.htm
+[integers]: https://hackage.haskell.org/package/base/docs/Data-Int.html
+[string]: https://hackage.haskell.org/package/base/docs/Data-String.html
