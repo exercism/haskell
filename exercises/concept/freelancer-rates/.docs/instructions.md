@@ -40,7 +40,7 @@ Implement a function to calculate the monthly rate, and apply a discount:
 
 ```haskell
 monthlyRate 77 10.5
-# => 12130
+-- -> 12130
 ```
 
 The returned monthly rate should be rounded up (take the ceiling) to the nearest integer.

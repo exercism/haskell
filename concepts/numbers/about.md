@@ -39,7 +39,7 @@ fromIntegral 1
 -- -> 1.0
 ```
 
-To convert a `Float` to an `Int`, you can use the `round`, `floor`, or `ceiling` functions.
+To convert a `Float` to an `Int`, you can use the [`round`][round], [`floor`][floor], or [`ceiling`][ceiling] functions.
 The `round` function rounds to the nearest integer, `floor` rounds down, and `ceiling` rounds up.
 
 ```haskell
@@ -139,7 +139,7 @@ This is different from normal division.
 
 ```haskell
 1 `mod` 0
-# Exception: divide by zero
+-- Exception: divide by zero
 ```
 ~~~~
 
@@ -181,3 +181,4 @@ It follows the order of parentheses(`()`), exponents(`**`), multiplication(`*`) 
 [pemdas]: https://en.wikipedia.org/wiki/Order_of_operations
 [floor]: https://hackage.haskell.org/package/base/docs/Prelude.html#v:floor
 [ceiling]: https://hackage.haskell.org/package/base/docs/Prelude.html#v:ceiling
+[round]: https://hackage.haskell.org/package/base/docs/Prelude.html#v:round

@@ -61,9 +61,9 @@
         "status": "beta"
       },
       {
-        "slug": "temperature",
-        "name": "Temperature",
-        "uuid": "6ed15adb-f022-4bbd-bbb3-22845deabc91",
+        "slug": "freelancer-rates",
+        "name": "Freelancer Rates",
+        "uuid": "85e17e39-9506-4dc8-bed6-ecc44c840cc1",
         "concepts": [
           "numbers"
         ],
@@ -121,6 +121,18 @@
           "numbers"
         ],
         "status": "beta"
+      },
+      {
+        "slug": "temperature",
+        "name": "Temperature",
+        "uuid": "6ed15adb-f022-4bbd-bbb3-22845deabc91",
+        "concepts": [
+          "numbers"
+        ],
+        "prerequisites": [
+          "basics"
+        ],
+        "status": "deprecated"
       }
     ],
     "practice": [
