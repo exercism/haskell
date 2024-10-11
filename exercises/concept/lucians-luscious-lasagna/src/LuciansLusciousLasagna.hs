@@ -2,7 +2,7 @@ module LuciansLusciousLasagna (totalTimeInMinutes, remainingMinutesInOven, expec
 
 -- TODO: define the expectedMinutesInOven constant
 
--- TODO: remainingMinutesInOven function
+-- TODO: define the remainingMinutesInOven function
 
 -- TODO: define the preparationTimeInMinutes function
 
