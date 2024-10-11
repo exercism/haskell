@@ -1,0 +1,23 @@
+{
+  "authors": [
+    "pwadsworth",
+    "meatball133"
+  ],
+  "files": {
+    "solution": [
+      "src/FreelancerRates.hs",
+      "package.yaml"
+    ],
+    "test": [
+      "test/Tests.hs"
+    ],
+    "exemplar": [
+      ".meta/exemplar/src/FreelancerRates.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
+    ]
+  },
+  "icon": "freelancer-rates",
+  "blurb": "Learn about integers and floating point numbers by helping a freelancer communicate with a project manager about billing."
+}
