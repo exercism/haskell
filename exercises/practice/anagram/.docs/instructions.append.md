@@ -4,6 +4,10 @@ To complete this exercise you need to implement the function `anagramsFor`,
 that takes a *word* and a group of *words*, returning the ones that are
 anagrams of the given *word*.
 
+You must return the anagrams in the same order as they are listed in the
+candidate words.
+
+
 If it is your first time solving this exercise, it is recommended that you
 stick to the provided signature:
 
