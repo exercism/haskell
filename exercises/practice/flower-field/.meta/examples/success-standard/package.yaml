@@ -1,0 +1,16 @@
+name: flower-field
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: FlowerField
+  source-dirs: src
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - flower-field
+      - hspec
