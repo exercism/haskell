@@ -95,7 +95,7 @@ jobs:
           # most of the time caches should hit.
           echo "::set-output name=week-no::$(date -u +%Y-%U)"
 
-      - uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9
+      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         id: cache
         with:
           path: |
