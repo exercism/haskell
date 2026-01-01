@@ -1,6 +1,7 @@
 {
   "authors": [
-    "pwadsworth"
+    "pwadsworth",
+    "meatball133"
   ],
   "files": {
     "solution": [
@@ -18,7 +19,8 @@
     ]
   },
   "forked_from": [
-    "fsharp/lucians-luscious-lasagna"
+    "fsharp/lucians-luscious-lasagna",
+    "elixir/lasagna"
   ],
   "icon": "lasagna",
   "blurb": "Learn the basics of Haskell by cooking Lucian's Luscious Lasagna"

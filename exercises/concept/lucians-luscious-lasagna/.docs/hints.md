@@ -1,8 +1,45 @@
-# General
+# Hints
 
-- Basic numbers operators are described in the Haskell [GHC.Num module documentation](https://hackage.haskell.org/package/base-4.16.0.0/docs/GHC-Num.html). But you might prefer a more easily digestable [basic introduction.](https://www.tutorialspoint.com/haskell/haskell_basic_operators.htm)
+## General
 
-# Modules and Indentation
+- An [integer value][integers] can be defined as one or more consecutive digits.
+- [String][string] literals are a sequence of characters surrounded by double quotes.
 
-- [Declaring modules](https://learnyouahaskell.github.io/modules#making-our-own-modules)
-- [Indentation rules](https://en.wikibooks.org/wiki/Haskell/Indentation)
+## 1. Define the expected oven time in minutes
+
+- You need to define a [function][functions] without any arguments.
+- You need to return an [integer][integers].
+
+## 2. Calculate the remaining oven time in minutes
+
+- You need to define a [function][functions] with a single argument.
+- You have to return from a function.
+- The function's argument is an [integer][integers].
+- You can use the [mathematical operator for subtraction][operators] to subtract values.
+
+## 3. Calculate the preparation time in minutes
+
+- You need to define a [function][functions] with a single argument.
+- You have to return from a function.
+- The function's argument is an [integer][integers].
+- You can use the [mathematical operator for multiplication][operators] to multiply values.
+
+## 4. Calculate the total working time in minutes
+
+- You need to define a [function][functions] with two arguments.
+- You have to return an integer from a function.
+- The function's argument is an [integer][integers].
+- You can invoke one of the other functions you've defined previously.
+- You can use the [mathematical operator for addition][operators] to add values.
+
+## 5. Create a notification that the lasagna is ready
+
+- You need to define a [function][functions] without any arguments.
+- You need to return a [string][string].
+
+TODO CHANGE TO HASKELL LINKS:
+
+[functions]: https://www.haskell.org/tutorial/functions.html
+[operators]:https://www.tutorialspoint.com/haskell/haskell_basic_operators.htm
+[integers]: https://hackage.haskell.org/package/base/docs/Data-Int.html
+[string]: https://hackage.haskell.org/package/base/docs/Data-String.html

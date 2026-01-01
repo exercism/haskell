@@ -1,6 +1,7 @@
 {
   "authors": [
-    "pwadsworth"
+    "pwadsworth",
+    "meatball133"
   ],
   "blurb": "Learn the basic syntax of a Haskell file"
 }

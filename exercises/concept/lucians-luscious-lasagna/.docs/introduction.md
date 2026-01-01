@@ -1,36 +1,46 @@
-# Introduction
+# Basic
 
-## Constants and functions
+Haskell is a functional programming language, there functions are treated as first-class citizens.
+This means that functions can be passed as arguments to other functions, returned as values from other functions, and assigned to variables.
 
-Haskell programs are composed of definitions and expressions.
+## Functions
 
-A constant value is defined with `name = expression`.
-
-```haskell
-five = 5
-
-six = 3 + 3
-```
-
-Functions are defined with `name parameters... = expression`, parameters being only separated by space.
+Functions in Haskell are defined using the `=` operator.
+The name of the function is followed by its arguments, separated by spaces.
+This is quite different from most other languages where the function name is followed by parentheses containing the arguments separated by commas.
 
 ```haskell
 add number1 number2 = number1 + number2
 ```
 
-Invoking a function is also an expression and is done by specifying its name and passing arguments for each of the function's parameters, separated by spaces, just like for function definitions.
+Haskell is a statically typed language, the ghc compiler can infer the types of the arguments and the return value.
+However, it is a good practice to specify the types of the arguments and the return value.
+To specify the type of a function, we use the `::` operator.
+The name of the function is followed by the `::` operator, then the type of the arguments separated by `->`, the last type is the return value.
 
 ```haskell
-five = add 2 3
+justNumber :: Int
+justNumber = 42
+
+add :: Int -> Int -> Int
+add number1 number2 = number1 + number2
 ```
 
-Parentheses can be used to specify the order of evaluation of an expression.
+## Invoking functions
+
+To invoke a function, we write the function name followed by the arguments separated by spaces.
 
 ```haskell
-six = add 2 (1 * 4)
-
-twelve = add 2 1 * 4
+add 1 2
 ```
+
+When passing a function as an argument to another function, we can have to use parentheses to specify the order of evaluation.
+
+```haskell
+add (add 1 2) 3
+```
+
+There 1 2 is evaluated first, then the result is passed to the outer add function, so the outer add function recives two arguments.
 
 ## Indentation / significant whitespace
 
@@ -83,7 +93,11 @@ Multiline comments are also possible with the `{-` and `-}` pair of opening and 
 -}
 ```
 
+## Formatting
+
+There is a [style guide](https://kowainik.github.io/posts/2019-02-06-style-guide), and [Stylish-Haskell](https://github.com/haskell/stylish-haskell) can be used to automatically format code.
+
 ### Credits
 
-This exercise introduction borrows liberally from [Learn You a Haskell for Great Good!](https://learnyouahaskell.github.io/chapters),
+This concept guide borrows liberally from [Learn You a Haskell for Great Good!](https://learnyouahaskell.github.io/chapters),
 under [Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License](https://creativecommons.org/licenses/by-nc-sa/3.0/)
