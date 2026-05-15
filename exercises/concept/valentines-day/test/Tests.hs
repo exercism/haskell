@@ -1,8 +1,12 @@
-import Test.Hspec (describe, hspec, it)
+import Test.Hspec        (Spec, describe, it)
+import Test.Hspec.Runner (configFailFast, defaultConfig, hspecWith)
 import ValentinesDay (Activity (..), Approval (..), Cuisine (..), Genre (..), rateActivity)
 
 main :: IO ()
-main = hspec $
+main = hspecWith defaultConfig {configFailFast = True} specs
+
+specs :: Spec
+specs = do
   describe "ValentinesDay" $ do
     it "chill rated no" $
       case rateActivity Chill of

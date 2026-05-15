@@ -1,8 +1,12 @@
 import PacmanRules (eatsGhost, loses, scores, wins)
-import Test.Hspec (describe, hspec, it, shouldBe)
+import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec.Runner (configFailFast, defaultConfig, hspecWith)
 
 main :: IO ()
-main = hspec $ do
+main = hspecWith defaultConfig {configFailFast = True} specs
+
+specs :: Spec
+specs = do
   describe "eatsGhost" $ do
     it "ghost eaten when touched while powered" $ do
       eatsGhost True True `shouldBe` True

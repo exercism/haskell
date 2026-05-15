@@ -1,8 +1,12 @@
 import GuessingGame (reply)
-import Test.Hspec (describe, hspec, it, shouldBe)
+import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec.Runner (configFailFast, defaultConfig, hspecWith)
 
 main :: IO ()
-main = hspec $
+main = hspecWith defaultConfig {configFailFast = True} specs
+
+specs :: Spec
+specs = do
   describe "reply" $ do
     it "1 should be 'Too low'" $
       reply 1 `shouldBe` "Too low"
