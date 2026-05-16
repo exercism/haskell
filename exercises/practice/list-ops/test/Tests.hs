@@ -8,6 +8,7 @@ import Prelude hiding
     ( (++)
     , concat
     , filter
+    , foldl'
     , foldr
     , length
     , map
@@ -73,15 +74,15 @@ specs = do
         foldl' (+) 5 [1 .. 4 :: Int] `shouldBe` 15
       -- Track-specific test
       it "of huge list" $
-        ListOps.foldl' (+) 0 [1 .. big] `shouldBe` big * (big + 1) `div` 2
+        foldl' (+) 0 [1 .. big] `shouldBe` big * (big + 1) `div` 2
       it "with non-commutative function" $
         foldl' (flip (/)) 24 [1 .. 4 :: Rational] `shouldBe` 64
       -- Track-specific test
       it "is not just foldr . flip" $
-        ListOps.foldl' (flip (:)) [] "asdf" `shouldBe` "fdsa"
+        foldl' (flip (:)) [] "asdf" `shouldBe` "fdsa"
       -- Track-specific test
       it "is accumulator-strict (use seq or BangPatterns)" $
-        evaluate (ListOps.foldl' (const id) () [throw StrictException, ()])
+        evaluate (foldl' (const id) () [throw StrictException, ()])
         `shouldThrow` (== StrictException)
 
     describe "foldr" $ do
