@@ -4,7 +4,7 @@ module ListOps
   , map
   , filter
   , foldr
-  , foldl'
+  , ListOps.foldl'
   , (++)
   , concat
   ) where
@@ -26,10 +26,10 @@ foldr f x0 = go
     go (x : xs) = x `f` go xs
 
 length :: [a] -> Int
-length = foldl' (\acc _ -> 1 + acc) 0
+length = ListOps.foldl' (\acc _ -> 1 + acc) 0
 
 reverse :: [a] -> [a]
-reverse = foldl' (flip (:)) []
+reverse = ListOps.foldl' (flip (:)) []
 
 map :: (a -> b) -> [a] -> [b]
 map f = foldr (\x acc -> f x : acc) []
