@@ -1,4 +1,6 @@
-# Hints
+# Instructions append
+
+## Hints
 
 You need to implement the functions `label` and `ohms`. You can use the
 provided signature for `label`, but don't let it restrict your creativity.

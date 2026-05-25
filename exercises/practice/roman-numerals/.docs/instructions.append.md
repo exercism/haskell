@@ -1,4 +1,6 @@
-# Hints
+# Instructions append
+
+## Hints
 
 To complete this exercise you need to implement the function `numerals`,
 that *maybe* converts a number to a *string* representing a roman numeral.

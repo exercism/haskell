@@ -1,4 +1,6 @@
-# Hints
+# Instructions append
+
+## Hints
 
 To complete this exercise, you need to define the constant `hello`.
 
