@@ -42,60 +42,60 @@
         "slug": "lucians-luscious-lasagna",
         "name": "Lucian's Luscious Lasagna",
         "uuid": "3aa220cb-606f-45c5-9b7a-4bce0e4eb20d",
-        "prerequisites": [],
-        "status": "beta",
         "concepts": [
           "basics"
-        ]
+        ],
+        "prerequisites": [],
+        "status": "beta"
       },
       {
         "slug": "temperature",
         "name": "Temperature",
         "uuid": "6ed15adb-f022-4bbd-bbb3-22845deabc91",
+        "concepts": [
+          "numbers"
+        ],
         "prerequisites": [
           "basics"
         ],
-        "status": "beta",
-        "concepts": [
-          "numbers"
-        ]
+        "status": "beta"
       },
       {
         "slug": "pacman-rules",
         "name": "Pac-Man Rules",
         "uuid": "9050f8c3-9976-4c4d-93e7-c9c549b1c524",
+        "concepts": [
+          "booleans"
+        ],
         "prerequisites": [
           "basics"
         ],
-        "status": "wip",
-        "concepts": [
-          "booleans"
-        ]
+        "status": "wip"
       },
       {
         "slug": "guessing-game",
         "name": "Guessing Game",
         "uuid": "fb9868eb-ce4f-4e6b-aa0d-b47d3451070f",
+        "concepts": [
+          "pattern-matching-literals"
+        ],
         "prerequisites": [
           "numbers"
         ],
-        "status": "beta",
-        "concepts": [
-          "pattern-matching-literals"
-        ]
+        "status": "beta"
       },
       {
         "slug": "valentines-day",
         "name": "Valentines Day",
         "uuid": "537d8df3-0b12-4dbe-aa86-65ae79c4de0e",
+        "concepts": [
+          "algebraic-data-types"
+        ],
         "prerequisites": [
           "pattern-matching-literals",
           "numbers"
         ],
-        "status": "beta",
-        "concepts": [
-          "algebraic-data-types"
-        ]
+        "status": "beta"
       }
     ],
     "practice": [
@@ -297,8 +297,7 @@
         "uuid": "dde7cf64-7e3b-4e5c-8a65-5d639fa8a307",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 5,
-        "topics": []
+        "difficulty": 5
       },
       {
         "slug": "luhn",
@@ -331,8 +330,7 @@
         "uuid": "821f2081-dfc2-40c6-8e12-2907daa04416",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 7,
-        "topics": []
+        "difficulty": 7
       },
       {
         "slug": "game-of-life",
@@ -340,8 +338,7 @@
         "uuid": "eb221634-15c6-463c-8268-54a3c3aa0c66",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 7,
-        "topics": []
+        "difficulty": 7
       },
       {
         "slug": "perfect-numbers",
@@ -496,8 +493,7 @@
         "uuid": "00b6c83b-e652-4f71-a094-b3034f77fd7b",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 4,
-        "topics": []
+        "difficulty": 4
       },
       {
         "slug": "food-chain",
@@ -868,8 +864,7 @@
         "uuid": "01401d15-6667-4f94-bcd2-ec5a70df1cc6",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 4,
-        "topics": []
+        "difficulty": 4
       },
       {
         "slug": "sieve",
@@ -926,8 +921,7 @@
         "uuid": "78971281-153d-4bdc-8f90-4b7eded2b201",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 8,
-        "topics": []
+        "difficulty": 8
       },
       {
         "slug": "pov",
@@ -1042,8 +1036,7 @@
         "uuid": "f49d76f7-f826-4b6a-a514-47af7e84144a",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 6,
-        "topics": []
+        "difficulty": 6
       },
       {
         "slug": "sgf-parsing",
@@ -1097,8 +1090,7 @@
         "uuid": "7157a846-5846-47a4-97c2-daad7f763512",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 3,
-        "topics": []
+        "difficulty": 3
       },
       {
         "slug": "roman-numerals",
@@ -1302,7 +1294,6 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 1,
-        "topics": null,
         "status": "deprecated"
       },
       {
@@ -1312,7 +1303,6 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 1,
-        "topics": null,
         "status": "deprecated"
       },
       {
@@ -1322,7 +1312,6 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 1,
-        "topics": null,
         "status": "deprecated"
       },
       {
@@ -1332,7 +1321,6 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 1,
-        "topics": null,
         "status": "deprecated"
       },
       {
@@ -1342,7 +1330,6 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 1,
-        "topics": null,
         "status": "deprecated"
       },
       {
@@ -1377,6 +1364,14 @@
         "topics": [
           "strings"
         ]
+      },
+      {
+        "slug": "eliuds-eggs",
+        "name": "Eliud's Eggs",
+        "uuid": "73f0f60f-b4df-4384-adf1-4a03485459de",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 1
       }
     ],
     "foregone": [
@@ -1443,15 +1438,15 @@
     }
   ],
   "tags": [
+    "execution_mode/compiled",
     "paradigm/declarative",
     "paradigm/functional",
+    "platform/linux",
+    "platform/mac",
+    "platform/windows",
+    "runtime/standalone_executable",
     "typing/static",
     "typing/strong",
-    "execution_mode/compiled",
-    "platform/windows",
-    "platform/mac",
-    "platform/linux",
-    "runtime/standalone_executable",
     "used_for/backends",
     "used_for/financial_systems"
   ]
