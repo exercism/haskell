@@ -1,8 +1,12 @@
-import Test.Hspec             (it, shouldBe, hspec)
+import Test.Hspec        (Spec, it, shouldBe)
+import Test.Hspec.Runner (configFailFast, defaultConfig, hspecWith)
 import LuciansLusciousLasagna (elapsedTimeInMinutes, expectedMinutesInOven, preparationTimeInMinutes)
 
 main :: IO ()
-main = hspec $ do
+main = hspecWith defaultConfig {configFailFast = True} specs
+
+specs :: Spec
+specs = do
     it "expectedMinutesInOven" $ do
         expectedMinutesInOven `shouldBe` 40
 

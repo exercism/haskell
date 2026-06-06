@@ -11,7 +11,8 @@
       "test/Tests.hs"
     ],
     "exemplar": [
-      ".meta/exemplar/src/Temperature.hs"
+      ".meta/exemplar/src/Temperature.hs",
+      ".meta/exemplar/package.yaml"
     ],
     "invalidator": [
       "stack.yaml"

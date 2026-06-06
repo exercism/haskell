@@ -64,7 +64,7 @@ someFunc :: ...
 someFunc ...
 ```
 
-You'll a find a file with this name already in place in `src/`,
+You'll find a file with this name already in place in `src/`,
 which you can use as a starting point for your solution.
 
 Just keep in mind that this *stub* is there just for you to get started.

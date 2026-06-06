@@ -23,7 +23,8 @@
       "test/Tests.hs"
     ],
     "example": [
-      ".meta/examples/success-standard/src/SecretHandshake.hs"
+      ".meta/examples/success-standard/src/SecretHandshake.hs",
+      ".meta/examples/success-standard/package.yaml"
     ],
     "invalidator": [
       "stack.yaml"

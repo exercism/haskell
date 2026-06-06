@@ -1,5 +1,4 @@
 {
-  "blurb": "Convert a binary number, represented as a string (e.g. '101010'), to its decimal equivalent using first principles.",
   "authors": [
     "etrepum"
   ],
@@ -23,12 +22,14 @@
       "test/Tests.hs"
     ],
     "example": [
-      ".meta/examples/success-standard/src/Binary.hs"
+      ".meta/examples/success-standard/src/Binary.hs",
+      ".meta/examples/success-standard/package.yaml"
     ],
     "invalidator": [
       "stack.yaml"
     ]
   },
+  "blurb": "Convert a binary number, represented as a string (e.g. '101010'), to its decimal equivalent using first principles.",
   "source": "All of Computer Science",
   "source_url": "https://www.wolframalpha.com/input/?i=binary&a=*C.binary-_*MathWorld-"
 }

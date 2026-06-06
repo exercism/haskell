@@ -26,7 +26,8 @@
       "test/Tests.hs"
     ],
     "example": [
-      ".meta/examples/success-standard/src/Cipher.hs"
+      ".meta/examples/success-standard/src/Cipher.hs",
+      ".meta/examples/success-standard/package.yaml"
     ],
     "invalidator": [
       "stack.yaml"

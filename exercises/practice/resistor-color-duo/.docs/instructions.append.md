@@ -1,4 +1,6 @@
-# Hints
+# Instructions append
+
+## Hints
 
 You need to implement the function
 

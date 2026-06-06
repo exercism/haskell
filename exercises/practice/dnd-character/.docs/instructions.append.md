@@ -1,4 +1,6 @@
-# Hints
+# Instructions append
+
+## Hints
 
 This exercise uses QuickCheck generators. Here are some resources to get started:
 

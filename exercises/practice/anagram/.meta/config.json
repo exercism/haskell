@@ -22,7 +22,8 @@
       "test/Tests.hs"
     ],
     "example": [
-      ".meta/examples/success-settext/src/Anagram.hs"
+      ".meta/examples/success-settext/src/Anagram.hs",
+      ".meta/examples/success-settext/package.yaml"
     ],
     "invalidator": [
       "stack.yaml"

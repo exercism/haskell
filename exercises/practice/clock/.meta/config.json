@@ -25,13 +25,13 @@
       "test/Tests.hs"
     ],
     "example": [
-      ".meta/examples/success-standard/src/Clock.hs"
+      ".meta/examples/success-standard/src/Clock.hs",
+      ".meta/examples/success-standard/package.yaml"
     ],
     "invalidator": [
       "stack.yaml"
     ]
   },
   "blurb": "Implement a clock that handles times without dates.",
-  "source": "Pairing session with Erin Drummond",
-  "source_url": "https://twitter.com/ebdrummond"
+  "source": "Pairing session with Erin Drummond"
 }

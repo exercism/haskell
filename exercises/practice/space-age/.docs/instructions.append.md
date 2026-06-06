@@ -1,4 +1,6 @@
-# Hints
+# Instructions append
+
+## Hints
 
 In this exercise, we provided the definition of the
 [algebraic data type](https://learnyouahaskell.github.io/making-our-own-types-and-typeclasses)

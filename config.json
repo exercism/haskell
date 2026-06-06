@@ -326,13 +326,22 @@
         ]
       },
       {
+        "slug": "flower-field",
+        "name": "Flower Field",
+        "uuid": "1eff202c-ef0c-43d2-9077-7837914bc8b0",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 7
+      },
+      {
         "slug": "minesweeper",
         "name": "Minesweeper",
         "uuid": "821f2081-dfc2-40c6-8e12-2907daa04416",
         "practices": [],
         "prerequisites": [],
         "difficulty": 7,
-        "topics": []
+        "topics": [],
+        "status": "deprecated"
       },
       {
         "slug": "game-of-life",

@@ -22,13 +22,13 @@
       "test/Tests.hs"
     ],
     "example": [
-      ".meta/examples/success-standard/src/BST.hs"
+      ".meta/examples/success-standard/src/BST.hs",
+      ".meta/examples/success-standard/package.yaml"
     ],
     "invalidator": [
       "stack.yaml"
     ]
   },
   "blurb": "Insert and search for numbers in a binary tree.",
-  "source": "Josh Cheek",
-  "source_url": "https://twitter.com/josh_cheek"
+  "source": "Josh Cheek"
 }

@@ -11,9 +11,9 @@ on:
 jobs:
   track-config:
     name: Check track configuration
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           # main is needed in addition to HEAD, because the README check only
           # checks exercises changed since main. This fetches the entire repo's
@@ -25,9 +25,10 @@ jobs:
 
       - name: Install yq (for stack resolvers)
         run: |
-          sudo add-apt-repository -y ppa:rmescandon/yq
-          sudo apt-get -q update
-          sudo apt-get -y install yq
+          sudo apt-get update
+          sudo apt-get -y install wget
+          wget https://github.com/mikefarah/yq/releases/download/v4.46.1/yq_linux_amd64 -O /usr/local/bin/yq
+          chmod +x /usr/local/bin/yq
 
       - name: Ensure stack resolvers are synced
         run: bin/ensure-stack-resolvers-are-synced.sh
@@ -47,7 +48,7 @@ jobs:
 
   exercises:
     name: Check exercises
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     strategy:
       matrix:
         resolver:
@@ -65,13 +66,14 @@ jobs:
           # and an admin only needs to make "Check exercises (lts-from-exercises)" required.
           - lts-from-exercises
     steps:
-      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
       - name: Install yq (for stack resolvers)
         run: |
-          sudo add-apt-repository -y ppa:rmescandon/yq
-          sudo apt-get -q update
-          sudo apt-get -y install yq
+          sudo apt-get update
+          sudo apt-get -y install wget
+          wget https://github.com/mikefarah/yq/releases/download/v4.46.1/yq_linux_amd64 -O /usr/local/bin/yq
+          chmod +x /usr/local/bin/yq
 
       - name: Resolve resolver
         id: resolve-resolver
@@ -95,7 +97,7 @@ jobs:
           # most of the time caches should hit.
           echo "::set-output name=week-no::$(date -u +%Y-%U)"
 
-      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+      - uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684
         id: cache
         with:
           path: |

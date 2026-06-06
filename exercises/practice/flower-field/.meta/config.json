@@ -1,0 +1,34 @@
+{
+  "authors": [
+    "etrepum"
+  ],
+  "contributors": [
+    "ffflorian",
+    "iHiD",
+    "keiravillekode",
+    "kytrinyx",
+    "lpalma",
+    "petertseng",
+    "ppartarr",
+    "rbasso",
+    "sshine",
+    "tejasbubane"
+  ],
+  "files": {
+    "solution": [
+      "src/FlowerField.hs",
+      "package.yaml"
+    ],
+    "test": [
+      "test/Tests.hs"
+    ],
+    "example": [
+      ".meta/examples/success-standard/src/FlowerField.hs",
+      ".meta/examples/success-standard/package.yaml"
+    ],
+    "invalidator": [
+      "stack.yaml"
+    ]
+  },
+  "blurb": "Mark all the flowers in a garden."
+}

@@ -2,6 +2,9 @@
   "authors": [
     "pwadsworth"
   ],
+  "contributors": 
+    ["meatball133"]
+  ,
   "files": {
     "solution": [
       "src/PacmanRules.hs",
@@ -11,7 +14,8 @@
       "test/Tests.hs"
     ],
     "exemplar": [
-      ".meta/exemplar/src/PacmanRules.hs"
+      ".meta/exemplar/src/PacmanRules.hs",
+      ".meta/exemplar/package.yaml"
     ],
     "invalidator": [
       "stack.yaml"

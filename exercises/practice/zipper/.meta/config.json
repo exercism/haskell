@@ -20,7 +20,8 @@
       "test/Tests.hs"
     ],
     "example": [
-      ".meta/examples/success-standard/src/Zipper.hs"
+      ".meta/examples/success-standard/src/Zipper.hs",
+      ".meta/examples/success-standard/package.yaml"
     ],
     "invalidator": [
       "stack.yaml"

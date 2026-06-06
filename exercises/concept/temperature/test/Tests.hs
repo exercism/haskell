@@ -1,7 +1,8 @@
 {-# LANGUAGE RecordWildCards #-}
 
 import Data.Foldable (for_)
-import Test.Hspec    (describe, hspec, it, shouldBe)
+import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec.Runner (configFailFast, defaultConfig, hspecWith)
 
 import Temperature (tempToC, tempToF)
 
@@ -49,7 +50,10 @@ toCCases = [ Case { description = "negative Fahrenheit to negative Celsius"
            ]
 
 main :: IO ()
-main = hspec $ do
+main = hspecWith defaultConfig {configFailFast = True} specs
+
+specs :: Spec
+specs = do
        describe "tempToF" $ do
          for_ toFCases $ \Case {..} ->
            it description $ tempToF celsius `shouldBe` fahrenheit

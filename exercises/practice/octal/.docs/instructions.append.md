@@ -1,4 +1,6 @@
-# Hints
+# Instructions append
+
+## Hints
 
 For the appropriate amount of challenge here, you should only
 use functionality present in Prelude. Try not to use Data.List,

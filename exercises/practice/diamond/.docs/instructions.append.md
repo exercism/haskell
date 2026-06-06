@@ -1,4 +1,6 @@
-# Hints
+# Instructions append
+
+## Hints
 
 You need to implement the `diamond` function which prints a diamond starting at
 `A` with the given character at its widest points. You can use the provided

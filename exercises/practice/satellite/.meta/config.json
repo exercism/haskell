@@ -11,7 +11,8 @@
       "test/Tests.hs"
     ],
     "example": [
-      ".meta/examples/success-standard/src/Satellite.hs"
+      ".meta/examples/success-standard/src/Satellite.hs",
+      ".meta/examples/success-standard/package.yaml"
     ],
     "editor": [
       "src/BinaryTree.hs"

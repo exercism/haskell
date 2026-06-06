@@ -12,7 +12,7 @@
     ],
     "example": [
       ".meta/examples/success-standard/src/Affine.hs",
-      ".meta/examples/success-text/src/Affine.hs"
+      ".meta/examples/success-standard/package.yaml"
     ],
     "invalidator": [
       "stack.yaml"

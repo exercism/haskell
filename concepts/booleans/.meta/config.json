@@ -2,6 +2,7 @@
   "blurb": "Booleans are either true or false. They support NOT, AND, and OR operators.",
   "authors": [
     "ErikSchierboom",
-    "pwadsworth"
+    "pwadsworth",
+    "meatball133"
   ]
 }

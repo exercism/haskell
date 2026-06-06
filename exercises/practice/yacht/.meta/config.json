@@ -18,13 +18,14 @@
       "test/Tests.hs"
     ],
     "example": [
-      ".meta/examples/success-standard/src/Yacht.hs"
+      ".meta/examples/success-standard/src/Yacht.hs",
+      ".meta/examples/success-standard/package.yaml"
     ],
     "invalidator": [
       "stack.yaml"
     ]
   },
   "blurb": "Score a single throw of dice in the game Yacht.",
-  "source": "James Kilfiger, using wikipedia",
+  "source": "James Kilfiger, using Wikipedia",
   "source_url": "https://en.wikipedia.org/wiki/Yacht_(dice_game)"
 }

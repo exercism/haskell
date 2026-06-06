@@ -1,4 +1,6 @@
-# Hints
+# Instructions append
+
+## Hints
 
 You need to implement the `convert` function that returns number converted to
 raindrop sound. You can use the provided signature if you are unsure

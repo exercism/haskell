@@ -24,7 +24,8 @@
       "test/Tests.hs"
     ],
     "example": [
-      ".meta/examples/success-simple/src/WordCount.hs"
+      ".meta/examples/success-simple/src/WordCount.hs",
+      ".meta/examples/success-simple/package.yaml"
     ],
     "invalidator": [
       "stack.yaml"

@@ -23,7 +23,8 @@
       "test/Tests.hs"
     ],
     "example": [
-      ".meta/examples/success-double/src/SpaceAge.hs"
+      ".meta/examples/success-double/src/SpaceAge.hs",
+      ".meta/examples/success-double/package.yaml"
     ],
     "invalidator": [
       "stack.yaml"

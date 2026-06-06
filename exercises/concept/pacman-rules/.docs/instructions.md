@@ -11,7 +11,7 @@ You have four rules to translate, all related to the game states.
 Define the `eatsGhost` function that takes two arguments (_whether Pac-Man has a power pellet active_ and _Pac-Man is touching a ghost_) and returns a `Bool` value when Pac-Man is able to eat the ghost.
 The function should return `True` only when Pac-Man has a power pellet active and is touching a ghost.
 
-```Haskell
+```haskell
 eatsGhost False True
 -- -> False
 ```
@@ -21,7 +21,7 @@ eatsGhost False True
 Define the `scores` function that takes two arguments (_whether Pac-Man is touching a power pellet_ and _Pac-Man is touching a dot_) and returns a `Bool` value if Pac-Man scored.
 The function should return `True` when Pac-Man is touching a power pellet or a dot.
 
-```Haskell
+```haskell
 scores True True
 -- -> True
 ```
@@ -31,7 +31,7 @@ scores True True
 Define the `loses` function that takes two arguments (_whether Pac-Man has a power pellet active_ and _Pac-Man is touching a ghost_) and returns a `Bool` value if Pac-Man loses.
 The function should return `True` when Pac-Man is touching a ghost and does not have a power pellet active.
 
-```Haskell
+```haskell
 loses False True
 -- -> True
 ```
@@ -41,7 +41,7 @@ loses False True
 Define the `wins` function that takes three arguments (_whether Pac-Man has eaten all of the dots_, _Pac-Man has a power pellet active_, and _Pac-Man is touching a ghost_) and returns a `Bool` value if Pac-Man wins.
 The function should return `True` when Pac-Man has eaten all of the dots _and_ has not lost based on the arguments defined in part 3.
 
-```Haskell
+```haskell
 wins False True False
 -- -> False
 ```

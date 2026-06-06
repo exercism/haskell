@@ -11,12 +11,13 @@
       "test/Tests.hs"
     ],
     "example": [
-      ".meta/examples/success-standard/src/Darts.hs"
+      ".meta/examples/success-standard/src/Darts.hs",
+      ".meta/examples/success-standard/package.yaml"
     ],
     "invalidator": [
       "stack.yaml"
     ]
   },
-  "blurb": "Write a function that returns the earned points in a single toss of a Darts game.",
+  "blurb": "Calculate the points scored in a single toss of a Darts game.",
   "source": "Inspired by an exercise created by a professor Della Paolera in Argentina"
 }
