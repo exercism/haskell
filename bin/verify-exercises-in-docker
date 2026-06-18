@@ -42,6 +42,7 @@ run_tests() {
         --rm \
         --network none \
         --mount type=bind,src="${PWD}",dst=/solution \
+        --mount type=volume,dst=/solution/.stack-work \
         --mount type=bind,src="${PWD}",dst=/output \
         --mount type=tmpfs,dst=/tmp \
         "${image}" "${slug}" /solution /output
