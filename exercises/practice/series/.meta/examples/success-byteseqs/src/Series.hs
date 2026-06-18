@@ -1,6 +1,5 @@
 module Series (slices) where
 
-import Control.Applicative   (liftA2)
 import Control.Monad         (guard)
 import Data.ByteString.Char8 (ByteString, foldr, length, tails, take)
 import Data.Function         (on)
