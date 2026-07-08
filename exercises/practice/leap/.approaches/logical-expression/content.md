@@ -19,7 +19,7 @@ We say that the `*` operator has _higher [precedence][wikipedia-precedence]_ tha
 In logic similar ambiguities exist, and these are similarly resolved.
 By convention &ndash; and so in Haskell &ndash;
 
-- _and_ has higher precedence than _or_, and
+- _and_ has higher precedence than _or_.
 - _not_ has higher precedence than both _and_ and _or_.
 
 For example, `p || q && r` means the same as `p || (q && r)`.
