@@ -1,0 +1,25 @@
+{
+  "authors": [
+    "meatball133"
+  ],
+  "files": {
+    "solution": [
+      "src/KitchenCalculator.hs",
+      "package.yaml"
+    ],
+    "test": [
+      "test/Tests.hs"
+    ],
+    "exemplar": [
+      ".meta/exemplar/src/KitchenCalculator.hs"
+    ],
+    "invalidator": [
+      "stack.yaml"
+    ]
+  },
+  "forked_from": [
+    "elixir/kitchen-calculator"
+  ],
+  "icon": "kitchen-calculator",
+  "blurb": "Learn about tuples and pattern matching by converting common US baking measurements to the metric system."
+}
