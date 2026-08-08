@@ -10,7 +10,7 @@ module ListOps
   ) where
 
 import Prelude hiding
-  ( length, reverse, map, filter, foldr, (++), concat )
+  ( length, reverse, map, filter, foldl', foldr, (++), concat )
 
 foldl' :: (b -> a -> b) -> b -> [a] -> b
 foldl' f = go

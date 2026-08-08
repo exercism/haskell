@@ -8,6 +8,7 @@ import Prelude hiding
     ( (++)
     , concat
     , filter
+    , foldl'
     , foldr
     , length
     , map
