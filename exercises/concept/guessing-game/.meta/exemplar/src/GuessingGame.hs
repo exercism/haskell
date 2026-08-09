@@ -6,4 +6,4 @@ reply n guess
   | guess + 1 == n || guess - 1 == n = "So close!"
   | guess < n = "Too low"
   | guess > n = "Too high"
-  | _         = "Incorrect" -- catch-all clause to make pattern matching exhaustive
+  | otherwise = "Incorrect" -- catch-all clause to make pattern matching exhaustive
