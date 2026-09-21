@@ -43,7 +43,7 @@ reverseSort = reverse . sort  -- first sort, then reverse
 
 Still other examples include
 
-- `zipWith`, which combines two lists into one using a element-combining function.
+- `zipWith`, which combines two lists into one using an element-combining function.
   ```haskell
   -- >>> zipWith (+) [10, 20, 30] [1, 2, 3]
   -- [11,22,33]
