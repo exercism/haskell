@@ -1,8 +1,12 @@
 module GuessingGame (reply) where
 
-reply :: Int -> Int -> String
-reply n guess
+guess :: Int
+guess = 42
+
+reply :: Int -> String
+reply n
   | guess == n = "Correct"
-  | guess + 1 == n || guess - 1 == n = "So close!"
-  | guess < n = "Too low"
-  | guess > n = "Too high"
+  | guess + 1 == n || guess - 1 == n = "So close"
+  | guess < n = "Too high"
+  | guess > n = "Too low"
+  | otherwise = "Incorrect" -- catch-all clause to make pattern matching exhaustive
