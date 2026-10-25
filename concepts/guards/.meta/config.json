@@ -1,0 +1,6 @@
+{
+  "authors": [
+    "meatball133"
+  ],
+  "blurb": "Guards are used to prevent function invocation based on evaluation of the arguments by guard functions. Guards begin with the `|` operatpr, followed by a boolean expression. Guards are used to augment pattern matching with more complex checks."
+}

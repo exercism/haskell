@@ -13,7 +13,7 @@ jobs:
     name: Check track configuration
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           # main is needed in addition to HEAD, because the README check only
           # checks exercises changed since main. This fetches the entire repo's
@@ -66,7 +66,7 @@ jobs:
           # and an admin only needs to make "Check exercises (lts-from-exercises)" required.
           - lts-from-exercises
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Install yq (for stack resolvers)
         run: |
@@ -97,7 +97,7 @@ jobs:
           # most of the time caches should hit.
           echo "::set-output name=week-no::$(date -u +%Y-%U)"
 
-      - uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
         id: cache
         with:
           path: |

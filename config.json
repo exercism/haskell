@@ -49,6 +49,18 @@
         ]
       },
       {
+        "slug": "language-list",
+        "name": "Language List",
+        "uuid": "2770e2c0-883d-4336-be94-3b4ae7529ac3",
+        "prerequisites": [
+          "basics"
+        ],
+        "status": "beta",
+        "concepts": [
+          "lists"
+        ]
+      },
+      {
         "slug": "temperature",
         "name": "Temperature",
         "uuid": "6ed15adb-f022-4bbd-bbb3-22845deabc91",
@@ -95,6 +107,19 @@
         "status": "beta",
         "concepts": [
           "algebraic-data-types"
+        ]
+      },
+      {
+        "slug": "kitchen-calculator",
+        "name": "Kitchen Calculator",
+        "uuid": "d5ca4a8a-9c7f-400c-95fb-764bd655480e",
+        "prerequisites": [
+          "numbers"
+        ],
+        "status": "beta",
+        "concepts": [
+          "tuples",
+          "pattern-matching"
         ]
       }
     ],
@@ -1420,6 +1445,11 @@
       "name": "Booleans"
     },
     {
+      "uuid": "ef484ab5-d4d2-4d7c-b4b5-abb5920f916a",
+      "slug": "lists",
+      "name": "Lists"
+    },
+    {
       "uuid": "ca21a553-6fc1-49be-8f47-730f97330862",
       "slug": "pattern-matching-literals",
       "name": "Pattern Matching Literals"
@@ -1428,6 +1458,16 @@
       "uuid": "cb756cfd-9b5c-408d-bf3f-b2adc8322da3",
       "slug": "algebraic-data-types",
       "name": "Algebraic Data Types"
+    },
+    {
+      "uuid": "4c2ef692-3fb8-46c5-b047-b037449e33ce",
+      "slug": "tuples",
+      "name": "Tuples" 
+    },
+    {
+      "uuid": "5bda814e-0dec-4952-ab62-44b1751bf6cc",
+      "slug": "pattern-matching",
+      "name": "Pattern Matching" 
     }
   ],
   "key_features": [
