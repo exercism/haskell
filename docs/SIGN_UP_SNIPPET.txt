@@ -1,0 +1,8 @@
+mostCommonWord :: String -> String
+mostCommonWord text = show best ++ " appears " ++ show count ++ " times"
+  where
+    counts = Map.fromListWith (+) [(word, 1 :: Int) | word <- words (map toLower text)]
+    (best, count) = Map.foldrWithKey pick ("", 0) counts
+    pick word n (bestSoFar, m)
+      | n > m = (word, n)
+      | otherwise = (bestSoFar, m)
