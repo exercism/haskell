@@ -1,11 +1,11 @@
-name: lucians-luscious-lasagna
+name: kitchen-calculator
 version: 1.0.0.0
 
 dependencies:
   - base
 
 library:
-  exposed-modules: LuciansLusciousLasagna
+  exposed-modules: KitchenCalculator
   source-dirs: src
   ghc-options: -Wall
 
@@ -14,5 +14,5 @@ tests:
     main: Tests.hs
     source-dirs: test
     dependencies:
-      - lucians-luscious-lasagna
+      - kitchen-calculator
       - hspec

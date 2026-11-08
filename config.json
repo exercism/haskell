@@ -1461,7 +1461,12 @@
     {
       "uuid": "5bda814e-0dec-4952-ab62-44b1751bf6cc",
       "slug": "pattern-matching",
-      "name": "Pattern Matching" 
+      "name": "Pattern Matching"
+    },
+    {
+      "uuid": "0d0a5b9f-647b-47e5-a903-f0feae46364b",
+      "slug": "guards",
+      "name": "Guards"
     }
   ],
   "key_features": [
