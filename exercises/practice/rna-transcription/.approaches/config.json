@@ -1,0 +1,18 @@
+{
+    "introduction": {
+        "authors": [
+            "MatthijsBlom"
+        ]
+    },
+    "approaches": [
+        {
+            "uuid": "209cd027-6f98-47ac-a77f-8a083e0cd100",
+            "slug": "validate-first",
+            "title": "Validate first, then transcribe",
+            "blurb": "First, find out whether there are invalid characters in the input. Then, if there aren't, transcribe the strand in one go.",
+            "authors": [
+                "MatthijsBlom"
+            ]
+        }
+    ]
+}
