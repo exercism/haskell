@@ -1,0 +1,31 @@
+{
+  "authors": [
+    "sshine"
+  ],
+  "contributors": [
+    "iHiD",
+    "keiravillekode",
+    "petertseng",
+    "ppartarr",
+    "tejasbubane"
+  ],
+  "files": {
+    "solution": [
+      "src/BinaryChop.hs",
+      "package.yaml"
+    ],
+    "test": [
+      "test/Tests.hs"
+    ],
+    "example": [
+      ".meta/examples/success-standard/src/BinaryChop.hs",
+      ".meta/examples/success-standard/package.yaml"
+    ],
+    "invalidator": [
+      "stack.yaml"
+    ]
+  },
+  "blurb": "Implement a binary search algorithm.",
+  "source": "Wikipedia",
+  "source_url": "https://en.wikipedia.org/wiki/Binary_search_algorithm"
+}
