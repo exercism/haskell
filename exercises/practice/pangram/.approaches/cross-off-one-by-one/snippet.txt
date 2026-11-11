@@ -1,0 +1,5 @@
+isPangram :: String -> Bool
+isPangram =
+  any null
+    . scanl (flip delete) ['a' .. 'z']
+    . map toLower
