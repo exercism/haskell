@@ -26,7 +26,12 @@ data Case = Case { description  ::        String
                  }
 
 cases :: [Case]
-cases = [ Case { description = "single coin change"
+cases = [ Case { description = "change for 1 cent"
+               , coins = [1, 5, 10, 25]
+               , target = 1
+               , expected = Just [1]
+             }
+        , Case { description = "single coin change"
                , coins = [1, 5, 10, 25, 100]
                , target = 25
                , expected = Just [25]
@@ -60,6 +65,11 @@ cases = [ Case { description = "single coin change"
                , coins = [4, 5]
                , target = 27
                , expected = Just [4, 4, 4, 5, 5, 5]
+             }
+        , Case { description = "a greedy approach is not optimal"
+               , coins = [1, 10, 11]
+               , target = 20
+               , expected = Just [10, 10]
              }
         , Case { description = "no coins make 0 change"
                , coins = [1, 5, 10, 21, 25]

@@ -106,6 +106,10 @@ cases = [ Case { description = "empty input = empty output"
                , input       = [(1, 2), (5, 3), (3, 1), (1, 2), (2, 4), (1, 6), (2, 3), (3, 4), (5, 6)]
                , expected    = True
                }
+        , Case { description = "separate three-domino loops"
+               , input       = [(1, 2), (2, 3), (3, 1), (4, 5), (5, 6), (6, 4)]
+               , expected    = False
+               }
         , Case { description = "twelve elements - no loop"
                , input       = [(1, 2), (5, 3), (3, 1), (1, 2), (2, 4), (1, 6), (2, 3), (3, 4), (5, 6), (3,6), (4,5), (2,1)]
                , expected    = False

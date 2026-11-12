@@ -72,6 +72,10 @@ cases = [ Case { description = "should be able to score a game with all zeros"
                , rolls       = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 10]
                , expected    = Right 30
                }
+        , Case { description = "last two strikes followed by only last bonus with non strike points"
+               , rolls       = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 0, 1]
+               , expected    = Right 31
+               }
         , Case { description = "a strike with the one roll bonus after a spare in the last frame does not get a bonus"
                , rolls       = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 3, 10]
                , expected    = Right 20

@@ -66,4 +66,6 @@ specs = describe "annotate" $ for_ cases test
                               , "112*4*"
                               , "1*22*2"
                               , "111111" ] )
+
+            , ("multiple adjacent flowers", [ "1**1" ] )
             ]

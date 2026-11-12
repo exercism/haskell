@@ -70,6 +70,20 @@ cases = [ Case { description = "an empty board has no winner"
                                , "    . O X ." ]
                , expected    = Just Cross
                }
+        , Case { description = "X wins with left-hand dead end fork"
+               , board       = [ ". . X ."
+                               , " X X . ."
+                               , "  . X X X"
+                               , "   O O O O" ]
+               , expected    = Just Cross
+               }
+        , Case { description = "X wins with right-hand dead end fork"
+               , board       = [ ". . X X"
+                               , " X X . ."
+                               , "  . X X ."
+                               , "   O O O O" ]
+               , expected    = Just Cross
+               }
         , Case { description = "O wins crossing from top to bottom"
                , board       = [ ". O . ."
                                , " O X X X"
