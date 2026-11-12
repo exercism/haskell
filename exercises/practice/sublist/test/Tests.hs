@@ -124,6 +124,11 @@ cases = [ Case { description = "empty lists"
                , listTwo     = [1, 3]
                , expectation = Nothing
                }
+        , Case { description = "first list missing additional digits from second list"
+               , listOne     = [1, 2]
+               , listTwo     = [1, 22]
+               , expectation = Nothing
+               }
         , Case { description = "order matters to a list"
                , listOne     = [1, 2, 3]
                , listTwo     = [3, 2, 1]

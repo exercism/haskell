@@ -48,6 +48,10 @@ cases = [ Case { description = "Smallest perfect number is classified correctly"
                , number      = 33550335
                , expected    = Just Abundant
                }
+        , Case { description = "Perfect square abundant number is classified correctly"
+               , number      = 196
+               , expected    = Just Abundant
+               }
         , Case { description = "Smallest prime deficient number is classified correctly"
                , number      = 2
                , expected    = Just Deficient

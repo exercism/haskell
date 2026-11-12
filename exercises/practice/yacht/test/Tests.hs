@@ -68,6 +68,11 @@ cases = [ Case { description = "Yacht"
                , category = Fives
                , expected = 0
                }
+        , Case { description = "Fives"
+               , dice = [1, 5, 3, 5, 3]
+               , category = Fives
+               , expected = 10
+               }
         , Case { description = "Sixes"
                , dice = [2, 3, 4, 5 ,6]
                , category = Sixes
