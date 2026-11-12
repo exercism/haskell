@@ -178,4 +178,20 @@ cases = [ Case { description = "empty string"
                             , "     R"
                             ]
                }
+        , Case { description = "jagged triangle"
+               , rows = [ "11"
+                        , "2"
+                        , "3333"
+                        , "444"
+                        , "555555"
+                        , "66666"
+                        ]
+               , expected = [ "123456"
+                            , "1 3456"
+                            , "  3456"
+                            , "  3 56"
+                            , "    56"
+                            , "    5"
+                            ]
+               }
         ]

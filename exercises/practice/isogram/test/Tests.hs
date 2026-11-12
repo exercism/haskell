@@ -77,4 +77,8 @@ cases = [ Case { description = "empty string"
                , input       = "angola"
                , expected    = False
                }
+        , Case { description = "word with duplicated character and with two hyphens"
+               , input       = "up-to-date"
+               , expected    = False
+               }
         ]

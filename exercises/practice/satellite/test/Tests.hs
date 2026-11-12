@@ -54,4 +54,19 @@ cases =
            , inorder     = "baa"
            , expected    = Nothing
            }
+    , Case { description = "A degenerate binary tree"
+           , preorder    = "abcd"
+           , inorder     = "dcba"
+           , expected    = Just (Branch (Branch (Branch (Branch Leaf 'd' Leaf) 'c' Leaf) 'b' Leaf) 'a' Leaf)
+           }
+    , Case { description = "Another degenerate binary tree"
+           , preorder    = "abcd"
+           , inorder     = "abcd"
+           , expected    = Just (Branch Leaf 'a' (Branch Leaf 'b' (Branch Leaf 'c' (Branch Leaf 'd' Leaf))))
+           }
+    , Case { description = "Tree with many more items"
+           , preorder    = "abdghcefi"
+           , inorder     = "gdhbaecif"
+           , expected    = Just (Branch (Branch (Branch (Branch Leaf 'g' Leaf) 'd' (Branch Leaf 'h' Leaf)) 'b' Leaf) 'a' (Branch (Branch Leaf 'e' Leaf) 'c' (Branch (Branch Leaf 'i' Leaf) 'f' Leaf)))
+           }
     ]

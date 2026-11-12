@@ -26,3 +26,12 @@ description = "Reject inconsistent traversals of same length"
 
 [d86a3d72-76a9-43b5-9d3a-e64cb1216035]
 description = "Reject traversals with repeated items"
+
+[af31ae02-7e5b-4452-a990-bccb3fca9148]
+description = "A degenerate binary tree"
+
+[ee54463d-a719-4aae-ade4-190d30ce7320]
+description = "Another degenerate binary tree"
+
+[87123c08-c155-4486-90a4-e2f75b0f3e8f]
+description = "Tree with many more items"
