@@ -1,0 +1,18 @@
+name: pronounce
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: Pronounce
+  source-dirs: src
+  dependencies:
+    - array
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - pronounce
+      - hspec

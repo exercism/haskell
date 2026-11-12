@@ -1182,15 +1182,28 @@
         ]
       },
       {
-        "slug": "say",
+        "slug": "pronounce",
         "name": "Say",
-        "uuid": "76384e4a-3d3e-4369-9a0d-55c47f91f17e",
+        "problem_specifications_slug": "say",
+        "uuid": "15d54824-3f26-4b2b-8d78-bb259e587ae0",
         "practices": [],
         "prerequisites": [],
         "difficulty": 6,
         "topics": [
           "maybe"
         ]
+      },
+      {
+        "slug": "say",
+        "name": "Say (deprecated)",
+        "uuid": "76384e4a-3d3e-4369-9a0d-55c47f91f17e",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 6,
+        "topics": [
+          "maybe"
+        ],
+        "status": "deprecated"
       },
       {
         "slug": "dominoes",

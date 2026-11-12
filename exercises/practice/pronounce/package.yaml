@@ -1,0 +1,21 @@
+name: pronounce
+version: 1.2.0.6
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: Pronounce
+  source-dirs: src
+  ghc-options: -Wall
+  # dependencies:
+  # - foo       # List here the packages you
+  # - bar       # want to use in your solution.
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - pronounce
+      - hspec
