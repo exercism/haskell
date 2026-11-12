@@ -52,6 +52,16 @@ cases = [ Case { description = "Measure using bucket one of size 3 and bucket tw
                , target = 3
                , expected = Just (2, (2, 3))
                }
+        , Case { description = "Measure using bucket one much bigger than bucket two"
+               , capacity = (5, 1)
+               , target = 2
+               , expected = Just (6, (2, 1))
+               }
+        , Case { description = "Measure using bucket one much smaller than bucket two"
+               , capacity = (3, 15)
+               , target = 9
+               , expected = Just (6, (0, 9))
+               }
         , Case { description = "Not possible to reach the goal"
                , capacity = (6, 15)
                , target = 5
