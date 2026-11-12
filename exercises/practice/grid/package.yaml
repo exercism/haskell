@@ -1,0 +1,23 @@
+name: grid
+version: 1.3.0.9
+
+dependencies:
+  - base
+  - vector
+
+library:
+  exposed-modules: Grid
+  source-dirs: src
+  ghc-options: -Wall
+  # dependencies:
+  # - foo       # List here the packages you
+  # - bar       # want to use in your solution.
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - grid
+      - hspec
+      - QuickCheck
