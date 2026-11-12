@@ -34,6 +34,10 @@ cases = [ Case { description = "empty plaintext results in an empty ciphertext"
                , input       = ""
                , expected    = ""
                }
+        , Case { description = "normalization results in empty plaintext"
+               , input       = "... --- ..."
+               , expected    = ""
+               }
         , Case { description = "Lowercase"
                , input       = "A"
                , expected    = "a"
@@ -54,7 +58,7 @@ cases = [ Case { description = "empty plaintext results in an empty ciphertext"
                , input       = "Chill out."
                , expected    = "clu hlt io "
                }
-        , Case { description = "54 character plaintext results in 7 chunks, the last two padded with spaces"
+        , Case { description = "54 character plaintext results in 8 chunks, the last two with trailing spaces"
                , input       = "If man was meant to stay on the ground, god would have given us roots."
                , expected    = "imtgdvs fearwer mayoogo anouuio ntnnlvt wttddes aohghn  sseoau "
                }

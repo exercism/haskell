@@ -19,8 +19,13 @@ specs = describe "primeFactors" $ for_ cases test
 
     cases = [ ("no factors",                              1,                 [] )
             , ("prime number",                            2,                [2] )
+            , ("another prime number",                    3,                [3] )
             , ("square of a prime",                       9,             [3, 3] )
+            , ("product of first prime",                  4,             [2, 2] )
             , ("cube of a prime",                         8,          [2, 2, 2] )
+            , ("product of second prime",                27,          [3, 3, 3] )
+            , ("product of third prime",                625,       [5, 5, 5, 5] )
+            , ("product of first and second prime",       6,             [2, 3] )
             , ("product of primes and non-primes",       12,          [2, 2, 3] )
             , ("product of primes",                  901255,   [5, 17, 23, 461] )
             , ("factors include a large prime", 93819012551, [11, 9539, 894119] ) ]
