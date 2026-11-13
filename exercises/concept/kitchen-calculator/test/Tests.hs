@@ -1,8 +1,12 @@
-import Test.Hspec             (it, shouldBe, hspec)
 import KitchenCalculator (getVolume, toMilliliter, fromMilliliter, convert, Messurments(..))
+import Test.Hspec        (Spec, it, shouldBe)
+import Test.Hspec.Runner (configFailFast, defaultConfig, hspecWith)
 
 main :: IO ()
-main = hspec $ do
+main = hspecWith defaultConfig {configFailFast = True} specs
+
+specs :: Spec
+specs = do
     it "get cups" $ do
         getVolume (Cup, 1) `shouldBe` 1
 
