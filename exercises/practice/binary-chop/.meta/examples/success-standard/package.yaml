@@ -1,0 +1,17 @@
+name: binary-chop
+
+dependencies:
+  - base
+  - array
+
+library:
+  exposed-modules: BinaryChop
+  source-dirs: src
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - binary-chop
+      - hspec

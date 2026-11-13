@@ -830,15 +830,28 @@
         ]
       },
       {
-        "slug": "binary-search",
+        "slug": "binary-chop",
         "name": "Binary Search",
-        "uuid": "e714ed04-e633-4814-8885-323968f39046",
+        "problem_specifications_slug": "binary-search",
+        "uuid": "37bfcf61-31e1-4c34-abf9-e83db5ea047e",
         "practices": [],
         "prerequisites": [],
         "difficulty": 5,
         "topics": [
           "maybe"
         ]
+      },
+      {
+        "slug": "binary-search",
+        "name": "Binary Search (deprecated)",
+        "uuid": "e714ed04-e633-4814-8885-323968f39046",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5,
+        "topics": [
+          "maybe"
+        ],
+        "status": "deprecated"
       },
       {
         "slug": "parallel-letter-frequency",
