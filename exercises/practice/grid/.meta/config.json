@@ -1,0 +1,40 @@
+{
+  "authors": [
+    "etrepum"
+  ],
+  "contributors": [
+    "iHiD",
+    "keiravillekode",
+    "jwg4",
+    "kytrinyx",
+    "lpalma",
+    "navossoc",
+    "petertseng",
+    "ppartarr",
+    "qnikst",
+    "rbasso",
+    "sharno",
+    "SiriusStarr",
+    "sshine",
+    "tejasbubane"
+  ],
+  "files": {
+    "solution": [
+      "src/Grid.hs",
+      "package.yaml"
+    ],
+    "test": [
+      "test/Tests.hs"
+    ],
+    "example": [
+      ".meta/examples/success-standard/src/Grid.hs",
+      ".meta/examples/success-standard/package.yaml"
+    ],
+    "invalidator": [
+      "stack.yaml"
+    ]
+  },
+  "blurb": "Given a string representing a matrix of numbers, return the rows and columns of that matrix.",
+  "source": "Exercise by the JumpstartLab team for students at The Turing School of Software and Design.",
+  "source_url": "https://www.turing.edu/"
+}
