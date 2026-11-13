@@ -1,8 +1,12 @@
-import Test.Hspec             (it, shouldBe, hspec)
 import LanguageList (new, add, remove, first, count, isFunctionalList)
+import Test.Hspec        (Spec, it, shouldBe)
+import Test.Hspec.Runner (configFailFast, defaultConfig, hspecWith)
 
 main :: IO ()
-main = hspec $ do
+main = hspecWith defaultConfig {configFailFast = True} specs
+
+specs :: Spec
+specs = do
     it "new list" $ do
         new `shouldBe` []
 
