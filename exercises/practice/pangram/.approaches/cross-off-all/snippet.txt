@@ -1,0 +1,3 @@
+isPangram :: String -> Bool
+isPangram text =
+  null (['a' .. 'z'] \\ map toLower text)
