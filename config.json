@@ -1411,6 +1411,17 @@
         "topics": [
           "strings"
         ]
+      },
+      {
+        "slug": "grep",
+        "name": "Grep",
+        "uuid": "d6535287-ddb0-493d-85ee-9923cdc59955",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 7,
+        "topics": [
+          "io_monad"
+        ]
       }
     ],
     "foregone": [
