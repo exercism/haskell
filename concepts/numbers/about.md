@@ -1,11 +1,11 @@
-# Haskell Built-in Numeric Types
+# About
 
 ## Numbers
 
 Haskell's standard library, known as ***Prelude***, defines most basic numeric types: fixed sized integers (`Int`), arbitrary precision integers (`Integer`), single precision floating (`Float`), and double precision floating (`Double`).
 Other numeric types such as rationals and complex numbers are defined in additional libraries.
 
-`Integer`s hold any number no matter how big, up to the limit of your machine's memory, while `Int` corresponds to the set of positive and negative integers that can be expressed in 32 or 64 bits (guaranteed at least -2^29 to 2^29).
+An `Integer` holds any number no matter how big, up to the limit of your machine's memory, while `Int` corresponds to the set of positive and negative integers that can be expressed in 32 or 64 bits (guaranteed at least -2^29 to 2^29).
 
 `Float` corresponds to the set of real numbers, limited by the precision of the computer.
 Operations defined on numbers usually work on one type or the other, but not both.
@@ -22,6 +22,7 @@ Haskell has three "raise to the power" operators which work differently and take
 
 Conversion from an integer type (`Int` or `Integer`) to any other numeric type is done using the function `fromIntegral`.
 The target type is inferred automatically.
+
 For example:
 
 ```haskell
