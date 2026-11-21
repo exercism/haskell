@@ -116,4 +116,20 @@ cases = [ Case { description = "Methionine RNA sequence"
                , input       = "UGGUGUUAUUAAUGGUUU"
                , expected    = Just ["Tryptophan","Cysteine","Tyrosine"]
                }
+        , Case { description = "Translation fails on unknown codon"
+               , input       = "ABC"
+               , expected    = Nothing
+               }
+        , Case { description = "Translation stops if STOP codon before invalid codon"
+               , input       = "UAGABC"
+               , expected    = Just []
+               }
+        , Case { description = "Translation fails if codon is too short"
+               , input       = "AUGA"
+               , expected    = Nothing
+               }
+        , Case { description = "Translation stops if STOP codon before too short codon"
+               , input       = "UAGA"
+               , expected    = Just []
+               }
         ]
