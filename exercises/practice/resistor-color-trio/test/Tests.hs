@@ -44,6 +44,14 @@ cases = [ Case { input         = Resistor (Black, Black, Black)
                , expectedLabel = "4 ohms"
                , expectedOhms  = 4
                }
+        , Case { input         = Resistor (Black, Grey, Black)
+               , expectedLabel = "8 ohms"
+               , expectedOhms  = 8
+               }
+        , Case { input         = Resistor (Orange, Orange, Black)
+               , expectedLabel = "33 ohms"
+               , expectedOhms  = 33
+               }
         , Case { input         = Resistor (Grey, Orange, Black)
                , expectedLabel = "83 ohms"
                , expectedOhms  = 83
@@ -60,6 +68,10 @@ cases = [ Case { input         = Resistor (Black, Black, Black)
                , expectedLabel = "51 kiloohms"
                , expectedOhms  = 51e3
                }
+        , Case { input         = Resistor (Yellow, Violet, Yellow)
+               , expectedLabel = "470 kiloohms"
+               , expectedOhms  = 470e3
+               }
         , Case { input         = Resistor (White, Violet, Yellow)
                , expectedLabel = "970 kiloohms"
                , expectedOhms  = 970e3
@@ -73,6 +85,10 @@ cases = [ Case { input         = Resistor (Black, Black, Black)
                , expectedLabel = "18 megaohms"
                , expectedOhms  = 18e6
                }
+        , Case { input         = Resistor (Blue, Violet, Blue)
+               , expectedLabel = "67 megaohms"
+               , expectedOhms  = 67e6
+               }
         , Case { input         = Resistor (Red, Violet, Violet)
                , expectedLabel = "270 megaohms"
                , expectedOhms  = 270e6
@@ -84,6 +100,10 @@ cases = [ Case { input         = Resistor (Black, Black, Black)
         , Case { input         = Resistor (Orange, Blue, White)
                , expectedLabel = "36 gigaohms"
                , expectedOhms  = 36e9
+               }
+        , Case { input         = Resistor (White, White, White)
+               , expectedLabel = "99 gigaohms"
+               , expectedOhms  = 99e9
                }
         {-
            -- The following tests are commented out to decrease the

@@ -71,6 +71,7 @@ specs = do
                   , ("can attack on first diagonal" , (2, 2), (0, 4), True )
                   , ("can attack on second diagonal", (2, 2), (3, 1), True )
                   , ("can attack on third diagonal" , (2, 2), (1, 1), True )
-                  , ("can attack on fourth diagonal", (2, 2), (5, 5), True ) ]
+                  , ("can attack on fourth diagonal", (2, 2), (5, 5), True )
+                  , ("cannot attack if falling diagonals are only the same when reflected across the longest falling diagonal", (4, 1), (2, 5), False) ]
 
       for_ cases test
