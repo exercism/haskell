@@ -49,6 +49,8 @@ specs = do
         reverse ([] :: [Int]) `shouldBe` []
       it "of non-empty list" $
         reverse [1 .. 100 :: Int] `shouldBe` [100 , 99 .. 1]
+      it "of non-empty odd-length list" $
+        reverse [1, 3 .. 13 :: Int] `shouldBe` [13, 11 .. 1]
       it "of nested lists" $
         reverse [[1, 2], [3], [], [4, 5, 6] :: [Int]] `shouldBe` [[4, 5, 6], [], [3], [1, 2]]
 
@@ -66,14 +68,14 @@ specs = do
 
     describe "foldl'" $ do
       it "of empty list" $
-        foldl' (+) (0 :: Int) [] `shouldBe` 0
+        foldl' (*) (2 :: Int) [] `shouldBe` 2
       it "of non-empty list" $
-        foldl' (+) (-3) [1 .. 4 :: Int] `shouldBe` 7
+        foldl' (+) 5 [1 .. 4 :: Int] `shouldBe` 15
       -- Track-specific test
       it "of huge list" $
         foldl' (+) 0 [1 .. big] `shouldBe` big * (big + 1) `div` 2
       it "with non-commutative function" $
-        foldl' (-) 10 [1 .. 4 :: Int] `shouldBe` 0
+        foldl' (flip (/)) 24 [1 .. 4 :: Rational] `shouldBe` 64
       -- Track-specific test
       it "is not just foldr . flip" $
         foldl' (flip (:)) [] "asdf" `shouldBe` "fdsa"
@@ -88,7 +90,7 @@ specs = do
       it "of non-empty list" $
         foldr (+) 5 [1 .. 4 :: Int] `shouldBe` 15
       it "with non-commutative function" $
-        foldr div 5 [2, 5 :: Int] `shouldBe` 2
+        foldr (/) 24 [1 .. 4 :: Rational] `shouldBe` 9
       -- Track-specific test
       it "as id" $
         foldr (:) [] [1 .. big] `shouldBe` [1 .. big]

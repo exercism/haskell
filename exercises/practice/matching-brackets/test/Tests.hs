@@ -72,12 +72,24 @@ cases = [ Case { description = "paired square brackets"
                , input       = "[({]})"
                , expected    = False
                }
+        , Case { description = "paired and wrong nested brackets but innermost are correct"
+               , input       = "[({}])"
+               , expected    = False
+               }
         , Case { description = "paired and incomplete brackets"
                , input       = "{}["
                , expected    = False
                }
         , Case { description = "too many closing brackets"
                , input       = "[]]"
+               , expected    = False
+               }
+        , Case { description = "early unexpected brackets"
+               , input       = ")()"
+               , expected    = False
+               }
+        , Case { description = "early mismatched brackets"
+               , input       = "{)()"
                , expected    = False
                }
         , Case { description = "math expression"
