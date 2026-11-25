@@ -52,5 +52,13 @@ specs = do
 
       plants "Alice"   `shouldBe` [ Violets , Radishes, Violets , Radishes ]
       plants "Bob"     `shouldBe` [ Clover  , Grass   , Clover  , Clover   ]
+      plants "Charlie" `shouldBe` [ Violets , Violets , Clover  , Grass    ]
+      plants "David"   `shouldBe` [ Radishes, Violets , Clover  , Radishes ]
+      plants "Eve"     `shouldBe` [ Clover  , Grass   , Radishes, Grass    ]
+      plants "Fred"    `shouldBe` [ Grass   , Clover  , Violets , Clover   ]
+      plants "Ginny"   `shouldBe` [ Clover  , Grass   , Grass   , Clover   ]
+      plants "Harriet" `shouldBe` [ Violets , Radishes, Radishes, Violets  ]
+      plants "Ileana"  `shouldBe` [ Grass   , Clover  , Violets , Clover   ]
+      plants "Joseph"  `shouldBe` [ Violets , Clover  , Violets , Grass    ]
       plants "Kincaid" `shouldBe` [ Grass   , Clover  , Clover  , Grass    ]
       plants "Larry"   `shouldBe` [ Grass   , Violets , Clover  , Violets  ]
