@@ -47,26 +47,30 @@ cases = [ Case { description = "stating something"
                , expected    = "Sure."
                }
         , Case { description = "talking forcefully"
-               , input       = "Let's go make out behind the gym!"
+               , input       = "Hi there!"
                , expected    = "Whatever."
                }
         , Case { description = "using acronyms in regular speech"
-               , input       = "It's OK if you don't want to go to the DMV."
+               , input       = "It's OK if you don't want to go work for NASA."
                , expected    = "Whatever."
                }
         , Case { description = "forceful question"
-               , input       = "WHAT THE HELL WERE YOU THINKING?"
+               , input       = "WHAT'S GOING ON?"
                , expected    = "Calm down, I know what I'm doing!"
+               }
+        , Case { description = "shouting a statement containing a question mark"
+               , input       = "DO LIONS EAT PEOPLE? AHHHHH."
+               , expected    = "Whoa, chill out!"
                }
         , Case { description = "shouting numbers"
                , input       = "1, 2, 3 GO!"
                , expected    = "Whoa, chill out!"
                }
-        , Case { description = "only numbers"
+        , Case { description = "no letters"
                , input       = "1, 2, 3"
                , expected    = "Whatever."
                }
-        , Case { description = "question with only numbers"
+        , Case { description = "question with no letters"
                , input       = "4?"
                , expected    = "Sure."
                }
@@ -75,7 +79,7 @@ cases = [ Case { description = "stating something"
                , expected    = "Whoa, chill out!"
                }
         , Case { description = "shouting with no exclamation mark"
-               , input       = "I HATE THE DMV"
+               , input       = "I HATE THE DENTIST"
                , expected    = "Whoa, chill out!"
                }
         , Case { description = "statement containing question mark"
@@ -103,8 +107,8 @@ cases = [ Case { description = "stating something"
                , expected    = "Fine. Be that way!"
                }
         , Case { description = "multiple line question"
-               , input       = "\nDoes this cryogenic chamber make me look fat?\nNo."
-               , expected    = "Whatever."
+               , input       = "\nDoes this cryogenic chamber make\n me look fat?"
+               , expected    = "Sure."
                }
         , Case { description = "starting with whitespace"
                , input       = "         hmmmmmmm..."

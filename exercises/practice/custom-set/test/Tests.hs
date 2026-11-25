@@ -105,6 +105,9 @@ specs = do
         it "set is not equal to larger set with same elements" $
           (fromList [1, 2, 3] == fromList [1, 2, 3, 4]) `shouldBe` False
 
+        it "set is equal to a set constructed from an array with duplicates" $
+          (fromList [1] == fromList [1, 1]) `shouldBe` True
+
       describe "insert" $ do
 
         it "add to empty set" $
@@ -146,6 +149,9 @@ specs = do
 
         it "difference of two non-empty sets is a set of elements that are only in the first set" $
           fromList [3, 2, 1] `difference` fromList [2, 4] `shouldBe` fromList [1, 3]
+
+        it "difference removes all duplicates in the first set" $
+          fromList [1, 1] `difference` fromList [1] `shouldBe` fromList []
 
       describe "union" $ do
 

@@ -18,7 +18,7 @@ specs = describe "armstrong" $ for_ cases test
         assertion = armstrong input `shouldBe` expected
 
 data Case = Case { description :: String
-                 , input       :: Int
+                 , input       :: Integer
                  , expected    :: Bool
                  }
 
@@ -58,5 +58,13 @@ cases = [ Case { description = "Zero is an Armstrong numbers"
         , Case { description = "Seven digit number that is not an Armstrong number"
                , input       = 9926314
                , expected    = False
+               }
+        , Case { description = "Armstrong number containing seven zeroes"
+               , input       = 186709961001538790100634132976990
+               , expected    = True
+               }
+        , Case { description = "The largest and last Armstrong number"
+               , input       = 115132219018763992565095597973971522401
+               , expected    = True
                }
         ]
