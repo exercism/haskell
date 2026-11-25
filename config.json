@@ -819,15 +819,28 @@
         ]
       },
       {
-        "slug": "matrix",
+        "slug": "grid",
         "name": "Matrix",
-        "uuid": "46502471-d2f8-4f25-a220-55b0caff435c",
+        "problem_specifications_slug": "matrix",
+        "uuid": "abea6827-a3a8-4d1c-9b6b-96c9bca84f26",
         "practices": [],
         "prerequisites": [],
         "difficulty": 4,
         "topics": [
           "define_type"
         ]
+      },
+      {
+        "slug": "matrix",
+        "name": "Matrix (deprecated)",
+        "uuid": "46502471-d2f8-4f25-a220-55b0caff435c",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4,
+        "topics": [
+          "define_type"
+        ],
+        "status": "deprecated"
       },
       {
         "slug": "binary-search",
