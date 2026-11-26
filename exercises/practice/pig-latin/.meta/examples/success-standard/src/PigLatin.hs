@@ -3,9 +3,11 @@ import Data.Char (isLetter)
 import Data.List (isSuffixOf)
 
 consonantCluster :: String -> (String, String)
-consonantCluster = qu . break (`elem` "aeiou")
-  where qu (cs, 'u':rest) | "q" `isSuffixOf` cs = (cs ++ "u", rest)
+consonantCluster (c:cs) | c `notElem` "aeiou" =
+  let (more, rest) = break (`elem` "aeiouy") cs in qu (c : more, rest)
+  where qu (xs, 'u':rest) | "q" `isSuffixOf` xs = (xs ++ "u", rest)
         qu pair = pair
+consonantCluster w = ("", w)
 
 translateWord :: String -> String
 translateWord xs@('y':'t':_) = xs ++ "ay" -- I'm not proud of this ugly hack,

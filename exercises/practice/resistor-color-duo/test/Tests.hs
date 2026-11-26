@@ -47,9 +47,17 @@ cases = [ Case { description = "Brown and black"
                , input       = (Yellow, Violet)
                , expected    = 47
                }
+        , Case { description = "White and red"
+               , input       = (White, Red)
+               , expected    = 92
+               }
         , Case { description = "Orange and orange"
                , input       = (Orange, Orange)
                , expected    = 33
+               }
+        , Case { description = "Black and brown, one-digit"
+               , input       = (Black, Brown)
+               , expected    = 1
                }
         -- Note: This test suite omits testing three-color bands,
         -- since they are not representable as (Color, Color). They

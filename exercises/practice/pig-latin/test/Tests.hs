@@ -23,6 +23,7 @@ specs = describe "translate" $ do
         it "word beginning with y" $ translate "yellow" `shouldBe` "ellowyay"
         it "word beginning with x" $ translate "xenon"  `shouldBe` "enonxay"
         it "word beginning with q without a following u" $ translate "qat" `shouldBe` "atqay"
+        it "word beginning with consonant and vowel containing qu" $ translate "liquid" `shouldBe` "iquidlay"
 
     describe "some letter clusters are treated like a single consonant" $ do
         it "word beginning with ch"  $ translate "chair"   `shouldBe` "airchay"
@@ -46,4 +47,4 @@ specs = describe "translate" $ do
           translate "my" `shouldBe` "ymay"
 
     describe "phrases are translated" $
-        it "a whole phrase" $ translate "quick fast run" `shouldBe` "ickquay astfay unray"
+        it "a whole phrase" $ translate "why do squids enjoy xrays" `shouldBe` "ywhay oday idssquay enjoyay xraysay"

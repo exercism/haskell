@@ -24,7 +24,11 @@ data Case = Case { description :: String
                  }
 
 cases :: [Case]
-cases = [ Case { description = "Methionine RNA sequence"
+cases = [ Case { description = "Empty RNA sequence results in no proteins"
+               , input       = ""
+               , expected    = Just []
+               }
+        , Case { description = "Methionine RNA sequence"
                , input       = "AUG"
                , expected    = Just ["Methionine"]
                }
@@ -92,6 +96,14 @@ cases = [ Case { description = "Methionine RNA sequence"
                , input       = "UGA"
                , expected    = Just []
                }
+        , Case { description = "Sequence of two protein codons translates into proteins"
+               , input       = "UUUUUU"
+               , expected    = Just ["Phenylalanine", "Phenylalanine"]
+               }
+        , Case { description = "Sequence of two different protein codons translates into proteins"
+               , input       = "UUAUUG"
+               , expected    = Just ["Leucine", "Leucine"]
+               }
         , Case { description = "Translate RNA strand into correct protein list"
                , input       = "AUGUUUUGG"
                , expected    = Just ["Methionine","Phenylalanine","Tryptophan"]
@@ -115,5 +127,21 @@ cases = [ Case { description = "Methionine RNA sequence"
         , Case { description = "Translation stops if STOP codon in middle of six-codon sequence"
                , input       = "UGGUGUUAUUAAUGGUUU"
                , expected    = Just ["Tryptophan","Cysteine","Tyrosine"]
+               }
+        , Case { description = "Sequence of two non-STOP codons does not translate to a STOP codon"
+               , input       = "AUGAUG"
+               , expected    = Just ["Methionine", "Methionine"]
+               }
+        , Case { description = "Unknown amino acids, not part of a codon, can't translate"
+               , input       = "XYZ"
+               , expected    = Nothing
+               }
+        , Case { description = "Incomplete RNA sequence can't translate"
+               , input       = "AUGU"
+               , expected    = Nothing
+               }
+        , Case { description = "Incomplete RNA sequence can translate if valid until a STOP codon"
+               , input       = "UUCUUCUAAUGGU"
+               , expected    = Just ["Phenylalanine", "Phenylalanine"]
                }
         ]
