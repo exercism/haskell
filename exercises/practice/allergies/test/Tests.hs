@@ -130,6 +130,9 @@ specs = do
                                           , Strawberries
                                           , Tomatoes     ]
 
+            it "no allergen score parts without highest valid score" $
+              allergies 257 `shouldMatch` [ Eggs ]
+
             -- Property: For an arbitrary `allergen` and its `score`,
             -- `allergies score` is a list of exactly the element
             -- `allergen`.

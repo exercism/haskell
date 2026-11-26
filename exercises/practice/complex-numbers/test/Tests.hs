@@ -155,6 +155,21 @@ mulCases =
             , number2A     = (3, 4)
             , expectedA    = (-5, 10)
             }
+    , CaseA { descriptionA = "Imaginary unit"
+            , number1A     = (0, 1)
+            , number2A     = (0, 1)
+            , expectedA    = (-1, 0)
+            }
+    , CaseA { descriptionA = "Multiply complex number by real number"
+            , number1A     = (2, 5)
+            , number2A     = (5, 0)
+            , expectedA    = (10, 25)
+            }
+    , CaseA { descriptionA = "Multiply real number by complex number"
+            , number1A     = (5, 0)
+            , number2A     = (2, 5)
+            , expectedA    = (10, 25)
+            }
     ]
 
 divCases :: [CaseA]
@@ -173,6 +188,16 @@ divCases =
             , number1A     = (1, 2)
             , number2A     = (3, 4)
             , expectedA    = (0.44, 0.08)
+            }
+    , CaseA { descriptionA = "Divide complex number by real number"
+            , number1A     = (10, 100)
+            , number2A     = (10, 0)
+            , expectedA    = (1, 10)
+            }
+    , CaseA { descriptionA = "Divide real number by complex number"
+            , number1A     = (5, 0)
+            , number2A     = (1, 1)
+            , expectedA    = (2.5, -2.5)
             }
     ]
 
@@ -193,6 +218,16 @@ addCases =
             , number2A     = (3, 4)
             , expectedA    = (4, 6)
             }
+    , CaseA { descriptionA = "Add real number to complex number"
+            , number1A     = (1, 2)
+            , number2A     = (5, 0)
+            , expectedA    = (6, 2)
+            }
+    , CaseA { descriptionA = "Add complex number to real number"
+            , number1A     = (5, 0)
+            , number2A     = (1, 2)
+            , expectedA    = (6, 2)
+            }
     ]
 
 subCases :: [CaseA]
@@ -212,6 +247,16 @@ subCases =
             , number2A     = (3, 4)
             , expectedA    = (-2, -2)
             }
+    , CaseA { descriptionA = "Subtract real number from complex number"
+            , number1A     = (5, 7)
+            , number2A     = (4, 0)
+            , expectedA    = (1, 7)
+            }
+    , CaseA { descriptionA = "Subtract complex number from real number"
+            , number1A     = (4, 0)
+            , number2A     = (5, 7)
+            , expectedA    = (-1, -7)
+            }
     ]
 
 expCases :: [CaseB]
@@ -228,8 +273,12 @@ expCases =
             , number1B     = (1, 0)
             , expectedB    = (P.exp 1, 0)
             }
-    , CaseB { descriptionB = "Exponential of a purely real number"
+    , CaseB { descriptionB = "Exponential of a number with real and imaginary part"
             , number1B     = (log 2, pi)
             , expectedB    = (-2, 0)
+            }
+    , CaseB { descriptionB = "Exponential resulting in a number with real and imaginary part"
+            , number1B     = (log 2 / 2, pi / 4)
+            , expectedB    = (1, 1)
             }
     ]
