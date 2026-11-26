@@ -31,7 +31,7 @@ main = hspec $
     it "the result is rounded up" $
       monthlyRate 62.8 0.0 `shouldBe` 11053
 
-    it "the result should be rouneded up" $
+    it "the result should be rounded up" $
       monthlyRate 65.2 0.0 `shouldBe` 11476
 
     it "gives a discount" $

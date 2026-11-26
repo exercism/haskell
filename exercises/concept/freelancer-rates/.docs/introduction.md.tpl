@@ -1,3 +1,3 @@
 # Introduction
 
-%{concept:pattern-matching-literals}
+%{concept:numbers}

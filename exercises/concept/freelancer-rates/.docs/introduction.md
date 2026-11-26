@@ -1,13 +1,15 @@
-# Numbers
+# Introduction
+
+## Numbers
 
 Haskell has a type, `Num`, which is the base type for all numeric types.
 There are four main sub-types inside the Number type: [`Int`][int], [`Integer`][integer], [`Double`][double]  and [`Float`][float].
 
 There are two types of integers types in Haskell, which represents whole numbers.
 `Int` is a fixed-size integer, while `Integer` is an arbitrary precision integer.
-`Integer`s hold any number no matter how big, up to the limit of your machine's memory, while `Int` corresponds to the set of positive and negative integers that can be expressed in 32 or 64 bits (guaranteed at least -2^29 to 2^29).
+An `Integer` holds any number no matter how big, up to the limit of your machine's memory, while `Int` corresponds to the set of positive and negative integers that can be expressed in 32 or 64 bits (guaranteed at least -2^29 to 2^29 - 1).
 
-Note that when writting negative numbers, you should use parentheses to avoid ambiguity.
+Note that when writing negative numbers, you should use parentheses to avoid ambiguity.
 
 ```haskell
 1
@@ -23,7 +25,7 @@ Operations defined on numbers usually work on one type or the other, but not bot
 10.5
 ```
 
-## Converting between integers and floats
+### Converting between integers and floats
 
 Using the `toFloat` function, allows you to convert an `Int` or `Integer` to a `Float`.
 
@@ -53,14 +55,14 @@ ceiling 1.5
 -- -> 2
 ```
 
-## Arithmetic operators
+### Arithmetic operators
 
 You can use the [basic arithmetic operators][math] on the numeric types.
 The operators are `+`, `-`, `*`, `/`, and `%`.
 When using these operators, the types of the numbers must match.
 The `fromIntegral` function will convert so that the types match.
 
-### Addition & Subtraction & Multiplication
+#### Addition & Subtraction & Multiplication
 
 The `+` operator is used for addition, the `-` operator is used for subtraction, and the `*` operator is used for multiplication.
 
@@ -70,7 +72,7 @@ The `+` operator is used for addition, the `-` operator is used for subtraction,
 | `-`      | `15 - 10 => 5` |
 | `*`      | `2 * 3 => 6`   |
 
-### Division
+#### Division
 
 Division is used to divide numbers.
 The `/` operator is used for division.
@@ -102,7 +104,7 @@ The only exception is dividing zero by zero, resulting in `NaN` (Not a Number).
 ```
 ~~~~
 
-## Integer division
+### Integer division
 
 Integer division is used to divide numbers and get the whole part of the result.
 The result will always be rounded down to an Int.
@@ -120,7 +122,7 @@ Dividing by zero when using integer division results in a Exception.
 This is different from normal division.
 ~~~~
 
-### Modulus
+#### Modulus
 
 Modulus is used to get the remainder of a division.
 The `mod` operator is used for modulus.
@@ -143,7 +145,7 @@ This is different from normal division.
 ```
 ~~~~
 
-## Exponentiation
+### Exponentiation
 
 Haskell has three "raise to the power" operators which work differently and take different argument types.
 
@@ -162,7 +164,7 @@ Haskell has three "raise to the power" operators which work differently and take
 -- -> 8
 ```
 
-## Priority and parentheses
+### Priority and parentheses
 
 Haskell allows parentheses(`()`), which can be used to group expressions.
 This is useful when you want to change the order of operations.

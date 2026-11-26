@@ -7,7 +7,7 @@ There are two types of integers types in Haskell, which represents whole numbers
 `Int` is a fixed-size integer, while `Integer` is an arbitrary precision integer.
 An `Integer` holds any number no matter how big, up to the limit of your machine's memory, while `Int` corresponds to the set of positive and negative integers that can be expressed in 32 or 64 bits (guaranteed at least -2^29 to 2^29 - 1).
 
-Note that when writting negative numbers, you should use parentheses to avoid ambiguity.
+Note that when writing negative numbers, you should use parentheses to avoid ambiguity.
 
 ```haskell
 1
