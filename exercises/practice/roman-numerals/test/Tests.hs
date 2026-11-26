@@ -25,81 +25,113 @@ data Case = Case { description :: String
                  }
 
 cases :: [Case]
-cases = [ Case { description = "1 is a single I"
+cases = [ Case { description = "1 is I"
                , number      = 1
                , expected    = Just "I"
                }
-        , Case { description = "2 is two I's"
+        , Case { description = "2 is II"
                , number      = 2
                , expected    = Just "II"
                }
-        , Case { description = "3 is three I's"
+        , Case { description = "3 is III"
                , number      = 3
                , expected    = Just "III"
                }
-        , Case { description = "4, being 5 - 1, is IV"
+        , Case { description = "4 is IV"
                , number      = 4
                , expected    = Just "IV"
                }
-        , Case { description = "5 is a single V"
+        , Case { description = "5 is V"
                , number      = 5
                , expected    = Just "V"
                }
-        , Case { description = "6, being 5 + 1, is VI"
+        , Case { description = "6 is VI"
                , number      = 6
                , expected    = Just "VI"
                }
-        , Case { description = "9, being 10 - 1, is IX"
+        , Case { description = "9 is IX"
                , number      = 9
                , expected    = Just "IX"
                }
-        , Case { description = "20 is two X's"
+        , Case { description = "16 is XVI"
+               , number      = 16
+               , expected    = Just "XVI"
+               }
+        , Case { description = "27 is XXVII"
                , number      = 27
                , expected    = Just "XXVII"
                }
-        , Case { description = "48 is not 50 - 2 but rather 40 + 8"
+        , Case { description = "48 is XLVIII"
                , number      = 48
                , expected    = Just "XLVIII"
                }
-        , Case { description = "49 is not 40 + 5 + 4 but rather 50 - 10 + 10 - 1"
+        , Case { description = "49 is XLIX"
                , number      = 49
                , expected    = Just "XLIX"
                }
-        , Case { description = "50 is a single L"
+        , Case { description = "59 is LIX"
                , number      = 59
                , expected    = Just "LIX"
                }
-        , Case { description = "90, being 100 - 10, is XC"
+        , Case { description = "66 is LXVI"
+               , number      = 66
+               , expected    = Just "LXVI"
+               }
+        , Case { description = "93 is XCIII"
                , number      = 93
                , expected    = Just "XCIII"
                }
-        , Case { description = "100 is a single C"
+        , Case { description = "141 is CXLI"
                , number      = 141
                , expected    = Just "CXLI"
                }
-        , Case { description = "60, being 50 + 10, is LX"
+        , Case { description = "163 is CLXIII"
                , number      = 163
                , expected    = Just "CLXIII"
                }
-        , Case { description = "400, being 500 - 100, is CD"
+        , Case { description = "166 is CLXVI"
+               , number      = 166
+               , expected    = Just "CLXVI"
+               }
+        , Case { description = "402 is CDII"
                , number      = 402
                , expected    = Just "CDII"
                }
-        , Case { description = "500 is a single D"
+        , Case { description = "575 is DLXXV"
                , number      = 575
                , expected    = Just "DLXXV"
                }
-        , Case { description = "900, being 1000 - 100, is CM"
+        , Case { description = "666 is DCLXVI"
+               , number      = 666
+               , expected    = Just "DCLXVI"
+               }
+        , Case { description = "911 is CMXI"
                , number      = 911
                , expected    = Just "CMXI"
                }
-        , Case { description = "1000 is a single M"
+        , Case { description = "1024 is MXXIV"
                , number      = 1024
                , expected    = Just "MXXIV"
                }
-        , Case { description = "3000 is three M's"
+        , Case { description = "1666 is MDCLXVI"
+               , number      = 1666
+               , expected    = Just "MDCLXVI"
+               }
+        , Case { description = "3000 is MMM"
                , number      = 3000
                , expected    = Just "MMM"
+               }
+        , Case { description = "3001 is MMMI"
+               , number      = 3001
+               , expected    = Just "MMMI"
+               }
+        , Case { description = "3888 is MMMDCCCLXXXVIII"
+               , number      = 3888
+               , expected    = Just "MMMDCCCLXXXVIII"
+               }
+        , Case { description = "3999 is MMMCMXCIX"
+               , number      = 3999
+               , expected    = Just "MMMCMXCIX"
                }
         , Case { description = "4000 cannot be represented"
                , number      = 4000
