@@ -28,9 +28,25 @@ cases = [ Case { description = "just a number"
                , input       = "What is 5?"
                , expected    = Just 5
                }
+        , Case { description = "just a zero"
+               , input       = "What is 0?"
+               , expected    = Just 0
+               }
+        , Case { description = "just a negative number"
+               , input       = "What is -123?"
+               , expected    = Just (-123)
+               }
         , Case { description = "addition"
                , input       = "What is 1 plus 1?"
                , expected    = Just 2
+               }
+        , Case { description = "addition with a left hand zero"
+               , input       = "What is 0 plus 2?"
+               , expected    = Just 2
+               }
+        , Case { description = "addition with a right hand zero"
+               , input       = "What is 3 plus 0?"
+               , expected    = Just 3
                }
         , Case { description = "more addition"
                , input       = "What is 53 plus 2?"

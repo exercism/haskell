@@ -64,6 +64,14 @@ specs = describe "triangleType" $ for_ cases test
               , (5, 4, 2)
               , Scalene
               )
+            , ( "triangle with first and third sides equal is not scalene"
+              , (3, 4, 3)
+              , Isosceles
+              )
+            , ( "triangle with second and third sides equal is not scalene"
+              , (4, 3, 3)
+              , Isosceles
+              )
             , ( "small scalene triangle with floating point values"
               , (0.4, 0.6, 0.3)
               , Scalene

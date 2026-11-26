@@ -2,15 +2,16 @@
 
 module WordCount (wordCount) where
 
-import Prelude hiding (head, init, null, tail)
+import Prelude hiding (null)
 import Data.Char      (isAlphaNum)
 import Data.List      (foldl')
-import Data.Text      (Text, head, init, null, split, tail, toLower)
+import Data.Text      (Text, dropAround, null, split, toLower)
 
 import qualified Data.Map as Map
 
 wordCount :: Text -> Map.Map Text Int
 wordCount = foldl' addOne Map.empty
+          . filter (not . null)
           . map (stripQuote . toLower)
           . wordsBy (\c -> not (isAlphaNum c) && c /= '\'')
 
@@ -23,4 +24,4 @@ wordsBy :: (Char -> Bool) -> Text -> [Text]
 wordsBy p = filter (not . null) . split p
 
 stripQuote :: Text -> Text
-stripQuote t = if head t == '\'' then init (tail t) else t
+stripQuote = dropAround (== '\'')

@@ -85,12 +85,15 @@ cases = [ Case { description = "count one word"
                                , ("stop", 2) ]
                }
         , Case { description = "with apostrophes"
-               , input       = "First: don't laugh. Then: don't cry."
-               , expected    = [ ("first", 1)
-                               , ("don't", 2)
-                               , ("laugh", 1)
-                               , ("then" , 1)
-                               , ("cry"  , 1) ]
+               , input       = "'First: don't laugh. Then: don't cry. You're getting it.'"
+               , expected    = [ ("first"  , 1)
+                               , ("don't"  , 2)
+                               , ("laugh"  , 1)
+                               , ("then"   , 1)
+                               , ("cry"    , 1)
+                               , ("you're" , 1)
+                               , ("getting", 1)
+                               , ("it"     , 1) ]
                }
         , Case { description = "with quotations"
                , input       = "Joe can't tell between 'large' and large."
@@ -123,6 +126,12 @@ cases = [ Case { description = "count one word"
                , expected    = [ ("one",   1)
                                , ("two",   1)
                                , ("three", 1)
+                               ]
+               }
+        , Case { description = "quotation for word with apostrophe"
+               , input       = "can, can't, 'can't'"
+               , expected    = [ ("can"  , 1)
+                               , ("can't", 2)
                                ]
                }
         ]
