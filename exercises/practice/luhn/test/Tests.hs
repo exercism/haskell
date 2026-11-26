@@ -52,6 +52,10 @@ cases = [ Case { description = "single digit strings can not be valid"
                , input       = "1 2345 6789 1234 5678 9012"
                , expected    = False
                }
+        , Case { description = "invalid long number with a remainder divisible by 5"
+               , input       = "1 2345 6789 1234 5678 9013"
+               , expected    = False
+               }
         , Case { description = "valid number with an even number of digits"
                , input       = "095 245 88"
                , expected    = True
@@ -84,6 +88,14 @@ cases = [ Case { description = "single digit strings can not be valid"
                }
         , Case { description = "input digit 9 is correctly converted to output digit 9"
                , input       = "091"
+               , expected    = True
+               }
+        , Case { description = "very long input is valid"
+               , input       = "9999999999 9999999999 9999999999 9999999999"
+               , expected    = True
+               }
+        , Case { description = "valid luhn with an odd number of digits and non zero first digit"
+               , input       = "109"
                , expected    = True
                }
 --        , Case { description = "using ascii value for non-doubled non-digit isn't allowed"

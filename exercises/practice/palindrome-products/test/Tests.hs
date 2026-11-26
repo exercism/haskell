@@ -37,4 +37,5 @@ specs = for_ cases test
             , ("palindromes from triple digit factors",   100,   999,     Just (10201, [(  101,   101)],     906609, [(  913,   993)]))
             , ("palindromes from four digit factors"  ,  1000,  9999,   Just (1002001, [( 1001,  1001)],   99000099, [( 9901,  9999)]))
             , ("no available palindrome"              ,  1002,  1003,                                                          Nothing)
-            , ("invalid range"                        , 10000,     1,                                                          Nothing) ]
+            , ("invalid range"                        , 10000,     1,                                                          Nothing)
+            , ("smallest product does not use the smallest factor", 3215, 4000, Just (10988901, [( 3297,  3333)],   15600651, [( 3907,  3993)])) ]

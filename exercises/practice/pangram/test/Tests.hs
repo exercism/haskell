@@ -58,8 +58,8 @@ cases = [ Case { description = "with empty sentence"
                , input       = "\"Five quacking Zephyrs jolt my wax bed.\""
                , expected    = True
                }
-        , Case { description = "with mixed case"
-               , input       = "the quick brown fox jumps over with lazy FX"
+        , Case { description = "with a-m and A-M which are 26 different characters but not a pangram"
+               , input       = "abcdefghijklm ABCDEFGHIJKLM"
                , expected    = False
                }
         , Case { description = "with missing character and non-ascii letters"
