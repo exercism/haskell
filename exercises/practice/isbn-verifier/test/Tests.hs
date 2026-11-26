@@ -39,6 +39,10 @@ cases = [ Case { description = "valid isbn number"
                , input       = "3-598-21507-A"
                , expected    = False
                }
+        , Case { description = "invalid check digit in isbn is not treated as zero"
+               , input       = "4-598-21507-B"
+               , expected    = False
+               }
         , Case { description = "invalid character in isbn"
                , input       = "3-598-P1581-X"
                , expected    = False
@@ -47,11 +51,23 @@ cases = [ Case { description = "valid isbn number"
                , input       = "3-598-2X507-9"
                , expected    = False
                }
+        , Case { description = "only one check digit is allowed"
+               , input       = "3-598-21508-96"
+               , expected    = False
+               }
+        , Case { description = "X is not substituted by the value 10"
+               , input       = "3-598-2X507-5"
+               , expected    = False
+               }
         , Case { description = "valid isbn without separating dashes"
                , input       = "3598215088"
                , expected    = True
                }
         , Case { description = "isbn without separating dashes and X as check digit"
+               , input       = "359821507X"
+               , expected    = True
+               }
+        , Case { description = "isbn without check digit and dashes"
                , input       = "359821507"
                , expected    = False
                }
@@ -81,6 +97,10 @@ cases = [ Case { description = "valid isbn number"
                }
         , Case { description = "invalid characters are not ignored"
                , input       = "3132P34035"
+               , expected    = False
+               }
+        , Case { description = "invalid characters are not ignored before checking length"
+               , input       = "3598P215088"
                , expected    = False
                }
         , Case { description = "input is too long but contains a valid isbn"
