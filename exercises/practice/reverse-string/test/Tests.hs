@@ -48,4 +48,8 @@ cases = [ Case { description = "empty string"
                , input       = "drawer"
                , expected    = "reward"
                }
+        , Case { description = "wide characters"
+               , input       = "子猫"
+               , expected    = "猫子"
+               }
         ]

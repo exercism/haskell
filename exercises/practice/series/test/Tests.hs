@@ -30,6 +30,9 @@ specs = do
       slices 3 "012"  `shouldHaveSlices` [[0,1,2]]
       slices 3 "0123" `shouldHaveSlices` [[0,1,2], [1,2,3]]
 
+    it "slice length is way too large" $
+      slices 42 "12345" `shouldHaveSlices` []
+
     it "slices can have duplicates" $
       slices 3 "777777" `shouldHaveSlices` [[7,7,7], [7,7,7], [7,7,7], [7,7,7]]
 

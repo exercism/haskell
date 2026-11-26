@@ -128,4 +128,12 @@ cases = [ Case { description = "Finished game where X won via left column victor
                , board = ["XXX", "OOO", "XOX"]
                , expected = Impossible
                }
+        , Case { description = "Invalid board: O kept playing after X wins"
+               , board = ["OO ", "XXX", " O "]
+               , expected = Impossible
+               }
+        , Case { description = "Invalid board: X kept playing after O wins"
+               , board = ["XX ", "OOO", " XX"]
+               , expected = Impossible
+               }
         ]
