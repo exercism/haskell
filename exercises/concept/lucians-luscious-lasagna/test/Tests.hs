@@ -10,13 +10,13 @@ specs = do
     it "expected minutes in oven" $ do
         expectedMinutesInOven `shouldBe` 40
 
-    it "remaining minutes in oven"  $
+    it "remaining minutes in oven" $
         remainingMinutesInOven 25 `shouldBe` 15
 
-    it "remaining minutes in oven, a few minutes later" $ 
+    it "remaining minutes in oven, a few minutes later" $
         remainingMinutesInOven 30 `shouldBe` 10
 
-    it  "preparation time in minutes for one layer" $
+    it "preparation time in minutes for one layer" $
         preparationTimeInMinutes 1 `shouldBe` 2
 
     it "preparation time in minutes for multiple layers" $
@@ -30,4 +30,3 @@ specs = do
 
     it "notification message" $
         alarm `shouldBe` "DING!"
-    
