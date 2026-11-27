@@ -1,11 +1,11 @@
 name: variable-length-quantity
-version: 0.0.0.1 # TODO: what should this number be?
+version: 1.2.0.0
 
 dependencies:
   - base
 
 library:
-  exposed-modules: Vlq
+  exposed-modules: VariableLengthQuantity
   source-dirs: src
   ghc-options: -Wall
   # dependencies:

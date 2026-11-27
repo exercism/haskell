@@ -3,7 +3,7 @@
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE NumericUnderscores #-}
 
-module Vlq
+module VariableLengthQuantity
   ( encodes
   , decodes
   , DecodeError (..)

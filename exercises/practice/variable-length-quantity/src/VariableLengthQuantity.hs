@@ -1,4 +1,4 @@
-module Vlq
+module VariableLengthQuantity
   ( encodes
   , decodes
   , DecodeError (..)
