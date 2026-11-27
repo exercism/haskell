@@ -1,0 +1,8 @@
+toRNA :: String -> Either Char String
+toRNA dna =
+  case find (`notElem` "GCTA") dna of
+    Nothing -> Right (map transcribe dna)
+    Just c -> Left c
+  where
+    transcribe = \case
+      'G' -> 'C'
