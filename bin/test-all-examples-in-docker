@@ -1,0 +1,193 @@
+#!/usr/bin/env bash
+
+# Synopsis:
+# Test every example solution of each exercise (all of .meta/examples/*/ for
+# practice exercises, .meta/exemplar for concept exercises) using the track's
+# test runner Docker image.
+# Unlike bin/verify-exercises-in-docker, which only tests the example listed in
+# .meta/config.json, this tests every example, e.g. success-text as well as
+# success-standard.
+# The example type (prefix of the example directory name) determines the
+# expected outcome:
+#   success-*, exemplar: tests pass
+#   fail-*:              builds, but tests fail
+#   error-*:             fails to build
+# As in bin/test-example, examples are built with -Wall -Werror.
+# You can either test all exercises or a single exercise.
+
+# Example: test all examples of all exercises in Docker
+# bin/test-all-examples-in-docker
+
+# Example: test all examples of a single exercise in Docker
+# bin/test-all-examples-in-docker twelve-days
+
+# Example: use a locally built test runner image
+# bin/test-all-examples-in-docker -i exercism/haskell-test-runner twelve-days
+
+set -eo pipefail
+
+die() { echo "$*" >&2; exit 1; }
+
+required_tool() {
+    command -v "${1}" >/dev/null 2>&1 ||
+        die "${1} is required but not installed. Please install it and make sure it's in your PATH."
+}
+
+required_tool docker
+required_tool jq
+
+pull_docker_image() {
+    docker pull "${image}" ||
+        die $'Could not find the `'"${image}"$'` Docker image.\nCheck the test runner docs at https://exercism.org/docs/building/tooling/test-runners for more information.'
+}
+
+run_tests() {
+    local slug
+    slug="${1}"
+
+    docker run \
+        --rm \
+        --network none \
+        --mount type=bind,src="${PWD}",dst=/solution \
+        --mount type=volume,dst=/solution/.stack-work \
+        --mount type=bind,src="${PWD}",dst=/output \
+        --mount type=volume,dst=/tmp \
+        "${image}" "${slug}" /solution /output
+}
+
+add_werror_to_library() {
+    local file
+    file="${1}"
+
+    # Within the top-level `library:` section, drop any existing ghc-options
+    # line and add `ghc-options: -Wall -Werror` (keeping other existing options).
+    awk '
+        /^library:/ { in_lib = 1; print; next }
+        in_lib && /^[^[:space:]#]/ {
+            in_lib = 0
+            print "  ghc-options: -Wall -Werror" extra
+            done = 1
+        }
+        in_lib && /^[[:space:]]+ghc-options:/ {
+            sub(/^[[:space:]]+ghc-options:/, "")
+            extra = extra $0
+            next
+        }
+        { print }
+        END { if (in_lib && !done) print "  ghc-options: -Wall -Werror" extra }
+    ' "${file}" > "${file}.tmp"
+    mv "${file}.tmp" "${file}"
+}
+
+expected_status() {
+    local example_name
+    example_name="${1}"
+
+    case "${example_name}" in
+        exemplar|success-*) echo pass ;;
+        fail-*)             echo fail ;;
+        error-*)            echo error ;;
+        *)                  return 1 ;;
+    esac
+}
+
+test_example() {
+    local exercise_dir
+    local example_dir
+    local slug
+    local example_name
+    local expected
+    local tmp_dir
+    exercise_dir="${1}"
+    example_dir="${2}"
+    slug=$(basename "${exercise_dir}")
+    example_name=$(basename "${example_dir}")
+
+    expected=$(expected_status "${example_name}") ||
+        die "Unknown example type: ${example_dir}"
+
+    tmp_dir=$(mktemp -d -t "exercism-test-${slug}-${example_name}-XXXXX")
+
+    echo "Testing ${slug} ${example_name} (expecting ${expected})..."
+
+    (
+        trap 'rm -rf "$tmp_dir"' EXIT    # remove tempdir when subshell ends
+        cp -r "${exercise_dir}/." "${tmp_dir}"
+        cd "${tmp_dir}"
+
+        # Replace the stub solution with the example solution.
+        rm -rf src package.yaml
+        cp -r "${example_dir}/." .
+
+        # bin/test-example builds with `stack --pedantic`, i.e. -Wall -Werror,
+        # which the test runner does not do. Error examples such as
+        # leap/error-nosig rely on this to fail to build.
+        # Only the library gets -Werror: the test suite includes the test
+        # runner's own HspecFormatter module, which has warnings.
+        add_werror_to_library package.yaml
+
+        run_tests "${slug}"
+
+        actual=$(jq -r '.status' results.json 2>/dev/null || echo "missing")
+        if [[ "${actual}" != "${expected}" ]]; then
+            echo "${slug} ${example_name}: expected status ${expected}, got ${actual}" >&2
+            cat results.json 2>/dev/null || true
+            exit 1
+        fi
+    )
+}
+
+test_exercise() {
+    local dir
+    local slug
+    dir=$(realpath "${1}")
+    slug=$(basename "${dir}")
+
+    if jq -e --arg slug "${slug}" '.exercises.practice[] | select(.slug == $slug and .status == "deprecated")' config.json >/dev/null 2>&1; then
+        echo "Skipping ${slug} (deprecated)..."
+        return 0
+    fi
+
+    if [[ -d "${dir}/.meta/exemplar" ]]; then
+        test_example "${dir}" "${dir}/.meta/exemplar"
+    else
+        local example_count=0
+        for example_dir in "${dir}"/.meta/examples/*/; do
+            test_example "${dir}" "${example_dir%/}"
+            ((++example_count))
+        done
+        ((example_count > 0)) || die "No examples for ${slug}!"
+    fi
+}
+
+test_exercises() {
+    local exercise_slug
+    exercise_slug="${1}"
+
+    shopt -s nullglob
+    count=0
+    for exercise_dir in ./exercises/{concept,practice}/${exercise_slug}/; do
+        if [[ -d "${exercise_dir}" ]]; then
+            test_exercise "${exercise_dir}"
+            ((++count))
+        fi
+    done
+    ((count > 0)) || die 'no matching exercises found!'
+}
+
+image=''
+while getopts :i: opt; do
+    case $opt in
+        i) image=$OPTARG ;;
+        ?) echo >&2 "Unknown option: -$OPTARG"; exit 1 ;;
+    esac
+done
+shift "$((OPTIND - 1))"
+
+if [[ -z "${image}" ]]; then
+    image="exercism/haskell-test-runner"
+    pull_docker_image
+fi
+
+exercise_slug="${1:-*}"
+test_exercises "${exercise_slug}"

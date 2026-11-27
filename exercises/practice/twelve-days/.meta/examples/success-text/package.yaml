@@ -1,0 +1,17 @@
+name: twelve-days
+
+dependencies:
+  - base
+  - text
+
+library:
+  exposed-modules: TwelveDays
+  source-dirs: src
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - twelve-days
+      - hspec
