@@ -1,13 +1,21 @@
-module LuciansLusciousLasagna (elapsedTimeInMinutes, expectedMinutesInOven, preparationTimeInMinutes) where
+module LuciansLusciousLasagna (totalTimeInMinutes, remainingMinutesInOven, expectedMinutesInOven, preparationTimeInMinutes, alarm) where
 
 expectedMinutesInOven :: Int
 expectedMinutesInOven =
     40
 
+remainingMinutesInOven :: Int -> Int
+remainingMinutesInOven passedAlready =
+    expectedMinutesInOven - passedAlready
+
 preparationTimeInMinutes :: Int -> Int
 preparationTimeInMinutes layers =
     2 * layers
 
-elapsedTimeInMinutes :: Int -> Int -> Int
-elapsedTimeInMinutes layers passedAlready =
+totalTimeInMinutes :: Int -> Int -> Int
+totalTimeInMinutes layers passedAlready =
     passedAlready + preparationTimeInMinutes layers
+
+alarm :: String
+alarm =
+    "DING!"
