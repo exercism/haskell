@@ -2,9 +2,9 @@
   "authors": [
     "pwadsworth"
   ],
-  "contributors": 
-    ["meatball133"]
-  ,
+  "contributors": [
+    "meatball133"
+  ],
   "files": {
     "solution": [
       "src/PacmanRules.hs",
