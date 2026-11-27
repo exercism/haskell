@@ -12,7 +12,8 @@
       "test/Tests.hs"
     ],
     "exemplar": [
-      ".meta/exemplar/src/FreelancerRates.hs"
+      ".meta/exemplar/src/FreelancerRates.hs",
+      ".meta/exemplar/package.yaml"
     ],
     "invalidator": [
       "stack.yaml"

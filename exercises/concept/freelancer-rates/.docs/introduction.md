@@ -106,37 +106,76 @@ The only exception is dividing zero by zero, resulting in `NaN` (Not a Number).
 
 ### Integer division
 
-Integer division is used to divide numbers and get the whole part of the result.
-The result will always be rounded down to an Int.
+Integer division is used to divide integral numbers and get the whole part of the result.
+Haskell has two integer division functions, which differ in how they round when the result is negative:
+
+- `div` rounds down, towards negative infinity.
+- `quot` rounds towards zero.
 
 ```haskell
-2 `div` 2
--- -> 2
+6 `div` 2
+-- -> 3
 
 5 `div` 2
 -- -> 2
+
+(-5) `div` 2
+-- -> -3
+
+5 `quot` 2
+-- -> 2
+
+(-5) `quot` 2
+-- -> -2
 ```
 
 ~~~~exercism/caution
-Dividing by zero when using integer division results in a Exception.
+Dividing by zero when using integer division results in an Exception.
 This is different from normal division.
 ~~~~
 
-#### Modulus
+#### Remainder
 
-Modulus is used to get the remainder of a division.
-The `mod` operator is used for modulus.
+The remainder of an integer division can be found using `mod` or `rem`.
+They differ in the sign of the result when one of the numbers is negative:
+
+- `mod` goes together with `div`, and its result has the same sign as the divisor.
+- `rem` goes together with `quot`, and its result has the same sign as the dividend.
 
 ```haskell
-5 `mod` 2
+5 `mod` 3
+-- -> 2
+
+(-5) `mod` 3
 -- -> 1
 
-5 `mod` 3
+5 `mod` (-3)
+-- -> -1
+
+5 `rem` 3
+-- -> 2
+
+(-5) `rem` 3
+-- -> -2
+
+5 `rem` (-3)
 -- -> 2
 ```
 
+For any `x` and `y` (with `y` not zero), these laws hold:
+
+```haskell
+(x `div` y) * y + (x `mod` y) == x
+(x `quot` y) * y + (x `rem` y) == x
+```
+
+~~~~exercism/note
+When both numbers are positive, `div` and `quot` give the same result, as do `mod` and `rem`.
+In that case `quot` and `rem` can be slightly more efficient, as `div` and `mod` need extra steps to handle negative numbers.
+~~~~
+
 ~~~~exercism/caution
-Dividing by zero when using modulo results in an Exception.
+Dividing by zero when using `mod` or `rem` results in an Exception.
 This is different from normal division.
 
 ```haskell
