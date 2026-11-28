@@ -1,0 +1,17 @@
+name: tree-building
+
+dependencies:
+  - base
+  - containers
+
+library:
+  exposed-modules: TreeBuilding
+  source-dirs: src
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - tree-building
+      - hspec

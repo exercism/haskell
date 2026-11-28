@@ -1,0 +1,26 @@
+{
+  "authors": [
+    "guygastineau"
+  ],
+  "contributors": [
+    "keiravillekode",
+    "sshine"
+  ],
+  "files": {
+    "solution": [
+      "src/TreeBuilding.hs",
+      "package.yaml"
+    ],
+    "test": [
+      "test/Tests.hs"
+    ],
+    "example": [
+      ".meta/examples/success-standard/src/TreeBuilding.hs",
+      ".meta/examples/success-standard/package.yaml"
+    ],
+    "invalidator": [
+      "stack.yaml"
+    ]
+  },
+  "blurb": "Refactor a tree building algorithm."
+}
