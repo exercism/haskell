@@ -1457,6 +1457,14 @@
           "bitwise",
           "either"
         ]
+      },
+      {
+        "slug": "tree-building",
+        "name": "Tree Building",
+        "uuid": "9c8f03b1-1df1-482d-9edc-116e268fd2ea",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
       }
     ],
     "foregone": [

@@ -1,0 +1,42 @@
+{%- macro tree(n) -%}
+node {{ n.id if n.id is defined else n.recordId }} [{% for c in n.children | default([]) %}{{ tree(c) }}{% if not loop.last %}, {% endif %}{% endfor %}]
+{%- endmacro -%}
+
+{%- macro records(rs) -%}
+[{% for r in rs %}Record {{ r.recordId }} {{ r.parentId }}{% if not loop.last %}, {% endif %}{% endfor %}]
+{%- endmacro -%}
+
+{-# LANGUAGE RecordWildCards #-}
+
+import Data.Foldable     (for_)
+import Test.Hspec        (Spec, describe, it, shouldBe)
+import Test.Hspec.Runner (configFailFast, defaultConfig, hspecWith)
+
+import TreeBuilding      (Record(..), Tree, buildTree, node)
+
+main :: IO ()
+main = hspecWith defaultConfig {configFailFast = True} specs
+
+specs :: Spec
+specs = describe "buildTree" $ for_ cases test
+  where
+    test Case{..} = it description $ buildTree input `shouldBe` expected
+
+data Case = Case { description :: String
+                 , input       :: [Record]
+                 , expected    :: Maybe Tree
+                 }
+
+cases :: [Case]
+cases =
+{%- for case in cases %}
+  {% if loop.first %}[{% else %},{% endif %} Case { description = {{ case.description | tojson }}
+         , input       = {{ records(case.input.records) }}
+{%- if case.expected.node is defined %}
+         , expected    = Just ({{ tree(case.expected.node) }})
+{%- else %}
+         , expected    = Nothing
+{%- endif %}
+         }
+{%- endfor %}
+  ]
